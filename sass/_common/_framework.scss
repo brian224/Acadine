@@ -1,0 +1,51 @@
+﻿html , body  {
+    font       : 13px/1.6 #{$font-family};
+    color      : $text-major-color;
+    width      : 100%;
+    background : $color-white;
+    @include text-size-adjust;
+}
+
+b , strong {
+    font-weight : bold;
+}
+
+img {
+    max-width      : 100%;
+    vertical-align : middle;
+}
+
+button {
+    @include button-default;
+}
+
+a {
+    @include button-default;
+    color           : inherit;
+    text-decoration : none;
+
+    &.is-underline {
+        text-decoration : underline;
+    }
+}
+
+@include respond-to(Desktops) {
+    a {
+        &:hoevr {
+            text-decoration : none;
+        }
+
+        &[href^="tel"] , &[href^="TEL"] {
+            cursor : text;
+            color  : inherit;
+        }
+    }
+}
+
+@include respond-to(Desktops-Tablets) {}
+
+@include respond-to(Tablets) {}
+
+@include respond-to(Tablets-Mobiles) {}
+
+@include respond-to(Mobiles) {}

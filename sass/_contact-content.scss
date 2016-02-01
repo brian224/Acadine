@@ -1,0 +1,264 @@
+/* basic */
+html , body {
+    background : $color-black;
+    position   : relative;
+}
+
+/* layout */
+.l-main {
+    width  : 100%;
+}
+
+.l-content {
+    width  : 100%;
+}
+
+.contact {
+    width      : 100%;
+    min-height : 100vh;
+    background : image-url('home/contact/bg.jpg') no-repeat fixed center center;
+    position   : relative;
+    @include clearfix;
+    @include box-sizing(border-box);
+}
+
+.contact-frame {
+    margin-right : auto;
+    margin-left  : auto;
+    width        : 100%;
+    /*position     : relative;*/
+    /*@include clearfix;*/
+    @include box-sizing(border-box);
+}
+
+.contact-county {
+    padding-left : 20px;
+    position     : relative;
+
+    > * {
+        font-size : 15px;
+    }
+
+    &:before {
+        content    : "";
+        top        : 50%;
+        left       : 1px;
+        margin-top : -3px;
+        width      : 8px;
+        height     : 8px;
+        background : $color-white;
+        position   : absolute;
+        @inlcude clearfix;
+        @include display(block);
+        @include border-radius(50%);
+        @include box-shadow(rgba($color-white , .75) 0 0 10px);
+    }
+}
+
+.contact-items {
+    max-height  : 0;
+    line-height : 1.8;
+    position    : relative;
+    z-index     : 1;
+    @include clearfix;
+    @include box-sizing(border-box);
+    @include transition(max-height $transition-times);
+
+    &.is-active {
+        max-height : 300px;
+    }
+
+    > ul {
+        border-top : 1px solid rgba($color-white , .7);
+        background : rgba($color-black , .85);
+        @include box-sizing(border-box);
+    }
+}
+
+.contact-close {
+    position : absolute;
+
+    > .m-icon {
+        @include display(block);
+    }
+}
+
+@include respond-to(Desktops) {
+    .contact {
+        background-size : 100% auto;
+    }
+
+    @include screen('4/3') {
+        .contact {
+            background-size : auto 100%;
+        }
+    }
+
+    .contact-frame {
+        top         : 50%;
+        left        : 50%;
+        margin-top  : -250px;
+        margin-left : -($main-min-width / 2);
+        height      : 500px;
+        max-width   : $main-min-width;
+        background  : image-url('home/contact/map.png') no-repeat center center;
+        position    : absolute;
+    }
+
+    .contact-list {
+        top      : 50%;
+        left     : 50%;
+        position : absolute;
+
+        &.is-taipei {
+            margin-top  : -5px;
+            margin-left : -46px;
+        }
+
+        &.is-beijing {
+            margin-top  : -55px;
+            margin-left : -89px;
+        }
+
+        &.is-paloalto {
+            margin-top  : -115px;
+            margin-left : 240px;
+        }
+    }
+
+    .contact-items {
+        font-size  : 15px;
+        width      : 530px;
+        position   : absolute;
+
+        &.is-active-md {
+            max-height : 300px;
+        }
+
+        &.is-center {
+            left        : 50%;
+            margin-left : -245px;
+        }
+
+        &.is-left {
+            left : 0;
+        }
+
+        &.is-right {
+            right : 0;
+        }
+
+        > ul {
+            margin-top : 5px;
+            padding    : 45px 30px;
+        }
+    }
+
+    .contact-close {
+        top   : 20px;
+        right : 20px;
+
+        .m-icon {
+            font-size : 20px;
+        }
+    }
+
+    .contact-copy {
+        margin-left : 10px;
+
+        > .m-icon {
+            font-size : 20px;
+        }
+    }
+}
+
+@include respond-to(Desktops-Tablets) {}
+
+@include respond-to(Tablets) {
+    .contact {
+        background-size : auto 100%;
+    }
+
+    .contact-frame {
+        height   : 100%;
+        position : relative;
+    }
+
+    .contact-list {
+        position : relative;
+    }
+
+    .contact-items {
+        position : relative;
+    }
+}
+
+@include respond-to(Tablets-Mobiles) {
+    .contact-frame {
+        padding : 150px 50px 100px 50px;
+    }
+
+    .contact-list {
+        margin-top : 50px;
+
+        &:first-child {
+            margin-top : 0;
+        }
+    }
+
+    .contact-items {
+        font-size  : 15px;
+
+        &.is-active-sm {
+            max-height : 300px;
+        }
+
+        > ul {
+            margin-top : 50px;
+            padding    : 50px;
+        }
+    }
+
+    .contact-copy {
+        margin-left : 8px;
+
+        > .m-icon {
+            font-size : 18px;
+        }
+    }
+}
+
+@include respond-to(Mobiles) {
+    .contact-frame {
+        padding : 100px 25px 60px 25px;
+    }
+
+    .contact-list {
+        margin-top : 25px;
+
+        &:first-child {
+            margin-top : 0;
+        }
+    }
+
+    .contact-items {
+        font-size  : 13px;
+
+        &.is-active-xs {
+            max-height : 300px;
+        }
+
+        > ul {
+            margin-top : 25px;
+            padding    : 25px;
+        }
+    }
+
+    .contact-copy {
+        margin-left : 5px;
+
+        > .m-icon {
+            font-size : 16px;
+        }
+    }
+}

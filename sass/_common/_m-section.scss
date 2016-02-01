@@ -1,0 +1,101 @@
+.m-section {
+	position : relative;
+
+    &.is-underline {
+        .m-section-hd {
+            > h2 {
+                &:before {
+                    content    : "";
+                    bottom     : 0;
+                    left       : 50%;
+                    position   : absolute;
+                    background : $text-major-color;
+                    @include display(block);
+                }
+
+                /* color */
+                @each $key , $value in $color {
+                    &.b-text-#{$key} {
+                        &:before {
+                            background : #{$value};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.m-section-hd {
+	position : relative;
+
+    > h2 {
+        position : relative;
+    }
+}
+
+.m-section-bd {
+	position : relative;
+}
+
+@include respond-to(Desktops) {
+    .m-section {
+        &.is-underline {
+            .m-section-hd {
+                > h2 {
+                    &:before {
+                        margin-left : -75px;
+                        width       : 150px;
+                        height      : 2px;
+                    }
+                }
+            }
+        }
+    }
+
+    .m-section-hd {
+        margin-bottom : 50px;
+
+        > h2 {
+            padding-bottom : 35px;
+        }
+    }
+
+    .m-section-bd {
+        margin-bottom : 50px;
+    }
+}
+
+@include respond-to(Desktops-Tablets) {}
+
+@include respond-to(Tablets) {}
+
+@include respond-to(Tablets-Mobiles) {}
+
+@include respond-to(Mobiles) {
+    .m-section {
+        &.is-underline {
+            .m-section-hd {
+                > h2 {
+                    &:before {
+                        margin-left : -40px;
+                        width       : 80px;
+                        height      : 1px;
+                    }
+                }
+            }
+        }
+    }
+
+    .m-section-hd {
+        margin-bottom : 25px;
+
+        > h2 {
+            padding-bottom : 15px;
+        }
+    }
+
+    .m-section-bd {
+        margin-bottom : 25px;
+    }
+}

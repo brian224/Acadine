@@ -1,0 +1,126 @@
+.m-nav {
+    position : relative;
+
+    > ul {
+        > li {
+            position : relative;
+
+            > a {
+                color : $color-white;
+            }
+
+            &.is-active {
+                &:before {
+                    content    : "";
+                    bottom     : 0;
+                    left       : 0;
+                    width      : 100%;
+                    position   : absolute;
+                    background : $color-white;
+                }
+            }
+        }
+    }
+}
+
+.m-nav-bar {
+    bottom     : 0;
+    background : $color-white;
+    position   : absolute;
+    display    : none;
+}
+
+@include respond-to(Desktops) {
+    .m-nav {
+        font-size : 15px;
+
+        > ul {
+            > li {
+                margin-right   : 10px;
+                margin-left    : 10px;
+                padding-bottom : 10px;
+
+                &.is-active {
+                    &:before {
+                        height : 5px;
+                    }
+                }
+            }
+        }
+    }
+
+    .m-nav-bar {
+        height : 5px;
+    }
+}
+
+@include respond-to(Desktops-Tablets) {
+    .m-nav {
+        &.is-load {
+            > ul {
+                > li {
+                    &:before {
+                        display : none;
+                    }
+                }
+            }
+
+            .m-nav-bar {
+                @include display(block);
+            }
+        }
+
+        > ul {
+            > li {
+                float : left;
+
+                &.is-active {
+                    &:before {
+                        width  : 100%;
+                    }
+                }
+
+                > a {
+                    padding-right : 5px;
+                    padding-left  : 5px;
+                }
+            }
+        }
+    }
+
+    .m-nav-bar {
+        @include transition((left ($transition-times + 0.1) , width ($transition-times + 0.1)));
+    }
+}
+
+@include respond-to(Tablets) {}
+
+@include respond-to(Tablets-Mobiles) {
+    .m-nav {
+        font-size : 14px;
+
+        > ul {
+            > li {
+                margin-right   : 8px;
+                margin-left    : 8px;
+                padding-bottom : 8px;
+
+                &.is-active {
+                    &:before {
+                        height : 4px;
+                    }
+                }
+            }
+        }
+    }
+
+    .m-nav-bar {
+        height : 4px;
+    }
+}
+
+@include respond-to(Mobiles) {
+    .m-nav {
+        font-size : 15px;
+    }
+}

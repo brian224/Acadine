@@ -1,0 +1,36 @@
+/*.m-slider-caption .b-h3 {
+    margin-top : 15px;
+}*/
+
+@include respond-to(Desktops) {
+    html , body {
+        height : 100vh;
+        @include clearfix;
+    }
+
+    .l-main-hd {
+        .m-slider {
+            height: 720px;
+        }
+
+        .m-slider-caption {
+            .b-h2 {
+                font-size : 65px;
+            }
+        }
+    }
+
+    .l-main-bd {
+        .m-slider-arrow {
+            margin-top : -80px;
+        }    
+    }
+}
+
+@include respond-to(Desktops-Tablets) {}
+
+@include respond-to(Tablets) {}
+
+@include respond-to(Tablets-Mobiles) {}
+
+@include respond-to(Mobiles) {}

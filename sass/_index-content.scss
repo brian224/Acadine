@@ -1,0 +1,125 @@
+/* basic */
+html , body {
+    height     : 100vh;
+    background : $color-black;
+}
+
+/* layout */
+.l-main {
+    width  : 100%;
+    height : 100%;
+}
+
+.l-main-bd {
+    width  : 100%;
+    height : 100%;
+}
+
+.l-content {
+    width  : 100%;
+    height : 100%;
+}
+
+.l-content-bd {
+    height : 100%;
+
+    > li {
+        height : 100%;
+    }
+}
+
+/* m-slider */
+.m-slider-item {
+    display : none;
+
+    &:first-child {
+        @include display(block);
+    }
+}
+
+.sb-perspective {
+    position : relative;
+
+    > div {
+        position                : absolute;
+        -ms-backface-visibility : hidden;
+        -ms-transform-style     : preserve-3d;
+        @include backface-visibility(hidden);
+        @include transform-style(preserve-3d);
+    }
+}
+
+.sb-side {
+    position                : absolute;
+    background-position     : center center !important;
+    background-repeat       : no-repeat;
+    -ms-backface-visibility : hidden;
+    -ms-transform-style     : preserve-3d;
+    @include display(block);
+    @include backface-visibility(hidden);
+    @include transform-style(preserve-3d);
+}
+
+@include respond-to(Desktops) {
+    .m-slider-frame {
+        img {
+            width : 100%;
+        }
+    }
+
+    .m-slider-caption {
+        > div {
+            > p {
+                font-size : 25px;
+            }
+        }
+    }
+
+    .sb-side {
+        background-size : 100% auto !important;
+    }
+
+    @include screen('4/3') {
+        .m-slider-frame {
+            img {
+                width     : auto;
+                height    : 100%;
+                max-width : inherit;
+            }
+        }
+
+        .sb-side {
+            background-size : auto 100% !important;
+        }
+    }
+}
+
+@include respond-to(Desktops-Tablets) {}
+
+@include respond-to(Tablets) {
+    .m-slider-frame {
+        img {
+            height    : 100%;
+            max-width : inherit;
+            
+        }
+    }
+
+    .sb-side {
+        background-size : auto 100% !important;
+    }
+}
+
+@include respond-to(Tablets-Mobiles) {
+    
+}
+
+@include respond-to(Mobiles) {
+    .m-slider-caption {
+        > div {
+            > p {
+                font-size : 13px;
+            }
+        }
+    }
+}

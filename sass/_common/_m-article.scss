@@ -1,0 +1,54 @@
+.m-article {}
+
+.m-article-hd {}
+
+.m-article-bd {
+    p {
+        margin-top  : 25px;
+        font-size   : 15px;
+        line-height : 28px;
+    }
+
+    .m-article-img {
+        display    : block;
+        text-align : center;
+    }
+
+    .m-article-text {
+        @include box-sizing(border-box);
+    }
+}
+
+@include respond-to(Desktops) {}
+
+@include respond-to(Desktops-Tablets) {
+    .m-article-bd {
+        &.is-img-right {
+            .m-article-img {
+                float : right;
+            }
+
+            .m-article-text {
+                padding-right : 20px;
+            }
+        }
+
+        &.is-img-left {
+            .m-article-img {
+                margin-right : 20px;
+                float        : left;
+                text-align   : left;
+            }
+        }
+
+        .m-article-img {
+            width : 50%;
+        }
+    }
+}
+
+@include respond-to(Tablets) {}
+
+@include respond-to(Tablets-Mobiles) {}
+
+@include respond-to(Mobiles) {}

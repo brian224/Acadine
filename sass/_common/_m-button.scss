@@ -1,0 +1,64 @@
+.m-button {
+    color        : $minor-color;
+    border-style : solid;
+    border-color : $minor-color;
+    background   : transparent;
+    @include box-sizing(border-box);
+
+    &.is-active {
+        color        : $color-white;
+        background   : $major-color;
+        border-color : $major-color;
+    }
+
+    /* color */
+    @each $key , $value in $color {
+        &.b-text-#{$key} {
+            color        : #{$value};
+            border-color : #{$value};
+        }
+    }
+}
+
+@include respond-to(Desktops) {}
+
+@include respond-to(Desktops-Tablets) {
+    .m-button {
+        padding-top    : 10px;
+        padding-bottom : 10px;
+        font-size      : 20px;
+        border-width   : 2px;
+        min-width      : 200px;
+        @include transition((background $transition-times , color $transition-times , border $transition-times));
+
+        &:hover {
+            color        : $color-white;
+            background   : $major-color;
+            border-color : $major-color;
+        }
+
+        &.is-lg {
+            font-size : 25px;
+            min-width : 250px;
+        }
+    }
+}
+
+@include respond-to(Tablets) {}
+
+@include respond-to(Tablets-Mobiles) {}
+
+@include respond-to(Mobiles) {
+    .m-button {
+        padding-top    : 5px;
+        padding-bottom : 5px;
+        font-size      : 15px;
+        border-width   : 1px;
+        width          : 100%;
+
+        &.is-lg {
+            font-size : 14px;
+            width     : 100%;
+        }
+    }
+}

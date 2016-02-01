@@ -1,0 +1,74 @@
+.m-tab {
+    position : relative;
+}
+
+.m-tab-hd {
+    position : relative;
+
+    > ul {
+        @include clearfix;
+
+        > li {
+            float : left;
+        }
+    }
+}
+
+.m-tab-bd {
+    @include clearfix;
+}
+
+@include respond-to(Desktops) {
+    .m-tab-hd {
+        margin-bottom : $margin-md;
+
+        > ul {
+            > li {
+                margin-right : 15px;
+                margin-left  : 15px;
+            }
+        }
+    }
+
+    /*.m-tab-bd {
+        > ul {
+            margin-right : -15px;
+            margin-left  : -15px;
+        }
+    }*/
+}
+
+@include respond-to(Desktops-Tablets) {
+    .m-tab-hd {
+        > ul {
+            @include inline-block;
+        }
+    }
+}
+
+@include respond-to(Tablets) {}
+
+@include respond-to(Tablets-Mobiles) {
+    .m-tab-hd {
+        margin-bottom : 40px;
+
+        > ul {
+            > li {
+                margin-right : 10px;
+                margin-left  : 10px;
+            }
+        }
+    }
+}
+
+@include respond-to(Mobiles) {
+    .m-tab-hd {
+        margin-bottom : 25px;
+
+        > ul {
+            margin-right : -5px;
+            margin-left  : -5px;
+            @include clearfix;
+        }
+    }
+}

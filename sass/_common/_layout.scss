@@ -1,0 +1,179 @@
+﻿.l-header {
+    top     : 0;
+    left    : 0;
+    width   : 100%;
+    z-index : 4;
+    @include fixed;
+}
+
+.l-main {
+    position   : relative;
+    z-index    : 1;
+    @include box-sizing(border-box);
+}
+
+.l-main-hd {
+    position : relative;
+    z-index  : 1;
+}
+
+.l-main-bd {
+    position : relative;
+    z-index  : 2;
+}
+
+.l-content {
+    position   : relative;
+    background: $color-white;
+    @include box-sizing(border-box);
+
+    &.is-full {
+        .l-content-bd {
+            > li {
+                padding-top    : 0;
+                padding-bottom : 0;
+            }
+        }
+    }
+}
+
+.l-content-bd {
+    position : relative;
+    @include box-sizing(border-box);
+
+    > li {
+        position : relative;
+        @include clearfix;
+
+        &:before {
+            content    : "";
+            top        : 40%;
+            width      : 160%;
+            height     : 20%;
+            display    : none;
+            background : rgba($color-white , .04);
+            position   : absolute;
+            z-index    : 1;
+            @include backface-visibility(hidden);
+            @include transform-style(preserve-3d);
+            @include transform-origin(center , center);
+        }
+
+        &.is-gary {
+            &:before {
+                background : rgba($color-black , .04);
+            }
+        }
+
+        &.is-arrow-left , &.is-arrow-right {
+            &:before {
+                @include display(block);
+            }
+        }
+
+        &.is-arrow-left {
+            &:before {
+                right : 0;
+            }
+        }
+
+        &.is-arrow-right {
+            &:before {
+                left : 0;
+            }
+        }
+
+        > * {
+            margin   : 0 auto;
+            width    : 100%;
+            position : relative;
+            z-index  : 2;
+        }
+    }
+}
+
+.l-footer {
+    position : relative;
+    z-index  : 3;
+
+    &.is-absolute {
+        bottom   : 0;
+        left     : 0;
+        width    : 100%;
+        position : absolute;
+    }
+}
+
+.l-nav {
+    z-index : 5;
+    @include fixed;
+}
+
+@include respond-to(Desktops) {
+    .l-content {
+        &.is-full {
+            .l-content-bd {
+                > li {
+                    > * {
+                        max-width : inherit;
+                    }
+                }
+            }
+        }
+    }
+
+    .l-content-bd {
+        > li {
+            padding-top    : 70px;
+            padding-bottom : 70px;
+
+            &.is-arrow-left {
+                &:before {
+                    @include transform(perspective(1200px) rotateY(302deg));
+                }
+            }
+
+            &.is-arrow-right {
+                &:before {
+                    @include transform(perspective(1200px) rotateY(58deg));
+                }
+            }
+
+            > * {
+                max-width : $main-min-width;
+            }
+        }
+    }
+
+    .l-nav {
+        top   : 50px;
+        right : 105px;
+    }
+}
+
+@include respond-to(Desktops-Tablets) {}
+
+@include respond-to(Tablets) {}
+
+@include respond-to(Tablets-Mobiles) {
+    .l-nav {
+        top   : 30px;
+        right : 20px;
+    }
+}
+
+@include respond-to(Mobiles) {
+    .l-content-bd {
+        > li {
+            padding : 35px 20px;
+
+            &.is-arrow-right {
+                &:before {
+                    margin-top : -55px;
+                    height     : 110px;
+                    @include transform(perspective(320px) rotateY(58deg));
+                }
+            }
+        }
+    }
+}

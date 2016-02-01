@@ -1,0 +1,101 @@
+﻿/* ==================== 基本設定 ==================== */
+/* html 最小的寬度 */
+$main-min-width : 960px;
+
+/* 側邊欄位的寬度 */
+$side-width : 228px;
+
+/* 預設字型 */
+$font-family       : 'OpenSans-Regular' , "微軟正黑體" , "新細明體" , "Heiti TC" , "黑體" , sans-serif , serif;
+$font-family-light : 'OpenSans-Light' , "微軟正黑體" , "新細明體" , "Heiti TC" , "黑體" , sans-serif , serif;
+
+/* PC screen */
+$screen-pc : 1000px;
+/* Device screen */
+$screen-device : 740px;
+
+/* margin-top */
+$margin-md : 50px;
+$margin-sm : 35px;
+$margin-xs : 25px;
+
+
+/* ==================== 顏色設定 ==================== */
+/* 企業識別主色 */
+$major-color : #175cff;
+
+/* 企業識別次色 */
+$minor-color : #48C;
+
+/* 企業識別替補色 */
+$sub-color : #05b9df;
+
+/* 文字主要顏色 */
+$text-major-color : #666;
+
+/* 文字子顏色 */
+$text-minor-color : #B9B9B9;
+
+/* 文字說明顏色 */
+$text-sub-color : #F9F9F9;
+
+/* 主要邊框顏色 */
+$border-major-color : #666;
+
+/* 次要邊框顏色 */
+$border-minor-color : #999;
+
+/* Placeholder 顏色 */
+$placeholder-color : $text-minor-color;
+
+/* link 顏色 */
+$color-link     : #2AE;
+$color-info     : #00A5BB;
+$color-disabled : $text-minor-color;
+
+$color-white      : #FFF;
+$color-black      : #000;
+$color-green      : #99CC33;
+$color-blue       : $minor-color;
+$color-skyblue    : #0BD;
+$color-waterblue  : #5eb7e8;
+$color-gary       : $text-minor-color;
+$color-light-gary : #F4F4F4;
+$color-orange     : #F52;
+$color-purple     : #5f67ae;
+/*$color-primary    : #F44;*/
+
+/* App Icon 顏色 */
+$color-facebook : #359;
+$color-youtube  : #C11;
+
+
+/* 自訂顏色 */
+$color : (
+    'white'        : $color-white,
+    'black'        : $color-black,
+    'blue'         : $color-blue,
+    'skyblue'      : $color-skyblue,
+    'waterblue'    : $color-waterblue,
+    'gary'         : $color-gary,
+    'light-gary'   : $color-light-gary,
+    'orange'       : $color-orange,
+    'primary'      : $minor-color,
+    'purple'       : $color-purple,
+    'info'         : $color-info,
+    'success'      : $color-green,
+    'disabled'     : $color-disabled,
+    'facebook'     : $color-facebook,
+    'youtube-tube' : $color-youtube
+);
+
+/* ==================== 動態時間設定 ==================== */
+$transition-times : .3s;
+
+
+/* ==================== 物件圓角設定 ==================== */
+/* Module 圓角 */
+$module-border-radius : 5px;
+
+/* 表單物件圓角 */
+$form-border-radius : 3px;
