@@ -10,6 +10,27 @@
     position   : relative;
     z-index    : 1;
     @include box-sizing(border-box);
+
+    &.is-side-right {
+        .l-main-bd {
+            margin : 0 auto;
+            width  : $main-min-width;
+            @include clearfix;
+        }
+
+        .l-content {
+            padding-right : 30px;
+            background    : transparent;
+            width         : $main-min-width - $side-width;
+            float         : left;
+            @include box-sizing(border-box);
+        }
+
+        .l-side {
+            width : $side-width;
+            float : right;
+        }
+    }
 }
 
 .l-main-hd {
@@ -24,7 +45,7 @@
 
 .l-content {
     position   : relative;
-    background: $color-white;
+    background: $color-background;
     @include box-sizing(border-box);
 
     &.is-full {
@@ -92,6 +113,29 @@
     }
 }
 
+.l-side {
+    .l-side-hd {
+        background  : $major-color;
+        position    : relative;
+        overflow    : hidden;
+        color       : $color-white;
+        font-size   : 25px;
+        line-height : 50px;
+
+        &:after {
+            content    : '';
+            background : rgba(255, 255, 255, 0.3);
+            display    : block;
+            width      : 110%;
+            height     : 20px;
+            position   : absolute;
+            bottom     : -11px;
+            right      : 0;
+            @include rotate(-3.5deg);
+        }
+    }
+}
+
 .l-footer {
     position : relative;
     z-index  : 3;
@@ -151,7 +195,11 @@
     }
 }
 
-@include respond-to(Desktops-Tablets) {}
+@include respond-to(Desktops-Tablets) {
+    .l-main.is-no-kv {
+        padding-top : 180px;
+    }
+}
 
 @include respond-to(Tablets) {}
 
@@ -163,6 +211,10 @@
 }
 
 @include respond-to(Mobiles) {
+    .l-main.is-no-kv {
+        padding-top : 90px;
+    }
+
     .l-content-bd {
         > li {
             padding : 35px 20px;

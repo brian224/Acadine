@@ -1,0 +1,69 @@
+.about-article {
+    position : relative;
+    @include display(table);
+
+    .m-article-bd {
+        font-family : $font-family-light;
+        width       : 100%;
+        position    : relative;
+        @include display(table-cell);
+        @include box-sizing(border-box);
+
+        > .b-p {
+            word-wrap  : break-word;
+            word-break : normal;
+        }
+    }
+}
+
+.about-who {
+    background : image-url('about/poster-01.jpg') no-repeat center center;
+}
+
+.about-why {
+    background : image-url('about/poster-02.jpg') no-repeat center center;
+}
+
+.about-team {
+    background : image-url('about/poster-03.jpg') no-repeat center center;
+}
+
+.about-info {
+    background : image-url('about/poster-04.jpg') no-repeat center center;
+}
+
+@include respond-to(Desktops) {
+    html , body {
+        height : 100vh;
+        @include clearfix;
+    }
+
+    .about-article {
+        height          : 100vh;
+        background-size : 100% auto;
+
+        .m-article-bd {
+            padding-right : (calc( ( 100% - #{$main-min-width} ) / 2));
+            padding-left  : (calc( ( 100% - #{$main-min-width} ) / 2));
+            max-width     : $main-min-width;
+
+            > .b-p {
+                font-size : 20px;
+            }
+        }
+    }
+
+    @include screen('4/3') {
+        .about-article {
+            background-size : auto 100%;
+        }
+    }
+}
+
+@include respond-to(Desktops-Tablets) {}
+
+@include respond-to(Tablets) {}
+
+@include respond-to(Tablets-Mobiles) {}
+
+@include respond-to(Mobiles) {}

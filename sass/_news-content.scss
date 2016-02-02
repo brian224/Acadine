@@ -6,7 +6,9 @@
 
     .l-main-hd {
         .m-slider {
-            height : 720px;
+            height     : 75vh;
+            min-height : 620px;
+            max-height : 720px;
         }
 
         .m-slider-caption {

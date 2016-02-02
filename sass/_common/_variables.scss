@@ -19,6 +19,8 @@ $margin-md : 50px;
 $margin-sm : 35px;
 $margin-xs : 25px;
 
+/* 側邊欄位的寬度 */
+$side-width : 300px;
 
 /* ==================== 顏色設定 ==================== */
 /* 企業識別主色 */
@@ -54,6 +56,7 @@ $color-info     : #00A5BB;
 $color-disabled : $text-minor-color;
 
 $color-white      : #FFF;
+$color-background : #fbfbfb;
 $color-black      : #000;
 $color-green      : #99CC33;
 $color-blue       : $minor-color;
@@ -68,6 +71,8 @@ $color-purple     : #5f67ae;
 /* App Icon 顏色 */
 $color-facebook : #359;
 $color-youtube  : #C11;
+$color-linkedin : #007bb6;
+$color-twitter  : #00aced;
 
 
 /* 自訂顏色 */
@@ -86,6 +91,8 @@ $color : (
     'success'      : $color-green,
     'disabled'     : $color-disabled,
     'facebook'     : $color-facebook,
+    'linkedin'     : $color-linkedin,
+    'twitter'      : $color-twitter,
     'youtube-tube' : $color-youtube
 );
 

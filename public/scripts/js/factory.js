@@ -81,7 +81,9 @@
                             }, 
                             callbacks : {
                                 whileScrolling : function() {
-                                    jQuery('.jQ-translate').css('transform' , 'translate(0px , '+ ( ( this.mcs.draggerTop ) ) +'px)'); 
+                                    for ( var i = 0 , $elem = jQuery('.jQ-translate') ; i < $elem.length ; i ++ ) {
+                                        $elem.eq(i).css('transform' , 'translate(0px , '+ ( ( ( this.mcs.draggerTop + ( i * $elem.eq(i).outerHeight() * 0.245 * (-1) ) ) ) ) +'px)'); 
+                                    };
                                 }
                             }
                         });

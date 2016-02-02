@@ -1,25 +1,62 @@
 .m-article {}
 
-.m-article-hd {}
+.m-article-hd {
+    border-bottom: 1px solid $border-minor-color;
 
-.m-article-bd {
-    p {
-        margin-top  : 25px;
-        font-size   : 15px;
-        line-height : 28px;
-    }
-
-    .m-article-img {
-        display    : block;
-        text-align : center;
-    }
-
-    .m-article-text {
-        @include box-sizing(border-box);
+    h3 {
+        padding     : 20px 0;
+        font-size   : 30px;
+        line-height : 1.5em;
     }
 }
 
-@include respond-to(Desktops) {}
+.m-article-bd {
+    .issue-time {
+        font-size : 15px;
+    }
+
+    .issue-time, > img {
+        display : block;
+    }
+}
+
+.m-article-img {
+    margin-top : 0 !important;
+    display    : block;
+    text-align : center;
+
+    img {
+        display : inline-block;
+    }
+}
+
+.m-article-text {
+    margin-top : 0;
+    @include box-sizing(border-box);
+}
+
+.m-article-ft {
+    display : table;
+
+    > * {
+        display : table-cell;
+    }
+
+    .m-button-tool {
+        width       : 1%;
+        white-space : nowrap;
+    }
+}
+
+@include respond-to(Desktops) {
+    .m-article-bd > *, .m-article-text p {
+        margin-top : 25px;
+    }
+
+    .m-article-ft {
+        margin-top : 40px;
+    }
+}
 
 @include respond-to(Desktops-Tablets) {
     .m-article-bd {
@@ -47,8 +84,24 @@
     }
 }
 
-@include respond-to(Tablets) {}
+@include respond-to(Tablets) {
+    .m-article-bd > *, .m-article-text p {
+        margin-top : 20px;
+    }
+
+    .m-article-ft {
+        margin-top : 30px;
+    }
+}
 
 @include respond-to(Tablets-Mobiles) {}
 
-@include respond-to(Mobiles) {}
+@include respond-to(Mobiles) {
+    .m-article-bd > *, .m-article-text p {
+        margin-top : 15px;
+    }
+
+    .m-article-ft {
+        margin-top : 20px;
+    }
+}
