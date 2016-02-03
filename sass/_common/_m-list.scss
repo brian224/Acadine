@@ -35,6 +35,10 @@
     }
 }
 
+.m-list-hd {
+    padding-bottom : 20px;
+}
+
 .m-list-bd {
     width    : 100%;
     position : relative;
@@ -176,13 +180,74 @@
 
 @include respond-to(Tablets) {}
 
-@include respond-to(Tablets-Mobiles) {}
+@include respond-to(Tablets-Mobiles) {
+    .m-list {
+        &.is-ft-underline {
+            .m-list-ft {
+                padding-top : $margin-sm;
+            }
+        }
+
+         &.is-item {
+            .m-list-bd {
+                > ul {
+                    > li {
+                        margin-top  : 20px;
+                        padding-top : 20px;
+
+                        &:first-child {
+                            margin-top  : 0;
+                            padding-top : 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.is-photo {
+            .m-list-bd {
+                > ul {
+                    margin-top   : $margin-sm;
+                    margin-right : -10px;
+                    margin-left  : -10px;
+                    padding-top  : $margin-sm;
+
+                    &:first-child {
+                        margin-top  : 0;
+                        padding-top : 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .m-list-bd {
+        > ul {
+            > li {
+                font-size : 14px;
+            }
+        }
+    }
+
+    .m-list-object {
+        margin-top : 8px;
+
+        &:first-child {
+            margin-top    : auto;
+            margin-bottom : 8px;
+        }
+    }
+
+    .m-list-ft {
+        margin-top : $margin-sm;
+    }
+}
 
 @include respond-to(Mobiles) {
     .m-list {
         &.is-ft-underline {
             .m-list-ft {
-                padding-top : $margin-sm;
+                padding-top : $margin-xs;
             }
         }
 

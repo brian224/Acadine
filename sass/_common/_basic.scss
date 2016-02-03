@@ -58,16 +58,15 @@ h3 , .b-h3 , h4 , .b-h4 {
 
 /* vertical-align middle */
 .b-middle {
-    height    : 100%;
-    font-size : 0.1px;
-    position  : relative;
+    font-size   : 0;
+    height      : 100%;
+    line-height : 0;
+    position    : relative;
 
     &:before {
-        content     : "";
-        font-size   : 0;
-        height      : 100%;
-        line-height : 0;
-        zoom        : 1;
+        content : "";
+        height  : 100%;
+        zoom    : 1;
         @include inline-block;
     }
 
@@ -243,6 +242,10 @@ h3 , .b-h3 , h4 , .b-h4 {
     .b-p {
         font-size   : 15px;
 
+        &.is-lg {
+            font-size : 20px;
+        }
+
         /*&.is-sm {
             font-size : 14px;
         }*/
@@ -340,6 +343,10 @@ h3 , .b-h3 , h4 , .b-h4 {
     .b-p {
         font-size : 14px;
 
+        &.is-lg {
+            font-size : 18px;
+        }
+
         /*&.is-sm {
             font-size : 13px;
         }*/
@@ -432,6 +439,10 @@ h3 , .b-h3 , h4 , .b-h4 {
     /* p */
     .b-p {
         font-size : 13px;
+
+        &.is-lg {
+            font-size : 16px;
+        }
 
         /*&.is-sm {
             font-size : 13px;

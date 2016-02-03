@@ -70,7 +70,33 @@
 
 @include respond-to(Tablets) {}
 
-@include respond-to(Tablets-Mobiles) {}
+@include respond-to(Tablets-Mobiles) {
+    .m-section {
+        &.is-underline {
+            .m-section-hd {
+                > h2 {
+                    &:before {
+                        margin-left : -60px;
+                        width       : 120px;
+                        height      : 2px;
+                    }
+                }
+            }
+        }
+    }
+
+    .m-section-hd {
+        margin-bottom : 35px;
+
+        > h2 {
+            padding-bottom : 25px;
+        }
+    }
+
+    .m-section-bd {
+        margin-bottom : 35px;
+    }
+}
 
 @include respond-to(Mobiles) {
     .m-section {

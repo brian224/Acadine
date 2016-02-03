@@ -29,7 +29,19 @@
 
 @include respond-to(Tablets) {}
 
-@include respond-to(Tablets-Mobiles) {}
+@include respond-to(Tablets-Mobiles) {
+    .l-main-hd {
+        .m-slider {
+            height : 600px;
+        }
+    }
+
+    .l-main-bd {
+        .m-slider-arrow {
+            margin-top : -55px;
+        }    
+    }
+}
 
 @include respond-to(Mobiles) {
     .l-main-hd {

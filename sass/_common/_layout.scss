@@ -7,28 +7,32 @@
 }
 
 .l-main {
-    position   : relative;
-    z-index    : 1;
+    position : relative;
+    z-index  : 1;
     @include box-sizing(border-box);
+
+    &.is-full {
+        .l-main-bd {
+            padding-top : 0;
+        }
+
+        .l-content-bd {
+            > li {
+                padding : 0;
+            }
+        }
+    }
 
     &.is-side-right {
         .l-main-bd {
             margin : 0 auto;
-            width  : $main-min-width;
+            width  : 100%;
             @include clearfix;
         }
 
         .l-content {
-            padding-right : 30px;
-            background    : transparent;
-            width         : $main-min-width - $side-width;
-            float         : left;
+            background : transparent;
             @include box-sizing(border-box);
-        }
-
-        .l-side {
-            width : $side-width;
-            float : right;
         }
     }
 }
@@ -41,21 +45,16 @@
 .l-main-bd {
     position : relative;
     z-index  : 2;
+
+    &:first-child .l-content-bd li:first-child {
+        padding-top : 0;
+    }
 }
 
 .l-content {
     position   : relative;
     background: $color-background;
     @include box-sizing(border-box);
-
-    &.is-full {
-        .l-content-bd {
-            > li {
-                padding-top    : 0;
-                padding-bottom : 0;
-            }
-        }
-    }
 }
 
 .l-content-bd {
@@ -114,31 +113,13 @@
 }
 
 .l-side {
-    .l-side-hd {
-        background  : $major-color;
-        position    : relative;
-        overflow    : hidden;
-        color       : $color-white;
-        font-size   : 25px;
-        line-height : 50px;
-
-        &:after {
-            content    : '';
-            background : rgba(255, 255, 255, 0.3);
-            display    : block;
-            width      : 110%;
-            height     : 20px;
-            position   : absolute;
-            bottom     : -11px;
-            right      : 0;
-            @include rotate(-3.5deg);
-        }
-    }
+    @include box-sizing(border-box);
 }
 
 .l-footer {
     position : relative;
     z-index  : 3;
+    @include box-sizing(border-box);
 
     &.is-absolute {
         bottom   : 0;
@@ -154,7 +135,7 @@
 }
 
 @include respond-to(Desktops) {
-    .l-content {
+    .l-main {
         &.is-full {
             .l-content-bd {
                 > li {
@@ -162,6 +143,21 @@
                         max-width : inherit;
                     }
                 }
+            }
+        }
+
+        &.is-side-right {
+            .l-main-bd {
+                max-width : $main-min-width;
+            }
+
+            .l-content {
+                padding-right : 30px;
+                width         : #{($main-min-width - $side-width)};
+            }
+
+            .l-side {
+                width : $side-width;
             }
         }
     }
@@ -196,8 +192,20 @@
 }
 
 @include respond-to(Desktops-Tablets) {
-    .l-main.is-no-kv {
-        padding-top : 180px;
+    .l-main {
+        &.is-side-right {
+            .l-content {
+                float : left;
+            }
+
+            .l-side {
+                float : right;
+            }
+        }
+    }
+
+    .l-main-bd:first-child {
+        padding-top : 270px;
     }
 }
 
@@ -208,10 +216,41 @@
         top   : 30px;
         right : 20px;
     }
+
+    .l-main {
+        &.is-side-right {
+            .l-content {
+                padding-right : 15px;
+                width         : calc(100% - #{($side-width + ($side-width / 2))});
+            }
+
+            .l-side {
+                width : #{($side-width + ($side-width / 2))};
+            }
+        }
+    }
+
+    .l-content-bd {
+        > li {
+            padding : 50px 35px;
+
+            &.is-arrow-left {
+                &:before {
+                    @include transform(perspective(960px) rotateY(302deg));
+                }
+            }
+
+            &.is-arrow-right {
+                &:before {
+                    @include transform(perspective(960px) rotateY(58deg));
+                }
+            }
+        }
+    }
 }
 
 @include respond-to(Mobiles) {
-    .l-main.is-no-kv {
+    .l-main-bd:first-child {
         padding-top : 90px;
     }
 
@@ -219,11 +258,15 @@
         > li {
             padding : 35px 20px;
 
+            &.is-arrow-left {
+                &:before {
+                    @include transform(perspective(360px) rotateY(302deg));
+                }
+            }
+
             &.is-arrow-right {
                 &:before {
-                    margin-top : -55px;
-                    height     : 110px;
-                    @include transform(perspective(320px) rotateY(58deg));
+                    @include transform(perspective(360px) rotateY(58deg));
                 }
             }
         }

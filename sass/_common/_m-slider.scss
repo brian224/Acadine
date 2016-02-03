@@ -1,3 +1,12 @@
+/* owl */
+.owl-stage {
+    margin : 0 auto;
+}
+
+.owl-item {
+    z-index : 2;
+}
+
 .m-slider {
     width    : 100%;
     position : relative;
@@ -5,6 +14,10 @@
 
     &.is-full {
         height : 100%;
+
+        .m-slider-controls {
+            margin-top : -20px;
+        }
 
         .m-slider-bd {
             height : 100%;
@@ -42,6 +55,7 @@
     width       : 100%;
     white-space : nowrap;
     position    : relative;
+    @include box-sizing(border-box);
 
     > * {
         white-space : normal;
@@ -134,10 +148,6 @@
 @include respond-to(Desktops) {
     .m-slider {
         &.is-full {
-            .m-slider-controls {
-                margin-top : -20px;
-            }
-
             .m-slider-dots {
                 padding : 10px;
                 @include border-radius(35px);
@@ -178,8 +188,13 @@
     }
 
     .m-slider-frame {
-        /*left  : 0;
-        width : 100%;*/
+        > * {
+            margin-top : 25px;
+
+            &:first-child {
+                margin-top : 0;
+            }
+        }
     }
 
     .m-slider-caption {
@@ -238,25 +253,86 @@
 
 @include respond-to(Tablets) {
     .m-slider-frame {
-        left        : 50%;
-        margin-left : -200%;
-        width       : 400%;
+        img {
+            max-height : 100%;
+        }
     }
 }
 
 @include respond-to(Tablets-Mobiles) {
+    .m-slider {
+        &.is-full {
+            .m-slider-dots {
+                padding : 8px;
+                @include border-radius(25px);
+
+                &.is-absolute {
+                    margin-top : -75px;
+                }
+            }
+
+            .m-slider-arrow {
+                &.is-prev {
+                    left : 15px;
+                }
+
+                &.is-next {
+                    right : 15px;
+                }
+            }
+
+            .m-slider-caption {
+                padding-right : 70px;
+                padding-left  : 70px;
+            }
+        }
+    }
+
+    .m-slider-frame {
+        > * {
+            margin-top : 20px;
+
+            &:first-child {
+                margin-top : 0;
+            }
+        }
+    }
+
     .m-slider-caption {
         margin-top : 8px;
+    }
+
+    .m-slider-arrow {
+        margin-top : -18px;
+
+        &.is-prev {
+            left : -30px;
+        }
+
+        &.is-next {
+            right : -30px;
+        }
+
+        &.m-icon {
+            font-size : 36px;
+        }
+    }
+
+    .m-slider-dots {
+        margin-top : $margin-sm;
+    }
+
+    .m-slider-dot {
+        margin-right : 5px;
+        margin-left  : 5px;
+        width        : 8px;
+        height       : 8px;
     }
 }
 
 @include respond-to(Mobiles) {
     .m-slider {
         &.is-full {
-            .m-slider-controls {
-                margin-top : -20px;
-            }
-
             .m-slider-dots {
                 padding : 5px;
                 @include border-radius(20px);
@@ -283,6 +359,16 @@
         }
     }
 
+    .m-slider-frame {
+        > * {
+            margin-top : 15px;
+
+            &:first-child {
+                margin-top : 0;
+            }
+        }
+    }
+
     .m-slider-caption {
         margin-top : 5px;
     }
@@ -291,11 +377,11 @@
         margin-top : -12px;
 
         &.is-prev {
-            left : -35px;
+            left : 0;
         }
 
         &.is-next {
-            right : -35px;
+            right : 0;
         }
 
         &.m-icon {
@@ -304,7 +390,7 @@
     }
 
     .m-slider-dots {
-        margin-top : 25px;
+        margin-top : $margin-xs;
     }
 
     .m-slider-controls {}

@@ -77,12 +77,12 @@
                         jQuery(Element).mCustomScrollbar({
                             scrollInertia : 1200,
                             mouseWheel    : {
-                                scrollAmount : 250
+                                scrollAmount : 600
                             }, 
                             callbacks : {
                                 whileScrolling : function() {
                                     for ( var i = 0 , $elem = jQuery('.jQ-translate') ; i < $elem.length ; i ++ ) {
-                                        $elem.eq(i).css('transform' , 'translate(0px , '+ ( ( ( this.mcs.draggerTop + ( i * $elem.eq(i).outerHeight() * 0.245 * (-1) ) ) ) ) +'px)'); 
+                                        $elem.eq(i).css('transform' , 'translate(0px , '+ ( ( ( this.mcs.draggerTop + ( i * $elem.outerHeight() * 0.245 * (-1) ) ) ) ) +'px)'); 
                                     };
                                 }
                             }
@@ -125,6 +125,18 @@
                 },
                 Setting : function(Element) {
                     for ( var i = 0 ; i < Element.length ; i ++ ) {
+                        var $length = Projects.Factory.UserAgent === 'PC' ? ( ( parseInt( Element.eq(i).data('item-md') , 10 ) > 0 ) ? parseInt( Element.eq(i).data('item-md') , 10 ) : 1 ) : Projects.Factory.UserAgent === 'Tablet' ? ( ( parseInt( Element.eq(i).data('item-sm') , 10 ) > 0 ) ? parseInt( Element.eq(i).data('item-sm') , 10 ) : 1 ) : ( Projects.Factory.UserAgent === 'Mobile' ? ( ( parseInt( Element.eq(i).data('item-xs') , 10 ) > 0 ) ? parseInt( Element.eq(i).data('item-xs') , 10 ) : 1 ) : 1 );
+
+                        // if ( Projects.Factory.UserAgent === 'PC' ) {
+                        //     $length = ( parseInt( Element.eq(i).data('item-md') , 10 ) > 0 ) ? parseInt( Element.eq(i).data('item-md') , 10 ) : 1;
+                        // } else if ( Projects.Factory.UserAgent === 'Tablet' ) {
+                        //     $length = ( parseInt( Element.eq(i).data('item-sm') , 10 ) > 0 ) ? parseInt( Element.eq(i).data('item-sm') , 10 ) : 1;
+                        // } else if ( Projects.Factory.UserAgent === 'Mobile' ) {
+                        //     $length = ( parseInt( Element.eq(i).data('item-xs') , 10 ) > 0 ) ? parseInt( Element.eq(i).data('item-xs') , 10 ) : 1;
+                        // }
+
+                        // console.log($length);
+
                         Element.eq(i).owlCarousel({
                             mouseDrag         : ( Element.eq(i).data('mouse-drag') !== false ) ? true : false,
                             touchDrag         : ( Element.eq(i).data('touch-drag') !== false ) ? true : false,
@@ -141,10 +153,10 @@
                                     items : ( parseInt( Element.eq(i).data('item-md') , 10 ) > 0 ) ? parseInt( Element.eq(i).data('item-md') , 10 ) : 1
                                 }
                             },
-                            loop              : ( Element.eq(i).find('> *').length > 1 ) ? ( ( Element.eq(i).data('loop') !== true ) ? false : true ) : false,
-                            nav               : ( Element.eq(i).find('> *').length > 1 ) ? ( ( Element.eq(i).data('nav') !== true ) ? false : true ) : false,
+                            loop              : ( Element.eq(i).find('> *').length > $length ) ? ( ( Element.eq(i).data('loop') !== true ) ? false : true ) : false,
+                            nav               : ( Element.eq(i).find('> *').length > $length ) ? ( ( Element.eq(i).data('nav') !== true ) ? false : true ) : false,
                             lazyLoad          : ( Element.eq(i).data('img-load') !== true ) ? false : true,
-                            dots              : ( Element.eq(i).find('> *').length > 1 ) ? ( ( Element.eq(i).data('dots') !== false ) ? true : false ) : false,
+                            dots              : ( Element.eq(i).find('> *').length > $length ) ? ( ( Element.eq(i).data('dots') !== false ) ? true : false ) : false,
                             autoplay          : ( Element.eq(i).data('autoplay') !== true ) ? false : true,
                             autoplayTimeout   : Element.eq(i).data('timeout') ? Element.eq(i).data('timeout') : 5000,
                             navContainerClass : Element.eq(i).data('nav-class') ? Element.eq(i).data('nav-class') + '-ctrl' : 'm-slider-ctrl',

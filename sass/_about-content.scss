@@ -1,12 +1,15 @@
 .about-article {
     position : relative;
-    @include display(table);
+
+    &:before {
+        
+    }
 
     .m-article-bd {
+        margin      : 0 auto;
         font-family : $font-family-light;
         width       : 100%;
         position    : relative;
-        @include display(table-cell);
         @include box-sizing(border-box);
 
         > .b-p {
@@ -43,13 +46,17 @@
         background-size : 100% auto;
 
         .m-article-bd {
-            padding-right : (calc( ( 100% - #{$main-min-width} ) / 2));
-            padding-left  : (calc( ( 100% - #{$main-min-width} ) / 2));
-            max-width     : $main-min-width;
+            max-width : $main-min-width;
 
             > .b-p {
                 font-size : 20px;
             }
+        }
+    }
+
+    .about-team {
+        .m-person {
+            height : 192px;
         }
     }
 
@@ -62,8 +69,23 @@
 
 @include respond-to(Desktops-Tablets) {}
 
-@include respond-to(Tablets) {}
+@include respond-to(Tablets) {
+    .about-article {
+        height          : 100vh;
+        background-size : auto 100%;
+    }
+}
 
-@include respond-to(Tablets-Mobiles) {}
+@include respond-to(Tablets-Mobiles) {
+    .about-article {
+        padding-right : 35px;
+        padding-left  : 35px;
+    }
+}
 
-@include respond-to(Mobiles) {}
+@include respond-to(Mobiles) {
+    .about-article {
+        padding-right : 20px;
+        padding-left  : 20px;
+    }
+}

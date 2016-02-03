@@ -1,10 +1,12 @@
-.m-article {}
+.m-article {
+    @include box-sizing(border-box);
+}
 
 .m-article-hd {
     border-bottom: 1px solid $border-minor-color;
 
     h3 {
-        padding     : 20px 0;
+        padding     : 0 0 20px 0;
         font-size   : 30px;
         line-height : 1.5em;
     }
@@ -36,10 +38,21 @@
 }
 
 .m-article-ft {
-    display : table;
+    > ul > li {
+        margin-top  : 50px;
+        padding-top : 50px;
+        display     : table;
+        border-top  : 1px solid $border-minor-color;
 
-    > * {
-        display : table-cell;
+        &:first-child {
+            margin-top  : 0;
+            padding-top : 0;
+            border-top  : 0;
+        }
+
+        > * {
+            display : table-cell;
+        }
     }
 
     .m-button-tool {
