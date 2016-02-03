@@ -1,9 +1,4 @@
 @include respond-to(Desktops) {
-    html , body {
-        height : 100vh;
-        @include clearfix;
-    }
-
     .l-main-hd {
         .m-slider {
             height     : 75vh;
@@ -48,11 +43,5 @@
         .m-slider {
             height : 480px;
         }
-
-        /*.m-slider-caption {
-            .b-h2 {
-                font-size : 65px;
-            }
-        }*/
     }
 }

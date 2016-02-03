@@ -30,6 +30,11 @@ a {
 }
 
 @include respond-to(Desktops) {
+    html , body {
+        height : 100vh;
+        @include clearfix;
+    }
+    
     a {
         &:hoevr {
             text-decoration : none;

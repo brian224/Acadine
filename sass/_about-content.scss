@@ -1,8 +1,33 @@
 .about-article {
     position : relative;
 
-    &:before {
-        
+    &:after {
+        content  : "";
+        width    : 160%;
+        display  : none;
+        position : absolute;
+        z-index  : 1;
+        @include backface-visibility(hidden);
+        @include transform-style(preserve-3d);
+        @include transform-origin(center , center);
+    }
+
+    &.is-arrow-left , &.is-arrow-right {
+        &:after {
+            @include display(block);
+        }
+    }
+
+    &.is-arrow-left {
+        &:after {
+            right : 0;
+        }
+    }
+
+    &.is-arrow-right {
+        &:after {
+            left : 0;
+        }
     }
 
     .m-article-bd {
@@ -10,6 +35,7 @@
         font-family : $font-family-light;
         width       : 100%;
         position    : relative;
+        z-index     : 2;
         @include box-sizing(border-box);
 
         > .b-p {
@@ -36,14 +62,21 @@
 }
 
 @include respond-to(Desktops) {
-    html , body {
-        height : 100vh;
-        @include clearfix;
-    }
-
     .about-article {
         height          : 100vh;
         background-size : 100% auto;
+
+        &.is-arrow-left {
+            &:after {
+                @include transform(perspective(1200px) rotateY(302deg));
+            }
+        }
+
+        &.is-arrow-right {
+            &:after {
+                @include transform(perspective(1200px) rotateY(58deg));
+            }
+        }
 
         .m-article-bd {
             max-width : $main-min-width;
@@ -51,6 +84,14 @@
             > .b-p {
                 font-size : 20px;
             }
+        }
+    }
+
+    .about-who {
+        &:after {
+            top        : 44%;
+            height     : 18%;
+            background : rgba(#15A , .35);
         }
     }
 
