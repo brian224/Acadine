@@ -18,7 +18,9 @@
     }
 
     jQuery(document).ready(function(){
-        
+        if ( Projects.Factory.UserAgent !== 'PC' ) {
+            Projects.Factory.HB.addClass(Projects.Factory.B.data('user-agent'));
+        }
     });
 
     jQuery(window).load(function(){

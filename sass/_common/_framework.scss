@@ -31,8 +31,10 @@ a {
 
 @include respond-to(Desktops) {
     html , body {
-        height : 100vh;
-        @include clearfix;
+        &:not(.is-not-pc) {
+            height : 100vh;
+            @include clearfix;
+        }
     }
     
     a {

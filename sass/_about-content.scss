@@ -14,7 +14,9 @@
 
     &.is-arrow-left , &.is-arrow-right {
         &:after {
+            height : 0%;
             @include display(block);
+            @include transition((top $transition-times , height $transition-times));
         }
     }
 
@@ -30,6 +32,14 @@
         }
     }
 
+    &.is-scroll {
+        .m-article-bd {
+            > .b-h2 , > .b-p {
+                @include opacity(1);
+            }
+        }
+    }
+
     .m-article-bd {
         margin      : 0 auto;
         font-family : $font-family-light;
@@ -37,6 +47,7 @@
         position    : relative;
         z-index     : 2;
         @include box-sizing(border-box);
+        @include transform(perspective(0) rotateY(0deg));
 
         > .b-p {
             word-wrap  : break-word;
@@ -45,12 +56,48 @@
     }
 }
 
+.about-who , .about-why {
+    .m-article-bd {
+        > .b-h2 , > .b-p {
+            position : relative;
+            @include opacity(0);
+            @include transition((top $transition-times , opacity $transition-times));
+        }
+    }
+}
+
 .about-who {
     background : image-url('about/poster-01.jpg') no-repeat center center;
+
+    .m-article-bd {
+        > .b-h2 {
+            @include transition-delay(($transition-times / 2));
+        }
+
+        > .b-p {
+            @include transition-delay(($transition-times));
+        }
+    }
 }
 
 .about-why {
     background : image-url('about/poster-02.jpg') no-repeat center center;
+
+    &.is-scroll {
+        &:after {
+            @include transition-delay(($transition-times * 1.5));
+        }
+    }
+
+    .m-article-bd {
+        > .b-h2 {
+            @include transition-delay(($transition-times * 2));
+        }
+
+        > .b-p {
+            @include transition-delay(($transition-times * 2.5));
+        }
+    }
 }
 
 .about-team {
@@ -68,13 +115,13 @@
 
         &.is-arrow-left {
             &:after {
-                @include transform(perspective(1200px) rotateY(302deg));
+                @include transform(perspective(1200px) rotateY(320deg));
             }
         }
 
         &.is-arrow-right {
             &:after {
-                @include transform(perspective(1200px) rotateY(58deg));
+                @include transform(perspective(1200px) rotateY(40deg));
             }
         }
 
@@ -88,16 +135,54 @@
     }
 
     .about-who {
+        &.is-scroll {
+            &:after {
+                top    : 40%;
+                height : 24%;
+            }
+        }
+
         &:after {
-            top        : 44%;
-            height     : 18%;
+            top        : 52%;
             background : rgba(#15A , .35);
         }
     }
 
+    .about-why {
+        &.is-scroll {
+            &:after {
+                top    : 37%;
+                height : 30%;
+            }
+        }
+
+        &:after {
+            top        : 57%;
+            background : rgba($color-white , .15);
+        }
+    }
+
+    .about-who , .about-why {
+        &.is-scroll {
+            .m-article-bd {
+                > .b-h2 , > .b-p {
+                    top : 0;
+                }
+            }
+        }
+
+        .m-article-bd {
+            > .b-h2 , > .b-p {
+                top : 150px;
+            }
+        }
+    }
+
     .about-team {
-        .m-person {
-            height : 192px;
+        .m-article-bd {
+            > .b-h2 {
+                margin-bottom : 100px;
+            }
         }
     }
 
