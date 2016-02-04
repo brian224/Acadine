@@ -83,6 +83,112 @@ html , body {
     }
 }
 
+#stars {
+    position : absolute;
+    top      : 50%;
+    left     : 50%;
+    z-index  : 3;
+}
+
+.star-head {
+    background    : rgba(255, 255, 255, 0.6);
+    position      : relative;
+    width         : 5px; 
+    height        : 5px;
+    border-radius : 50%;
+}
+
+.star-trail {
+    position    : relative;
+    width       : 185px;
+    height      : 5px;
+    margin-top  : -73px;
+    margin-left : -22px;
+    background  : linear-gradient(310deg, rgba(0,0,0,0), rgba(255,255,255,0.3));
+    transform   : rotate(-45deg);
+}
+
+.star {
+    position : absolute;
+    opacity  : 0;
+
+    &:first-child {
+        margin-top      : -350px;
+        margin-left     : -400px;
+        animation       : shoot 3s linear infinite;
+        animation-delay : 0.2s;
+    }
+
+    &:nth-child(2) {
+        margin-top      : -10px;
+        margin-left     : 60px;
+        animation       : shoot 4s linear infinite;
+        animation-delay : 0.4s;
+    }
+
+    &:nth-child(3) {
+        margin-top      : 70px;
+        margin-left     : 50px;
+        animation       : shoot 4s linear infinite;
+        animation-delay : 0.2s;
+    }
+
+    &:nth-child(4) {
+        margin-top      : 70px;
+        margin-left     : -390px;
+        animation       : shoot 3s linear infinite;
+        animation-delay : 0.2s;
+    }
+
+    &:nth-child(5) {
+        margin-top      : -160px;
+        margin-left     : 280px;
+        animation       : shoot 2s linear infinite;
+        animation-delay : 0.4s;
+    }
+
+    &:nth-child(6) {
+        margin-top      : 60px;
+        margin-left     : 280px;
+        animation       : shoot 4s linear infinite;
+        animation-delay : 0.6s;
+    }
+
+    &:nth-child(7) {
+        margin-top      : 420px;
+        margin-left     : 480px;
+        animation       : shoot 3s linear infinite;
+        animation-delay : 0.6s;
+    }
+
+    &:nth-child(8) {
+        margin-top      : 40px;
+        margin-left     : -200px;
+        animation       : shoot 2s linear infinite;
+        animation-delay : 0.4s;
+    }
+
+    &:nth-child(9) {
+        margin-top      : 140px;
+        margin-left     : 460px;
+        animation       : shoot 4s linear infinite;
+        animation-delay : 0.6s;
+    }
+
+    &:nth-child(10) {
+        margin-top      : 30px;
+        margin-left     : 210px;
+        animation       : shoot 3s linear infinite;
+        animation-delay : 0.6s;
+    }
+}
+
+@keyframes shoot {
+    0% {transform   : translate(600px, -600px); opacity : 1;}
+    5% {transform   : translate(600px, -600px); opacity : 1;}
+    100% {transform : translate(-600px, 600px); opacity : 1;}
+}
+
 @include respond-to(Desktops) {
     .contact {
         background-size : 100% auto;

@@ -1,4 +1,5 @@
 .about-article {
+    height   : 100vh;
     position : relative;
 
     &:after {
@@ -57,6 +58,14 @@
 }
 
 .about-who , .about-why {
+    &.is-scroll {
+        .m-article-bd {
+            > .b-h2 , > .b-p {
+                top : 0;
+            }
+        }
+    }
+
     .m-article-bd {
         > .b-h2 , > .b-p {
             position : relative;
@@ -68,6 +77,10 @@
 
 .about-who {
     background : image-url('about/poster-01.jpg') no-repeat center center;
+
+    &:after {
+        background : rgba(#15A , .35);
+    }
 
     .m-article-bd {
         > .b-h2 {
@@ -82,6 +95,10 @@
 
 .about-why {
     background : image-url('about/poster-02.jpg') no-repeat center center;
+
+    &:after {
+        background : rgba($color-white , .15);
+    }
 
     &.is-scroll {
         &:after {
@@ -110,7 +127,6 @@
 
 @include respond-to(Desktops) {
     .about-article {
-        height          : 100vh;
         background-size : 100% auto;
 
         &.is-arrow-left {
@@ -143,8 +159,7 @@
         }
 
         &:after {
-            top        : 52%;
-            background : rgba(#15A , .35);
+            top : 52%;
         }
     }
 
@@ -157,20 +172,11 @@
         }
 
         &:after {
-            top        : 57%;
-            background : rgba($color-white , .15);
+            top : 57%;
         }
     }
 
     .about-who , .about-why {
-        &.is-scroll {
-            .m-article-bd {
-                > .b-h2 , > .b-p {
-                    top : 0;
-                }
-            }
-        }
-
         .m-article-bd {
             > .b-h2 , > .b-p {
                 top : 150px;
@@ -197,7 +203,6 @@
 
 @include respond-to(Tablets) {
     .about-article {
-        height          : 100vh;
         background-size : auto 100%;
     }
 }
@@ -206,6 +211,66 @@
     .about-article {
         padding-right : 35px;
         padding-left  : 35px;
+
+        &.is-arrow-left {
+            &:after {
+                @include transform(perspective(960px) rotateY(320deg));
+            }
+        }
+
+        &.is-arrow-right {
+            &:after {
+                @include transform(perspective(960px) rotateY(40deg));
+            }
+        }
+
+        .m-article-bd {
+            > .b-p {
+                font-size : 18px;
+            }
+        }
+    }
+
+    .about-who {
+        &.is-scroll {
+            &:after {
+                top    : 39%;
+                height : 26%;
+            }
+        }
+
+        &:after {
+            top : 52%;
+        }
+    }
+
+    .about-why {
+        &.is-scroll {
+            &:after {
+                top    : 32%;
+                height : 38%;
+            }
+        }
+
+        &:after {
+            top : 51%;
+        }
+    }
+
+    .about-who , .about-why {
+        .m-article-bd {
+            > .b-h2 , > .b-p {
+                top : 110px;
+            }
+        }
+    }
+
+    .about-team {
+        .m-article-bd {
+            > .b-h2 {
+                margin-bottom : 75px;
+            }
+        }
     }
 }
 
@@ -213,5 +278,65 @@
     .about-article {
         padding-right : 20px;
         padding-left  : 20px;
+
+        &.is-arrow-left {
+            &:after {
+                @include transform(perspective(360px) rotateY(320deg));
+            }
+        }
+
+        &.is-arrow-right {
+            &:after {
+                @include transform(perspective(360px) rotateY(40deg));
+            }
+        }
+
+        .m-article-bd {
+            > .b-p {
+                font-size : 15px;
+            }
+        }
+    }
+
+    .about-who {
+        &.is-scroll {
+            &:after {
+                top    : 34.5%;
+                height : 35%;
+            }
+        }
+
+        &:after {
+            top : 53%;
+        }
+    }
+
+    .about-why {
+        &.is-scroll {
+            &:after {
+                top    : 19.5%;
+                height : 60%;
+            }
+        }
+
+        &:after {
+            top : 54%;
+        }
+    }
+
+    .about-who , .about-why {
+        .m-article-bd {
+            > .b-h2 , > .b-p {
+                top : 75px;
+            }
+        }
+    }
+
+    .about-team {
+        .m-article-bd {
+            > .b-h2 {
+                margin-bottom : 50px;
+            }
+        }
     }
 }

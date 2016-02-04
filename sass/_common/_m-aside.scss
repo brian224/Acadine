@@ -11,20 +11,30 @@
         background : rgba(255, 255, 255, 0.3);
         display    : block;
         width      : 110%;
-        height     : 20px;
         position   : absolute;
-        bottom     : -11px;
         right      : 0;
         @include rotate(-3.5deg);
     }
 }
 
 
-@include respond-to(Desktops) {}
+@include respond-to(Desktops) {
+    .m-aside-hd:after {
+        height : 20px;
+        bottom : -11px;
+        right  : 0;
+    }
+}
 
 @include respond-to(Desktops-Tablets) {}
 
-@include respond-to(Tablets) {}
+@include respond-to(Tablets) {
+    .m-aside-hd:after {
+        height : 40px;
+        bottom : -31px;
+        right  : -10px;
+    }
+}
 
 @include respond-to(Tablets-Mobiles) {}
 

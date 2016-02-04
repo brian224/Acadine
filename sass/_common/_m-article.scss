@@ -3,13 +3,7 @@
 }
 
 .m-article-hd {
-    border-bottom: 1px solid $border-minor-color;
-
-    h3 {
-        padding     : 0 0 20px 0;
-        font-size   : 30px;
-        line-height : 1.5em;
-    }
+    border-bottom : 1px solid $border-minor-color;
 }
 
 .m-article-bd {
@@ -23,7 +17,7 @@
 }
 
 .m-article-img {
-    margin-top : 0 !important;
+    margin-top : 25px;
     display    : block;
     text-align : center;
 
@@ -39,25 +33,13 @@
 
 .m-article-ft {
     > ul > li {
-        margin-top  : 50px;
-        padding-top : 50px;
-        display     : table;
-        border-top  : 1px solid $border-minor-color;
+        border-top : 1px solid $border-minor-color;
 
         &:first-child {
             margin-top  : 0;
             padding-top : 0;
             border-top  : 0;
         }
-
-        > * {
-            display : table-cell;
-        }
-    }
-
-    .m-button-tool {
-        width       : 1%;
-        white-space : nowrap;
     }
 }
 
@@ -72,10 +54,18 @@
 }
 
 @include respond-to(Desktops-Tablets) {
+    .m-article-hd h3 {
+        padding     : 0 0 20px 0;
+        font-size   : 30px;
+        line-height : 1.5em;
+    }
+
     .m-article-bd {
         &.is-img-right {
             .m-article-img {
-                float : right;
+                margin-top : 0 !important;
+                width      : 50%;
+                float      : right;
             }
 
             .m-article-text {
@@ -85,14 +75,33 @@
 
         &.is-img-left {
             .m-article-img {
+                margin-top   : 0 !important;
                 margin-right : 20px;
+                width        : 50%;
                 float        : left;
                 text-align   : left;
             }
         }
 
         .m-article-img {
-            width : 50%;
+            max-width : 100%;
+        }
+    }
+
+    .m-article-ft {
+        > ul > li {
+            margin-top  : 50px;
+            padding-top : 50px;
+            display     : table;
+
+            > * {
+                display : table-cell;
+            }
+        }
+
+        .m-button-tool {
+            width       : 1%;
+            white-space : nowrap;
         }
     }
 }
@@ -110,11 +119,31 @@
 @include respond-to(Tablets-Mobiles) {}
 
 @include respond-to(Mobiles) {
+    .m-article-hd h3 {
+        padding     : 0 0 10px 0;
+        font-size   : 20px;
+        line-height : 1.5em;
+    }
+
     .m-article-bd > *, .m-article-text p {
         margin-top : 15px;
     }
 
     .m-article-ft {
         margin-top : 20px;
+
+        > ul > li {
+            margin-top  : 25px;
+            padding-top : 25px;
+
+            > * {
+                margin-top : 10px;
+                width      : 100%;
+
+                &:first-child {
+                    margin-top : 0;
+                }
+            }
+        }
     }
 }

@@ -23,36 +23,31 @@ html, body {
     }
 }
 
-.l-side-bd {
+.m-aside {
     background : #efefef;
     text-align : center;
 
-    .m-aside .b-p {
+    .b-p {
         padding       : 30px 0;
         display       : inline-block;
         border-bottom : 1px solid $border-minor-color;
     }
+}
 
-    .mail-function {
-        margin : 30px 0 40px 0;
+.mail-function {
+    margin : 30px 0 40px 0;
 
-        > * {
-            padding        : 0 10px;
-            vertical-align : top;
-        }
+    > * {
+        padding        : 0 10px;
+        vertical-align : top;
+    }
 
-        .m-icon-stack {
-            display     : block;
-            width       : 70px;
-            height      : 70px;
-            font-size   : 40px;
-            line-height : 70px;
-        }
-
-        em {
-            font-size   : 15px;
-            line-height : 2em;
-        }
+    .m-icon-stack {
+        display     : block;
+        width       : 70px;
+        height      : 70px;
+        font-size   : 40px;
+        line-height : 70px;
     }
 }
 
@@ -64,10 +59,27 @@ html, body {
     }
 }
 
-@include respond-to(Desktops-Tablets) {}
+@include respond-to(Desktops-Tablets) {
+    .l-side-bd .mail-function em {
+        font-size   : 15px;
+        line-height : 2em;
+    }
+}
 
-@include respond-to(Tablets) {}
+@include respond-to(Tablets) {
+    .m-aside {
+        margin : 0 35px 35px 35px;
+    }
+}
 
 @include respond-to(Tablets-Mobiles) {}
 
-@include respond-to(Mobiles) {}
+@include respond-to(Mobiles) {
+    .l-side-bd .mail-function em {
+        line-height : 2em;
+    }
+
+    .m-aside {
+        margin : 0 20px 20px 20px;
+    }
+}

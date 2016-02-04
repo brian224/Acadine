@@ -138,6 +138,7 @@
 .l-nav {
     z-index : 5;
     @include fixed;
+    @include box-sizing(border-box);
 }
 
 @include respond-to(Desktops) {
@@ -160,10 +161,12 @@
             .l-content {
                 padding-right : 30px;
                 width         : #{($main-min-width - $side-width)};
+                float         : left;
             }
 
             .l-side {
                 width : $side-width;
+                float : right;
             }
         }
     }
@@ -203,42 +206,11 @@
     }
 }
 
-@include respond-to(Desktops-Tablets) {
-    .l-main {
-        &.is-side-right {
-            .l-content {
-                float : left;
-            }
-
-            .l-side {
-                float : right;
-            }
-        }
-    }
-}
+@include respond-to(Desktops-Tablets) {}
 
 @include respond-to(Tablets) {}
 
 @include respond-to(Tablets-Mobiles) {
-    .l-nav {
-        top   : 30px;
-        right : 20px;
-    }
-
-    .l-main {
-        &.is-side-right {
-            .l-content {
-                padding-right : 15px;
-                width         : calc( 100% - 35px - #{ ( ( $side-width + ( $side-width / 2 ) ) / 2 ) } );
-            }
-
-            .l-side {
-                margin-right : 35px;
-                width        : #{ ( ( $side-width + ( $side-width / 2 ) ) / 2 ) };
-            }
-        }
-    }
-
     .l-main-bd {
         &:first-child {
             padding-top : 180px;
@@ -261,6 +233,11 @@
                 }
             }
         }
+    }
+
+    .l-nav {
+        top   : 30px;
+        right : 20px;
     }
 }
 
@@ -287,5 +264,11 @@
                 }
             }
         }
+    }
+
+    .l-nav {
+        top   : 0;
+        left  : 0;
+        width : 100%;
     }
 }

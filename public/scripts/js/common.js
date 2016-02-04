@@ -17,6 +17,11 @@
         });
     }
 
+    jQuery('.jQ-nav-ctrl').on('click' , function(e){
+        e.preventDefault();
+        Projects.Factory.Nav.OnClickCtrl();
+    });
+
     jQuery(document).ready(function(){
         if ( Projects.Factory.UserAgent !== 'PC' ) {
             Projects.Factory.HB.addClass(Projects.Factory.B.data('user-agent'));

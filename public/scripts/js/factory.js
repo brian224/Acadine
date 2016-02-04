@@ -47,6 +47,9 @@
                         }
                     };
                 },
+                OnClickCtrl : function() {
+                    jQuery('.jQ-nav').toggleClass(jQuery('.jQ-nav').data('open'));
+                },
                 OnClick : function(Element) {
                     jQuery('.jQ-nav-bar').one(Projects.Factory.Dynamic , function(){
                         if ( jQuery(Element).attr('href') !== '#' && jQuery(Element).attr('href') !== 'javascript:;' ) {
@@ -86,7 +89,7 @@
                                     };
 
                                     if ( CallBack ) {
-                                        eval( CallBack( this.mcs.draggerTop , ( this.mcs.top * (-1) ) ) );
+                                        eval( CallBack( ( this.mcs.top * (-1) ) ) );
                                     }
                                 }
                             }
@@ -128,6 +131,8 @@
                     }
                 },
                 Setting : function(Element) {
+                    
+
                     for ( var i = 0 ; i < Element.length ; i ++ ) {
                         Element.eq(i).owlCarousel({
                             mouseDrag  : Projects.Factory.UserAgent !== 'PC' ? ( ( Element.eq(i).data('mouse-drag') !== false ) ? true : false ) : false,
@@ -138,23 +143,25 @@
                                 0 : {
                                     items   : ( Element.eq(i).data('item-xs') && parseInt( Element.eq(i).data('item-xs') , 10 ) > 0 ) ? parseInt( Element.eq(i).data('item-xs') , 10 ) : 1,
                                     slideBy : ( Element.eq(i).data('item-xs') && parseInt( Element.eq(i).data('item-xs') , 10 ) > 0 ) ? parseInt( Element.eq(i).data('item-xs') , 10 ) : 1,
-                                    nav     : Element.eq(i).data('item-xs') ? ( Element.eq(i).find('> *').length > parseInt( Element.eq(i).data('item-xs') , 10 ) ) ? ( ( Element.eq(i).data('nav-xs') !== true ) ? false : true ) : false : true,
-                                    dots    : Element.eq(i).data('item-xs') ? ( Element.eq(i).find('> *').length > parseInt( Element.eq(i).data('item-xs') , 10 ) ) ? ( ( Element.eq(i).data('dots') !== true ) ? false : true ) : false : true
+                                    nav     : Element.eq(i).data('item-xs') ? ( Element.eq(i).find('> *').length > parseInt( Element.eq(i).data('item-xs') , 10 ) ) ? ( ( Element.eq(i).data('nav-xs') !== true ) ? false : true ) : false : ( Element.eq(i).find('> *').length > 1 ) ? ( ( Element.eq(i).data('nav-xs') !== true ) ? false : true ) : false,
+                                    dots    : Element.eq(i).data('item-xs') ? ( Element.eq(i).find('> *').length > parseInt( Element.eq(i).data('item-xs') , 10 ) ) ? ( ( Element.eq(i).data('dots') !== true ) ? false : true ) : false : ( Element.eq(i).find('> *').length > 1 ) ? ( ( Element.eq(i).data('dots') !== true ) ? false : true ) : false,
+                                    loop    : Element.eq(i).data('item-xs') ? ( Element.eq(i).find('> *').length > parseInt( Element.eq(i).data('item-xs') , 10 ) ) ? ( ( Element.eq(i).data('loop') !== true ) ? false : true ) : false : ( Element.eq(i).find('> *').length > 1 ) ? ( ( Element.eq(i).data('loop') !== true ) ? false : true ) : false
                                 },
                                 740 : {
                                     items   : ( Element.eq(i).data('item-sm') && parseInt( Element.eq(i).data('item-sm') , 10 ) > 0 ) ? parseInt( Element.eq(i).data('item-sm') , 10 ) : 1,
                                     slideBy : ( Element.eq(i).data('item-sm') && parseInt( Element.eq(i).data('item-sm') , 10 ) > 0 ) ? parseInt( Element.eq(i).data('item-sm') , 10 ) : 1,
-                                    nav     : Element.eq(i).data('item-sm') ? ( Element.eq(i).find('> *').length > parseInt( Element.eq(i).data('item-sm') , 10 ) ) ? ( ( Element.eq(i).data('nav-sm') !== true ) ? false : true ) : false : true,
-                                    dots    : Element.eq(i).data('item-sm') ? ( Element.eq(i).find('> *').length > parseInt( Element.eq(i).data('item-sm') , 10 ) ) ? ( ( Element.eq(i).data('dots') !== true ) ? false : true ) : false : true
+                                    nav     : Element.eq(i).data('item-sm') ? ( Element.eq(i).find('> *').length > parseInt( Element.eq(i).data('item-sm') , 10 ) ) ? ( ( Element.eq(i).data('nav-sm') !== true ) ? false : true ) : false : ( Element.eq(i).find('> *').length > 1 ) ? ( ( Element.eq(i).data('nav-sm') !== true ) ? false : true ) : false,
+                                    dots    : Element.eq(i).data('item-sm') ? ( Element.eq(i).find('> *').length > parseInt( Element.eq(i).data('item-sm') , 10 ) ) ? ( ( Element.eq(i).data('dots') !== true ) ? false : true ) : false : ( Element.eq(i).find('> *').length > 1 ) ? ( ( Element.eq(i).data('dots') !== true ) ? false : true ) : false,
+                                    loop    : Element.eq(i).data('item-sm') ? ( Element.eq(i).find('> *').length > parseInt( Element.eq(i).data('item-sm') , 10 ) ) ? ( ( Element.eq(i).data('loop') !== true ) ? false : true ) : false : ( Element.eq(i).find('> *').length > 1 ) ? ( ( Element.eq(i).data('loop') !== true ) ? false : true ) : false
                                 },
                                 960 : {
                                     items   : ( Element.eq(i).data('item-md') && parseInt( Element.eq(i).data('item-md') , 10 ) > 0 ) ? parseInt( Element.eq(i).data('item-md') , 10 ) : 1,
                                     slideBy : ( Element.eq(i).data('item-md') && parseInt( Element.eq(i).data('item-md') , 10 ) > 0 ) ? parseInt( Element.eq(i).data('item-md') , 10 ) : 1,
-                                    nav     : Element.eq(i).data('item-md') ? ( Element.eq(i).find('> *').length > parseInt( Element.eq(i).data('item-md') , 10 ) ) ? ( ( Element.eq(i).data('nav-md') !== true ) ? false : true ) : false : true,
-                                    dots    : Element.eq(i).data('item-md') ? ( Element.eq(i).find('> *').length > parseInt( Element.eq(i).data('item-md') , 10 ) ) ? ( ( Element.eq(i).data('dots') !== true ) ? false : true ) : false : true
+                                    nav     : Element.eq(i).data('item-md') ? ( Element.eq(i).find('> *').length > parseInt( Element.eq(i).data('item-md') , 10 ) ) ? ( ( Element.eq(i).data('nav-md') !== true ) ? false : true ) : false : ( Element.eq(i).find('> *').length > 1 ) ? ( ( Element.eq(i).data('nav-md') !== true ) ? false : true ) : false,
+                                    dots    : Element.eq(i).data('item-md') ? ( Element.eq(i).find('> *').length > parseInt( Element.eq(i).data('item-md') , 10 ) ) ? ( ( Element.eq(i).data('dots') !== true ) ? false : true ) : false : ( Element.eq(i).find('> *').length > 1 ) ? ( ( Element.eq(i).data('dots') !== true ) ? false : true ) : false,
+                                    loop    : Element.eq(i).data('item-md') ? ( Element.eq(i).find('> *').length > parseInt( Element.eq(i).data('item-md') , 10 ) ) ? ( ( Element.eq(i).data('loop') !== true ) ? false : true ) : false : ( Element.eq(i).find('> *').length > 1 ) ? ( ( Element.eq(i).data('loop') !== true ) ? false : true ) : false
                                 }
                             },
-                            loop              : ( Element.eq(i).data('loop') !== true ) ? false : true,
                             lazyLoad          : ( Element.eq(i).data('img-load') !== true ) ? false : true,
                             autoplay          : ( Element.eq(i).data('autoplay') !== true ) ? false : true,
                             autoplayTimeout   : Element.eq(i).data('timeout') ? Element.eq(i).data('timeout') : 5000,
