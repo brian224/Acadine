@@ -99,15 +99,48 @@
             },
             SliceBox : {
                 SliceBox : null,
+                Video : null,
                 Init : function(Element) {
                     var $this = this;
 
                     $this.SliceBox = jQuery(Element).slicebox({
                         orientation   : 'h',
                         cuboidsCount  : 1,
-                        onReady       : function() {},
-                        onAfterChange : function(pos) {}
+                        onReady       : function() {
+                            $this.IsVideo(Element , 0);
+                        },
+                        onBeforeChange : function() {
+                            console.log(jQuery('.sb-perspective'));
+                        },
+                        onAfterChange : function(Index) {
+                            $this.IsVideo(Element , Index);
+                        }
                     });
+                },
+                IsVideo : function(Element , Index) {
+                    var $this = this;
+
+                    if ( Projects.Factory.UserAgent === 'PC' ) {
+                        if ( jQuery(Element).find('.m-slider-item').eq(Index).find('.m-slider-media').find('> *:first')[0].nodeName === 'VIDEO' ) {
+                            $this.Video = jQuery(Element).find('.m-slider-item').eq(Index).find('.m-slider-media').find('> *:first')[0];
+                            $this.Play();
+                        } else {
+                            if ( $this.Video !== null ) {
+                                $this.Pause();
+                            }
+                        }    
+                    }
+                },
+                Play : function() {
+                    var $this = this;
+
+                    $this.Video.play();
+                },
+                Pause : function() {
+                    var $this = this;
+
+                    $this.Video.pause();
+                    $this.Video.currentTime = '0';
                 },
                 Prev : function(Element) {
                     var $this = this;

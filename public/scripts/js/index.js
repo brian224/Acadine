@@ -13,6 +13,15 @@
         }
     });
 
+    jQuery('.jQ-media').on('click' , function(e){
+        e.preventDefault();
+        if ( jQuery(this).find('> *:first')[0].nodeName === 'VIDEO' ) {
+            jQuery(this).find('> *:first').addClass('is-show');
+            Projects.Factory.SliceBox.Video = jQuery(this).find('> *:first')[0];
+            Projects.Factory.SliceBox.Play();
+        }
+    });
+
     jQuery(document).ready(function(){
         Projects.Factory.SliceBox.Init('.jQ-slider-3D');
     });

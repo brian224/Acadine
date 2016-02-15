@@ -86,6 +86,21 @@
     }
 }
 
+.m-slider-media {
+    video {
+        top             : 0;
+        left            : 0;
+        min-width       : 100%;
+        min-height      : 100%;
+        width           : auto;
+        height          : auto;
+        background-size : cover;
+        position        : absolute;
+        z-index         : 2;
+        @include clearfix;
+    }
+}
+
 .m-slider-caption {
     top         : 0;
     left        : 0;
@@ -145,6 +160,20 @@
     }
 }
 
+/*@include screen('4/3') {
+    .m-slider-media {
+    video {
+        left        : 50%;
+        margin-left : 12.5%;
+        min-width   : 25%;
+        min-height  : 100%;
+        width       : 25%;
+        height      : 100%;
+    }
+}
+
+}*/
+
 @include respond-to(Desktops) {
     .m-slider {
         &.is-full {
@@ -184,10 +213,24 @@
                     width       : 100%;
                 }
             }
+
+            /*&.is-video {
+                .m-slider-frame {
+                    left        : 0;
+                    margin-left : 0;
+                    width       : 100%;
+                }
+            }*/
         }
     }
 
     .m-slider-frame {
+        &.is-video {
+            left        : 0 !important;
+            margin-left : 0 !important;
+            width       : 100% !important;
+        }
+
         > * {
             margin-top : 25px;
 
@@ -238,11 +281,13 @@
 
     @include screen('4/3') {
         .m-slider {
-            &.is-3D {
-                .m-slider-frame {
-                    left        : 50%;
-                    margin-left : -200%;
-                    width       : 400%;
+            &.is-full {
+                &.is-3D {
+                    .m-slider-frame {
+                        left        : 50%;
+                        margin-left : -200%;
+                        width       : 400%;
+                    }
                 }
             }
         }
