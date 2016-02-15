@@ -83,7 +83,7 @@ html , body {
     }
 }
 
-#stars {
+/*#stars {
     position : absolute;
     top      : 50%;
     left     : 50%;
@@ -187,7 +187,7 @@ html , body {
     0% {transform   : translate(600px, -600px); opacity : 1;}
     5% {transform   : translate(600px, -600px); opacity : 1;}
     100% {transform : translate(-600px, 600px); opacity : 1;}
-}
+}*/
 
 @include respond-to(Desktops) {
     .contact {
