@@ -1,0 +1,116 @@
+.m-load {
+    text-align : center;
+    visibility : visible;
+    position   : relative;
+    @include opacity(1);
+    @include transition(opacity $transition-times);
+
+    &.is-hide {
+        /*top : -99999px;
+        left: -99999px;*/
+        /*z-index: -1;*/
+        /*visibility : hidden;*/
+        @include opacity(0);
+        /*@include transition((top 0s , left 0s) , $transition-times);*/
+    }
+
+    &.is-fixed {
+        top              : 0;
+        left             : 0;
+        width            : 100%;
+        height           : 100%;
+        background-color : $color-black;
+        z-index          : 10;
+        @include fixed;
+    }
+
+    &.is-animate {
+        > div {
+            margin-top  : -52px;
+            margin-left : -50px;
+            width       : 100px;
+
+            &:before {
+                content         : "";
+                width           : 100%;
+                height          : 84px;
+                background      : image-url('common/loading.png') no-repeat left top;
+                background-size : 2200px 84px;
+                @include display(block);
+                @include animation(load 1.5s steps(22) infinite);
+            }
+        }
+    }
+
+    > div {
+        top         : 50%;
+        left        : 50%;
+        color       : $color-white;
+        position    : relative;
+        z-index     : 2;
+
+        > span {
+            height      : 20px;
+            line-height : 20px;
+            @include display(block);
+        }
+    }
+}
+
+@include keyframes(load) {
+    0%  { background-position : 0; }
+    100% { background-position : -2200px; }
+}
+
+@include respond-to(Desktops) {
+    .m-load {
+        > div {
+            > span {
+                margin-top : 25px;
+                font-size  : 15px;
+
+                > i {
+                    margin-left : 5px;
+                }
+            }
+
+            > .m-icon-logo {
+                font-size : 100px;
+            }
+        }
+    }
+}
+
+@include respond-to(Desktops-Tablets) {}
+
+@include respond-to(Tablets) {}
+
+@include respond-to(Tablets-Mobiles) {
+    .m-load {
+        > div {
+            > span {
+                margin-top : 20px;
+                font-size  : 14px;
+
+                > i {
+                    margin-left : 4px;
+                }
+            }
+        }
+    }
+}
+
+@include respond-to(Mobiles) {
+    .m-load {
+        > div {
+            > span {
+                margin-top : 15px;
+                font-size  : 13px;
+
+                > i {
+                    margin-left : 3px;
+                }
+            }
+        }
+    }
+}

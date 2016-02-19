@@ -4,27 +4,28 @@
     var Contact = {
         County : {
             Offset : {
-                Max : jQuery('.jQ-contact-frame').offset().left + jQuery('.jQ-contact-frame').width(),
-                Min : jQuery('.jQ-contact-frame').offset().left
+                XMax : jQuery('.jQ-contact-frame').offset().left + jQuery('.jQ-contact-frame').width(),
+                XMin : jQuery('.jQ-contact-frame').offset().left
             },
             OnClick : function(DataElem , Element) {
                 var $this     = this;
                 var $getClass = jQuery(DataElem).data('center');
                 var $offset   = {
-                    Max : ( jQuery(Element).parent().offset().left + ( jQuery('.jQ-contact-items').width() / 2 ) ),
-                    Min : ( jQuery(Element).parent().offset().left - ( jQuery('.jQ-contact-items').width() / 2 ) )
+                    XMax : ( jQuery(Element).parent().offset().left + ( jQuery('.jQ-contact-items').width() / 2 ) ),
+                    XMin : ( jQuery(Element).parent().offset().left - ( jQuery('.jQ-contact-items').width() / 2 ) )
                 }
 
                 if ( Projects.Factory.UserAgent !== 'Mobile' && Projects.Factory.W.width() > 768 ) {
-                    if ( $this.Offset.Max < $offset.Max ) {
+                    if ( $this.Offset.XMax < $offset.XMax ) {
                         $getClass = jQuery(DataElem).data('right');
-                    } else if ( $this.Offset.Min > $offset.Min ) {
+                    } else if ( $this.Offset.XMin > $offset.XMin ) {
                         $getClass = jQuery(DataElem).data('left');
                     }
 
                     jQuery(Element).next('.jQ-contact-items').addClass($getClass);
 
                     jQuery(Element).parent().siblings().find('.jQ-contact-items').removeClass(jQuery(DataElem).data('active'));
+                    jQuery('.jQ-county').addClass(jQuery(DataElem).data('active'));
                     $this.OffClick(DataElem);
 
                     jQuery(Element).next('.jQ-contact-items').toggleClass(jQuery(DataElem).data('active'));
@@ -37,16 +38,20 @@
                 }
             },
             OffClick : function(DataElem) {
+                var $this = this;
+                
                 Projects.Factory.D.on('click' , function(e){
                     e.stopPropagation();
 
                     if ( ! jQuery(e.target).is('.jQ-county , .jQ-county * , .jQ-contact-items , .jQ-contact-items *')) {
-                        jQuery('.jQ-contact-items').removeClass(jQuery(DataElem).data('active'));
+                        $this.OnClose(DataElem);
+                        // jQuery('.jQ-contact-items').removeClass(jQuery(DataElem).data('active'));
                     }
                 });
             },
             OnClose : function(DataElem) {
                 jQuery('.jQ-contact-items').removeClass(jQuery(DataElem).data('active'));
+                jQuery('.jQ-county').removeClass(jQuery(DataElem).data('active'));
             }
         }
     };

@@ -51,13 +51,7 @@ html, body {
     }
 }
 
-@include respond-to(Desktops) {
-    .l-main-bd {
-        .m-slider-arrow {
-            margin-top : -80px;
-        }    
-    }
-}
+@include respond-to(Desktops) {}
 
 @include respond-to(Desktops-Tablets) {
     .l-side-bd .mail-function em {

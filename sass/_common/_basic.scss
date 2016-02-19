@@ -216,9 +216,9 @@ h3 , .b-h3 , h4 , .b-h4 {
     }
 
     /* row */
-    .b-row {
-        margin-right : -15px;
-        margin-left  : -15px;
+    .b-row , .b-row-md {
+        margin-right : -10px;
+        margin-left  : -10px;
     }
     
     /* col */
@@ -226,8 +226,8 @@ h3 , .b-h3 , h4 , .b-h4 {
     $total : 12;
     @while $types > 0 {
         .b-col-md-#{$types} {
-            padding-right : 15px;
-            padding-left  : 15px;
+            padding-right : 10px;
+            padding-left  : 10px;
             width         : ((100% / $total) * $types) !important;
 
             @if $types != 12 {
@@ -317,9 +317,9 @@ h3 , .b-h3 , h4 , .b-h4 {
     }
 
     /* row */
-    .b-row {
-        margin-right : -10px;
-        margin-left  : -10px;
+    .b-row , .b-row-sm {
+        margin-right : -8px;
+        margin-left  : -8px;
     }
     
     /* col */
@@ -327,8 +327,8 @@ h3 , .b-h3 , h4 , .b-h4 {
     $total : 12;
     @while $types > 0 {
         .b-col-sm-#{$types} {
-            padding-right : 10px;
-            padding-left  : 10px;
+            padding-right : 8px;
+            padding-left  : 8px;
             width         : ((100% / $total) * $types) !important;
 
             @if $types != 12 {
@@ -414,7 +414,7 @@ h3 , .b-h3 , h4 , .b-h4 {
     }
 
     /* row */
-    .b-row {
+    .b-row , .b-row-xs {
         margin-right : -5px;
         margin-left  : -5px;
     }

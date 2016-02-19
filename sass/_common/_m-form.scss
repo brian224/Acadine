@@ -1,0 +1,200 @@
+.m-form {
+    margin      : 0;
+    padding     : 0;
+    font-family : $font-family;
+    color       : $text-major-color;
+    border      : 0;
+    outline     : none;
+    position    : relative;
+    @include border-radius($form-border-radius);
+
+    &.m-form-control {
+        width        : 100%;
+        line-height  : 20px;
+        background   : $color-white;
+        border-color : transparent;
+        border-style : solid;
+        @include autofill();
+        @include placeholder();
+        @include box-sizing(border-box);
+
+        &.input-validation-error {
+            border-color : $color-warning;
+        }
+
+        @at-root {
+            select#{&} {
+                background : transparent;
+                @include appearance(none);
+
+                option {
+                    margin  : 0;
+                    padding : 0;
+                    width   : 100%;
+                    @include box-sizing(border-box);
+                }
+            }
+
+            textarea#{&} {
+                resize : none;
+
+                &.is-resize {
+                    resize : both;
+                }
+
+                &.is-resize-V {
+                    resize : vertical;
+                }
+
+                &.is-resize-H {
+                    resize : horizontal;
+                }
+            }
+        }
+    }
+}
+
+.m-form-select {
+    width      : 100%;
+    background : $color-white;
+    position   : relative;
+    @include box-sizing(border-box);
+    @include border-radius($form-border-radius);
+
+    &:before {
+        content      : "";
+        top          : 50%;
+        width        : 0;
+        height       : 0;
+        border-style : solid;
+        border-color : darken($text-major-color , 20%) transparent transparent transparent;
+        position     : absolute;
+        z-index      : 1;
+    }
+
+    .m-form {
+        z-index : 2;
+    }
+}
+
+.m-form-addon {
+    @include box-sizing(border-box);
+}
+
+.m-form-validate {
+    color      : $color-white;
+    text-align : left;
+    @inlcude display(block);
+}
+
+@include respond-to(Desktops) {
+    .m-form {
+        &.m-form-control {
+            padding      : 13px 20px;
+            font-size    : 15px;
+            border-width : 2px;
+            @include box-shadow(rgba($color-black , .15) 2px 2px 3px);
+
+            @at-root {
+                select#{&} {
+                    padding-top    : 12px;
+                    padding-bottom : 12px;
+                    padding-right  : 50px;
+                }
+
+                textarea#{&} {
+                    height : 150px;
+                }
+            }
+        }
+    }
+
+    .m-form-select {
+        &:before {
+            right        : 20px;
+            margin-top   : -3px;
+            border-width : 8px 6px 0 6px;
+        }
+    }
+
+    .m-form-validate {
+        margin-top : 5px;
+        font-size  : 15px;
+    }
+}
+
+@include respond-to(Desktops-Tablets) {}
+
+@include respond-to(Tablets) {}
+
+@include respond-to(Tablets-Mobiles) {
+    .m-form {
+        &.m-form-control {
+            padding      : 9px 15px;
+            font-size    : 14px;
+            border-width : 1px;
+            @include box-shadow(rgba($color-black , .15) 1px 1px 2px);
+
+            @at-root {
+                select#{&} {
+                    padding-top    : 8px;
+                    padding-bottom : 8px;
+                    padding-right  : 50px;
+                }
+
+                textarea#{&} {
+                    height : 110px;
+                }
+            }
+        }
+    }
+
+    .m-form-select {
+        &:before {
+            right        : 15px;
+            margin-top   : -2px;
+            border-width : 6px 5px 0 5px;
+        }
+    }
+
+    .m-form-validate {
+        margin-top : 4px;
+        font-size  : 14px;
+    }
+}
+
+@include respond-to(Mobiles) {
+    .m-form {
+        &.m-form-control {
+            padding      : 4px 10px;
+            font-size    : 14px;
+            border-width : 1px;
+            @include box-shadow(rgba($color-black , .15) 2px 2px 3px);
+
+            @at-root {
+                select#{&} {
+                    padding-top    : 3px;
+                    padding-bottom : 3px;
+                    padding-right  : 30px;
+                }
+
+                textarea#{&} {
+                    height : 80px;
+                }
+            }
+        }
+    }
+
+    .m-form-select {
+        &:before {
+            right        : 10px;
+            margin-top   : -2px;
+            border-width : 6px 5px 0 5px;
+        }
+    }
+
+    .m-form-validate {
+        margin-top : 3px;
+        font-size  : 14px;
+    }
+}

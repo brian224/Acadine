@@ -87,17 +87,49 @@
 }
 
 .m-slider-media {
+    position : relative;
+
+    @at-root {
+        a#{&} {
+            &:before , &:after {
+                content  : "";
+                top      : 50%;
+                left     : 50%;
+                position : absolute;
+                @include clearfix;
+            }
+
+            &:before {
+                border-style : solid;
+                border-color : $color-white;
+                background   : $color-black;
+                z-index      : 4;
+                @include border-radius(50%);
+                @include opacity(.5);
+            }
+
+            &:after {
+                width        : 0;
+                height       : 0;
+                border-style : solid;
+                border-color : transparent transparent transparent $color-white;
+                z-index      : 5;
+            }
+        }
+    }
+
     video {
-        top             : 0;
-        left            : 0;
-        min-width       : 100%;
-        min-height      : 100%;
-        width           : auto;
-        height          : auto;
-        background-size : cover;
-        position        : absolute;
-        z-index         : 2;
+        top      : 0;
+        left     : 0;
+        width    : 100%;
+        position : absolute;
+        z-index  : 2;
         @include clearfix;
+
+        &.is-tablet {
+            visibility : hidden;
+            @include opacity(0);
+        }
     }
 }
 
@@ -160,19 +192,15 @@
     }
 }
 
-/*@include screen('4/3') {
+@include screen('4/3') {
     .m-slider-media {
-    video {
-        left        : 50%;
-        margin-left : 12.5%;
-        min-width   : 25%;
-        min-height  : 100%;
-        width       : 25%;
-        height      : 100%;
+        video {
+            left        : 50%;
+            margin-left : -50%;
+            height      : 100%;
+        }
     }
 }
-
-}*/
 
 @include respond-to(Desktops) {
     .m-slider {
@@ -213,14 +241,6 @@
                     width       : 100%;
                 }
             }
-
-            /*&.is-video {
-                .m-slider-frame {
-                    left        : 0;
-                    margin-left : 0;
-                    width       : 100%;
-                }
-            }*/
         }
     }
 
@@ -294,7 +314,27 @@
     }
 }
 
-@include respond-to(Desktops-Tablets) {}
+@include respond-to(Desktops-Tablets) {
+    .m-slider-media {
+        @at-root {
+            a#{&} {
+                &:before {
+                    margin-top   : -45px;
+                    margin-left  : -45px;
+                    width        : 90px;
+                    height       : 90px;
+                    border-width : 2px;
+                }
+
+                &:after {
+                    margin-top   : -12px;
+                    margin-left  : -7px;
+                    border-width : 14px 0 14px 24px;
+                }
+            }
+        }
+    }
+}
 
 @include respond-to(Tablets) {
     .m-slider-frame {
@@ -410,6 +450,26 @@
 
             &:first-child {
                 margin-top : 0;
+            }
+        }
+    }
+
+    .m-slider-media {
+        @at-root {
+            a#{&} {
+                &:before {
+                    margin-top   : -30px;
+                    margin-left  : -30px;
+                    width        : 60px;
+                    height       : 60px;
+                    border-width : 1px;
+                }
+
+                &:after {
+                    margin-top   : -8px;
+                    margin-left  : -5px;
+                    border-width : 9px 0 9px 16px;
+                }
             }
         }
     }

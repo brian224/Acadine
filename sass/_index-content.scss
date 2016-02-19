@@ -60,6 +60,11 @@ html , body {
     @include transform-style(preserve-3d);
 }
 
+/* m-load */
+.m-load {
+    background : image-url('home/index/load-bg.jpg') no-repeat center center;
+}
+
 @include respond-to(Desktops) {
     .m-slider-frame {
         img {
@@ -79,7 +84,15 @@ html , body {
         background-size : 100% auto !important;
     }
 
+    .m-load {
+        background-size : 100% auto;
+    }
+
     @include screen('4/3') {
+        .m-load {
+            background-size : auto 100%;
+        }
+
         .m-slider-frame {
             img {
                 width     : auto;
@@ -90,6 +103,10 @@ html , body {
 
         .sb-side {
             background-size : auto 100% !important;
+        }
+
+        .m-load {
+            background-size : auto 100%;
         }
     }
 }
@@ -108,11 +125,13 @@ html , body {
     .sb-side {
         background-size : auto 100% !important;
     }
+
+    .m-load {
+        background-size : auto 100%;
+    }
 }
 
-@include respond-to(Tablets-Mobiles) {
-    
-}
+@include respond-to(Tablets-Mobiles) {}
 
 @include respond-to(Mobiles) {
     .l-footer {

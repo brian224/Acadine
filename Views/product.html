@@ -85,14 +85,118 @@
                         </article>
                     </li>
                     <li class="is-arrow-left b-bg-purple">
-                        <article class="m-article b-text-center">
-                            <h3 class="b-text-white">Contact us to learn more about our exciting projects</h3>
-                        </article>
-                        <div class="m-article-bd">
-                            <div class="m-button-group b-text-center">
-                                <a href="../views/blog-list.html" class="m-button b-text-white">Contact Us</a>
-                            </div>
-                        </div>
+                        <form id="form">
+                            <section class="m-section b-text-center">
+                                <header class="m-section-hd b-clearfix">
+                                    <h3 class="b-text-white">Contact us to learn more about our exciting projects</h3>
+                                </header>
+                                <div class="m-section-bd">
+                                    <div class="m-form-group">
+                                        <div class="m-form-group-list">
+                                            <ul class="b-row-md b-row-sm">
+                                                <li class="b-col-md-6 b-col-sm-6">
+                                                    <div class="m-form-item">
+                                                        <input type="text" name="FirstName" class="m-form m-form-control" placeholder="First Name" data-val="true" data-val-required="Please enter a valid first name.">
+                                                    </div>
+                                                    <p class="m-form-validate is-error" data-valmsg-for="FirstName" data-valmsg-replace="true"></p>
+                                                </li>
+                                                <li class="b-col-md-6 b-col-sm-6">
+                                                    <div class="m-form-item">
+                                                        <input type="text" name="LastName" class="m-form m-form-control" placeholder="Last Name" data-val="true" data-val-required="Please enter a valid last name.">
+                                                    </div>
+                                                    <p class="m-form-validate is-error" data-valmsg-for="LastName" data-valmsg-replace="true"></p>
+                                                </li>
+                                            </ul>
+                                            <ul class="b-row-md b-row-sm">
+                                                <li class="b-col-md-6 b-col-sm-6">
+                                                    <div class="m-form-item">
+                                                        <input type="email" Name="Email" class="m-form m-form-control" placeholder="Email Address" data-val="true" data-val-required="Please enter a valid email address.">
+                                                    </div>
+                                                    <p class="m-form-validate is-error" data-valmsg-for="Email" data-valmsg-replace="true"></p>
+                                                </li>
+                                                <li class="b-col-md-6 b-col-sm-6">
+                                                    <div class="m-form-item">
+                                                        <input type="tel" name="Phone" class="m-form m-form-control" placeholder="Phone" data-val="true" data-val-required="Please enter a valid phone number." data-val-number="Please enter a valid phone number.">
+                                                    </div>
+                                                    <p class="m-form-validate is-error" data-valmsg-for="Phone" data-valmsg-replace="true"></p>
+                                                </li>
+                                            </ul>
+                                            <ul class="b-row-md b-row-sm">
+                                                <li class="b-col-md-6 b-col-sm-6">
+                                                    <div class="m-form-item">
+                                                        <input type="text" name="Company" class="m-form m-form-control" placeholder="Company" data-val="true" data-val-required="Please enter a valid company.">
+                                                    </div>
+                                                    <p class="m-form-validate is-error" data-valmsg-for="Company" data-valmsg-replace="true"></p>
+                                                </li>
+                                                <li class="b-col-md-6 b-col-sm-6">
+                                                    <div class="m-form-item">
+                                                        <input type="text" name="Title" class="m-form m-form-control" placeholder="Title" data-val="true" data-val-required="Please enter a valid title.">
+                                                    </div>
+                                                    <p class="m-form-validate is-error" data-valmsg-for="Title" data-valmsg-replace="true"></p>
+                                                </li>
+                                            </ul>
+                                            <ul class="b-row-md b-row-sm">
+                                                <li class="b-col-md-6 b-col-sm-6">
+                                                    <div class="m-form-item">
+                                                        <div class="m-form-select">
+                                                            <select name="Country" class="m-form m-form-control" data-val="true" data-val-required="Please select country.">
+                                                                <option value="">Country</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <p class="m-form-validate is-error" data-valmsg-for="Country" data-valmsg-replace="true"></p>
+                                                </li>
+                                                <li class="b-col-md-6 b-col-sm-6">
+                                                    <div class="m-form-item">
+                                                        <div class="m-form-select">
+                                                            <select name="Industry" class="m-form m-form-control" data-val="true" data-val-required="Please select industry.">
+                                                                <option value="">Industry</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <p class="m-form-validate is-error" data-valmsg-for="Industry" data-valmsg-replace="true"></p>
+                                                </li>
+                                            </ul>
+                                            <ul class="b-row-md b-row-sm">
+                                                <li class="b-col-md-6 b-col-sm-6">
+                                                    <div class="m-form-item">
+                                                        <div class="m-form-select">
+                                                            <select name="About" class="m-form m-form-control" data-val="true" data-val-required="Please select How did you hear about us?">
+                                                                <option value="">How did you hear about us?</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <p class="m-form-validate is-error" data-valmsg-for="About" data-valmsg-replace="true"></p>
+                                                </li>
+                                                <li class="b-col-md-6 b-col-sm-6">
+                                                    <div class="m-form-item">
+                                                        <div class="m-form-select">
+                                                            <select name="Help" class="m-form m-form-control" data-val="true" data-val-required="Please select.">
+                                                                <option value="">Please help us fast-track your request.</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <p class="m-form-validate is-error" data-valmsg-for="Help" data-valmsg-replace="true"></p>
+                                                </li>
+                                            </ul>
+                                            <ul class="b-row-md b-row-sm">
+                                                <li class="b-col-md-12 b-col-sm-12">
+                                                    <div class="m-form-item">
+                                                        <textarea name="Message" class="m-form m-form-control" placeholder="Message" data-val="true" data-val-required="Please enter a valid message."></textarea>
+                                                    </div>
+                                                    <p class="m-form-validate is-error" data-valmsg-for="Message" data-valmsg-replace="true"></p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <footer class="m-section-ft">
+                                    <div class="m-button-group b-text-center">
+                                        <button type="submit" class="m-button b-text-white">Contact Us</button>
+                                    </div>
+                                </footer>
+                            </section>
+                        </form>
                     </li>
                 </ul>
             </div>
@@ -118,7 +222,9 @@
 <!-- master page include js end -->
 
 <!-- self page include js begin -->
-<script type="text/javascript" src="../public/scripts/plugin/owl.carousel/owl.carousel.min.js?JS=20160122_01" defer></script>
-<script type="text/javascript" src="../public/scripts/js/product.js?JS=20160122_01" defer></script>
+<script defer type="text/javascript" src="../public/scripts/plugin/jquery.validation/jquery.validate.min.js?JS=20160122_01"></script>
+<script defer type="text/javascript" src="../public/scripts/plugin/jquery.validate.unobtrusive/jquery.validate.unobtrusive.js?JS=20160122_01"></script>
+<script defer type="text/javascript" src="../public/scripts/plugin/owl.carousel/owl.carousel.min.js?JS=20160122_01"></script>
+<script defer type="text/javascript" src="../public/scripts/js/product.js?JS=20160122_01"></script>
 <!-- self page include js end -->
 </html>

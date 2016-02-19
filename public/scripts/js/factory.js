@@ -99,7 +99,9 @@
             },
             SliceBox : {
                 SliceBox : null,
-                Video : null,
+                Video    : null,
+                Times    : 5000,
+                SetTimer : null,
                 Init : function(Element) {
                     var $this = this;
 
@@ -110,7 +112,6 @@
                             $this.IsVideo(Element , 0);
                         },
                         onBeforeChange : function() {
-                            console.log(jQuery('.sb-perspective'));
                         },
                         onAfterChange : function(Index) {
                             $this.IsVideo(Element , Index);
@@ -121,13 +122,20 @@
                     var $this = this;
 
                     if ( Projects.Factory.UserAgent === 'PC' ) {
+                        window.clearTimeout($this.SetTimer);
+
                         if ( jQuery(Element).find('.m-slider-item').eq(Index).find('.m-slider-media').find('> *:first')[0].nodeName === 'VIDEO' ) {
                             $this.Video = jQuery(Element).find('.m-slider-item').eq(Index).find('.m-slider-media').find('> *:first')[0];
                             $this.Play();
+                            $this.Ended();
                         } else {
                             if ( $this.Video !== null ) {
                                 $this.Pause();
                             }
+
+                            $this.SetTimer = setTimeout(function(){
+                                $this.Next();
+                            } , $this.Times);
                         }    
                     }
                 },
@@ -141,6 +149,13 @@
 
                     $this.Video.pause();
                     $this.Video.currentTime = '0';
+                },
+                Ended : function() {
+                    var $this = this;
+
+                    $this.Video.addEventListener('ended' , function(){
+                        $this.Next();
+                    } , false);
                 },
                 Prev : function(Element) {
                     var $this = this;
@@ -249,7 +264,9 @@
                 }
             },
             Clipboard : {
-                Element : null,
+                Element  : null,
+                SetTimer : null,
+                Timer    : 800,
                 Init : function() {
                     var $this = this;
 
@@ -263,17 +280,89 @@
                     var $this = this;
 
                     $this.Element.on('success', function(e) {
-                        console.log('success');
-                        console.log(e);
+                        jQuery(e.trigger).addClass(jQuery(e.trigger).data('class'));
+
+                        window.clearTimeout($this.SetTimer);
+
+                        $this.SetTimer = setTimeout(function(){
+                            jQuery(e.trigger).removeClass(jQuery(e.trigger).data('class'));
+                        } , $this.Timer);
                     });
                 },
                 OnError : function() {
                     var $this = this;
 
-                    $this.Element.on('error', function(e) {
-                        console.log('error');
-                        console.log(e);
+                    $this.Element.on('error', function(e) {});
+                }
+            },
+            ValiDate : {
+                Element : jQuery('#form'),
+                ErrorClass : 'is-error',
+                // ValidClass : 'is-success',
+                AddMethod : function() {
+                    /*  number checked */
+                    jQuery.validator.addMethod('NumberMethod' , function (value, elem, params) {
+                        var Numbers = /^[0-9]+$/;
+                        return this.optional(elem) || ( Numbers.test(value) );
                     });
+
+                    jQuery.validator.unobtrusive.adapters.add('Number' , function (options) {
+                        options.rules['NumberMethod']    = true;
+                        options.messages['NumberMethod'] = options.message;
+                    });
+                },
+                Init : function() {
+                    var $this = this;
+
+                    $this.AddMethod();
+
+                    
+
+                    if ( $this.Element.validate !== undefined ) {
+                        // if ( typeof( agElem('.ng-controller').scope().validate ) !== 'undefined' && agElem('.ng-controller').scope().validate.isaddMethod !== undefined ) {
+                        //     agElem('.ng-controller').scope().validate.isaddMethod();
+                        // }
+
+                        // $this.Element.data('validator').settings.errorClass = $this.ErrorClass;
+                        // $this.Element.data('validator').settings.validClass = $this.ValidClass;
+                        // $this.Element.data('validator').settings.focusCleanup = true;
+                        $this.Element.data('validator').settings.submitHandler = function (form) {
+                            // alert(0);
+                        //     if ( ! jQuery(this.submitButton).hasClass('is-disable') ) {
+                        //         jQuery('.ng-controller').scope().validate.isubmit(form , this.submitButton);
+                                return false;
+                        //     }
+                        //     // if ( typeof( agElem('.ng-controller').scope().validate ) !== 'undefined' && agElem('.ng-controller').scope().validate.isubmit !== undefined ) {
+                                
+                        //     // }
+                        };
+
+
+                        $this.Element.data('validator').settings.errorPlacement = function(error , element) {
+                            if ( element[0].nodeName === 'SELECT' ) {
+                                jQuery(element).parent().addClass($this.ErrorClass);
+                            }
+                        };
+
+                        // $this.Element.data('validator').settings.onfocusin = function(element) {
+                        //     console.log(element);
+                        // }
+
+                        // $this.Element.data('validator').settings.invalidHandler = function(error , element) {
+                        //     console.log(error);
+                        //     console.log(element);
+                        // }
+                    }
+
+                    // console.log($this.Element.data('validator').settings);
+
+                    $this.Unobtrusive();
+                },
+                Unobtrusive : function() {
+                    var $this = this;
+
+                    $this.Element.removeData('validator');
+                    jQuery.validator.unobtrusive.parse($this.Element);
                 }
             }
         }

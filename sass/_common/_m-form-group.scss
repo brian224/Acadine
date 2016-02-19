@@ -1,0 +1,106 @@
+.m-form-group {
+    position : relative;
+    @include box-sizing(border-box);
+}
+
+.m-form-group-list {
+    > ul {
+        @include clearfix;
+    }
+}
+
+.m-form-item {
+    @include box-sizing(border-box);
+}
+
+@include respond-to(Desktops) {
+    .m-form-group-list {
+        > ul {
+            &:first-child {
+                margin-top : -20px;
+            }
+
+            > li {
+                margin-top : 20px;
+
+                > .m-form-addon {
+                    padding-left : 10px;
+
+                    &:first-child {
+                        padding-right : 10px;
+                        padding-left  : 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include respond-to(Desktops-Tablets) {
+    .m-form-group-list {
+        > ul {
+            > li {
+                @include display(table);
+
+                > .m-form-addon {
+                    width        : 1%;
+                    white-space  : nowrap;
+                    @include display(table-cell);
+                }
+
+                > .m-form-item {
+                    width : 100%;
+                    @include display(table);
+                }
+            }
+        }
+    }
+}
+
+@include respond-to(Tablets) {}
+
+@include respond-to(Tablets-Mobiles) {
+    .m-form-group-list {
+        > ul {
+            &:first-child {
+                margin-top : -15px;
+            }
+
+            > li {
+                margin-top : 15px;
+                
+                > .m-form-addon {
+                    padding-left : 8px;
+
+                    &:first-child {
+                        padding-right : 8px;
+                        padding-left  : 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include respond-to(Mobiles) {
+    .m-form-group-list {
+        > ul {
+            &:first-child {
+                margin-top : -10px;
+            }
+
+            > li {
+                margin-top : 10px;
+                
+                > .m-form-addon {
+                    padding-left : 5px;
+
+                    &:first-child {
+                        padding-right : 5px;
+                        padding-left  : 0;
+                    }
+                }
+            }
+        }
+    }
+}

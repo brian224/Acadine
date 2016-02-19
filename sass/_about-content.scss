@@ -17,7 +17,7 @@
         &:after {
             height : 0%;
             @include display(block);
-            @include transition((top $transition-times , height $transition-times));
+            @include transition((top ($transition-times * 2.5) , height ($transition-times * 2.5)) , ($transition-times / 3));
         }
     }
 
@@ -70,7 +70,7 @@
         > .b-h2 , > .b-p {
             position : relative;
             @include opacity(0);
-            @include transition((top $transition-times , opacity $transition-times));
+            @include transition((top ($transition-times * 2.5) , opacity ($transition-times * 2.5)) , ($transition-times / 3));
         }
     }
 }
@@ -119,6 +119,11 @@
 
 .about-team {
     background : image-url('about/poster-03.jpg') no-repeat center center;
+
+    .m-slider-media {
+        margin    : 0 auto;
+        max-width : 135px;
+    }
 }
 
 .about-info {

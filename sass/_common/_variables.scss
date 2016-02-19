@@ -61,11 +61,12 @@ $color-black      : #000;
 $color-green      : #99CC33;
 $color-blue       : $minor-color;
 $color-skyblue    : #0BD;
-$color-waterblue  : #5eb7e8;
+$color-waterblue  : #399fd7;
 $color-gary       : $text-minor-color;
 $color-light-gary : #F4F4F4;
 $color-orange     : #F52;
 $color-purple     : #5f67ae;
+$color-warning    : #F00;
 /*$color-primary    : #F44;*/
 
 /* App Icon 顏色 */
@@ -86,6 +87,7 @@ $color : (
     'light-gary'   : $color-light-gary,
     'orange'       : $color-orange,
     'primary'      : $minor-color,
+    'warning'      : $color-warning,
     'purple'       : $color-purple,
     'info'         : $color-info,
     'success'      : $color-green,

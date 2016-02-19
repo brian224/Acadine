@@ -1,18 +1,18 @@
 .m-aside-hd {
+    font-size   : 25px;
+    color       : $color-white;
+    line-height : 50px;
     background  : $major-color;
     position    : relative;
-    overflow    : hidden;
-    color       : $color-white;
-    font-size   : 25px;
-    line-height : 50px;
+    @include clearfix;
 
     &:after {
-        content    : '';
-        background : rgba(255, 255, 255, 0.3);
-        display    : block;
+        content    : "";
+        background : rgba($color-white , 0.3);
         width      : 110%;
         position   : absolute;
         right      : 0;
+        @include display(block);
         @include rotate(-3.5deg);
     }
 }
@@ -20,9 +20,9 @@
 
 @include respond-to(Desktops) {
     .m-aside-hd:after {
-        height : 20px;
-        bottom : -11px;
         right  : 0;
+        bottom : -11px;
+        height : 20px;
     }
 }
 
@@ -30,9 +30,9 @@
 
 @include respond-to(Tablets) {
     .m-aside-hd:after {
-        height : 40px;
-        bottom : -31px;
         right  : -10px;
+        bottom : -31px;
+        height : 40px;
     }
 }
 
