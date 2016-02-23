@@ -1,0 +1,55 @@
+.l-body_ {
+    position : relative;
+}
+
+.l-header_ {
+    top        : 0;
+    left       : 0;
+    width      : 100%;
+    height     : $header-height_;
+    z-index    : 10;
+    @include fixed;
+    @include box-sizing(border-box);
+    @include box-shadow(0 1px 5px rgba(#000 , .25));
+}
+
+.l-main_ {
+    margin-top : $header-height_;
+    position   : relative;
+
+    &.is-nav-left {
+        margin-left : $side-width_;    
+
+        .l-nav_ {
+            left               : 0;
+            border-right-width : 1px;
+        }
+    }
+
+    &.is-nav-right {
+        margin-right : $side-width_;
+
+        .l-nav_ {
+            right             : 0;
+            border-left-width : 1px;
+        }
+    }
+}
+
+.l-content_ {
+    padding  : 25px;
+    position : relative;
+    @include clearfix;
+}
+
+.l-nav_ {
+    top          : 0;
+    bottom       : 0;
+    padding-top  : $header-height_;
+    width        : $side-width_;
+    height       : 100%;
+    border-right : 0 solid lighten($border-major-color , 45%);
+    position     : fixed;
+    z-index      : 5;
+    @include box-sizing(border-box);
+}

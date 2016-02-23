@@ -46,7 +46,7 @@ html , body {
         height     : 8px;
         background : $color-white;
         position   : absolute;
-        @inlcude clearfix;
+        @include clearfix;
         @include display(block);
         @include border-radius(50%);
         @include box-shadow(rgba($color-white , .75) 0 0 10px);

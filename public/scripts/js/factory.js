@@ -74,6 +74,19 @@
                     } , 150);
                 }
             },
+            Accordion : {
+                Element : jQuery('.jQ-accordion'),
+                OnClick : function(Element) {
+                    var $this      = this;
+                    var $className = $this.Element.data('active');
+
+                    if ( Projects.Factory.UserAgent !== 'Mobile' ) {
+                        jQuery(Element).parent().toggleClass($className).siblings().removeClass($className);
+                    } else {
+                        jQuery(Element).parent().toggleClass($className);
+                    }
+                }
+            },
             MCustomScrollbar : {
                 Init : function(Element , CallBack) {
                     if ( Projects.Factory.UserAgent === 'PC' ) {
@@ -98,10 +111,23 @@
                 }
             },
             SliceBox : {
-                SliceBox : null,
-                Video    : null,
-                Times    : 5000,
-                SetTimer : null,
+                Video     : jQuery('<video type="video/mp4"></video>'),
+                VideoElem : null,
+                Index     : null,
+                SliceBox  : null,
+                Times     : 5000,
+                SetTimer  : null,
+                GetVideo : function() {
+                    for ( var i = 0 , $elem = jQuery('.jQ-media') ; i < $elem.length ; i ++ ) {
+                        if ( $elem.eq(i).data('video') ) {
+                            $elem.eq(i).replaceWith(jQuery('<button class="'+ $elem.eq(i).attr('class') +'" data-video="'+ $elem.eq(i).data('video') +'">' + $elem.eq(i).html() + '</button>'));
+
+                            if ( Projects.Factory.UserAgent !== 'PC' ) {
+                                $elem.eq(i).find('> *:first').addClass(jQuery('.jQ-slider-3D').data('tablet'));
+                            }
+                        }
+                    };
+                },
                 Init : function(Element) {
                     var $this = this;
 
@@ -109,65 +135,78 @@
                         orientation   : 'h',
                         cuboidsCount  : 1,
                         onReady       : function() {
-                            $this.IsVideo(Element , 0);
+                            $this.VideoElem = jQuery(Element).find('.jQ-media').eq(0);
+                            $this.IsVideo();
                         },
-                        onBeforeChange : function() {
-                        },
+                        onBeforeChange : function(Index) {},
                         onAfterChange : function(Index) {
-                            $this.IsVideo(Element , Index);
+                            $this.VideoElem = jQuery(Element).find('.jQ-media').eq(Index);
+                            $this.IsVideo();
                         }
                     });
                 },
-                IsVideo : function(Element , Index) {
+                IsVideo : function() {
                     var $this = this;
 
-                    if ( Projects.Factory.UserAgent === 'PC' ) {
-                        window.clearTimeout($this.SetTimer);
+                    window.clearTimeout($this.SetTimer);
 
-                        if ( jQuery(Element).find('.m-slider-item').eq(Index).find('.m-slider-media').find('> *:first')[0].nodeName === 'VIDEO' ) {
-                            $this.Video = jQuery(Element).find('.m-slider-item').eq(Index).find('.m-slider-media').find('> *:first')[0];
-                            $this.Play();
-                            $this.Ended();
-                        } else {
-                            if ( $this.Video !== null ) {
-                                $this.Pause();
-                            }
-
-                            $this.SetTimer = setTimeout(function(){
-                                $this.Next();
-                            } , $this.Times);
-                        }    
-                    }
+                    $this.SetTimer = setTimeout(function(){
+                        $this.Next();
+                    } , $this.Times);
                 },
                 Play : function() {
                     var $this = this;
 
-                    $this.Video.play();
+                    $this.Video[0].play();
                 },
                 Pause : function() {
                     var $this = this;
 
-                    $this.Video.pause();
-                    $this.Video.currentTime = '0';
+                    $this.Video[0].pause();
+                    $this.Video[0].currentTime = '0';
                 },
                 Ended : function() {
                     var $this = this;
 
-                    $this.Video.addEventListener('ended' , function(){
+                    $this.Video[0].addEventListener('ended' , function(){
                         $this.Next();
                     } , false);
                 },
-                Prev : function(Element) {
+                Prev : function() {
                     var $this = this;
 
+                    $this.RemoveVideo();
                     $this.SliceBox.previous();
                     return false;
                 },
-                Next : function(Element) {
+                Next : function() {
                     var $this = this;
 
+                    $this.RemoveVideo();
                     $this.SliceBox.next();
                     return false;
+                },
+                RemoveVideo : function () {
+                    var $this = this;
+
+                    if ( $this.VideoElem.data('video') && $this.VideoElem.find($this.Video[0]) ) {
+                        $this.VideoElem.find($this.Video[0]).remove();
+                        $this.VideoElem.removeClass(jQuery('.jQ-slider-3D').data('hide'));
+                    }
+                },
+                OnClick : function(Element) {
+                    var $this = this;
+
+                    if ( jQuery(Element).data('video') && jQuery(Element).find('video').length === 0 ) {
+                        jQuery(Element).addClass(jQuery('.jQ-slider-3D').data('hide'));
+
+                        window.clearTimeout($this.SetTimer);
+
+                        $this.Video.prependTo(jQuery(Element));
+                        $this.Video[0].src = jQuery(Element).data('video');
+                        $this.Play();
+                        $this.Ended();
+                    }
                 }
             },
             OwlCarousel : {
@@ -297,8 +336,6 @@
             },
             ValiDate : {
                 Element : jQuery('#form'),
-                ErrorClass : 'is-error',
-                // ValidClass : 'is-success',
                 AddMethod : function() {
                     /*  number checked */
                     jQuery.validator.addMethod('NumberMethod' , function (value, elem, params) {
@@ -314,49 +351,25 @@
                 Init : function() {
                     var $this = this;
 
-                    $this.AddMethod();
-
-                    
-
                     if ( $this.Element.validate !== undefined ) {
+                        
                         // if ( typeof( agElem('.ng-controller').scope().validate ) !== 'undefined' && agElem('.ng-controller').scope().validate.isaddMethod !== undefined ) {
                         //     agElem('.ng-controller').scope().validate.isaddMethod();
                         // }
-
-                        // $this.Element.data('validator').settings.errorClass = $this.ErrorClass;
-                        // $this.Element.data('validator').settings.validClass = $this.ValidClass;
-                        // $this.Element.data('validator').settings.focusCleanup = true;
-                        $this.Element.data('validator').settings.submitHandler = function (form) {
-                            // alert(0);
-                        //     if ( ! jQuery(this.submitButton).hasClass('is-disable') ) {
-                        //         jQuery('.ng-controller').scope().validate.isubmit(form , this.submitButton);
-                                return false;
-                        //     }
-                        //     // if ( typeof( agElem('.ng-controller').scope().validate ) !== 'undefined' && agElem('.ng-controller').scope().validate.isubmit !== undefined ) {
+                        // $this.Element.data('validator').settings.submitHandler = function (form) {
+                        //     alert(0);
+                        // //     if ( ! jQuery(this.submitButton).hasClass('is-disable') ) {
+                        // //         jQuery('.ng-controller').scope().validate.isubmit(form , this.submitButton);
+                        //         return false;
+                        // //     }
+                        // //     // if ( typeof( agElem('.ng-controller').scope().validate ) !== 'undefined' && agElem('.ng-controller').scope().validate.isubmit !== undefined ) {
                                 
-                        //     // }
-                        };
+                        // //     // }
+                        // };
 
-
-                        $this.Element.data('validator').settings.errorPlacement = function(error , element) {
-                            if ( element[0].nodeName === 'SELECT' ) {
-                                jQuery(element).parent().addClass($this.ErrorClass);
-                            }
-                        };
-
-                        // $this.Element.data('validator').settings.onfocusin = function(element) {
-                        //     console.log(element);
-                        // }
-
-                        // $this.Element.data('validator').settings.invalidHandler = function(error , element) {
-                        //     console.log(error);
-                        //     console.log(element);
-                        // }
+                        $this.AddMethod();
+                        $this.Unobtrusive();
                     }
-
-                    // console.log($this.Element.data('validator').settings);
-
-                    $this.Unobtrusive();
                 },
                 Unobtrusive : function() {
                     var $this = this;

@@ -115,7 +115,7 @@ h3 , .b-h3 , h4 , .b-h4 {
 }
 
 /* row */
-.b-row {
+.b-row , [class^="b-row-"] , [class*=" b-row-"] {
     @include clearfix;
 
     &.b-clearfix {

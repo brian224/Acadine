@@ -90,13 +90,15 @@
     position : relative;
 
     @at-root {
-        a#{&} {
+        a#{&} , button#{&} {
             &:before , &:after {
                 content  : "";
                 top      : 50%;
                 left     : 50%;
                 position : absolute;
                 @include clearfix;
+                @include opacity(1);
+                @include transition(opacity $transition-times);
             }
 
             &:before {
@@ -114,6 +116,12 @@
                 border-style : solid;
                 border-color : transparent transparent transparent $color-white;
                 z-index      : 5;
+            }
+
+            &.is-hide {
+                &:before , &:after {
+                    @include opacity(0);
+                }
             }
         }
     }
@@ -196,8 +204,10 @@
     .m-slider-media {
         video {
             left        : 50%;
-            margin-left : -50%;
+            margin-left : -12.5%;
+            width       : 25%;
             height      : 100%;
+            background  : $color-black;
         }
     }
 }
@@ -317,7 +327,7 @@
 @include respond-to(Desktops-Tablets) {
     .m-slider-media {
         @at-root {
-            a#{&} {
+            a#{&} , button#{&} {
                 &:before {
                     margin-top   : -45px;
                     margin-left  : -45px;
@@ -340,6 +350,18 @@
     .m-slider-frame {
         img {
             max-height : 100%;
+        }
+    }
+
+    @include screen('landscape') {
+        .m-slider-media {
+            video {
+                left        : 50%;
+                margin-left : -12.5%;
+                width       : 25%;
+                height      : 100%;
+                background  : $color-black;
+            }
         }
     }
 }
@@ -456,7 +478,7 @@
 
     .m-slider-media {
         @at-root {
-            a#{&} {
+            a#{&} , button#{&} {
                 &:before {
                     margin-top   : -30px;
                     margin-left  : -30px;

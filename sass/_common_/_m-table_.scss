@@ -1,0 +1,44 @@
+.m-table_ {
+    font-size : 14px;
+    width     : 100%;
+
+    thead {
+        border-top-width    : 1px;
+        border-bottom-width : 1px;
+        border-style        : solid;
+        border-color        : lighten($border-minor-color , 25%);
+        background          : #EEE;
+    }
+
+    tbody {
+        > tr {
+            background-color : transparent;
+            @include transition(background-color $transition-times);
+
+            &:hover {
+                background-color : lighten($border-minor-color , 35%);
+
+                &:nth-child(even) {
+                    background-color : lighten($border-minor-color , 34%);
+                }
+            }
+
+            &:nth-child(even) {
+                background : lighten($border-minor-color , 38%);
+            }
+        }
+    }
+
+    th {
+        font-weight : bold;
+    }
+
+    th , td {
+        padding : 10px;
+        @include box-sizing(border-box);
+
+        &[class^="b-col-"] , &[class*=" b-col-"] {
+            float : none;
+        }
+    }
+}

@@ -1,47 +1,9 @@
-@include respond-to(Desktops) {
-    .l-main-hd {
-        .m-slider {
-            height     : 75vh;
-            min-height : 620px;
-            max-height : 720px;
-        }
-
-        .m-slider-caption {
-            .b-h2 {
-                font-size : 65px;
-            }
-        }
-    }
-
-    .l-main-bd {
-        .m-slider-arrow {
-            margin-top : -80px;
-        }    
-    }
-}
+@include respond-to(Desktops) {}
 
 @include respond-to(Desktops-Tablets) {}
 
 @include respond-to(Tablets) {}
 
-@include respond-to(Tablets-Mobiles) {
-    .l-main-hd {
-        .m-slider {
-            height : 600px;
-        }
-    }
+@include respond-to(Tablets-Mobiles) {}
 
-    .l-main-bd {
-        .m-slider-arrow {
-            margin-top : -55px;
-        }    
-    }
-}
-
-@include respond-to(Mobiles) {
-    .l-main-hd {
-        .m-slider {
-            height : 480px;
-        }
-    }
-}
+@include respond-to(Mobiles) {}

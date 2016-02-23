@@ -175,8 +175,9 @@
                 background : rgba($major-color , .95);
                 position   : absolute;
                 z-index    : 1;
+                @include clearfix;
                 @include backface-visibility(hidden);
-                @include transform-style(preserve-3d);
+                @include transform-style(flat);
                 @include transform-origin(center , center);
                 @include transform(perspective(320px) rotateY(40deg));
                 @include transition((top $transition-times , height $transition-times));
@@ -186,6 +187,7 @@
                 margin-top : 10px;
                 position   : relative;
                 z-index    : 2;
+                @include translateZ(1000px);
 
                 &:first-child {
                     margin-top : 0;
@@ -208,6 +210,14 @@
                 > a {
                     padding-top    : 10px;
                     padding-bottom : 10px;
+                    position       : relative;
+                    z-index        : 10;
+                    @include translateZ(1000px);
+
+                    > em {
+                        @include display(block);
+                        @include translateZ(1000px);
+                    }
                 }
             }
         }

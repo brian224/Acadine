@@ -11,6 +11,16 @@
 
 .m-form-item {
     @include box-sizing(border-box);
+
+    .m-form {
+        &.m-form-control {
+            margin-bottom : 0;
+        }
+    }
+
+    .m-form-select {
+        margin-bottom : 0;
+    }
 }
 
 @include respond-to(Desktops) {
@@ -22,6 +32,10 @@
 
             > li {
                 margin-top : 20px;
+
+                > *:not([class^="m-form-"]):not([class*=" m-form-"]) {
+                    margin-bottom : 5px;
+                }
 
                 > .m-form-addon {
                     padding-left : 10px;
@@ -68,6 +82,10 @@
 
             > li {
                 margin-top : 15px;
+
+                > *:not([class^="m-form-"]):not([class*=" m-form-"]) {
+                    margin-bottom : 3px;
+                }
                 
                 > .m-form-addon {
                     padding-left : 8px;
@@ -91,6 +109,10 @@
 
             > li {
                 margin-top : 10px;
+
+                > *:not([class^="m-form-"]):not([class*=" m-form-"]) {
+                    margin-bottom : 5px;
+                }
                 
                 > .m-form-addon {
                     padding-left : 5px;

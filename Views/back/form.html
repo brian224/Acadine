@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+    <title>Admin Basic</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/public/img/common/favicon.ico">
+    <link rel="stylesheet" href="/public/scripts/plugin/malihu.custom.scrollbar/jquery.mCustomScrollbar.css?CSS=20160122_01">
+    <link rel="stylesheet" href="/public/css/reset.css?CSS=20160122_01">
+    <link rel="stylesheet" href="/public/css/style_.css?CSS=20160122_01">
+</head>
+<body>
+    <div class="l-body_">
+        <div class="l-header_">
+            <header class="m-header_">
+                <h1>ACADINE</h1>
+                <div class="m-header-logo_">
+                    <i class="m-icon m-icon-logo"></i>
+                </div>
+                <div class="m-header-tools_">
+                    <em>Administrator Site</em>
+                </div>
+            </header>
+        </div>
+        <div class="l-main_ is-nav-left">
+            <div class="l-content_">
+                <!-- ==================== breadcrumb_ begin ==================== -->
+                <ol class="m-breadcrumb_ b-clearfix_">
+                    <li class="m-icon_ m-icon-breadcrumb-right_">
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li class="m-icon_ m-icon-breadcrumb-right_">
+                        <em>UI</em>
+                    </li>
+                    <li class="m-icon_ m-icon-breadcrumb-right_">
+                        <em>Forms</em>
+                    </li>
+                </ol>
+                <!-- ==================== breadcrumb_ end ==================== -->
+
+                <!-- ==================== section begin ==================== -->
+                <section class="m-section_">
+                    <header class="m-section-hd_">
+                        <h2 class="b-h2_">Forms</h2>
+                    </header>
+                    <ul class="m-section-bd_">
+                        <li>
+                            <h6 class="b-h6_">Input Type</h6>
+                            <p class="b-p_">使用 .m-form_ .m-form-ctrl_ 來設定 input 的樣式</p>
+                            <table class="m-table_">
+                                <thead>
+                                    <tr>
+                                        <th class="b-col-2_ b-text-center_">Type</th>
+                                        <th class="b-col-6_ b-text-center_">Element</th>
+                                        <th class="b-col-4_ b-text-center_">Return</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="b-text-center_">text</td>
+                                        <td>
+                                            <ul class="m-pretty_">
+                                                <li>
+                                                    <span class="is-tag">&lt;input</span>
+                                                    <span class="is-atn">&nbsp;type=</span>
+                                                    <span class="is-atv">"text"</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form_ m-form-ctrl_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <input type="text" class="m-form_ m-form-ctrl_">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="b-text-center_">email</td>
+                                        <td>
+                                            <ul class="m-pretty_">
+                                                <li>
+                                                    <span class="is-tag">&lt;input</span>
+                                                    <span class="is-atn">&nbsp;type=</span>
+                                                    <span class="is-atv">"email"</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form_ m-form-ctrl_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <input type="email" class="m-form_ m-form-ctrl_">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="b-text-center_">number</td>
+                                        <td>
+                                            <ul class="m-pretty_">
+                                                <li>
+                                                    <span class="is-tag">&lt;input</span>
+                                                    <span class="is-atn">&nbsp;type=</span>
+                                                    <span class="is-atv">"number"</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form_ m-form-ctrl_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <input type="number" class="m-form_ m-form-ctrl_">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="b-text-center_">tel</td>
+                                        <td>
+                                            <ul class="m-pretty_">
+                                                <li>
+                                                    <span class="is-tag">&lt;input</span>
+                                                    <span class="is-atn">&nbsp;type=</span>
+                                                    <span class="is-atv">"tel"</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form_ m-form-ctrl_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <input type="tel" class="m-form_ m-form-ctrl_">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="b-text-center_">password</td>
+                                        <td>
+                                            <ul class="m-pretty_">
+                                                <li>
+                                                    <span class="is-tag">&lt;input</span>
+                                                    <span class="is-atn">&nbsp;type=</span>
+                                                    <span class="is-atv">"password"</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form_ m-form-ctrl_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <input type="password" class="m-form_ m-form-ctrl_">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="b-text-center_">search</td>
+                                        <td>
+                                            <ul class="m-pretty_">
+                                                <li>
+                                                    <span class="is-tag">&lt;input</span>
+                                                    <span class="is-atn">&nbsp;type=</span>
+                                                    <span class="is-atv">"search"</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form_ m-form-ctrl_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <input type="search" class="m-form_ m-form-ctrl_">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="b-text-center_">url</td>
+                                        <td>
+                                            <ul class="m-pretty_">
+                                                <li>
+                                                    <span class="is-tag">&lt;input</span>
+                                                    <span class="is-atn">&nbsp;type=</span>
+                                                    <span class="is-atv">"url"</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form_ m-form-ctrl_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <input type="url" class="m-form_ m-form-ctrl_">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="b-text-center_">placeholder</td>
+                                        <td>
+                                            <ul class="m-pretty_">
+                                                <li>
+                                                    <span class="is-tag">&lt;input</span>
+                                                    <span class="is-atn">&nbsp;type=</span>
+                                                    <span class="is-atv">"text"</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form_ m-form-ctrl_"</span>
+                                                    <span class="is-atn">&nbsp;placeholder=</span>
+                                                    <span class="is-atv">"placeholder"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <input type="text" class="m-form_ m-form-ctrl_" placeholder="placeholder">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="b-text-center_">readonly</td>
+                                        <td>
+                                            <ul class="m-pretty_">
+                                                <li>
+                                                    <span class="is-tag">&lt;input</span>
+                                                    <span class="is-atn">&nbsp;type=</span>
+                                                    <span class="is-atv">"text"</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form_ m-form-ctrl_"</span>
+                                                    <span class="is-atn">&nbsp;readonly</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <input type="text" class="m-form_ m-form-ctrl_" readonly value="readonly">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="b-text-center_">disabled</td>
+                                        <td>
+                                            <ul class="m-pretty_">
+                                                <li>
+                                                    <span class="is-tag">&lt;input</span>
+                                                    <span class="is-atn">&nbsp;type=</span>
+                                                    <span class="is-atv">"text"</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form_ m-form-ctrl_"</span>
+                                                    <span class="is-atn">&nbsp;disabled</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <input type="text" class="m-form_ m-form-ctrl_" disabled value="disabled">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li>
+                            <h6 class="b-h6_">checkbox & radio</h6>
+                            <p class="b-p_">使用 .m-form_ 來設定 checkbox & radio 的樣式</p>
+                            <table class="m-table_">
+                                <thead>
+                                    <tr>
+                                        <th class="b-col-2_ b-text-center_">Type</th>
+                                        <th class="b-col-5_ b-text-center_">Element</th>
+                                        <th class="b-col-5_ b-text-center_">Return</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="b-text-center_">checkbox default</td>
+                                        <td>
+                                            <ul class="m-pretty_">
+                                                <li>
+                                                    <span class="is-tag">&lt;div</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form-box_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;label&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;input</span>
+                                                    <span class="is-atn">&nbsp;type=</span>
+                                                    <span class="is-atv">"checkbox"</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;span</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-icon-stack_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;i</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-icon_ m-icon-square-o_"</span>
+                                                    <span class="is-tag">&gt;&lt;/i&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;i</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-icon_ m-icon-check-square-o_"</span>
+                                                    <span class="is-tag">&gt;&lt;/i&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;/span&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;/label&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-tag">&lt;/div&gt;</span>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td class="b-text-center_">
+                                            <div class="m-form-box_">
+                                                <label>
+                                                    <input type="checkbox" class="m-form_">
+                                                    <span class="m-icon-stack_">
+                                                        <i class="m-icon_ m-icon-square-o_"></i>
+                                                        <i class="m-icon_ m-icon-check-square-o_"></i>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="b-text-center_">checkbox text</td>
+                                        <td>
+                                            <ul class="m-pretty_">
+                                                <li>
+                                                    <span class="is-tag">&lt;div</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form-box_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;label&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;input</span>
+                                                    <span class="is-atn">&nbsp;type=</span>
+                                                    <span class="is-atv">"checkbox"</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;span</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-icon-stack_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;i</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-icon_ m-icon-square-o_"</span>
+                                                    <span class="is-tag">&gt;&lt;/i&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;i</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-icon_ m-icon-check-square-o_"</span>
+                                                    <span class="is-tag">&gt;&lt;/i&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;/span&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;em</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form-addon_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                    <span>checkbox</span>
+                                                    <span class="is-tag">&lt;/em&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;/label&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-tag">&lt;/div&gt;</span>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td class="b-text-center_">
+                                            <div class="m-form-box_">
+                                                <label>
+                                                    <input type="checkbox" class="m-form_">
+                                                    <span class="m-icon-stack_">
+                                                        <i class="m-icon_ m-icon-square-o_"></i>
+                                                        <i class="m-icon_ m-icon-check-square-o_"></i>
+                                                    </span>
+                                                    <em class="m-form-addon_">checkbox</em>
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="b-text-center_">checkbox disabled</td>
+                                        <td>
+                                            <ul class="m-pretty_">
+                                                <li>
+                                                    <span class="is-tag">&lt;div</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form-box_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;label&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;input</span>
+                                                    <span class="is-atn">&nbsp;type=</span>
+                                                    <span class="is-atv">"checkbox"</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form_"</span>
+                                                    <span class="is-atn">&nbsp;disabled</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;span</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-icon-stack_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;i</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-icon_ m-icon-square-o_"</span>
+                                                    <span class="is-tag">&gt;&lt;/i&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;i</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-icon_ m-icon-check-square-o_"</span>
+                                                    <span class="is-tag">&gt;&lt;/i&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;/span&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;em</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form-addon_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                    <span>checkbox</span>
+                                                    <span class="is-tag">&lt;/em&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;/label&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-tag">&lt;/div&gt;</span>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td class="b-text-center_">
+                                            <div class="m-form-box_">
+                                                <label>
+                                                    <input type="checkbox" class="m-form_" disabled>
+                                                        <span class="m-icon-stack_">
+                                                            <i class="m-icon_ m-icon-square-o_"></i>
+                                                            <i class="m-icon_ m-icon-check-square-o_"></i>
+                                                        </span>
+                                                        <em class="m-form-addon_">checkbox</em>
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="b-text-center_">radio default</td>
+                                        <td>
+                                            <ul class="m-pretty_">
+                                                <li>
+                                                    <span class="is-tag">&lt;div</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form-box_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;label&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;input</span>
+                                                    <span class="is-atn">&nbsp;type=</span>
+                                                    <span class="is-atv">"radio"</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;span</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-icon-stack_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;i</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-icon_ m-icon-dot-circle_"</span>
+                                                    <span class="is-tag">&gt;&lt;/i&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;i</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-icon_ m-icon-dot-circle-o_"</span>
+                                                    <span class="is-tag">&gt;&lt;/i&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;/span&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;/label&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-tag">&lt;/div&gt;</span>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td class="b-text-center_">
+                                            <div class="m-form-box_">
+                                                <label>
+                                                    <input type="radio" class="m-form_">
+                                                    <span class="m-icon-stack_">
+                                                        <i class="m-icon_ m-icon-dot-circle_"></i>
+                                                        <i class="m-icon_ m-icon-dot-circle-o_"></i>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="b-text-center_">radio text</td>
+                                        <td>
+                                            <ul class="m-pretty_">
+                                                <li>
+                                                    <span class="is-tag">&lt;div</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form-box_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;label&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;input</span>
+                                                    <span class="is-atn">&nbsp;type=</span>
+                                                    <span class="is-atv">"radio"</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;span</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-icon-stack_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;i</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-icon_ m-icon-dot-circle_"</span>
+                                                    <span class="is-tag">&gt;&lt;/i&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;i</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-icon_ m-icon-dot-circle-o_"</span>
+                                                    <span class="is-tag">&gt;&lt;/i&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;/span&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;em</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form-addon_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                    <span>radio</span>
+                                                    <span class="is-tag">&lt;/em&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;/label&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-tag">&lt;/div&gt;</span>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td class="b-text-center_">
+                                            <div class="m-form-box_">
+                                                <label>
+                                                    <input type="radio" class="m-form_">
+                                                    <span class="m-icon-stack_">
+                                                        <i class="m-icon_ m-icon-dot-circle_"></i>
+                                                        <i class="m-icon_ m-icon-dot-circle-o_"></i>
+                                                    </span>
+                                                    <em class="m-form-addon_">radio</em>
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="b-text-center_">radio disabled</td>
+                                        <td>
+                                            <ul class="m-pretty_">
+                                                <li>
+                                                    <span class="is-tag">&lt;div</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form-box_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;label&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;input</span>
+                                                    <span class="is-atn">&nbsp;type=</span>
+                                                    <span class="is-atv">"radio"</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form_"</span>
+                                                    <span class="is-atn">&nbsp;disabled</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;span</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-icon-stack_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;i</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-icon_ m-icon-dot-circle_"</span>
+                                                    <span class="is-tag">&gt;&lt;/i&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;i</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-icon_ m-icon-dot-circle-o_"</span>
+                                                    <span class="is-tag">&gt;&lt;/i&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;/span&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;em</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form-addon_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                    <span>radio</span>
+                                                    <span class="is-tag">&lt;/em&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;/label&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-tag">&lt;/div&gt;</span>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td class="b-text-center_">
+                                            <div class="m-form-box_">
+                                                <label>
+                                                    <input type="radio" class="m-form_" disabled>
+                                                    <span class="m-icon-stack_">
+                                                        <i class="m-icon_ m-icon-dot-circle_"></i>
+                                                        <i class="m-icon_ m-icon-dot-circle-o_"></i>
+                                                    </span>
+                                                    <em class="m-form-addon_">radio</em>
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li>
+                            <h6 class="b-h6_">Select</h6>
+                            <p class="b-p_">使用 .m-form_ .m-form-ctrl_ 來設定 select 的樣式</p>
+                            <table class="m-table_">
+                                <thead>
+                                    <tr>
+                                        <th class="b-col-2_ b-text-center_">Type</th>
+                                        <th class="b-col-5_ b-text-center_">Element</th>
+                                        <th class="b-col-5_ b-text-center_">Return</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="b-text-center_">default</td>
+                                        <td>
+                                            <ul class="m-pretty_">
+                                                <li>
+                                                    <span class="is-tag">&lt;div</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form-select_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;select</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form_ m-form-ctrl_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;option</span>
+                                                    <span class="is-atn">&nbsp;value=</span>
+                                                    <span class="is-atv">"0"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                    <span>0</span>
+                                                    <span class="is-tag">&lt;/option&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;option</span>
+                                                    <span class="is-atn">&nbsp;value=</span>
+                                                    <span class="is-atv">"1"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                    <span>1</span>
+                                                    <span class="is-tag">&lt;/option&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;option</span>
+                                                    <span class="is-atn">&nbsp;value=</span>
+                                                    <span class="is-atv">"2"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                    <span>2</span>
+                                                    <span class="is-tag">&lt;/option&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;/select&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-tag">&lt;/div&gt;</span>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <div class="m-form-select_">
+                                                <select class="m-form_ m-form-ctrl_">
+                                                    <option value="0">0</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="b-text-center_">disabled</td>
+                                        <td>
+                                            <ul class="m-pretty_">
+                                                <li>
+                                                    <span class="is-tag">&lt;div</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form-select_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;select</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form_ m-form-ctrl_"</span>
+                                                    <span class="is-atn">&nbsp;disabled</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;option</span>
+                                                    <span class="is-atn">&nbsp;value=</span>
+                                                    <span class="is-atv">"0"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                    <span>0</span>
+                                                    <span class="is-tag">&lt;/option&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;option</span>
+                                                    <span class="is-atn">&nbsp;value=</span>
+                                                    <span class="is-atv">"1"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                    <span>1</span>
+                                                    <span class="is-tag">&lt;/option&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;option</span>
+                                                    <span class="is-atn">&nbsp;value=</span>
+                                                    <span class="is-atv">"2"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                    <span>2</span>
+                                                    <span class="is-tag">&lt;/option&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;/select&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-tag">&lt;/div&gt;</span>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <div class="m-form-select_">
+                                                <select class="m-form_ m-form-ctrl_" disabled>
+                                                    <option value="0">0</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="b-text-center_">option disabled</td>
+                                        <td>
+                                            <ul class="m-pretty_">
+                                                <li>
+                                                    <span class="is-tag">&lt;div</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form-select_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;select</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form_ m-form-ctrl_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;option</span>
+                                                    <span class="is-atn">&nbsp;value=</span>
+                                                    <span class="is-atv">"0"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                    <span>0</span>
+                                                    <span class="is-tag">&lt;/option&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;option</span>
+                                                    <span class="is-atn">&nbsp;value=</span>
+                                                    <span class="is-atv">"1"</span>
+                                                    <span class="is-atn">&nbsp;disabled</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                    <span>1</span>
+                                                    <span class="is-tag">&lt;/option&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;option</span>
+                                                    <span class="is-atn">&nbsp;value=</span>
+                                                    <span class="is-atv">"2"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                    <span>2</span>
+                                                    <span class="is-tag">&lt;/option&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-pln"></span>
+                                                    <span class="is-tag">&lt;/select&gt;</span>
+                                                </li>
+                                                <li>
+                                                    <span class="is-tag">&lt;/div&gt;</span>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <div class="m-form-select_">
+                                                <select class="m-form_ m-form-ctrl_">
+                                                    <option value="0">0</option>
+                                                    <option value="1" disabled>1</option>
+                                                    <option value="2">2</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li>
+                            <h6 class="b-h6_">Textarea</h6>
+                            <p class="b-p_">使用 .m-form_ .m-form-ctrl_ 來設定 textarea 的樣式</p>
+                            <table class="m-table_">
+                                <thead>
+                                    <tr>
+                                        <th class="b-col-2_ b-text-center_">Type</th>
+                                        <th class="b-col-5_ b-text-center_">Element</th>
+                                        <th class="b-col-5_ b-text-center_">Return</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="b-text-center_">default</td>
+                                        <td>
+                                            <ul class="m-pretty_">
+                                                <li>
+                                                    <span class="is-tag">&lt;textarea</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form_ m-form-ctrl_"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                    <span class="is-tag">&lt;/textarea&gt;</span>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <textarea class="m-form_ m-form-ctrl_"></textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="b-text-center_">resize</td>
+                                        <td>
+                                            <ul class="m-pretty_">
+                                                <li>
+                                                    <span class="is-tag">&lt;textarea</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form_ m-form-ctrl_ is-resize"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                    <span class="is-tag">&lt;/textarea&gt;</span>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <textarea class="m-form_ m-form-ctrl_ is-resize"></textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="b-text-center_">resize Horizontal</td>
+                                        <td>
+                                            <ul class="m-pretty_">
+                                                <li>
+                                                    <span class="is-tag">&lt;textarea</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form_ m-form-ctrl_ is-resize-H"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                    <span class="is-tag">&lt;/textarea&gt;</span>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <textarea class="m-form_ m-form-ctrl_ is-resize-H"></textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="b-text-center_">resize Vertical</td>
+                                        <td>
+                                            <ul class="m-pretty_">
+                                                <li>
+                                                    <span class="is-tag">&lt;textarea</span>
+                                                    <span class="is-atn">&nbsp;class=</span>
+                                                    <span class="is-atv">"m-form_ m-form-ctrl_ is-resize-V"</span>
+                                                    <span class="is-tag">&gt;</span>
+                                                    <span class="is-tag">&lt;/textarea&gt;</span>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <textarea class="m-form_ m-form-ctrl_ is-resize-V"></textarea>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                    </ul>
+                </section>
+                <!-- ==================== section end ==================== -->
+            </div>
+            <div class="l-nav_">
+                <nav class="m-nav_ jQ-nav" data-active="is-active">
+                    <span>MENU</span>
+                    <ul>
+                        <li>
+                            <a href="javascript:;" class="jQ-nav-ctrl"><i class="m-icon_ m-icon-dot-circle-o_"></i><em>LAYOUTS</em></a>
+                            <ul>
+                                <li>
+                                    <a href="grids.html">
+                                        <i class="m-icon_ m-icon-circle-o_"></i>
+                                        <i class="m-icon_ m-icon-circle_"></i>
+                                        <em>Grids</em>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="is-active">
+                            <a href="javascript:;" class="jQ-nav-ctrl"><i class="m-icon_ m-icon-dot-circle-o_"></i><em>UI</em></a>
+                            <ul>
+                                <li>
+                                    <a href="form.html" class="is-active">
+                                        <i class="m-icon_ m-icon-circle-o_"></i>
+                                        <i class="m-icon_ m-icon-circle_"></i>
+                                        <em>Form</em>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="form-group.html">
+                                        <i class="m-icon_ m-icon-circle-o_"></i>
+                                        <i class="m-icon_ m-icon-circle_"></i>
+                                        <em>Form Group</em>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</body>
+<script defer type="text/javascript" src="/public/scripts/plugin/jquery/jquery.min.js?JS=20160122_01"></script>
+<script defer type="text/javascript" src="/public/scripts/plugin/malihu.custom.scrollbar/jquery.mCustomScrollbar.concat.min.js?JS=20160122_01"></script>
+<script defer type="text/javascript" src="/public/scripts/js/factory_.js?JS=20160122_01"></script>
+<script defer type="text/javascript" src="/public/scripts/js/common_.js?JS=20160122_01"></script>
+</html>

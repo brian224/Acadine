@@ -47,8 +47,8 @@
         width       : 100%;
         position    : relative;
         z-index     : 2;
+        @include translateZ(1000px);
         @include box-sizing(border-box);
-        @include transform(perspective(0) rotateY(0deg));
 
         > .b-p {
             word-wrap  : break-word;

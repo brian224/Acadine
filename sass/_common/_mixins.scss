@@ -150,7 +150,7 @@
 
 @mixin font-min-size( $size ) {
 	font-size         : #{$size}px;
-	-webkit-transform :scale(($size / 12));
+	-webkit-transform : scale(($size / 12));
 }
 
 /* touch-action */
@@ -175,10 +175,55 @@
 
 /* disabled */
 @mixin disabled {
-	color        : $color-disabled;
-	border-color : lighten($color-disabled , 20%);
-	cursor       : not-allowed;
-	@include text-shadow(#FFF 1px 1px 0);
+	&:disabled {
+		color        : $color-disabled;
+		border-color : lighten($color-disabled , 20%);
+		background   : lighten($color-disabled , 18.5%);
+		cursor       : not-allowed;
+		@include text-shadow(#FFF 1px 1px 0);
+	}
+
+	@at-root {
+		select#{&} {
+			&:read-only {
+				&:disabled {
+					cursor : not-allowed;
+				}
+			}
+		}
+
+		input[type="checkbox"] , input[type="radio"] {
+			&:disabled ~ * {
+				color  : $color-disabled;
+				cursor : not-allowed;
+			}
+		}
+	}
+}
+
+/* readonly */
+@mixin readonly {
+	&:read-only {
+		border-color : lighten($color-disabled , 20%);
+		cursor       : not-allowed;
+	}
+
+	&:-moz-read-only {
+		border-color : lighten($color-disabled , 20%);
+		cursor       : not-allowed;
+	}
+
+	@at-root {
+		select#{&} {
+			&:read-only {
+				cursor : auto;
+			}
+
+			&:-moz-read-only {
+				cursor : auto;
+			}
+		}
+	}
 }
 
 /* button default */
@@ -231,7 +276,13 @@
 /* screen */
 @mixin screen( $screen ) {
 	@if $screen == '4/3' {
-		@media ( max-aspect-ratio : 8/5 ) { @content; }
+		@media ( max-aspect-ratio : 87/50 ) { @content; }
+	} @else if $screen == 'landscape' {
+		/* screen width > height */
+		@media (orientation  : landscape ) { @content; }
+	} @else if $screen == 'portrait' {
+		/* screen width < height */
+		@media (orientation  : portrait ) { @content; }
 	}
 }
 

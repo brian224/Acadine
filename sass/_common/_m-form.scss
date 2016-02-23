@@ -6,6 +6,8 @@
     border      : 0;
     outline     : none;
     position    : relative;
+    @include readonly;
+    @include disabled;
     @include border-radius($form-border-radius);
 
     &.m-form-control {
@@ -31,6 +33,7 @@
                     margin  : 0;
                     padding : 0;
                     width   : 100%;
+                    @include disabled;
                     @include box-sizing(border-box);
                 }
             }
@@ -84,19 +87,25 @@
 .m-form-validate {
     color      : $color-white;
     text-align : left;
-    @inlcude display(block);
+    @include display(block);
+
+    > * {
+        @include display(block);
+    }
 }
 
 @include respond-to(Desktops) {
     .m-form {
         &.m-form-control {
-            padding      : 13px 20px;
-            font-size    : 15px;
-            border-width : 2px;
+            margin-bottom : 3px;
+            padding       : 13px 20px;
+            font-size     : 15px;
+            border-width  : 2px;
             @include box-shadow(rgba($color-black , .15) 2px 2px 3px);
 
             @at-root {
                 select#{&} {
+                    margin-bottom  : 0;
                     padding-top    : 12px;
                     padding-bottom : 12px;
                     padding-right  : 50px;
@@ -110,6 +119,8 @@
     }
 
     .m-form-select {
+        margin-bottom : 3px;
+
         &:before {
             right        : 20px;
             margin-top   : -3px;
@@ -118,8 +129,11 @@
     }
 
     .m-form-validate {
-        margin-top : 5px;
-        font-size  : 15px;
+        font-size : 15px;
+
+        > * {
+            margin-top : 5px;
+        }
     }
 }
 
@@ -130,13 +144,15 @@
 @include respond-to(Tablets-Mobiles) {
     .m-form {
         &.m-form-control {
-            padding      : 9px 15px;
-            font-size    : 14px;
-            border-width : 1px;
+            margin-bottom : 2px;
+            padding       : 9px 15px;
+            font-size     : 14px;
+            border-width  : 1px;
             @include box-shadow(rgba($color-black , .15) 1px 1px 2px);
 
             @at-root {
                 select#{&} {
+                    margin-bottom  : 0;
                     padding-top    : 8px;
                     padding-bottom : 8px;
                     padding-right  : 50px;
@@ -150,6 +166,8 @@
     }
 
     .m-form-select {
+        margin-bottom : 2px;
+
         &:before {
             right        : 15px;
             margin-top   : -2px;
@@ -158,21 +176,26 @@
     }
 
     .m-form-validate {
-        margin-top : 4px;
-        font-size  : 14px;
+        font-size : 14px;
+
+        > * {
+            margin-top : 4px;
+        }
     }
 }
 
 @include respond-to(Mobiles) {
     .m-form {
         &.m-form-control {
-            padding      : 4px 10px;
-            font-size    : 14px;
-            border-width : 1px;
+            margin-bottom : 3px;
+            padding       : 4px 10px;
+            font-size     : 14px;
+            border-width  : 1px;
             @include box-shadow(rgba($color-black , .15) 2px 2px 3px);
 
             @at-root {
                 select#{&} {
+                    margin-bottom  : 0;
                     padding-top    : 3px;
                     padding-bottom : 3px;
                     padding-right  : 30px;
@@ -186,6 +209,8 @@
     }
 
     .m-form-select {
+        margin-bottom : 3px;
+
         &:before {
             right        : 10px;
             margin-top   : -2px;
@@ -194,7 +219,10 @@
     }
 
     .m-form-validate {
-        margin-top : 3px;
-        font-size  : 14px;
+        font-size : 14px;
+
+        > * {
+            margin-top : 3px;
+        }
     }
 }

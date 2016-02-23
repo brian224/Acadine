@@ -17,6 +17,11 @@
         });
     }
 
+    jQuery('.jQ-accordion').on('click' , '.jQ-accordion-ctrl' , function(e){
+        e.preventDefault();
+        Projects.Factory.Accordion.OnClick(this);
+    });
+
     jQuery('.jQ-nav-ctrl').on('click' , function(e){
         e.preventDefault();
         Projects.Factory.Nav.OnClickCtrl();
