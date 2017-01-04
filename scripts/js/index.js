@@ -131,7 +131,20 @@
 		});
 
 		$(indexObj._slideDown).on('click', function(){
-			indexObj.slideCut(1);
+			// indexObj.slideCut(1);
+
+			function success(position) {
+				var latitude  = position.coords.latitude,
+					longitude = position.coords.longitude;
+
+				console.log(latitude + ' , ' + longitude);
+			}
+
+			function error() {
+				alert("Unable to retrieve your location");
+			}
+
+			navigator.geolocation.getCurrentPosition(success, error);
 		});
 
 		$(indexObj._pagination).on('click', indexObj._slideCut, function(){
@@ -146,36 +159,6 @@
 	projects.$d.ready(function(){
 		if ( projects.device() === 'PC' ) {
 			indexObj.mousewheel();
-		} else {
-			if (navigator.geolocation) {
-				var options = {
-						enableHighAccuracy : true,
-						timeout            : 5000,
-						maximumAge         : 0
-					};
-					
-			    navigator.geolocation.getCurrentPosition(function(position) {
-			        console.log(position.coords.latitude, position.coords.longitude);
-			    }, function(error) {
-			        switch (error.code) {
-			            case error.TIMEOUT:
-			                alert('連線逾時');
-			                break;
-			 
-			            case error.POSITION_UNAVAILABLE:
-			                alert('無法取得定位');
-			                break;
-			 
-			            case error.PERMISSION_DENIED://拒絕
-			                alert('想要參加本活動，\n記得允許手機的GPS定位功能喔!');
-			                break;
-			 
-			            case error.UNKNOWN_ERROR:
-			                alert('不明的錯誤，請稍候再試');
-			                break;
-			        }
-			    }, options);
-			}
 		}
 	});
 
