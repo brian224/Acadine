@@ -148,6 +148,12 @@
 			indexObj.mousewheel();
 		} else {
 			if (navigator.geolocation) {
+				var options = {
+						enableHighAccuracy : true,
+						timeout            : 5000,
+						maximumAge         : 0
+					};
+					
 			    navigator.geolocation.getCurrentPosition(function(position) {
 			        console.log(position.coords.latitude, position.coords.longitude);
 			    }, function(error) {
@@ -168,7 +174,7 @@
 			                alert('不明的錯誤，請稍候再試');
 			                break;
 			        }
-			    });
+			    }, options);
 			}
 		}
 	});
