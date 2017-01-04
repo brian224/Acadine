@@ -1,0 +1,8 @@
+.m-youtube {
+	@include opacity(1);
+	@include transition(opacity $transition-times);
+
+	&.is-opacity {
+		@include opacity(0);
+	}
+}

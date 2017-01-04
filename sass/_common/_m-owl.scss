@@ -1,0 +1,119 @@
+.owl-stage-outer {
+	overflow: hidden;
+}
+
+.owl-stage {
+	margin: 0 auto;
+
+	.owl-item {
+		display: inline-block;
+		vertical-align: top;
+	}
+}
+
+.m-owl-ctrl.disabled {
+	display: none;
+}
+
+.m-owl-arrow {
+	position: absolute;
+	cursor: pointer;
+
+	i {
+		margin-top: -6px;
+		display: block;
+		width: 12px;
+		height: 12px;
+		position: absolute;
+		top: 50%;
+		border-bottom: 2px solid $color-white;
+		border-left: 2px solid $color-white;
+		@include box-sizing(border-box);
+	}
+
+	&.is-prev i {
+		margin-left: -4px;
+		left: 50%;
+		@include transform(rotate(45deg));
+	}
+
+	&.is-next i {
+		margin-right: -4px;
+		right: 50%;
+		@include transform(rotate(-135deg));
+	}
+}
+
+.m-owl-dots {
+	&.disabled {
+		display: none;
+	}
+
+	&.is-absolute {
+		position: absolute;
+		bottom: 27px;
+		left: 0;
+		right: 0;
+		text-align: center;
+	}
+
+	.m-owl-dot {
+		display: inline-block;
+		width: 12px;
+		height: 12px;
+		position: relative;
+		cursor: pointer;
+
+		&:hover span, &.active span {
+			background: $color-white;
+		}
+
+		span {
+			margin: -4px 0 0 -4px;
+			display: block;
+			width: 8px;
+			height: 8px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			border-radius: 50%;
+			border: 1px solid $color-white;
+			@include transition(ease-in all 0.3s);
+			@include box-sizing(border-box);
+		}
+	}
+}
+
+.jQ-owl {
+	&.is-light .m-owl-dots .m-owl-dot {
+		&:hover span, &.active span {
+			background: $color-white;
+		}
+
+		span {
+			border: 1px solid $color-white;
+		}
+	}
+
+	&.is-dark .m-owl-dots .m-owl-dot {
+		&:hover span, &.active span {
+			background: $color-gray-d-p30;
+		}
+
+		span {
+			border: 1px solid $color-gray-d-p30;
+		}
+	}
+}
+
+@include respond(Desktops) {}
+
+@include respond(Desktops-Tablets) {}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {
+	.owl-stage .owl-item {
+		/*width: 100% !important;*/
+	}
+}

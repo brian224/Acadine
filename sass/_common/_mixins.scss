@@ -1,68 +1,7 @@
-﻿/* background-vertical-gradient */
-@mixin background-vertical-gradient($startColor , $startPosition , $endColor , $endPosition) {
-	background : $endColor; /* Old browsers */
-	background : -moz-linear-gradient(top, $startColor $startPosition, $endColor $endPosition); /* FF3.6+ */
-	background : -webkit-gradient(linear, left top, left bottom, color-stop($startPosition, $startColor), color-stop($endPosition, $endColor)); /* Chrome,Safari4+ */
-	background : -webkit-linear-gradient(top, $startColor $startPosition, $endColor $endPosition); /* Chrome10+,Safari5.1+ */
-	background : -o-linear-gradient(top, $startColor $startPosition, $endColor $endPosition); /* Opera 11.10+ */
-	background : -ms-linear-gradient(top, $startColor $startPosition, $endColor $endPosition); /* IE10+ */
-	background : linear-gradient(to bottom, $startColor $startPosition, $endColor $endPosition); /* W3C */
-	filter     : progid:DXImageTransform.Microsoft.gradient(startColorstr='#{darken($startColor , 0.15%)}' , endColorstr='#{darken($endColor , 0.15%)}',GradientType=0);
-}
-
-/* background-horizontal-gradient */
-@mixin background-horizontal-gradient($startColor , $startPosition , $endColor , $endPosition) {
-	background : $endColor; /* Old browsers */
-	background : -moz-linear-gradient(left, $startColor $startPosition, $endColor $endPosition); /* FF3.6+ */
-	background : -webkit-gradient(linear, left top, right top, color-stop($startPosition, $startColor), color-stop($endPosition, $endColor)); /* Chrome,Safari4+ */
-	background : -webkit-linear-gradient(left, $startColor $startPosition, $endColor $endPosition); /* Chrome10+,Safari5.1+ */
-	background : -o-linear-gradient(left, $startColor $startPosition, $endColor $endPosition); /* Opera 11.10+ */
-	background : -ms-linear-gradient(left, $startColor $startPosition, $endColor $endPosition); /* IE10+ */
-	background : linear-gradient(to right, $startColor $startPosition, $endColor $endPosition); /* W3C */
-	filter     : progid:DXImageTransform.Microsoft.gradient(startColorstr='#{darken($startColor , 0.15%)}' , endColorstr='#{darken($endColor , 0.15%)}',GradientType=1);
-}
-
-/* transition */
-@mixin transition($transition , $delay : 0) {
-	-webkit-transition                 : $transition;
-	-moz-transition                    : $transition;
-	-ms-transition                     : $transition;
-	-o-transition                      : $transition;
-	transition                         : $transition;
-	-webkit-transition-delay           : $delay;
-	-moz-transition-delay              : $delay;
-	-ms-transition-delay               : $delay;
-	-o-transition-delay                : $delay;
-	transition-delay                   : $delay;
-	-webkit-transition-timing-function : ease;
-	-moz-transition-timing-function    : ease;
-	-ms-transition-timing-function     : ease;
-	-o-transition-timing-function      : ease;
-	transition-timing-function         : ease;
-}
-
-@mixin transition-none {
-	-webkit-transition : none !important;
-	-moz-transition    : none !important;
-	-ms-transition     : none !important;
-	-o-transition      : all 0 ease-in !important;
-	transition         : none !important;
-}
-
-/* fixed */
+﻿/* fixed */
 @mixin fixed {
 	position                   : fixed;
 	-webkit-overflow-scrolling : touch;
-}
-
-/* opacity */
-@mixin opacity($opacity , $important : null) {
-	@if $opacity == 1 {
-		filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false) $important;
-	} @else {
-		filter  : progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity * 100}) $important;
-	}
-	opacity : $opacity $important;
 }
 
 @mixin cursor( $cursor : null ) {
@@ -84,20 +23,53 @@
 }
 
 /* placeholder text */
-@mixin placeholder( $color : $placeholder-color ) {
-	font-family : $font-family;
-
+@mixin placeholder( $color : $color-placeholder ) {
 	&::-moz-placeholder {
 		color   : $color;
-		opacity : 1;
+		@if $color == transparent {
+			@include opacity(0);
+		} @else {
+			@include opacity(1);
+		}
+		
 	}
 
 	&:-ms-input-placeholder {
 		color : $color;
+		@if $color == transparent {
+			@include opacity(0);
+		} @else {
+			@include opacity(1);
+		}
 	}
 
 	&::-webkit-input-placeholder { 
 		color : $color;
+		@if $color == transparent {
+			@include opacity(0);
+		} @else {
+			@include opacity(1);
+		}
+	}
+}
+
+@mixin search-clear($attr : null) {
+	@if $attr == none {
+		&::-ms-clear ,
+		&::-ms-reveal {
+			width   : 0;
+			height  : 0;
+			display : none;
+			@include appearance(none);
+		}
+
+		&::-webkit-search-decoration ,
+		&::-webkit-search-cancel-button ,
+		&::-webkit-search-results-button ,
+		&::-webkit-search-results-decoration {
+			display : none;
+			@include appearance(none);
+		}
 	}
 }
 
@@ -115,6 +87,14 @@
 	&:-webkit-autofill , &:-webkit-autofill:hover , &:-webkit-autofill:focus { 
 		color            : $color;
 		background-color : $background-color;
+	}
+}
+
+@mixin accordion-icon($type : null) {
+	@if $type == plus {
+		content : "\002B";
+	} @else if $type == minus {
+		content : "\2212";
 	}
 }
 
@@ -138,9 +118,7 @@
 	@if $type != block {
 		vertical-align : $vertical;
 		
-		@if $type == table-cell {
-			float : none !important;
-		} @else if $type == table {
+		@if $type == table {
 			table-layout : auto;
 			word-wrap    : break-word;
 			word-break   : break-all;
@@ -150,7 +128,7 @@
 
 @mixin font-min-size( $size ) {
 	font-size         : #{$size}px;
-	-webkit-transform : scale(($size / 12));
+	-webkit-transform :scale(($size / 12));
 }
 
 /* touch-action */
@@ -172,30 +150,50 @@
 	appearance         : $type;
 }
 
+@function stroke($stroke , $color) {
+    $shadow : ();
+    $from   : $stroke*-1;
+    @for $i from $from through $stroke {
+       @for $j from $from through $stroke {
+            $shadow : append($shadow , $i * 1px $j * 1px 0 $color , comma);
+        }
+    }
+    @return $shadow;
+}
+
+@mixin stroke($stroke , $color) {
+    @include text-shadow(stroke($stroke, $color));
+}
 
 /* disabled */
 @mixin disabled {
-	&:disabled {
-		color        : $color-disabled;
-		border-color : lighten($color-disabled , 20%);
-		background   : lighten($color-disabled , 18.5%);
-		cursor       : not-allowed;
-		@include text-shadow(#FFF 1px 1px 0);
+	&:disabled , &[disabled="disabled"] {
+		color  : $color-gray-l-p20 !important;
+		@include cursor(not-allowed);
+		@include text-shadow(rgba($color-white , .75) 1px 1px 0);
 	}
 
 	@at-root {
 		select#{&} {
 			&:read-only {
-				&:disabled {
-					cursor : not-allowed;
+				&:disabled , &[disabled="disabled"] {
+					border-color : lighten($color-gray-l-p20 , 5%);
+					@include cursor(not-allowed);
 				}
 			}
 		}
 
-		input[type="checkbox"] , input[type="radio"] {
-			&:disabled ~ * {
-				color  : $color-disabled;
-				cursor : not-allowed;
+		input#{&} {
+			&:disabled {
+				border-color : lighten($color-gray-l-p20 , 5%);
+				background   : transparent;
+				@include box-shadow(rgba($color-white , .75) 1px 1px 0);
+			}
+
+			&[type="checkbox"] , &[type="radio"] {
+				&:disabled ~ * {
+					color : $color-disabled;
+				}	
 			}
 		}
 	}
@@ -205,22 +203,22 @@
 @mixin readonly {
 	&:read-only {
 		border-color : lighten($color-disabled , 20%);
-		cursor       : not-allowed;
+		@include cursor(not-allowed);
 	}
 
 	&:-moz-read-only {
 		border-color : lighten($color-disabled , 20%);
-		cursor       : not-allowed;
+		@include cursor(not-allowed);
 	}
 
 	@at-root {
 		select#{&} {
 			&:read-only {
-				cursor : auto;
+				@include cursor(auto);
 			}
 
 			&:-moz-read-only {
-				cursor : auto;
+				@include cursor(auto);
 			}
 		}
 	}
@@ -233,17 +231,14 @@
 	font-size      : inherit;
 	border         : 0;
 	border-spacing : 0;
-	line-height    : 1.4;
 	position       : relative;
 	background     : none;
 	outline        : 0;
 	cursor         : pointer;
 	text-indent    : 0;
-	z-index        : 1;
 	text-rendering : auto;
 	text-transform : none;
 	speak          : none;
-	display        : inline-block;
 	@include transform(translate(0, 0));
 	@include touch-action;
 
@@ -252,24 +247,46 @@
 			font-family : $font-family;
 		}
 	}
-
-	> i {
-		line-height : 1;
-	}
 }
 
 /* browsers */
 @mixin browsers($browsers) {
 	@if $browsers == 'IE8' {
-		.IE8 { @content; }
+		@media \0screen { @content; }
+	} @else if $browsers == 'IE9' {
+		@media all and ( min-width : 0\0 ) and ( min-resolution : .001dpcm ) { @content; }
 	} @else if $browsers == 'IE8&IE9' {
-		.IE8 , .IE9 { @content; }
+		@media all and ( min-width : 0\0 ) and ( min-resolution : .001dpcm ) { @content; }
+		@media \0screen { @content; }
 	} @else if $browsers == 'IE' {
 		@media screen\0 { @content; }
+	} @else if $browsers == 'Edge' {
+		@supports ( -ms-ime-align : auto ) { @content; }
 	} @else if $browsers == 'FireFox' {
 		@-moz-document url-prefix() { @content; }
 	} @else if $browsers == 'Chrome' {
-		@media screen and ( -webkit-min-device-pixel-ratio : 0 ) { @content; }
+		@media screen and ( -webkit-min-device-pixel-ratio : 0 ) { 
+			@supports ( not ( -ms-accelerator : true ) ) and ( not ( -moz-appearance : none ) ) { @content; }
+		}
+	}
+}
+
+/* devices */
+@mixin devices( $devices ) {
+	@if $devices == 'l-pad' {
+		@media only screen and ( min-device-width : 1024px ) and ( max-device-width : 1366px ) and ( orientation : landscape ) and ( -webkit-min-device-pixel-ratio : 2 ) { @content; }
+		@media only screen and ( min-device-width : 768px ) and ( max-device-width : 1024px ) and ( orientation : landscape ) { @content; }
+		@media only screen and ( min-device-width : 768px ) and ( max-device-width : 1024px ) and ( orientation : landscape ) and ( -webkit-min-device-pixel-ratio : 2 ) { @content; }
+	} @else if $devices == 'p-pad' {
+		@media only screen and ( min-device-width : 1024px ) and ( max-device-width : 1366px ) and ( orientation : portrait ) and ( -webkit-min-device-pixel-ratio : 2 ) { @content; }
+		@media only screen and ( min-device-width : 768px ) and ( max-device-width : 1024px ) and ( orientation : portrait ) { @content; }
+		@media only screen and ( min-device-width : 768px ) and ( max-device-width : 1024px ) and ( orientation : portrait ) and ( -webkit-min-device-pixel-ratio : 2 ) { @content; }
+	} @else if $devices == 'iphone' {
+		@media only screen and ( min-device-width : 320px ) and ( max-device-width : 359px ) and ( orientation : portrait ) and ( -webkit-min-device-pixel-ratio : 2 ) { @content; }
+		@media only screen and ( device-width : 375px ) and ( orientation : portrait ) and ( -webkit-min-device-pixel-ratio : 2 ) ,
+			   only screen and ( device-width : 667px ) and ( orientation : landscape ) and ( -webkit-min-device-pixel-ratio : 2 ) { @content; }
+		@media only screen and ( device-width : 414px ) and ( orientation : portrait ) and ( -webkit-min-device-pixel-ratio : 3 ) ,
+			   only screen and ( device-width : 736px ) and ( orientation : landscape ) and ( -webkit-min-device-pixel-ratio : 3 ) { @content; }
 	}
 }
 
@@ -277,6 +294,8 @@
 @mixin screen( $screen ) {
 	@if $screen == '4/3' {
 		@media ( max-aspect-ratio : 87/50 ) { @content; }
+	}@if $screen == '2/1' {
+		@media ( min-aspect-ratio : 21/10 ) { @content; }
 	} @else if $screen == 'landscape' {
 		/* screen width > height */
 		@media (orientation  : landscape ) { @content; }
@@ -287,20 +306,68 @@
 }
 
 /* RWD */
-@mixin respond-to( $midia ) {
-	@if $midia == Desktops {
-		@media \0screen { @content; }
+@mixin respond( $media ) {
+	@if $media == Desktops {
+		@if $ie-support == 8 {
+			/* IE8 only */
+			@media \0screen { @content; }
+		}
 		@media screen and ( min-width : $screen-pc ) { @content; }
-	} @else if $midia == Desktops-Tablets {
-		@media \0screen { @content; }
-		@media screen and ( min-width : $screen-device ) { @content; }
-	} @else if $midia == Tablets {
+	} @else if $media == HD {
+		@media screen and ( min-width : $main-max-width ) { @content; }
+	} @else if $media == Desktops-Tablets {
+		
+		@if $ie-support == 8 {
+			/* IE8 only */
+			@media \0screen { @content; }
+		}
+		@media screen and ( min-width : $screen-mobile ) { @content; }
+	} @else if $media == Tablets-Mobiles {
 		@media screen and ( max-width : ($screen-pc - 1) ) { @content; }
-	} @else if $midia == Tablets-Mobiles {
-		@media screen and ( min-width : $screen-device ) and ( max-width : ($screen-pc - 1) ) { @content; }
-	} @else if $midia == Mobiles {
-		@media screen and ( max-width : ($screen-device - 1) ) { @content; }
-	} @else {
-		@media screen and ( max-width : $midia ) { @content; }
+	} @else if $media == Tablets {
+		@media screen and ( min-width : $screen-mobile ) and ( max-width : ($screen-pc - 1) ) { @content; }
+	} @else if $media == Mobiles {
+		@media screen and ( max-width : ($screen-mobile - 1) ) { @content; }
 	}
+}
+
+@mixin media-min( $value : null , $type : 'width' ) {
+	@if $type == 'width' {
+		@media screen and ( min-width : $value ) { @content; }
+	} @else if $type == 'height' {
+		@media screen and ( min-height : $value ) { @content; }
+	}
+}
+
+@mixin media-max( $value : null , $type : 'width' ) {
+	@if $type == 'width' {
+		@media screen and ( max-width : ( $value - 1 ) ) { @content; }
+	} @else if $type == 'height' {
+		@media screen and ( max-height : ( $value - 1 ) ) { @content; }
+	}
+}
+
+@mixin media-min-max( $min-value : null , $max-value : null , $type : 'width' ) {
+	@if $type == 'width' {
+		@media screen and ( min-width : $min-value ) and ( max-width : ($max-value - 1) ) { @content; }
+	} @else if $type == 'height' {
+		@media screen and ( min-height : $min-value ) and ( max-height : ($max-value - 1) ) { @content; }
+	}
+}
+
+/* not support */
+@mixin not-support {
+	@if ( $ie-support - 1 ) == 9 {
+		@media \0screen\,screen\9 { @content; }
+		@media all and ( min-width : 0\0 ) and ( min-resolution : .001dpcm ) { @content; }
+	} @else if ( $ie-support - 1 ) == 8 {
+		@media \0screen\,screen\9 { @content; }
+	} @else if ( $ie-support - 1 ) == 7 {
+		@media screen\9 { @content; }
+	}
+}
+
+/* unit */
+@function units($number , $width , $nuit) {
+	@return #{( ( $number / 1px ) / ( $width / 1px ) * 100 )}#{$nuit};
 }

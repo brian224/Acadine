@@ -1,228 +1,176 @@
 .m-form {
-    margin      : 0;
-    padding     : 0;
-    font-family : $font-family;
-    color       : $text-major-color;
-    border      : 0;
-    outline     : none;
-    position    : relative;
-    @include readonly;
-    @include disabled;
-    @include border-radius($form-border-radius);
-
-    &.m-form-control {
-        width        : 100%;
-        line-height  : 20px;
-        background   : $color-white;
-        border-color : transparent;
-        border-style : solid;
-        @include autofill();
-        @include placeholder();
-        @include box-sizing(border-box);
-
-        &.input-validation-error {
-            border-color : $color-warning;
-        }
-
-        @at-root {
-            select#{&} {
-                background : transparent;
-                @include appearance(none);
-
-                option {
-                    margin  : 0;
-                    padding : 0;
-                    width   : 100%;
-                    @include disabled;
-                    @include box-sizing(border-box);
-                }
-            }
-
-            textarea#{&} {
-                resize : none;
-
-                &.is-resize {
-                    resize : both;
-                }
-
-                &.is-resize-V {
-                    resize : vertical;
-                }
-
-                &.is-resize-H {
-                    resize : horizontal;
-                }
-            }
-        }
-    }
+	display: inline-block;
 }
 
-.m-form-select {
-    width      : 100%;
-    background : $color-white;
-    position   : relative;
-    @include box-sizing(border-box);
-    @include border-radius($form-border-radius);
+.m-lab {
+	display: inline-block;
 
-    &:before {
-        content      : "";
-        top          : 50%;
-        width        : 0;
-        height       : 0;
-        border-style : solid;
-        border-color : darken($text-major-color , 20%) transparent transparent transparent;
-        position     : absolute;
-        z-index      : 1;
-    }
+	&.is-checked .m-box-holder {
+		&.is-checkbox {
+			background: $color-text-major;
 
-    .m-form {
-        z-index : 2;
-    }
+			&:before {
+				opacity: 1;
+			}
+		}
+
+		&.is-radio {
+			border: 7px solid $color-text-major;
+		}
+	}
+
+	> * {
+		vertical-align: middle;
+	}
 }
 
-.m-form-addon {
-    @include box-sizing(border-box);
+.m-box-holder {
+	background: $color-white;
+	display: inline-block;
+	position: relative;
+	border: 1px solid $color-gray-l-p10;
+	@include box-sizing(border-box);
+	@include transition(ease-in all 0.3s);
+
+	&.is-selector {
+		&:after {
+			content: '';
+			margin-top: -3px;
+			display: block;
+			position: absolute;
+			top: 50%;
+			right: 14px;
+			border-top: 6px solid $color-gray-l-p10;
+			border-right: 5px solid transparent;
+			border-left: 5px solid transparent;
+			pointer-events: none;
+		}
+
+		.m-selection {
+			padding-right: 36px;
+		}
+
+		*[disabled] {
+			cursor: default;
+			color: $color-gray-l-p30;
+		}
+	}
+
+	&.is-checkbox {
+		margin-right: 5px;
+		background: $color-gray-l-p40;
+		width: 20px;
+		height: 20px;
+		position: relative;
+		border: 0;
+		border-radius: 4px;
+
+		&:before {
+			content: '';
+			display: block;
+			width: 12px;
+			height: 6px;
+			position: absolute;
+			top: 3px;
+			left: 3px;
+			border-bottom: 2px solid $color-white;
+			border-left: 2px solid $color-white;
+			opacity: 0;
+			z-index: 1;
+			@include transform(rotate(-45deg));
+			@include transition(ease-in all 0.3s);
+		}
+
+		.m-checkbox {
+			opacity: 0;
+		}
+	}
+
+	&.is-radio {
+		margin-right: 5px;
+		background: $color-gray-l-p40;
+		width: 18px;
+		height: 18px;
+		position: relative;
+		border: 0 solid $color-text-major;
+		border-radius: 50%;
+
+		.m-radio {
+			opacity: 0;
+		}
+	}
+
+	.m-icon {
+		margin-top: -12px;
+		position: absolute;
+		top: 50%;
+		left: 13px;
+		pointer-events: none;
+		color: $color-gray-l-p30;
+		font-size: 24px;
+		line-height: 24px;
+	}
+
+	.m-selection, .m-inputbox {
+		padding: 0 15px;
+		height: 46px;
+		border: 0;
+		outline: none;
+		/*color: $color-gray-d-p10;*/
+		font-size: 16px;
+		line-height: 46px;
+	}
+
+	.m-selection {
+		cursor: pointer;
+
+		option {
+			color: $color-gray-d-p10;
+		}
+	}
+
+	.m-inputbox {
+		@include placeholder($color-gray-d-p10);
+	}
+
+	.m-textarea {
+		border: 1px solid $color-gray-l-p30;
+		outline: none;
+		resize: none;
+		color: $color-gray-d-p10;
+		@include box-sizing(border-box);
+		@include transition(ease-in all 0.2s);
+
+		&:focus {
+			border: 1px solid $color-major;
+			box-shadow: inset 1px 1px 0 $color-major, inset -1px -1px 0 $color-major;
+		}
+	}
 }
 
-.m-form-validate {
-    color      : $color-white;
-    text-align : left;
-    @include display(block);
+@include browsers('IE') {}
 
-    > * {
-        @include display(block);
-    }
+@include respond(Desktops) {
+	.m-datepicker, .m-lab {
+		cursor: pointer;
+	}
 }
 
-@include respond-to(Desktops) {
-    .m-form {
-        &.m-form-control {
-            margin-bottom : 3px;
-            padding       : 13px 20px;
-            font-size     : 15px;
-            border-width  : 2px;
-            @include box-shadow(rgba($color-black , .15) 2px 2px 3px);
+@include respond(Desktops-Tablets) {}
 
-            @at-root {
-                select#{&} {
-                    margin-bottom  : 0;
-                    padding-top    : 12px;
-                    padding-bottom : 12px;
-                    padding-right  : 50px;
-                }
+@include respond(Tablets) {}
 
-                textarea#{&} {
-                    height : 150px;
-                }
-            }
-        }
-    }
+@include respond(Tablets-Mobiles) {}
 
-    .m-form-select {
-        margin-bottom : 3px;
+@include respond(Mobiles) {
+	.m-lab {
+		padding-left: 25px;
+		position: relative;
 
-        &:before {
-            right        : 20px;
-            margin-top   : -3px;
-            border-width : 8px 6px 0 6px;
-        }
-    }
-
-    .m-form-validate {
-        font-size : 15px;
-
-        > * {
-            margin-top : 5px;
-        }
-    }
-}
-
-@include respond-to(Desktops-Tablets) {}
-
-@include respond-to(Tablets) {}
-
-@include respond-to(Tablets-Mobiles) {
-    .m-form {
-        &.m-form-control {
-            margin-bottom : 2px;
-            padding       : 9px 15px;
-            font-size     : 14px;
-            border-width  : 1px;
-            @include box-shadow(rgba($color-black , .15) 1px 1px 2px);
-
-            @at-root {
-                select#{&} {
-                    margin-bottom  : 0;
-                    padding-top    : 8px;
-                    padding-bottom : 8px;
-                    padding-right  : 50px;
-                }
-
-                textarea#{&} {
-                    height : 110px;
-                }
-            }
-        }
-    }
-
-    .m-form-select {
-        margin-bottom : 2px;
-
-        &:before {
-            right        : 15px;
-            margin-top   : -2px;
-            border-width : 6px 5px 0 5px;
-        }
-    }
-
-    .m-form-validate {
-        font-size : 14px;
-
-        > * {
-            margin-top : 4px;
-        }
-    }
-}
-
-@include respond-to(Mobiles) {
-    .m-form {
-        &.m-form-control {
-            margin-bottom : 3px;
-            padding       : 4px 10px;
-            font-size     : 14px;
-            border-width  : 1px;
-            @include box-shadow(rgba($color-black , .15) 2px 2px 3px);
-
-            @at-root {
-                select#{&} {
-                    margin-bottom  : 0;
-                    padding-top    : 3px;
-                    padding-bottom : 3px;
-                    padding-right  : 30px;
-                }
-
-                textarea#{&} {
-                    height : 80px;
-                }
-            }
-        }
-    }
-
-    .m-form-select {
-        margin-bottom : 3px;
-
-        &:before {
-            right        : 10px;
-            margin-top   : -2px;
-            border-width : 6px 5px 0 5px;
-        }
-    }
-
-    .m-form-validate {
-        font-size : 14px;
-
-        > * {
-            margin-top : 3px;
-        }
-    }
+		.m-box-holder {
+			position: absolute;
+			top: 6px;
+			left: 0;
+		}
+	}
 }
