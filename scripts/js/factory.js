@@ -4,16 +4,17 @@
     var projects = new factory();
 
     function factory() {
-        this.$w      = jQuery(window);
-        this.$d      = jQuery(document);
-        this.$hb     = jQuery('html , body');
-        this.$b      = jQuery('body');
-        this._ORIGIN = /^file\:\/\/\//.exec(window.location.href) ? '' : ( /^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i.exec(window.location.href)[0] );
-        this._HREF   = window.location.href;
-        this._EVENTS = 'click touchstart';
-        this._ISMAC  = navigator.platform.match(/Mac/i) ? true : false;
+        this.$w        = jQuery(window);
+        this.$d        = jQuery(document);
+        this.$hb       = jQuery('html , body');
+        this.$b        = jQuery('body');
+        this._ORIGIN   = /^file\:\/\/\//.exec(window.location.href) ? '' : ( /^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i.exec(window.location.href)[0] );
+        this._HREF     = window.location.href;
+        this._EVENTS   = 'click touchstart';
+        this._ISMAC    = navigator.platform.match(/Mac/i) ? true : false;
         this._browsers = {
             'msie'    : navigator.userAgent.match(/(msie|trident(?=\/))\/?\s*(\d+)/i) ? true : false,
+            'edge'    : navigator.userAgent.match(/(Edge(?=\/))\/?\s*(\d+)/i) ? true : false,
             'chrome'  : navigator.userAgent.match(/(chrome(?=\/))\/?\s*(\d+)/i) ? true : false,
             'safari'  : navigator.userAgent.match(/(safari(?=\/))\/?\s*(\d+)/i) ? true : false,
             'firefox' : navigator.userAgent.match(/(firefox(?=\/))\/?\s*(\d+)/i) ? true : false,
@@ -77,51 +78,18 @@
         
         if( _useragent[1] === 'Chrome' ){
             _tem = navigator.userAgent.match( /\b(OPR|Edge)\/(\d+)/ );
-            if ( _tem != null ) return projects._browsers.version = _tem.slice(1).join(' ').replace('OPR', 'Opera');
+            if ( _tem != null ) {
+                return projects._browsers.version = _tem[2];
+
+                if ( _tem.slice(1).join(' ').match( /\b(OPR)\/(\d+)/ ) ) return projects._browsers.version = _tem.slice(1).join(' ').replace('OPR', 'Opera');
+            } 
         }
 
         _useragent = _useragent[2] ? [ _useragent[1] , _useragent[2] ]: [ navigator.appName , navigator.appVersion , '-?' ];
 
         if ( ( _tem = navigator.userAgent.match( /version\/(\d+)/i ) ) != null ) _useragent.splice(1 , 1 , _tem[1]);
-
             return projects._browsers.version = Number(_useragent[1]);
     }();
-
-    /* ajax init */
-    factory.prototype.ajax = function(url , success , complete , erroe , element) {
-        var _type          = /[?&]type=([^&#]*)/.exec(url) ? ( /[?&]type=([^&#]*)/.exec(url)[1] ) : 'POST',
-            _url           = /^((?!(\?|\&)callback=).)*/.exec(url)[0],
-            _dataType      = /[?&]dataType=([^&#]*)/.exec(url) ? ( /[?&]dataType=([^&#]*)/.exec(url)[1] ) : 'script',
-            _data          = /[?&]data=([^&#]*)/.exec(url) ? ( /[?&]data=([^&#]*)/.exec(url)[1] ) : '',
-            _jsonpCallback = /[?&]callback=([^&#]*)/.exec(url) ? ( ( /[?&]callback=([^&#]*)/.exec(url)[1] ) !== '?' ? ( /[?&]callback=([^&#]*)/.exec(url)[1] ) : 'Sugarfun_' + new Date().getTime() ) : null;
-        var _function      = null;
-
-        if ( _data.indexOf('[object Object]') !== -1 ) {
-            alert('data format error \n try JSON.stringify(data)');
-        } else {
-            if ( _url ) {
-                if ( _type.toUpperCase() === 'POST' ) {
-                    _function = jQuery.post;
-                } else if ( _type.toUpperCase() === 'GET' ) {
-                    _function = jQuery.get;
-                }
-
-                _function(_url , _data , function(data){
-                    if ( success && typeof(success) === 'function' ) {
-                        success(data , element);
-                    }
-                }).always(function(data){
-                    if ( complete && typeof(complete) === 'function' ) {
-                        complete(data , element);
-                    }
-                }).fail(function(jqXHR, textStatus, errorThrown){
-                    if ( erroe && typeof(erroe) === 'function' ) {
-                        erroe(jqXHR, textStatus, errorThrown);
-                    }
-                })
-            }
-        }
-    }
 
     factory.prototype.documentOff = function(cName , func) {
         projects.$d.off(projects._EVENTS).on(projects._EVENTS , function(e){
@@ -266,7 +234,7 @@
     }
 
     factory.prototype.owlMediaPlay = function(element , eq , type) {
-        var _url      = element.find('.owl-item:eq('+eq+') > *').attr('data-media'),
+        var _url      = element.find('.owl-item > *').eq(eq).attr('data-media'),
             _idx      = ( /index\=([^?&#]*)/.exec(_url)[1] | 0 ),
             _autoplay = ( /autoplay\=/.test(_url) ? ( ( ( /autoplay\=([^?&#]*)/.exec(_url)[1] ) | 0 ) === 1 ? true : false ) : false );
 
@@ -292,7 +260,7 @@
         var _HIDE       = 'b-hide';
         var arrowHide = function() {
             _items      = $stage.find('.owl-item').length;
-            _width      = ( Math.round( element.outerWidth() ) | 0 );
+            _width      = ( Math.round( element.outerWidth() ) | 0 ) - ( parseInt(element.css('padding-left') , 10) + parseInt(element.css('padding-right') , 10) );
             _stageWidth = ( $stage.outerWidth() | 0 );
             _scrollbar  = (( $stage.find('.owl-item').outerWidth() | 0 ) * $stage.find('.owl-item.active').length) - ( $stageOuter.outerWidth() | 0 );
             _position   = ( ( Math.round( $stage.position().left ) | 0 ) ) === 0 ? 0 : ( ( Math.round( $stage.position().left ) | 0 ) * (-1) );
@@ -484,19 +452,24 @@
     };
 
     /* youtube */
-    factory.prototype._media = {
-        _length    : 0,
-        _id        : null,
-        _player    : [],
-        _idArray   : [],
-        $media     : null,
-        _autoplay  : null,
-        _scale     : (16 / 9)
+    factory.prototype._media  = {
+        _length   : 0,
+        _id       : null,
+        _player   : [],
+        _idArray  : [],
+        $media    : null,
+        _autoplay : null
+    };
+
+    factory.prototype.mediaSet = function() {
+        projects._media._orientation = ( projects.$w.width() > projects.$w.height() ) ? 'landscape' : 'portrait';
+        projects._media._scale       = projects._media._orientation === 'portrait' ? (9 / 16) : (16 / 9);
     };
 
     factory.prototype.mediaInit = function(callback) {
         var setIntervals = null;
-        
+
+        projects.mediaSet();
         projects.u2bPlayer();
 
         setIntervals = setInterval(function(){
@@ -513,22 +486,24 @@
                             _fullscreen = ( /fullscreen\=/.test($elem.attr('data-media')) ? ( ( /fullscreen\=([^?&#]*)/.exec($elem.attr('data-media'))[1] ) | 0 ) : 0 );
                         var _closest    = $elem.find($elem.data('elem')) || $elem.next($elem.data('elem')) || $elem.parent().find($elem.data('elem')),
                             _elem       = $elem.data('elem') ? _closest : $elem,
-                            _elemHeight = $elem.data('elem') ? _elem.parent().height() : _elem.height(),
-                            _elemWidth  = $elem.data('elem') ? _elem.parent().width() : _elem.width(),
-                            _top        = ( ( ( _elemHeight  - _elem.width() ) /  2 ) + 'px' ),
-                            _left       = ( ( _elem.width() / _elemHeight ) <= projects._media._scale ) ? ( ( ( ( _elem.width() - ( _elem.width() / ( _elemHeight / _elem.width() ) ) ) / 2 ) | 0 ) + 'px' ) : '0px',
-                            _width      = ( ( _elem.width() / _elemHeight ) <= projects._media._scale ) ? ( ( ( _elem.width() / ( _elemHeight / _elem.width() ) ) | 0 ) + 'px' ) : '100%',
-                            _height     = (_elem.width() + 'px');
+                            _elemHeight = _fullscreen ? ( $elem.data('elem') ? ( _elem.parent().height() + 'px' ) : ( _elem.height() + 'px' ) ) : '100%',
+                            _elemWidth  = _fullscreen ? ( $elem.data('elem') ? ( _elem.parent().width() + 'px' ) : ( _elem.width() + 'px' ) ) : '100%',
+                            _top        = _fullscreen ? ( projects._media._orientation === 'landscape' ? ( ( ( _elemHeight  - _elem.width() ) /  2 ) + 'px' ) : '0px' ) : '0px',
+                            _left       = _fullscreen ? ( ( ( _elem.width() / _elemHeight ) <= projects._media._scale ) ? ( ( ( ( _elem.width() - ( _elem.width() / ( _elemHeight / _elem.width() ) ) ) / 2 ) | 0 ) + 'px' ) : '0px' ) : '0px',
+                            _width      = _fullscreen ? ( ( ( _elem.width() / _elemHeight ) <= projects._media._scale ) ? ( ( ( _elem.width() / ( _elemHeight / _elem.width() ) ) | 0 ) + 'px' ) : '100%' ) : '100%',
+                            _height     = _fullscreen ? ( projects._media._orientation === 'landscape' ? ( _elem.width() + 'px' ) : '100%' ) : '100%';
 
-                        var _youtube = '<div class="m-youtube' + ( _opacity === 0 ? ' is-opacity' : '' ) +'" style="width: '+_elemWidth+'px; height: '+_elemHeight+'px; position:relative; overflow: hidden;"><span id="m-youtube-'+i+'" class="m-youtube-append" style="top: '+ _top +'; height: '+_height+'; width: '+_width+'; left: '+_left+'; position : absolute;"></span></div>';
+                        var _youtube = '<div class="m-youtube' + ( _opacity === 0 ? ' is-opacity' : '' ) +'" style="width: '+_elemWidth+'; height: '+_elemHeight+'; position:relative; overflow: hidden;"><span id="m-youtube-'+i+'" class="m-youtube-append" style="top: '+ _top +'; height: '+_height+'; width: '+_width+'; left: '+_left+'; position : absolute;"></span></div>';
 
                         _data = $elem.data('media');
                         $elem.attr('data-media' , ( _data + (( /\?/.test(_data) ) ? '&index='+i+'' : '?index='+i+'') ) );
 
-                        _elem.append(_youtube);
+                        if ( _elem.find('.m-youtube').length === 0 ) {
+                            _elem.append(_youtube);
 
-                        if ( /youtube/i.exec( $elem.data('media') )) {
-                            projects.mediaAppend($elem , callback);
+                            if ( /youtube/i.exec( $elem.data('media') )) {
+                                projects.mediaAppend($elem , callback);
+                            }
                         }
                     });
 
@@ -540,25 +515,31 @@
 
     factory.prototype.mediaResize = function() {
         var resize = function() {
+            projects.mediaSet();
+
             for (var i = 0 ; i < projects._media.$media.length ; i ++ ) {
-                var _closest    = projects._media.$media.eq(i).find(projects._media.$media.eq(i).data('elem')) || projects._media.$media.eq(i).next(projects._media.$media.eq(i).data('elem')) || projects._media.$media.eq(i).parent().find(projects._media.$media.eq(i).data('elem')),
-                    _elem       = projects._media.$media.eq(i).data('elem') ? _closest : projects._media.$media.eq(i),
-                    _elemHeight = projects._media.$media.eq(i).data('elem') ? _elem.parent().height() : _elem.height(),
-                    _elemWidth  = projects._media.$media.eq(i).data('elem') ? _elem.parent().width() : _elem.width(),
-                    _top        = ( ( _elemHeight - _elem.width() ) /  2 ) + 'px',
+                var $elem       = projects._media.$media.eq(i);
+                var _fullscreen = ( /fullscreen\=/.test($elem.attr('data-media')) ? ( ( /fullscreen\=([^?&#]*)/.exec($elem.attr('data-media'))[1] ) | 0 ) : 0 );
+                var _closest    = $elem.find($elem.data('elem')) || $elem.next($elem.data('elem')) || $elem.parent().find($elem.data('elem')),
+                    _elem       = $elem.data('elem') ? _closest : $elem,
+                    _elemHeight = $elem.data('elem') ? _elem.parent().height() : _elem.height(),
+                    _elemWidth  = $elem.data('elem') ? _elem.parent().width() : _elem.width(),
+                    _top        = projects._media._orientation === 'landscape' ? ( ( _elemHeight - _elem.width() ) /  2 ) + 'px' : '0px',
                     _left       = ( ( _elem.width() / _elemHeight ) <= projects._media._scale ) ? ( ( ( ( _elem.width() - ( _elem.width() / ( _elemHeight / _elem.width() ) ) ) / 2 ) | 0 ) + 'px' ) : '0px',
                     _width      = ( ( _elem.width() / _elemHeight ) <= projects._media._scale ) ? ( ( ( _elem.width() / ( _elemHeight / _elem.width() ) ) | 0 ) + 'px' ) : '100%',
-                    _height     = ( _elem.width() + 'px' );
+                    _height     = projects._media._orientation === 'landscape' ? ( _elem.width() + 'px' ) : '100%';
 
-                projects._media.$media.eq(i).find('.m-youtube').css({
-                    'width'  : _elemWidth,
-                    'height' : _elemHeight
-                }).find('.m-youtube-append').css({
-                    'top'    : _top,
-                    'left'   : _left,
-                    'width'  : _width,
-                    'height' : _height
-                });
+                if ( _fullscreen ) {
+                    $elem.find('.m-youtube').css({
+                        'width'  : _elemWidth,
+                        'height' : _elemHeight
+                    }).find('.m-youtube-append').css({
+                        'top'    : _top,
+                        'left'   : _left,
+                        'width'  : _width,
+                        'height' : _height
+                    });
+                }
             }
         }
 
@@ -638,11 +619,9 @@
             _mute       = /mute\=/.test(_url) ? ( ( /mute\=([^?&#]*)/.exec(_url)[1] ) | 0 ) : 0,
             _bgplay     = /bgplay\=/.test(_url) ? ( ( /bgplay\=([^?&#]*)/.exec(_url)[1] ) | 0 ) : 0;
         var ready       = element.data('ready'),
-            stateChange = element.data('stateChange');
+            stateChange = element.data('statechange');
 
         projects._media._id = 'm-youtube-' + _idx;
-
-        // console.log(projects._media._id);
 
         projects._media._idArray.push({'id' : _id , 'bgplay' : _bgplay});
         
@@ -697,28 +676,21 @@
                         var $owl         = jQuery('.m-youtube-append').eq(_idx).parents('.owl-carousel');
                         var _owlAutoPlay = $owl.data('autoplay');
 
-                        if ( event.data === 0 && ! _loop ) {
-                            if ( stateChange ) {
-                                if ( typeof(stateChange) === 'function' ) {
-                                    stateChange.call(event);
-                                } else if ( typeof(stateChange) === 'string' ) {
-                                    eval(stateChange);
-                                }
-                            }
-                        }
+                        // if ( event.data === 0 && ! _loop ) {
+                            
+                        // }
 
                         /* unstarted */
                         if ( event.data === -1 ) {
-                            for ( var i = 0 ; i < projects._media._idArray.length ; i ++ ) {
-                                if ( _id === projects._media._idArray[i].id ) {
-                                    jQuery('#m-youtube-'+i+'').parent().addClass('is-opacity');
-                                }
-                            }
+                            jQuery('#m-youtube-'+_idx+'').parent().addClass('is-opacity');
+                            // for ( var i = 0 ; i < projects._media._idArray.length ; i ++ ) {
+                            //     if ( _id === projects._media._idArray[i].id ) {
+                            //     }
+                            // }
                         }
 
                         /* playing */
                         if ( event.data === 1 ) {
-                            // console.log(projects._media._player);
                             for ( var i = 0 ; i < projects._media._player.length ; i ++ ) {
                                 if ( i !== _idx && projects._media._idArray[i].bgplay === 0 ) {
                                     projects._media._player[i].pauseVideo();
@@ -737,23 +709,21 @@
                             for (var i = 0 ; i < projects._media._player.length ; i ++ ) {
                                 if ( i === _idx ) {
                                     _currentTime = projects._media._player[i].getCurrentTime();
-                                }
-                            }
 
-                            for (var i = 0 ; i < projects._media._idArray.length ; i ++ ) {
-                                if ( _id === projects._media._idArray[i].id && projects._media._idArray[i].bgplay === 0 ) {
-                                    projects._media._player[i].seekTo(_currentTime).pauseVideo();
+                                    if ( projects._media._idArray[i].bgplay === 0 ) {
+                                        projects._media._player[i].seekTo(_currentTime).pauseVideo();
+                                    }
                                 }
                             }
                         }
 
                         /* buffering */
                         if ( event.data === 3 ) {
-                            for ( var i = 0 ; i < projects._media._idArray.length ; i ++ ) {
-                                if ( _id === projects._media._idArray[i].id ) {
-                                    jQuery('#m-youtube-'+i+'').parent().removeClass('is-opacity');
-                                }
-                            }
+                            jQuery('#m-youtube-'+_idx+'').parent().removeClass('is-opacity');
+                            // for ( var i = 0 ; i < projects._media._idArray.length ; i ++ ) {
+                            //     if ( _id === projects._media._idArray[i].id ) {
+                            //     }
+                            // }
                         } 
 
                         /* ended */
@@ -766,12 +736,18 @@
                                 projects.owlPlay($owl);
                             }
                         }
+
+                        if ( stateChange ) {
+                            if ( typeof(stateChange) === 'function' ) {
+                                stateChange.call(event);
+                            } else if ( typeof(stateChange) === 'string' ) {
+                                eval(stateChange)(event);
+                            }
+                        }
                     }
                 }
             })
         );
-
-        
 
         projects._media._length += 1;
         
@@ -850,8 +826,8 @@
 
             _coming = $.extend(true , {} , projects.accordion.opts , _obj);
 
-            _regex    = ( typeof(_coming.content) === 'string' ? ( /(?![\.]|[\#]).*/.exec(_coming.content)[0] ) : ( _coming.content[0].className && ( _coming.content[0].className !== _coming.className ) ? _coming.content[0].className : ( _coming.content[0].id ? _coming.content[0].id : _sfName ) ) );
-            _elemName = ( typeof(_coming.content) === 'string' ? _coming.content : ( _coming.content[0].className && ( _coming.content[0].className !== _coming.className ) ? ( '.' + _coming.content[0].className ) : ( _coming.content[0].id ? ( '#' + _coming.content[0].id ) : '.'+_sfName+'' ) ) );
+            _regex    = ( typeof(_coming.content) === 'string' ? ( /(?![\.]|[\#]).*/.exec(_coming.content)[0] ) : ( _coming.content[0].className && ( _coming.content[0].className !== _coming.className ) ? _coming.content[0].className.split(' ')[0] + '-sf' : ( _coming.content[0].id ? _coming.content[0].id + '-sf' : _sfName ) ) );
+            _elemName = ( typeof(_coming.content) === 'string' ? _coming.content : ( _coming.content[0].className && ( _coming.content[0].className !== _coming.className ) ? ( '.' + _coming.content[0].className.split(' ')[0] ) + '-sf' : ( _coming.content[0].id ? ( '#' + _coming.content[0].id ) + '-sf' : '.'+_sfName+'' ) ) );
 
             for ( var i = 0 , _headerArr = _coming.header.split(',') , $showeElem = ( typeof(_coming.content) === 'string' ? jQuery(_coming.content) : _coming.content ) ; i < _headerArr.length ; i ++ ) {
                 for ( var j = 0 , $header = jQuery( jQuery.trim(_headerArr[i]) ) ; j < $header.length ; j ++ ) {
@@ -862,7 +838,7 @@
                     if ( typeof(_coming.content) === 'object' && $header.eq(j).next().length !== 0 && ! $header.eq(j).next()[0].className && ! $header.eq(j).next()[0].id ) {
                         $header.eq(j).next().addClass(_regex);
                     }
-                    
+
                     if ( ( $header.length > 1 && ( $header.eq(j).find($showeElem).length !== 0 ) || $header.eq(j).next().hasClass(_regex) ) || ( $header.length === $showeElem.length ) ) {
                         $header.eq(j).attr('data-index' , j);
                         if ( $header.eq(j).find($showeElem).length !== 0 ) {
@@ -929,9 +905,13 @@
                         });
                     }
 
+                    if ( typeof(_coming.click) === 'function' ) {
+                        _coming.click(_self ,  jQuery(_elemName + '-' + _index)[0] , projects.accordion._activeIndex);
+                    }
+
                     if ( typeof(_coming.callback) === 'function' ) {
                         timeout = setTimeout(function(){
-                            _coming.callback(_self , _elemName + '-' + _index , projects.accordion._activeIndex);
+                            _coming.callback(_self , jQuery(_elemName + '-' + _index)[0] , projects.accordion._activeIndex);
                         } , _times);
                     }
                 }
@@ -1027,85 +1007,29 @@
         } , (speed ? speed : 500));
     };
 
-
-    factory.prototype.getImgRGB = function(element , callback) {
-        var toHex = function(number) {
-            var _hex = ('0' + parseInt(number).toString(16)).slice(-2);
-            return _hex;
+    factory.prototype.FBInit = function() {
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId   : '1790416424508935',
+                xfbml   : true,
+                version : 'v2.8'
+            });
         };
 
-        jQuery(element).each(function(i , elem){
-            var $img        = new Image();
-            var $canvas     = document.createElement('CANVAS');
-            var _ctx        = $canvas.getContext('2d');
-            var _dataURL    = null,
-                _imageData  = null,
-                _SCALE      = 35,
-                _DEFAULTRGB = { r : 0, g : 0, b : 0};
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    };
 
-            $img.crossOrigin = '*';
-            $img.onload = function() {
-                var _length     = null,
-                    _count      = 0,
-                    _BLOCKSIZE  = 1,
-                    _I          = -4,
-                    _rgb        = { r : 0, g : 0, b : 0};
-                var _data = {
-                    elem  : elem,
-                    color : {
-                        rgb : null,
-                        hex : null
-                    },
-                    rgb   : null
-                };
-                $canvas.width  = ($img.width / _SCALE);
-                $canvas.height = ($img.height / _SCALE);
-
-                _ctx.drawImage($img , 0 , 0);
-
-                if ( ! _ctx ) {
-                    _data.color.rgb = 'rgb('+_DEFAULTRGB.r+', '+_DEFAULTRGB.g+', '+_DEFAULTRGB.b+')';
-                    _data.color.hex = '#' + toHex(_DEFAULTRGB.r) + toHex(_DEFAULTRGB.g) + toHex(_DEFAULTRGB.b);
-                    _data.rgb       = _DEFAULTRGB;
-                }
-
-                try {
-                    _imageData = _ctx.getImageData(0 , 0 , ($img.width / _SCALE), ($img.height / _SCALE)).data;
-                } catch(e) {
-                    _data.color.rgb = 'rgb('+_DEFAULTRGB.r+', '+_DEFAULTRGB.g+', '+_DEFAULTRGB.b+')';
-                    _data.color.hex = '#' + toHex(_DEFAULTRGB.r) + toHex(_DEFAULTRGB.g) + toHex(_DEFAULTRGB.b);
-                    _data.rgb       = _DEFAULTRGB;
-                }
-
-                _length = _imageData.length;
-                
-                while ( ( _I += _BLOCKSIZE * 4 ) < _length ) {
-                    ++ _count;
-                    _rgb.r += _imageData[_I];
-                    _rgb.g += _imageData[(_I + 1)];
-                    _rgb.b += _imageData[(_I + 2)];
-                }
-
-                _rgb.r = ~~(_rgb.r / _count);
-                _rgb.g = ~~(_rgb.g / _count);
-                _rgb.b = ~~(_rgb.b / _count);
-
-                if ( _rgb.r === _rgb.g && _rgb.r === _rgb.b && _rgb.r > 210 ) {
-                    _rgb.r = (_rgb.r + 17) <= 255 ? (_rgb.r + 17) : 255;
-                    _rgb.g = (_rgb.g + 17) <= 255 ? (_rgb.g + 17) : 255;
-                    _rgb.b = (_rgb.b + 17) <= 255 ? (_rgb.b + 17) : 255;
-                }
-
-                _data.color.rgb = 'rgb('+_rgb.r+', '+_rgb.g+', '+_rgb.b+')';
-                _data.color.hex = '#' + toHex(_rgb.r) + toHex(_rgb.g) + toHex(_rgb.b);
-                _data.rgb       = _rgb;
-                
-                if ( callback ) {
-                    callback(_data);
-                }
-            };
-            $img.src = jQuery(elem).attr('src');
-        });
+    factory.prototype.FBShare = function(shareUrl) {
+        FB.ui({
+            method : 'share',
+            href   : shareUrl,
+        } , function(response) {});
     };
 
     if ( ! window.projects ) {

@@ -15,7 +15,7 @@
 				opacity: 1;
 			}
 
-			.social-wall .list-item {
+			.social-wall .list-item .b-link {
 				opacity: 1;
 			}
 		}
@@ -52,11 +52,13 @@
 		}
 
 		.social-wall .list-item {
-			opacity: 0;
-			@include transition(ease-in all 0.5s);
+			.b-link {
+				opacity: 0;
+				@include transition(ease-in all 0.5s);
+			}
 
 			@for $i from 1 through 12 {
-				&:nth-child(#{$i}) {
+				&:nth-child(#{$i}) .b-link {
 					@include transition-delay(0.1s * $i);
 				}
 			}
@@ -126,7 +128,7 @@
 					border-bottom-color: $color-white;
 				}
 
-				.btn-more:before, .btn-more:after {
+				.btn-read-more {
 					border-color: $color-white;
 					color: $color-white;
 				}
@@ -139,7 +141,7 @@
 					border-bottom-color: $color-gray-d-p30;
 				}
 
-				.btn-more:before, .btn-more:after {
+				.btn-read-more {
 					border-color: $color-gray-d-p30;
 					color: $color-gray-d-p30;
 				}
@@ -157,45 +159,6 @@
 				img {
 					min-width: 50%;
 					min-height: 100%;
-				}
-			}
-
-			.btn-more {
-				position: relative;
-
-				&:before, &:after {
-					padding: 0 12px;
-					display: block;
-					height: 36px;
-					border: 1px solid;
-					font-size: 14px;
-					line-height: 34px;
-					text-indent: 0;
-					@include transition(ease-in all 0.3s);
-				}
-
-				&:before {
-					content: attr(data-default);
-					@include transform-origin(top, left);
-				}
-
-				&:after {
-					content: attr(data-lang);
-					position: absolute;
-					top: 0;
-					left: 0;
-					right: 0;
-					opacity: 0;
-				}
-
-				&:hover {
-					&:before {
-						opacity: 0;
-					}
-
-					&:after {
-						opacity: 1;
-					}
 				}
 			}
 		}
@@ -222,30 +185,6 @@
 	}
 }
 
-.kv-owl {
-	.item {
-		width: 100vw;
-		height: calc(100vh - 120px);
-		overflow: hidden;
-
-		.img-wrap {
-			margin-left: -50vw;
-			width: 200vw;
-			height: calc(100vh - 120px);
-			text-align: center;
-		}
-
-		img {
-			min-width: 50%;
-			min-height: 100%;
-		}
-	}
-
-	.m-owl-dots {
-		bottom: 10px;
-	}
-}
-
 .m-media {
 	width: 100%;
 	height: 100%;
@@ -269,6 +208,10 @@
 	}
 }
 
+.l-footer {
+	background: $color-gray-d-p40;
+}
+
 @include keyframes(suspension) {
 	0%, 100% {
 		margin-bottom: 10px;
@@ -288,25 +231,13 @@
 		}		
 	}
 
+	.l-side .btn-top {
+		bottom: 62px;
+	}
+
 	.m-cut {
 		height: calc(100vh - 70px);
 
-		.main-content {
-			width: 100%;
-		}
-	}
-
-	.m-media {
-		display: block;
-
-		> * {
-			min-height: 100vh;
-		}
-	}
-}
-
-@include respond(Desktops-Tablets) {
-	.m-cut {
 		&.social-cut {
 			.cut-title {
 				margin-bottom: 15px;
@@ -329,6 +260,11 @@
 					margin-bottom: 20px;
 					width: 165px;
 					overflow: hidden;
+					@include transition(ease-in all 0.3s);
+
+					&:hover {
+						@include transform(scale(1.1));
+					}
 
 					img {
 						width: 100%;
@@ -336,6 +272,10 @@
 
 					&.double-width {
 						width: 350px;
+
+						&:hover {
+							@include transform(scale(1.05));
+						}
 
 						img {
 							width: 100%;
@@ -346,6 +286,8 @@
 		}
 
 		.main-content {
+			width: 100%;
+
 			> * {
 				height: 100%;
 				position: relative;
@@ -382,6 +324,14 @@
 		}
 	}
 
+	.m-media {
+		display: block;
+
+		> * {
+			min-height: 100vh;
+		}
+	}
+
 	.jQ-owl .item-info {
 		padding: 0 64px;
 		width: 100%;
@@ -411,7 +361,7 @@
 			line-height: 22px;
 		}
 
-		.btn-more {
+		.btn-read-more {
 			display: inline-block;
 			overflow: hidden;
 			font-size: 0;
@@ -420,29 +370,62 @@
 			white-space: nowrap;
 		}
 	}
-}
 
-@include respond(HD) {
-}
-
-@include respond(Tablets) {
-}
-
-@include respond(Tablets-Mobiles) {
-	.m-media {
+	.m-footer {
 		@include display-flex;
 		@include align-items(center);
-		@include justify-content(center);
-		@include flex-direction(column);
+		@include justify-content(space-between);
+		height: 50px;
+	}
+}
 
-		> * {
-			height: 100%;
+@include respond(Desktops-Tablets) {
+	.l-body.show-footer {
+		.l-content {
+			padding-bottom: 50px;
+		}
+
+		.l-footer {
+			bottom: 0;
+		}
+	}
+
+	.l-footer {
+		position: fixed;
+		bottom: -50px;
+		left: 0;
+		right: 0;
+		@include transition(ease-in all 0.3s);
+	}
+
+	.m-footer {
+		padding: 0;
+
+		.info-list .list {
+			line-height: 1.5em;
+		}
+
+		.copyright {
+			line-height: auto;
+		}
+
+		.copyright, .footer-logo {
+			position: relative;
+			top: auto;
+			bottom: auto;
+			left: auto;
+			right: auto;
 		}
 	}
 }
 
-@include respond(Mobiles) {
-}
+@include respond(HD) {}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {}
+
+@include respond(Mobiles) {}
 
 @include respond(Iphone5) {}
 

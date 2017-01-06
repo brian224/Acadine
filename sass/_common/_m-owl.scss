@@ -11,8 +11,39 @@
 	}
 }
 
-.m-owl-ctrl.disabled {
-	display: none;
+.m-owl-ctrl {
+	&.disabled {
+		display: none;
+	}
+
+	> * {
+		background: rgba(51, 51, 51, 0.7);
+		position: absolute;
+		top: 50%;
+		border: 1px solid $color-gray-d-p30;
+		cursor: pointer;
+		@include box-sizing(border-box);
+
+		&.owl-prev:before {
+			left: 50%;
+			@include transform(rotate(-135deg));
+		}
+
+		&.owl-next:before {
+			right: 50%;
+			@include transform(rotate(45deg));
+		}
+
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 50%;
+			border-top: 2px solid $color-white;
+			border-right: 2px solid $color-white;
+			@include box-sizing(border-box);
+		}
+	}
 }
 
 .m-owl-arrow {
@@ -45,8 +76,15 @@
 }
 
 .m-owl-dots {
+	font-size: 0;
+	line-height: 0;
+
 	&.disabled {
 		display: none;
+	}
+
+	&.is-relative {
+		text-align: center;
 	}
 
 	&.is-absolute {
@@ -59,8 +97,6 @@
 
 	.m-owl-dot {
 		display: inline-block;
-		width: 12px;
-		height: 12px;
 		position: relative;
 		cursor: pointer;
 
@@ -69,10 +105,7 @@
 		}
 
 		span {
-			margin: -4px 0 0 -4px;
 			display: block;
-			width: 8px;
-			height: 8px;
 			position: absolute;
 			top: 50%;
 			left: 50%;
@@ -106,14 +139,77 @@
 	}
 }
 
-@include respond(Desktops) {}
+@include respond(Desktops) {
+	.m-owl-ctrl  {
+		.owl-prev {
+			left: -46px;
+		}
 
-@include respond(Desktops-Tablets) {}
+		.owl-next {
+			right: -46px;
+		}
+	}
 
-@include respond(Tablets) {}
+	.m-owl-dot {
+		width: 12px;
+		height: 12px;
+
+		span {
+			margin: -4px 0 0 -4px;
+			width: 8px;
+			height: 8px;
+		}
+	}
+}
+
+@include respond(Desktops-Tablets) {
+	.m-owl-ctrl > * {
+		margin-top: -25px;
+		width: 50px;
+		height: 56px;
+		@include transition(ease-in all 0.3s);
+
+		&:hover {
+			background: rgba(51, 51, 51, 1);
+		}
+
+		&:before {
+			margin-top: -15px;
+			width: 30px;
+			height: 30px;
+		}
+
+		&.owl-prev:before {
+			margin-left: -7px;
+		}
+
+		&.owl-next:before {
+			margin-right: -7px;
+		}
+	}
+}
+
+@include respond(Tablets) {
+	.m-owl-ctrl  {
+		.owl-prev {
+			left: 0;
+		}
+
+		.owl-next {
+			right: 0;
+		}
+	}
+}
 
 @include respond(Tablets-Mobiles) {
-	.owl-stage .owl-item {
-		/*width: 100% !important;*/
+	.m-owl-dot {
+		width: 30px;
+		height: 40px;
+
+		span {
+			margin: -7px 0 0 -7px;
+			width: 14px;
+			height: 14px;
+		}
 	}
 }

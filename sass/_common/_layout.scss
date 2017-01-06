@@ -30,101 +30,55 @@
 	position: fixed;
 	top: 0;
 	bottom: 0;
+	pointer-events: none;
 	z-index: 2;
 
-	.pagination {
-		.cut-dot {
-			@include display-flex;
-			@include align-items(center);
-			@include justify-content(center);
-			@include flex-direction(column);
-			height: 100%;
-		}
-
-		.list:hover,.list.is-curr {
-			.btn-dot:before {
-				background: $color-gray-l-p40;
-			}
-		}
-
-		.btn-dot {
-			display: block;
-			position: relative;
-
-			&:before {
-				content: '';
-				display: block;
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				border-radius: 50%;
-				border: 1px solid $color-gray-l-p40;
-				@include box-sizing(border-box);
-			}
-		}
+	> * {
+		pointer-events: auto;
 	}
 }
 
 .l-footer {
-	background: $color-gray-d-p40;
+	background: $color-gray-d-p30;
 	z-index: 2;
 }
 
 @include respond(Desktops) {
-	.l-body {
-		.l-content {
-			padding-top: 70px;
-		}
-
-		&.show-header .l-content {
-			padding-top: 120px;
-		}
-
-		&.show-footer {
-			.l-content {
-				padding-bottom: 50px;
-			}
-
-			.l-side .btn-top {
-				opacity: 1;
-				z-index: 1;
-			}
-
-			.l-footer {
-				bottom: 0;
-			}
-		}
+	.l-body.show-header .l-content {
+		padding-top: 120px;
 	}
 
 	.l-side {
 		right: 14px;
-	}
-
-	.l-footer {
-		position: fixed;
-		bottom: -50px;
-		left: 0;
-		right: 0;
-		@include transition(ease-in all 0.3s);
 	}
 }
 
 @include respond(HD) {}
 
 @include respond(Desktops-Tablets) {
-	.pagination .btn-dot {
-		width: 20px;
-		height: 20px;
+	.l-body {
+		.l-content {
+			padding-top: 70px;
+		}
 
-		&:before {
-			margin: -4px 0 0 -4px;
-			width: 8px;
-			height: 8px;
+		&.show-header .l-content {
+		}
+
+		&.show-footer .l-side .btn-top {
+			opacity: 1;
+			z-index: 1;
 		}
 	}
 }
 
 @include respond(Tablets) {
+	.l-header > * {
+		padding: 0 10px;
+	}
+
+	.l-body.show-header .l-content {
+		padding-top: 86px;
+	}
 }
 
 @include respond(Tablets-Mobiles) {
@@ -134,33 +88,10 @@
 		left: 0;
 		right: 0;
 		z-index: 4;
-
-		.btn-menu {
-			margin-bottom: 6px;
-			right: 14px;
-
-			&:before, &:after, > * {
-				background: $color-major;
-			}
-		}
-	}
-
-	.l-nav {
 	}
 
 	.l-side {
-		right: 0;
-
-		.btn-dot {
-			width: 20px;
-			height: 20px;
-	
-			&:before {
-				margin: -4px 0 0 -4px;
-				width: 8px;
-				height: 8px;
-			}
-		}
+		display: none;
 	}
 
 	.l-footer {
@@ -169,6 +100,9 @@
 }
 
 @include respond(Mobiles) {
+	.l-header {
+		display: none;
+	}
 }
 
 @include devices(iphone) {}

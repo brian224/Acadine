@@ -20,10 +20,14 @@
 	display: inline-block;
 
 	.b-link {
-		background: image-url('shared/logo.png') 0 0 no-repeat;
-		background-size: 100% auto;
-		width: 165px;
-		height: 35px;
+		@include display-flex;
+		@include align-items(center);
+		@include justify-content(center);
+
+		img {
+			max-width: 100%;
+			max-height: 100%;
+		}
 	}
 }
 
@@ -34,6 +38,43 @@
 }
 
 @include respond(Desktops) {
+	.m-logo .b-link {
+		width: 164px;
+		height: 52px;
+	}
+
+	.main-menu {
+		height: 70px;
+	}
+
+	.function-list {
+		.list {
+			padding: 0 9px;
+			font-size: 22px;
+		}
+
+		.btn-func {
+			width: 30px;
+		}
+	}
+
+	.menu-list {
+		> .list {
+			padding: 0 18px;
+			font-size: 16px;
+			letter-spacing: 1px;
+			line-height: 30px;
+		}
+
+		.sub-menu-wrap {
+			padding: 0 65px;
+			width: 930px;
+
+			.sub-menu .list-block {
+				width: 200px;
+			}
+		}
+	}
 }
 
 @include respond(Desktops-Tablets) {
@@ -83,19 +124,13 @@
 		}
 	}
 
-	.main-menu {
-		height: 70px;
-	}
-
 	.function-list {
 		font-size: 0;
 		line-height: 0;
 		text-align: right;
 
 		.list {
-			padding: 0 9px;
 			display: inline-block;
-			font-size: 22px;
 
 			&:last-child {
 				padding-right: 0;
@@ -103,15 +138,14 @@
 		}
 
 		.btn-func {
-			width: 30px;
 			position: relative;
 
 			&:hover .m-icon {
-				color: #d60c18;
+				color: $color-text-major;
 			}
 
 			&.shopping .count {
-				background: #d60c18;
+				background: $color-text-major;
 				width: 16px;
 				height: 16px;
 				position: absolute;
@@ -132,18 +166,14 @@
 		text-align: center;
 
 		> .list {
-			padding: 0 18px;
 			display: inline-block;
-			font-size: 16px;
-			letter-spacing: 1px;
-			line-height: 30px;
 
 			.text {
 				cursor: pointer;
 				color: $color-gray-d-p30;
 
 				&:hover {
-					color: #d60c18;
+					color: $color-text-major;
 
 					~ .menu-slider {
 						max-height: 1000px;
@@ -171,12 +201,10 @@
 
 		.sub-menu-wrap {
 			margin: 0 auto;
-			padding: 0 65px;
 			@include display-flex;
 			@include align-content(stretch);
 			@include align-items(stretch);
 			@include flex-direction(row);
-			width: 930px;
 			@include box-sizing(border-box);
 
 			.sub-menu {
@@ -186,7 +214,6 @@
 				.list-block {
 					padding: 30px 0 40px 0;
 					display: table-cell;
-					width: 200px;
 					border-right: 1px solid $color-gray-l-p40;
 					text-align: left;
 					@include box-sizing(border-box);
@@ -197,26 +224,14 @@
 					display: block;
 					width: 100%;
 					height: 100%;
-					position: relative;
 					color: $color-gray-d-p30;
 					font-size: 16px;
 					letter-spacing: 2px;
 					line-height: 1.5em;
 					text-indent: 35px;
 
-					&:hover:after {
-						width: 36px;
-					}
-
-					&:after {
-						content: '';
-						background: $color-gray-d-p30;
-						width: 0;
-						height: 5px;
-						position: absolute;
-						bottom: 0;
-						left: 35px;
-						@include transition(ease-in all 0.3s);
+					&:hover {
+						color: $color-text-major;
 					}
 				}
 			}
@@ -250,12 +265,53 @@
 	.quick-list, .main-menu {
 		margin: 0 auto;
 		padding: 0 20px;
-		width: 1400px;
+		width: $main-max-width;
 		@include box-sizing(border-box);
 	}
 }
 
-@include respond(Tablets) {}
+@include respond(Tablets) {
+	.m-logo .b-link {
+		width: 82px;
+		height: 26px;
+	}
+
+	.main-menu {
+		height: 36px;
+	}
+
+	.function-list {
+		.list {
+			padding: 0 4px;
+			font-size: 20px;
+		}
+
+		.btn-func {
+			width: 24px;
+
+			> * {
+				vertical-align: top;
+			}
+
+			&.shopping .count {
+				top: -3px;
+				right: -3px;
+			}
+		}
+	}
+
+	.menu-list {
+		> .list {
+			padding: 0 9px;
+			font-size: 14px;
+			line-height: 36px;
+		}
+
+		.sub-menu-wrap .sub-menu .list-block {
+			width: 22.5vw;
+		}
+	}
+}
 
 @include respond(Tablets-Mobiles) {
 }

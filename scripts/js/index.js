@@ -9,7 +9,6 @@
 		this._lFooter       = '.l-footer';
 		this._mCut          = '.m-cut';
 		this._pagination    = '.pagination';
-		this._video         = '.jq-video';
 		this._slideDown     = '.jq-slide-down';
 		this._slideCut      = '.jq-slide-cut';
 		this._subOwl        = '.sub-owl';
@@ -124,6 +123,16 @@
 			indexObj.checkCutLength();
 		}
 
+		$(common._owl).each(function(){
+			$(this).on('translated.owl.carousel' , function(e){
+				if ($(this).find('.active .item').hasClass('is-dark')) {
+					$(this).addClass('is-dark').removeClass('is-light');
+				} else {
+					$(this).addClass('is-light').removeClass('is-dark');
+				}
+			});
+		});
+
 		$('.social-wall').masonry({
 			itemSelector: '.list-item',
 			columnWidth: '.item-sizer',
@@ -131,20 +140,7 @@
 		});
 
 		$(indexObj._slideDown).on('click', function(){
-			// indexObj.slideCut(1);
-
-			function success(position) {
-				var latitude  = position.coords.latitude,
-					longitude = position.coords.longitude;
-
-				console.log(latitude + ' , ' + longitude);
-			}
-
-			function error() {
-				alert("Unable to retrieve your location");
-			}
-
-			navigator.geolocation.getCurrentPosition(success, error);
+			indexObj.slideCut(1);
 		});
 
 		$(indexObj._pagination).on('click', indexObj._slideCut, function(){
