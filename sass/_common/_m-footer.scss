@@ -7,7 +7,6 @@
 
 	.copyright {
 		color: $color-gray;
-		text-align: center;
 	}
 
 	.social-link {
@@ -147,6 +146,21 @@
 
 @include respond(Tablets-Mobiles) {}
 
-@include respond(Mobiles) {}
+@include respond(Mobiles) {
+	.m-footer {
+		padding: 16px 0 16px 10px;
+		line-height: 1.5em;
+
+		.info-list .b-link {
+			letter-spacing: 1px;
+			line-height: 1.5em;
+		}
+
+		.copyright {
+			margin-top: 10px;
+			display: block;
+		}
+	}
+}
 
 @include respond(Iphone5) {}

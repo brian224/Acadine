@@ -4,6 +4,7 @@
 	var pageObj = new page();
 
 	function page() {
+		this._Like = '.jQ-like';
 	}
 
 	projects.$w.load(function(){
@@ -11,6 +12,10 @@
 			itemSelector: '.list-item',
 			columnWidth: '.item-sizer',
 			gutter: 20
+		});
+
+		$(pageObj._Like).on('click', function(){
+			$(this).toggleClass('is-add');
 		});
 	});
 

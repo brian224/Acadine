@@ -243,6 +243,14 @@
         text-align : justify !important;
     }
 
+    .b-hide-text-dt {
+        display     : block;
+        overflow    : hidden;
+        line-height : 0;
+        text-indent : 200%;
+        white-space : nowrap;
+    }
+
     /* hide */
     .b-hide-dt {
         display : none !important;

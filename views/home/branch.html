@@ -12,15 +12,21 @@
 <body>
 	<div class="l-body branch show-header" data-cut="1">
 		<header class="l-header">
+			<h1 class="m-logo">
+				<a href="branch.html" class="b-link">
+					<img src="../../content/img/branch/logo.png" alt="遠東百貨">
+					<em class="text b-hide-text">遠東百貨</em>
+				</a>
+			</h1>
 			<div class="shortcut-wrap">
 				<div class="quick-list">
-					<div class="b-col-md-6 b-middle">
+					<div class="location-selecter b-col-md-6 b-middle b-text-center-xs">
 						<div class="m-box-holder is-selector">
 							<select name="" id="" class="m-selection">
 								<option value="">選擇分店</option>
 								<option value="">寶慶遠百</option>
 								<option value="">遠東百貨</option>
-								<option value="">板橋大遠百</option>
+								<option value="" selected="selected">板橋大遠百</option>
 								<option value="">板橋遠百</option>
 								<option value="">桃園遠百</option>
 								<option value="">新竹遠百</option>
@@ -32,31 +38,28 @@
 							</select>
 						</div>
 					</div>
-					<div class="b-col-md-6 b-middle b-text-right">
-						<button class="btn-lang is-curr">繁中</button>
-						<button class="btn-lang">簡中</button>
-						<div class="m-box-holder is-selector">
-							<select name="" id="" class="m-selection visitor-center">
-								<option value="">Visitor Center</option>
-								<option value="" data-lang="en">EN</option>
-								<option value="" data-lang="jp">JP</option>
-								<option value="" data-lang="cn">CN</option>
-							</select>
+					<div class="language-selecter b-col-md-6 b-text-right">
+						<button class="btn-language-switch b-hide-dt jQ-lang-switch">切換語系</button>
+						<div class="language-list b-middle b-text-left-xs">
+							<button class="btn-lang is-curr">繁中</button>
+							<button class="btn-lang">簡中</button>
+							<div class="m-box-holder is-selector">
+								<select name="" id="" class="m-selection visitor-center jQ-replace-tag">
+									<option value="">Visitor Center</option>
+									<option value="" data-lang="en">EN</option>
+									<option value="" data-lang="jp">JP</option>
+									<option value="" data-lang="cn">CN</option>
+								</select>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<nav class="l-nav">
 				<div class="main-menu">
-					<h1 class="m-logo">
-						<a href="index.html" class="b-link">
-							<img src="../../content/img/branch/logo.png" alt="遠東百貨">
-							<em class="text b-hide-text">遠東百貨</em>
-						</a>
-					</h1>
 					<ul class="menu-list">
 						<li class="list">
-							<em class="text">營業資訊</em>
+							<button class="text btn-submenu-xs">營業資訊</button>
 							<div class="menu-slider">
 								<div class="sub-menu-wrap">
 									<div class="sub-menu jQ-count-height" data-column="1">
@@ -77,7 +80,7 @@
 							</div>
 						</li>
 						<li class="list">
-							<em class="text">最新活動</em>
+							<button class="text btn-submenu-xs">最新活動</button>
 							<div class="menu-slider">
 								<div class="sub-menu-wrap">
 									<div class="sub-menu jQ-count-height" data-column="1">
@@ -96,7 +99,7 @@
 							</div>
 						</li>
 						<li class="list">
-							<em class="text">美食娛樂</em>
+							<button class="text btn-submenu-xs">美食娛樂</button>
 							<div class="menu-slider">
 								<div class="sub-menu-wrap">
 									<div class="sub-menu jQ-count-height" data-column="1">
@@ -116,7 +119,7 @@
 							</div>
 						</li>
 						<li class="list">
-							<em class="text">電子DM</em>
+							<button class="text btn-submenu-xs">電子DM</button>
 							<div class="menu-slider">
 								<div class="sub-menu-wrap">
 									<div class="sub-menu jQ-count-height" data-column="3">
@@ -143,7 +146,7 @@
 							</div>
 						</li>
 						<li class="list">
-							<em class="text">線上購物</em>
+							<button class="text btn-submenu-xs">線上購物</button>
 							<div class="menu-slider">
 								<div class="sub-menu-wrap">
 									<div class="sub-menu jQ-count-height" data-column="3">
@@ -172,7 +175,7 @@
 							</div>
 						</li>
 						<li class="list">
-							<em class="text">潮流趨勢</em>
+							<button class="text btn-submenu-xs">潮流趨勢</button>
 							<div class="menu-slider">
 								<div class="sub-menu-wrap">
 									<div class="sub-menu jQ-count-height" data-column="1">
@@ -195,31 +198,32 @@
 						<li class="list">
 							<button class="btn-func">
 								<i class="m-icon m-icon-search"></i>
-								<em class="b-hide-text">搜尋</em>
+								<em class="b-hide-text-dt">搜尋</em>
 							</button>
 						</li>
 						<li class="list">
 							<button class="btn-func">
 								<i class="m-icon m-icon-member"></i>
-								<em class="b-hide-text">登入/註冊</em>
+								<em class="b-hide-text-dt">登入/註冊</em>
 							</button>
 						</li>
 						<li class="list">
 							<button class="btn-func">
 								<i class="m-icon m-icon-heart"></i>
-								<em class="b-hide-text">我的最愛</em>
+								<em class="b-hide-text-dt">我的最愛</em>
 							</button>
 						</li>
 						<li class="list">
 							<button class="btn-func shopping">
 								<i class="m-icon m-icon-shopping"></i>
-								<em class="b-hide-text">我的購物車</em>
+								<em class="b-hide-text-dt">我的購物車</em>
 								<span class="count">5</span>
 							</button>
 						</li>
 					</ul>
 				</div>
 			</nav>
+			<button class="btn-mobile-menu b-hide-dt b-hide-text jQ-menu"><em>MENU</em></button>
 		</header>
 		<div class="l-main">
 			<div class="l-content b-clearfix">
@@ -231,7 +235,7 @@
 								<figcaption class="desc b-hide-text">全館沐浴品 50% OFF</figcaption>
 							</figure>
 						</div>
-						<div class="item" data-media="https://www.youtube.com/watch?v=TaCdAscgpU0&autoplay=1&loop=1&mute=1&bgplay=1&fullscreen=1&opacity=1&owl=1" data-elem=".jq-video">
+						<div class="item" data-media="https://www.youtube.com/watch?v=TaCdAscgpU0&autoplay=1&loop=1&mute=1&bgplay=1&fullscreen=0&opacity=1&owl=1" data-elem=".jq-video">
 							<div class="jq-video"></div>
 						</div>
 					</div>
@@ -300,7 +304,7 @@
 								<p class="b-desc">知名日本料理「大戶屋」昨天宣布進駐遠東百貨，喜歡日本料理的朋友一定會喜歡！</p>
 							</div>
 							<a href="javascript:;" class="btn-read-more b-link" data-lang="了解更多" data-default="READ MORE">READ MORE</a>
-							<button class="btn-like">
+							<button class="btn-like jQ-like">
 								<i class="m-icon m-icon-heart-2"></i>
 								<em class="text b-hide-text">LIKE</em>
 							</button>
@@ -315,7 +319,7 @@
 								<p class="b-desc">給予顧客貼心服務，提供健康食材風靡全球的日式料理即將登場。給予顧客貼心服務。</p>
 							</div>
 							<a href="javascript:;" class="btn-read-more b-link" data-lang="了解更多" data-default="READ MORE">READ MORE</a>
-							<button class="btn-like">
+							<button class="btn-like jQ-like">
 								<i class="m-icon m-icon-heart-2"></i>
 								<em class="text b-hide-text">LIKE</em>
 							</button>
@@ -330,7 +334,7 @@
 								<p class="b-desc">日籍豬排達人星合和評鑑後給予可媲美鹿兒島六白豬的高度評價，香草豬料理將首先開賣.....</p>
 							</div>
 							<a href="javascript:;" class="btn-read-more b-link" data-lang="了解更多" data-default="READ MORE">READ MORE</a>
-							<button class="btn-like">
+							<button class="btn-like jQ-like">
 								<i class="m-icon m-icon-heart-2"></i>
 								<em class="text b-hide-text">LIKE</em>
 							</button>
@@ -345,7 +349,7 @@
 								<p class="b-desc">知名日本料理「大戶屋」昨天宣布進駐遠東百貨，喜歡日本料理的朋友一定會喜歡！</p>
 							</div>
 							<a href="javascript:;" class="btn-read-more b-link" data-lang="了解更多" data-default="READ MORE">READ MORE</a>
-							<button class="btn-like">
+							<button class="btn-like jQ-like">
 								<i class="m-icon m-icon-heart-2"></i>
 								<em class="text b-hide-text">LIKE</em>
 							</button>
@@ -360,7 +364,7 @@
 								<p class="b-desc">給予顧客貼心服務，提供健康食材風靡全球的日式料理即將登場。給予顧客貼心服務。</p>
 							</div>
 							<a href="javascript:;" class="btn-read-more b-link" data-lang="了解更多" data-default="READ MORE">READ MORE</a>
-							<button class="btn-like">
+							<button class="btn-like jQ-like">
 								<i class="m-icon m-icon-heart-2"></i>
 								<em class="text b-hide-text">LIKE</em>
 							</button>
@@ -375,7 +379,7 @@
 								<p class="b-desc">日籍豬排達人星合和評鑑後給予可媲美鹿兒島六白豬的高度評價，香草豬料理將首先開賣.....</p>
 							</div>
 							<a href="javascript:;" class="btn-read-more b-link" data-lang="了解更多" data-default="READ MORE">READ MORE</a>
-							<button class="btn-like">
+							<button class="btn-like jQ-like">
 								<i class="m-icon m-icon-heart-2"></i>
 								<em class="text b-hide-text">LIKE</em>
 							</button>
@@ -607,7 +611,7 @@
 								</em>
 							</div>
 							<a href="javascript:;" class="btn-read-more b-link" data-lang="加入購物車" data-default="ADD TO CART">ADD TO CART</a>
-							<button class="btn-like">
+							<button class="btn-like jQ-like">
 								<i class="m-icon m-icon-heart-2"></i>
 								<em class="text b-hide-text">LIKE</em>
 							</button>
@@ -627,7 +631,7 @@
 								<span class="price">$9790</span>
 							</div>
 							<a href="javascript:;" class="btn-read-more b-link" data-lang="加入購物車" data-default="ADD TO CART">ADD TO CART</a>
-							<button class="btn-like is-add">
+							<button class="btn-like jQ-like is-add">
 								<i class="m-icon m-icon-heart-2"></i>
 								<em class="text b-hide-text">LIKE</em>
 							</button>
@@ -647,7 +651,7 @@
 								<span class="price">$5790</span>
 							</div>
 							<a href="javascript:;" class="btn-read-more b-link" data-lang="加入購物車" data-default="ADD TO CART">ADD TO CART</a>
-							<button class="btn-like">
+							<button class="btn-like jQ-like">
 								<i class="m-icon m-icon-heart-2"></i>
 								<em class="text b-hide-text">LIKE</em>
 							</button>
@@ -667,7 +671,7 @@
 								<span class="price">$5790</span>
 							</div>
 							<a href="javascript:;" class="btn-read-more b-link" data-lang="加入購物車" data-default="ADD TO CART">ADD TO CART</a>
-							<button class="btn-like">
+							<button class="btn-like jQ-like">
 								<i class="m-icon m-icon-heart-2"></i>
 								<em class="text b-hide-text">LIKE</em>
 							</button>
@@ -687,7 +691,7 @@
 								<span class="price">$5790</span>
 							</div>
 							<a href="javascript:;" class="btn-read-more b-link" data-lang="加入購物車" data-default="ADD TO CART">ADD TO CART</a>
-							<button class="btn-like">
+							<button class="btn-like jQ-like">
 								<i class="m-icon m-icon-heart-2"></i>
 								<em class="text b-hide-text">LIKE</em>
 							</button>
@@ -707,7 +711,7 @@
 								<span class="price">$9790</span>
 							</div>
 							<a href="javascript:;" class="btn-read-more b-link" data-lang="加入購物車" data-default="ADD TO CART">ADD TO CART</a>
-							<button class="btn-like">
+							<button class="btn-like jQ-like">
 								<i class="m-icon m-icon-heart-2"></i>
 								<em class="text b-hide-text">LIKE</em>
 							</button>
@@ -794,6 +798,7 @@
 				<div class="pagination">
 					<ul class="cut-dot"></ul>
 				</div>
+				<button class="btn-side-menu jQ-side-menu b-hide-text b-hide-dt">side menu</button>
 				<ul class="function-list">
 					<li class="list"><a href="javascript:;" class="b-link"><i class="m-icon m-icon-announcement"></i><em class="b-hide-text">即時公告</em></a></li>
 					<li class="list"><a href="javascript:;" class="b-link"><i class="m-icon m-icon-card"></i><em class="b-hide-text">卡友專區</em></a></li>
@@ -808,25 +813,25 @@
 		<footer class="l-footer">
 			<div class="m-footer">
 				<ul class="info-list">
-					<li class="list"><a href="javascript:;" class="b-link">品牌故事</a></li>
-					<li class="list"><a href="javascript:;" class="b-link">CSR企業社會責任</a></li>
-					<li class="list"><a href="javascript:;" class="b-link">投資人專區</a></li>
-					<li class="list"><a href="javascript:;" class="b-link">人才招募</a></li>
-					<li class="list"><a href="javascript:;" class="b-link">隱私權政策</a></li>
-					<li class="list"><a href="javascript:;" class="b-link">網站地圖</a></li>
+					<li class="list"><a href="javascript:;" class="b-link b-hide-xs">品牌故事</a></li>
+					<li class="list"><a href="javascript:;" class="b-link b-hide-xs">CSR企業社會責任</a></li>
+					<li class="list"><a href="javascript:;" class="b-link b-hide-xs">投資人專區</a></li>
+					<li class="list"><a href="javascript:;" class="b-link b-hide-xs">人才招募</a></li>
+					<li class="list"><a href="javascript:;" class="b-link b-hide-xs">隱私權政策</a></li>
+					<li class="list"><a href="javascript:;" class="b-link b-hide-xs">網站地圖</a></li>
 					<li class="list"><a href="javascript:;" class="b-link">聯絡我們</a></li>
-					<li class="list"><a href="javascript:;" class="b-link">相關連結</a></li>
+					<li class="list"><a href="javascript:;" class="b-link b-hide-xs">相關連結</a></li>
 				</ul>
-				<small class="copyright">Copyright&copy; 2016 Far Eastern Group All rights reserved.</small>
-				<a href="javascript:;" class="social-link instagram">
+				<small class="copyright b-text-center-dt">Copyright&copy; 2016 Far Eastern Group All rights reserved.</small>
+				<a href="javascript:;" class="social-link instagram b-hide-xs">
 					<i class="m-icon m-icon-instagram"></i>
 					<em class="text b-hide-text">Instagram</em>
 				</a>
-				<a href="javascript:;" class="social-link facebook">
+				<a href="javascript:;" class="social-link facebook b-hide-xs">
 					<i class="m-icon m-icon-facebook"></i>
 					<em class="text b-hide-text">Facebook</em>
 				</a>
-				<h3 class="footer-logo b-hide-text">遠東零售集團 FAR EASTERN</h3>
+				<h3 class="footer-logo b-hide-text b-hide-xs">遠東零售集團 FAR EASTERN</h3>
 			</div>
 		</footer>
 	</div>

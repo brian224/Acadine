@@ -183,6 +183,8 @@
 	.btn-like {
 		.m-icon {
 			position: absolute;
+			top: 10px;
+			right: 10px;
 		}
 
 		&:before {
@@ -192,6 +194,10 @@
 			position: absolute;
 			top: 0;
 			right: 0;
+			border-top: 33px solid $color-gray-l-p40;
+			border-right: 33px solid $color-gray-l-p40;
+			border-bottom: 33px solid transparent;
+			border-left: 33px solid transparent;
 		}
 	}
 
@@ -498,6 +504,10 @@
 }
 
 @include respond(Desktops-Tablets) {
+	.kv .jq-video {
+		height: 44.5vw;
+	}
+
 	.slide-list {
 		margin: 0 auto;
 		font-size: 0;
@@ -534,20 +544,6 @@
 	.food-list {
 		.list {
 			margin: 0 10px;
-
-			.btn-like {
-				&:before {
-					border-top: 33px solid $color-gray-l-p40;
-					border-right: 33px solid $color-gray-l-p40;
-					border-bottom: 33px solid transparent;
-					border-left: 33px solid transparent;
-				}
-
-				.m-icon {
-					top: 10px;
-					right: 10px;
-				}
-			}
 		}
 
 		.btn-read-more {
@@ -628,6 +624,10 @@
 }
 
 @include respond(HD) {
+	.kv .jq-video {
+		height: 44.5vw;
+	}
+
 	.m-cut {
 		width: $main-max-width;
 	}
@@ -696,10 +696,6 @@
 
 	.kv {
 		margin-bottom: 20px;
-
-		.jq-video {
-			height: 44.5vw;
-		}
 	}
 
 	.slide-list .btn-read-more {
@@ -833,6 +829,20 @@
 		width: 128vw;
 	}
 
+	.slide-list {
+		.owl-item {
+			@include transition(ease-in all 0.3s);
+
+			&:not(.active) {
+				@include transform(scale(0.95));
+			}
+		}
+
+		.btn-like {
+			height: 40px;
+		}
+	}
+
 	.activity-cut, .food-cut, .movie-cut, .shopping-cut {
 		width: calc(100vw - 100px);
 
@@ -845,16 +855,31 @@
 		}
 	}
 
-	.shopping-list:before {
-		content: '';
-		margin-left: -50vw;
-		background: $color-white;
-		display: block;
-		width: 100vw;
-		height: 100%;
-		position: absolute;
-		top: 0;
-		left: 50%;
+	.shopping-list {
+		&:before {
+			content: '';
+			margin-left: -50vw;
+			background: $color-white;
+			display: block;
+			width: 100vw;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 50%;
+		}
+
+		.owl-item:not(.active) .btn-like {
+			opacity: 0;
+		}
+
+		.m-icon {
+			line-height: 40px;
+
+			&:before, &:after {
+				margin-right: -10px;
+				right: 50% !important;
+			}
+		}
 	}
 
 	.social-wall {

@@ -114,6 +114,21 @@
 		});
 	}
 
+	index.prototype.geolocation = function() {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function(position) {
+				var _latitude  = position.coords.latitude,
+					_longitude = position.coords.longitude;
+
+				console.log(_latitude + ' , ' + _longitude);
+			}, function() {
+				// handleNoGeolocation(true);
+			});
+		} else {
+			alert("Browser doesn't support Geolocation");
+		}
+	}
+
 	projects.$w.load(function(){
 		if (projects._browsers.msie) {
 			setTimeout(function(){
@@ -155,6 +170,8 @@
 	projects.$d.ready(function(){
 		if ( projects.device() === 'PC' ) {
 			indexObj.mousewheel();
+		} else {
+			indexObj.geolocation();
 		}
 	});
 

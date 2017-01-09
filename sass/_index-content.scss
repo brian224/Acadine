@@ -332,6 +332,14 @@
 		}
 	}
 
+	.kv-owl .item {
+		height: calc(100vh - 120px);
+
+		.img-wrap {
+			height: calc(100vh - 120px);
+		}
+	}
+
 	.jQ-owl .item-info {
 		padding: 0 64px;
 		width: 100%;
@@ -423,7 +431,24 @@
 
 @include respond(Tablets) {}
 
-@include respond(Tablets-Mobiles) {}
+@include respond(Tablets-Mobiles) {
+	.l-body {
+		height: 100vh;
+		overflow: hidden;
+
+		&:before {
+			content: '';
+			background: $color-white;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			opacity: 0.7;
+			z-index: 5;
+		}
+	}
+}
 
 @include respond(Mobiles) {}
 

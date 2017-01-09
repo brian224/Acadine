@@ -18,18 +18,17 @@
 
 .l-nav {
 	background: $color-white;
-	box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
 .l-side {
 	@include display-flex;
 	@include align-items(center);
-	@include justify-content(center);
 	@include flex-direction(column);
 	height: 100%;
 	position: fixed;
 	top: 0;
 	bottom: 0;
+	right: 14px;
 	pointer-events: none;
 	z-index: 2;
 
@@ -47,15 +46,15 @@
 	.l-body.show-header .l-content {
 		padding-top: 120px;
 	}
-
-	.l-side {
-		right: 14px;
-	}
 }
 
 @include respond(HD) {}
 
 @include respond(Desktops-Tablets) {
+	.l-nav {
+		box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+	}
+
 	.l-body {
 		.l-content {
 			padding-top: 70px;
@@ -68,6 +67,10 @@
 			opacity: 1;
 			z-index: 1;
 		}
+	}
+
+	.l-side {
+		@include justify-content(center);
 	}
 }
 
@@ -90,10 +93,6 @@
 		z-index: 4;
 	}
 
-	.l-side {
-		display: none;
-	}
-
 	.l-footer {
 		position: relative;
 	}
@@ -101,7 +100,53 @@
 
 @include respond(Mobiles) {
 	.l-header {
-		display: none;
+		background: $color-white;
+		height: 56px;
+		box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+
+		&.is-active {
+			.shortcut-wrap {
+				max-height: 100vh;
+			}
+
+			.btn-mobile-menu {
+				&:before {
+					margin-top: 0;
+					@include transform(rotate(45deg));
+				}
+	
+				&:after {
+					margin-top: 0;
+					margin-left: -15px;
+					width: 30px;
+					@include transform(rotate(-45deg));
+				}
+	
+				em {
+					background: transparent !important;
+				}
+			}
+	
+			.l-nav {
+				max-height: 100vh;
+			}
+		}
+	}
+
+	.l-nav {
+		max-height: 0;
+		overflow: hidden;
+		@include transition(ease-in all 0.3s);
+	}
+
+	.l-body .l-content {
+		padding-top: 56px;
+	}
+
+	.l-side {
+		width: 54px;
+		@include flex-direction(column-reverse);
+		@include justify-content(flex-start);
 	}
 }
 
