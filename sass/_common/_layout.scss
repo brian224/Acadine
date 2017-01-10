@@ -104,10 +104,14 @@
 @include respond(Mobiles) {
 	.l-header {
 		background: $color-white;
-		height: 56px;
+		max-height: 56px;
 		box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+		@include transition(ease-in all 0.3s);
 
 		&.is-active {
+			max-height: 100vh;
+			overflow-y: scroll;
+
 			.shortcut-wrap {
 				max-height: 100vh;
 				overflow: visible;
@@ -132,7 +136,9 @@
 			}
 	
 			.l-nav {
+				padding-bottom: 30px;
 				max-height: 100vh;
+				@include box-sizing(border-box);
 			}
 		}
 	}

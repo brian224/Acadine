@@ -437,10 +437,13 @@
 
 @include respond(Tablets-Mobiles) {
 	.l-header {
-		z-index: 5;
+		height: 100vh;
+		max-height: inherit;
+		overflow: hidden;
 	}
 
 	.shortcut-wrap {
+		margin: 0;
 		background: #f4f4f4;
 		max-height: inherit;
 
@@ -456,7 +459,13 @@
 		display: none;
 	}
 
-	.visitor-center {
+	.location-selecter {
+		height: auto;
+		text-align: center;
+	}
+
+	.location-list {
+		padding: 40px 0;
 		font-size: 15px;
 		line-height: 3em;
 		text-align: left;
@@ -480,21 +489,8 @@
 		}
 	}
 
-	.l-body {
-		height: 100vh;
-		overflow: hidden;
-
-		&:before {
-			content: '';
-			background: $color-white;
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			opacity: 0.7;
-			z-index: 5;
-		}
+	.l-main {
+		display: none;
 	}
 }
 

@@ -56,7 +56,7 @@
 		}
 	}
 
-	&.is-checkbox {
+	/*&.is-checkbox {
 		margin-right: 5px;
 		background: $color-gray-l-p40;
 		width: 20px;
@@ -98,7 +98,7 @@
 		.m-radio {
 			opacity: 0;
 		}
-	}
+	}*/
 
 	.m-icon {
 		margin-top: -12px;
@@ -133,7 +133,7 @@
 		@include placeholder($color-gray-d-p10);
 	}
 
-	.m-textarea {
+	/*.m-textarea {
 		border: 1px solid $color-gray-l-p30;
 		outline: none;
 		resize: none;
@@ -145,7 +145,7 @@
 			border: 1px solid $color-major;
 			box-shadow: inset 1px 1px 0 $color-major, inset -1px -1px 0 $color-major;
 		}
-	}
+	}*/
 }
 
 @include browsers('IE') {}

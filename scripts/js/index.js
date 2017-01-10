@@ -122,7 +122,7 @@
 
 				alert('你所在的經緯度為：' + _latitude + ' , ' + _longitude + '，將為你列出最接近你的分店。');
 
-				$('.visitor-center li:not(:first-child)').on('click', function(){
+				$('.location-list .list:not(.title)').on('click', function(){
 					window.location.href = 'branch.html';
 				});
 			}, function() {
@@ -168,15 +168,18 @@
 		$(indexObj._subOwl + ' .arrow').each(function(){
 			$(this).css('border-bottom-color', $(this).parents('.item').css('background-color'));
 		});
+
+		$(common._owl).hover(function(){
+			$(this).trigger('stop.owl.autoplay');
+		}, function(){
+			$(this).trigger('play.owl.autoplay', [5000]);
+		});
 	});
 
 	projects.$d.ready(function(){
 		if ( projects.device() === 'PC' ) {
 			indexObj.mousewheel();
 		} else {
-			$(common._replaceTag).replaceWith('<ul class="visitor-center jQ-replace-tag">' + $(common._replaceTag).html().replace(/option/g, 'li') + '</ul>');
-			$(common._replaceTag).parent().removeClass('m-box-holder is-selector');
-
 			indexObj.geolocation();
 		}
 	});

@@ -398,6 +398,11 @@
 	}
 }
 
+.hidden-place {
+	height: 0;
+	overflow: hidden;
+}
+
 @include respond(Desktops) {
 	.m-cut {
 		margin-bottom: 70px;
@@ -423,9 +428,9 @@
 		.img-wrap {
 			width: calc(100% - 40px);
 
-			img {
+			/*img {
 				width: auto;
-			}
+			}*/
 		}
 
 		.item-info {
