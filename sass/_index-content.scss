@@ -398,6 +398,10 @@
 		}
 	}
 
+	.sub-owl .owl-stage {
+		transition-delay: 1s !important;
+	}
+
 	.l-footer {
 		position: fixed;
 		bottom: -50px;

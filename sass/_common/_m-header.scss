@@ -48,6 +48,18 @@
 	@include display-flex;
 	@include align-items(center);
 	@include justify-content(center);
+
+	.function-list .btn-func.shopping .count {
+		background: $color-text-major;
+		display: inline-block;
+		width: 16px;
+		height: 16px;
+		border-radius: 50%;
+		color: $color-white;
+		font-size: 12px;
+		line-height: 16px;
+		text-align: center;
+	}
 }
 
 @include respond(Desktops) {
@@ -159,17 +171,9 @@
 			}
 
 			&.shopping .count {
-				background: $color-text-major;
-				width: 16px;
-				height: 16px;
 				position: absolute;
 				top: 0;
 				right: 0;
-				border-radius: 50%;
-				color: $color-white;
-				font-size: 12px;
-				line-height: 16px;
-				text-align: center;
 			}
 		}
 	}
@@ -487,6 +491,17 @@
 	.main-menu {
 		@include align-items(stretch);
 		@include flex-direction(column-reverse);
+
+		.function-list {
+			border-bottom: 1px solid $color-gray-l-p30;
+		}
+
+		.list {
+			font-size: 13px;
+			font-weight: bold;
+			letter-spacing: 1px;
+			line-height: 30px;
+		}
 	}
 }
 

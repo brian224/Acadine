@@ -8,6 +8,7 @@
 	.owl-item {
 		display: inline-block;
 		vertical-align: top;
+		overflow: hidden;
 	}
 }
 
@@ -21,7 +22,9 @@
 		position: absolute;
 		top: 50%;
 		border: 1px solid $color-gray-d-p30;
-		cursor: pointer;
+		overflow: hidden;
+		text-indent: 200%;
+		white-space: nowrap;
 		@include box-sizing(border-box);
 
 		&.owl-prev:before {
@@ -84,6 +87,7 @@
 	}
 
 	&.is-relative {
+		position: relative;
 		text-align: center;
 	}
 
@@ -95,10 +99,19 @@
 		text-align: center;
 	}
 
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 1;
+	}
+
 	.m-owl-dot {
 		display: inline-block;
 		position: relative;
-		cursor: pointer;
 
 		&:hover span, &.active span {
 			background: $color-white;
@@ -140,13 +153,38 @@
 }
 
 @include respond(Desktops) {
+	.jQ-owl {
+		&:hover .m-owl-ctrl {
+			opacity: 1;
+		}
+
+		.m-owl-ctrl {
+			opacity: 0;
+			@include transition(ease-in all 0.3s);
+		}
+
+		&.is-padding {
+			.owl-prev {
+				left: 64px;
+			}
+
+			.owl-next {
+				right: 64px;
+			}
+		}
+	}
+
 	.m-owl-ctrl  {
+		> * {
+			cursor: pointer;
+		}
+
 		.owl-prev {
-			left: -46px;
+			left: 0;
 		}
 
 		.owl-next {
-			right: -46px;
+			right: 0;
 		}
 	}
 
@@ -189,17 +227,9 @@
 	}
 }
 
-@include respond(Tablets) {
-	.m-owl-ctrl  {
-		.owl-prev {
-			left: 0;
-		}
+@include respond(HD) {}
 
-		.owl-next {
-			right: 0;
-		}
-	}
-}
+@include respond(Tablets) {}
 
 @include respond(Tablets-Mobiles) {
 	.m-owl-dot {

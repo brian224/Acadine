@@ -9,23 +9,7 @@
 
 		img {
 			min-width: 50%;
-			min-height: 100%;
 		}
-	}
-}
-
-.jq-video {
-	position: relative;
-
-	&:after {
-		content: '';
-		display: block;
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: 1;
 	}
 }
 
@@ -165,11 +149,33 @@
 			text-align: center;
 		}
 	}
+
+	.jq-video {
+		height: 100%;
+		position: relative;
+
+		&:after {
+			content: '';
+			display: block;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 1;
+		}
+	}
 }
 
 @include respond(Desktops-Tablets) {
-	.kv-owl .m-owl-dots {
-		bottom: 10px;
+	.kv-owl {
+		img {
+			min-height: 100%;
+		}
+
+		.m-owl-dots {
+			bottom: 10px;
+		}
 	}
 
 	.l-side {

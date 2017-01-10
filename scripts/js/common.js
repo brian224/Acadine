@@ -66,7 +66,6 @@
 
 		$(common._lang).on('click', function(){
 			$(this).toggleClass('is-active');
-			$('.l-header').removeClass('is-active');
 		});
 
 		$(common._menu).on('click', function(){

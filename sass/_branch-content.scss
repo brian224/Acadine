@@ -1,5 +1,6 @@
 ﻿.l-body .l-content {
 	background: #f4f4f4;
+	overflow: hidden;
 }
 
 .kv {
@@ -8,12 +9,6 @@
 
 .m-cut {
 	margin: 0 auto;
-
-	.m-owl-dots .m-owl-dot span {
-		margin: -7px 0 0 -7px;
-		width: 14px;
-		height: 14px;
-	}
 
 	.btn-more {
 		margin: 0 auto;
@@ -381,12 +376,6 @@
 
 		.m-owl-dots {
 			margin: 25px 0;
-	
-			.m-owl-dot {
-				margin: 0 3px;
-				width: 14px;
-				height: 14px;
-			}
 		}
 
 		.btn-more {
@@ -418,6 +407,11 @@
 			position: absolute;
 			top: 50%;
 			right: 0;
+		}
+
+		.m-owl-ctrl {
+			opacity: 0;
+			@include transition(ease-in all 0.3s);
 		}
 	}
 
@@ -525,11 +519,6 @@
 	}
 
 	.activity-list {
-		.m-owl-ctrl {
-			opacity: 0;
-			@include transition(ease-in all 0.3s);
-		}
-
 		.list {
 			margin: 0 10px;
 			position: relative;
@@ -819,7 +808,6 @@
 		}
 	}
 
-
 	.kv .jq-video {
 		height: 57vw;
 	}
@@ -839,6 +827,7 @@
 		}
 
 		.btn-like {
+			width: 40px;
 			height: 40px;
 		}
 	}
@@ -852,6 +841,7 @@
 
 		.list {
 			margin: 0 10px;
+			width: calc(100% - 20px);
 		}
 	}
 
@@ -896,9 +886,23 @@
 	}
 }
 
+@include devices(iphone) {
+	.food-list .btn-read-more {
+		margin: 0 20px 20px 20px;
+	}
+
+	.shopping-list .btn-read-more {
+		margin: 0 15px 25px 15px;
+	}
+}
+
 @include respond(Iphone5) {
 	.activity-cut, .food-cut, .movie-cut, .shopping-cut {
 		width: 232px;
+
+		.list {
+			width: 212px;
+		}
 	}
 
 	.social-wall {

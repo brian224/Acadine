@@ -120,9 +120,10 @@
 				var _latitude  = position.coords.latitude,
 					_longitude = position.coords.longitude;
 
-				console.log(_latitude + ' , ' + _longitude);
+				alert('你所在的經緯度為：' + _latitude + ' , ' + _longitude + '，將為你引導至最接近你的分店。');
+
+				window.location.href = 'branch.html';
 			}, function() {
-				// handleNoGeolocation(true);
 			});
 		} else {
 			alert("Browser doesn't support Geolocation");

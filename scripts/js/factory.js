@@ -488,9 +488,9 @@
                             _elem       = $elem.data('elem') ? _closest : $elem,
                             _elemHeight = _fullscreen ? ( $elem.data('elem') ? ( _elem.parent().height() + 'px' ) : ( _elem.height() + 'px' ) ) : '100%',
                             _elemWidth  = _fullscreen ? ( $elem.data('elem') ? ( _elem.parent().width() + 'px' ) : ( _elem.width() + 'px' ) ) : '100%',
-                            _top        = _fullscreen ? ( projects._media._orientation === 'landscape' ? ( ( ( _elemHeight  - _elem.width() ) /  2 ) + 'px' ) : '0px' ) : '0px',
-                            _left       = _fullscreen ? ( ( ( _elem.width() / _elemHeight ) <= projects._media._scale ) ? ( ( ( ( _elem.width() - ( _elem.width() / ( _elemHeight / _elem.width() ) ) ) / 2 ) | 0 ) + 'px' ) : '0px' ) : '0px',
-                            _width      = _fullscreen ? ( ( ( _elem.width() / _elemHeight ) <= projects._media._scale ) ? ( ( ( _elem.width() / ( _elemHeight / _elem.width() ) ) | 0 ) + 'px' ) : '100%' ) : '100%',
+                            _top        = _fullscreen ? ( projects._media._orientation === 'landscape' ? ( ( ( parseInt(_elemHeight, 10)  - _elem.width() ) /  2 ) + 'px' ) : '0px' ) : '0px',
+                            _left       = _fullscreen ? ( ( ( _elem.width() / parseInt(_elemHeight, 10) ) <= projects._media._scale ) ? ( ( ( ( _elem.width() - ( _elem.width() / ( parseInt(_elemHeight, 10) / _elem.width() ) ) ) / 2 ) | 0 ) + 'px' ) : '0px' ) : '0px',
+                            _width      = _fullscreen ? ( ( ( _elem.width() / parseInt(_elemHeight, 10) ) <= projects._media._scale ) ? ( ( ( _elem.width() / ( parseInt(_elemHeight, 10) / _elem.width() ) ) | 0 ) + 'px' ) : '100%' ) : '100%',
                             _height     = _fullscreen ? ( projects._media._orientation === 'landscape' ? ( _elem.width() + 'px' ) : '100%' ) : '100%';
 
                         var _youtube = '<div class="m-youtube' + ( _opacity === 0 ? ' is-opacity' : '' ) +'" style="width: '+_elemWidth+'; height: '+_elemHeight+'; position:relative; overflow: hidden;"><span id="m-youtube-'+i+'" class="m-youtube-append" style="top: '+ _top +'; height: '+_height+'; width: '+_width+'; left: '+_left+'; position : absolute;"></span></div>';
