@@ -399,7 +399,7 @@
 	}
 
 	.sub-owl .owl-stage {
-		transition-delay: 1s !important;
+		@include transition-delay(1s !important);
 	}
 
 	.l-footer {
@@ -436,6 +436,50 @@
 @include respond(Tablets) {}
 
 @include respond(Tablets-Mobiles) {
+	.l-header {
+		z-index: 5;
+	}
+
+	.shortcut-wrap {
+		background: #f4f4f4;
+		max-height: inherit;
+
+		.quick-list {
+			padding-right: 0;
+			height: 100vh;
+			overflow-y: scroll;
+			@include justify-content(center);
+		}
+	}
+
+	.m-logo, .btn-mobile-menu, .language-selecter {
+		display: none;
+	}
+
+	.visitor-center {
+		font-size: 15px;
+		line-height: 3em;
+		text-align: left;
+
+		> * {
+			padding: 0 20px;
+
+			&:first-child {
+				font-size: 20px;
+				font-weight: bold;
+			}
+
+			&:not(:first-child) {
+				color: $color-gray-d-p20;
+
+				&:active {
+					background: $color-text-major;
+					color: $color-white;
+				}
+			}
+		}
+	}
+
 	.l-body {
 		height: 100vh;
 		overflow: hidden;

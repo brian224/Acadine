@@ -75,10 +75,17 @@
 
 		$(common._sudMenu).on('click', function(){
 			$(this).toggleClass('is-active');
+
+			if ($(this).hasClass('is-active')) {
+				$(common._lBody).addClass('is-padding-arrow');
+			} else {
+				$(common._lBody).removeClass('is-padding-arrow');
+			}
 		});
 
 		if ( projects.device() === 'Mobile') {
 			$(common._replaceTag).replaceWith('<ul class="visitor-center jQ-replace-tag">' + $(common._replaceTag).html().replace(/option/g, 'li') + '</ul>');
+			$(common._sudMenu).trigger('click');
 		}
 	});
 

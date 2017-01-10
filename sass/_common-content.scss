@@ -14,8 +14,31 @@
 }
 
 .l-side {
-	.function-list .m-icon {
-		color: $color-black;
+	.function-list {
+		margin-top: 20px;
+		width: 50px;
+		position: relative;
+		text-align: center;
+
+		.list {
+			padding: 10px 0;
+			width: 100%;
+		}
+	
+		.m-icon {
+			color: $color-black;
+			font-size: 28px;
+			@include transition(ease-in all 0.5s);
+		}
+	}
+
+	.collapse-wrap {
+		width: 100%;
+		min-height: 50px;
+		max-height: 0;
+		opacity: 0;
+		overflow: hidden;
+		@include transition(ease-in all 0.3s);
 	}
 
 	.pagination {
@@ -47,6 +70,53 @@
 				border: 1px solid $color-gray-l-p40;
 				@include box-sizing(border-box);
 				@include transition(ease-in all 0.5s);
+			}
+		}
+	}
+
+	.btn-side-menu {
+		margin-left: -22px;
+		background: $color-text-major;
+		display: block;
+		width: 44px;
+		height: 44px;
+		position: absolute;
+		bottom: 3px;
+		left: 50%;
+		border-radius: 50%;
+		box-shadow: 0 0 5px rgba(0, 0, 0, 0.35);
+		z-index: 1;
+		text-align: center;
+		@include transition(ease-in all 0.3s);
+
+		&:before, &:after {
+			content: '';
+			margin: -1px 0 0 -7px;
+			background: $color-white;
+			display: block;
+			width: 14px;
+			height: 2px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			z-index: 0;
+		}
+
+		&:after {
+			@include transform(rotate(90deg));
+		}
+
+		&.is-active {
+			box-shadow: none;
+			@include transform(rotate(45deg));
+
+			~ .collapse-wrap {
+				padding: 25px 0 50px 0;
+				background: $color-white;
+				max-height: 100vh;
+				border-radius: 25px;
+				box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+				opacity: 1;
 			}
 		}
 	}
@@ -139,6 +209,23 @@
 }
 
 @include respond(Desktops) {
+	.l-body.is-padding-arrow {
+		.jQ-owl.is-padding {
+			.owl-prev {
+				left: 64px;
+			}
+	
+			.owl-next {
+				right: 64px;
+			}
+		}
+
+		.l-side {
+			min-height: calc(100vh - 40px);
+			top: 20px;
+		}
+	}
+
 	.kv-owl .item {
 		height: 44.5vw;
 
@@ -179,31 +266,11 @@
 	}
 
 	.l-side {
-		.function-list {
-			margin-top: 20px;
-			padding: 25px 0;
-			background: $color-white;
-			width: 50px;
-			border-radius: 25px;
-			box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-			text-align: center;
-	
-			.list {
-				padding: 10px 0;
-				width: 100%;
-			}
-	
-			.b-link {
-				display: block;
-	
-				&:hover .m-icon {
-					color: $color-text-major;
-				}
-			}
-	
-			.m-icon {
-				font-size: 28px;
-				@include transition(ease-in all 0.5s);
+		.function-list .b-link {
+			display: block;
+
+			&:hover .m-icon {
+				color: $color-text-major;
 			}
 		}
 
@@ -249,6 +316,16 @@
 }
 
 @include respond(HD) {
+	.l-body.is-padding-arrow .jQ-owl.is-padding:not(.kv-owl) {
+		.owl-prev {
+			left: 0;
+		}
+
+		.owl-next {
+			right: 0;
+		}
+	}
+
 	.kv-owl .item {
 		height: calc(100vh - 120px);
 
@@ -277,67 +354,11 @@
 
 	.l-side {
 		.function-list {
-			width: 100%;
-			max-height: 0;
-			opacity: 0;
-			overflow: hidden;
-			@include transition(ease-in all 0.3s);
-
-			.b-link {
-				margin: 6px auto;
-				background: $color-white;
-				display: block;
-				width: 44px;
-				height: 44px;
-				border-radius: 50%;
-				box-shadow: 0 0 5px rgba(0, 0, 0, 0.35);
-				font-size: 18px;
-				line-height: 44px;
-				text-align: center;
-			}
+			margin-bottom: 30px;
 		}
 
 		.btn-top {
 			display: none;
-		}
-
-		.btn-side-menu {
-			margin: 12px 0 30px 0;
-			background: $color-text-major;
-			display: block;
-			width: 44px;
-			height: 44px;
-			position: relative;
-			border-radius: 50%;
-			box-shadow: 0 0 5px rgba(0, 0, 0, 0.35);
-			text-align: center;
-			@include transition(ease-in all 0.3s);
-
-			&:before, &:after {
-				content: '';
-				margin: -1px 0 0 -7px;
-				background: $color-white;
-				display: block;
-				width: 14px;
-				height: 2px;
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				z-index: 0;
-			}
-
-			&:after {
-				@include transform(rotate(90deg));
-			}
-
-			&.is-active {
-				@include transform(rotate(45deg));
-
-				~ .function-list {
-					max-height: 100vh;
-					opacity: 1;
-				}
-			}
 		}
 	}
 }

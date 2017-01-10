@@ -24,13 +24,13 @@
 	@include display-flex;
 	@include align-items(center);
 	@include flex-direction(column);
-	height: 100%;
+	min-height: 0;
 	position: fixed;
-	top: 0;
-	bottom: 0;
+	bottom: 20px;
 	right: 14px;
 	pointer-events: none;
 	z-index: 2;
+	@include transition(ease-in all 0.3s);
 
 	> * {
 		pointer-events: auto;

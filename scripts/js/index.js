@@ -120,9 +120,11 @@
 				var _latitude  = position.coords.latitude,
 					_longitude = position.coords.longitude;
 
-				alert('你所在的經緯度為：' + _latitude + ' , ' + _longitude + '，將為你引導至最接近你的分店。');
+				alert('你所在的經緯度為：' + _latitude + ' , ' + _longitude + '，將為你列出最接近你的分店。');
 
-				window.location.href = 'branch.html';
+				$('.visitor-center li:not(:first-child)').on('click', function(){
+					window.location.href = 'branch.html';
+				});
 			}, function() {
 			});
 		} else {
@@ -172,6 +174,9 @@
 		if ( projects.device() === 'PC' ) {
 			indexObj.mousewheel();
 		} else {
+			$(common._replaceTag).replaceWith('<ul class="visitor-center jQ-replace-tag">' + $(common._replaceTag).html().replace(/option/g, 'li') + '</ul>');
+			$(common._replaceTag).parent().removeClass('m-box-holder is-selector');
+
 			indexObj.geolocation();
 		}
 	});

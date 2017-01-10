@@ -325,6 +325,34 @@
 .social-wall {
 	.list-item {
 		margin-bottom: 20px;
+
+		.b-link {
+			display: block;
+			position: relative;
+
+			&.from-facebook:before {
+				content: '\e90d';
+			}
+
+			&.from-instagram:before {
+				content: '\e90f';
+			}
+
+			&:before {
+				display: block;
+				width: 44px;
+				height: 44px;
+				position: absolute;
+				top: 10px;
+				right: 10px;
+				opacity: 0.87;
+				z-index: 1;
+				color: $color-white;
+				font-size: 44px;
+				font-family: 'feds-font';
+				line-height: 44px;
+			}
+		}
 	}
 
 	.desc {
@@ -498,6 +526,21 @@
 }
 
 @include respond(Desktops-Tablets) {
+	.menu-list.is-highlight {
+		margin-left: 18px;
+		@include display-flex;
+		@include align-items(center);
+
+		&:before {
+			content: '';
+			margin-right: 18px;
+			background: $color-gray-l-p10;
+			display: inline-block;
+			width: 1px;
+			height: 20px;
+		}
+	}
+
 	.kv .jq-video {
 		height: 44.5vw;
 	}
@@ -789,18 +832,11 @@
 @include respond(Mobiles) {
 	.m-cut {
 		.jQ-owl {
-			margin-bottom: 64px;
-			position: relative;
+			margin-bottom: 20px;
 		}
 
 		.m-owl-dots {
-			margin-left: -50vw;
-			width: 100vw;
-			position: absolute;
-			bottom: -64px;
-			left: 50%;
-			@include display-flex;
-			@include justify-content(center);
+			display: none;
 		}
 
 		.btn-more {
