@@ -45,7 +45,11 @@
 				// 用按的
 				projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + _lFooterHeight + _quickListHeight * ($(indexObj._mCut).length - 2)}, common._animateSpeed);
 			} else {
-				projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + _lFooterHeight}, common._animateSpeed);
+				if (projects._browsers.msie) {
+					projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + _lFooterHeight}, common._animateSpeed);
+				} else {
+					projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + _lFooterHeight}, common._animateSpeed);
+				}
 			}
 		} else {
 			if (direct < -1) {
@@ -178,14 +182,16 @@
 
 	projects.$d.ready(function(){
 		if ( projects.device() === 'PC' ) {
-			indexObj.mousewheel();
+			// if ( projects._browsers.version !== 9 ) {
+				indexObj.mousewheel();
+			// }
 		} else {
 			indexObj.geolocation();
 		}
 	});
 
 	projects.$w.on('scroll' , function(){
-		if ( projects.device() === 'PC') {
+		if ( projects.device() === 'PC' ) {
 			indexObj.mousewheel();
 		}
 	});

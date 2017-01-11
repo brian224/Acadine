@@ -445,6 +445,10 @@
 		.m-owl-ctrl {
 			opacity: 0;
 			@include transition(ease-in all 0.3s);
+
+			> * {
+				margin-top: -56px;
+			}
 		}
 	}
 
@@ -458,14 +462,31 @@
 		}
 	}
 
+	.food-list, .shopping-list {
+		.btn-read-more {
+			&:hover {
+				border-color: $color-text-major;
+			}
+
+			&:after {
+				background: $color-text-major;
+				color: $color-white;
+			}
+		}
+	}
+
 	.shopping-list {
-		padding-top: 42px;
+		padding: 21px 0;
 
 		&:after {
 			margin-left: -23px;
 			border-right: 23px solid transparent;
 			border-bottom: 39px solid $color-white;
 			border-left: 23px solid transparent;
+		}
+
+		.list {
+			padding-top: 21px;
 		}
 
 		.img-wrap {
@@ -492,6 +513,11 @@
 
 		.btn-read-more {
 			margin-bottom: 48px !important;
+
+			&:after {
+				content: '\e909  加入購物車';
+				font-family: 'feds-font', '微軟正黑體';
+			}
 		}
 	}
 
@@ -546,7 +572,7 @@
 		}
 	}
 
-	.kv .jq-video {
+	.kv .jQ-video {
 		height: 44.5vw;
 	}
 
@@ -557,12 +583,6 @@
 
 		.list {
 			margin: 0 auto;
-		}
-
-		.btn-like {
-			&:hover .m-icon:after {
-				opacity: 1;
-			}
 		}
 	}
 
@@ -617,7 +637,14 @@
 		}
 
 		.list {
-			margin: 0 10px;
+			margin: 10px;
+			border: 1px solid $color-white;
+			@include transition(ease-in all 0.3s);
+
+			&:hover {
+				border: 1px solid $color-gray-l-p30;
+				box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+			}
 		}
 
 		.img-wrap {
@@ -631,6 +658,7 @@
 		.btn-like {
 			width: 20px;
 			height: 20px;
+			top: 25px;
 			right: 25px;
 		}
 
@@ -661,7 +689,17 @@
 }
 
 @include respond(HD) {
-	.kv .jq-video {
+	.l-body.is-padding-arrow .jQ-owl.is-padding:not(.kv-owl) {
+		.owl-prev {
+			left: 0;
+		}
+
+		.owl-next {
+			right: 0;
+		}
+	}
+
+	.kv .jQ-video {
 		height: 44.5vw;
 	}
 
@@ -849,7 +887,7 @@
 		}
 	}
 
-	.kv .jq-video {
+	.kv .jQ-video {
 		height: 57vw;
 	}
 
@@ -951,4 +989,26 @@
 	}
 }
 
-@include browsers('IE') {}
+@include browsers('IE') {
+	.food-list .btn-read-more {
+		margin-right: 40px;
+		margin-left: 40px;
+	}
+
+	.shopping-list .btn-read-more {
+		margin-right: 32px;
+		margin-left: 32px;
+	}
+}
+
+@include browsers('Safari') {
+	.food-list .btn-read-more {
+		margin-right: 40px;
+		margin-left: 40px;
+	}
+
+	.shopping-list .btn-read-more {
+		margin-right: 32px;
+		margin-left: 32px;
+	}
+}

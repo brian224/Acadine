@@ -29,7 +29,7 @@
 	bottom: 20px;
 	right: 14px;
 	pointer-events: none;
-	z-index: 2;
+	z-index: 3;
 	@include transition(ease-in all 0.3s);
 
 	> * {
@@ -45,6 +45,13 @@
 	.l-body.show-header .l-content {
 		padding-top: 120px;
 	}
+
+	@media screen and ( min-height : 700px ) {
+		.l-body.is-padding-arrow .l-side {
+			min-height: calc(100vh - 40px);
+			top: 20px;
+		}
+	}
 }
 
 @include respond(HD) {}
@@ -57,9 +64,6 @@
 	.l-body {
 		.l-content {
 			padding-top: 70px;
-		}
-
-		&.show-header .l-content {
 		}
 
 		&.show-footer .l-side .btn-top {
@@ -165,3 +169,10 @@
 @include devices(iphone) {}
 
 @include respond(Iphone5) {}
+
+@include browsers('IE9') {
+	.l-body.is-padding-arrow .l-side {
+		min-height: 0;
+		top: auto;
+	}
+}

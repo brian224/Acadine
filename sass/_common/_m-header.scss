@@ -25,7 +25,7 @@
 	background: $color-white;
 	max-height: 0;
 	overflow: hidden;
-	@include transition(ease-in all 0.3s);
+	@include transition(ease-in all 0.5s);
 }
 
 .m-logo {
@@ -111,6 +111,7 @@
 	}
 
 	.shortcut-wrap {
+		padding: 0 10px;
 		background: #f4f4f4;
 		max-height: 0;
 		position: relative;
@@ -152,37 +153,41 @@
 		}
 	}
 
-	.main-menu .function-list {
-		height: 70px;
-		position: absolute;
-		bottom: 0;
-		right: 0;
-		font-size: 0;
-		line-height: 0;
-		text-align: right;
-		@include display-flex;
-		@include align-items(center);
-		@include justify-content(center);
+	.main-menu {
+		padding: 0 10px;
 
-		.list {
-			display: inline-block;
-
-			&:last-child {
-				padding-right: 0;
+		.function-list {
+			height: 70px;
+			position: absolute;
+			bottom: 0;
+			right: 10px;
+			font-size: 0;
+			line-height: 0;
+			text-align: right;
+			@include display-flex;
+			@include align-items(center);
+			@include justify-content(center);
+	
+			.list {
+				display: inline-block;
+	
+				&:last-child {
+					padding-right: 0;
+				}
 			}
-		}
-
-		.btn-func {
-			position: relative;
-
-			&:hover .m-icon {
-				color: $color-text-major;
-			}
-
-			&.shopping .count {
-				position: absolute;
-				top: 0;
-				right: 0;
+	
+			.btn-func {
+				position: relative;
+	
+				&:hover .m-icon {
+					color: $color-text-major;
+				}
+	
+				&.shopping .count {
+					position: absolute;
+					top: 0;
+					right: 0;
+				}
 			}
 		}
 	}
@@ -194,6 +199,10 @@
 
 		&.is-highlight .list .text {
 			color: $color-text-minor;
+
+			&:after {
+				background: $color-text-minor;
+			}
 		}
 
 		> .list {
@@ -206,7 +215,7 @@
 
 				&:after {
 					content: '';
-					background: $color-text-minor;
+					background: $color-gray-d-p30;
 					display: block;
 					width: 100%;
 					height: 5px;
@@ -306,11 +315,15 @@
 
 	.m-logo {
 		bottom: 9px;
-		left: 0;
+		left: 10px;
 	}
 }
 
 @include respond(HD) {
+	.shortcut-wrap {
+		padding: 0;
+	}
+
 	.quick-list, .main-menu {
 		margin: 0 auto;
 		padding: 0 20px;
@@ -318,9 +331,13 @@
 		@include box-sizing(border-box);
 	}
 
-	.main-menu .function-list {
-		margin-right: -680px;
-		right: 50%;
+	.main-menu {
+		padding: 0;
+
+		.function-list {
+			margin-right: -680px;
+			right: 50%;
+		}
 	}
 
 	.m-logo {
@@ -533,4 +550,77 @@
 
 @-moz-document url-prefix() {}
 
-@include browsers('IE') {}
+@include browsers('IE') {
+	.m-logo .b-link {
+		display   : block;
+		font-size : 0;
+		position  : relative;
+
+		&:before {
+			content     : "";
+			font-size   : 0;
+			height      : 100%;
+			line-height : 0;
+			zoom        : 1;
+			@include inline-block;
+		}
+
+		> * {
+			@include inline-block;
+		}
+	}
+}
+
+@include browsers('IE9') {
+	.l-header .m-box-holder {
+		border-radius: 0;
+	}
+
+	.shortcut-wrap {
+		.quick-list {
+			.location-selecter {
+				float: left;
+			}
+	
+			.language-selecter {
+				float: right;
+	
+				> * {
+					margin-top: 10px;
+					display: inline-block;
+					vertical-align: top;
+				}
+			}
+
+			.language-list > * {
+				height: 30px;
+				line-height: 30px;
+			}
+		}
+
+		.is-selector.m-box-holder .m-selection {
+			padding: 0;
+		}
+	}
+
+	.main-menu {
+		text-align: center;
+
+		.function-list {
+			display: table;
+	
+			.list {
+				display: table-cell;
+				vertical-align: middle;
+			}
+		}
+	}
+
+	.menu-list {
+		display: inline-block;
+		
+		.sub-menu-wrap > * {
+			float: left;
+		}
+	}
+}

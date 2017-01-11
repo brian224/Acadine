@@ -192,6 +192,12 @@
 			right: 0;
 		}
 	}
+
+	@media screen and ( max-height : 700px ) {
+		.m-owl-dots.is-absolute {
+			bottom: 15px;
+		}
+	}
 }
 
 @include respond(Desktops-Tablets) {}
@@ -203,5 +209,12 @@
 @include respond(Tablets-Mobiles) {
 	.m-owl-ctrl {
 		display: none;
+	}
+}
+
+@include browsers('IE9') {
+	.owl-stage {
+		position: relative;
+		z-index: 0;
 	}
 }

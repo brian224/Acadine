@@ -268,6 +268,8 @@
 		@media screen and ( -webkit-min-device-pixel-ratio : 0 ) { 
 			@supports ( not ( -ms-accelerator : true ) ) and ( not ( -moz-appearance : none ) ) { @content; }
 		}
+	} @else if $browsers == 'Safari' {
+		_::-webkit-full-page-media, _:future, :root { @content; }
 	}
 }
 
