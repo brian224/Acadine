@@ -43,10 +43,16 @@
 			// 最後一 cut
 			if (direct !== -1) {
 				// 用按的
-				projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + _lFooterHeight + _quickListHeight * ($(indexObj._mCut).length - 2)}, common._animateSpeed);
+				if (projects._browsers.msie && projects._browsers.version === 11) {
+					projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + _lFooterHeight + _quickListHeight * ($(indexObj._mCut).length - 2)}, common._animateSpeed).animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + _lFooterHeight + _quickListHeight * ($(indexObj._mCut).length - 2) + 400}, common._animateSpeed);
+				} else {
+					projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + _lFooterHeight + _quickListHeight * ($(indexObj._mCut).length - 2)}, common._animateSpeed);
+				}
 			} else {
-				if (projects._browsers.msie) {
-					projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + _lFooterHeight}, common._animateSpeed);
+				if (projects._browsers.msie && projects._browsers.version === 11) {
+					if (parseInt($(common._lBody).attr('data-cut'), 10) !== $(indexObj._mCut).length) {
+						projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + _lFooterHeight}, common._animateSpeed).animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + _lFooterHeight + 400}, common._animateSpeed);
+					}
 				} else {
 					projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + _lFooterHeight}, common._animateSpeed);
 				}
@@ -136,6 +142,16 @@
 		}
 	}
 
+	// 取得縮放倍率
+	index.prototype.onresize = function() {
+		// console.log(detectZoom.zoom() + ' , ' + detectZoom.device());
+		if (detectZoom.device() >= 1.5) {
+			$(common._lBody).addClass('scale-150');
+		} else if (detectZoom.device() >= 1.25) {
+			$(common._lBody).addClass('scale-125');
+		}
+	}
+
 	projects.$w.load(function(){
 		if (projects._browsers.msie) {
 			setTimeout(function(){
@@ -181,10 +197,10 @@
 	});
 
 	projects.$d.ready(function(){
+		indexObj.onresize();
+
 		if ( projects.device() === 'PC' ) {
-			// if ( projects._browsers.version !== 9 ) {
-				indexObj.mousewheel();
-			// }
+			indexObj.mousewheel();
 		} else {
 			indexObj.geolocation();
 		}

@@ -1,23 +1,9 @@
-.l-header {
-	.m-box-holder {
-		height: 28px;
-		border-radius: 14px;
-		overflow: hidden;
+.l-header .btn-lang {
+	color: $color-gray-l-p10;
+	letter-spacing: 2px;
 
-		.m-selection, .m-inputbox {
-			height: 26px;
-			font-size: 12px;
-			line-height: 26px;
-		}
-	}
-
-	.btn-lang {
-		color: $color-gray-l-p10;
-		letter-spacing: 2px;
-
-		&.is-curr {
-			color: $color-black;
-		}
+	&.is-curr {
+		color: $color-black;
 	}
 }
 
@@ -108,6 +94,7 @@
 @include respond(Desktops-Tablets) {
 	.l-body.show-header .shortcut-wrap {
 		max-height: 100px;
+		overflow: visible;
 	}
 
 	.shortcut-wrap {
@@ -118,10 +105,6 @@
 		overflow: hidden;
 		z-index: 1;
 		@include transition(ease-in all 0.3s);
-
-		.m-box-holder.is-selector .m-selection {
-			padding: 0 36px;
-		}
 
 		.quick-list {
 			@include display-flex;
@@ -316,6 +299,67 @@
 	.m-logo {
 		bottom: 9px;
 		left: 10px;
+	}
+
+	.m-replace-select {
+		display: inline-block;
+		height: 28px;
+		position: relative;
+		cursor: pointer;
+
+		&.is-active {
+			> * {
+				max-height: 100vh;
+			}
+
+			&:hover:after {
+				/*bordesr-top-color: $color-white;*/
+			}
+		}
+
+		&:hover > * {
+			border-color: $color-text-major;
+		}
+
+		&:after {
+			content: '';
+			margin-top: -3px;
+			display: block;
+			position: absolute;
+			top: 50%;
+			right: 14px;
+			border-top: 6px solid $color-gray-l-p10;
+			border-right: 5px solid transparent;
+			border-left: 5px solid transparent;
+			pointer-events: none;
+		}
+
+		> * {
+			background: $color-white;
+			width: 100%;
+			max-height: 28px;
+			z-index: 1;
+			border: 1px solid $color-gray-l-p10;
+			border-radius: 14px;
+			overflow: hidden;
+			@include box-sizing(border-box);
+			@include transition(ease-in all 0.3s);
+		}
+
+		.list {
+			padding: 0 36px;
+			height: 26px;
+			color: $color-gray-d-p10;
+			font-size: 12px;
+			line-height: 26px;
+			text-align: left;
+			white-space: nowrap;
+
+			&:hover {
+				background: $color-text-major;
+				color: $color-white;
+			}
+		}
 	}
 }
 

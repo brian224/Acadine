@@ -8,7 +8,8 @@
 		this._owl          = '.jQ-owl';
 		this._countHeight  = '.jQ-count-height';
 		this._btnTop       = '.jQ-top';
-		this._replaceTag   = '.jQ-replace-tag';
+		// this._replaceTag   = '.jQ-replace-tag';
+		this._select       = '.jQ-select';
 		this._menu         = '.jQ-menu';
 		this._sudMenu      = '.jQ-side-menu';
 		this._video        = '.jQ-video';
@@ -16,12 +17,62 @@
 		this._masonryLoad  = false;
 	}
 
+	// page.prototype.selectUI = function() {
+	// 	$('select').each(function(i , v){
+	// 		var $this = $('select').eq(i),
+	// 			_text = $this.find('option:selected').text() || $this.find('option:eq(0)').text(); // 是否有預選項目
+
+	// 		if ($this.parent().hasClass('selecter')) { // 重新append時
+	// 			$this.unwrap();
+	// 			$this.siblings().remove();
+	// 		}
+	// 		$this.wrap('<div id="select-'+i+'" class="selecter closed" />');
+	// 		$this.css({'display': 'none'});
+	// 		$('#select-'+i+'').append('<span class="selecter-selected">'+ _text +'</span>');
+
+	// 		$('#select-'+i+'').append('<div class="selecter-options" style="display:none;"></div>');
+
+	// 		$this.find('option').each(function(idx , val){
+	// 			var _sta = '';
+
+	// 			if ($(this).attr('disabled') === 'disabled') {
+	// 				_sta += ' disabled'; // 如果不可選
+	// 			}
+
+	// 			if ($(this).attr('selected') === 'selected') {
+	// 				_sta += ' selected'; // 如果是預選項目
+	// 			}
+
+	// 			$('#select-'+i+'').find('div').append('<span class="selecter-item'+_sta+'" data-value="'+ $this.find('option:eq('+idx+')').val() +'">'+ $this.find('option:eq('+idx+')').text() +'</span>');
+	// 		});
+
+	// 		$('#select-'+i+'').hover(function(){
+	// 			$('#select-'+i+'').addClass('focus open').removeClass('closed').find('.selecter-options').css('display' , 'block');
+	// 		} , function(){
+	// 			$('#select-'+i+'').addClass('closed').removeClass('focus open').find('.selecter-options').css('display' , 'none');
+	// 		});
+
+	// 		$('#select-'+i+'').find('.selecter-item').on('click' , function(e){
+	// 			var $this  = $(this),
+	// 				$index = $(this).index();
+	// 			$('#select-'+i+'').addClass('closed').removeClass('focus open').find('.selecter-options').css('display' , 'none');
+	// 			if (!$this.hasClass('disabled')) { // 不可選時不做事
+	// 				$('#select-'+i+'').find('.selecter-selected').addClass('selected').text($this.text());
+	// 				$('#select-'+i+'').find('select option:eq('+ $index +')').prop('selected' , true);
+	// 				$('#select-'+i+'').find('select').trigger('change');
+	// 				$this.addClass('selected').siblings().removeClass('selected');
+	// 			}
+	// 		});
+	// 	});
+	// }
+
 	// 點擊目標區域以外的地方可關閉目標區域
 	page.prototype.offClick = function(_target) {
 		projects.$d.off('click').on('click' , function(e){
 			e.stopPropagation();
 
 			if (!$(e.target).is(_target + ', ' + _target + ' *')) {
+				$(_target).removeClass('is-active');
 			}
 		});
 	}
@@ -30,8 +81,6 @@
 		var _totalH  = (projects._browsers.msie && projects._browsers.version === 9) ? projects.$b.height() : projects.$hb.height(),
 			_cutH    = projects.$w.height(),
 			_scrollH = (projects._browsers.chrome || projects._browsers.safari) ? projects.$b.scrollTop() : projects.$hb.scrollTop();
-
-		// console.log(_totalH + ' ? ' + _cutH + ' + ' + _scrollH);
 
 		if (_totalH <= _cutH + _scrollH) {
 			$(common._lBody).addClass('show-footer');
@@ -62,15 +111,15 @@
 		});
 	}
 
-	page.prototype.replaceTag = function() {
-		$(common._replaceTag).each(function(){
-			$(this).replaceWith('<select class="m-selection ' + $(this).attr('class') + '">' + $(this).html().replace(/li/g, 'option') + '</select>');
-		});
+	// page.prototype.replaceTag = function() {
+	// 	$(common._replaceTag).each(function(){
+	// 		$(this).replaceWith('<select class="m-selection ' + $(this).attr('class') + '">' + $(this).html().replace(/li/g, 'option') + '</select>');
+	// 	});
 
-		$(common._replaceTag).each(function(){
-			$(this).wrapAll('<div class="m-box-holder is-selector"></div>');
-		});
-	}
+	// 	$(common._replaceTag).each(function(){
+	// 		$(this).wrapAll('<div class="m-box-holder is-selector"></div>');
+	// 	});
+	// }
 
 	projects.$w.load(function(){
 		common.headerHeight();
@@ -81,8 +130,14 @@
 		projects.owlCarousel(common._owl);
 
 		// projects.$w.on('touchmove', function(e){
-		// 	console.log(e);
+		// 	console.log(e.pageX + ' , ' + e.pageY);
 		// });
+
+		$(common._select).on('click', function(){
+			$(this).toggleClass('is-active');
+
+			common.offClick(common._select);
+		});
 
 		$(common._btnTop).on('click', function(){
 			projects.$hb.animate({'scrollTop': 0}, common._animateSpeed);
@@ -117,7 +172,7 @@
 		if ( projects.device() === 'Mobile') {
 			$(common._sudMenu).trigger('click');
 		} else {
-			common.replaceTag();
+			// common.replaceTag();
 		}
 	});
 

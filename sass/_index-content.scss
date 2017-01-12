@@ -149,6 +149,9 @@
 
 			.img-wrap {
 				margin-left: -100%;
+				@include display-flex;
+				@include align-items(center);
+				@include justify-content(center);
 				width: 200%;
 				height: 100%;
 				position: absolute;
@@ -228,7 +231,17 @@
 	.l-body {
 		&.show-header .m-cut, &.show-footer .m-cut {
 			height: calc(100vh - 120px);
-		}		
+		}
+
+		&.scale-150 .m-cut .main-content .item .item-info {
+			@include transform(scale(0.7));
+			@include transform-origin(top, center);
+		}
+
+		&.scale-125 .m-cut .main-content .item .item-info {
+			@include transform(scale(0.8));
+			@include transform-origin(top, center);
+		}
 	}
 
 	.m-cut {
@@ -295,9 +308,6 @@
 				}
 	
 				.img-wrap {
-					@include display-flex;
-					@include align-items(center);
-					@include justify-content(center);
 					height: 55%;
 				}
 			}
@@ -385,6 +395,19 @@
 		height: 50px;
 	}
 
+	@media screen and ( max-height : 740px ) {
+		.m-cut.social-cut {
+			.main-content {
+				padding-top: 10px;
+			}
+
+			.social-wall {
+				@include transform(scale(0.9));
+				@include transform-origin(top, center);
+			}
+		}
+	}
+
 	@media screen and ( max-height : 700px ) {
 		.jQ-owl .item-info .desc {
 			font-size: 12px;
@@ -400,7 +423,12 @@
 
 		.m-cut.social-cut .social-wall {
 			@include transform(scale(0.8));
-			@include transform-origin(top, center);
+		}
+	}
+
+	@media screen and ( max-height : 650px ) {
+		.m-cut.social-cut .social-wall {
+			@include transform(scale(0.7));
 		}
 	}
 }
@@ -481,7 +509,7 @@
 	.shortcut-wrap {
 		margin: 0;
 		background: #f4f4f4;
-		max-height: inherit;
+		max-height: inherit !important;
 
 		.quick-list {
 			padding-right: 0;
@@ -491,13 +519,17 @@
 		}
 	}
 
-	.m-logo, .btn-mobile-menu, .language-selecter {
-		display: none;
+	.m-logo, .btn-mobile-menu, .language-selecter, .l-nav {
+		display: none !important;
 	}
 
 	.location-selecter {
-		height: auto;
+		height: auto !important;
 		text-align: center;
+
+		&:before {
+			display: none;
+		}
 	}
 
 	.location-list {

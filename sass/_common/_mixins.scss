@@ -372,6 +372,6 @@
 }
 
 /* unit */
-@function units($number , $width , $nuit) {
-	@return #{( ( $number / 1px ) / ( $width / 1px ) * 100 )}#{$nuit};
+@function units($number , $width , $unit) {
+	@return #{( ( $number / 1px ) / ( $width / 1px ) * 100 )}#{$unit};
 }
