@@ -75,6 +75,15 @@
 			}
 		}
 
+		// 暫停影片
+		if (n !== 0) {
+			for (var i = 0; i < projects._media._player.length; i++) {
+				if (projects._media._player[i].getPlayerState() === 1) {
+					projects._media._player[i].pauseVideo();
+				}
+			}
+		}
+
 		$(indexObj._pagination).find('.cut-dot .list').removeClass('is-curr').eq(n).addClass('is-curr');
 
 		if (indexObj._isYouTube && n !== 0 && typeof projects._media._player.pauseVideo !== 'undefined') {
@@ -203,6 +212,7 @@
 			indexObj.mousewheel();
 		} else {
 			indexObj.geolocation();
+			$(common._select).removeClass('m-replace-select');
 		}
 	});
 
@@ -225,6 +235,11 @@
 	});
 
 	projects.$w.resize(function(){
+		if ( projects.device() !== 'Mobile') {
+			window.location.reload();
+			// $(common._owl).trigger('destory.owl.carousel');
+			// projects.owlCarousel(common._owl);
+		}
 	});
 
 	if ( ! window.indexObj ) {

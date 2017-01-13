@@ -26,7 +26,6 @@
 	@include flex-direction(column);
 	min-height: 0;
 	position: fixed;
-	bottom: 60px;
 	right: 14px;
 	pointer-events: none;
 	z-index: 3;
@@ -48,8 +47,8 @@
 
 	@media screen and ( min-height : 700px ) {
 		.l-body.is-padding-arrow .l-side {
-			min-height: calc(100vh - 120px);
-			top: 60px;
+			min-height: calc(100vh - 236px);
+			top: 118px;
 		}
 	}
 }
@@ -73,6 +72,7 @@
 	}
 
 	.l-side {
+		bottom: 118px;
 		@include justify-content(center);
 	}
 
@@ -161,6 +161,7 @@
 
 	.l-side {
 		width: 54px;
+		bottom: 60px;
 		@include flex-direction(column-reverse);
 		@include justify-content(flex-start);
 	}

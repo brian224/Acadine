@@ -249,6 +249,14 @@
 	background: $color-white;
 	position: relative;
 
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		bottom: 100%;
+		left: 50%;
+	}
+
 	.owl-stage {
 		@include display-flex;
 		@include align-items(stretch);
@@ -627,14 +635,6 @@
 
 	.shopping-list {
 		margin-bottom: 64px;
-
-		&:after {
-			content: '';
-			display: block;
-			position: absolute;
-			bottom: 100%;
-			left: 50%;
-		}
 
 		.list {
 			margin: 10px;

@@ -248,6 +248,38 @@
 }
 
 @include respond(Desktops-Tablets) {
+	.l-body.scale-125 .l-side {
+		.function-list {
+			margin-top: 10px;
+			width: 40px;
+
+			.list {
+				padding: 0;
+			}
+
+			.m-icon {
+				font-size: 20px;
+			}
+		}
+
+		.btn-side-menu {
+			margin-left: -17px;
+			width: 34px;
+			height: 34px;
+
+			&.is-active ~ .collapse-wrap {
+				padding: 20px 0 45px 0;
+			}
+		}
+
+		.btn-top {
+			width: 34px;
+			height: 34px;
+			font-size: 12px;
+			line-height: 34px;
+		}
+	}
+
 	.kv-owl {
 		img {
 			min-height: 100%;
