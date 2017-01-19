@@ -115,22 +115,29 @@
 	}
 
 	page.prototype.touchLock = function() {
-		var _startX, _startY;
-
 		$(common._owl).on('touchstart', function(e){
-			_startX = e.originalEvent.touches[0].pageX;
-			_startY = e.originalEvent.touches[0].pageY;
+			var _scrollTop = projects.$b.scrollTop();
+
+			$(common._lBody).css({'overflow': 'hidden'});
+			$('.l-content').css({'margin-top': -_scrollTop});
 		});
 
-		$(common._owl).on('touchend', function(e){
-			if (Math.abs(e.originalEvent.changedTouches[0].pageX - _startX) > Math.abs(e.originalEvent.changedTouches[0].pageY - _startY) && Math.abs(e.originalEvent.changedTouches[0].pageY - _startY) < 20) {
-				if (e.originalEvent.changedTouches[0].pageX - _startX > 10) {
-					$(this).trigger('prev.owl.carousel');
-				} else if (e.originalEvent.changedTouches[0].pageX - _startX < -10) {
-					$(this).trigger('next.owl.carousel');
-				}
-			}
-		});
+		// var _startX, _startY;
+
+		// $(common._owl).on('touchstart', function(e){
+		// 	_startX = e.originalEvent.touches[0].pageX;
+		// 	_startY = e.originalEvent.touches[0].pageY;
+		// });
+
+		// $(common._owl).on('touchend', function(e){
+		// 	if (Math.abs(e.originalEvent.changedTouches[0].pageX - _startX) > Math.abs(e.originalEvent.changedTouches[0].pageY - _startY) && Math.abs(e.originalEvent.changedTouches[0].pageY - _startY) < 20) {
+		// 		if (e.originalEvent.changedTouches[0].pageX - _startX > 10) {
+		// 			$(this).trigger('prev.owl.carousel');
+		// 		} else if (e.originalEvent.changedTouches[0].pageX - _startX < -10) {
+		// 			$(this).trigger('next.owl.carousel');
+		// 		}
+		// 	}
+		// });
 	}
 
 	projects.$w.load(function(){
@@ -200,10 +207,7 @@
 
 	projects.$w.on('scroll' , function(){
 		common.showFooter();
-
-		// if (projects._videoState === 1) {
-			common.pauseVideo();
-		// }
+		common.pauseVideo();
 	});
 
 	projects.$w.resize(function(){
