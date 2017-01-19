@@ -828,6 +828,12 @@
 
 		.img-wrap {
 			height: 240px;
+			@include flex-direction(column);
+
+			img {
+				width: auto;
+				max-width: 100%;
+			}
 		}
 
 		.item-info {

@@ -219,6 +219,10 @@
 	background: $color-gray-d-p40;
 }
 
+.m-replace-select .list.back {
+	display: none;
+}
+
 @include keyframes(suspension) {
 	0%, 100% {
 		margin-bottom: 10px;
@@ -228,8 +232,6 @@
 		margin-bottom: 0px;
 	}
 }
-
-@-moz-document url-prefix() {}
 
 @include respond(Desktops) {
 	.l-body {
@@ -548,14 +550,14 @@
 		text-align: left;
 
 		> * {
-			padding: 0 20px;
-
 			&:first-child {
 				font-size: 20px;
 				font-weight: bold;
 			}
 
-			&:not(:first-child) {
+			&:not(:first-child) .b-link {
+				padding: 0 20px;
+				display: block;
 				color: $color-gray-d-p20;
 
 				&:active {

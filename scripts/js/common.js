@@ -12,16 +12,18 @@
 		this._menu         = '.jQ-menu';
 		this._sudMenu      = '.jQ-side-menu';
 		this._video        = '.jQ-video';
+		this._mute         = '.jQ-mute';
 		this._animateSpeed = 400;
 		this._masonryLoad  = false;
 	}
 
+	// header 仿下拉選單
 	page.prototype.selectUI = function() {
 		$(common._select).each(function(){
 			var $this = $(this),
 				_val  = '';
 
-			if ($this.find('.is-delected').length !== 0) {
+			if ($this.find('.is-selected').length !== 0) {
 				_val = $this.find('.is-selected').text();
 			} else {
 				_val = $this.find('.list').eq(0).text();
@@ -53,12 +55,11 @@
 		});
 	}
 
+	// 捲到頁尾時觸發的事件
 	page.prototype.showFooter = function() {
 		var _totalH  = (projects._browsers.msie && projects._browsers.version === 9) ? projects.$b.height() : projects.$hb.height(),
 			_cutH    = projects.$w.height(),
 			_scrollH = (projects._browsers.chrome || projects._browsers.safari) ? projects.$b.scrollTop() : projects.$hb.scrollTop();
-
-		console.log(_totalH + ' <= ' + _cutH + ' + ' + _scrollH);
 
 		if (_totalH <= _cutH + Math.ceil(_scrollH)) {
 			$(common._lBody).addClass('show-footer');
@@ -89,6 +90,49 @@
 		});
 	}
 
+	// 暫停影片
+	page.prototype.pauseVideo = function() {
+		$(common._video).each(function(){
+			if($(this).offset().top + $(this).height() < projects.$w.scrollTop() + parseInt($('.l-content').css('padding-top'), 10)) {
+				for (var i = 0; i < projects._media._player.length; i++) {
+					if ( ! projects._media._player[i].getPlayerState ) return false;
+					if (projects._media._player[i].getPlayerState() === 1) {
+						projects._media._player[i].pauseVideo();
+					}
+
+					$('[data-media]').eq(i).attr('data-media' , $('[data-media]').eq(i).attr('data-media').replace(/autoplay=1/ , 'autoplay=0'));
+				}
+			} else if ($(this).parents('.owl-item').hasClass('active')) {
+				for (var i = 0; i < projects._media._player.length; i++) {
+					if ( ! projects._media._player[i].getPlayerState ) return false;
+					if (projects._media._player[i].getPlayerState() === 2 && /autoplay\=([^?&#]*)/.exec($(this).parent().attr('data-media'))[1] !== '0') {
+						projects._media._player[i].playVideo();
+						$('[data-media]').eq(i).attr('data-media' , $('[data-media]').eq(i).attr('data-media').replace(/autoplay=0/ , 'autoplay=1'));
+					}
+				}
+			}
+		});
+	}
+
+	page.prototype.touchLock = function() {
+		var _startX, _startY;
+
+		$(common._owl).on('touchstart', function(e){
+			_startX = e.originalEvent.touches[0].pageX;
+			_startY = e.originalEvent.touches[0].pageY;
+		});
+
+		$(common._owl).on('touchend', function(e){
+			if (Math.abs(e.originalEvent.changedTouches[0].pageX - _startX) > Math.abs(e.originalEvent.changedTouches[0].pageY - _startY) && Math.abs(e.originalEvent.changedTouches[0].pageY - _startY) < 20) {
+				if (e.originalEvent.changedTouches[0].pageX - _startX > 10) {
+					$(this).trigger('prev.owl.carousel');
+				} else if (e.originalEvent.changedTouches[0].pageX - _startX < -10) {
+					$(this).trigger('next.owl.carousel');
+				}
+			}
+		});
+	}
+
 	projects.$w.load(function(){
 		common.headerHeight();
 		common.showFooter();
@@ -97,9 +141,9 @@
 	projects.$d.ready(function(){
 		projects.owlCarousel(common._owl);
 
-		// projects.$w.on('touchmove', function(e){
-		// 	console.log(e.pageX + ' , ' + e.pageY);
-		// });
+		if ( projects.device() === 'Mobile') {
+			common.touchLock();
+		}
 
 		common.selectUI();
 
@@ -126,10 +170,26 @@
 				var _idx = $(this).find('.m-youtube-append').attr('id').split('m-youtube-')[1];
 
 				if (projects._media._player[_idx].getPlayerState() === 2) {
+					$(this).removeClass('is-pause');
+					$(this).parent().attr('data-media' , $(this).parent().attr('data-media').replace(/autoplay=0/ , 'autoplay=1'));
 					projects._media._player[_idx].playVideo();
 				} else {
+					$(this).addClass('is-pause');
+					$(this).parent().attr('data-media' , $(this).parent().attr('data-media').replace(/autoplay=1/ , 'autoplay=0'));
 					projects._media._player[_idx].pauseVideo();
 				}
+			}
+		});
+
+		$(common._mute).on('click', function(){
+			var _idx = $(this).prev(common._video).find('.m-youtube-append').attr('id').split('m-youtube-')[1];
+
+			if ($(this).hasClass('is-mute')) {
+				$(this).removeClass('is-mute');
+				projects._media._player[_idx].unMute();
+			} else {
+				$(this).addClass('is-mute');
+				projects._media._player[_idx].mute();
 			}
 		});
 
@@ -140,6 +200,10 @@
 
 	projects.$w.on('scroll' , function(){
 		common.showFooter();
+
+		// if (projects._videoState === 1) {
+			common.pauseVideo();
+		// }
 	});
 
 	projects.$w.resize(function(){

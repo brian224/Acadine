@@ -169,7 +169,11 @@
 
 @include devices(iphone) {}
 
-@include respond(Iphone5) {}
+@include respond(Iphone5) {
+	.l-side {
+		bottom: 40px;
+	}
+}
 
 @include browsers('IE9') {
 	.l-body.is-padding-arrow .l-side {

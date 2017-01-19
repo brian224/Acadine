@@ -4,15 +4,16 @@
     var projects = new factory();
 
     function factory() {
-        this.$w        = jQuery(window);
-        this.$d        = jQuery(document);
-        this.$hb       = jQuery('html , body');
-        this.$b        = jQuery('body');
-        this._ORIGIN   = /^file\:\/\/\//.exec(window.location.href) ? '' : ( /^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i.exec(window.location.href)[0] );
-        this._HREF     = window.location.href;
-        this._EVENTS   = 'click touchstart';
-        this._ISMAC    = navigator.platform.match(/Mac/i) ? true : false;
-        this._browsers = {
+        this.$w          = jQuery(window);
+        this.$d          = jQuery(document);
+        this.$hb         = jQuery('html , body');
+        this.$b          = jQuery('body');
+        this._ORIGIN     = /^file\:\/\/\//.exec(window.location.href) ? '' : ( /^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i.exec(window.location.href)[0] );
+        this._HREF       = window.location.href;
+        this._EVENTS     = 'click touchstart';
+        this._ISMAC      = navigator.platform.match(/Mac/i) ? true : false;
+        this._videoState = -1;
+        this._browsers   = {
             'msie'    : navigator.userAgent.match(/(msie|trident(?=\/))\/?\s*(\d+)/i) ? true : false,
             'edge'    : navigator.userAgent.match(/(Edge(?=\/))\/?\s*(\d+)/i) ? true : false,
             'chrome'  : navigator.userAgent.match(/(chrome(?=\/))\/?\s*(\d+)/i) ? true : false,
@@ -676,6 +677,7 @@
                         var $owl         = jQuery('.m-youtube-append').eq(_idx).parents('.owl-carousel');
                         var _owlAutoPlay = $owl.data('autoplay');
 
+                        projects._videoState = event.data;
                         // if ( event.data === 0 && ! _loop ) {
                             
                         // }
