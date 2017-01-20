@@ -114,30 +114,10 @@
 		});
 	}
 
-	page.prototype.touchLock = function() {
-		$(common._owl).on('touchstart', function(e){
-			var _scrollTop = projects.$b.scrollTop();
-
-			$(common._lBody).css({'overflow': 'hidden'});
-			$('.l-content').css({'margin-top': -_scrollTop});
+	page.prototype.touchLock = function(_scrollTop) {
+		$(common._owl).on('touchmove touchend', function(e){
+			$('body').scrollTop(_scrollTop);
 		});
-
-		// var _startX, _startY;
-
-		// $(common._owl).on('touchstart', function(e){
-		// 	_startX = e.originalEvent.touches[0].pageX;
-		// 	_startY = e.originalEvent.touches[0].pageY;
-		// });
-
-		// $(common._owl).on('touchend', function(e){
-		// 	if (Math.abs(e.originalEvent.changedTouches[0].pageX - _startX) > Math.abs(e.originalEvent.changedTouches[0].pageY - _startY) && Math.abs(e.originalEvent.changedTouches[0].pageY - _startY) < 20) {
-		// 		if (e.originalEvent.changedTouches[0].pageX - _startX > 10) {
-		// 			$(this).trigger('prev.owl.carousel');
-		// 		} else if (e.originalEvent.changedTouches[0].pageX - _startX < -10) {
-		// 			$(this).trigger('next.owl.carousel');
-		// 		}
-		// 	}
-		// });
 	}
 
 	projects.$w.load(function(){
@@ -149,7 +129,13 @@
 		projects.owlCarousel(common._owl);
 
 		if ( projects.device() === 'Mobile') {
-			common.touchLock();
+			$(common._owl).on('translate.owl.carousel', function(){
+				common.touchLock($('body').scrollTop());
+			});
+
+			$(common._owl).on('translated.owl.carousel', function(){
+				$(common._owl).off('touchmove touchend');
+			});
 		}
 
 		common.selectUI();

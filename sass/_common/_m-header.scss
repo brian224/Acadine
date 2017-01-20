@@ -7,13 +7,18 @@
 	}
 }
 
-.menu-list .menu-slider {
-	background: $color-white;
-	max-height: 0;
-	overflow: hidden;
-	@include transition(ease-in all 0.5s);
-}
+.menu-list {
+	&.is-highlight .list .text {
+		color: $color-text-minor;
+	}
 
+	.menu-slider {
+		background: $color-white;
+		max-height: 0;
+		overflow: hidden;
+		@include transition(ease-in all 0.5s);
+	}
+}
 .m-logo {
 	display: inline-block;
 	position: absolute;
@@ -87,10 +92,6 @@
 		.sub-menu-wrap {
 			padding: 0 0 0 65px;
 			width: 995px;
-
-			.sub-menu .list-block {
-				width: 200px;
-			}
 		}
 	}
 }
@@ -184,12 +185,8 @@
 		line-height: 0;
 		text-align: center;
 
-		&.is-highlight .list .text {
-			color: $color-text-minor;
-
-			&:after {
-				background: $color-text-minor;
-			}
+		&.is-highlight .list .text:after {
+			background: $color-text-minor;
 		}
 
 		> .list {
@@ -247,19 +244,21 @@
 			@include box-sizing(border-box);
 
 			.sub-menu {
-				display: inherit;
+				@include display-flex;
+				@include align-content(stretch);
+				@include align-items(stretch);
 				width: 600px;
 
 				.list-block {
 					padding: 30px 0 40px 0;
-					display: table-cell;
 					border-left: 1px solid $color-gray-l-p40;
 					text-align: left;
+					@include flex-grow(1);
 					@include box-sizing(border-box);
 				}
 
 				.b-link {
-					padding: 8px 0;
+					padding: 8px 0 8px 35px;
 					display: block;
 					width: 100%;
 					height: 100%;
@@ -267,7 +266,7 @@
 					font-size: 16px;
 					letter-spacing: 2px;
 					line-height: 1.5em;
-					text-indent: 35px;
+					@include box-sizing(border-box);
 
 					&:hover {
 						color: $color-text-major;
@@ -555,6 +554,20 @@
 		}
 	}
 
+	.location-selecter > *, .language-selecter > *, .function-list .btn-func, .menu-list .has-menu {
+		position: relative;
+
+		&:after {
+			content: '';
+			position: absolute;
+			top: 17px;
+			right: 0;
+			border-top: 6px solid $color-gray-l-p30;
+			border-right: 6px solid transparent;
+			border-left: 6px solid transparent;
+		}
+	}
+
 	.location-selecter, .language-selecter > * {
 		margin: 0 36px;
 		height: 40px;
@@ -568,6 +581,10 @@
 		&:before {
 			display: none;
 		}
+	}
+
+	.location-selecter > * {
+		width: 100%;
 	}
 
 	.language-selecter > * {
@@ -696,6 +713,8 @@
 
 	.shortcut-wrap {
 		.quick-list {
+			overflow: hidden;
+
 			.location-selecter {
 				float: left;
 			}
@@ -739,6 +758,11 @@
 		
 		.sub-menu-wrap > * {
 			float: left;
+
+			.list-block {
+				display: table-cell;
+				width: 200px;
+			}
 		}
 	}
 }

@@ -1,4 +1,9 @@
-﻿.l-body .l-content {
+﻿.menu-list.is-highlight:before {
+	content: '';
+	display: inline-block;
+}
+
+.l-body .l-content {
 	background: #f4f4f4;
 	overflow: hidden;
 }
@@ -61,6 +66,7 @@
 				position: absolute;
 				left: 0;
 				bottom: 0;
+				@include transition(ease-in all 0.3s);
 			}
 		}
 
@@ -229,6 +235,9 @@
 
 	.list {
 		background: $color-white;
+	}
+
+	.movie-link {
 		@include display-flex;
 		@include align-items(stretch);
 		@include align-content(stretch);
@@ -270,6 +279,10 @@
 	.list {
 		width: 100%;
 		position: relative;
+	}
+
+	.shopping-link {
+		height: 100%;
 		@include display-flex;
 		@include align-items(stretch);
 		@include align-content(stretch);
@@ -435,10 +448,6 @@
 		
 		.img-wrap {
 			width: calc(100% - 40px);
-
-			/*img {
-				width: auto;
-			}*/
 		}
 
 		.item-info {
@@ -461,6 +470,10 @@
 	}
 
 	.food-list {
+		.img-wrap img {
+			@include transition(ease-in all 0.3s);
+		}
+
 		.item-info {
 			padding: 30px 40px 10px 40px;
 		}
@@ -468,17 +481,24 @@
 		.btn-read-more {
 			margin-bottom: 34px !important;
 		}
-	}
 
-	.food-list, .shopping-list {
-		.btn-read-more {
-			&:hover {
-				border-color: $color-text-major;
+		.food-link:hover {
+			.img-wrap img {
+				@include transform(scale(1.05));
 			}
 
-			&:after {
+			.item-info .info-title:after {
 				background: $color-text-major;
-				color: $color-white;
+			}
+
+			.btn-read-more {
+				border-color: $color-text-major;
+
+				&:after {
+					background: $color-text-major;
+					opacity: 1;
+					color: $color-white;
+				}
 			}
 		}
 	}
@@ -522,10 +542,26 @@
 		.btn-read-more {
 			margin-bottom: 48px !important;
 
+			&:hover {
+				border-color: $color-text-major;
+			}
+
 			&:after {
 				content: '\e909  加入購物車';
+				background: $color-text-major;
+				color: $color-white;
 				font-family: 'feds-font', '微軟正黑體';
 			}
+		}
+	}
+
+	.movie-list {
+		.img-wrap img {
+			@include transition(ease-in all 0.3s);
+		}
+
+		.movie-link:hover .img-wrap img {
+			@include transform(scale(1.05));
 		}
 	}
 
@@ -571,10 +607,8 @@
 		@include align-items(center);
 
 		&:before {
-			content: '';
 			margin-right: 18px;
 			background: $color-gray-l-p10;
-			display: inline-block;
 			width: 1px;
 			height: 20px;
 		}
@@ -879,6 +913,12 @@
 }
 
 @include respond(Mobiles) {
+	.menu-list.is-highlight:before {
+		background: $color-gray-l-p30;
+		width: 100%;
+		height: 1px;
+	}
+
 	.m-cut {
 		.jQ-owl {
 			margin-bottom: 20px;

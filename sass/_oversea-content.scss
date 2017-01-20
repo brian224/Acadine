@@ -1,0 +1,23 @@
+﻿@include respond(Desktops) {}
+
+@include respond(Desktops-Tablets) {
+	.shortcut-wrap .quick-list {
+		@include justify-content(flex-end);
+	}
+}
+
+@include respond(HD) {}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {}
+
+@include respond(Mobiles) {}
+
+@include devices(iphone) {}
+
+@include respond(Iphone5) {}
+
+@include browsers('IE') {}
+
+@include browsers('Safari') {}
