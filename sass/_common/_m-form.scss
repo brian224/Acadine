@@ -176,7 +176,13 @@
 }
 
 @include browsers('IE9') {
-	.m-box-holder.is-selector:after {
-		display: none;
+	.m-box-holder.is-selector {
+		&:after {
+			display: none;
+		}
+
+		.m-selection {
+			padding-right: 0;
+		}
 	}
 }

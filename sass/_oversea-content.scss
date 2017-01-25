@@ -1,8 +1,4 @@
-﻿.l-body .l-content {
-	background: #f4f4f4;
-}
-
-.main-tab {
+﻿.main-tab {
 	> .m-tab-wrap .tab-list {
 		width: 33.33%;
 
@@ -101,7 +97,6 @@
 
 .content-list {
 	display: none;
-	opacity: 0;
 	overflow: hidden;
 	text-align: center;
 	@include transition(ease-in all 0.3s);
@@ -163,10 +158,6 @@
 			left: 0;
 			right: 0;
 			overflow: hidden;
-
-			img {
-				width: 100%;
-			}
 		}
 
 		.desc {
@@ -466,6 +457,11 @@
 		}
 
 		.m-cut {
+			.bg-wrap img {
+				width: auto;
+				min-height: 100%;
+			}
+
 			.m-cut-header {
 				@include align-items(center);
 				@include justify-content(center);
@@ -634,6 +630,10 @@
 	}
 
 	.content-list {
+		.m-cut .bg-wrap img {
+			width: 100%;
+		}
+
 		.info-list:before, .info-link-list:after {
 			content: '';
 			display: block;
@@ -913,6 +913,43 @@
 
 @include respond(Iphone5) {}
 
-@include browsers('IE') {}
+@include browsers('IE') {
+	.set-flex .m-cut-header {
+		height: 275px;
+	}
+
+	.set-flex > *, .content-list .info-list, .content-list .info-link-list {
+		min-height: 275px;
+	}
+}
+
+@include browsers('IE9') {
+	.content-list {
+		&.is-curr {
+			opacity: 1;
+		}
+
+		&:nth-child(2) .m-cut .bg-wrap img {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+		}
+
+		.icon-list {
+			margin-right: auto;
+			margin-left: auto;
+			font-size: 0;
+
+			.list {
+				display: inline-block;
+				width: 33.33%;
+			}
+		}
+	}
+
+	.form-list .list .m-box-holder.is-selector:before {
+		display: none;
+	}
+}
 
 @include browsers('Safari') {}

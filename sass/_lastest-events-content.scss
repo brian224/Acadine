@@ -1,0 +1,142 @@
+﻿.activities-list {
+	margin: 0 auto;
+	font-size: 0;
+	line-height: 0;
+
+	.list {
+		background: $color-white;
+		display: inline-block;
+		position: relative;
+		letter-spacing: 1px;
+	}
+
+	.img-wrap {
+		overflow: hidden;
+
+		img {
+			width: 100%;
+		}
+
+		.desc {
+			display: none;
+		}
+	}
+
+	.act-title {
+		color: $color-gray-d-p30;
+		font-weight: bold;
+		line-height: 1.5em;
+	}
+
+	.act-time {
+		color: $color-gray-l-p20;
+		font-weight: bold;
+		line-height: 1.5em;
+	}
+
+	.desc {
+		color: $color-gray-d-p30;
+		line-height: 1.5em;
+	}
+
+	.act-type {
+		position: absolute;
+		line-height: 1.5em;
+	}
+
+	.btn-calendar {
+		position: absolute;
+		color: $color-gray-l-p20;
+
+		&.is-added .m-icon:before {
+			content: '\e915';
+			color: $color-text-major;
+		}
+	}
+}
+
+@include respond(Desktops) {
+	.activities-list .list {
+		width: calc((100% - 60px) / 3);
+	}
+}
+
+@include respond(Desktops-Tablets) {
+	.activities-list {
+		@include display-flex;
+		@include flex-wrap(wrap);
+
+		.list {
+			margin: 0 10px 50px 10px;
+			vertical-align: top;
+		}
+
+		.act-info {
+			padding: 36px 36px 56px 36px;
+		}
+
+		.act-title {
+			font-size: 20px;
+		}
+
+		.act-time, .desc {
+			font-size: 14px;
+		}
+
+		.act-type {
+			bottom: 22px;
+			left: 36px;
+
+			> * {
+				display: inline-block;
+				vertical-align: middle;
+				line-height: 24px;
+			}
+
+			.m-icon {
+				font-size: 24px;
+			}
+
+			.text {
+				font-size: 16px;
+			}
+		}
+
+		.btn-calendar {
+			width: 34px;
+			height: 34px;
+			bottom: 17px;
+			right: 36px;
+			font-size: 34px;
+			line-height: 34px;
+		}
+	}
+}
+
+@include respond(HD) {
+	.activities-list {
+		width: 1320px;
+
+		.list {
+			width: 420px;
+		}
+	}
+}
+
+@include respond(Tablets) {
+	.activities-list .list {
+		width: calc((100% - 40px) / 2);
+	}
+}
+
+@include respond(Tablets-Mobiles) {}
+
+@include respond(Mobiles) {}
+
+@include devices(iphone) {}
+
+@include respond(Iphone5) {}
+
+@include browsers('IE') {}
+
+@include browsers('Safari') {}
