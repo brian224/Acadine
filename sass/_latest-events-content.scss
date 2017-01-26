@@ -1,0 +1,216 @@
+﻿.main-tab .btn-tab {
+	background: $color-gray-d-p30;
+	width: 100%;
+	position: relative;
+	color: $color-white;
+	font-weight: bold;
+
+	&:after {
+		content: '';
+		margin-left: -22px;
+		background: none;
+		display: block;
+		width: 44px;
+		height: 3px;
+		position: absolute;
+		bottom: 4px;
+		left: 50%;
+	}
+
+	&.is-curr {
+		background: #ff6a5b;
+
+		&:after {
+			background: $color-white;
+		}
+	}
+}
+
+.activities-list {
+	margin: 0 auto;
+	font-size: 0;
+	line-height: 0;
+
+	.list {
+		background: $color-white;
+		display: inline-block;
+		position: relative;
+		box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+		letter-spacing: 1px;
+	}
+
+	.img-wrap {
+		overflow: hidden;
+
+		img {
+			width: 100%;
+		}
+
+		.desc {
+			display: none;
+		}
+	}
+
+	.act-title {
+		color: $color-gray-d-p30;
+		font-weight: bold;
+		line-height: 1.5em;
+	}
+
+	.act-time {
+		display: block;
+		color: $color-gray-l-p20;
+		font-weight: bold;
+		line-height: 1.5em;
+	}
+
+	.desc {
+		position: relative;
+		color: $color-gray-d-p30;
+		line-height: 1.5em;
+
+		&:before {
+			content: '';
+			background: $color-gray-d-p30;
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
+
+	.act-type {
+		position: absolute;
+		line-height: 1.5em;
+	}
+
+	.btn-calendar {
+		position: absolute;
+		color: $color-gray-l-p20;
+
+		&.is-added .m-icon:before {
+			content: '\e915';
+			color: $color-text-major;
+		}
+	}
+}
+
+@include respond(Desktops) {
+	.activities-list .list {
+		width: calc((100% - 60px) / 3);
+	}
+}
+
+@include respond(Desktops-Tablets) {
+	.main-tab {
+		margin: 0 auto;
+
+		.btn-tab {
+			height: 60px;
+			font-size: 20px;
+			line-height: 60px;
+			@include transition(ease-in all 0.3s);
+
+			&:after {
+				@include transition(ease-in all 0.3s);
+			}
+		}
+	}
+
+	.activities-list {
+		padding-bottom: 108px;
+		@include display-flex;
+		@include flex-wrap(wrap);
+
+		.list {
+			margin: 50px 10px 0 10px;
+			vertical-align: top;
+		}
+
+		.act-info {
+			padding: 36px 36px 56px 36px;
+		}
+
+		.act-title {
+			font-size: 20px;
+		}
+
+		.act-time, .desc {
+			font-size: 14px;
+		}
+
+		.act-time {
+			margin-top: 18px;
+		}
+
+		.desc {
+			margin-top: 12px;
+			padding: 16px 0;
+
+			&:before {
+				width: 36px;
+				height: 4px;
+			}
+		}
+
+		.act-type {
+			bottom: 22px;
+			left: 36px;
+
+			> * {
+				display: inline-block;
+				vertical-align: middle;
+				line-height: 24px;
+			}
+
+			.m-icon {
+				font-size: 24px;
+			}
+
+			.text {
+				font-size: 16px;
+			}
+		}
+
+		.btn-calendar {
+			width: 34px;
+			height: 34px;
+			bottom: 17px;
+			right: 36px;
+			font-size: 34px;
+			line-height: 34px;
+		}
+	}
+}
+
+@include respond(HD) {
+	.main-tab {
+		width: 1320px;
+
+		.m-tab-wrap {
+			margin: 0 10px;
+		}
+	}
+
+	.activities-list .list {
+		width: 420px;
+	}
+}
+
+@include respond(Tablets) {
+	.activities-list .list {
+		width: calc((100% - 40px) / 2);
+	}
+}
+
+@include respond(Tablets-Mobiles) {}
+
+@include respond(Mobiles) {}
+
+@include devices(iphone) {}
+
+@include respond(Iphone5) {}
+
+@include browsers('IE') {}
+
+@include browsers('Safari') {}

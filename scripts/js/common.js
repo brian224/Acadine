@@ -192,6 +192,8 @@
 
 			$(this).addClass('is-curr').parent().siblings().find(common._tab).removeClass('is-curr');
 			$(this).parents('.m-tab-wrap').siblings('.m-tab-content').find('.content-list').eq(_idx).addClass('is-curr').siblings().removeClass('is-curr');
+			console.log(_idx);
+			console.log($(this).parents('.m-tab-wrap').siblings('.m-tab-content').find('.content-list').eq(_idx).text());
 		});
 
 		if ( projects.device() === 'Mobile') {

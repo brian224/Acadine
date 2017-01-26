@@ -1,0 +1,75 @@
+.m-breadcrumb {
+	background: $color-gray-d-p30;
+
+	.breadcrumb-list {
+		margin: 0 auto;
+
+		.list {
+			display: inline-block;
+			font-weight: bold;
+
+			&:not(:first-child):before {
+				content: '';
+				display: inline-block;
+				border-top: 1px solid $color-white;
+				border-right: 1px solid $color-white;
+				@include box-sizing(border-box);
+				@include transform(rotate(45deg));
+			}
+		}
+
+		.b-link {
+			color: $color-white;
+		}
+	}
+}
+
+@include respond(Desktops) {
+	.m-breadcrumb .breadcrumb-list .b-link:hover {
+		text-decoration: underline;
+	}
+}
+
+@include respond(Desktops-Tablets) {
+	.m-breadcrumb .breadcrumb-list {
+		padding: 0 10px;
+
+		.list {
+			height: 60px;
+			font-size: 14px;
+			line-height: 60px;
+	
+			&:first-child {
+				font-size: 16px;
+			}
+	
+			&:not(:first-child):before {
+				margin: 0 10px 0 4px;
+				width: 8px;
+				height: 8px;
+			}
+		}
+	}
+}
+
+@include respond(HD) {
+	.m-breadcrumb .breadcrumb-list {
+		padding: 0 20px;
+		width: $main-max-width;
+		@include box-sizing(border-box);
+	}
+}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {}
+
+@include respond(Mobiles) {}
+
+@include devices(iphone) {}
+
+@include respond(Iphone5) {}
+
+@include browsers('IE') {}
+
+@include browsers('Safari') {}
