@@ -1,41 +1,82 @@
-﻿.main-tab .btn-tab {
-	background: $color-gray-d-p30;
-	width: 100%;
-	position: relative;
-	color: $color-white;
-	font-weight: bold;
-
-	&:after {
-		content: '';
-		margin-left: -22px;
-		background: none;
-		display: block;
-		width: 44px;
-		height: 3px;
-		position: absolute;
-		bottom: 4px;
-		left: 50%;
+﻿.main-tab {
+	.m-tab-wrap {
+		margin: 0 10px;
 	}
 
-	&.is-curr {
-		background: #ff6a5b;
+	.btn-tab {
+		background: $color-gray-d-p30;
+		width: 100%;
+		position: relative;
+		color: $color-white;
+		font-weight: bold;
 
 		&:after {
+			content: '';
+			margin-left: -22px;
+			background: none;
+			display: block;
+			width: 44px;
+			height: 3px;
+			position: absolute;
+			bottom: 4px;
+			left: 50%;
+		}
+
+		&.is-curr {
+			background: #ff6a5b;
+
+			&:after {
+				background: $color-white;
+			}
+		}
+	}
+
+	.sub-tab .btn-tab {
+		background: none;
+
+		&.is-curr {
+			color: #fff100;
+
+			&:after {
+				background: #fff100;
+			}
+		}
+	}
+}
+
+.sub-tab .m-tab-wrap {
+	background: #ff6a5b;
+	@include display-flex;
+	@include align-items(center);
+	@include justify-content(flex-start);
+
+	.tab-list {
+		position: relative;
+
+		&:before {
+			content: '';
 			background: $color-white;
+			width: 1px;
+			position: absolute;
+			top: 50%;
+			left: 0;
 		}
 	}
 }
 
 .activities-list {
 	margin: 0 auto;
+	padding-bottom: 58px;
 	font-size: 0;
 	line-height: 0;
 
 	.list {
+		margin: 0 10px;
 		background: $color-white;
 		display: inline-block;
 		position: relative;
 		box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+		vertical-align: top;
 		letter-spacing: 1px;
 	}
 
@@ -53,8 +94,13 @@
 
 	.act-title {
 		color: $color-gray-d-p30;
+		font-size: 20px;
 		font-weight: bold;
 		line-height: 1.5em;
+	}
+
+	.act-time, .desc {
+		font-size: 14px;
 	}
 
 	.act-time {
@@ -65,6 +111,8 @@
 	}
 
 	.desc {
+		margin-top: 12px;
+		padding: 16px 0;
 		position: relative;
 		color: $color-gray-d-p30;
 		line-height: 1.5em;
@@ -73,6 +121,8 @@
 			content: '';
 			background: $color-gray-d-p30;
 			display: block;
+			width: 36px;
+			height: 4px;
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -82,20 +132,70 @@
 	.act-type {
 		position: absolute;
 		line-height: 1.5em;
+
+		> * {
+			display: inline-block;
+			vertical-align: middle;
+			line-height: 24px;
+		}
+
+		.m-icon {
+			font-size: 24px;
+		}
 	}
 
 	.btn-calendar {
 		position: absolute;
 		color: $color-gray-l-p20;
 
-		&.is-added .m-icon:before {
-			content: '\e915';
-			color: $color-text-major;
+		.m-icon {
+			display: block;
+			width: 100%;
+			height: 100%;
+			position: relative;
+			text-align: left;
+
+			&:before, &:after {
+				position: absolute;
+				@include transition(ease-in all 0.3s);
+			}
+
+			&:after {
+				content: '\e915';
+				opacity: 0;
+				color: $color-text-major;
+			}
+		}
+
+		&.is-add .m-icon {
+			&:before {
+				opacity: 0;
+			}
+
+			&:after {
+				opacity: 1;
+			}
 		}
 	}
 }
 
 @include respond(Desktops) {
+	.main-tab .sub-tab {
+		.btn-tab {
+			height: 90px;
+			font-size: 18px;
+			line-height: 90px;
+
+			&:after {
+				height: 9px;
+			}
+		}
+
+		.m-tab-wrap .tab-list:first-child:before {
+			display: none;
+		}
+	}
+
 	.activities-list .list {
 		width: calc((100% - 60px) / 3);
 	}
@@ -115,57 +215,48 @@
 				@include transition(ease-in all 0.3s);
 			}
 		}
+
+		.sub-tab {
+			.btn-tab:after {
+				margin-left: -45px;
+				width: 90px;
+				bottom: 0;
+			}
+
+			.m-tab-wrap {
+				margin-bottom: 50px;
+	
+				.tab-list {
+					@include flex-grow(1);
+	
+					&:not(:first-child):before {
+						margin-top: -9px;
+						height: 18px;
+					}
+				}
+			}
+		}
 	}
 
 	.activities-list {
-		padding-bottom: 108px;
 		@include display-flex;
 		@include flex-wrap(wrap);
 
 		.list {
-			margin: 50px 10px 0 10px;
-			vertical-align: top;
+			margin-bottom: 50px;
 		}
 
 		.act-info {
 			padding: 36px 36px 56px 36px;
 		}
 
-		.act-title {
-			font-size: 20px;
-		}
-
-		.act-time, .desc {
-			font-size: 14px;
-		}
-
 		.act-time {
 			margin-top: 18px;
-		}
-
-		.desc {
-			margin-top: 12px;
-			padding: 16px 0;
-
-			&:before {
-				width: 36px;
-				height: 4px;
-			}
 		}
 
 		.act-type {
 			bottom: 22px;
 			left: 36px;
-
-			> * {
-				display: inline-block;
-				vertical-align: middle;
-				line-height: 24px;
-			}
-
-			.m-icon {
-				font-size: 24px;
-			}
 
 			.text {
 				font-size: 16px;
@@ -186,10 +277,6 @@
 @include respond(HD) {
 	.main-tab {
 		width: 1320px;
-
-		.m-tab-wrap {
-			margin: 0 10px;
-		}
 	}
 
 	.activities-list .list {
@@ -198,14 +285,113 @@
 }
 
 @include respond(Tablets) {
+	.main-tab .sub-tab .m-tab-wrap .tab-list {
+		width: 20%;
+
+		&:nth-child(5n + 1):before {
+			display: none;
+		}
+	}
+
 	.activities-list .list {
 		width: calc((100% - 40px) / 2);
 	}
 }
 
-@include respond(Tablets-Mobiles) {}
+@include respond(Tablets-Mobiles) {
+	.main-tab .sub-tab {
+		.btn-tab {
+			height: 60px;
+			font-size: 18px;
+			line-height: 60px;
 
-@include respond(Mobiles) {}
+			&:after {
+				height: 3px;
+			}
+		}
+
+		.m-tab-wrap {
+			@include flex-wrap(wrap);
+		}
+	}
+}
+
+@include respond(Mobiles) {
+	.main-tab {
+		.btn-tab {
+			height: 40px;
+			font-size: 20px;
+			line-height: 40px;
+		}
+
+		.sub-tab {
+			.m-tab-wrap {
+				margin-bottom: 20px;
+
+				.tab-list {
+					width: 33.3%;
+
+					&:before {
+						margin-top: -8px;
+						height: 16px;
+					}
+
+					&:nth-child(3n + 1):before {
+						display: none;
+					}
+				}
+			}
+
+			.btn-tab {
+				height: 40px;
+				font-size: 14px;
+				line-height: 40px;
+
+				&:after {
+					margin-left: -35px;
+					width: 70px;
+					bottom: 0;
+				}
+			}
+		}
+	}
+
+	.activities-list {
+		.list {
+			margin-bottom: 20px;
+		}
+
+		.act-info {
+			padding: 18px 18px 36px 18px;
+		}
+
+		.act-type {
+			bottom: 16px;
+			left: 18px;
+
+			.text {
+				font-size: 12px;
+			}
+		}
+
+		.btn-calendar {
+			width: 44px;
+			height: 44px;
+			bottom: 2px;
+			right: 8px;
+			font-size: 24px;
+			line-height: 44px;
+
+			.m-icon {
+				&:before, &:after {
+					margin: -12px 0 0 -12px;
+					top: 50%;
+					left: 50%;
+				}
+			}
+		}
+	}
+}
 
 @include devices(iphone) {}
 

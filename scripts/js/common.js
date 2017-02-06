@@ -2,6 +2,7 @@
 	'use strict';
 
 	var common = new page();
+	var _en;
 
 	function page() {
 		this._lBody        = '.l-body';
@@ -14,6 +15,9 @@
 		this._video        = '.jQ-video';
 		this._mute         = '.jQ-mute';
 		this._tab          = '.jQ-tab';
+		this._like         = '.jQ-like';
+		this._calendar     = '.jQ-calendar';
+		this._leavePage    = false;
 		this._animateSpeed = 400;
 		this._masonryLoad  = false;
 	}
@@ -91,10 +95,10 @@
 		});
 	}
 
-	// 暫停影片
+	// 捲動暫停影片
 	page.prototype.pauseVideo = function() {
 		$(common._video).each(function(){
-			if($(this).offset().top + $(this).height() < projects.$w.scrollTop() + parseInt($('.l-content').css('padding-top'), 10)) {
+			if($(this).offset().top + $(this).height() < projects.$w.scrollTop() + parseInt($('.l-content').css('padding-top'), 10) || common._leavePage === true) {
 				for (var i = 0; i < projects._media._player.length; i++) {
 					if ( ! projects._media._player[i].getPlayerState ) return false;
 					if (projects._media._player[i].getPlayerState() === 1) {
@@ -110,6 +114,19 @@
 						projects._media._player[i].playVideo();
 						$('[data-media]').eq(i).attr('data-media' , $('[data-media]').eq(i).attr('data-media').replace(/autoplay=0/ , 'autoplay=1'));
 					}
+				}
+			}
+		});
+	}
+
+	// 重回視窗繼續影片
+	page.prototype.returnPage = function() {
+		$(common._video).each(function(){
+			for (var i = 0; i < projects._media._player.length; i++) {
+				if ( ! projects._media._player[i].getPlayerState ) return false;
+				if (projects._media._player[i].getPlayerState() === 2) {
+					projects._media._player[i].playVideo();
+					$('[data-media]').eq(i).attr('data-media' , $('[data-media]').eq(i).attr('data-media').replace(/autoplay=0/ , 'autoplay=1'));
 				}
 			}
 		});
@@ -139,6 +156,38 @@
 			});
 		}
 
+		if ($(common._video).length !== 0) {
+			window.onblur = function(){
+				common._leavePage = true;
+				common.pauseVideo();
+			}
+
+			window.onfocus = function(){
+				common._leavePage = false;
+				common.returnPage();
+			}
+
+			window.onfocusout = function(){
+				common._leavePage = true;
+				common.pauseVideo();
+			}
+
+			window.onfocusin = function(){
+				common._leavePage = false;
+				common.returnPage();
+			}
+
+			window.onpagehide = function(){
+				common._leavePage = true;
+				common.pauseVideo();
+			}
+
+			window.onpageshow = function(){
+				common._leavePage = false;
+				common.returnPage();
+			}
+		}
+
 		common.selectUI();
 
 		$(common._btnTop).on('click', function(){
@@ -153,7 +202,10 @@
 			$(this).toggleClass('is-active');
 
 			if ($(this).hasClass('is-active')) {
-				$(common._lBody).addClass('is-padding-arrow');
+				$('.collapse-wrap').on('webkitTransitionEnd oTransitionend oTransitionEnd msTransitionEnd transitionend', function(){
+					$(this).off('webkitTransitionEnd oTransitionend oTransitionEnd msTransitionEnd transitionend');
+					$(common._lBody).addClass('is-padding-arrow');
+				});
 			} else {
 				$(common._lBody).removeClass('is-padding-arrow');
 			}
@@ -191,9 +243,11 @@
 			var _idx = $(this).parent().index();
 
 			$(this).addClass('is-curr').parent().siblings().find(common._tab).removeClass('is-curr');
-			$(this).parents('.m-tab-wrap').siblings('.m-tab-content').find('.content-list').eq(_idx).addClass('is-curr').siblings().removeClass('is-curr');
-			console.log(_idx);
-			console.log($(this).parents('.m-tab-wrap').siblings('.m-tab-content').find('.content-list').eq(_idx).text());
+			$(this).parents('.m-tab-wrap').siblings('.m-tab-content').children('.content-list').eq(_idx).addClass('is-curr').siblings().removeClass('is-curr');
+		});
+
+		$(common._like + ', ' + common._calendar).on('click', function(){
+			$(this).toggleClass('is-add');
 		});
 
 		if ( projects.device() === 'Mobile') {
@@ -216,10 +270,3 @@
 		window.common = common;
 	}
 }(window, document, $));
-
-// window.onblur=function(){en=0;}
-// window.onfocus=function(){en=1;}
-// window.onfocusout=function(){en=0;}
-// window.onfocusin=function(){en=1;}
-// window.onpagehide=function(){en=0;}
-// window.onpageshow=function(){en=1;}

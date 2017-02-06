@@ -26,11 +26,15 @@
 	.b-link {
 		@include display-flex;
 		@include align-items(center);
-		@include justify-content(center);
+		@include justify-content(flex-start);
 
 		img {
 			max-width: 100%;
 			max-height: 100%;
+		}
+
+		.text {
+			display: none;
 		}
 	}
 }
