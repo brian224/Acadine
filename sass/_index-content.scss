@@ -3,6 +3,10 @@
 }
 
 .l-body {
+	.l-content {
+		background: $color-black;
+	}
+	
 	@for $i from 1 through 4 {
 		&[data-cut="#{$i}"] .m-cut:nth-child(#{$i}) {
 			.main-owl .item-info {
@@ -44,6 +48,10 @@
 			color: $color-white;
 			letter-spacing: 2px;
 			line-height: 1.2em;
+
+			&:before, &:after {
+				display: none;
+			}
 
 			.translation {
 				display: block;

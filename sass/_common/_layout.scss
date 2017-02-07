@@ -11,7 +11,8 @@
 	overflow-x: hidden;
 
 	.l-content {
-		background: $color-black;
+		background: #f4f4f4;
+		overflow: hidden;
 		@include transition(ease-in all 0.3s);
 	}
 }

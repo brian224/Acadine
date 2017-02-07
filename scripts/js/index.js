@@ -19,6 +19,7 @@
 		this._isYouTube;
 	}
 
+	// 在 l-side 中產生每 cut/section 的控制點
 	index.prototype.checkCutLength = function() {
 		if ($(indexObj._mCut).length > 1) {
 			var _str = '';
@@ -124,6 +125,7 @@
 		});
 	}
 
+	// 取得 GPS 定位
 	index.prototype.geolocation = function() {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(function(position) {
@@ -144,7 +146,6 @@
 
 	// 取得縮放倍率
 	index.prototype.onresize = function() {
-		// console.log(detectZoom.zoom() + ' , ' + detectZoom.device());
 		if (detectZoom.device() >= 1.5) {
 			$(common._lBody).addClass('scale-150');
 		} else if (detectZoom.device() >= 1.25) {
@@ -171,6 +172,7 @@
 			});
 		});
 
+		// 社群瀑布流
 		$('.social-wall').masonry({
 			itemSelector: '.list-item',
 			columnWidth: '.item-sizer',
