@@ -997,8 +997,22 @@
 		margin-left: 40px;
 	}
 
-	.shopping-list .btn-read-more {
-		margin-right: 32px;
-		margin-left: 32px;
+	.shopping-list {
+		.list {
+			position: relative;
+		}
+
+		.shopping-link {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+		}
+
+		.btn-read-more {
+			margin-right: 32px;
+			margin-left: 32px;
+		}
 	}
 }

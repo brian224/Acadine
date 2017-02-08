@@ -1,0 +1,107 @@
+﻿.main-tab > .m-tab-content > .content-list {
+	&:first-child {
+		.sub-tab > .m-tab-wrap .btn-tab {
+			color: $color-gray-l-p20;
+
+			&:after {
+				background: $color-text-major;
+			}
+
+			> * {
+				display: block;
+				line-height: 1.5em;
+			}
+
+			&.is-curr {
+				.m-icon {
+					color: $color-text-major;
+				}
+
+				.text {
+					color: $color-gray-d-p30;
+				}
+			}
+		}
+	}
+
+	&:nth-child(2) {
+		.cut-title:before, .cut-title:after, .btn-radius {
+			background: #00a0e9;
+		}
+
+		.m-cut .bg-wrap {
+			@include align-items(flex-end);
+		}
+	}
+
+	&:nth-child(3) {
+		.cut-title:before, .cut-title:after, .btn-radius {
+			background: #f39700;
+		}
+	}
+}
+
+.sub-tab > .m-tab-wrap {
+	display: table;
+	width: 100%;
+	border-bottom: 1px solid $color-gray-d-p10;
+
+	> .tab-list {
+		display: table-cell;
+
+		.btn-tab {
+			position: relative;
+
+			&:after {
+				content: '';
+				margin-left: -50px;
+				display: block;
+				width: 100px;
+				height: 5px;
+				position: absolute;
+				bottom: -1px;
+				left: 50%;
+			}
+		}
+	}
+}
+
+@include respond(Desktops) {}
+
+@include respond(Desktops-Tablets) {
+	.main-tab > .m-tab-content > .content-list .btn-tab {
+		.m-icon {
+			font-size: 56px;
+		}
+
+		.text {
+			font-size: 18px;
+		}
+	}
+
+	.sub-tab .m-tab-wrap {
+		margin-top: 28px;
+
+		> .tab-list .btn-tab {
+			padding-bottom: 15px;
+		}
+	}
+}
+
+@include respond(HD) {}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {}
+
+@include respond(Mobiles) {}
+
+@include devices(iphone) {}
+
+@include respond(Iphone5) {}
+
+@include browsers('IE') {}
+
+@include browsers('IE9') {}
+
+@include browsers('Safari') {}

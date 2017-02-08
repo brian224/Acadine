@@ -157,35 +157,18 @@
 			$(common._owl).on('translated.owl.carousel', function(){
 				$(common._owl).off('touchmove touchend');
 			});
+
+			$(common._sudMenu).removeClass('is-active');
 		}
 
+		// 有影片才觸發偵聽事件
 		if ($(common._video).length !== 0) {
-			window.onblur = function(){
+			window.onblur = window.onfocusout = window.onpagehide = function(){
 				common._leavePage = true;
 				common.pauseVideo();
 			}
 
-			window.onfocus = function(){
-				common._leavePage = false;
-				common.returnPage();
-			}
-
-			window.onfocusout = function(){
-				common._leavePage = true;
-				common.pauseVideo();
-			}
-
-			window.onfocusin = function(){
-				common._leavePage = false;
-				common.returnPage();
-			}
-
-			window.onpagehide = function(){
-				common._leavePage = true;
-				common.pauseVideo();
-			}
-
-			window.onpageshow = function(){
+			window.onfocus = window.onfocusin = window.onpageshow = function(){
 				common._leavePage = false;
 				common.returnPage();
 			}
@@ -257,10 +240,6 @@
 		$(common._like + ', ' + common._calendar).on('click', function(){
 			$(this).toggleClass('is-add');
 		});
-
-		if ( projects.device() === 'Mobile') {
-			$(common._sudMenu).trigger('click');
-		}
 	});
 
 	projects.$w.on('scroll' , function(){
