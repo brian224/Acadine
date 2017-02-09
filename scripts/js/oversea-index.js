@@ -24,12 +24,18 @@
 			$(pageObj._keyword).removeClass('is-curr');
 			$(this).addClass('is-curr');
 			$('.result-content').addClass('is-show');
-			pageObj.masonry();
+
+			if ( projects.device() !== 'Mobile') {
+				pageObj.masonry();
+			}
 		});
 
 		$(pageObj._search).on('click', function(){
 			$('.result-content').addClass('is-show');
-			pageObj.masonry();
+			
+			if ( projects.device() !== 'Mobile') {
+				pageObj.masonry();
+			}
 		});
 	});
 

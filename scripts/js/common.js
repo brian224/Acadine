@@ -17,6 +17,7 @@
 		this._tab          = '.jQ-tab';
 		this._like         = '.jQ-like';
 		this._calendar     = '.jQ-calendar';
+		this._btnAccordion = '.jQ-btn-accordion';
 		this._leavePage    = false;
 		this._animateSpeed = 400;
 		this._masonryLoad  = false;
@@ -239,6 +240,14 @@
 
 		$(common._like + ', ' + common._calendar).on('click', function(){
 			$(this).toggleClass('is-add');
+		});
+
+		$(common._btnAccordion).on('click', function(){
+			$(this).parents('.m-accordion').toggleClass('is-open');
+
+			if ( projects.device() === 'PC') {
+				$(this).parents('.m-accordion').siblings().removeClass('is-open');
+			}
 		});
 	});
 
