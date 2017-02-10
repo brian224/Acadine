@@ -1,0 +1,56 @@
+﻿.m-table {
+	width: 100%;
+	border-bottom: 1px solid $color-gray-l-p20;
+
+	thead tr {
+		border-top: 1px solid $color-gray-l-p20;
+		border-bottom: 1px solid $color-gray-l-p20;
+	}
+
+	td {
+		padding: 10px 5px;
+		height: 45px;
+		line-height: 1.5em;
+		text-align: center;
+		@include box-sizing(border-box);
+
+		em {
+			display: inline-block;
+			vertical-align: middle;
+			color: $color-gray;
+			font-weight: bold;
+			word-wrap: break-word;
+			word-break: break-word;
+		}
+	}
+}
+
+@include respond(Desktops) {}
+
+@include respond(Desktops-Tablets) {
+	.m-table {
+		thead td em {
+			font-size: 24px;
+		}
+
+		tbody td em {
+			font-size: 18px;
+		}
+	}
+}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {}
+
+@include respond(Mobiles) {
+	.m-table {
+		thead td em {
+			font-size: 20px;
+		}
+
+		tbody td em {
+			font-size: 15px;
+		}
+	}
+}
