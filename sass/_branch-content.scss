@@ -9,24 +9,6 @@
 
 .m-cut {
 	margin: 0 auto;
-
-	.btn-more {
-		margin: 0 auto;
-		background: $color-white;
-		display: block;
-		height: 36px;
-		color: $color-gray-d-p30;
-		font-size: 14px;
-		line-height: 36px;
-		letter-spacing: 1px;
-		text-align: center;
-		@include transition(ease-in all 0.3s);
-
-		&:hover {
-			background: $color-text-major;
-			color: $color-white;
-		}
-	}
 }
 
 .slide-list {
@@ -395,10 +377,6 @@
 		.m-owl-dots {
 			margin: 25px 0;
 		}
-
-		.btn-more {
-			width: 420px;
-		}
 	}
 
 	.kv {
@@ -751,10 +729,6 @@
 }
 
 @include respond(Tablets) {
-	.m-cut .btn-more {
-		width: calc((100vw - 60px) / 3);
-	}
-
 	.social-wall {
 		.item-sizer, .list-item {
 			width: calc((100% - 40px) / 3);
@@ -870,10 +844,6 @@
 
 		.m-owl-dots {
 			display: none;
-		}
-
-		.btn-more {
-			width: 212px;
 		}
 	}
 

@@ -296,6 +296,19 @@
 	}
 }
 
+.btn-more {
+	margin: 0 auto;
+	background: $color-white;
+	display: block;
+	height: 36px;
+	color: $color-gray-d-p30;
+	font-size: 14px;
+	line-height: 36px;
+	letter-spacing: 1px;
+	text-align: center;
+	@include transition(ease-in all 0.3s);
+}
+
 @include keyframes(pause-fadeout) {
 	0% {
 		opacity: 1;
@@ -384,6 +397,15 @@
 		.sub-lang {
 			font-size: 18px;
 			line-height: 1em;
+		}
+	}
+
+	.btn-more {
+		width: 420px;
+
+		&:hover {
+			background: $color-text-major;
+			color: $color-white;
 		}
 	}
 }
@@ -516,7 +538,11 @@
 
 @include respond(HD) {}
 
-@include respond(Tablets) {}
+@include respond(Tablets) {
+	.btn-more {
+		width: calc((100vw - 60px) / 3);
+	}
+}
 
 @include respond(Tablets-Mobiles) {
 	.kv-owl .item .img-wrap {
@@ -577,6 +603,10 @@
 
 	.btn-mute {
 		display: none;
+	}
+
+	.btn-more {
+		width: 212px;
 	}
 }
 
