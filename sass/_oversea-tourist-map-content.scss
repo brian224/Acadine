@@ -1,0 +1,178 @@
+﻿.pin-list .attractions-info {
+	position: absolute;
+	z-index: 3;
+
+	&:after {
+		content: '';
+		display: block;
+		width: 0;
+		height: 0;
+		position: absolute;
+		border-top: 9px solid $color-white;
+		border-right: 9px solid transparent;
+		border-left: 9px solid transparent;
+	}
+}
+
+@include respond(Desktops) {
+	.pin-list > .list {
+		position: absolute;
+
+		&.the-435-art-zone {
+			top: 9.83%;
+			left: 32.03%;
+
+			.attractions-info {
+				top: 100%;
+				left: 0;
+
+				&:after {
+					bottom: 100%;
+					left: 15%;
+					@include transform(rotate(180deg));
+				}
+			}
+		}
+
+		&.the-cihui-mazu-temple {
+			top: 31%;
+			left: 2.8%;
+
+			.attractions-info {
+				top: 0;
+				left: 100%;
+
+				&:after {
+					margin-right: -4px;
+					top: 15%;
+					right: 100%;
+					@include transform(rotate(90deg));
+				}
+			}
+		}
+
+		&.da-gwan-su-sier {
+			top: 31.67%;
+			left: 57.11%;
+
+			.attractions-info {
+				top: 0;
+				right: 100%;
+
+				&:after {
+					margin-left: -5px;
+					top: 15%;
+					left: 100%;
+					@include transform(rotate(-90deg));
+				}
+			}
+		}
+
+		&.the-lin-family-mansion-and-garden {
+			top: 72.17%;
+			left: 7.43%;
+
+			.attractions-info {
+				bottom: 100%;
+				left: 0;
+
+				&:after {
+					top: 100%;
+					left: 15%;
+				}
+			}
+		}
+
+		&.nan-ya-night-market {
+			top: 73.33%;
+			left: 35.46%;
+
+			.attractions-info {
+				bottom: 100%;
+				left: 0;
+
+				&:after {
+					top: 100%;
+					left: 15%;
+				}
+			}
+		}
+	}
+}
+
+@include respond(Desktops-Tablets) {}
+
+@include respond(HD) {}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {
+	.pin-list > .list {
+		&.the-435-art-zone .btn-attractions {
+			top: 9.83%;
+			left: 32.03%;
+		}
+
+		&.the-cihui-mazu-temple .btn-attractions {
+			top: 31%;
+			left: 2.8%;
+		}
+
+		&.da-gwan-su-sier {
+			.btn-attractions {
+				top: 31.67%;
+				left: 57.11%;
+			}
+
+			.attractions-info {
+				left: 0;
+				right: auto;
+			}
+		}
+
+		&.the-lin-family-mansion-and-garden .btn-attractions {
+			top: 72.17%;
+			left: 7.43%;
+		}
+
+		&.nan-ya-night-market .btn-attractions {
+			top: 73.33%;
+			left: 35.46%;
+		}
+
+		.btn-attractions {
+			position: absolute;
+		}
+
+		.attractions-info {
+			top: 0;
+			bottom: 0;
+			right: 0;
+
+			&:after {
+				display: none;
+			}
+
+			.b-link > * {
+				height: 50%;
+				@include box-sizing(border-box);
+			}
+
+			.info-list {
+				overflow-y: scroll;
+			}
+		}
+	}
+}
+
+@include respond(Mobiles) {}
+
+@include devices(iphone) {}
+
+@include respond(Iphone5) {}
+
+@include browsers('IE') {}
+
+@include browsers('IE9') {}
+
+@include browsers('Safari') {}

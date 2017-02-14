@@ -1,4 +1,8 @@
-﻿.main-tab > .m-tab-content > .content-list {
+﻿$color-frist : $color-text-major;
+$color-second : #00a0e9;
+$color-third : #f39700;
+
+.main-tab > .m-tab-content > .content-list {
 	&:first-child, &:nth-child(2) {
 		.sub-tab > .m-tab-wrap .btn-tab {
 			color: $color-gray-l-p20;
@@ -12,7 +16,7 @@
 				line-height: 1.5em;
 			}
 
-			&.is-curr {
+			&.is-curr, &:hover {
 				.m-icon {
 					color: $color-text-major;
 				}
@@ -31,20 +35,20 @@
 	&:nth-child(2) {
 		.sub-tab > .m-tab-wrap .btn-tab {
 			&:after {
-				background: #00a0e9;
+				background: $color-second;
 			}
 
-			&.is-curr .m-icon {
-				color: #00a0e9;
+			&.is-curr .m-icon, &:hover .m-icon {
+				color: $color-second;
 			}
 		}
 
 		.inner-tab .btn-tab.is-curr, .m-table thead td em, .sub-title, .main-recommended .item-title {
-			color: #00a0e9;
+			color: $color-second;
 		}
 
 		.item-info .item-title:after {
-			background: #00a0e9;
+			background: $color-second;
 		}
 	}
 
@@ -52,7 +56,7 @@
 		text-align: center;
 
 		.cut-title:before, .cut-title:after, .btn-radius {
-			background: #f39700;
+			background: $color-third;
 		}
 
 		.m-tab.sub-tab > .m-tab-wrap {
@@ -70,8 +74,8 @@
 					@include transition(ease-in all 0.3s);
 			
 					&:hover, &.is-curr {
-						border-color: #f39700;
-						color: #f39700;
+						border-color: $color-third;
+						color: $color-third;
 					}
 
 					&:after {
@@ -101,7 +105,7 @@
 		.btn-tab {
 			position: relative;
 
-			&.is-curr:after {
+			&.is-curr:after, &:hover:after {
 				opacity: 1;
 			}
 
@@ -457,7 +461,7 @@
 
 			&:not(:last-child):before {
 				content: '';
-				background: #00a0e9;
+				background: $color-second;
 				display: block;
 				width: 1px;
 				height: 100%;
@@ -467,7 +471,7 @@
 		}
 
 		.m-icon {
-			background: #00a0e9;
+			background: $color-second;
 			border-radius: 50%;
 			color: $color-white;
 			text-align: center;
@@ -475,7 +479,7 @@
 
 		.step-title {
 			display: block;
-			color: #00a0e9;
+			color: $color-second;
 			line-height: 1.5em;
 		}
 	}
@@ -498,7 +502,7 @@
 			display: inline-block;
 			position: relative;
 			z-index: 1;
-			color: #00a0e9;
+			color: $color-second;
 			font-weight: bold;
 			line-height: 1.5em;
 		}
@@ -541,6 +545,159 @@
 
 		.attention {
 			color: $color-gray;
+		}
+	}
+}
+
+.tourist-map {
+	position: relative;
+	overflow: hidden;
+
+	.img-wrap img {
+		width: 100%;
+	}
+
+	.pin-list .btn-attractions {
+		position: relative;
+
+		&:before {
+			@include transition-delay(0.1s !important);
+		}
+
+		&:after {
+			@include transition-delay(0.05s !important);
+		}
+
+		&:before, &:after, .img-wrap:before {
+			content: '';
+			background: $color-second;
+			display: block;
+			width: 0;
+			height: 0;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			border-radius: 50%;
+			opacity: 0.1;
+			z-index: 0;
+			@include transition(ease-in all 0.5s);
+		}
+
+		&:hover, &.is-show {
+			&:before {
+				margin: -106px 0 0 -106px;
+				width: 212px;
+				height: 212px;
+			}
+
+			&:after {
+				margin: -84px 0 0 -84px;
+				width: 168px;
+				height: 168px;
+			}
+
+			.img-wrap:before {
+				margin: -61px 0 0 -61px;
+				width: 122px;
+				height: 122px;
+			}
+
+			~ .attractions-info {
+				max-height: 600px;
+				overflow: visible;
+				opacity: 1;
+			}
+		}
+
+		.img-wrap {
+			position: relative;
+			z-index: 1;
+
+			&:before {
+				opacity: 0.2;
+			}
+
+			img {
+				position: relative;
+				z-index: 2;
+			}
+		}
+	}
+
+	.guide-book {
+		background: $color-white;
+	}
+
+	.attractions-list .list {
+		&:not(:first-child) {
+			border-top: 1px solid $color-gray-l-p20;
+		}
+
+		.btn-attractions {
+			width: 100%;
+			text-align: left;
+			@include transition(ease-in all 0.3s);
+
+			&:hover, &.is-show {
+				color: $color-second;
+			}
+
+			> * {
+				font-size: 14px;
+				line-height: 24px;
+			}
+		}
+
+		.main-desc {
+			font-weight: bold;
+		}
+	}
+
+	.attractions-info {
+		background: $color-white;
+		max-height: 0;
+		box-shadow: 6px 8px 18px rgba(125, 125, 125, 0.75);
+		overflow: hidden;
+		opacity: 0;
+		@include transition(ease-in all 0.5s);
+
+		&:hover {
+			max-height: 600px;
+			overflow: visible;
+			opacity: 1;
+		}
+
+		.img-wrap {
+			width: 100%;
+		}
+
+		.info-list {
+			.list {
+				&:not(:first-child) {
+					border-top: 1px solid $color-gray-l-p20;
+				}
+
+				> * {
+					display: block;
+				}
+			}
+
+			.name .desc {
+				color: $color-second;
+			}
+
+			.info-title {
+				color: $color-second;
+				font-size: 14px;
+				font-weight: bold;
+				line-height: 1.5em;
+			}
+
+			.desc {
+				color: $color-gray-l-p10;
+				font-size: 12px;
+				line-height: 1.5em;
+			}
 		}
 	}
 }
@@ -782,7 +939,7 @@
 		}
 	}
 
-	.tax-refund {
+	.content-list.tax-refund {
 		padding-right: 140px !important;
 		padding-left: 140px !important;
 	}
@@ -790,6 +947,34 @@
 	.currency-exchange, .storage-lockers {
 		.info-content .attention {
 			margin: 20px 90px;
+		}
+	}
+
+	.tourist-map {
+		margin-top: 60px;
+		margin-bottom: 100px;
+
+		.attractions-info {
+			width: 288px;
+		}
+
+		.guide-book {
+			position: absolute;
+			top: 32px;
+			right: 32px;
+			box-shadow: 6px 8px 18px rgba(125, 125, 125, 0.75);
+		}
+
+		.attractions-list {
+			padding: 15px 32px 0 32px;
+
+			.list .btn-attractions {
+				padding: 15px 0;
+	
+				> * {
+					display: block;
+				}
+			}
 		}
 	}
 
@@ -883,6 +1068,10 @@
 	.inner-tab {
 		.btn-tab {
 			padding-bottom: 0 !important;
+		}
+
+		.img-wrap {
+			text-align: center;
 		}
 	}
 
@@ -1053,6 +1242,14 @@
 		}
 	}
 
+	.tourist-map .attractions-info .info-list {
+		padding: 15px 24px 0 24px;
+
+		.list {
+			padding: 6px 0 12px 0;
+		}
+	}
+
 	.main-recommended .item {
 		@include display-flex;
 		@include align-items(stretch);
@@ -1068,12 +1265,14 @@
 		@include display-flex;
 		@include align-items(center);
 		@include justify-content(space-between);
+		@include flex-wrap(wrap);
 
 		.img-wrap img {
 			width: 100%;
 		}
 
 		.item-list {
+			margin-bottom: 20px;
 			overflow: hidden;
 
 			.item-info {
@@ -1090,7 +1289,7 @@
 		padding-bottom: 100px;
 
 		.btn-more {
-			margin-top: 50px;
+			margin-top: 30px;
 		}
 	}
 }
@@ -1120,7 +1319,7 @@
 		max-width: 736px;
 	}
 
-	.currency-exchange, .storage-lockers, .storage-lockers {
+	.currency-exchange, .content-list.storage-lockers {
 		padding: 28px !important;
 
 		.img-wrap {
@@ -1131,6 +1330,12 @@
 		.info-content {
 			margin: 20px 40px;
 		}
+	}
+
+	.tourist-map {
+		margin-right: auto;
+		margin-left: auto;
+		width: 1252px;
 	}
 
 	.recommended-list .item-list {
@@ -1201,7 +1406,7 @@
 		margin: 0;
 	}
 
-	.tax-refund {
+	.content-list.tax-refund {
 		padding-right: 40px !important;
 		padding-left: 40px !important;
 	}
@@ -1209,6 +1414,24 @@
 	.currency-exchange, .storage-lockers {
 		.info-content .attention {
 			margin: 20px 10px;
+		}
+	}
+
+	.tourist-map {
+		margin-top: 30px;
+		margin-bottom: 50px;
+
+		.pin-list .btn-attractions {
+			@include transform(scale(0.5));
+			@include transform-origin(top, left);
+		}
+
+		.attractions-info {
+			width: 240px;
+		}
+
+		.attractions-list {
+			padding: 5px 20px;
 		}
 	}
 
@@ -1238,12 +1461,12 @@
 	.recommended-list {
 		@include flex-wrap(wrap);
 
+		&:not(.show-hide-items) .item-list:nth-child(3) {
+			display: none;
+		}
+
 		.item-list {
 			width: calc((100% - 20px) / 2);
-	
-			&:nth-child(3) {
-				display: none;
-			}
 		}
 	}
 }
@@ -1332,6 +1555,28 @@
 
 		.service-sub-list .list:nth-child(2n+1) {
 			padding-right: 12px;
+		}
+	}
+
+	.tourist-map {
+		.bg-map {
+			position: relative;
+			overflow: hidden;
+		}
+
+		.tourist-map .pin-list .btn-attractions .img-wrap {
+			text-align: left;
+		}
+
+		.attractions-list .list {
+			.btn-attractions {
+				padding: 5px 0;
+			}
+			
+			.main-desc, .sub-desc {
+				padding-left: 12px;
+				display: inline-block;
+			}
 		}
 	}
 
@@ -1520,10 +1765,6 @@
 
 		> .list {
 			@include flex-direction(column);
-
-			.service-sub-list .list {
-				/*padding-right: 20px;*/
-			}
 		}
 
 		.img-wrap img {
@@ -1619,6 +1860,66 @@
 				margin: 20px 10px 10px 10px;
 				font-size: 15px;
 				line-height: 1.5em;
+			}
+		}
+	}
+
+	.tourist-map {
+		margin: 20px 0;
+
+		.pin-list {
+			.btn-attractions {
+				@include transform(scale(0.25));
+				@include transform-origin(top, left);
+			}
+
+			.attractions-info {
+				display: none;
+			}
+		}
+
+		.attractions-list .list {
+			.btn-attractions.is-show ~ .b-link {
+				max-height: 100vh;
+			}
+
+			.b-link {
+				padding: 0 12px;
+				@include display-flex;
+				@include align-items(stretch);
+				@include justify-content(center);
+				max-height: 0;
+				overflow: hidden;
+				@include transition(ease-in all 0.5s);
+
+				> * {
+					margin-bottom: 10px;
+				}
+
+				.img-wrap {
+					width: 160px;
+					overflow: hidden;
+				}
+
+				.info-list {
+					margin-left: 10px;
+
+					.list {
+						border: 0;
+						color: $color-gray-l-p10;
+					}
+				}
+
+				.info-title {
+					display: block;
+					color: $color-second;
+					font-size: 14px;
+					font-weight: bold;
+				}
+
+				.name {
+					display: none;
+				}
 			}
 		}
 	}

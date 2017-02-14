@@ -1,4 +1,8 @@
-﻿.main-tab {
+﻿$color-frist : $color-text-major;
+$color-second : #00a0e9;
+$color-third : #f39700;
+
+.main-tab {
 	> .m-tab-wrap .tab-list {
 		width: 33.33%;
 
@@ -14,21 +18,21 @@
 
 		&:nth-child(2) .img-wrap {
 			&:after {
-				background: #00a0e9;
+				background: $color-second;
 			}
 
 			.m-icon {
-				color: #00a0e9;
+				color: $color-second;
 			}
 		}
 
 		&:nth-child(3) .img-wrap {
 			&:after {
-				background: #f39700;
+				background: $color-third;
 			}
 	
 			.m-icon {
-				color: #f39700;
+				color: $color-third;
 			}
 		}
 
@@ -89,8 +93,8 @@
 
 	> .m-tab-content > .content-list:nth-child(3) {
 		.btn-keyword, .btn-tab.is-curr {
-			border-color: #f39700;
-			color: #f39700;
+			border-color: $color-third;
+			color: $color-third;
 		}
 	}
 }
@@ -139,7 +143,7 @@
 		text-align: center;
 
 		&.is-curr {
-			background: #f39700 !important;
+			background: $color-third !important;
 			color: $color-white !important;
 		}
 	}
@@ -165,7 +169,7 @@
 		}
 
 		.main-sentence, .count {
-			color: #f39700;
+			color: $color-third;
 		}
 
 		.main-sentence {
@@ -252,8 +256,8 @@
 
 .m-pagination-bd .page-ctrl .m-button {
 	&:hover, &.is-active {
-		background: #f39700;
-		border-color: #f39700;
+		background: $color-third;
+		border-color: $color-third;
 		color: $color-white;
 
 		&:before, &:after {
