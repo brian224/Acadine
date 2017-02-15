@@ -25,6 +25,10 @@
 			$(this).addClass('is-curr');
 			$('.result-content').addClass('is-show');
 
+			projects.$hb.animate({
+				'scrollTop' : $('.result-content').offset().top - $(common._lHeader).height()
+			});
+
 			if ( projects.device() !== 'Mobile') {
 				pageObj.masonry();
 			}
@@ -32,6 +36,10 @@
 
 		$(pageObj._search).on('click', function(){
 			$('.result-content').addClass('is-show');
+
+			projects.$hb.animate({
+				'scrollTop' : $('.result-content').offset().top - $(common._lHeader).height()
+			});
 			
 			if ( projects.device() !== 'Mobile') {
 				pageObj.masonry();

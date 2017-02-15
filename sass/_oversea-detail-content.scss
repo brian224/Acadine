@@ -4,21 +4,23 @@ $color-third : #f39700;
 
 .main-tab > .m-tab-content > .content-list {
 	&:first-child, &:nth-child(2) {
+		.sub-tab > .m-tab-wrap .btn-tab > * {
+			display: block;
+			line-height: 1.5em;
+		}
+	}
+
+	&:first-child {
 		.sub-tab > .m-tab-wrap .btn-tab {
 			color: $color-gray-l-p20;
 
 			&:after {
-				background: $color-text-major;
-			}
-
-			> * {
-				display: block;
-				line-height: 1.5em;
+				background: $color-frist;
 			}
 
 			&.is-curr, &:hover {
 				.m-icon {
-					color: $color-text-major;
+					color: $color-frist;
 				}
 
 				.text {
@@ -27,8 +29,10 @@ $color-third : #f39700;
 			}
 		}
 
-		.inner-tab .btn-tab.is-curr {
-			color: $color-text-major;
+		.inner-tab .btn-tab {
+			&.is-curr, &:hover {
+				color: $color-frist;
+			}
 		}
 	}
 
@@ -43,7 +47,7 @@ $color-third : #f39700;
 			}
 		}
 
-		.inner-tab .btn-tab.is-curr, .m-table thead td em, .sub-title, .main-recommended .item-title {
+		.inner-tab .btn-tab:hover, .inner-tab .btn-tab.is-curr, .m-table thead td em, .sub-title, .main-recommended .item-title {
 			color: $color-second;
 		}
 
@@ -145,7 +149,7 @@ $color-third : #f39700;
 			background: $color-white;
 			border: 1px solid $color-gray-l-p30;
 			border-bottom: 0;
-			color: $color-text-major;
+			color: $color-frist;
 		}
 	}
 
@@ -175,7 +179,7 @@ $color-third : #f39700;
 		}
 
 		.m-accordion-hd .btn-switch {
-			color: $color-text-major;
+			color: $color-frist;
 			font-size: 18px;
 			font-weight: bold;
 
@@ -219,7 +223,7 @@ $color-third : #f39700;
 	}
 
 	.info-title {
-		color: $color-text-major;
+		color: $color-frist;
 		font-weight: bold;
 	}
 
@@ -254,7 +258,7 @@ $color-third : #f39700;
 	}
 
 	.info-title {
-		color: $color-text-major;
+		color: $color-frist;
 		font-weight: bold;
 		line-height: 1.5em;
 	}
@@ -266,7 +270,7 @@ $color-third : #f39700;
 
 		> * {
 			display: inline-block;
-			vertical-align: baseline;
+			vertical-align: middle;
 		}
 	}
 
@@ -365,7 +369,7 @@ $color-third : #f39700;
 				background: #8f82bc;
 			}
 
-			&.m-icon-parking-2 {
+			&.m-icon-parking {
 				background: #1d2088;
 			}
 		}
@@ -376,7 +380,7 @@ $color-third : #f39700;
 	}
 
 	.floor-count {
-		color: $color-text-major;
+		color: $color-frist;
 		line-height: 1em;
 		text-align: right;
 		@include box-sizing(border-box);
@@ -402,7 +406,7 @@ $color-third : #f39700;
 	}
 
 	.list-title {
-		color: $color-text-major;
+		color: $color-frist;
 		font-weight: bold;
 	}
 
@@ -711,10 +715,6 @@ $color-third : #f39700;
 			@include align-items(center);
 			@include justify-content(center);
 			overflow: hidden;
-
-			img {
-				min-height: 100%;
-			}
 		}
 
 		.item-info {
@@ -841,6 +841,7 @@ $color-third : #f39700;
 			.btn-switch {
 				height: 56px;
 				line-height: 56px;
+				@include transition(ease-in all 0.3s);
 			}
 		}
 	}
@@ -1016,12 +1017,18 @@ $color-third : #f39700;
 				position: relative;
 				border: 0;
 
+				&:hover:before {
+					border-top-color: $color-second;
+					border-right-color: $color-second;
+				}
+
 				&:before {
 					margin-top: -8px;
 					width: 16px;
 					height: 16px;
 					border-top-color: $color-black;
 					border-right-color: $color-black;
+					@include transition(ease-in all 0.3s);
 				}
 			}
 		}
@@ -1254,6 +1261,10 @@ $color-third : #f39700;
 		@include display-flex;
 		@include align-items(stretch);
 		@include justify-content(center);
+
+		.img-wrap img {
+			min-height: 100%;
+		}
 
 		.item-info {
 			padding: 20px 30px;
@@ -1767,8 +1778,15 @@ $color-third : #f39700;
 			@include flex-direction(column);
 		}
 
-		.img-wrap img {
-			width: 100%;
+		.img-wrap {
+			@include display-flex;
+			@include align-items(center);
+			height: 50vw;
+			overflow: hidden;
+
+			img {
+				width: 100%;
+			}
 		}
 
 		.service-info {
@@ -1778,7 +1796,7 @@ $color-third : #f39700;
 
 	.tax-refund {
 		.wording {
-			font-size: 24px;
+			font-size: 20px;
 		}
 
 		.desc {
@@ -1869,13 +1887,19 @@ $color-third : #f39700;
 
 		.pin-list {
 			.btn-attractions {
+				display: block;
+				min-height: 40px;
 				@include transform(scale(0.25));
 				@include transform-origin(top, left);
 			}
 
-			.attractions-info {
+			.list:not(.store) .attractions-info {
 				display: none;
 			}
+		}
+
+		.guide-book {
+			position: relative;
 		}
 
 		.attractions-list .list {
@@ -1998,6 +2022,17 @@ $color-third : #f39700;
 
 		.desc {
 			font-size: 12px;
+		}
+	}
+
+	.sub-tab > .m-tab-wrap > .tab-list {
+		@include display-flex;
+		@include align-items(stretch);
+		@include flex-direction(column);
+
+		.btn-tab {
+			@include flex-grow(1);
+			height: auto !important;
 		}
 	}
 

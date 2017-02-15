@@ -26,19 +26,23 @@
 				}
 
 				$(this).trigger('click');
-
-				console.log(_main + ' , ' + _sub);
 			}
 		});
+
+		projects.$hb.animate({
+			'scrollTop' : $('.main-tab').offset().top - $(common._lHeader).height()
+		}, common._animateSpeed);
 	}
 
 	page.prototype.pinList = function() {
 		$('.pin-list ' + pageObj._hover).each(function(){
-			pageObj._array.push($(this).next().html());
+			if ($(this).data('index') !== undefined) {
+				pageObj._array.push($(this).next().html());
+			}
 		});
 
 		$('.attractions-list ' + pageObj._hover).each(function(){
-			$(this).after(pageObj._array[parseInt($(this).data('index'), 10) - 1]);
+				$(this).after(pageObj._array[parseInt($(this).data('index'), 10) - 1]);
 		});
 
 		pageObj._pinned = true;
@@ -48,7 +52,9 @@
 	});
 
 	projects.$d.ready(function(){
-		pageObj.tabSwitch(projects._HREF.split('#')[1]);
+		if (projects._HREF.split('#')[1] !== undefined) {
+			pageObj.tabSwitch(projects._HREF.split('#')[1]);
+		}
 		
 		if ( projects.device() === 'Mobile' ) {
 			pageObj.pinList();

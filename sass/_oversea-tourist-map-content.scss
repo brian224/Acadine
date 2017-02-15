@@ -1,22 +1,48 @@
-﻿.pin-list .attractions-info {
-	position: absolute;
-	z-index: 3;
+.pin-list {
+	.store .attractions-info {
+		padding: 10px 0;
+		bottom: 100%;
+		left: 0;
+		text-align: center;
 
-	&:after {
-		content: '';
-		display: block;
-		width: 0;
-		height: 0;
+		&:after {
+			margin-left: -9px;
+			top: 100%;
+			left: 50%;
+		}
+
+		.info-title {
+			color: $color-second;
+			font-size: 16px;
+			font-weight: bold;
+		}
+	}
+
+	.attractions-info {
 		position: absolute;
-		border-top: 9px solid $color-white;
-		border-right: 9px solid transparent;
-		border-left: 9px solid transparent;
+		z-index: 3;
+
+		&:after {
+			content: '';
+			display: block;
+			width: 0;
+			height: 0;
+			position: absolute;
+			border-top: 9px solid $color-white;
+			border-right: 9px solid transparent;
+			border-left: 9px solid transparent;
+		}
 	}
 }
 
 @include respond(Desktops) {
 	.pin-list > .list {
 		position: absolute;
+
+		&.store {
+			top: 32.5%;
+			left: 35.3%;
+		}
 
 		&.the-435-art-zone {
 			top: 9.83%;
@@ -100,14 +126,36 @@
 	}
 }
 
-@include respond(Desktops-Tablets) {}
+@include respond(Desktops-Tablets) {
+	.pin-list .store .attractions-info .info-title {
+		font-size: 16px;
+		font-weight: bold;
+	}
+}
 
 @include respond(HD) {}
 
-@include respond(Tablets) {}
+@include respond(Tablets) {
+	.pin-list > .list.store .attractions-info {
+		margin-left: -180px;
+		top: 20%;
+	}
+}
 
 @include respond(Tablets-Mobiles) {
 	.pin-list > .list {
+		&.store {
+			.btn-attractions {
+				top: 32.5%;
+				left: 35.3%;
+			}
+
+			.attractions-info {
+				bottom: auto;
+				left: 50%;
+			}
+		}
+
 		&.the-435-art-zone .btn-attractions {
 			top: 9.83%;
 			left: 32.03%;
@@ -144,7 +192,7 @@
 			position: absolute;
 		}
 
-		.attractions-info {
+		&:not(.store) .attractions-info {
 			top: 0;
 			bottom: 0;
 			right: 0;
@@ -165,7 +213,23 @@
 	}
 }
 
-@include respond(Mobiles) {}
+@include respond(Mobiles) {
+	.tourist-map .bg-map {
+		@include transform(scale(1.2));
+		@include transform-origin(left);
+	}
+
+	.pin-list > .list.store .attractions-info {
+		margin-left: -80px;
+		padding: 5px 20px;
+		top: 10%;
+		border-radius: 4px;
+
+		.info-title {
+			font-size: 10px;
+		}
+	}
+}
 
 @include devices(iphone) {}
 

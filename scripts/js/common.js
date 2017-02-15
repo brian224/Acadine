@@ -6,6 +6,7 @@
 
 	function page() {
 		this._lBody        = '.l-body';
+		this._lHeader      = '.l-header';
 		this._owl          = '.jQ-owl';
 		this._countHeight  = '.jQ-count-height';
 		this._btnTop       = '.jQ-top';
@@ -138,7 +139,7 @@
 
 	page.prototype.touchLock = function(_scrollTop) {
 		$(common._owl).on('touchmove touchend', function(e){
-			$('body').scrollTop(_scrollTop);
+			projects.$b.scrollTop(_scrollTop);
 		});
 	}
 
@@ -187,7 +188,7 @@
 		});
 
 		$(common._menu).on('click', function(){
-			$(this).parents('.l-header').toggleClass('is-active');
+			$(common._lHeader).toggleClass('is-active');
 		});
 
 		$(common._sudMenu).on('click', function(){

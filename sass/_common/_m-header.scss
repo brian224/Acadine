@@ -214,14 +214,12 @@
 					@include transition(ease-in all 0.3s);
 				}
 
-				&:hover {
-					&:after {
-						opacity: 1;
-					}
+				&:hover:after, &.is-curr:after {
+					opacity: 1;
+				}
 
-					~ .menu-slider {
-						max-height: 1000px;
-					}
+				&:hover ~ .menu-slider {
+					max-height: 1000px;
 				}
 			}
 		}
@@ -272,7 +270,7 @@
 					line-height: 1.5em;
 					@include box-sizing(border-box);
 
-					&:hover {
+					&:hover, &.is-curr {
 						color: $color-text-major;
 					}
 				}
