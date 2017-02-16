@@ -19,6 +19,7 @@
 		this._like         = '.jQ-like';
 		this._calendar     = '.jQ-calendar';
 		this._btnAccordion = '.jQ-btn-accordion';
+		this._checkbox     = '.jQ-checkbox';
 		this._leavePage    = false;
 		this._animateSpeed = 400;
 		this._masonryLoad  = false;
@@ -248,6 +249,14 @@
 
 			if ( projects.device() === 'PC') {
 				$(this).parents('.m-accordion').siblings().removeClass('is-open');
+			}
+		});
+
+		$(common._checkbox).on('click', function(){
+			if($(this).find('input[type="checkbox"]:checked').length !== 0) {
+				$(this).addClass('is-checked');
+			} else {
+				$(this).removeClass('is-checked');
 			}
 		});
 	});

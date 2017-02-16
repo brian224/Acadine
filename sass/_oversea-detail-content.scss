@@ -1354,6 +1354,35 @@ $color-third : #f39700;
 	}
 }
 
+@include screen('2/1') {
+	.google-map-box {
+		.map-frame {
+			width: calc(100% - 420px);
+			height: 70vh;
+		}
+
+		.main-info {
+			padding: 35vh 0 0 0;
+			height: 70vh;
+			top: 0;
+			right: 0;
+			box-shadow: none;
+			@include box-sizing(border-box);
+
+			.img-wrap {
+				@include display-flex;
+				@include align-items(center);
+				@include justify-content(center);
+				height: 50%;
+				position: absolute;
+				top: 0;
+				right: 0;
+				overflow: hidden;
+			}
+		}
+	}
+}
+
 @include respond(Tablets) {
 	.main-tab > .m-tab-content > .content-list {
 		margin: 32px 50px 0 50px;

@@ -6,12 +6,8 @@
 	display: inline-block;
 
 	&.is-checked .m-box-holder {
-		&.is-checkbox {
-			background: $color-text-major;
-
-			&:before {
-				opacity: 1;
-			}
+		&.is-checkbox:before {
+			opacity: 1;
 		}
 
 		&.is-radio {
@@ -56,14 +52,12 @@
 		}
 	}
 
-	/*&.is-checkbox {
+	&.is-checkbox {
 		margin-right: 5px;
-		background: $color-gray-l-p40;
+		background: $color-white;
 		width: 20px;
 		height: 20px;
 		position: relative;
-		border: 0;
-		border-radius: 4px;
 
 		&:before {
 			content: '';
@@ -73,8 +67,8 @@
 			position: absolute;
 			top: 3px;
 			left: 3px;
-			border-bottom: 2px solid $color-white;
-			border-left: 2px solid $color-white;
+			border-bottom: 2px solid $color-gray-l-p10;
+			border-left: 2px solid $color-gray-l-p10;
 			opacity: 0;
 			z-index: 1;
 			@include transform(rotate(-45deg));
@@ -86,7 +80,7 @@
 		}
 	}
 
-	&.is-radio {
+	/*&.is-radio {
 		margin-right: 5px;
 		background: $color-gray-l-p40;
 		width: 18px;
@@ -116,7 +110,6 @@
 		height: 46px;
 		border: 0;
 		outline: none;
-		/*color: $color-gray-d-p10;*/
 		font-size: 16px;
 		line-height: 46px;
 	}
@@ -162,18 +155,7 @@
 
 @include respond(Tablets-Mobiles) {}
 
-@include respond(Mobiles) {
-	.m-lab {
-		padding-left: 25px;
-		position: relative;
-
-		.m-box-holder {
-			position: absolute;
-			top: 6px;
-			left: 0;
-		}
-	}
-}
+@include respond(Mobiles) {}
 
 @include browsers('IE9') {
 	.m-box-holder.is-selector {
