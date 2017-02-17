@@ -6,6 +6,13 @@
 	position: relative;
 	@include box-sizing(border-box);
 
+	.text, .msg {
+		color: $color-gray-d-p30;
+		font-size: 14px;
+		font-weight: bold;
+		line-height: 36px;
+	}
+
 	.m-lab {
 		font-size: 14px;
 
@@ -13,14 +20,15 @@
 			text-align: left;
 		}
 
-		&.error .alert {
-			display: block;
-		}
+		&.error {
+			.m-box-holder {
+				border-color: $color-text-major;
+			}
 
-		.text {
-			color: $color-gray-d-p30;
-			font-weight: bold;
-			line-height: 36px;
+			.alert {
+				margin-bottom: -20px;
+				display: block;
+			}
 		}
 
 		.m-inputbox {
@@ -39,6 +47,11 @@
 			line-height: 1.5em;
 			text-align: center;
 		}
+	}
+
+	.m-box-holder .m-selection {
+		height: 36px;
+		line-height: 36px;
 	}
 
 	.function-wrap {
@@ -138,7 +151,15 @@
 
 	&.fb-login {
 		background: $color-facebook;
-		color: $color-white;
+
+		&:hover {
+			background: darken($color-facebook , 10%);
+			border-color: darken($color-facebook , 10%);
+		}
+
+		> * {
+			color: $color-white;
+		}
 
 		.m-icon {
 			font-size: 22px;
@@ -147,10 +168,54 @@
 
 	&.google-login {
 		background: $color-google;
-		color: $color-white;
+
+		&:hover {
+			background: darken($color-google , 10%);
+			border-color: darken($color-google , 10%);
+		}
+
+		> * {
+			color: $color-white;
+		}
 
 		.m-icon {
 			font-size: 32px;
+		}
+	}
+}
+
+.step-list {
+	@for $i from 1 through 3 {
+		.list:nth-child(#{$i}) .step-title:after {
+			content: '#{$i}';
+		}
+	}
+
+	.is-curr {
+		.m-icon {
+			background: #ff6a5b;
+		}
+
+		.list-content {
+			color: #ff6a5b;
+
+			.desc {
+				color: #ff6a5b;
+			}
+		}
+	}
+
+	.m-icon {
+		background: $color-gray-l-p20;
+		border-radius: 50%;
+		color: $color-white;
+	}
+
+	.list-content {
+		color: $color-gray-l-p20;
+
+		.desc {
+			color: $color-gray-l-p20;
 		}
 	}
 }
@@ -174,15 +239,36 @@
 }
 
 @include respond(Desktops-Tablets) {
-	.login .m-cut-bd:before {
-		content: '';
-		background: $color-gray-l-p30;
-		display: block;
-		width: 1px;
-		height: 100%;
-		position: absolute;
-		top: 0;
-		left: 50%;
+	.login .m-cut-bd {
+		&:before {
+			content: '';
+			background: $color-gray-l-p30;
+			display: block;
+			width: 1px;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 50%;
+		}
+
+		.m-lab {
+			margin-top: 20px;
+
+			.text:first-child {
+				padding-left: 16px;
+			}
+		}
+	}
+
+	.registration {
+		.is-reqired:before {
+			content: '*';
+		}
+
+		.value-form > * {
+			margin-bottom: 35px;
+			padding-left: 20px;
+		}
 	}
 
 	.m-cut-hd {
@@ -190,12 +276,8 @@
 	}
 
 	.m-cut-bd {
-		.m-lab {
-			margin-top: 20px;
-
-			.text:first-child {
-				padding-left: 16px;
-			}
+		.is-selector ~ * {
+			padding-left: 10px;
 		}
 
 		.function-wrap {
@@ -222,6 +304,36 @@
 
 		&.fb-login, &.google-login {
 			min-width: 250px;
+		}
+	}
+
+	.step-list {
+		font-size: 0;
+		line-height: 0;
+
+		.list, .list > * {
+			display: inline-block;
+		}
+
+		.m-icon {
+			width: 100px;
+			height: 100px;
+			font-size: 50px;
+			line-height: 100px;
+		}
+
+		.list-content > * {
+			display: block;
+			line-height: 1.5em;
+			text-align: center;
+		}
+
+		.step-title {
+			font-size: 24px;
+		}
+
+		.desc {
+			font-size: 16px;
 		}
 	}
 }

@@ -20,6 +20,7 @@
 		this._calendar     = '.jQ-calendar';
 		this._btnAccordion = '.jQ-btn-accordion';
 		this._checkbox     = '.jQ-checkbox';
+		this._radio        = '.jQ-radio';
 		this._leavePage    = false;
 		this._animateSpeed = 400;
 		this._masonryLoad  = false;
@@ -257,6 +258,15 @@
 				$(this).addClass('is-checked');
 			} else {
 				$(this).removeClass('is-checked');
+			}
+		});
+
+		$(common._radio).on('click', function(){
+			if($(this).find('input[type="radio"]:checked').length !== 0) {
+				var _name = $(this).find('input[type="radio"]:checked').attr('name');
+
+				$('input[type="radio"][name="' + _name + '"]').parents(common._radio).removeClass('is-checked');
+				$(this).addClass('is-checked');
 			}
 		});
 	});
