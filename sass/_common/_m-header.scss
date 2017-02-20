@@ -498,8 +498,13 @@
 	.menu-list {
 		> .list {
 			padding: 0 9px;
+			height: 36px;
 			font-size: 14px;
 			line-height: 36px;
+
+			> .text {
+				height: 100%;
+			}
 		}
 
 		.sub-menu-wrap .sub-menu .list-block {

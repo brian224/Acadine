@@ -13,7 +13,6 @@
 	display: none;
 	overflow: hidden;
 	@include transition(ease-in all 0.3s);
-	@include animation(switch-in 0.5s ease-in forwards);
 
 	&.is-curr {
 		display: block;
@@ -32,7 +31,11 @@
 
 @include respond(Desktops) {}
 
-@include respond(Desktops-Tablets) {}
+@include respond(Desktops-Tablets) {
+	.content-list {
+		@include animation(switch-in 0.5s ease-in forwards);
+	}
+}
 
 @include respond(HD) {}
 

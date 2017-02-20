@@ -1,6 +1,5 @@
 ﻿.main-tab {
 	.m-tab-wrap {
-		margin: 0 10px;
 		border-bottom: 14px solid #ff6a5b;
 	}
 
@@ -46,6 +45,10 @@
 }
 
 @include respond(Desktops) {
+	.m-cut-bd {
+		padding: 0;
+	}
+
 	.main-tab .sub-tab {
 		.btn-tab {
 			height: 90px;
@@ -64,9 +67,12 @@
 }
 
 @include respond(Desktops-Tablets) {
+	.m-cut-hd {
+		padding-bottom: 60px;
+	}
+
 	.m-cut-bd {
-		margin: 50px auto 100px auto;
-		padding: 0 24px;
+		margin: -60px auto 100px auto;
 		width: 100%;
 	}
 
@@ -109,7 +115,7 @@
 
 @include respond(HD) {
 	.m-cut-bd {
-		width: calc($main-max-width - 100px);
+		width: 1300px;
 	}
 
 	.main-tab {

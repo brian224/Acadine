@@ -1480,6 +1480,7 @@ $color-third : #f39700;
 
 		.img-wrap {
 			width: 300px;
+			overflow: hidden;
 
 			img {
 				width: 100%;
@@ -1487,14 +1488,22 @@ $color-third : #f39700;
 		}
 
 		.item-info {
+			display: block;
+			width: 0;
+			overflow: scroll;
+
+			.b-link {
+				display: block;
+			}
+
 			.item-title {
 				margin-bottom: 0;
 				font-size: 24px;
 			}
+		}
 
-			.info-content {
-				overflow: scroll;
-			}
+		.order-list {
+			margin-left: 24px;
 		}
 	}
 
@@ -1995,6 +2004,7 @@ $color-third : #f39700;
 		}
 
 		.item {
+			margin: 0 auto;
 			width: calc(100% - 20px);
 
 			.img-wrap {
@@ -2072,10 +2082,35 @@ $color-third : #f39700;
 			margin: 0 auto;
 		}
 	}
+
+	.floor-list {
+		.floor-info {
+			@include flex-grow(0);
+			width: calc(100% - 72px);
+		}
+
+		.floor-count {
+			width: 72px;
+		}
+	}
 }
 
-@include browsers('IE') {}
+@include browsers('IE') {
+	.tourist-map .pin-list .btn-attractions {
+		overflow: visible;
+	}
 
+	.main-recommended .item {
+		.b-link {
+			width: auto;
+		}
+
+		.item-info {
+			width: 100%;
+			@include box-sizing(border-box);
+		}
+	}
+}
 @include browsers('IE9') {}
 
 @include browsers('Safari') {}

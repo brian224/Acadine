@@ -429,6 +429,10 @@
 
 @include respond(Iphone5) {}
 
-@include browsers('IE') {}
+@include browsers('IE') {
+	.activities-list .list {
+		width: calc((100% - 61px) / 3);
+	}
+}
 
 @include browsers('Safari') {}
