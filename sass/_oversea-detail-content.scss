@@ -178,13 +178,23 @@ $color-third : #f39700;
 			overflow-y: scroll;
 		}
 
+		.m-accordion.is-open .btn-switch:after {
+			@include transform(rotate(225deg));
+		}
+
 		.m-accordion-hd .btn-switch {
 			color: $color-frist;
 			font-size: 18px;
 			font-weight: bold;
 
 			&:after {
+				margin-top: -5px;
+				width: 10px;
+				height: 10px;
 				right: 10px;
+				border-right: 2px solid $color-text-major;
+				border-bottom: 2px solid $color-text-major;
+				@include transform(rotate(45deg));
 			}
 		}
 

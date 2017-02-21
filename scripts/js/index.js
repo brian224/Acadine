@@ -39,41 +39,48 @@
 
 		if (n === 0) {
 			// 第一 cut
-			projects.$hb.animate({'scrollTop': 0}, common._animateSpeed);
+			projects.$hb.animate({'scrollTop': 0}, common._animateSpeed*2);
 		} else if (n === $(indexObj._mCut).length - 1) {
 			// 最後一 cut
 			if (direct !== -1) {
 				// 用按的
 				if (projects._browsers.msie && projects._browsers.version === 11) {
-					projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + _lFooterHeight + _quickListHeight * ($(indexObj._mCut).length - 2)}, common._animateSpeed).animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + _lFooterHeight + _quickListHeight * ($(indexObj._mCut).length - 2) + 400}, common._animateSpeed);
+					projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + _lFooterHeight + _quickListHeight * ($(indexObj._mCut).length - 2)}, common._animateSpeed).animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + _lFooterHeight + _quickListHeight * ($(indexObj._mCut).length - 2) + 400}, common._animateSpeed*2);
 				} else {
-					projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + _lFooterHeight + _quickListHeight * ($(indexObj._mCut).length - 2)}, common._animateSpeed);
+					projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + _lFooterHeight + _quickListHeight * ($(indexObj._mCut).length - 2)}, common._animateSpeed*2);
 				}
 			} else {
 				if (projects._browsers.msie && projects._browsers.version === 11) {
 					if (parseInt($(common._lBody).attr('data-cut'), 10) !== $(indexObj._mCut).length) {
-						projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + _lFooterHeight}, common._animateSpeed).animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + _lFooterHeight + 400}, common._animateSpeed);
+						projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + _lFooterHeight}, common._animateSpeed).animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + _lFooterHeight + 400}, common._animateSpeed*2);
 					}
 				} else {
-					projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + _lFooterHeight}, common._animateSpeed);
+					projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + _lFooterHeight}, common._animateSpeed*2);
 				}
 			}
 		} else {
 			if (direct < -1) {
-				projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + _quickListHeight}, common._animateSpeed);
+				projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + _quickListHeight}, common._animateSpeed*2);
 			} else if (direct < 0 && direct >= -1) {
-				projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight}, common._animateSpeed);
+				projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight}, common._animateSpeed*2);
 			} else if (direct > 1) {
-				projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + _lFooterHeight}, common._animateSpeed);
+				projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + _lFooterHeight}, common._animateSpeed*2);
 			} else {
 				// 往回捲
 				if (n === $(indexObj._mCut).length - 2) {
 					// 倒數第二 cut
-					projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + (_lFooterHeight * n)}, common._animateSpeed);
+					projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + (_lFooterHeight * n)}, common._animateSpeed*2);
 				} else {
-					projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + (_lFooterHeight * (n - 1))}, common._animateSpeed);
+					projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + (_lFooterHeight * (n - 1))}, common._animateSpeed*2);
 				}
 			}
+		}
+
+		if (direct > 0) {
+			// 往回捲
+			$(common._lBody).addClass('scrollUp').removeClass('scrollDown');
+		} else {
+			$(common._lBody).addClass('scrollDown').removeClass('scrollUp');
 		}
 
 		$(indexObj._pagination).find('.cut-dot .list').removeClass('is-curr').eq(n).addClass('is-curr');

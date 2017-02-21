@@ -3,14 +3,8 @@
 		border-bottom: 1px solid $color-gray-l-p20;
 	}
 
-	&.is-open {
-		.btn-switch:after {
-			@include transform(rotate(225deg));
-		}
-
-		.m-accordion-bd {
-			max-height: 2500px;
-		}
+	&.is-open .m-accordion-bd {
+		max-height: 2500px;
 	}
 }
 
@@ -22,16 +16,10 @@
 
 	&:after {
 		content: '';
-		margin-top: -5px;
 		display: block;
-		width: 10px;
-		height: 10px;
 		position: absolute;
 		top: 50%;
-		border-right: 2px solid $color-text-major;
-		border-bottom: 2px solid $color-text-major;
 		@include box-sizing(border-box);
-		@include transform(rotate(45deg));
 		@include transition(ease-in all 0.3s);
 	}
 }

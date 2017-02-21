@@ -30,17 +30,54 @@
 			}
 		}
 	}
+}
 
-	.sub-tab .btn-tab {
-		background: none;
+.m-accordion {
+	margin-bottom: -2px;
 
-		&.is-curr {
-			color: #fff100;
-
-			&:after {
-				background: #fff100;
-			}
+	&.is-open .btn-switch {
+		&:before {
+			@include transform(rotate(0deg));
 		}
+
+		&:before, &:after {
+			background: #fd6b5c;
+		}
+	}
+}
+
+.m-accordion-hd {
+	background: $color-white;
+	border: 1px solid $color-gray-l-p30;
+
+	.btn-switch {
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 50%;
+			@include box-sizing(border-box);
+			@include transition(ease-in all 0.3s);
+			@include transform(rotate(90deg));
+		}
+
+		&:before, &:after {
+			margin-top: -2px;
+			background: $color-gray-d-p30;
+			width: 24px;
+			height: 4px;
+			right: 56px;
+		}
+	}
+}
+
+.m-accordion-bd {
+	border: 1px solid $color-gray-l-p30;
+	border-top: 0;
+
+	.order-list {
+		margin-left: 20px;
+		list-style: decimal;
 	}
 }
 
@@ -49,20 +86,10 @@
 		padding: 0;
 	}
 
-	.main-tab .sub-tab {
-		.btn-tab {
-			height: 90px;
-			font-size: 18px;
-			line-height: 90px;
-
-			&:after {
-				height: 9px;
-			}
-		}
-
-		.m-tab-wrap .tab-list:first-child:before {
-			display: none;
-		}
+	.m-tab-content {
+		margin: 56px auto 0 auto;
+		width: 1000px;
+		@include box-sizing(border-box);
 	}
 }
 
@@ -89,27 +116,17 @@
 				@include transition(ease-in all 0.3s);
 			}
 		}
+	}
 
-		.sub-tab {
-			.btn-tab:after {
-				margin-left: -45px;
-				width: 90px;
-				bottom: 0;
-			}
+	.m-accordion-hd .btn-switch {
+		padding-left: 50px;
+		height: 60px;
+		font-size: 16px;
+		line-height: 60px;
+	}
 
-			.m-tab-wrap {
-				margin-bottom: 50px;
-	
-				.tab-list {
-					@include flex-grow(1);
-	
-					&:not(:first-child):before {
-						margin-top: -9px;
-						height: 18px;
-					}
-				}
-			}
-		}
+	.m-accordion-bd {
+		padding-left: 50px;
 	}
 }
 
@@ -124,31 +141,9 @@
 }
 
 @include respond(Tablets) {
-	.main-tab .sub-tab .m-tab-wrap .tab-list {
-		width: 20%;
-
-		&:nth-child(5n + 1):before {
-			display: none;
-		}
-	}
 }
 
 @include respond(Tablets-Mobiles) {
-	.main-tab .sub-tab {
-		.btn-tab {
-			height: 60px;
-			font-size: 18px;
-			line-height: 60px;
-
-			&:after {
-				height: 3px;
-			}
-		}
-
-		.m-tab-wrap {
-			@include flex-wrap(wrap);
-		}
-	}
 }
 
 @include respond(Mobiles) {
@@ -157,61 +152,6 @@
 			height: 40px;
 			font-size: 16px;
 			line-height: 40px;
-		}
-
-		.sub-tab {
-			.m-tab-wrap {
-				margin-bottom: 20px;
-
-				&.jQ-tag-select {
-					padding: 0 20px;
-					position: relative;
-
-					&:after {
-						content: '';
-						position: absolute;
-						top: 17px;
-						right: 20px;
-						border-top: 6px solid $color-white;
-						border-right: 6px solid transparent;
-						border-left: 6px solid transparent
-					}
-				}
-
-				.tab-list {
-					width: 33.3%;
-
-					&:before {
-						margin-top: -8px;
-						height: 16px;
-					}
-
-					&:nth-child(3n + 1):before {
-						display: none;
-					}
-				}
-
-				.m-selection {
-					background: #ff6a5b;
-					width: 100%;
-					height: 40px;
-					color: $color-white;
-					font-size: 14px;
-					line-height: 40px;
-				}
-			}
-
-			.btn-tab {
-				height: 40px;
-				font-size: 14px;
-				line-height: 40px;
-
-				&:after {
-					margin-left: -35px;
-					width: 70px;
-					bottom: 0;
-				}
-			}
 		}
 	}
 }

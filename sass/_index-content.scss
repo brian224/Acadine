@@ -241,6 +241,26 @@
 	}
 }
 
+@include keyframes(scrollDown) {
+	0% {
+		top: 0px;
+	}
+
+	100% {
+		top: -50vh;
+	}
+}
+
+@include keyframes(scrollUp) {
+	0% {
+		top: 0px;
+	}
+
+	100% {
+		top: 50vh;
+	}
+}
+
 @include respond(Desktops) {
 	.l-body {
 		&.show-header .m-cut, &.show-footer .m-cut {
@@ -255,6 +275,16 @@
 		&.scale-125 .m-cut .main-content .item .item-info {
 			@include transform(scale(0.9));
 			@include transform-origin(top, center);
+		}
+		
+		@for $i from 1 through 4 {
+			&.scrollUp[data-cut="#{$i}"] .m-cut:nth-child(#{$i + 1}) .main-content {
+				@include animation(scrollDown 1s ease-in-out forwards);
+			}
+
+			&.scrollDown[data-cut="#{$i}"] .m-cut:nth-child(#{$i - 1}) .main-content {
+				@include animation(scrollUp 1s ease-in-out forwards);
+			}
 		}
 	}
 
