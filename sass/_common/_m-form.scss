@@ -10,8 +10,8 @@
 			opacity: 1;
 		}
 
-		&.is-radio {
-			border: 7px solid $color-text-major;
+		&.is-radio:before {
+			opacity: 1;
 		}
 	}
 
@@ -82,12 +82,28 @@
 
 	&.is-radio {
 		margin-right: 5px;
-		background: $color-gray-l-p40;
+		background: $color-white;
 		width: 18px;
 		height: 18px;
 		position: relative;
-		border: 0 solid $color-text-major;
+		border: 1px solid $color-gray-l-p30;
 		border-radius: 50%;
+
+		&:before {
+			content: '';
+			margin: -4px 0 0 -4px;
+			background: #009ee1;
+			display: block;
+			width: 8px;
+			height: 8px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			border-radius: 50%;
+			opacity: 0;
+			z-index: 1;
+			@include transition(ease-in all 0.3s);
+		}
 
 		.m-radio {
 			opacity: 0;

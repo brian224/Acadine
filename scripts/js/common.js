@@ -21,6 +21,7 @@
 		this._btnAccordion = '.jQ-btn-accordion';
 		this._checkbox     = '.jQ-checkbox';
 		this._radio        = '.jQ-radio';
+		this._calc         = '.jQ-calc';
 		this._leavePage    = false;
 		this._animateSpeed = 400;
 		this._masonryLoad  = false;
@@ -267,6 +268,16 @@
 
 				$('input[type="radio"][name="' + _name + '"]').parents(common._radio).removeClass('is-checked');
 				$(this).addClass('is-checked');
+			}
+		});
+
+		$(common._calc).on('click', function(){
+			var _val = parseInt($(this).siblings('.m-box-holder').find('.m-inputbox').val(), 10);
+
+			if ($(this).data('calc') === 'minus') {
+				_val <= 2 ? $(this).siblings('.m-box-holder').find('.m-inputbox').val(1) : $(this).siblings('.m-box-holder').find('.m-inputbox').val(_val - 1);
+			} else {
+				$(this).siblings('.m-box-holder').find('.m-inputbox').val(_val + 1);
 			}
 		});
 	});
