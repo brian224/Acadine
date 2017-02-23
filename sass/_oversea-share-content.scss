@@ -126,7 +126,10 @@ $color-third : #f39700;
 	}
 
 	.m-selection, option {
+		height: 46px;
 		color: $color-gray-l-p20;
+		font-size: 16px;
+		line-height: 46px;
 	}
 }
 

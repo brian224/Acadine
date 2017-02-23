@@ -1,0 +1,36 @@
+﻿@include respond(Desktops) {}
+
+@include respond(Desktops-Tablets) {
+	.kv-owl .item {
+		height: 300px;
+
+		.img-wrap {
+			margin-left: 0;
+			@include display-flex;
+			@include align-items(center);
+			width: 100%;
+			height: 300px;
+			overflow: hidden;
+
+			img {
+				width: 100%;
+			}
+		}
+	}
+}
+
+@include respond(HD) {}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {}
+
+@include respond(Mobiles) {}
+
+@include devices(iphone) {}
+
+@include respond(Iphone5) {}
+
+@include browsers('IE') {}
+
+@include browsers('Safari') {}

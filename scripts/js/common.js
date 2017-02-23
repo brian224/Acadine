@@ -146,6 +146,19 @@
 		});
 	}
 
+	page.prototype.selectInputCheck = function() {
+		if($('input[type="radio"]:checked').length !== 0) {
+			$(common._radio).each(function(){
+				if($(this).find('input[type="radio"]:checked').length !== 0) {
+					var _name = $(this).find('input[type="radio"]:checked').attr('name');
+
+					$('input[type="radio"][name="' + _name + '"]').parents(common._radio).removeClass('is-checked');
+					$(this).addClass('is-checked');
+				}
+			});
+		}
+	}
+
 	projects.$w.load(function(){
 		common.headerHeight();
 		common.showFooter();
@@ -153,6 +166,7 @@
 
 	projects.$d.ready(function(){
 		projects.owlCarousel(common._owl);
+		common.selectInputCheck();
 
 		if ( projects.device() === 'Mobile') {
 			$(common._owl).on('drag.owl.carousel', function(){
@@ -268,6 +282,14 @@
 
 				$('input[type="radio"][name="' + _name + '"]').parents(common._radio).removeClass('is-checked');
 				$(this).addClass('is-checked');
+			}
+
+			if($(this).parent().hasClass('deliver-method')) {
+				if($(this).find('input[type="radio"]').val() === 'store') {
+					$(this).parent().addClass('is-store');
+				} else {
+					$(this).parent().removeClass('is-store');
+				}
 			}
 		});
 

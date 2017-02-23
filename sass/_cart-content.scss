@@ -4,6 +4,7 @@ $color-btn-cancel : $color-gray-l-p10;
 
 .m-cut {
 	margin: 0 auto;
+	padding: 0 10px;
 }
 
 .main-title, .m-cut-ft .ft-title {
@@ -20,19 +21,20 @@ $color-btn-cancel : $color-gray-l-p10;
 	}
 
 	.coupon-info {
-		display: inline-block;
 		font-size: 13px;
+		line-height: 2em;
 	}
 
-	.number {
+	.highlight {
 		color: $color-btn-main;
 	}
 
 	.sheet {
+		margin-bottom: 20px;
 		background: $color-white;
 		border: 1px solid $color-gray-l-p30;
 
-		> * {
+		> *:not(:last-child) {
 			border-bottom: 1px solid $color-gray-l-p30;
 		}
 
@@ -40,6 +42,40 @@ $color-btn-cancel : $color-gray-l-p10;
 			font-weight: bold;
 			letter-spacing: 1px;
 			line-height: 1.5em;
+
+			.sub-desc {
+				font-weight: normal;
+				letter-spacing: 0;
+			}
+		}
+
+		.m-box-holder {
+			&:not(.is-checkbox):not(.is-radio) {
+				height: 30px;
+		
+				.m-inputbox, .m-selection {
+					line-height: 28px;
+				}
+			}
+
+			&.is-selector {
+				&:before {
+					content: '';
+					display: block;
+					position: absolute;
+					bottom: 50%;
+					right: 14px;
+					border-bottom: 6px solid $color-gray-l-p10;
+					border-right: 5px solid transparent;
+					border-left: 5px solid transparent;
+					pointer-events: none;
+					z-index: 1;
+				}
+
+				&:after {
+					margin-top: 1px;
+				}
+			}
 		}
 	}
 
@@ -101,10 +137,33 @@ $color-btn-cancel : $color-gray-l-p10;
 
 		.counter .m-box-holder {
 			width: 50px;
+			height: 100% !important;
 		}
 
 		.btn-delete {
 			font-size: 15px;
+		}
+	}
+
+	.purchase-info {
+		font-size: 0;
+		line-height: 0;
+
+		> * {
+			font-size: 13px;
+			line-height: 1.5em;
+		}
+
+		.coupon-selection {
+			margin-bottom: 10px;
+		}
+
+		.b-link {
+			color: $color-btn-sub;
+		}
+
+		.btn-link {
+			vertical-align: middle;
 		}
 	}
 
@@ -120,9 +179,23 @@ $color-btn-cancel : $color-gray-l-p10;
 	}
 }
 
+.deliver-method {
+	&:not(.is-store) .is-selector {
+		max-height: 0;
+		border: 0;
+		opacity: 0;
+		overflow: hidden;
+	}
+
+	.is-selector {
+		max-height: 50px;
+		opacity: 1;
+		@include transition(ease-in opacity 0.3s);
+	}
+}
+
 .counter {
 	@include display-flex;
-	@include justify-content(center);
 
 	> * {
 		height: 36px;
@@ -135,6 +208,12 @@ $color-btn-cancel : $color-gray-l-p10;
 		width: 36px;
 		font-size: 14px;
 		@include transition(ease-in all 0.3s);
+
+		&:hover {
+			background: $color-text-major;
+			border-color: $color-text-major;
+			color: $color-white;
+		}
 	}
 
 	.m-box-holder {
@@ -241,6 +320,10 @@ $color-btn-cancel : $color-gray-l-p10;
 		}
 	}
 
+	.counter {
+		margin-bottom: 10px;
+	}
+
 	.btn-read-more {
 		display: block;
 		border-color: $color-gray-d-p30;
@@ -331,17 +414,30 @@ $color-btn-cancel : $color-gray-l-p10;
 	display: inline-block;
 	color: $color-white;
 	text-align: center;
+	@include transition(ease-in all 0.3s);
 
 	&.btn-main {
 		background: $color-btn-main;
+
+		&:hover {
+			background: darken($color-btn-main , 10%);
+		}
 	}
 
 	&.btn-sub {
 		background: $color-btn-sub;
+
+		&:hover {
+			background: darken($color-btn-sub , 10%);
+		}
 	}
 
 	&.btn-cancel {
 		background: $color-btn-cancel;
+
+		&:hover {
+			background: darken($color-btn-cancel , 10%);
+		}
 	}
 }
 
@@ -351,8 +447,23 @@ $color-btn-cancel : $color-gray-l-p10;
 	}
 
 	.m-cut-bd {
+		margin-bottom: 45px;
+
+		.coupon-info {
+			position: relative;
+
+			&:not(:last-child):after {
+				content: '/';
+				padding: 0 18px;
+			}
+
+			.coupon-name {
+				padding-right: 50px;
+			}
+		}
+
 		.sheet {
-			padding: 10px 75px;
+			padding: 10px 50px;
 		}
 
 		.m-table {
@@ -362,6 +473,10 @@ $color-btn-cancel : $color-gray-l-p10;
 
 			tr td {
 				padding: 0 16px;
+			}
+
+			.item-info {
+				margin-bottom: 12px;
 			}
 
 			.img-wrap {
@@ -378,12 +493,6 @@ $color-btn-cancel : $color-gray-l-p10;
 			margin-left: 25px;
 			width: 264px;
 		}
-	}
-
-	.btn-count:hover {
-		background: $color-text-major;
-		border-color: $color-text-major;
-		color: $color-white;
 	}
 
 	.recommended-list {
@@ -434,14 +543,25 @@ $color-btn-cancel : $color-gray-l-p10;
 	}
 
 	.m-cut-bd {
-		margin-bottom: 45px;
+		.coupon-info {
+			display: inline-block;
+		}
 
-		.sheet {
-			margin-bottom: 20px;
+		.member-info {
+			padding: 15px 0;
+		}
 
-			.info-title {
-				margin-bottom: 5px;
-				font-size: 22px;
+		.member-name {
+			margin-bottom: 5px;
+		}
+
+		.sheet .info-title {
+			margin-top: 25px;
+			padding-bottom: 5px;
+			font-size: 22px;
+
+			.sub-desc {
+				font-size: 13px;
 			}
 		}
 
@@ -449,15 +569,34 @@ $color-btn-cancel : $color-gray-l-p10;
 			thead {
 				height: 36px;
 				line-height: 36px;
+
+				.text {
+					padding: 10px 0;
+					display: inline-block;
+				}
 			}
 
 			tbody td {
 				padding-top: 30px;
 				padding-bottom: 30px;
 			}
+		}
 
-			.item-info {
-				margin-bottom: 12px;
+		.purchase-info {
+			padding: 15px 0;
+
+			.coupon-selection > * {
+				margin: 0 3px;
+			}
+
+			.m-lab {
+				margin-left: 10px;
+			}
+
+			.btn-link {
+				padding: 0 20px;
+				height: 30px;
+				line-height: 30px;
 			}
 		}
 	}
@@ -467,13 +606,17 @@ $color-btn-cancel : $color-gray-l-p10;
 		font-size: 28px;
 	}
 
+	.counter {
+		@include justify-content(center);
+	}
+
 	.recommended-list {
+		width: calc(100% + 20px);
 		font-size: 0;
 		line-height: 0;
 
 		.owl-item {
-			margin: 0 10px;
-			width: calc((100% - 60px) / 4);
+			margin: 0 20px 0 0;
 		}
 
 		.list {
@@ -486,16 +629,13 @@ $color-btn-cancel : $color-gray-l-p10;
 		}
 
 		.counter, .btn-read-more {
-			margin: 0 auto;
+			margin-right: auto;
+			margin-left: auto;
 			width: 162px;
 		}
 
-		.counter {
-			margin-bottom: 10px;
-
-			.m-box-holder {
-				width: calc(100% - 72px);
-			}
+		.counter .m-box-holder {
+			width: calc(100% - 72px);
 		}
 
 		.btn-like {
@@ -518,6 +658,10 @@ $color-btn-cancel : $color-gray-l-p10;
 		width: 1300px;
 	}
 
+	.m-cut-bd .sheet {
+		padding: 10px 75px;
+	}
+
 	.recommended-list {
 		width: 1333px;
 
@@ -529,13 +673,13 @@ $color-btn-cancel : $color-gray-l-p10;
 
 @include respond(Tablets) {
 	.m-cut-bd {
-		.sheet {
-			padding: 10px 20px;
-		}
-
 		.m-table {
 			tr td {
 				padding: 20px 10px;
+			}
+
+			.img-wrap {
+				margin-bottom: 15px;
 			}
 
 			.item-info {
@@ -555,9 +699,15 @@ $color-btn-cancel : $color-gray-l-p10;
 		margin-bottom: 36px !important;
 	}
 
-	.recommended-list {
-		padding-top: 20px;
+	.m-cut-bd {
+		margin-bottom: 20px;
 
+		.sheet {
+			padding: 10px 20px;
+		}
+	}
+
+	.recommended-list {
 		.img-wrap {
 			height: 240px;
 			@include flex-direction(column);
@@ -583,7 +733,110 @@ $color-btn-cancel : $color-gray-l-p10;
 }
 
 @include respond(Mobiles) {
+	.m-cut-hd {
+		padding: 12px 0;
+	}
+
+	.main-title {
+		font-size: 24px;
+	}
+
+	.m-cut-bd {
+		.coupon-info {
+			display: block;
+		}
+
+		.sheet .info-title {
+			margin-top: 10px;
+			padding-bottom: 5px;
+			font-size: 18px;
+
+			.sub-desc {
+				font-size: 13px;
+				line-height: 1.5em;
+			}
+		}
+
+		.m-table {
+			tr:last-child {
+				border-bottom: 0;
+			}
+
+			.item-info {
+				@include align-items(flex-start);
+				@include flex-direction(column);
+			}
+
+			.counter .m-inputbox {
+				padding: 0 10px;
+			}
+		}
+
+		.purchase-info {
+			padding: 10px 0;
+
+			.coupon-selection, .m-lab {
+				.text {
+					padding: 5px 0;
+					display: inline-block;
+				}
+			}
+
+			.coupon-selection ~ .highlight {
+				margin-top: 10px;
+			}
+
+			.btn-confirm {
+				margin-top: 5px;
+				display: block;
+				width: 100%;
+				height: 30px;
+				line-height: 30px;
+			}
+		}
+
+		.btn-wrap {
+			@include display-flex;
+
+			> *:not(:first-child) {
+				margin-left: 10px;
+			}
+		}
+	}
+
+	.m-box-holder {
+		.m-selection, .m-inputbox {
+			width: 100%;
+			@include box-sizing(border-box);
+		}
+	}
+
+	.counter {
+		@include align-items(center);
+		@include justify-content(flex-start);
+
+		.m-inputbox {
+			vertical-align: top;
+		}
+	}
+
+	.m-cut-ft .ft-title {
+		margin-bottom: 10px;
+		font-size: 15px;
+	}
+
 	.recommended-list {
+		margin: 0 auto;
+		width: calc(100% - 80px);
+
+		.list {
+			margin: 0 10px;
+		}
+
+		.owl-stage-outer {
+			overflow: visible;
+		}
+
 		.owl-item {
 			@include transition(ease-in all 0.3s);
 
@@ -592,15 +845,18 @@ $color-btn-cancel : $color-gray-l-p10;
 			}
 		}
 
+		.counter {
+			margin-right: 15px;
+			margin-left: 15px;
+
+			.m-box-holder {
+				width: calc(100% - 72px);
+			}
+		}
+
 		.btn-like {
 			width: 40px;
 			height: 40px;
-		}
-	}
-
-	.recommended-list {
-		.owl-item:not(.active) .btn-like {
-			opacity: 0;
 		}
 
 		.m-icon {
@@ -614,11 +870,7 @@ $color-btn-cancel : $color-gray-l-p10;
 	}
 }
 
-@include devices(iphone) {
-	.recommended-list .btn-read-more {
-		margin: 0 15px 25px 15px;
-	}
-}
+@include devices(iphone) {}
 
 @include respond(Iphone5) {
 	/*.recommended-cut {

@@ -1,24 +1,13 @@
 ﻿.m-table {
 	width: 100%;
-	border-bottom: 1px solid $color-gray-l-p20;
-
-	thead tr {
-		border-top: 1px solid $color-gray-l-p20;
-		border-bottom: 1px solid $color-gray-l-p20;
-	}
 
 	td {
-		padding: 20px 5px;
-		height: 45px;
 		line-height: 1.5em;
 		text-align: center;
 		@include box-sizing(border-box);
 
 		em {
-			display: inline-block;
 			vertical-align: middle;
-			color: $color-gray;
-			font-weight: bold;
 			word-wrap: break-word;
 		}
 	}
@@ -28,13 +17,6 @@
 
 @include respond(Desktops-Tablets) {
 	.m-table {
-		thead td em {
-			font-size: 24px;
-		}
-
-		tbody td em {
-			font-size: 18px;
-		}
 	}
 }
 
@@ -44,12 +26,41 @@
 
 @include respond(Mobiles) {
 	.m-table {
-		thead td em {
-			font-size: 20px;
-		}
+		&.table-rotate {
+			thead {
+				display: none;
+			}
 
-		tbody td em {
-			font-size: 15px;
+			tbody {
+				tr {
+					display: block;
+					position: relative;
+					overflow: hidden;
+				}
+
+				td {
+					display: table;
+					width: 100%;
+					position: relative;
+					font-size: 14px;
+					text-align: left;
+	
+					> * {
+						padding: 10px 0 10px 18px;
+						display: table-cell;
+						vertical-align: middle;
+						text-align: left;
+					}
+	
+					&:before {
+						content: attr(data-label);
+						padding-left: 10px;
+						display: table-cell;
+						width: 30%;
+						vertical-align: middle;
+					}
+				}
+			}
 		}
 	}
 }
