@@ -22,6 +22,7 @@
 		this._checkbox     = '.jQ-checkbox';
 		this._radio        = '.jQ-radio';
 		this._calc         = '.jQ-calc';
+		this._tagSelect    = '.jQ-tag-select';
 		this._leavePage    = false;
 		this._animateSpeed = 400;
 		this._masonryLoad  = false;
@@ -159,6 +160,28 @@
 		}
 	}
 
+	page.prototype.changeToSelect = function() {
+		$(common._tagSelect).each(function(){
+			var $this = $(this),
+				_str  = '<select class="m-selection">',
+				_idx  = $this.find('.is-curr').length !== 0 ? $this.find('.is-curr').parent().index() : 0;
+
+			for (var i = 0; i < $this.children().length; i++) {
+				_str += '<option>' + $this.children().eq(i).text() + '</option>';
+			}
+
+			_str += '</select>';
+
+			$this.html(_str).find('option').eq(_idx).attr('selected', 'selected');
+
+			$this.on('change', '.m-selection', function(){
+				var _idx = $(this).find('option:selected').index();
+
+				$(this).parents('.m-tab-wrap').siblings('.m-tab-content').children('.content-list').eq(_idx).addClass('is-curr').siblings().removeClass('is-curr');
+			});
+		});
+	}
+
 	projects.$w.load(function(){
 		common.headerHeight();
 		common.showFooter();
@@ -168,7 +191,7 @@
 		projects.owlCarousel(common._owl);
 		common.selectInputCheck();
 
-		if ( projects.device() === 'Mobile') {
+		if (projects.device() === 'Mobile') {
 			$(common._owl).on('drag.owl.carousel', function(){
 				common.touchLock($('body').scrollTop());
 			});
@@ -178,6 +201,10 @@
 			});
 
 			$(common._sudMenu).removeClass('is-active');
+			
+			if ($(common._tagSelect).length !== 0) {
+				common.changeToSelect();
+			}
 		}
 
 		// 有影片才觸發偵聽事件
@@ -310,8 +337,12 @@
 	});
 
 	projects.$w.resize(function(){
-		if ( projects.device() !== 'Mobile') {
+		if (projects.device() !== 'Mobile') {
 			common.showFooter();
+
+			if ($(common._tagSelect).length !== 0 && $(common._tagSelect).children().prop('tagName').toLowerCase() !== 'select') {
+				common.changeToSelect();
+			}
 		}
 	});
 

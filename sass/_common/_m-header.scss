@@ -19,6 +19,7 @@
 		@include transition(ease-in all 0.5s);
 	}
 }
+
 .m-logo {
 	display: inline-block;
 	position: absolute;
@@ -37,6 +38,10 @@
 			display: none;
 		}
 	}
+}
+
+.shortcut-wrap .quick-list .language-selecter .b-link {
+	color: $color-black;
 }
 
 .main-menu {
@@ -123,7 +128,7 @@
 			> * {
 				height: 50px;
 	
-				&:last-child > *:last-child {
+				&:last-child > *:not(:first-child) {
 					margin-left: 10px;
 				}
 			}

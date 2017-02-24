@@ -796,6 +796,13 @@ $color-third : #f39700;
 
 @include respond(Desktops) {
 	.main-tab > .m-tab-content > .content-list {
+		&:first-child, &:nth-child(2) {
+			.m-cut {
+				margin-right: 50px;
+				margin-left: 50px;
+			}
+		}
+
 		.btn-tab {
 			.m-icon {
 				font-size: 56px;
