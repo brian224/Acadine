@@ -339,7 +339,7 @@
 	projects.$w.resize(function(){
 		if (projects.device() !== 'Mobile') {
 			common.showFooter();
-
+		} else {
 			if ($(common._tagSelect).length !== 0 && $(common._tagSelect).children().prop('tagName').toLowerCase() !== 'select') {
 				common.changeToSelect();
 			}

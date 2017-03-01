@@ -116,8 +116,9 @@
 		top: 50%;
 		left: 13px;
 		pointer-events: none;
-		color: $color-gray-l-p30;
-		font-size: 24px;
+		z-index: 1;
+		color: $color-gray-l-p10;
+		font-size: 12px;
 		line-height: 24px;
 	}
 

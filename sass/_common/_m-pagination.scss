@@ -114,4 +114,8 @@
 
 @include respond(Tablets) {}
 
-@include respond(Mobiles) {}
+@include respond(Mobiles) {
+	.m-pagination-bd {
+		@include display-flex;
+	}
+}

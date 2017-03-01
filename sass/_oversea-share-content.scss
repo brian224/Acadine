@@ -558,10 +558,6 @@ $color-third : #f39700;
 	.m-pagination {
 		margin: 20px 0;
 	}
-
-	.m-pagination-bd {
-		@include display-flex;
-	}
 }
 
 @include devices(iphone) {}

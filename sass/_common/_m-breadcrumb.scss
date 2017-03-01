@@ -6,11 +6,19 @@
 
 		.list {
 			display: inline-block;
+			font-size: 14px;
 			font-weight: bold;
+	
+			&:first-child {
+				font-size: 16px;
+			}
 
 			&:not(:first-child):before {
 				content: '';
+				margin: 0 10px 0 4px;
 				display: inline-block;
+				width: 8px;
+				height: 8px;
 				border-top: 1px solid $color-white;
 				border-right: 1px solid $color-white;
 				@include box-sizing(border-box);
@@ -25,30 +33,21 @@
 }
 
 @include respond(Desktops) {
-	.m-breadcrumb .breadcrumb-list .b-link:hover {
-		text-decoration: underline;
+	.m-breadcrumb .breadcrumb-list {
+		.b-link:hover {
+			text-decoration: underline;
+		}
+
+		.list {
+			height: 60px;
+			line-height: 60px;
+		}
 	}
 }
 
 @include respond(Desktops-Tablets) {
 	.m-breadcrumb .breadcrumb-list {
 		padding: 0 10px;
-
-		.list {
-			height: 60px;
-			font-size: 14px;
-			line-height: 60px;
-	
-			&:first-child {
-				font-size: 16px;
-			}
-	
-			&:not(:first-child):before {
-				margin: 0 10px 0 4px;
-				width: 8px;
-				height: 8px;
-			}
-		}
 	}
 }
 
@@ -62,7 +61,12 @@
 
 @include respond(Tablets) {}
 
-@include respond(Tablets-Mobiles) {}
+@include respond(Tablets-Mobiles) {
+	.m-breadcrumb .breadcrumb-list .list {
+		height: 40px;
+		line-height: 40px;
+	}
+}
 
 @include respond(Mobiles) {
 	.m-breadcrumb .breadcrumb-list {
