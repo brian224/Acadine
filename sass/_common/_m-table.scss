@@ -15,50 +15,45 @@
 
 @include respond(Desktops) {}
 
-@include respond(Desktops-Tablets) {
-	.m-table {
-	}
-}
+@include respond(Desktops-Tablets) {}
 
 @include respond(Tablets) {}
 
 @include respond(Tablets-Mobiles) {}
 
 @include respond(Mobiles) {
-	.m-table {
-		&.table-rotate {
-			thead {
-				display: none;
+	.m-table.table-rotate {
+		thead {
+			display: none;
+		}
+
+		tbody {
+			tr {
+				display: block;
+				position: relative;
+				overflow: hidden;
 			}
 
-			tbody {
-				tr {
-					display: block;
-					position: relative;
-					overflow: hidden;
+			td {
+				display: table;
+				width: 100%;
+				position: relative;
+				font-size: 14px;
+				text-align: left;
+
+				> * {
+					padding: 10px 0 10px 18px;
+					display: table-cell;
+					vertical-align: middle;
+					text-align: left;
 				}
 
-				td {
-					display: table;
-					width: 100%;
-					position: relative;
-					font-size: 14px;
-					text-align: left;
-	
-					> * {
-						padding: 10px 0 10px 18px;
-						display: table-cell;
-						vertical-align: middle;
-						text-align: left;
-					}
-	
-					&:before {
-						content: attr(data-label);
-						padding-left: 10px;
-						display: table-cell;
-						width: 30%;
-						vertical-align: middle;
-					}
+				&:before {
+					content: attr(data-label);
+					padding-left: 10px;
+					display: table-cell;
+					width: 30%;
+					vertical-align: middle;
 				}
 			}
 		}

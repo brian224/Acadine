@@ -5,6 +5,26 @@
 
 .kv {
 	position: relative;
+
+	.m-btn-slide {
+		margin-left: -30px;
+		width: 60px;
+		position: absolute;
+		bottom: 50px;
+		left: 50%;
+		color: $color-white;
+		text-align: center;
+		@include animation(suspension 1.5s ease-in-out infinite);
+
+		.m-icon {
+			display: inline-block;
+		}
+
+		em {
+			display: block;
+			line-height: 2em;
+		}
+	}
 }
 
 .m-cut {
@@ -364,6 +384,16 @@
 .hidden-place {
 	height: 0;
 	overflow: hidden;
+}
+
+@include keyframes(suspension) {
+	0%, 100% {
+		margin-bottom: 10px;
+	}
+
+	50% {
+		margin-bottom: 0px;
+	}
 }
 
 @include respond(Desktops) {

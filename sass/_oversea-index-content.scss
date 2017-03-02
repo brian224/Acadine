@@ -183,6 +183,27 @@
 }
 
 @include respond(Desktops) {
+	.main-tab > .m-tab-content > .content-list {
+		&:first-child .btn-radius:hover {
+			background: darken($color-text-major, 10%);
+		}
+
+		&:nth-child(2) .btn-radius:hover {
+			background: darken(#00a0e9, 10%);
+		}
+
+		&:nth-child(3) {
+			.btn-radius:hover {
+				background: darken(#f39700, 10%);
+			}
+
+			.btn-keyword:hover {
+				background: #f39700;
+				color: $color-white;
+			}
+		}
+	}
+
 	.content-list {
 		.m-cut {
 			padding: 50px 0;
@@ -217,24 +238,7 @@
 }
 
 @include respond(Desktops-Tablets) {
-	.main-tab .content-list:nth-child(3) .btn-keyword:hover {
-		background: #f39700;
-		color: $color-white;
-	}
-
 	.content-list {
-		&:first-child .btn-radius:hover {
-			background: #b10a17;
-		}
-
-		&:nth-child(2) .btn-radius:hover {
-			background: #007db6;
-		}
-
-		&:nth-child(3) .btn-radius:hover {
-			background: #e28c00;
-		}
-
 		.m-cut {
 			.bg-wrap img {
 				width: auto;

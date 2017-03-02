@@ -4,6 +4,7 @@
 	var pageObj = new page();
 
 	function page() {
+		this._slideDown = '.jq-slide-down';
 	}
 
 	projects.$w.load(function(){
@@ -15,6 +16,11 @@
 	});
 
 	projects.$d.ready(function(){
+		$(pageObj._slideDown).on('click', function(){
+			projects.$hb.animate({
+				'scrollTop' : $('.activity-cut').offset().top - $(common._lHeader).height()
+			});
+		});
 	});
 
 	projects.$w.on('scroll' , function(){

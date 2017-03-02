@@ -78,6 +78,10 @@
 		box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
 		vertical-align: top;
 		letter-spacing: 1px;
+
+		> .b-link {
+			display: block;
+		}
 	}
 
 	.img-wrap {
@@ -85,6 +89,7 @@
 
 		img {
 			width: 100%;
+			@include transition(ease-in all 0.3s);
 		}
 
 		.desc {
@@ -180,24 +185,34 @@
 }
 
 @include respond(Desktops) {
-	.main-tab .sub-tab {
-		.btn-tab {
-			height: 90px;
-			font-size: 18px;
-			line-height: 90px;
-
-			&:after {
-				height: 9px;
-			}
+	.main-tab {
+		.m-tab-wrap .btn-tab:not(.is-curr):hover {
+			color: #fff100;
 		}
 
-		.m-tab-wrap .tab-list:first-child:before {
-			display: none;
+		.sub-tab {
+			.btn-tab {
+				height: 90px;
+				font-size: 18px;
+				line-height: 90px;
+	
+				&:after {
+					height: 9px;
+				}
+			}
+	
+			.m-tab-wrap .tab-list:first-child:before {
+				display: none;
+			}
 		}
 	}
 
 	.activities-list .list {
 		width: calc((100% - 60px) / 3);
+
+		.b-link:hover .img-wrap img {
+			@include transform(scale(1.05));
+		}
 	}
 }
 

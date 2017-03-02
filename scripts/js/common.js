@@ -116,7 +116,6 @@
 			} else if ($(this).parents('.owl-item').hasClass('active')) {
 				for (var i = 0; i < projects._media._player.length; i++) {
 					if ( ! projects._media._player[i].getPlayerState ) return false;
-					// if (projects._media._player[i].getPlayerState() === 2 && /autoplay\=([^?&#]*)/.exec($(this).parent().attr('data-media'))[1] !== '0') {
 					if (projects._media._player[i].getPlayerState() === 2) {
 						projects._media._player[i].playVideo();
 						$('[data-media]').eq(i).attr('data-media' , $('[data-media]').eq(i).attr('data-media').replace(/autoplay=0/ , 'autoplay=1'));
