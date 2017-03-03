@@ -342,6 +342,16 @@
 		@include justify-content(space-between);
 		position: relative;
 		border: 1px solid $color-gray-l-p30;
+		@include box-sizing(border-box);
+
+		> .shopping-link {
+			display: block;
+			height: 100%;
+
+			&:hover .img-wrap img {
+				@include transform(scale(1.05));
+			}
+		}
 	}
 
 	.shopping-link {
@@ -360,6 +370,7 @@
 
 		img {
 			width: 100%;
+			@include transition(ease-in all 0.3s);
 		}
 	}
 
@@ -806,7 +817,7 @@
 		margin: 0 auto;
 		max-width: 1300px;
 
-		.list {
+		> .list {
 			width: calc((100% - 40px) / 3);
 			max-width: 420px;
 		}
@@ -814,6 +825,11 @@
 		.main-intro {
 			width: calc(((100% - 40px) / 3 * 2) + 20px);
 			max-width: 860px;
+		}
+
+		.item-selection .selection-wrap.color .selection-list .list {
+			width: 20px;
+			height: 20px;
 		}
 	}
 
@@ -969,11 +985,6 @@
 			.selection-title {
 				margin-bottom: 5px;
 			}
-
-			.selection-wrap.color .selection-list .list {
-				width: 20px;
-				height: 20px;
-			}
 		}
 
 		.img-wrap img {
@@ -1063,7 +1074,7 @@
 	}
 
 	.new-arrive-list {
-		.list {
+		> .list {
 			width: calc((100% - 20px) / 2);
 		}
 
@@ -1105,6 +1116,15 @@
 
 		.btn-read-more {
 			margin: 0 auto 25px auto;
+		}
+	}
+
+	.new-arrive-list .item-selection .selection-wrap.color .selection-list {
+		padding-top: 4px;
+
+		.list {
+			width: 12px;
+			height: 12px;
 		}
 	}
 }
@@ -1241,11 +1261,6 @@
 
 		.item-selection {
 			margin: 10px 0;
-
-			.selection-wrap.color .selection-list .list {
-				width: 12px;
-				height: 12px;
-			}
 		}
 	}
 
@@ -1271,5 +1286,77 @@
 }
 
 @include browsers('IE') {}
+
+@include browsers('IE9') {
+	.catalog-wrap .catalog {
+		display: table;
+
+		.list {
+			display: table-cell;
+			height: 100%;
+		}
+	}
+
+	.input-content {
+		width: 884px;
+	}
+
+	.sort-selection .is-selector.m-box-holder {
+		&:before, &:after {
+			display: none;
+		}
+
+		.m-selection {
+			height: 28px;
+		}
+	}
+
+	.shopping-list {
+		font-size: 0;
+		line-height: 0;
+
+		> .list {
+			margin-left: 33px;
+			display: inline-block;
+			vertical-align: top;
+
+			&:nth-child(4n+1) {
+				margin-left: 0;
+			}
+		}
+
+		.img-wrap {
+			text-align: center;
+		}
+	}
+
+	.new-arrive-list {
+		font-size: 0;
+		line-height: 0;
+
+		> .list {
+			margin-left: 20px;
+			display: inline-block;
+
+			> * {
+				font-size: 12px;
+				line-height: 1.5em;
+			}
+
+			&.main-intro > * {
+				display: inline-block;
+				vertical-align: top;
+			}
+
+			&:first-child, &:nth-child(3n) {
+				margin-left: 0;
+			}
+		}
+
+		.spec-tag {
+			line-height: 60px;
+		}
+	}
+}
 
 @include browsers('Safari') {}

@@ -2192,6 +2192,108 @@ $color-third : #f39700;
 		}
 	}
 }
-@include browsers('IE9') {}
+
+@include browsers('IE9') {
+	.main-tab > .m-tab-content > .content-list {
+		&:first-child .inner-tab .tab-list {
+			width: 50%;
+		}
+
+		&:nth-child(2) .inner-tab .tab-list {
+			width: 33.33%;
+		}
+	}
+
+	.google-map-box .main-info .info-box {
+		height: 100%;
+	}
+
+	.other-info {
+		display: table;
+		width: 100%;
+
+		> * {
+			display: table-cell;
+			width: 50%;
+			vertical-align: middle;
+			text-align: center;
+		}
+
+		.info-list .list {
+			text-align: center;
+
+			> * {
+				display: inline-block;
+				vertical-align: middle;
+			}
+		}
+	}
+
+	.floor-list {
+		overflow: hidden;
+
+		.floor-info {
+			width: calc(100% - 220px);
+			float: right;
+		}
+
+		.floor-count {
+			width: 220px;
+			float: right;
+			@include box-sizing(border-box);
+		}
+	}
+
+	.service-main-list .list {
+		overflow: hidden;
+
+		> * {
+			float: left;
+		}
+
+		&:nth-child(2n) > * {
+			float: right;
+		}
+
+		.service-info {
+			padding-top: 30px;
+		}
+	}
+
+	.tax-refund .step-list .list {
+		display: table;
+
+		.m-icon {
+			vertical-align: top;
+		}
+
+		.list-content {
+			display: table-cell;
+			vertical-align: middle;
+		}
+	}
+
+	.main-recommended .item {
+		display: table;
+
+		> * {
+			display: table-cell;
+			vertical-align: middle;
+		}
+
+		> .b-link {
+			max-width: none;
+		}
+	}
+
+	.recommended-list .item-list {
+		margin-left: 20px;
+		width: calc((100% - 40px) / 3);
+
+		&:nth-child(3n+1) {
+			margin-left: 0;
+		}
+	}
+}
 
 @include browsers('Safari') {}

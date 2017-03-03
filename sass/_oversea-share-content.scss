@@ -569,3 +569,13 @@ $color-third : #f39700;
 @include browsers('IE9') {}
 
 @include browsers('Safari') {}
+
+@include browsers('FireFox') {
+	.main-tab>.m-tab-wrap .tab-list .btn-tab .img-wrap {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+}

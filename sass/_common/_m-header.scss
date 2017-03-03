@@ -739,6 +739,11 @@
 					display: inline-block;
 					vertical-align: top;
 				}
+
+				> .b-link {
+					height: 30px;
+					line-height: 30px;
+				}
 			}
 
 			.language-list > * {

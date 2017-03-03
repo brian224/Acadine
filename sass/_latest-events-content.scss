@@ -450,4 +450,16 @@
 	}
 }
 
+@include browsers('IE9') {
+	.main-tab .sub-tab .m-tab-wrap {
+		display: table;
+		width: calc(100% - 20px);
+		@include box-sizing(border-box);
+
+		> * {
+			display: table-cell;
+		}
+	}
+}
+
 @include browsers('Safari') {}

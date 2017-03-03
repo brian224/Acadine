@@ -773,6 +773,10 @@
 
 	.kv {
 		margin-bottom: 20px;
+
+		.m-btn-slide {
+			display: none;
+		}
 	}
 
 	.slide-list .btn-read-more {
@@ -984,6 +988,12 @@
 	.shopping-list .btn-read-more {
 		margin-right: 32px;
 		margin-left: 32px;
+	}
+}
+
+@include browsers('IE9') {
+	.shopping-list .img-wrap {
+		text-align: center;
 	}
 }
 
