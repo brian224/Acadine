@@ -1,0 +1,132 @@
+﻿.brand-store {
+	margin: 0 auto;
+	@include display-flex;
+	@include align-items(center);
+	@include justify-content(space-between);
+	border-bottom: 1px solid $color-gray-l-p10;
+
+	.img-wrap {
+		width: 136px;
+		height: 136px;
+		border: 1px solid $color-gray-l-p10;
+		border-radius: 50%;
+		overflow: hidden;
+		@include box-sizing(border-box);
+	}
+
+	.brand-info {
+		width: calc(100% - 136px - 20px);
+	}
+
+	.brand-name {
+		font-size: 16px;
+		font-weight: bold;
+	}
+
+	.store-list .list {
+		@include display-flex;
+		@include justify-content(space-between);
+		font-size: 13px;
+
+		> * {
+			color: $color-gray-d-p30;
+		}
+	}
+}
+
+@include respond(Desktops) {
+	.brand-store {
+		padding-right: 100px;
+		padding-left: 100px;
+
+		.store-list .list {
+			@include flex(0 0 26%);
+		}
+	}
+}
+
+@include respond(Desktops-Tablets) {
+	.brand-store {
+		margin-bottom: 20px;
+		padding-bottom: 30px;
+
+		.store-list {
+			@include display-flex;
+			@include flex-wrap(wrap);
+			@include justify-content(space-between);
+
+			.list {
+				margin: 5px 0;
+			}
+		}
+	}
+}
+
+@include respond(HD) {
+	.brand-store {
+		padding-right: 200px;
+		padding-left: 200px;
+	}
+}
+
+@include respond(Tablets) {
+	.brand-store .store-list .list {
+		@include flex(0 0 30%);
+	}
+}
+
+@include respond(Tablets-Mobiles) {}
+
+@include respond(Mobiles) {
+	.brand-store {
+		margin-bottom: 15px;
+		padding-bottom: 15px;
+	}
+}
+
+@include devices(iphone) {}
+
+@include respond(Iphone5) {
+	.brand-store {
+		.img-wrap {
+			width: 120px;
+			height: 120px;
+		}
+
+		.brand-info {
+			width: auto;
+		}
+	}
+}
+
+@include browsers('IE') {}
+
+@include browsers('IE9') {
+	.brand-store {
+		overflow: hidden;
+
+		> * {
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		.brand-info {
+			float: right;
+		}
+
+		.store-list .list {
+			padding-right: 20px;
+			display: inline-block;
+			width: 33%;
+			vertical-align: top;
+			@include box-sizing(border-box);
+
+			> * {
+				display: inline-block;
+				width: 50%;
+			}
+		}
+	}
+}
+
+@include browsers('Safari') {}

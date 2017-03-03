@@ -1,0 +1,99 @@
+﻿.ranking-title {
+	font-weight: bold;
+	line-height: 1.5em;
+}
+
+.shopping-list {
+	position: relative;
+}
+
+@include respond(Desktops) {
+	.main-content {
+		padding-bottom: 100px;
+	}
+
+	.shopping-list {
+		padding: 15px 0;
+
+		&.jQ-owl .m-owl-ctrl {
+			margin-bottom: -8px;
+			position: absolute;
+			bottom: 100%;
+			right: 32px;
+			opacity: 1;
+	
+			> * {
+				margin-top: 0;
+				background: none;
+				display: inline-block;
+				position: relative;
+				border: 0;
+	
+				&:hover:before {
+					border-top-color: $color-black;
+					border-right-color: $color-black;
+				}
+	
+				&:before {
+					margin-top: -8px;
+					width: 16px;
+					height: 16px;
+					border-top-color: $color-gray-l-p20;
+					border-right-color: $color-gray-l-p20;
+					@include transition(ease-in all 0.3s);
+				}
+			}
+		}
+	}
+}
+
+@include respond(Desktops-Tablets) {
+	.ranking-title {
+		font-size: 28px;
+	}
+}
+
+@include respond(HD) {
+	.main-content {
+		margin: 0 auto;
+		width: 1300px;
+	}
+
+	.shopping-list {
+		margin: 0 -16px;
+		width: 1332px;
+
+		.owl-stage {
+			@include display-flex;
+			@include align-items(stretch);
+			@include justify-content(space-between);
+
+			.owl-item {
+				margin: 0 16px;
+				@include display-flex;
+				width: 300px !important;
+			}
+		}
+
+		.list {
+			margin-bottom: 0;
+			width: 100%;
+		}
+	}
+}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {}
+
+@include respond(Mobiles) {}
+
+@include devices(iphone) {}
+
+@include respond(Iphone5) {}
+
+@include browsers('IE') {}
+
+@include browsers('IE9') {}
+
+@include browsers('Safari') {}
