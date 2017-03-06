@@ -1,4 +1,50 @@
-﻿.ranking-title {
+.merchandise-info .item-detail {
+	> * {
+		display: block;
+		width: 100%;
+		border-bottom: 1px solid $color-gray-l-p40;
+	}
+
+	.item-price > * {
+		display: block;
+	}
+
+	.item-selection {
+		@include display-flex;
+		@include align-items(stretch);
+		@include justify-content(space-between);
+
+		> * {
+			@include flex-grow(1);
+		}
+	}
+}
+
+.photo-album {
+	.img-wrap {
+		@include display-flex;
+		@include align-items(flex-start);
+		overflow: hidden;
+
+		img {
+			width: 100%;
+		}
+	}
+}
+
+.main-tab {
+	background: $color-white;
+	border: 1px solid $color-gray-l-p40;
+	@include box-sizing(border-box);
+}
+
+.editor-area {
+	img {
+		width: 100%;
+	}
+}
+
+.ranking-title {
 	font-weight: bold;
 	line-height: 1.5em;
 }
@@ -7,9 +53,56 @@
 	position: relative;
 }
 
+.counter {
+	@include display-flex;
+
+	> * {
+		height: 36px;
+		border: 1px solid $color-gray-d-p30;
+		color: $color-gray-d-p30;
+		line-height: 34px;
+	}
+
+	.btn-count {
+		width: 36px;
+		font-size: 14px;
+		@include transition(ease-in all 0.3s);
+
+		&:hover {
+			background: $color-text-major;
+			border-color: $color-text-major;
+			color: $color-white;
+		}
+	}
+
+	.m-box-holder {
+		border-right: 0;
+		border-left: 0;
+	}
+
+	.m-inputbox {
+		width: 100%;
+		height: 34px;
+		line-height: 34px;
+		text-align: center;
+		@include box-sizing(border-box);
+	}
+}
+
+.btn-link {
+	display: inline-block;
+	color: $color-white;
+	text-align: center;
+	@include transition(ease-in all 0.3s);
+}
+
 @include respond(Desktops) {
 	.main-content {
 		padding-bottom: 100px;
+	}
+
+	.main-tab > .m-tab-content {
+		padding-bottom: 0;
 	}
 
 	.shopping-list {
@@ -38,8 +131,8 @@
 					margin-top: -8px;
 					width: 16px;
 					height: 16px;
-					border-top-color: $color-gray-l-p20;
-					border-right-color: $color-gray-l-p20;
+					border-top: 4px solid $color-gray-l-p20;
+					border-right: 4px solid $color-gray-l-p20;
 					@include transition(ease-in all 0.3s);
 				}
 			}
@@ -48,6 +141,71 @@
 }
 
 @include respond(Desktops-Tablets) {
+	.merchandise-info {
+		margin: 30px 0;
+
+		.item-detail {
+			padding: 0 50px;
+		}
+	}
+
+	.photo-album {
+		.photo-hd {
+			margin-bottom: 8px;
+
+			.img-wrap {
+				max-height: 540px;
+			}
+		}
+
+		.photo-slider {
+			margin: 0 -5px;
+			width: calc(100% + 10px);
+
+			.owl-stage {
+				@include display-flex;
+				@include align-items(stretch);
+				@include justify-content(space-between);
+
+				.owl-item {
+					margin: 0 5px;
+					@include display-flex;
+					width: 122px !important;
+				}
+			}
+
+			.img-wrap {
+				height: 96px;
+			}
+		}
+	}
+
+	.main-tab {
+		margin-bottom: 40px;
+
+		> .m-tab-wrap {
+			display: block;
+			text-align: left;
+
+			> .tab-list {
+				display: inline-block;
+				width: auto;
+				min-width: 164px;
+				text-align: center;
+
+				.btn-tab {
+					width: 100%;
+
+					&:after {
+						margin-left: 0;
+						width: 100%;
+						left: 0;
+					}
+				}
+			}
+		}
+	}
+
 	.ranking-title {
 		font-size: 28px;
 	}
@@ -57,6 +215,10 @@
 	.main-content {
 		margin: 0 auto;
 		width: 1300px;
+	}
+
+	.main-tab {
+		padding: 30px 112px;
 	}
 
 	.shopping-list {

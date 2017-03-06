@@ -1,4 +1,8 @@
-﻿body {
+﻿$color-btn-main : $color-text-major;
+$color-btn-sub : #4489ca;
+$color-btn-cancel : $color-gray-l-p10;
+
+body {
 	overflow-x: hidden;
 }
 
@@ -217,6 +221,58 @@
 	}
 }
 
+.shopping-list .btn-read-more {
+	padding: 0 12px;
+	display: block;
+	min-width: 144px;
+	height: 36px;
+	border: 1px solid;
+	text-align: center;
+	text-indent: 0;
+	@include box-sizing(border-box);
+	@include transition(ease-in all 0.3s);
+
+	&:before, &:after {
+		display: none;
+	}
+
+	> * {
+		display: inline-block;
+		vertical-align: middle;
+		line-height: 34px;
+	}
+
+	.m-icon {
+		margin-right: 10px;
+		font-size: 15px;
+		font-weight: bold;
+	}
+
+	.text {
+		font-size: 12px;
+		letter-spacing: 1px;
+
+		&:before {
+			content: attr(data-default);
+		}
+
+		&:after {
+			content: attr(data-lang);
+			display: none;
+		}
+	}
+
+	&:hover .text {
+		&:before {
+			display: none;
+		}
+
+		&:after {
+			display: inline;
+		}
+	}
+}
+
 [data-elem=".jQ-video"] {
 	position: relative;
 }
@@ -308,6 +364,32 @@
 	letter-spacing: 1px;
 	text-align: center;
 	@include transition(ease-in all 0.3s);
+}
+
+.btn-link {
+	&.btn-main {
+		background: $color-btn-main;
+
+		&:hover {
+			background: darken($color-btn-main , 10%);
+		}
+	}
+
+	&.btn-sub {
+		background: $color-btn-sub;
+
+		&:hover {
+			background: darken($color-btn-sub , 10%);
+		}
+	}
+
+	&.btn-cancel {
+		background: $color-btn-cancel;
+
+		&:hover {
+			background: darken($color-btn-cancel , 10%);
+		}
+	}
 }
 
 @include keyframes(pause-fadeout) {

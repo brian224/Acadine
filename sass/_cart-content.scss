@@ -415,30 +415,6 @@ $color-btn-cancel : $color-gray-l-p10;
 	color: $color-white;
 	text-align: center;
 	@include transition(ease-in all 0.3s);
-
-	&.btn-main {
-		background: $color-btn-main;
-
-		&:hover {
-			background: darken($color-btn-main , 10%);
-		}
-	}
-
-	&.btn-sub {
-		background: $color-btn-sub;
-
-		&:hover {
-			background: darken($color-btn-sub , 10%);
-		}
-	}
-
-	&.btn-cancel {
-		background: $color-btn-cancel;
-
-		&:hover {
-			background: darken($color-btn-cancel , 10%);
-		}
-	}
 }
 
 @include respond(Desktops) {

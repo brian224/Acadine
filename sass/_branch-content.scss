@@ -99,7 +99,7 @@
 		}
 	}
 
-	.btn-read-more {
+	&:not(.shopping-list) .btn-read-more {
 		display: inline-block;
 		overflow: hidden;
 		font-size: 0;
@@ -535,14 +535,9 @@
 			margin-bottom: 48px !important;
 
 			&:hover {
-				border-color: $color-text-major;
-			}
-
-			&:after {
-				content: '\e909  加入購物車';
 				background: $color-text-major;
+				border-color: $color-text-major;
 				color: $color-white;
-				font-family: 'feds-font', '微軟正黑體';
 			}
 		}
 	}
