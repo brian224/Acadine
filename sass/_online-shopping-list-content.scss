@@ -6,31 +6,41 @@
 	border-bottom: 1px solid $color-gray-l-p10;
 
 	.img-wrap {
+		padding: 7px;
+		@include display-flex;
+		@include align-items(center);
+		@include justify-content(center);
 		width: 136px;
 		height: 136px;
+		position: relative;
 		border: 1px solid $color-gray-l-p10;
 		border-radius: 50%;
 		overflow: hidden;
 		@include box-sizing(border-box);
-	}
 
-	.brand-info {
-		width: calc(100% - 136px - 20px);
+		&:after {
+			content: '';
+			display: block;
+			width: 134px;
+			height: 134px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			border: 7px solid $color-gray-l-p40;
+			border-radius: 50%;
+			@include box-sizing(border-box);
+		}
 	}
 
 	.brand-name {
-		font-size: 16px;
+		font-size: 18px;
 		font-weight: bold;
 	}
 
-	.store-list .list {
-		@include display-flex;
-		@include justify-content(space-between);
-		font-size: 13px;
-
-		> * {
-			color: $color-gray-d-p30;
-		}
+	.desc {
+		color: $color-gray;
+		font-size: 14px;
+		line-height: 24px;
 	}
 }
 
@@ -38,10 +48,6 @@
 	.brand-store {
 		padding-right: 100px;
 		padding-left: 100px;
-
-		.store-list .list {
-			@include flex(0 0 26%);
-		}
 	}
 }
 
@@ -50,14 +56,8 @@
 		margin-bottom: 20px;
 		padding-bottom: 30px;
 
-		.store-list {
-			@include display-flex;
-			@include flex-wrap(wrap);
-			@include justify-content(space-between);
-
-			.list {
-				margin: 5px 0;
-			}
+		.brand-info {
+			width: calc(100% - 136px - 20px);
 		}
 	}
 }
@@ -70,9 +70,6 @@
 }
 
 @include respond(Tablets) {
-	.brand-store .store-list .list {
-		@include flex(0 0 30%);
-	}
 }
 
 @include respond(Tablets-Mobiles) {}
@@ -81,6 +78,13 @@
 	.brand-store {
 		margin-bottom: 15px;
 		padding-bottom: 15px;
+		@include flex-direction(column);
+
+		.brand-name {
+			margin: 5px 0;
+			display: block;
+			text-align: center;
+		}
 	}
 }
 
@@ -112,19 +116,6 @@
 
 		.brand-info {
 			float: right;
-		}
-
-		.store-list .list {
-			padding-right: 20px;
-			display: inline-block;
-			width: 33%;
-			vertical-align: top;
-			@include box-sizing(border-box);
-
-			> * {
-				display: inline-block;
-				width: 50%;
-			}
 		}
 	}
 }

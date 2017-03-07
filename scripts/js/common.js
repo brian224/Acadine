@@ -95,7 +95,7 @@
 				_column = $(this).data('column'),
 				_middle = Math.ceil($list.length / _column);
 
-			for (var i = 0; i < _middle; i++) {
+			for (var i = 0; i <= _middle; i++) {
 				$(this).find('> .list:lt(' + _middle + ')').wrapAll('<div class="list-block"></div>');
 			}
 		});
@@ -165,8 +165,8 @@
 				_str  = '<select class="m-selection">',
 				_idx  = $this.find('.is-curr').length !== 0 ? $this.find('.is-curr').parent().index() : 0;
 
-			for (var i = 0; i < $this.children().length; i++) {
-				_str += '<option>' + $this.children().eq(i).text() + '</option>';
+			for (var i = 0; i < $this.find('a.b-link').length; i++) {
+				_str += '<option>' + $this.find('a.b-link').eq(i).text() + '</option>';
 			}
 
 			_str += '</select>';

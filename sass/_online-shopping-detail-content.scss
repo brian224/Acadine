@@ -2,11 +2,96 @@
 	> * {
 		display: block;
 		width: 100%;
-		border-bottom: 1px solid $color-gray-l-p40;
+		font-size: 14px;
+		line-height: 1.7em;
+
+		&:not(:last-child) {
+			border-bottom: 1px solid $color-gray-l-p30;
+		}
 	}
 
-	.item-price > * {
+	.item-name {
+		margin-bottom: 10px;
+		font-weight: bold;
+	}
+
+	.item-tag {
+		color: #004ca2;
 		display: block;
+	}
+
+	.marketing-wording {
+		margin-top: 10px;
+
+		.list {
+			padding-left: 22px;
+			position: relative;
+			color: $color-gray-d-p30;
+	
+			&:before {
+				content: '';
+				background: $color-gray-d-p30;
+				display: block;
+				width: 4px;
+				height: 4px;
+				position: absolute;
+				top: 9px;
+				left: 9px;
+				@include transform(rotate(45deg));
+			}
+		}
+	}
+
+	.gift {
+		color: $color-gray-d-p30;
+		font-weight: bold;
+
+		.gift-title {
+			margin-bottom: 10px;
+		}
+
+		.gift-info {
+			@include display-flex;
+			@include align-items(center);
+			@include justify-content(flex-start);
+
+			> .desc {
+				padding: 0 20px;
+			}
+		}
+	
+		.img-wrap {
+			@include display-flex;
+			@include align-items(center);
+			@include justify-content(space-between);
+			width: 82px;
+			height: 82px;
+			border: 1px solid $color-gray-l-p20;
+			overflow: hidden;
+
+			img {
+				width: 100%;
+			}
+		}
+	}
+
+	.item-price {
+		> * {
+			display: block;
+		}
+
+		.original-price {
+			color: $color-gray-d-p30;
+			font-weight: bold;
+			font-size: 12px;
+			text-decoration: line-through;
+		}
+
+		.discount-price {
+			color: $color-text-major;
+			font-size: 16px;
+			font-weight: bold;
+		}
 	}
 
 	.item-selection {
@@ -16,6 +101,52 @@
 
 		> * {
 			@include flex-grow(1);
+		}
+
+		.m-box-holder.is-selector {
+			height: 40px;
+
+			.m-selection {
+				line-height: 38px;
+			}
+		}
+	}
+
+	.payment-info {
+		color: $color-gray-d-p40;
+	}
+
+	.btn-wrap .btn-link {
+		> * {
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		.m-icon {
+			font-size: 20px;
+		}
+
+		.text {
+			margin-left: 10px;
+			font-size: 14px;
+		}
+	}
+
+	.btn-share {
+		.text {
+			color: $color-gray-d-p40;
+		}
+
+		.m-icon {
+			margin-left: 8px;
+			background: $color-facebook;
+			display: inline-block;
+			width: 26px;
+			height: 26px;
+			border-radius: 50%;
+			color: $color-white;
+			line-height: 26px;
+			text-align: center;
 		}
 	}
 }
@@ -36,6 +167,21 @@
 	background: $color-white;
 	border: 1px solid $color-gray-l-p40;
 	@include box-sizing(border-box);
+
+	.m-tab-wrap > .tab-list {
+		.btn-tab {
+			&:hover .text, &.is-curr .text {
+				color: $color-text-major;
+			}
+		}
+
+		.text {
+			color: $color-gray;
+			font-size: 14px;
+			font-weight: normal;
+			line-height: 30px;
+		}
+	}
 }
 
 .editor-area {
@@ -57,14 +203,15 @@
 	@include display-flex;
 
 	> * {
-		height: 36px;
-		border: 1px solid $color-gray-d-p30;
+		height: 40px;
+		border: 1px solid $color-gray-l-p40;
 		color: $color-gray-d-p30;
-		line-height: 34px;
+		line-height: 38px;
 	}
 
 	.btn-count {
-		width: 36px;
+		background: $color-white;
+		width: 40px;
 		font-size: 14px;
 		@include transition(ease-in all 0.3s);
 
@@ -76,14 +223,16 @@
 	}
 
 	.m-box-holder {
+		width: calc(100% - 80px);
 		border-right: 0;
 		border-left: 0;
 	}
 
 	.m-inputbox {
 		width: 100%;
-		height: 34px;
-		line-height: 34px;
+		height: 38px;
+		vertical-align: top;
+		line-height: 38px;
 		text-align: center;
 		@include box-sizing(border-box);
 	}
@@ -146,16 +295,52 @@
 
 		.item-detail {
 			padding: 0 50px;
+
+			> * {
+				padding: 20px 0;
+			}
+
+			.item-brand {
+				font-size: 18px;
+				line-height: 1.5em;
+			}
+
+			.item-name {
+				font-size: 30px;
+				line-height: 1.5em;
+			}
+
+			.item-selection > *:not(:first-child) {
+				margin-left: 8px;
+			}
+
+			.payment-info {
+				margin-bottom: 10px;
+				display: inline-block;
+			}
+
+			.btn-wrap {
+				@include display-flex;
+				@include align-items(stretch);
+				@include justify-content(space-between);
+
+				.btn-link {
+					@include flex-grow(1);
+					height: 50px;
+					line-height: 50px;
+	
+					&:not(:first-child) {
+						margin-left: 24px;
+					}
+				}
+			}
 		}
 	}
 
 	.photo-album {
 		.photo-hd {
 			margin-bottom: 8px;
-
-			.img-wrap {
-				max-height: 540px;
-			}
+			max-height: 540px;
 		}
 
 		.photo-slider {
@@ -207,7 +392,7 @@
 	}
 
 	.ranking-title {
-		font-size: 28px;
+		font-size: 30px;
 	}
 }
 
