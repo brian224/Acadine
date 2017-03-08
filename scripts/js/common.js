@@ -23,6 +23,7 @@
 		this._radio        = '.jQ-radio';
 		this._calc         = '.jQ-calc';
 		this._tagSelect    = '.jQ-tag-select';
+		this._share        = '.jQ-share';
 		this._leavePage    = false;
 		this._animateSpeed = 400;
 		this._masonryLoad  = false;
@@ -181,6 +182,19 @@
 		});
 	}
 
+	// FB 分享另開小視窗
+	page.prototype.openWin = function(element) {
+		var _top      = element.data('height') ? ( ( window.screen.availHeight - element.data('height') ) / 2 ) : ( ( window.screen.availHeight - 600 ) / 2 ),
+			_left     = element.data('width') ? ( ( window.screen.availLeft || window.screenX ) + ( projects.$d.width() / 2 ) ) - ( element.data('width') / 2 ) : ( ( window.screen.availLeft || window.screenX ) + ( projects.$d.width() / 2 ) ) - ( 600 / 2 ),
+			_width    = element.data('width') || 600,
+			_height   = element.data('height')  || 600,
+			_menubar  = element.data('menu-bar')  || 'no',
+			_titlebar = element.data('title-bar') || 'no',
+			_status   = element.data('status') || 'no';
+
+		window.open('' + element.attr('href') + '' , '' , 'top=' + _top + ', left=' + _left + ', width=' + _width + ', height=' + _height + ', menubar=' + _menubar + ', titlebar=' + _titlebar + ', status=' + _status + '' , false);
+	}
+
 	projects.$w.load(function(){
 		common.headerHeight();
 		common.showFooter();
@@ -327,6 +341,11 @@
 			} else {
 				$(this).siblings('.m-box-holder').find('.m-inputbox').val(_val + 1);
 			}
+		});
+
+		$(common._share).on('click' , function(e){
+			e.preventDefault();
+			common.openWin($(this));
 		});
 	});
 
