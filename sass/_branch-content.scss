@@ -279,12 +279,18 @@
 	}
 
 	.shopping-link {
-		height: 100%;
 		@include display-flex;
 		@include align-items(stretch);
 		@include align-content(stretch);
-		@include justify-content(flex-end);
+		@include justify-content(space-between);
 		@include flex-direction(column);
+		height: 100%;
+
+		&:hover .btn-read-more {
+			background: $color-text-major;
+			border-color: $color-text-major;
+			color: $color-white;
+		}
 	}
 
 	.img-wrap {
@@ -533,12 +539,6 @@
 
 		.btn-read-more {
 			margin-bottom: 48px !important;
-
-			&:hover {
-				background: $color-text-major;
-				border-color: $color-text-major;
-				color: $color-white;
-			}
 		}
 	}
 

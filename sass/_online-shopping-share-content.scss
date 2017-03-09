@@ -272,9 +272,6 @@
 
 	.list {
 		background: $color-white;
-		@include display-flex;
-		@include flex-direction(column);
-		@include justify-content(space-between);
 		position: relative;
 		border: 1px solid $color-gray-l-p30;
 		@include box-sizing(border-box);
@@ -288,8 +285,15 @@
 		@include display-flex;
 		@include align-items(stretch);
 		@include align-content(stretch);
-		@include justify-content(flex-end);
+		@include justify-content(space-between);
 		@include flex-direction(column);
+		height: 100%;
+
+		&:hover .btn-read-more {
+			background: $color-text-major;
+			border-color: $color-text-major;
+			color: $color-white;
+		}
 	}
 
 	.img-wrap {
@@ -364,12 +368,6 @@
 		display: block;
 		border-color: $color-gray-d-p30;
 		color: $color-gray-d-p30;
-
-		&:hover {
-			background: $color-text-major;
-			border-color: $color-text-major;
-			color: $color-white;
-		}
 	}
 
 	.btn-like {
@@ -574,6 +572,18 @@
 	.catalog, .main-tab {
 		margin: 0 auto;
 		width: 1300px;
+	}
+
+	.kv-owl .item {
+		height: auto;
+
+		.img-wrap {
+			height: auto;
+			
+			img {
+				width: 100%;
+			}
+		}
 	}
 
 	.shopping-list .list {

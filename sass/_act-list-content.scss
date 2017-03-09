@@ -1,0 +1,157 @@
+﻿.act-list {
+	@include display-flex;
+	@include align-items(center);
+	@include justify-content(space-between);
+	@include flex-wrap(wrap);
+
+	.list {
+		margin-bottom: 20px;
+		background: $color-white;
+		border: 1px solid $color-gray-l-p40;
+		letter-spacing: 1px;
+		@include box-sizing(border-box);
+
+		> .b-link {
+			display: block;
+			color: $color-gray-d-p30;
+			text-align: center;
+
+			&:hover .btn-read-more {
+				background: $color-text-major;
+				border-color: $color-text-major;
+
+				&:after {
+					background: $color-text-major;
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	.img-wrap {
+		overflow: hidden;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	.item-info {
+		position: relative;
+		color: $color-gray-d-p30;
+		text-align: left;
+		@include box-sizing(border-box);
+
+		.info-title {
+			margin-bottom: 6px;
+			padding-bottom: 12px;
+			position: relative;
+			font-size: 20px;
+			font-weight: bold;
+			letter-spacing: 1px;
+			line-height: 1.5em;
+
+			&:after {
+				content: '';
+				background: $color-gray-d-p30;
+				display: block;
+				width: 40px;
+				height: 5px;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				@include transition(ease-in all 0.3s);
+			}
+		}
+
+		.act-time, .b-desc {
+			font-size: 14px;
+		}
+	}
+
+	.btn-read-more {
+		padding: 0 12px;
+		border-color: $color-gray-d-p30;
+		display: inline-block;
+		height: 36px;
+		font-size: 14px;
+		line-height: 34px;
+		@include transition(ease-in all 0.3s);
+
+		&:before {
+			display: none;
+		}
+
+		&:after {
+			color: $color-white;
+		}
+	}
+}
+
+@include respond(Desktops) {}
+
+@include respond(Desktops-Tablets) {
+	.main-content {
+		padding: 30px 10px 100px 10px;
+
+		.act-list {
+			margin: 30px 0;
+
+			.list {
+				width: calc((100% - 20px) / 2);
+
+				> .b-link {
+					padding-bottom: 20px;
+				}
+			}
+
+			.item-info {
+				padding: 14px 36px;
+			}
+		}
+	}
+}
+
+@include respond(HD) {
+	.main-content {
+		margin: 0 auto;
+		padding: 30px 0 100px 0;
+		width: 1300px;
+
+		.act-list .list {
+			width: 640px;
+		}
+	}
+}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {}
+
+@include respond(Mobiles) {
+	.main-content {
+		padding: 20px 10px;
+
+		.act-list {
+			margin: 10px 0;
+
+			.list > .b-link {
+				padding-bottom: 10px;
+			}
+
+			.item-info {
+				padding: 10px 20px;
+			}
+		}
+	}
+}
+
+@include devices(iphone) {}
+
+@include respond(Iphone5) {}
+
+@include browsers('IE') {}
+
+@include browsers('IE9') {}
+
+@include browsers('Safari') {}

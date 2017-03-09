@@ -5,23 +5,23 @@ $color-btn-cancel : $color-gray-l-p10;
 .m-cut {
 	margin: 0 auto;
 	padding: 0 10px;
+	color: $color-gray-d-p40;
 }
 
 .main-title, .m-cut-ft .ft-title {
 	font-weight: bold;
-	letter-spacing: 1px;
 	line-height: 1.5em;
 }
 
 .m-cut-bd {
 	.member-name {
 		display: block;
-		font-size: 15px;
+		font-size: 16px;
 		font-weight: bold;
 	}
 
 	.coupon-info {
-		font-size: 13px;
+		font-size: 14px;
 		line-height: 2em;
 	}
 
@@ -39,17 +39,24 @@ $color-btn-cancel : $color-gray-l-p10;
 		}
 
 		.info-title {
+			color: $color-gray-d-p40;
 			font-weight: bold;
 			letter-spacing: 1px;
 			line-height: 1.5em;
 
 			.sub-desc {
+				color: $color-gray-d-p40;
+				font-size: 14px;
 				font-weight: normal;
 				letter-spacing: 0;
 			}
 		}
 
 		.m-box-holder {
+			> * {
+				font-size: 14px;
+			}
+
 			&:not(.is-checkbox):not(.is-radio) {
 				height: 30px;
 		
@@ -88,6 +95,7 @@ $color-btn-cancel : $color-gray-l-p10;
 			}
 
 			.text {
+				color: $color-gray-d-p40;
 				font-size: 14px;
 				font-weight: bold;
 			}
@@ -95,6 +103,10 @@ $color-btn-cancel : $color-gray-l-p10;
 
 		tbody td {
 			text-align: center;
+
+			&:first-child {
+				font-size: 14px;
+			}
 		}
 
 		tr {
@@ -112,14 +124,23 @@ $color-btn-cancel : $color-gray-l-p10;
 		}
 
 		.img-wrap {
-			display: inline-block;
+			@include display-flex;
+			@include align-items(center);
+			@include justify-content(center);
+			width: 150px;
+			height: 150px;
+			min-width: 150px;
 			border: 1px solid $color-gray-l-p30;
+			overflow: hidden;
+
+			img {
+				min-width: 100%;
+			}
 		}
 
 		.note {
 			display: block;
 			color: $color-btn-main;
-			font-size: 12px;
 			line-height: 2em;
 			text-align: left;
 
@@ -141,7 +162,7 @@ $color-btn-cancel : $color-gray-l-p10;
 		}
 
 		.btn-delete {
-			font-size: 15px;
+			font-size: 16px;
 		}
 	}
 
@@ -150,7 +171,8 @@ $color-btn-cancel : $color-gray-l-p10;
 		line-height: 0;
 
 		> * {
-			font-size: 13px;
+			font-size: 14px;
+			letter-spacing: 1px;
 			line-height: 1.5em;
 		}
 
@@ -165,6 +187,11 @@ $color-btn-cancel : $color-gray-l-p10;
 		.btn-link {
 			vertical-align: middle;
 		}
+
+		&.final-payment .highlight {
+			font-size: 24px;
+			font-weight: bold;
+		}
 	}
 
 	.btn-wrap {
@@ -172,11 +199,13 @@ $color-btn-cancel : $color-gray-l-p10;
 		line-height: 0;
 
 		.btn-link {
-			height: 50px;
 			font-size: 14px;
-			line-height: 50px;
 		}
 	}
+}
+
+.m-cut-ft .ft-title {
+	font-size: 28px;
 }
 
 .deliver-method {
@@ -219,11 +248,13 @@ $color-btn-cancel : $color-gray-l-p10;
 	.m-box-holder {
 		border-right: 0;
 		border-left: 0;
+		vertical-align: top;
 	}
 
 	.m-inputbox {
 		width: 100%;
 		height: 34px;
+		vertical-align: top;
 		line-height: 34px;
 		text-align: center;
 		@include box-sizing(border-box);
@@ -245,6 +276,7 @@ $color-btn-cancel : $color-gray-l-p10;
 		background: $color-white;
 		width: 100%;
 		position: relative;
+		border: 1px solid $color-gray-l-p30;
 		@include box-sizing(border-box);
 	}
 
@@ -254,6 +286,10 @@ $color-btn-cancel : $color-gray-l-p10;
 		@include align-content(stretch);
 		@include justify-content(flex-end);
 		@include flex-direction(column);
+
+		&:hover .img-wrap img {
+			@include transform(scale(1.05));
+		}
 	}
 
 	.img-wrap {
@@ -264,6 +300,7 @@ $color-btn-cancel : $color-gray-l-p10;
 
 		img {
 			width: 100%;
+			@include transition(ease-in all 0.3s);
 		}
 	}
 
@@ -320,6 +357,12 @@ $color-btn-cancel : $color-gray-l-p10;
 		}
 	}
 
+	.counter, .btn-read-more {
+		margin-right: auto;
+		margin-left: auto;
+		width: 162px;
+	}
+
 	.counter {
 		margin-bottom: 10px;
 	}
@@ -329,13 +372,30 @@ $color-btn-cancel : $color-gray-l-p10;
 		border-color: $color-gray-d-p30;
 		overflow: hidden;
 		color: $color-gray-d-p30;
-		font-size: 0;
-		text-indent: 200%;
-		text-overflow: ellipsis;
-		white-space: nowrap;
+		text-align: center;
+		@include box-sizing(border-box);
+		@include transition(ease-in all 0.3s);
+
+		&:before, &:after {
+			display: none;
+		}
+
+		.text {
+			font-size: 12px;
+			letter-spacing: 1px;
+			line-height: 34px;
+		}
+
+		&:hover {
+			background: $color-text-major;
+			border-color: $color-text-major;
+			color: $color-white;
+		}
 	}
 
 	.btn-like {
+		width: 40px;
+		height: 40px;
 		position: absolute;
 		top: 0;
 		right: 0;
@@ -351,9 +411,10 @@ $color-btn-cancel : $color-gray-l-p10;
 			height: 100%;
 
 			&:before, &:after {
+				margin: -10px 0 0 -10px;
 				position: absolute;
-				top: 0;
-				right: 0;
+				top: 50%;
+				left: 50%;
 			}
 
 			&:after {
@@ -439,7 +500,7 @@ $color-btn-cancel : $color-gray-l-p10;
 		}
 
 		.sheet {
-			padding: 10px 50px;
+			padding: 25px 50px;
 		}
 
 		.m-table {
@@ -466,45 +527,27 @@ $color-btn-cancel : $color-gray-l-p10;
 		}
 
 		.btn-wrap .btn-link {
-			margin-left: 25px;
-			width: 264px;
+			height: 50px;
+			line-height: 50px;
 		}
 	}
 
 	.recommended-list {
-		.list {
-			padding-top: 21px;
-		}
-
-		.recommended-link {
-			padding: 0 32px;
-		}
-
 		.img-wrap {
 			height: 272px;
 
 			img {
 				width: auto;
+				min-height: 100%;
 			}
 		}
 
 		.item-info {
-			padding-bottom: 10px;
+			padding: 15px 32px;
 		}
 
 		.btn-read-more {
 			margin-bottom: 20px !important;
-
-			&:hover {
-				border-color: $color-text-major;
-			}
-
-			&:after {
-				content: '\e909  加入購物車';
-				background: $color-text-major;
-				color: $color-white;
-				font-family: 'feds-font', '微軟正黑體';
-			}
 		}
 	}
 }
@@ -515,7 +558,7 @@ $color-btn-cancel : $color-gray-l-p10;
 	}
 
 	.main-title {
-		font-size: 32px;
+		font-size: 36px;
 	}
 
 	.m-cut-bd {
@@ -524,6 +567,7 @@ $color-btn-cancel : $color-gray-l-p10;
 		}
 
 		.member-info {
+			margin-bottom: 20px;
 			padding: 15px 0;
 		}
 
@@ -532,13 +576,8 @@ $color-btn-cancel : $color-gray-l-p10;
 		}
 
 		.sheet .info-title {
-			margin-top: 25px;
 			padding-bottom: 5px;
-			font-size: 22px;
-
-			.sub-desc {
-				font-size: 13px;
-			}
+			font-size: 24px;
 		}
 
 		.m-table {
@@ -575,11 +614,17 @@ $color-btn-cancel : $color-gray-l-p10;
 				line-height: 30px;
 			}
 		}
+
+		.btn-wrap .btn-link {
+			margin-left: 25px;
+			min-width: 240px;
+			height: 50px;
+			line-height: 50px;
+		}
 	}
 
 	.m-cut-ft .ft-title {
 		margin-bottom: 15px;
-		font-size: 28px;
 	}
 
 	.counter {
@@ -597,28 +642,14 @@ $color-btn-cancel : $color-gray-l-p10;
 
 		.list {
 			margin: 0 auto;
-			border: 1px solid $color-gray-l-p30;
 		}
 
 		.img-wrap {
 			width: 100%;
 		}
 
-		.counter, .btn-read-more {
-			margin-right: auto;
-			margin-left: auto;
-			width: 162px;
-		}
-
 		.counter .m-box-holder {
 			width: calc(100% - 72px);
-		}
-
-		.btn-like {
-			width: 20px;
-			height: 20px;
-			top: 25px;
-			right: 25px;
 		}
 
 		.m-owl-ctrl {
@@ -635,7 +666,7 @@ $color-btn-cancel : $color-gray-l-p10;
 	}
 
 	.m-cut-bd .sheet {
-		padding: 10px 75px;
+		padding: 25px 75px;
 	}
 
 	.recommended-list {
@@ -649,6 +680,8 @@ $color-btn-cancel : $color-gray-l-p10;
 
 @include respond(Tablets) {
 	.m-cut-bd {
+		margin-bottom: 20px;
+
 		.m-table {
 			tr td {
 				padding: 20px 10px;
@@ -676,10 +709,19 @@ $color-btn-cancel : $color-gray-l-p10;
 	}
 
 	.m-cut-bd {
-		margin-bottom: 20px;
-
 		.sheet {
 			padding: 10px 20px;
+		}
+
+		.m-table .btn-delete {
+			min-width: 40px;
+			height: 40px;
+			line-height: 40px;
+		}
+
+		.btn-wrap .btn-link {
+			height: 40px;
+			line-height: 40px;
 		}
 	}
 
@@ -718,6 +760,13 @@ $color-btn-cancel : $color-gray-l-p10;
 	}
 
 	.m-cut-bd {
+		margin-bottom: 40px;
+
+		.member-info {
+			margin-bottom: 20px;
+			padding: 5px 0;
+		}
+
 		.coupon-info {
 			display: block;
 		}
@@ -741,6 +790,10 @@ $color-btn-cancel : $color-gray-l-p10;
 			.item-info {
 				@include align-items(flex-start);
 				@include flex-direction(column);
+			}
+
+			.img-wrap {
+				margin-bottom: 10px;
 			}
 
 			.counter .m-inputbox {
@@ -768,6 +821,17 @@ $color-btn-cancel : $color-gray-l-p10;
 				width: 100%;
 				height: 30px;
 				line-height: 30px;
+			}
+
+			> .m-lab {
+				&:not(:last-child) {
+					margin-bottom: 10px;
+				}
+
+				&.jQ-checkbox {
+					@include display-flex;
+					@include align-items(center);
+				}
 			}
 		}
 
@@ -798,7 +862,6 @@ $color-btn-cancel : $color-gray-l-p10;
 
 	.m-cut-ft .ft-title {
 		margin-bottom: 10px;
-		font-size: 15px;
 	}
 
 	.recommended-list {
@@ -807,6 +870,11 @@ $color-btn-cancel : $color-gray-l-p10;
 
 		.list {
 			margin: 0 10px;
+			@include display-flex;
+			@include align-items(stretch);
+			@include align-content(stretch);
+			@include justify-content(space-between);
+			@include flex-direction(column);
 		}
 
 		.owl-stage-outer {
@@ -821,42 +889,19 @@ $color-btn-cancel : $color-gray-l-p10;
 			}
 		}
 
-		.counter {
-			margin-right: 15px;
-			margin-left: 15px;
-
-			.m-box-holder {
-				width: calc(100% - 72px);
-			}
+		.img-wrap img {
+			min-width: 100%;
 		}
 
-		.btn-like {
-			width: 40px;
-			height: 40px;
-		}
-
-		.m-icon {
-			line-height: 40px;
-
-			&:before, &:after {
-				margin-right: -10px;
-				right: 50% !important;
-			}
+		.counter .m-box-holder {
+			width: calc(100% - 72px);
 		}
 	}
 }
 
 @include devices(iphone) {}
 
-@include respond(Iphone5) {
-	/*.recommended-cut {
-		width: 232px;
-
-		.list {
-			width: 212px;
-		}
-	}*/
-}
+@include respond(Iphone5) {}
 
 @include browsers('IE') {
 	.recommended-list .btn-read-more {

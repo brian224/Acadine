@@ -245,12 +245,31 @@
 }
 
 .ranking-title {
+	font-size: 30px;
 	font-weight: bold;
 	line-height: 1.5em;
 }
 
 .shopping-list {
 	position: relative;
+
+	.list {
+		@include display-flex;
+		@include align-items(stretch);
+		@include align-content(stretch);
+		@include justify-content(space-between);
+		@include flex-direction(column);
+	}
+
+	.shopping-link {
+		height: auto;
+	}
+
+	.btn-read-more:hover {
+		background: $color-text-major;
+		border-color: $color-text-major;
+		color: $color-white;
+	}
 }
 
 .counter {
@@ -503,10 +522,6 @@
 			width: calc(100% - 20px);
 		}
 	}
-
-	.ranking-title {
-		font-size: 30px;
-	}
 }
 
 @include respond(HD) {
@@ -630,6 +645,13 @@
 				line-height: 40px;
 			}
 		}
+
+		.btn-share {
+			display: block;
+			width: 100%;
+			height: 40px;
+			line-height: 40px;
+		}
 	}
 
 	.main-tab {
@@ -637,8 +659,13 @@
 		padding: 10px;
 
 		.m-tab-wrap > .tab-list {
+			height: 100%;
+			vertical-align: middle;
+
 			.btn-tab {
 				width: 100%;
+				height: 100%;
+				white-space: normal;
 
 				&:after {
 					margin-left: 0;
@@ -648,13 +675,42 @@
 			}
 
 			.text {
+				padding: 0 10px;
 				font-size: 12px;
+				line-height: 1.5em;
 			}
 		}
 	}
 
-	.ranking-title {
-		font-size: 20px;
+	.shopping-list {
+		margin: 0 auto;
+		padding-bottom: 20px;
+		width: calc(100vw - 100px);
+
+		.owl-stage-outer {
+			overflow: visible;
+		}
+
+		.owl-stage {
+			@include display-flex;
+			@include align-items(stretch);
+			@include justify-content(space-between);
+		}
+
+		.list {
+			margin: 0 10px;
+			width: calc(100% - 20px);
+		}
+
+		.owl-item {
+			@include display-flex;
+			@include align-items(stretch);
+			@include transition(ease-in all 0.3s);
+
+			&:not(.active) {
+				@include transform(scale(0.95));
+			}
+		}
 	}
 }
 
