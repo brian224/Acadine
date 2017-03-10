@@ -364,6 +364,11 @@ body {
 	letter-spacing: 1px;
 	text-align: center;
 	@include transition(ease-in all 0.3s);
+
+	&:hover {
+		background: $color-text-major;
+		color: $color-white;
+	}
 }
 
 .btn-link {
@@ -485,11 +490,6 @@ body {
 
 	.btn-more {
 		width: 420px;
-
-		&:hover {
-			background: $color-text-major;
-			color: $color-white;
-		}
 	}
 }
 
