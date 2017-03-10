@@ -13,10 +13,14 @@
 			<div class="l-content b-clearfix">
 				<section class="m-cut">
 					<header class="m-cut-hd b-clearfix">
-						<h2 class="main-title">購物車明細</h2>
+						<ol class="shopping-step-list" data-step="1">
+							<li class="list">填寫訂購資料</li>
+							<li class="list">確認付款方式</li>
+							<li class="list">訂購完成</li>
+						</ol>
 					</header>
 					<div class="m-cut-bd">
-						<div class="sheet">
+						<div class="sheet underline">
 							<h4 class="info-title">會員帳戶</h4>
 							<div class="member-info">
 								<em class="member-name">蔡依林</em>
@@ -31,14 +35,17 @@
 									<span class="unit">點</span>
 								</div>
 							</div>
+						</div>
+						<h2 class="main-title">購物車明細</h2>
+						<div class="sheet underline">
 							<h4 class="info-title b-clearfix">
 								<em class="main-desc b-float-left-dt b-block">本次結帳商品</em>
+								<em class="sub-desc highlight b-float-left-dt b-block">重要提醒：到店取貨若到不同店取貨建議您使用宅配。</em>
 								<span class="sub-desc b-float-right-dt b-block">共 <span class="highlight">3</span> 件商品，請確認以下商品資訊並進行結帳</span>
 							</h4>
 							<table class="m-table table-rotate">
 								<thead>
 									<tr>
-										<td><em class="text">品項</em></td>
 										<td><em class="text">商品</em></td>
 										<td><em class="text">配送方式</em></td>
 										<td><em class="text">贈品</em></td>
@@ -50,7 +57,6 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td data-label="品項"><em class="text">1</em></td>
 										<td data-label="商品">
 											<div class="item-info">
 												<figure class="img-wrap">
@@ -107,7 +113,6 @@
 										</td>
 									</tr>
 									<tr>
-										<td data-label="品項"><em class="text">2</em></td>
 										<td data-label="商品">
 											<div class="item-info">
 												<figure class="img-wrap">
@@ -166,7 +171,6 @@
 										</td>
 									</tr>
 									<tr>
-										<td data-label="品項"><em class="text">3</em></td>
 										<td data-label="商品">
 											<div class="item-info">
 												<figure class="img-wrap">
@@ -227,7 +231,7 @@
 							</table>
 							<div class="purchase-info b-text-right"><em class="text">共 <span class="highlight">3</span> 件商品，商品金額：<span class="highlight">8,208</span> 元</em></div>
 							<div class="purchase-info b-text-right-dt b-middle">
-								<div class="b-col-md-10 b-col-tm-9">
+								<div class="b-col-dt-10 b-col-xs-9">
 									<div class="coupon-selection">
 										<span class="text b-inline">使用購物金(抵用券)折抵</span>
 										<div class="m-box-holder is-selector">
@@ -240,25 +244,25 @@
 									<p class="highlight">* 僅顯示本次消費可使用之購物金，如要查詢其餘不適用購物金，請至我的帳戶 > <a href="javascript:;" class="b-link">查詢購物金</a></p>
 									<p class="highlight">* 訂單成立後，所使用的購物金(抵用券)將無法歸還</p>
 								</div>
-								<em class="text b-col-md-2 b-col-tm-3 b-text-right-xs"><span class="highlight">100</span> 元</em>
+								<em class="text b-col-dt-2 b-col-xs-3 b-text-right-xs"><span class="highlight">100</span> 元</em>
 							</div>
 							<div class="purchase-info b-text-right-dt b-middle">
-								<div class="b-col-md-10 b-col-tm-9">
+								<div class="b-col-dt-10 b-col-xs-9">
 									<label class="m-lab">
-										<span class="text">HAPPYGO 卡累點</span>
-										<div class="m-box-holder">
+										<span class="text">使用折價券序號折抵</span>
+										<div class="m-box-holder b-col-xs-12">
 											<input type="text" class="m-inputbox" placeholder="請輸入序號">
 										</div>
 									</label>
 									<button class="btn-link btn-confirm btn-cancel">確定</button>
 								</div>
-								<em class="text b-col-md-2 b-col-tm-3 b-text-right-xs"><span class="highlight">0</span> 元</em>
+								<em class="text b-col-dt-2 b-col-xs-3 b-text-right-xs"><span class="highlight">0</span> 元</em>
 							</div>
-							<div class="purchase-info b-text-right"><em class="text">小計：<span class="highlight">8,108</span> 元</em></div>
+							<div class="purchase-info b-text-right final-payment"><em class="text">小計：<span class="highlight">8,108</span> 元</em></div>
 							<div class="purchase-info b-text-right-dt">
 								<label class="m-lab">
 									<span class="text">HAPPYGO 卡累點</span>
-									<div class="m-box-holder">
+									<div class="m-box-holder b-col-xs-12">
 										<input type="text" class="m-inputbox" placeholder="請輸入序號">
 									</div>
 								</label>
@@ -269,15 +273,222 @@
 									<span class="text">HAPPYGO 卡號同步更新至我的帳戶</span>
 								</label>
 							</div>
-							<div class="purchase-info b-text-right-dt"><em class="text highlight">重要提醒：到店取貨若到不同店取貨建議您使用宅配。</em></div>
+						</div>
+						<h2 class="main-title">填寫訂購資料</h2>
+						<div class="sheet form-input">
+							<h4 class="info-title b-clearfix">
+								<em class="main-desc b-float-left-dt b-block">付款人資料</em>
+							</h4>
+							<div class="m-form b-col-dt-12 b-col-xs-12">
+								<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">付款人姓名</em>
+								<div class="m-box-holder b-col-dt-6 b-col-xs-12 b-block">
+									<input type="text" class="m-inputbox" placeholder="輸入姓名">
+								</div>
+							</div>
+							<div class="m-form b-col-dt-12 b-col-xs-12 b-clearfix">
+								<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">付款人電話</em>
+								<div class="b-col-dt-4 b-col-xs-12 b-clearfix b-float-left-dt">
+									<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">市話（日）</em>
+									<div class="m-form-group b-col-dt-12 b-col-xs-12 b-clearfix">
+										<div class="b-col-md-2 b-col-sm-3">
+											<div class="m-box-holder">
+												<input type="text" class="m-inputbox" placeholder="區碼">
+											</div>
+										</div>
+										<div class="b-col-dt-6 b-col-xs-6">
+											<div class="m-box-holder">
+												<input type="text" class="m-inputbox" placeholder="電話號碼">
+											</div>
+										</div>
+										<div class="b-col-md-3 b-col-sm-3">
+											<div class="m-box-holder">
+												<input type="text" class="m-inputbox" placeholder="分機">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="b-col-dt-4 b-col-xs-12 b-clearfix b-float-left-dt">
+									<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">市話（夜）</em>
+									<div class="m-form-group b-col-dt-12 b-col-xs-12 b-clearfix">
+										<div class="b-col-md-2 b-col-sm-3">
+											<div class="m-box-holder">
+												<input type="text" class="m-inputbox" placeholder="區碼">
+											</div>
+										</div>
+										<div class="b-col-dt-6 b-col-xs-6">
+											<div class="m-box-holder">
+												<input type="text" class="m-inputbox" placeholder="電話號碼">
+											</div>
+										</div>
+										<div class="b-col-md-2 b-col-sm-3">
+											<div class="m-box-holder">
+												<input type="text" class="m-inputbox" placeholder="分機">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="b-col-dt-4 b-col-xs-12 b-clearfix b-float-left-dt">
+									<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">手機號碼</em>
+									<div class="m-box-holder b-col-dt-12 b-col-xs-12 b-block b-float-left-dt">
+										<input type="text" class="m-inputbox" placeholder="手機號碼">
+									</div>
+								</div>
+							</div>
+							<div class="m-form b-col-dt-12 b-col-xs-12 b-clearfix">
+								<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">地址</em>
+								<div class="m-form-group-dt b-col-dt-12 b-col-xs-12">
+									<div class="b-col-dt-2 b-col-xs-6 b-float-left-xs">
+										<div class="m-box-holder is-selector b-col-dt-12 b-col-xs-12">
+											<select name="" id="" class="m-selection">
+												<option value="">選擇縣市</option>
+												<option value="">台北市</option>
+												<option value="">新北市</option>
+											</select>
+										</div>
+									</div>
+									<div class="b-col-dt-2 b-col-xs-6 b-float-left-xs">
+										<div class="m-box-holder is-selector b-col-dt-12 b-col-xs-12">
+											<select name="" id="" class="m-selection">
+												<option value="">選擇區域</option>
+												<option value="">中山區</option>
+												<option value="">中正區</option>
+											</select>
+										</div>
+									</div>
+									<div class="b-col-dt-8 b-col-xs-12 b-float-left-xs">
+										<div class="m-box-holder b-col-dt-12 b-col-xs-12">
+											<input type="text" class="m-inputbox" placeholder="地址">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="m-form b-col-dt-12 b-col-xs-12 b-clearfix">
+								<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">發票資訊</em>
+								<div class="m-form-group-dt b-col-dt-12 b-col-xs-12 b-clearfix">
+									<div class="b-col-dt-2 b-col-xs-6 b-float-left-xs">
+										<label class="m-lab jQ-radio b-col-dt-12 b-col-xs-12">
+											<div class="m-box-holder is-radio">
+												<input type="radio" name="invoice" class="m-radio" value="invoice-2">
+											</div>
+											<em class="text">二聯式</em>
+										</label>
+									</div>
+									<div class="b-col-dt-2 b-col-xs-6 b-float-left-xs">
+										<label class="m-lab jQ-radio b-col-dt-12 b-col-xs-12">
+											<div class="m-box-holder is-radio">
+												<input type="radio" name="invoice" class="m-radio" value="invoice-3">
+											</div>
+											<em class="text">三聯式</em>
+										</label>
+									</div>
+									<div class="b-col-dt-3 b-col-xs-12 b-float-left-xs">
+										<div class="m-box-holder b-col-dt-12 b-col-xs-12">
+											<input type="text" class="m-inputbox" placeholder="統編">
+										</div>
+									</div>
+									<div class="b-col-dt-3 b-col-xs-12 b-float-left-xs">
+										<div class="m-box-holder b-col-dt-12 b-col-xs-12">
+											<input type="text" class="m-inputbox" placeholder="發票抬頭">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="sheet form-input">
+							<h4 class="info-title b-clearfix">
+								<em class="main-desc b-float-left-dt b-block">收件人資料</em>
+							</h4>
+							<div class="m-form b-col-dt-12 b-col-xs-12">
+								<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">收件人姓名</em>
+								<div class="b-col-dt-4 b-col-xs-12 b-clearfix b-float-left-dt">
+									<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">市話（日）</em>
+									<div class="m-form-group b-col-dt-12 b-col-xs-12 b-clearfix">
+										<div class="b-col-md-2 b-col-sm-3">
+											<div class="m-box-holder">
+												<input type="text" class="m-inputbox" placeholder="區碼">
+											</div>
+										</div>
+										<div class="b-col-dt-6 b-col-xs-6">
+											<div class="m-box-holder">
+												<input type="text" class="m-inputbox" placeholder="電話號碼">
+											</div>
+										</div>
+										<div class="b-col-md-3 b-col-sm-3">
+											<div class="m-box-holder">
+												<input type="text" class="m-inputbox" placeholder="分機">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="b-col-dt-4 b-col-xs-12 b-clearfix b-float-left-dt">
+									<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">市話（夜）</em>
+									<div class="m-form-group b-col-dt-12 b-col-xs-12 b-clearfix">
+										<div class="b-col-md-2 b-col-sm-3">
+											<div class="m-box-holder">
+												<input type="text" class="m-inputbox" placeholder="區碼">
+											</div>
+										</div>
+										<div class="b-col-dt-6 b-col-xs-6">
+											<div class="m-box-holder">
+												<input type="text" class="m-inputbox" placeholder="電話號碼">
+											</div>
+										</div>
+										<div class="b-col-md-2 b-col-sm-3">
+											<div class="m-box-holder">
+												<input type="text" class="m-inputbox" placeholder="分機">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="b-col-dt-4 b-col-xs-12 b-clearfix b-float-left-dt">
+									<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">手機號碼</em>
+									<div class="m-box-holder b-col-dt-12 b-col-xs-12 b-block b-float-left-dt">
+										<input type="text" class="m-inputbox" placeholder="手機號碼">
+									</div>
+								</div>
+							</div>
+							<div class="m-form b-col-dt-12 b-col-xs-12 b-clearfix">
+								<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">地址</em>
+								<div class="m-form-group-dt b-col-dt-12 b-col-xs-12">
+									<div class="b-col-dt-2 b-col-xs-6 b-float-left-xs">
+										<div class="m-box-holder is-selector b-col-dt-12 b-col-xs-12">
+											<select name="" id="" class="m-selection">
+												<option value="">選擇縣市</option>
+												<option value="">台北市</option>
+												<option value="">新北市</option>
+											</select>
+										</div>
+									</div>
+									<div class="b-col-dt-2 b-col-xs-6 b-float-left-xs">
+										<div class="m-box-holder is-selector b-col-dt-12 b-col-xs-12">
+											<select name="" id="" class="m-selection">
+												<option value="">選擇區域</option>
+												<option value="">中山區</option>
+												<option value="">中正區</option>
+											</select>
+										</div>
+									</div>
+									<div class="b-col-dt-8 b-col-xs-12 b-float-left-xs">
+										<div class="m-box-holder b-col-dt-12 b-col-xs-12">
+											<input type="text" class="m-inputbox" placeholder="地址">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="m-form b-col-dt-12 b-col-xs-12 b-clearfix">
+								<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">配送特殊需求</em>
+								<div class="m-box-holder is-textarea b-col-dt-12 b-col-xs-12 b-block">
+									<textarea name="" id="" cols="30" rows="3" class="m-textarea" placeholder="限100字以內"></textarea>
+								</div>
+							</div>
 						</div>
 						<div class="btn-wrap b-text-right">
 							<a href="javascript:;" class="btn-link btn-sub b-col-xs-6">繼續購物</a>
-							<a href="javascript:;" class="btn-link btn-main b-col-xs-6">準備結帳</a>
+							<a href="javascript:;" class="btn-link btn-main b-col-xs-6">下一步</a>
 						</div>
 					</div>
 					<div class="m-cut-ft">
-						<h3 class="ft-title">推薦商品</h3>
+						<h3 class="ft-title b-text-center-xs">推薦商品</h3>
 						<div class="recommended-list jQ-owl is-padding is-dark" data-items-md="4" data-items-sm="3" data-items-xs="1" data-ctrl="true" data-dots="false" data-mouse-drag="true" data-touch-drag="true" data-autoplay="false" data-loop="true" data-hover-pause="true">
 							<div class="list">
 								<a href="javascript:;" class="recommended-link">
@@ -301,7 +512,7 @@
 									</div>
 									<button class="btn-count jQ-calc" data-calc="plus">+</button>
 								</div>
-								<button class="btn-read-more b-link" data-lang="加入購物車" data-default="+ ADD TO CART">+ ADD TO CART</button>
+								<a href="online-shopping-detail.html" class="btn-read-more"><em class="text">了解更多</em></a>
 								<button class="btn-like jQ-like">
 									<i class="m-icon m-icon-heart-2"></i>
 									<em class="text b-hide-text">LIKE</em>
@@ -329,7 +540,7 @@
 									</div>
 									<button class="btn-count jQ-calc" data-calc="plus">+</button>
 								</div>
-								<button class="btn-read-more b-link" data-lang="加入購物車" data-default="+ ADD TO CART">+ ADD TO CART</button>
+								<a href="online-shopping-detail.html" class="btn-read-more"><em class="text">了解更多</em></a>
 								<button class="btn-like jQ-like is-add">
 									<i class="m-icon m-icon-heart-2"></i>
 									<em class="text b-hide-text">LIKE</em>
@@ -357,7 +568,7 @@
 									</div>
 									<button class="btn-count jQ-calc" data-calc="plus">+</button>
 								</div>
-								<button class="btn-read-more b-link" data-lang="加入購物車" data-default="+ ADD TO CART">+ ADD TO CART</button>
+								<a href="online-shopping-detail.html" class="btn-read-more"><em class="text">了解更多</em></a>
 								<button class="btn-like jQ-like">
 									<i class="m-icon m-icon-heart-2"></i>
 									<em class="text b-hide-text">LIKE</em>
@@ -385,7 +596,7 @@
 									</div>
 									<button class="btn-count jQ-calc" data-calc="plus">+</button>
 								</div>
-								<button class="btn-read-more b-link" data-lang="加入購物車" data-default="+ ADD TO CART">+ ADD TO CART</button>
+								<a href="online-shopping-detail.html" class="btn-read-more"><em class="text">了解更多</em></a>
 								<button class="btn-like jQ-like">
 									<i class="m-icon m-icon-heart-2"></i>
 									<em class="text b-hide-text">LIKE</em>
@@ -413,7 +624,7 @@
 									</div>
 									<button class="btn-count jQ-calc" data-calc="plus">+</button>
 								</div>
-								<button class="btn-read-more b-link" data-lang="加入購物車" data-default="+ ADD TO CART">+ ADD TO CART</button>
+								<a href="online-shopping-detail.html" class="btn-read-more"><em class="text">了解更多</em></a>
 								<button class="btn-like jQ-like">
 									<i class="m-icon m-icon-heart-2"></i>
 									<em class="text b-hide-text">LIKE</em>
@@ -441,7 +652,7 @@
 									</div>
 									<button class="btn-count jQ-calc" data-calc="plus">+</button>
 								</div>
-								<button class="btn-read-more b-link" data-lang="加入購物車" data-default="+ ADD TO CART">+ ADD TO CART</button>
+								<a href="online-shopping-detail.html" class="btn-read-more"><em class="text">了解更多</em></a>
 								<button class="btn-like jQ-like">
 									<i class="m-icon m-icon-heart-2"></i>
 									<em class="text b-hide-text">LIKE</em>

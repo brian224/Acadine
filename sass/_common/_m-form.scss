@@ -2,6 +2,19 @@
 	display: inline-block;
 }
 
+.m-form-group {
+	display: table;
+
+	> * {
+		display: table-cell;
+		vertical-align: top;
+
+		&:not(:first-child) {
+			padding-left: 8px;
+		}
+	}
+}
+
 .m-lab {
 	display: inline-block;
 
@@ -43,6 +56,7 @@
 		}
 
 		.m-selection {
+			width: 100%;
 			padding-right: 36px;
 		}
 
@@ -123,7 +137,6 @@
 	}
 
 	.m-selection, .m-inputbox {
-		padding: 0 15px;
 		border: 0;
 		outline: none;
 	}
@@ -137,22 +150,23 @@
 	}
 
 	.m-inputbox {
+		width: 100%;
+		max-width: 100%;
+		vertical-align: top;
 		@include placeholder($color-gray-l-p10);
+		@include box-sizing(border-box);
 	}
 
-	/*.m-textarea {
-		border: 1px solid $color-gray-l-p30;
+	.m-textarea {
+		padding: 10px;
+		width: 100%;
+		max-width: 100%;
 		outline: none;
 		resize: none;
 		color: $color-gray-d-p10;
 		@include box-sizing(border-box);
 		@include transition(ease-in all 0.2s);
-
-		&:focus {
-			border: 1px solid $color-major;
-			box-shadow: inset 1px 1px 0 $color-major, inset -1px -1px 0 $color-major;
-		}
-	}*/
+	}
 }
 
 @include browsers('IE') {}
@@ -161,15 +175,44 @@
 	.m-datepicker, .m-lab {
 		cursor: pointer;
 	}
+
+	.m-box-holder {
+		.m-selection, .m-inputbox {
+			padding: 0 15px;
+		}
+	}
 }
 
-@include respond(Desktops-Tablets) {}
+@include respond(Desktops-Tablets) {
+	.m-form-group-dt {
+		display: table;
+
+		> * {
+			display: table-cell;
+			vertical-align: top;
+
+			&:not(:first-child) {
+				padding-left: 8px;
+			}
+		}
+	}
+}
 
 @include respond(Tablets) {}
 
-@include respond(Tablets-Mobiles) {}
+@include respond(Tablets-Mobiles) {
+	.m-box-holder {
+		.m-selection, .m-inputbox {
+			padding: 0 10px;
+		}
+	}
+}
 
-@include respond(Mobiles) {}
+@include respond(Mobiles) {
+	.m-form-group-dt > * {
+		margin-bottom: 10px;
+	}
+}
 
 @include browsers('IE9') {
 	.m-box-holder.is-selector {
