@@ -378,6 +378,11 @@
 		right: 0;
 		color: $color-gray-d-p20;
 		font-size: 20px;
+		@include transition(ease-in color 0.3s);
+
+		&:hover {
+			color: $color-text-major;
+		}
 
 		&.is-add .m-icon:after {
 			opacity: 1;

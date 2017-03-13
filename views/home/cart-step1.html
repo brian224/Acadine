@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="../../content/css/cart.css?CSS=20160420_01">
 </head>
 <body>
-	<div class="l-body cart show-header is-padding-arrow">
+	<div class="l-body cart-step1 show-header is-padding-arrow">
 		<!--#include virtual="../Shared/Header.html" -->
 		<div class="l-main">
 			<div class="l-content b-clearfix">
@@ -36,7 +36,7 @@
 								</div>
 							</div>
 						</div>
-						<h2 class="main-title">購物車明細</h2>
+						<h2 class="main-title b-text-center-xs">購物車明細</h2>
 						<div class="sheet underline">
 							<h4 class="info-title b-clearfix">
 								<em class="main-desc b-float-left-dt b-block">本次結帳商品</em>
@@ -57,24 +57,24 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td data-label="商品">
+										<td class="b-text-right-xs" data-label="商品">
 											<div class="item-info">
-												<figure class="img-wrap">
+												<figure class="img-wrap b-hide-xs">
 													<img src="../../content/img/cart/sheet/01.jpg" alt="STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑">
 													<figcaption class="desc b-hide-text">STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑</figcaption>
 												</figure>
 												<em class="item-name">STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑</em>
 											</div>
 										</td>
-										<td data-label="配送方式">
+										<td class="b-text-right-xs" data-label="配送方式">
 											<div class="m-table-xs-wrap deliver-method">
-												<label class="m-lab jQ-radio b-col-dt-2 b-col-xs-6">
+												<label class="m-lab jQ-radio b-col-dt-2 b-col-xs-6 b-float-left-xs">
 													<div class="m-box-holder is-radio">
 														<input type="radio" name="deliver-3" class="m-radio" value="home">
 													</div>
 													<em class="text">宅配</em>
 												</label>
-												<label class="m-lab jQ-radio b-col-dt-2 b-col-xs-6">
+												<label class="m-lab jQ-radio b-col-dt-2 b-col-xs-6 b-float-left-xs">
 													<div class="m-box-holder is-radio">
 														<input type="radio" name="deliver-3" class="m-radio" value="store">
 													</div>
@@ -89,9 +89,9 @@
 												</div>
 											</div>
 										</td>
-										<td data-label="贈品"><em class="text">雅詩蘭黛特潤精華 5ml</em></td>
-										<td data-label="單價(NT$)"><em class="text">3,990 元</em></td>
-										<td data-label="數量">
+										<td class="b-text-right-xs" data-label="贈品"><em class="text">雅詩蘭黛特潤精華 5ml</em></td>
+										<td class="b-text-right-xs" data-label="單價(NT$)"><em class="text">3,990 元</em></td>
+										<td class="b-text-right-xs" data-label="數量">
 											<div class="m-table-xs-wrap">
 												<div class="counter">
 													<button class="btn-count jQ-calc" data-calc="minus">-</button>
@@ -102,8 +102,8 @@
 												</div>
 											</div>
 										</td>
-										<td data-label="小計(NT$)"><em class="text">3,990 元</em></td>
-										<td data-label="刪除">
+										<td class="b-text-right-xs" data-label="小計(NT$)"><em class="text">3,990 元</em></td>
+										<td class="b-text-left-xs btn-delete-wrap">
 											<div class="m-table-xs-wrap">
 												<button class="btn-delete jQ-delelte">
 													<i class="m-icon m-icon-delete"></i>
@@ -113,26 +113,26 @@
 										</td>
 									</tr>
 									<tr>
-										<td data-label="商品">
+										<td class="b-text-right-xs" data-label="商品">
 											<div class="item-info">
-												<figure class="img-wrap">
+												<figure class="img-wrap b-hide-xs">
 													<img src="../../content/img/cart/sheet/01.jpg" alt="STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑">
 													<figcaption class="desc b-hide-text">STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑</figcaption>
 												</figure>
 												<em class="item-name">STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑</em>
 											</div>
-											<p class="note"><i class="m-icon m-icon-info-3"></i><em class="text">此商品已下架，請選擇其他商品。</em></p>
-											<p class="note"><i class="m-icon m-icon-bell-o"></i><em class="text">限時24小時，指定商品結帳再85折</em></p>
+											<p class="note b-text-right-xs"><i class="m-icon m-icon-info-3"></i><em class="text">此商品已下架，請選擇其他商品。</em></p>
+											<p class="note b-text-right-xs"><i class="m-icon m-icon-bell-o"></i><em class="text">限時24小時，指定商品結帳再85折</em></p>
 										</td>
-										<td data-label="配送方式">
+										<td class="b-text-right-xs" data-label="配送方式">
 											<div class="m-table-xs-wrap deliver-method">
-												<label class="m-lab jQ-radio b-col-dt-2 b-col-xs-6">
+												<label class="m-lab jQ-radio b-col-dt-2 b-col-xs-6 b-float-left-xs">
 													<div class="m-box-holder is-radio">
 														<input type="radio" name="deliver-3" class="m-radio" value="home">
 													</div>
 													<em class="text">宅配</em>
 												</label>
-												<label class="m-lab jQ-radio b-col-dt-2 b-col-xs-6">
+												<label class="m-lab jQ-radio b-col-dt-2 b-col-xs-6 b-float-left-xs">
 													<div class="m-box-holder is-radio">
 														<input type="radio" name="deliver-3" class="m-radio" value="store">
 													</div>
@@ -145,11 +145,12 @@
 														<option value="">XXX店</option>
 													</select>
 												</div>
+												<p class="note error-msg b-text-right-xs"><i class="m-icon m-icon-info-3"></i><em class="text">請選擇配送方式！</em></p>
 											</div>
 										</td>
-										<td data-label="贈品"><em class="text">雅詩蘭黛特潤精華 5ml</em></td>
-										<td data-label="單價(NT$)"><em class="text">3,990 元</em></td>
-										<td data-label="數量">
+										<td class="b-text-right-xs" data-label="贈品"><em class="text">雅詩蘭黛特潤精華 5ml</em></td>
+										<td class="b-text-right-xs" data-label="單價(NT$)"><em class="text">3,990 元</em></td>
+										<td class="b-text-right-xs" data-label="數量">
 											<div class="m-table-xs-wrap">
 												<div class="counter">
 													<button class="btn-count jQ-calc" data-calc="minus">-</button>
@@ -160,8 +161,8 @@
 												</div>
 											</div>
 										</td>
-										<td data-label="小計(NT$)"><em class="text">3,990 元</em></td>
-										<td data-label="刪除">
+										<td class="b-text-right-xs" data-label="小計(NT$)"><em class="text">3,990 元</em></td>
+										<td class="b-text-left-xs btn-delete-wrap">
 											<div class="m-table-xs-wrap">
 												<button class="btn-delete jQ-delelte">
 													<i class="m-icon m-icon-delete"></i>
@@ -171,9 +172,9 @@
 										</td>
 									</tr>
 									<tr>
-										<td data-label="商品">
+										<td class="b-text-right-xs" data-label="商品">
 											<div class="item-info">
-												<figure class="img-wrap">
+												<figure class="img-wrap b-hide-xs">
 													<img src="../../content/img/cart/sheet/01.jpg" alt="STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑">
 													<figcaption class="desc b-hide-text">STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑</figcaption>
 												</figure>
@@ -181,15 +182,15 @@
 											</div>
 											<p class="note"><i class="m-icon m-icon-bell-o"></i><em class="text">限時24小時，指定商品結帳再85折</em></p>
 										</td>
-										<td data-label="配送方式">
+										<td class="b-text-right-xs" data-label="配送方式">
 											<div class="m-table-xs-wrap deliver-method">
-												<label class="m-lab jQ-radio b-col-dt-2 b-col-xs-6">
+												<label class="m-lab jQ-radio b-col-dt-2 b-col-xs-6 b-float-left-xs">
 													<div class="m-box-holder is-radio">
 														<input type="radio" name="deliver-3" class="m-radio" value="home">
 													</div>
 													<em class="text">宅配</em>
 												</label>
-												<label class="m-lab jQ-radio b-col-dt-2 b-col-xs-6">
+												<label class="m-lab jQ-radio b-col-dt-2 b-col-xs-6 b-float-left-xs">
 													<div class="m-box-holder is-radio">
 														<input type="radio" name="deliver-3" class="m-radio" value="store">
 													</div>
@@ -204,9 +205,9 @@
 												</div>
 											</div>
 										</td>
-										<td data-label="贈品"><em class="text">雅詩蘭黛特潤精華 5ml</em></td>
-										<td data-label="單價(NT$)"><em class="text">3,990 元</em></td>
-										<td data-label="數量">
+										<td class="b-text-right-xs" data-label="贈品"><em class="text">雅詩蘭黛特潤精華 5ml</em></td>
+										<td class="b-text-right-xs" data-label="單價(NT$)"><em class="text">3,990 元</em></td>
+										<td class="b-text-right-xs" data-label="數量">
 											<div class="m-table-xs-wrap">
 												<div class="counter">
 													<button class="btn-count jQ-calc" data-calc="minus">-</button>
@@ -217,8 +218,8 @@
 												</div>
 											</div>
 										</td>
-										<td data-label="小計(NT$)"><em class="text">3,990 元</em></td>
-										<td data-label="刪除">
+										<td class="b-text-right-xs" data-label="小計(NT$)"><em class="text">3,990 元</em></td>
+										<td class="b-text-left-xs btn-delete-wrap">
 											<div class="m-table-xs-wrap">
 												<button class="btn-delete jQ-delelte">
 													<i class="m-icon m-icon-delete"></i>
@@ -260,9 +261,9 @@
 							</div>
 							<div class="purchase-info b-text-right final-payment"><em class="text">小計：<span class="highlight">8,108</span> 元</em></div>
 							<div class="purchase-info b-text-right-dt">
-								<label class="m-lab">
-									<span class="text">HAPPYGO 卡累點</span>
-									<div class="m-box-holder b-col-xs-12">
+								<label class="m-lab b-clearfix">
+									<span class="text b-col-xs-6 b-float-left-xs">HAPPYGO 卡累點</span>
+									<div class="m-box-holder b-col-xs-6 b-float-left-xs">
 										<input type="text" class="m-inputbox" placeholder="請輸入序號">
 									</div>
 								</label>
@@ -274,8 +275,8 @@
 								</label>
 							</div>
 						</div>
-						<h2 class="main-title">填寫訂購資料</h2>
-						<div class="sheet form-input">
+						<h2 class="main-title b-text-center-xs">填寫訂購資料</h2>
+						<div class="sheet form-input payer-info">
 							<h4 class="info-title b-clearfix">
 								<em class="main-desc b-float-left-dt b-block">付款人資料</em>
 							</h4>
@@ -320,7 +321,7 @@
 												<input type="text" class="m-inputbox" placeholder="電話號碼">
 											</div>
 										</div>
-										<div class="b-col-md-2 b-col-sm-3">
+										<div class="b-col-md-3 b-col-sm-3">
 											<div class="m-box-holder">
 												<input type="text" class="m-inputbox" placeholder="分機">
 											</div>
@@ -338,7 +339,7 @@
 								<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">地址</em>
 								<div class="m-form-group-dt b-col-dt-12 b-col-xs-12">
 									<div class="b-col-dt-2 b-col-xs-6 b-float-left-xs">
-										<div class="m-box-holder is-selector b-col-dt-12 b-col-xs-12">
+										<div class="m-box-holder is-selector b-col-dt-12 b-col-xs-11">
 											<select name="" id="" class="m-selection">
 												<option value="">選擇縣市</option>
 												<option value="">台北市</option>
@@ -347,7 +348,7 @@
 										</div>
 									</div>
 									<div class="b-col-dt-2 b-col-xs-6 b-float-left-xs">
-										<div class="m-box-holder is-selector b-col-dt-12 b-col-xs-12">
+										<div class="m-box-holder is-selector b-col-dt-12 b-col-xs-11 b-float-right-xs">
 											<select name="" id="" class="m-selection">
 												<option value="">選擇區域</option>
 												<option value="">中山區</option>
@@ -365,7 +366,7 @@
 							<div class="m-form b-col-dt-12 b-col-xs-12 b-clearfix">
 								<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">發票資訊</em>
 								<div class="m-form-group-dt b-col-dt-12 b-col-xs-12 b-clearfix">
-									<div class="b-col-dt-2 b-col-xs-6 b-float-left-xs">
+									<div class="b-col-dt-3 b-col-xs-12">
 										<label class="m-lab jQ-radio b-col-dt-12 b-col-xs-12">
 											<div class="m-box-holder is-radio">
 												<input type="radio" name="invoice" class="m-radio" value="invoice-2">
@@ -373,31 +374,54 @@
 											<em class="text">二聯式</em>
 										</label>
 									</div>
-									<div class="b-col-dt-2 b-col-xs-6 b-float-left-xs">
-										<label class="m-lab jQ-radio b-col-dt-12 b-col-xs-12">
+									<div class="b-col-dt-9 b-col-xs-12 b-clearfix">
+										<label class="m-lab jQ-radio b-col-dt-2 b-col-xs-12 b-float-left">
 											<div class="m-box-holder is-radio">
 												<input type="radio" name="invoice" class="m-radio" value="invoice-3">
 											</div>
 											<em class="text">三聯式</em>
 										</label>
-									</div>
-									<div class="b-col-dt-3 b-col-xs-12 b-float-left-xs">
-										<div class="m-box-holder b-col-dt-12 b-col-xs-12">
-											<input type="text" class="m-inputbox" placeholder="統編">
+										<div class="b-col-dt-3 b-col-xs-6 b-float-left">
+											<div class="m-box-holder b-col-dt-11 b-col-xs-11">
+												<input type="text" class="m-inputbox" placeholder="統編">
+											</div>
 										</div>
-									</div>
-									<div class="b-col-dt-3 b-col-xs-12 b-float-left-xs">
-										<div class="m-box-holder b-col-dt-12 b-col-xs-12">
-											<input type="text" class="m-inputbox" placeholder="發票抬頭">
+										<div class="b-col-dt-3 b-col-xs-6 b-float-left">
+											<div class="m-box-holder b-col-dt-11 b-col-xs-11 b-float-right-xs">
+												<input type="text" class="m-inputbox" placeholder="發票抬頭">
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="sheet form-input">
+						<div class="sheet form-input recipient-info">
 							<h4 class="info-title b-clearfix">
-								<em class="main-desc b-float-left-dt b-block">收件人資料</em>
+								<em class="main-desc b-float-left b-block">收件人資料</em>
+								<em class="sub-desc b-float-left-dt b-float-right-xs b-block">
+									<label class="m-lab jQ-checkbox">
+										<div class="m-box-holder is-checkbox">
+											<input type="checkbox" class="m-checkbox">
+										</div>
+										<span class="text">同付款人請打勾</span>
+									</label>
+								</em>
+								<span class="sub-desc b-float-left b-block">宅配商品：共 <span class="highlight">3</span> 件，您可視需要選擇不同的配</span>
 							</h4>
+							<div class="m-form b-col-dt-12 b-col-xs-12 b-clearfix">
+								<label class="m-lab jQ-checkbox b-col-md-4 b-col-tm-6 b-col-xs-12 b-float-left-tm">
+									<div class="m-box-holder is-checkbox">
+										<input type="checkbox" class="m-checkbox">
+									</div>
+									<span class="text">同步更新至我的帳戶 > 配送地址維護</span>
+								</label>
+								<label class="m-lab jQ-checkbox b-col-md-4 b-col-tm-6 b-col-xs-12 b-float-left-tm">
+									<div class="m-box-holder is-checkbox">
+										<input type="checkbox" class="m-checkbox">
+									</div>
+									<span class="text">選擇不同配送地址</span>
+								</label>
+							</div>
 							<div class="m-form b-col-dt-12 b-col-xs-12">
 								<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">收件人姓名</em>
 								<div class="b-col-dt-4 b-col-xs-12 b-clearfix b-float-left-dt">
@@ -433,7 +457,7 @@
 												<input type="text" class="m-inputbox" placeholder="電話號碼">
 											</div>
 										</div>
-										<div class="b-col-md-2 b-col-sm-3">
+										<div class="b-col-md-3 b-col-sm-3">
 											<div class="m-box-holder">
 												<input type="text" class="m-inputbox" placeholder="分機">
 											</div>
@@ -451,7 +475,7 @@
 								<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">地址</em>
 								<div class="m-form-group-dt b-col-dt-12 b-col-xs-12">
 									<div class="b-col-dt-2 b-col-xs-6 b-float-left-xs">
-										<div class="m-box-holder is-selector b-col-dt-12 b-col-xs-12">
+										<div class="m-box-holder is-selector b-col-dt-12 b-col-xs-11">
 											<select name="" id="" class="m-selection">
 												<option value="">選擇縣市</option>
 												<option value="">台北市</option>
@@ -460,7 +484,7 @@
 										</div>
 									</div>
 									<div class="b-col-dt-2 b-col-xs-6 b-float-left-xs">
-										<div class="m-box-holder is-selector b-col-dt-12 b-col-xs-12">
+										<div class="m-box-holder is-selector b-col-dt-12 b-col-xs-11 b-float-right-xs">
 											<select name="" id="" class="m-selection">
 												<option value="">選擇區域</option>
 												<option value="">中山區</option>
@@ -480,11 +504,12 @@
 								<div class="m-box-holder is-textarea b-col-dt-12 b-col-xs-12 b-block">
 									<textarea name="" id="" cols="30" rows="3" class="m-textarea" placeholder="限100字以內"></textarea>
 								</div>
+								<p class="note"><em class="text">您購買的商品將於七日內送貨到府。</em></p>
 							</div>
 						</div>
 						<div class="btn-wrap b-text-right">
 							<a href="javascript:;" class="btn-link btn-sub b-col-xs-6">繼續購物</a>
-							<a href="javascript:;" class="btn-link btn-main b-col-xs-6">下一步</a>
+							<a href="cart-step2.html" class="btn-link btn-main b-col-xs-6">下一步</a>
 						</div>
 					</div>
 					<div class="m-cut-ft">
