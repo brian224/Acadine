@@ -68,21 +68,24 @@
 				<div class="m-tab main-tab">
 					<ul class="m-tab-wrap">
 						<li class="tab-list">
-							<button class="btn-tab jQ-tab is-curr" data-main="0"><i class="m-icon m-icon-brand"></i><em class="text">看所有品牌</em></button>
+							<button class="btn-tab jQ-tab brand-search is-curr" data-main="0"><i class="m-icon m-icon-brand"></i><em class="text">看所有品牌</em></button>
 						</li>
 						<li class="tab-list">
-							<button class="btn-tab jQ-tab" data-main="0"><i class="m-icon m-icon-new-arrive-2"></i><em class="text">新品上架</em></button>
+							<button class="btn-tab jQ-tab new-arrive" data-main="0"><i class="m-icon m-icon-new-arrive-2"></i><em class="text">新品上架</em></button>
 						</li>
 						<li class="tab-list">
-							<button class="btn-tab jQ-tab" data-main="0"><i class="m-icon m-icon-ranking"></i><em class="text">熱銷排行</em></button>
+							<button class="btn-tab jQ-tab hot-ranking" data-main="0"><i class="m-icon m-icon-ranking"></i><em class="text">熱銷排行</em></button>
 						</li>
 					</ul>
 					<ul class="m-tab-content">
 						<li class="content-list is-curr">
 							<div class="input-content">
-								<div class="m-box-holder b-col-dt-12 b-col-xs-12">
-									<i class="m-icon m-icon-search"></i>
-									<input type="text" class="m-inputbox b-col-dt-12 b-col-xs-12" placeholder="請輸入品牌名稱">
+								<div class="search-wrap">
+									<div class="m-box-holder b-col-dt-12 b-col-xs-12 b-clearfix">
+										<i class="m-icon m-icon-search"></i>
+										<input type="text" class="m-inputbox b-col-dt-10 b-col-xs-8" placeholder="請輸入品牌名稱">
+										<button class="btn-search btn-radius b-link b-col-dt-2 b-col-xs-4 b-text-center jQ-search">Search</button>
+									</div>
 								</div>
 								<ul class="keyword-list b-text-center">
 									<li class="list"><button class="btn-keyword jQ-keyword">123</button></li>
@@ -113,9 +116,6 @@
 									<li class="list"><button class="btn-keyword jQ-keyword">Y</button></li>
 									<li class="list"><button class="btn-keyword jQ-keyword">Z</button></li>
 								</ul>
-								<div class="btn-wrap b-text-center">
-									<a href="javascript:;" class="btn-search btn-radius b-link jQ-search">Search</a>
-								</div>
 							</div>
 							<div class="result-content has-result">
 								<h2 class="content-title">

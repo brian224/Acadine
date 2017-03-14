@@ -1,8 +1,42 @@
-﻿.input-content .m-box-holder .m-inputbox {
-	height: 44px;
-	font-size: 14px;
-	line-height: 44px;
-	text-indent: 15px;
+﻿.input-content {
+	.search-wrap {
+		font-size: 0;
+		line-height: 0;
+	}
+
+	.m-box-holder {
+		border-radius: 22px;
+		overflow: hidden;
+
+		> * {
+			vertical-align: middle;
+		}
+
+		.m-inputbox {
+			height: 44px;
+			border-radius: 22px;
+			font-size: 14px;
+			line-height: 44px;
+			text-indent: 15px;
+		}
+	}
+
+	.btn-search {
+		background: $color-text-major;
+		display: inline-block;
+		height: 40px;
+		position: relative;
+		right: 1px;
+		border-radius: 20px;
+		color: $color-white;
+		font-size: 14px;
+		line-height: 40px;
+		@include transition(ease-in all 0.3s);
+
+		&:hover {
+			background: darken($color-text-major, 10%);
+		}
+	}
 }
 
 .keyword-list {
@@ -25,19 +59,6 @@
 			color: $color-white;
 		}
 	}
-}
-
-.btn-search {
-	margin: 30px 0;
-	background: $color-text-major;
-	display: inline-block;
-	min-width: 230px;
-	height: 40px;
-	border-radius: 20px;
-	color: $color-white;
-	font-size: 14px;
-	line-height: 40px;
-	@include transition(ease-in all 0.3s);
 }
 
 .result-content {
@@ -382,12 +403,8 @@
 
 @include respond(Desktops) {
 	.input-content {
-		margin: 0 auto;
+		margin: 0 auto 30px auto;
 		width: 880px;
-	}
-
-	.btn-search:hover {
-		background: darken($color-text-major, 10%);
 	}
 
 	.result-content {
@@ -538,7 +555,7 @@
 
 @include respond(Tablets) {
 	.input-content {
-		margin: 0 30px;
+		margin: 0 30px 30px 30px;
 	}
 
 	.result-content {
@@ -571,8 +588,12 @@
 @include respond(Tablets-Mobiles) {}
 
 @include respond(Mobiles) {
-	.input-content .m-box-holder {
+	.input-content {
 		margin-bottom: 20px;
+
+		.m-box-holder {
+			margin-bottom: 20px;
+		}
 	}
 
 	.keyword-list .btn-keyword {
