@@ -181,6 +181,31 @@
 				vertical-align: middle;
 			}
 
+			&.btn-like {
+				&.is-add .m-icon:after {
+					opacity: 1;
+				}
+
+				.m-icon {
+					width: 20px;
+					height: 20px;
+
+					&:before, &:after {
+						margin: -10px 0 0 -10px;
+						position: absolute;
+						top: 50%;
+						left: 50%;
+					}
+
+					&:after {
+						content: '\e905';
+						opacity: 0;
+						color: $color-text-major;
+						@include transition(ease-in opacity 0.3s);
+					}
+				}
+			}
+
 			.m-icon {
 				font-size: 20px;
 			}
@@ -718,8 +743,63 @@
 
 @include respond(Iphone5) {}
 
-@include browsers('IE') {}
+@include browsers('IE') {
+	.merchandise-info .item-detail {
+		.gift .gift-info {
+			display: table;
 
-@include browsers('IE9') {}
+			> * {
+				display: table-cell;
+			}
+		}
+
+		.item-selection {
+			overflow: hidden;
+			font-size: 0;
+	
+			> * {
+				float: left;
+			}
+	
+			.m-box-holder.is-selector .m-selection {
+				height: 38px;
+			}
+		}
+
+		.btn-wrap {
+			overflow: hidden;
+
+			> * {
+				float: left;
+			}
+		}
+	}
+
+	.merchandise-info .photo-album .photo-slider .list {
+		width: 100%;
+	}
+}
+
+@include browsers('IE9') {
+	.shopping-list .btn-read-more {
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.counter {
+		font-size: 0;
+		white-space: nowrap;
+
+		> * {
+			vertical-align: top;
+		}
+	}
+}
 
 @include browsers('Safari') {}
+
+@include browsers('FireFox') {
+	.merchandise-info .item-detail .item-selection .m-box-holder.is-selector .m-selection {
+		height: 38px;
+	}
+}

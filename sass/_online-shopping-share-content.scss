@@ -251,7 +251,6 @@
 	}
 
 	.localtion-list {
-		padding-bottom: 10px;
 		color: $color-gray;
 		font-size: 14px;
 		line-height: 2em;
@@ -744,15 +743,48 @@
 
 @include respond(Iphone5) {}
 
-@include browsers('IE') {}
+@include browsers('IE') {
+	.sort-selection .m-box-holder.is-selector .m-selection {
+		height: 28px;
+	}
+
+	.new-arrive-list .main-intro .m-box-holder.is-selector .m-selection {
+		height: 38px;
+	}
+
+	.shopping-list .btn-read-more {
+		margin-right: 32px;
+		margin-left: 32px;
+	}
+}
 
 @include browsers('IE9') {
-	.catalog-wrap .catalog {
-		display: table;
+	.catalog-wrap {
+		.catalog {
+			display: table;
+	
+			.list {
+				display: table-cell;
+				height: 100%;
 
-		.list {
-			display: table-cell;
-			height: 100%;
+				> .b-link {
+					display: block;
+					height: 58px;
+				}
+			}
+		}
+
+		.sub-catalog-wrap .sub-catalog {
+			margin: 30px auto;
+			display: table;
+
+			.list-block {
+				display: table-cell;
+
+				.list {
+					display: block;
+				}
+			}
 		}
 	}
 
@@ -774,6 +806,60 @@
 			text-align: center;
 		}
 	}
+
+	.new-arrive-list {
+		> .list {
+			vertical-align: top;
+			overflow: hidden;
+		}
+
+		.main-intro {
+			.item-selection {
+				overflow: hidden;
+			}
+
+			.is-selector.m-box-holder {
+				margin-left: 0 !important;
+				float: left;
+			}
+		}
+
+		.sales-wording {
+			display: block;
+			width: 100%;
+			position: relative;
+			text-align: center;
+
+			> * {
+				display: inline-block;
+				vertical-align: middle;
+			}
+
+			&:before, &:after {
+				width: 100px !important;
+				position: absolute;
+				top: 50%;
+			}
+
+			&:before {
+				left: 0;
+			}
+
+			&:after {
+				right: 0;
+			}
+		}
+	}
 }
 
 @include browsers('Safari') {}
+
+@include browsers('FireFox') {
+	.sort-selection .m-box-holder.is-selector .m-selection {
+		height: 28px;
+	}
+
+	.new-arrive-list .main-intro .m-box-holder.is-selector .m-selection {
+		height: 38px;
+	}
+}

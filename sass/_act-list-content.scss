@@ -16,13 +16,19 @@
 			color: $color-gray-d-p30;
 			text-align: center;
 
-			&:hover .btn-read-more {
-				background: $color-text-major;
-				border-color: $color-text-major;
+			&:hover {
+				.img-wrap img {
+					@include transform(scale(1.05));
+				}
 
-				&:after {
+				.btn-read-more {
 					background: $color-text-major;
-					opacity: 1;
+					border-color: $color-text-major;
+	
+					&:after {
+						background: $color-text-major;
+						opacity: 1;
+					}
 				}
 			}
 		}
@@ -33,6 +39,7 @@
 
 		img {
 			width: 100%;
+			@include transition(ease-in all 0.3s);
 		}
 	}
 
@@ -152,6 +159,25 @@
 
 @include browsers('IE') {}
 
-@include browsers('IE9') {}
+@include browsers('IE9') {
+	.catalog-wrap .catalog > .list > .b-link {
+		display: block;
+		height: 58px;
+	}
+
+	.main-content .act-list {
+		overflow: hidden;
+
+		.list {
+			&:nth-child(2n) {
+				float: right;
+			}
+	
+			&:nth-child(2n+1) {
+				float: left;
+			}
+		}
+	}
+}
 
 @include browsers('Safari') {}

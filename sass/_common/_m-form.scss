@@ -217,8 +217,8 @@
 
 @include browsers('IE9') {
 	.m-box-holder.is-selector {
-		&:after {
-			display: none;
+		&:before, &:after {
+			display: none !important;
 		}
 
 		.m-selection {

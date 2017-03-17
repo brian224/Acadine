@@ -143,8 +143,10 @@
 	}
 
 	.btn-link {
+		margin-top: 10px;
 		padding: 0 12px;
 		display: inline-block;
+		min-width: 144px;
 		height: 36px;
 		border: 1px solid $color-gray-d-p30;
 		color: $color-gray-d-p30;
@@ -512,6 +514,10 @@
 
 			.sales-wording {
 				margin-bottom: 20px;
+			}
+
+			.btn-link {
+				margin-top: 20px;
 			}
 		}
 
