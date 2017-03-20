@@ -195,7 +195,7 @@ $color-btn-cancel : $color-gray-l-p10;
 		}
 
 		.m-box-holder {
-			border-color: $color-gray-l-p40;
+			border-color: $color-gray-l-p20;
 
 			> * {
 				font-size: 14px;
@@ -242,10 +242,6 @@ $color-btn-cancel : $color-gray-l-p10;
 			color: $color-btn-main;
 			line-height: 2em;
 			text-align: left;
-
-			&.error-msg {
-				white-space: nowrap;
-			}
 
 			.m-icon {
 				margin-right: 5px;
@@ -313,10 +309,6 @@ $color-btn-cancel : $color-gray-l-p10;
 		}
 	}
 
-	.m-lab {
-		line-height: 30px;
-	}
-
 	.b-link {
 		color: $color-btn-sub;
 		text-decoration: underline;
@@ -366,10 +358,6 @@ $color-btn-cancel : $color-gray-l-p10;
 
 	.img-wrap img {
 		width: 100%;
-	}
-
-	.m-box-holder {
-		border-color: $color-gray-l-p20 !important;
 	}
 }
 
@@ -858,6 +846,10 @@ $color-btn-cancel : $color-gray-l-p10;
 					padding-right: 10px;
 				}
 			}
+
+			.note.error-msg {
+				white-space: nowrap;
+			}
 		}
 
 		.m-table {
@@ -879,6 +871,10 @@ $color-btn-cancel : $color-gray-l-p10;
 			.item-info .item-name {
 				text-align: left;
 			}
+		}
+
+		.m-lab {
+			line-height: 30px;
 		}
 
 		.purchase-info {
@@ -1181,6 +1177,10 @@ $color-btn-cancel : $color-gray-l-p10;
 			.counter .m-inputbox {
 				padding: 0 10px;
 			}
+		}
+
+		.m-lab {
+			line-height: 40px;
 		}
 
 		.purchase-info {

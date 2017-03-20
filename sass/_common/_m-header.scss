@@ -84,6 +84,10 @@
 
 		.btn-func {
 			width: 30px;
+
+			&.shopping {
+				font-size: 26px;
+			}
 		}
 	}
 
@@ -492,9 +496,14 @@
 					vertical-align: top;
 				}
 
-				&.shopping .count {
-					top: -3px;
-					right: -3px;
+				&.shopping {
+					font-size: 24px;
+					line-height: 1em;
+					
+					.count {
+						top: -3px;
+						right: -3px;
+					}
 				}
 			}
 		}

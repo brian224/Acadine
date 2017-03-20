@@ -183,6 +183,7 @@
 		background: $color-white;
 		height: 420px;
 		position: relative;
+		overflow: hidden;
 
 		@for $i from 1 through 5 {
 			&:nth-child(#{$i}) .sales-wording .text:after {
@@ -193,6 +194,7 @@
 		> .b-link {
 			display: block;
 			height: 100%;
+			overflow: hidden;
 
 			&:hover .img-wrap img {
 				@include transform(scale(1.05));
