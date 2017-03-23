@@ -1412,27 +1412,26 @@ $color-btn-cancel : $color-gray-l-p10;
 			margin: 0;
 			width: 100%;
 		}
+
+		.recommended-link {
+			padding-bottom: 76px;
+			display: block;
+			overflow: hidden;
+		}
+
+		.btn-read-more {
+			margin: 0 !important;
+			position: absolute;
+			bottom: 20px;
+			left: 32px;
+			right: 32px;
+		}
 	}
 }
 
 @include browsers('Safari') {
-	.recommended-list {
-		.list {
-			position: relative;
-		}
-
-		.recommended-link {
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
-		}
-
-		.btn-read-more {
-			margin-right: 32px;
-			margin-left: 32px;
-		}
+	.recommended-list .list {
+		position: relative;
 	}
 }
 

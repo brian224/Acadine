@@ -473,8 +473,12 @@
 	}
 
 	.food-list {
-		.img-wrap img {
-			@include transition(ease-in all 0.3s);
+		.img-wrap {
+			height: 270px;
+
+			img {
+				@include transition(ease-in all 0.3s);
+			}
 		}
 
 		.item-info {
@@ -548,8 +552,12 @@
 	}
 
 	.movie-list {
-		.img-wrap img {
-			@include transition(ease-in all 0.3s);
+		.img-wrap {
+			height: 440px;
+
+			img {
+				@include transition(ease-in all 0.3s);
+			}
 		}
 
 		.movie-link:hover .img-wrap img {
@@ -755,6 +763,10 @@
 }
 
 @include respond(Tablets) {
+	.movie-list .img-wrap {
+		height: 336px;
+	}
+
 	.social-wall {
 		.item-sizer, .list-item {
 			width: calc((100% - 40px) / 3);
@@ -992,8 +1004,24 @@
 }
 
 @include browsers('IE9') {
-	.shopping-list .img-wrap {
-		text-align: center;
+	.shopping-list {
+		.img-wrap {
+			text-align: center;
+		}
+
+		.shopping-link {
+			padding-bottom: 76px;
+			display: block;
+			overflow: hidden;
+		}
+
+		.btn-read-more {
+			margin: 0 !important;
+			position: absolute;
+			bottom: 20px;
+			left: 32px;
+			right: 32px;
+		}
 	}
 }
 
@@ -1006,14 +1034,6 @@
 	.shopping-list {
 		.list {
 			position: relative;
-		}
-
-		.shopping-link {
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
 		}
 
 		.btn-read-more {

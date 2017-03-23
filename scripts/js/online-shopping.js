@@ -55,6 +55,10 @@
 		projects.$hb.animate({
 			'scrollTop' : $('.main-tab').offset().top - $(common._lHeader).height()
 		}, common._animateSpeed);
+
+		if ((projects._browsers.safari === true && projects._browsers.chrome === false) || projects._browsers.msie === true) {
+			common.totalHeight();
+		}
 	}
 
 	projects.$w.load(function(){

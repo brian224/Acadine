@@ -221,7 +221,7 @@ body {
 	}
 }
 
-.shopping-list .btn-read-more {
+.l-body:not(.index) .shopping-list .btn-read-more {
 	padding: 0 12px;
 	display: block;
 	min-width: 144px;
