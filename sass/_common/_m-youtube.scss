@@ -6,3 +6,9 @@
 		@include opacity(0);
 	}
 }
+
+@include respond(Tablets-Mobiles) {
+	.jQ-video {
+		display: none;
+	}
+}
