@@ -3,7 +3,6 @@
 	top: 0;
 	left: 0;
 	right: 0;
-	z-index: 3;
 }
 
 .l-body {
@@ -42,6 +41,10 @@
 }
 
 @include respond(Desktops) {
+	.l-header {
+		z-index: 3;
+	}
+
 	.l-body.show-header .l-content {
 		padding-top: 120px;
 	}
@@ -90,14 +93,15 @@
 	.l-body.show-header .l-content {
 		padding-top: 86px;
 	}
+
+	.l-content {
+		min-height: calc(100vh - 108px);
+		@include box-sizing(border-box);
+	}
 }
 
 @include respond(Tablets-Mobiles) {
 	.l-header {
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
 		z-index: 4;
 	}
 

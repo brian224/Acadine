@@ -549,10 +549,13 @@
 		top: 15px;
 		left: 10px;
 		z-index: 1;
+
+		+ * {
+			margin-top: 56px;
+		}
 	}
 
 	.shortcut-wrap {
-		margin-top: 56px;
 		background: #f4f4f4;
 		max-height: 0;
 		position: relative;
