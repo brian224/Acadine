@@ -122,7 +122,7 @@
 	}
 }
 
-.registration {
+.registration, .edit {
 	.is-reqired:before {
 		content: '*';
 	}
@@ -635,7 +635,7 @@
 		}
 	}
 
-	.registration {
+	.registration, .edit {
 		.info-form .list {
 			margin-bottom: 35px;
 		}
@@ -747,7 +747,7 @@
 }
 
 @include respond(HD) {
-	.faq, .registration {
+	.faq, .registration, .edit {
 		.m-cut-bd {
 			padding: 72px 168px
 		}
@@ -923,7 +923,7 @@
 		}
 	}
 
-	.registration {
+	.registration, .edit {
 		.guest-msg {
 			line-height: 1.5em;
 		}
