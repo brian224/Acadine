@@ -20,7 +20,7 @@
 	}
 }
 
-.change-password .m-cut-bd .hint {
+.change-password .m-cut-bd .msg {
 	color: $color-gray-d-p10;
 	font-weight: normal;
 }
@@ -122,7 +122,7 @@
 	}
 }
 
-.registration, .edit {
+.registration, .edit, .change-password {
 	.is-reqired:before {
 		content: '*';
 	}
@@ -563,7 +563,7 @@
 			padding-right: 16px;
 		}
 
-		.hint {
+		.msg {
 			padding-left: 10px;
 		}
 	}
@@ -813,7 +813,7 @@
 		max-height: 56px;
 	}
 
-	.change-password .m-cut-bd .hint {
+	.change-password .m-cut-bd .msg {
 		line-height: 1.5em;
 	}
 
@@ -857,7 +857,7 @@
 	}
 
 	.change-password .m-cut-bd {
-		.hint {
+		.msg {
 			margin-top: 10px;
 		}
 
