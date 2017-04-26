@@ -451,6 +451,10 @@
 }
 
 @include respond(Desktops) {
+	.l-header {
+		height: 70px;
+	}
+
 	.l-content {
 		min-height: calc(100vh - 78px);
 	}
@@ -481,6 +485,7 @@
 	}
 
 	.cut-title {
+		margin-top: 27px;
 		padding: 20px 30px;
 	}
 
@@ -513,10 +518,6 @@
 }
 
 @include respond(Desktops-Tablets) {
-	.l-header {
-		height: 70px;
-	}
-
 	.login .m-cut-bd {
 		&:before {
 			content: '';
@@ -664,7 +665,7 @@
 	}
 
 	.m-cut-hd {
-		padding-top: 27px;
+		padding-top: 20px;
 	}
 
 	.m-cut-bd {
@@ -759,7 +760,7 @@
 }
 
 @include respond(Tablets) {
-	.l-body.show-header .l-content {
+	.l-body .l-content {
 		padding-top: 36px;
 	}
 
@@ -774,6 +775,10 @@
 	.login .m-cut-bd:before {
 		top: 30px;
 		bottom: 30px;
+	}
+
+	.cut-title {
+		margin-top: 15px;
 	}
 
 	.m-cut-bd {

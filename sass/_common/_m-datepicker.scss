@@ -1,0 +1,145 @@
+.sugarfun-datepicker {
+    margin-top    : -1px;
+    background    : #fff;
+    border        : 1px solid #ccc;
+    border-radius : 4px;
+    position      : absolute;
+    display       : none;
+    overflow      : hidden;
+    z-index       : 1;
+    @include box-sizing(border-box);
+}
+
+.sugarfun-datepicker-week {
+    @include clearfix;
+    @include box-sizing(border-box);
+
+    > li {
+        text-align : center;
+        width      : (100% / 7);
+        float      : left;
+        @include box-sizing(border-box);
+    }
+}
+
+.sugarfun-datepicker-tools {
+    width         : 100%;
+    position      : relative;
+    border-bottom : 1px solid #ccc;
+    @include display(table);
+    @include background-image(linear-gradient(to bottom, $color-white, #f1f1f1));
+
+    > * {
+        width : 100%;
+        @include display(table-cell);
+    }
+}
+
+.sugarfun-datepicker-date {
+    @include clearfix;
+    @include box-sizing(border-box);
+
+    > li {
+        text-align  : center;
+        width       : (100% / 7);
+        height      : 24px;
+        line-height : 24px;
+        float       : left;
+        border      : 1px solid #fff;
+        @include box-sizing(border-box);
+
+        > * {
+            width      : 100%;
+            height     : 100%;
+            text-align : center;
+            position   : relative;
+            @include display(block);
+        }
+
+        > em {
+            color : #AAA;
+        }
+
+        &.is-last .sugarfun-datepicker-button, &.is-next .sugarfun-datepicker-button {
+            color : #ccc;
+
+            &:hover {
+                background : #f9f9f9;
+            }
+        }
+
+        &.is-this {
+            .sugarfun-datepicker-button {
+                background  : #f9f9f9;
+                color       : #333;
+                font-weight : bold;
+
+                &:hover {
+                    background : #eee;
+                }
+            }
+
+            &:nth-child(7n) .sugarfun-datepicker-button, &:nth-child(7n+1) .sugarfun-datepicker-button {
+                color : $color-text-major;
+            }
+        }
+    }
+}
+
+.sugarfun-datepicker-button , .sugarfun-datepicker-arrow {
+    @include button-default;
+    @include box-sizing(border-box);
+    @include transform(translate(0, 0));
+}
+
+.sugarfun-datepicker-times {
+    height      : 30px;
+    font-size   : 15px;
+    font-weight : bold;
+    line-height : 30px;
+    text-align  : center;
+}
+
+.sugarfun-datepicker-arrow {
+    width       : 30px;
+    height      : 30px;
+    text-indent : 200%;
+    overflow    : hidden;
+    white-space : nowrap;
+    position    : relative;
+    @include display(table-cell);
+
+    > i {
+        top      : 0;
+        left     : 0;
+        width    : 100%;
+        height   : 30px;
+        position : absolute;
+        @include display(block);
+
+        &:before {
+            content      : '';
+            top          : 50%;
+            margin-top   : -3px;
+            width        : 6px;
+            height       : 6px;
+            border-style : solid;
+            border-width : 0 0 2px 2px;
+            border-color : $color-text-major;
+            position     : absolute;
+            @include display(block);
+        }
+    }
+
+    &.is-prev > i:before {
+        left        : 50%;
+        margin-left : -3px;
+        @include rotate(45deg);
+    }
+
+    &.is-next > i:before {
+        right        : 50%;
+        margin-right : -3px;
+        @include rotate(-135deg);
+    }
+}
