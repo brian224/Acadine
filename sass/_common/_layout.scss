@@ -12,6 +12,7 @@
 	.l-content {
 		background: #f4f4f4;
 		overflow: hidden;
+		@include box-sizing(border-box);
 		@include transition(ease-in all 0.3s);
 	}
 }
@@ -67,6 +68,7 @@
 	.l-body {
 		.l-content {
 			padding-top: 70px;
+			min-height: calc(100vh - 108px);
 		}
 
 		&.show-footer .l-side .btn-top {
@@ -92,11 +94,6 @@
 
 	.l-body.show-header .l-content {
 		padding-top: 86px;
-	}
-
-	.l-content {
-		min-height: calc(100vh - 108px);
-		@include box-sizing(border-box);
 	}
 }
 
@@ -162,6 +159,7 @@
 
 	.l-body .l-content {
 		padding-top: 56px;
+		min-height: calc(100vh - 78px);
 	}
 
 	.l-side {
