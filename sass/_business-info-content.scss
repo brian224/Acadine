@@ -189,6 +189,138 @@
 	}
 }
 
+.floor-info-wrap {
+	.floor-title {
+		color: $color-text-major;
+		font-weight: bold;
+	}
+
+	.counters-desc, .facility-title {
+		color: $color-gray-d-p30;
+	}
+
+	.facility-title {
+		font-weight: bold;
+	}
+
+	.facility-list {
+		color: $color-white;
+		font-size: 0;
+
+		.list {
+			background: $color-gray-d-p30;
+			display: inline-block;
+			border-radius: 50%;
+		}
+	}
+
+	.m-accordion {
+		border: 1px solid $color-gray-l-p20;
+
+		&:not(:last-child) {
+			border-bottom: 0;
+		}
+
+		.m-accordion-hd .btn-switch {
+			&:after {
+				margin-top: -6px;
+				width: 12px;
+				height: 12px;
+				border-right: 1px solid $color-gray-d-p30;
+				border-bottom: 1px solid $color-gray-d-p30;
+			}
+
+			.img-icon {
+				position: absolute;
+				top: 50%;
+			}
+		}
+
+		.m-accordion-bd {
+			background: $color-gray-d-p30;
+			border-bottom: 0;
+
+			.counters-list {
+				font-size: 0;
+
+				.list {
+					display: inline-block;
+					line-height: 1.5em;
+					text-align: left;
+				}
+			}
+
+			.b-link {
+				color: $color-white;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+
+	.img-icon {
+		background: image-url('business-info/icons.png') no-repeat;
+		display: inline-block;
+	}
+}
+
+.service-main-list > .list {
+	@include display-flex;
+	@include align-items(stretch);
+	@include justify-content(flex-start);
+
+	&:not(:first-child) .service-sub-list .list {
+		display: block;
+		width: auto;
+	}
+
+	.service-info {
+		@include display-flex;
+		@include align-items(stretch);
+		@include justify-content(center);
+		@include flex-direction(column);
+		@include box-sizing(border-box);
+	}
+
+	.list-title {
+		color: $color-text-major;
+		font-weight: bold;
+	}
+
+	.service-desc {
+		color: $color-gray-d-p30;
+		font-weight: bold;
+	}
+
+	.service-sub-list {
+		font-size: 0;
+		line-height: 0;
+
+		.list {
+			display: inline-block;
+			width: 50%;
+			position: relative;
+			vertical-align: top;
+			color: $color-gray;
+			line-height: 1.5em;
+			@include box-sizing(border-box);
+
+			&:before {
+				content: '';
+				background: $color-gray;
+				display: inline-block;
+				width: 4px;
+				height: 4px;
+				position: absolute;
+				left: 2px;
+				border-radius: 50%;
+			}
+		}
+	}
+}
+
 @include respond(Desktops) {
 	.main-tab {
 		> .m-tab-wrap {
@@ -265,6 +397,151 @@
 			padding: 40px 20px 60px 20px;
 		}
 	}
+
+	.floor-info-wrap {
+		padding: 0 20px 60px 20px;
+
+		.floor-title {
+			font-size: 30px;
+		}
+
+		.counters-desc {
+			margin-bottom: 48px;
+			font-size: 16px;
+		}
+
+		.facility-title {
+			font-size: 20px;
+		}
+
+		.facility-list {
+			margin-bottom: 50px;
+
+			.list {
+				margin: 0 8px;
+				width: 60px;
+				height: 60px;
+				font-size: 24px;
+			}
+		}
+
+		.m-accordion {
+			.btn-switch {
+				padding-left: 108px;
+				height: 80px;
+
+				.img-icon {
+					left: 36px;
+				}
+
+				.text {
+					font-size: 20px;
+				}
+
+				&:after {
+					right: 36px;
+				}
+			}
+
+			.m-accordion-bd {
+				padding-left: 100px;
+			}
+
+			.counters-list {
+				margin: 30px 0;
+
+				.list {
+					padding: 6px 0;
+					width: 20%;
+					font-size: 14px;
+				}
+			}
+		}
+
+		.img-icon {
+			&.childrens-clothing {
+				margin-top: -22px;
+				width: 40px;
+				height: 44px;
+			}
+
+			&.toys {
+				margin-top: -26px;
+				background-position: -40px 0;
+				width: 44px;
+				height: 52px;
+			}
+
+			&.shoes {
+				margin-top: -16px;
+				background-position: -84px 0;
+				width: 64px;
+				height: 32px;
+			}
+
+			&.cosmetic {
+				margin-top: -20px;
+				background-position: -148px 0;
+				width: 44px;
+				height: 40px;
+			}
+
+			&.pajamas {
+				margin-top: -20px;
+				background-position: -192px 0;
+				width: 48px;
+				height: 40px;
+			}
+
+			&.maternal-infant {
+				margin-top: -24px;
+				background-position: -240px 0;
+				width: 48px;
+				height: 48px;
+			}
+
+			&.fragrance {
+				margin-top: -24px;
+				background-position: -288px 0;
+				width: 32px;
+				height: 48px;
+			}
+
+			&.restaurant {
+				margin-top: -24px;
+				background-position: -320px 0;
+				width: 48px;
+				height: 48px;
+			}
+		}
+	}
+
+	.service-main-list {
+		.list-title {
+			font-size: 36px;
+		}
+
+		.service-info {
+			padding: 0 40px;
+		}
+
+		.service-desc {
+			font-size: 16px;
+		}
+
+		.service-sub-list .list {
+			padding: 6px 0 6px 16px;
+			font-size: 16px;
+
+			&:nth-child(2n+1) {
+				padding-right: 24px;
+			}
+
+			&:before {
+				top: 16px;
+			}
+		}
+	}
 }
 
 @include respond(Desktops-Tablets) {
@@ -309,6 +586,37 @@
 			max-width: 50%;
 		}
 	}
+
+	.floor-info-wrap .facility-title {
+		margin-bottom: 10px;
+	}
+
+	.service-main-list {
+		padding: 10px 0;
+
+		.list {
+			&:nth-child(2n) {
+				@include flex-direction(row-reverse);
+				@include justify-content(flex-end);
+			}
+
+			&:nth-child(2n+1) .service-info {
+				padding-right: 0;
+			}
+		}
+
+		.img-wrap, .service-info {
+			width: 50%;
+		}
+	
+		.img-wrap img {
+			width: 100%;
+		}
+
+		.service-sub-list:not(:last-child) {
+			margin-bottom: 25px;
+		}
+	}
 }
 
 @include respond(HD) {
@@ -328,7 +636,7 @@
 		max-width: 736px;
 	}
 
-	.inner-tab .info-content {
+	.inner-tab .info-content, .floor-info-wrap {
 		margin: 0 auto;
 		width: 1000px;
 	}
@@ -384,6 +692,14 @@
 		padding: 0 20px;
 		width: 50%;
 		box-sizing: border-box;
+	}
+
+	.service-main-list .service-info {
+		padding: 0 20px;
+	}
+
+	.floor-info-wrap .m-accordion .counters-list .list {
+		width: 25%;
 	}
 }
 
@@ -446,6 +762,154 @@
 			padding: 20px;
 		}
 	}
+
+	.floor-info-wrap {
+		.floor-title {
+			font-size: 24px;
+		}
+
+		.counters-desc {
+			margin-bottom: 24px;
+			font-size: 12px;
+		}
+
+		.facility-title {
+			font-size: 16px;
+		}
+
+		.facility-list {
+			margin-bottom: 25px;
+
+			.list {
+				margin: 0 4px;
+				width: 30px;
+				height: 30px;
+				font-size: 12px;
+			}
+		}
+
+		.m-accordion {
+			.btn-switch {
+				padding-left: 54px;
+				height: 40px;
+
+				.img-icon {
+					left: 18px;
+				}
+
+				.text {
+					font-size: 12px;
+				}
+
+				&:after {
+					right: 18px;
+				}
+			}
+
+			.m-accordion-bd {
+				padding-left: 50px;
+			}
+
+			.counters-list {
+				margin: 15px 0;
+
+				.list {
+					padding: 3px 0;
+					font-size: 12px;
+				}
+			}
+		}
+
+		.img-icon {
+			background-size: 184px auto;
+
+			&.childrens-clothing {
+				margin-top: -11px;
+				width: 20px;
+				height: 22px;
+			}
+
+			&.toys {
+				margin-top: -13px;
+				background-position: -20px 0;
+				width: 22px;
+				height: 26px;
+			}
+
+			&.shoes {
+				margin-top: -8px;
+				background-position: -42px 0;
+				width: 32px;
+				height: 16px;
+			}
+
+			&.cosmetic {
+				margin-top: -10px;
+				background-position: -74px 0;
+				width: 22px;
+				height: 20px;
+			}
+
+			&.pajamas {
+				margin-top: -10px;
+				background-position: -96px 0;
+				width: 24px;
+				height: 20px;
+			}
+
+			&.maternal-infant {
+				margin-top: -12px;
+				background-position: -120px 0;
+				width: 24px;
+				height: 24px;
+			}
+
+			&.fragrance {
+				margin-top: -12px;
+				background-position: -144px 0;
+				width: 16px;
+				height: 24px;
+			}
+
+			&.restaurant {
+				margin-top: -12px;
+				background-position: -160px 0;
+				width: 24px;
+				height: 24px;
+			}
+		}
+	}
+
+	.service-main-list {
+		.list-title {
+			font-size: 20px;
+		}
+
+		.service-info {
+			padding: 0 20px;
+		}
+
+		.service-desc {
+			font-size: 12px;
+		}
+
+		.service-sub-list .list {
+			padding: 3px 0 3px 10px;
+			font-size: 12px;
+
+			&:before {
+				top: 10px;
+			}
+		}
+
+		> .list:nth-child(3) .service-sub-list .list {
+			padding-right: 0;
+		}
+
+		.service-sub-list .list:nth-child(2n+1) {
+			padding-right: 12px;
+		}
+	}
 }
 
 @include respond(Mobiles) {
@@ -500,10 +964,42 @@
 
 		.tab-list {
 			@include display-flex;
+			@include flex-grow(1);
 
 			.btn-tab {
-				padding: 0 10px;
+				padding: 0 6px;
 			}
+		}
+	}
+
+	.service-main-list {
+		> .list {
+			@include flex-direction(column);
+		}
+
+		.img-wrap {
+			@include display-flex;
+			@include align-items(center);
+			height: 50vw;
+			overflow: hidden;
+
+			img {
+				width: 100%;
+			}
+		}
+
+		.service-info {
+			padding: 10px 0;
+		}
+	}
+
+	.floor-info-wrap {
+		.facility-title {
+			margin-bottom: 10px;
+		}
+
+		.m-accordion .counters-list .list {
+			width: 50%;
 		}
 	}
 }
@@ -537,6 +1033,22 @@
 				display: inline-block;
 				vertical-align: middle;
 			}
+		}
+	}
+
+	.service-main-list .list {
+		overflow: hidden;
+
+		> * {
+			float: left;
+		}
+
+		&:nth-child(2n) > * {
+			float: right;
+		}
+
+		.service-info {
+			padding-top: 30px;
 		}
 	}
 }

@@ -252,10 +252,10 @@
 								<button class="btn-tab jQ-tab" data-main="0"><i class="m-icon m-icon-traffic"></i><em class="text">交通指南</em></button>
 							</li>
 							<li class="tab-list">
-								<button class="btn-tab jQ-tab parking is-curr" data-main="0"><i class="m-icon m-icon-taxi-o"></i><em class="text">停車優惠</em></button>
+								<button class="btn-tab jQ-tab parking" data-main="0"><i class="m-icon m-icon-taxi-o"></i><em class="text">停車優惠</em></button>
 							</li>
 							<li class="tab-list">
-								<button class="btn-tab jQ-tab floor" data-main="0"><i class="m-icon m-icon-guide"></i><em class="text">樓層 / 櫃位</em></button>
+								<button class="btn-tab jQ-tab floor is-curr" data-main="0"><i class="m-icon m-icon-guide"></i><em class="text">樓層 / 櫃位</em></button>
 							</li>
 							<li class="tab-list">
 								<button class="btn-tab jQ-tab service" data-main="0"><i class="m-icon m-icon-service-2"></i><em class="text">服務設施</em></button>
@@ -335,20 +335,20 @@
 									</figure>
 								</div>
 							</li>
-							<li class="content-list is-curr">
+							<li class="content-list">
 								<div class="m-tab inner-tab">
 									<ul class="m-tab-wrap">
 										<li class="tab-list">
-											<button class="btn-tab jQ-tab is-curr" data-main="0" data-sub="0"><em class="text">一般消費優惠</em></button>
+											<button class="btn-tab jQ-tab is-curr" data-main="1" data-sub="0"><em class="text">一般消費優惠</em></button>
 										</li>
 										<li class="tab-list">
-											<button class="btn-tab jQ-tab" data-main="0" data-sub="0"><em class="text">銀行卡友停車優惠</em></button>
+											<button class="btn-tab jQ-tab bank-card" data-main="1" data-sub="0"><em class="text">銀行卡友停車優惠</em></button>
 										</li>
 										<li class="tab-list">
-											<button class="btn-tab jQ-tab" data-main="0" data-sub="0"><em class="text">威秀消費折抵優惠</em></button>
+											<button class="btn-tab jQ-tab vieshow-discounts" data-main="1" data-sub="0"><em class="text">威秀消費折抵優惠</em></button>
 										</li>
 										<li class="tab-list">
-											<button class="btn-tab jQ-tab" data-main="0" data-sub="0"><em class="text">特約停車場</em></button>
+											<button class="btn-tab jQ-tab special-parking-lot" data-main="1" data-sub="0"><em class="text">特約停車場</em></button>
 										</li>
 									</ul>
 									<ul class="m-tab-content">
@@ -419,6 +419,55 @@
 											</div>
 										</li>
 										<li class="content-list">
+											<div class="info-content b-normalize">
+												<table style="width: 100%; max-width: 1000px; border-collapse: collapse; font-size: 14px;">
+													<thead style="background: #e5e5e5;">
+														<tr>
+															<td style="padding: 5px 10px; height: 50px; border: 1px solid #bfbfbf; font-weight: bold; text-align: center;">銀行</td>
+															<td style="padding: 5px 10px; height: 50px; border: 1px solid #bfbfbf; font-weight: bold; text-align: center;">卡別</td>
+															<td style="padding: 5px 10px; height: 50px; border: 1px solid #bfbfbf; font-weight: bold; text-align: center;">當日消費金額<br>(不含威秀消費/百貨餐飲消費)</td>
+															<td style="padding: 5px 10px; height: 50px; border: 1px solid #bfbfbf; font-weight: bold; text-align: center;">停車時數</td>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td style="padding: 5px 10px; height: 50px; border: 1px solid #bfbfbf; text-align: center;">遠東銀行</td>
+															<td style="padding: 5px 10px; height: 50px; border: 1px solid #bfbfbf; text-align: center;">普卡、金卡</td>
+															<td style="padding: 5px 10px; height: 50px; border: 1px solid #bfbfbf; text-align: center;">消費500元簽單+同卡號信用卡+停車票卡</td>
+															<td style="padding: 5px 10px; height: 50px; border: 1px solid #bfbfbf; text-align: center;">1小時</td>
+														</tr>
+														<tr>
+															<td style="padding: 5px 10px; height: 50px; border: 1px solid #bfbfbf; text-align: center;">遠東銀行</td>
+															<td style="padding: 5px 10px; height: 50px; border: 1px solid #bfbfbf; text-align: center;">白金卡、世界卡、無限卡</td>
+															<td style="padding: 5px 10px; height: 50px; border: 1px solid #bfbfbf; text-align: center;">不限金額簽單+同卡號信用卡+停車票卡</td>
+															<td style="padding: 5px 10px; height: 50px; border: 1px solid #bfbfbf; text-align: center;">2小時</td>
+														</tr>
+														<tr>
+															<td style="padding: 5px 10px; height: 50px; border: 1px solid #bfbfbf; text-align: center;">遠東銀行</td>
+															<td style="padding: 5px 10px; height: 50px; border: 1px solid #bfbfbf; text-align: center;">我的卡經典款、eTag世界卡/無限卡</td>
+															<td style="padding: 5px 10px; height: 50px; border: 1px solid #bfbfbf; text-align: center;">不限金額簽單+同卡號信用卡+停車票卡</td>
+															<td style="padding: 5px 10px; height: 50px; border: 1px solid #bfbfbf; text-align: center;">3小時</td>
+														</tr>
+														<tr>
+															<td style="padding: 5px 10px; height: 50px; border: 1px solid #bfbfbf; text-align: center;">花旗銀行</td>
+															<td style="padding: 5px 10px; height: 50px; border: 1px solid #bfbfbf; text-align: center;">不限卡別</td>
+															<td style="padding: 5px 10px; height: 50px; border: 1px solid #bfbfbf; text-align: center;">消費1000元簽單+同卡號信用卡+停車票卡</td>
+															<td style="padding: 5px 10px; height: 50px; border: 1px solid #bfbfbf; text-align: center;">1小時</td>
+														</tr>
+														<tr>
+															<td style="padding: 5px 10px; height: 50px; border: 1px solid #bfbfbf; text-align: center;">花旗銀行</td>
+															<td style="padding: 5px 10px; height: 50px; border: 1px solid #bfbfbf; text-align: center;">不限卡別</td>
+															<td style="padding: 5px 10px; height: 50px; border: 1px solid #bfbfbf; text-align: center;">消費500元簽單+同卡號信用卡+停車票卡</td>
+															<td style="padding: 5px 10px; height: 50px; border: 1px solid #bfbfbf; text-align: center;">2小時</td>
+														</tr>
+														<tr>
+															<td colspan="2" style="padding: 5px 10px; height: 50px; border: 1px solid #bfbfbf; text-align: center;">限美國運通銀行發行之美國運通信用卡</td>
+															<td style="padding: 5px 10px; height: 50px; border: 1px solid #bfbfbf; text-align: center;">消費500元簽單+同卡號信用卡+停車票卡</td>
+															<td style="padding: 5px 10px; height: 50px; border: 1px solid #bfbfbf; text-align: center;">2小時</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
 										</li>
 										<li class="content-list">
 										</li>
@@ -427,9 +476,326 @@
 									</ul>
 								</div>
 							</li>
-							<li class="content-list">
+							<li class="content-list is-curr">
+								<div class="m-tab inner-tab">
+									<ul class="m-tab-wrap">
+										<li class="tab-list">
+											<button class="btn-tab jQ-tab floor-b2" data-main="2" data-sub="0"><em class="text">B2</em></button>
+										</li>
+										<li class="tab-list">
+											<button class="btn-tab jQ-tab floor-b1" data-main="2" data-sub="0"><em class="text">B1</em></button>
+										</li>
+										<li class="tab-list">
+											<button class="btn-tab jQ-tab floor-1f" data-main="2" data-sub="0"><em class="text">1F</em></button>
+										</li>
+										<li class="tab-list">
+											<button class="btn-tab jQ-tab floor-2f" data-main="2" data-sub="0"><em class="text">2F</em></button>
+										</li>
+										<li class="tab-list">
+											<button class="btn-tab jQ-tab floor-3f" data-main="2" data-sub="0"><em class="text">3F</em></button>
+										</li>
+										<li class="tab-list">
+											<button class="btn-tab jQ-tab floor-4f" data-main="2" data-sub="0"><em class="text">4F</em></button>
+										</li>
+										<li class="tab-list">
+											<button class="btn-tab jQ-tab floor-5f is-curr" data-main="2" data-sub="0"><em class="text">5F</em></button>
+										</li>
+										<li class="tab-list">
+											<button class="btn-tab jQ-tab floor-6f" data-main="2" data-sub="0"><em class="text">6F</em></button>
+										</li>
+										<li class="tab-list">
+											<button class="btn-tab jQ-tab floor-7f" data-main="2" data-sub="0"><em class="text">7F</em></button>
+										</li>
+										<li class="tab-list">
+											<button class="btn-tab jQ-tab floor-8f" data-main="2" data-sub="0"><em class="text">8F</em></button>
+										</li>
+									</ul>
+									<ul class="m-tab-content">
+										<li class="content-list"></li>
+										<li class="content-list"></li>
+										<li class="content-list"></li>
+										<li class="content-list"></li>
+										<li class="content-list"></li>
+										<li class="content-list"></li>
+										<li class="content-list is-curr">
+											<div class="floor-info-wrap b-text-center">
+												<div class="floor-main-info">
+													<h3 class="floor-title">名媛童趣館</h3>
+													<p class="counters-desc">流行童裝 / 玩具益智 / 童鞋雜貨 / 化妝品 / 內睡衣 / 婦嬰用品 / 香氛 / 輕食餐廳</p>
+													<h4 class="facility-title">服務設施</h4>
+													<ul class="facility-list">
+														<li class="list b-middle"><i class="m-icon m-icon-accessibility"></i></li>
+														<li class="list b-middle"><i class="m-icon m-icon-elevator"></i></li>
+														<li class="list b-middle"><i class="m-icon m-icon-escalator"></i></li>
+														<li class="list b-middle"><i class="m-icon m-icon-baby"></i></li>
+														<li class="list b-middle"><i class="m-icon m-icon-toilet"></i></li>
+													</ul>
+												</div>
+												<div class="m-accordion">
+													<div class="m-accordion-hd">
+														<h3 class="accordion-title">
+															<button class="btn-switch jQ-btn-accordion b-middle">
+																<i class="img-icon childrens-clothing"></i>
+																<em class="text">流行童裝</em>
+															</button>
+														</h3>
+													</div>
+													<div class="m-accordion-bd">
+														<ul class="counters-list b-text-left">
+															<li class="list"><a href="javascript:;" class="b-link">addidas kids</a></li>
+															<li class="list"><a href="javascript:;" class="b-link">Anny's</a></li>
+															<li class="list"><a href="javascript:;" class="b-link">BENETTON</a></li>
+															<li class="list"><a href="javascript:;" class="b-link">Chloe'</a></li>
+															<li class="list"><a href="javascript:;" class="b-link">ROOTS KIDS</a></li>
+															<li class="list"><a href="javascript:;" class="b-link">Classic teddy</a></li>
+															<li class="list"><a href="javascript:;" class="b-link">ESPEIT</a></li>
+															<li class="list"><a href="javascript:;" class="b-link">F.O. KIDS</a></li>
+															<li class="list"><a href="javascript:;" class="b-link">KING KOW</a></li>
+															<li class="list"><a href="javascript:;" class="b-link">Tommy Hilfiger</a></li>
+															<li class="list"><a href="javascript:;" class="b-link">Kinloch Anderson</a></li>
+															<li class="list"><a href="javascript:;" class="b-link">McGREGOR</a></li>
+															<li class="list"><a href="javascript:;" class="b-link">mini coture chic</a></li>
+															<li class="list"><a href="javascript:;" class="b-link">PIPPY</a></li>
+															<li class="list"><a href="javascript:;" class="b-link">SISLEY young</a></li>
+															<li class="list"><a href="javascript:;" class="b-link">nicholas-&_bears</a></li>
+															<li class="list"><a href="javascript:;" class="b-link">NIKE kids</a></li>
+															<li class="list"><a href="javascript:;" class="b-link">Petit bateau</a></li>
+															<li class="list"><a href="javascript:;" class="b-link">Timberland</a></li>
+															<li class="list"><a href="javascript:;" class="b-link">SNOOOPY</a></li>
+														</ul>
+													</div>
+												</div>
+												<div class="m-accordion">
+													<div class="m-accordion-hd">
+														<h3 class="accordion-title">
+															<button class="btn-switch jQ-btn-accordion b-middle">
+																<i class="img-icon toys"></i>
+																<em class="text">玩具益智</em>
+															</button>
+														</h3>
+													</div>
+													<div class="m-accordion-bd">
+														<ul class="counters-list b-text-left">
+															<li class="list"><a href="javascript:;" class="b-link">addidas kids</a></li>
+														</ul>
+													</div>
+												</div>
+												<div class="m-accordion">
+													<div class="m-accordion-hd">
+														<h3 class="accordion-title">
+															<button class="btn-switch jQ-btn-accordion b-middle">
+																<i class="img-icon shoes"></i>
+																<em class="text">童鞋雜貨</em>
+															</button>
+														</h3>
+													</div>
+													<div class="m-accordion-bd">
+														<ul class="counters-list b-text-left">
+															<li class="list"><a href="javascript:;" class="b-link">addidas kids</a></li>
+														</ul>
+													</div>
+												</div>
+												<div class="m-accordion">
+													<div class="m-accordion-hd">
+														<h3 class="accordion-title">
+															<button class="btn-switch jQ-btn-accordion b-middle">
+																<i class="img-icon cosmetic"></i>
+																<em class="text">化妝品</em>
+															</button>
+														</h3>
+													</div>
+													<div class="m-accordion-bd">
+														<ul class="counters-list b-text-left">
+															<li class="list"><a href="javascript:;" class="b-link">addidas kids</a></li>
+														</ul>
+													</div>
+												</div>
+												<div class="m-accordion">
+													<div class="m-accordion-hd">
+														<h3 class="accordion-title">
+															<button class="btn-switch jQ-btn-accordion b-middle">
+																<i class="img-icon pajamas"></i>
+																<em class="text">內睡衣</em>
+															</button>
+														</h3>
+													</div>
+													<div class="m-accordion-bd">
+														<ul class="counters-list b-text-left">
+															<li class="list"><a href="javascript:;" class="b-link">addidas kids</a></li>
+														</ul>
+													</div>
+												</div>
+												<div class="m-accordion">
+													<div class="m-accordion-hd">
+														<h3 class="accordion-title">
+															<button class="btn-switch jQ-btn-accordion b-middle">
+																<i class="img-icon maternal-infant"></i>
+																<em class="text">婦嬰用品</em>
+															</button>
+														</h3>
+													</div>
+													<div class="m-accordion-bd">
+														<ul class="counters-list b-text-left">
+															<li class="list"><a href="javascript:;" class="b-link">addidas kids</a></li>
+														</ul>
+													</div>
+												</div>
+												<div class="m-accordion">
+													<div class="m-accordion-hd">
+														<h3 class="accordion-title">
+															<button class="btn-switch jQ-btn-accordion b-middle">
+																<i class="img-icon fragrance"></i>
+																<em class="text">香氛</em>
+															</button>
+														</h3>
+													</div>
+													<div class="m-accordion-bd">
+														<ul class="counters-list b-text-left">
+															<li class="list"><a href="javascript:;" class="b-link">addidas kids</a></li>
+														</ul>
+													</div>
+												</div>
+												<div class="m-accordion">
+													<div class="m-accordion-hd">
+														<h3 class="accordion-title">
+															<button class="btn-switch jQ-btn-accordion b-middle">
+																<i class="img-icon restaurant"></i>
+																<em class="text">輕食餐廳</em>
+															</button>
+														</h3>
+													</div>
+													<div class="m-accordion-bd">
+														<ul class="counters-list b-text-left">
+															<li class="list"><a href="javascript:;" class="b-link">addidas kids</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</li>
+										<li class="content-list"></li>
+										<li class="content-list"></li>
+										<li class="content-list"></li>
+									</ul>
+								</div>
 							</li>
 							<li class="content-list">
+								<ul class="service-main-list">
+									<li class="list">
+										<figure class="img-wrap">
+											<img src="../../content/img/business-info/01.jpg" alt="購物咨詢">
+											<figcaption class="desc b-hide-text">購物咨詢</figcaption>
+										</figure>
+										<div class="service-info">
+											<h3 class="list-title">購物咨詢</h3>
+											<ul class="service-sub-list">
+												<li class="list">DM索取。</li>
+												<li class="list">外籍旅客退稅服務</li>
+												<li class="list">購物及活動諮詢。</li>
+												<li class="list">小額零錢兌換</li>
+												<li class="list">顧客意見處理</li>
+												<li class="list">彙開三聯式發票</li>
+												<li class="list">尋人播音。</li>
+												<li class="list">急救箱提供</li>
+												<li class="list">HAPPY GO點數查詢機</li>
+												<li class="list">代售電話卡</li>
+												<li class="list">HAPPY GO點數補登</li>
+												<li class="list">兒童識別貼紙索取</li>
+												<li class="list">外賓翻譯服務（英、日語)。</li>
+												<li class="list">遺失物、拾獲物處理。</li>
+												<li class="list">停車折抵兌換。</li>
+												<li class="list">顧客意見受理。</li>
+												<li class="list">嬰兒車、輪椅租借。</li>
+											</ul>
+										</div>
+									</li>
+									<li class="list">
+										<figure class="img-wrap">
+											<img src="../../content/img/business-info/02.jpg" alt="母嬰幼童服務">
+											<figcaption class="desc b-hide-text">母嬰幼童服務</figcaption>
+										</figure>
+										<div class="service-info">
+											<h3 class="list-title">母嬰幼童服務</h3>
+											<p class="service-desc">1F服務台</p>
+											<ul class="service-sub-list">
+												<li class="list">兒童識別貼紙索取 Child recognition label</li>
+												<li class="list">嬰兒手推車出借Stroller Available</li>
+											</ul>
+											<p class="service-desc">5F</p>
+											<ul class="service-sub-list">
+												<li class="list">哺集乳室/育嬰室 Breastfeeding Room/Nursery Room</li>
+												<li class="list">提供熱開水、尿布台、哺乳室與護士咨詢服務</li>
+											</ul>
+										</div>
+									</li>
+									<li class="list">
+										<figure class="img-wrap">
+											<img src="../../content/img/business-info/03.jpg" alt="外籍人士服務">
+											<figcaption class="desc b-hide-text">外籍人士服務</figcaption>
+										</figure>
+										<div class="service-info">
+											<h3 class="list-title">外籍人士服務</h3>
+											<p class="service-desc">10F客服中心</p>
+											<ul class="service-sub-list">
+												<li class="list">外籍旅客退稅服務1F服務台</li>
+												<li class="list">外幣兌換Currency Exchange<br>目前提供美金USD、日幣JPY、人民幣CNY，兌換新台幣服務。</li>
+											</ul>
+										</div>
+									</li>
+									<li class="list">
+										<figure class="img-wrap">
+											<img src="../../content/img/business-info/04.jpg" alt="高齡/殘障服務">
+											<figcaption class="desc b-hide-text">高齡/殘障服務</figcaption>
+										</figure>
+										<div class="service-info">
+											<h3 class="list-title">高齡/殘障服務</h3>
+											<p class="service-desc">1F 服務台</p>
+											<ul class="service-sub-list">
+												<li class="list">輪椅出借Wheelchair Available</li>
+											</ul>
+											<p class="service-desc">B2 / 1F~12F</p>
+											<ul class="service-sub-list">
+												<li class="list">無障礙洗手間Handicap Restroom</li>
+											</ul>
+											<p class="service-desc">B2 / 1F~12F</p>
+											<ul class="service-sub-list">
+												<li class="list">無障礙專用電梯</li>
+											</ul>
+										</div>
+									</li>
+									<li class="list">
+										<figure class="img-wrap">
+											<img src="../../content/img/business-info/05.jpg" alt="卡友服務中心">
+											<figcaption class="desc b-hide-text">卡友服務中心</figcaption>
+										</figure>
+										<div class="service-info">
+											<h3 class="list-title">卡友服務中心</h3>
+											<p class="service-desc">1F服務台</p>
+											<ul class="service-sub-list">
+												<li class="list">HAPPY GO卡查詢/補登點數</li>
+												<li class="list">HAPPY GO卡申辦/變更資料/查詢/補登點數<br>兒童卡服務</li>
+											</ul>
+											<p class="service-desc">10F客服中心</p>
+											<ul class="service-sub-list">
+												<li class="list">申辦服務</li>
+											</ul>
+										</div>
+									</li>
+									<li class="list">
+										<figure class="img-wrap">
+											<img src="../../content/img/business-info/06.jpg" alt="修改室">
+											<figcaption class="desc b-hide-text">修改室</figcaption>
+										</figure>
+										<div class="service-info">
+											<h3 class="list-title">修改室</h3>
+											<p class="service-desc">4F</p>
+											<ul class="service-sub-list">
+												<li class="list">專業修改室Apparel Revision</li>
+												<li class="list">提供專業服飾修改服務</li>
+												<li class="list">Provide apparel alterations and repair service</li>
+											</ul>
+										</div>
+									</li>
+								</ul>
 							</li>
 						</ul>
 					</div>
@@ -441,4 +807,5 @@
 	<!--#include virtual="../Shared/Not-support.html" -->
 </body>
 <!--#include virtual="../Shared/GlobalScriptFt.html" -->
+<script defer src="../../scripts/js/business-info.js?JS=20160420_01"></script>
 </html>
