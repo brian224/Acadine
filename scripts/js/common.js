@@ -221,9 +221,41 @@
 		});
 	}
 
+	page.prototype.tabSwitch = function(_anchor, _accordion) {
+		$(common._tab).each(function(){
+			if ($(this).hasClass(_anchor)) {
+				var _main = $(this).data('main'),
+					_sub  = $(this).data('sub');
+
+				if (_main !== undefined) {
+					$('.main-tab > .m-tab-wrap > .tab-list').eq(_main).find(common._tab).trigger('click');
+				}
+
+				if (_sub !== undefined) {
+					$(this).parents('.sub-tab').find('> .m-tab-wrap > .tab-list').eq(_sub).find(common._tab).trigger('click');
+				}
+
+				$(this).trigger('click');
+
+				if (_accordion !== undefined) {
+					$(common._btnAccordion + '[data-hushtag="' + _accordion + '"]').trigger('click');
+				}
+			}
+		});
+
+		projects.$hb.animate({
+			'scrollTop' : $('.main-tab').offset().top - $(common._lHeader).height()
+		}, common._animateSpeed);
+	}
+
 	projects.$w.load(function(){
 		common.headerHeight();
 		common.showFooter();
+
+		// 網址有 # 可定位頁籤
+		if (projects._HREF.split('#')[1] !== undefined) {
+			common.tabSwitch(projects._HREF.split('#')[1].split('&')[0], projects._HREF.split('&')[1]);
+		}
 	});
 
 	projects.$d.ready(function(){
@@ -325,6 +357,10 @@
 
 			$(this).addClass('is-curr').parent().siblings().find(common._tab).removeClass('is-curr');
 			$(this).parents('.m-tab-wrap').siblings('.m-tab-content').children('.content-list').eq(_idx).addClass('is-curr').siblings().removeClass('is-curr');
+
+			if ($(this).attr('data-hushtag') !== undefined) {
+				history.pushState('' , document.title , projects._HREF.split('#')[0] + '#' + $(this).attr('data-hushtag'));
+			}
 		});
 
 		$(common._like + ', ' + common._calendar).on('click', function(){
@@ -336,6 +372,10 @@
 
 			if ( projects.device() === 'PC') {
 				$(this).parents('.m-accordion').siblings().removeClass('is-open');
+			}
+
+			if ($(this).attr('data-hushtag') !== undefined) {
+				history.pushState('' , document.title , projects._HREF.split('&')[0] + '&' + $(this).attr('data-hushtag'));
 			}
 		});
 

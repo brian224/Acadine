@@ -23,39 +23,12 @@
 		projects.owlCarousel(pageObj._photoList);
 	}
 
-	page.prototype.tabSwitch = function(_anchor) {
-		$(common._tab).each(function(){
-			if ($(this).hasClass(_anchor)) {
-				var _main = $(this).data('main'),
-					_sub  = $(this).data('sub');
-
-				if (_main !== undefined) {
-					$('.main-tab > .m-tab-wrap > .tab-list').eq(_main).find(common._tab).trigger('click');
-				}
-
-				if (_sub !== undefined) {
-					$(this).parents('.sub-tab').find('> .m-tab-wrap > .tab-list').eq(_sub).find(common._tab).trigger('click');
-				}
-
-				$(this).trigger('click');
-			}
-		});
-
-		projects.$hb.animate({
-			'scrollTop' : $('.main-tab').offset().top - $(common._lHeader).height()
-		}, common._animateSpeed);
-	}
-
 	projects.$w.load(function(){
 	});
 
 	projects.$d.ready(function(){
 		if ($(pageObj._photoList).length !== 0) {
 			pageObj.photoOwl();
-		}
-
-		if (projects._HREF.split('#')[1] !== undefined) {
-			pageObj.tabSwitch(projects._HREF.split('#')[1]);
 		}
 
 		$(pageObj._photoSwitch).on('click' , function(e){
@@ -70,7 +43,6 @@
 					$(this).removeClass('is-curr');
 				}
 			});
-
 		});
 	});
 
