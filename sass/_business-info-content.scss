@@ -330,6 +330,10 @@
 		@include display-flex;
 		@include align-items(center);
 		@include justify-content(center);
+
+		img {
+			max-height: 100%;
+		}
 	}
 
 	.brand-slogan {
@@ -883,10 +887,6 @@
 	.brand-info-wrap {
 		.brand-logo {
 			height: 160px;
-
-			img {
-				max-height: 100%;
-			}
 		}
 
 		.brand-slogan {
@@ -1371,6 +1371,10 @@
 	}
 
 	.brand-info-wrap {
+		.brand-logo {
+			height: 80px;
+		}
+
 		.brand-slogan {
 			margin: 20px 0 40px 0;
 			font-size: 14px;
