@@ -38,9 +38,17 @@
 				_val  = '';
 
 			if ($this.find('.is-selected').length !== 0) {
-				_val = $this.find('.is-selected').text();
+				if ($this.data('structure') === 'html') {
+					_val = $this.find('.is-selected').html();
+				} else {
+					_val = $this.find('.is-selected').text();
+				}
 			} else {
-				_val = $this.find('.list').eq(0).text();
+				if ($this.data('structure') === 'html') {
+					_val = $this.find('.list').eq(0).html();
+				} else {
+					_val = $this.find('.list').eq(0).text();
+				}
 			}
 
 			$this.find('.m-selected-item').html(_val);
@@ -53,7 +61,12 @@
 
 			$this.find('.list').on('click', function(){
 				$(this).addClass('is-selected').siblings().removeClass('is-selected');
-				$this.find('.m-selected-item').html($(this).text());
+
+				if ($this.data('structure') === 'html') {
+					$this.find('.m-selected-item').html($(this).html());
+				} else {
+					$this.find('.m-selected-item').html($(this).text());
+				}
 			});
 		});
 	}

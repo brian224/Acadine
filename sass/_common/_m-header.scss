@@ -105,6 +105,21 @@
 		.sub-menu-wrap {
 			padding: 0 0 0 65px;
 			width: 995px;
+
+			.sub-menu {
+				.list-block {
+					padding: 30px 0 40px 0;
+				}
+
+				.b-link {
+					padding: 8px 0 8px 35px;
+					font-size: 16px;
+				}
+			}
+
+			.product-banner {
+				padding: 30px 0 20px 38px;
+			}
 		}
 	}
 }
@@ -261,7 +276,6 @@
 				width: 600px;
 
 				.list-block {
-					padding: 30px 0 40px 0;
 					border-left: 1px solid $color-gray-l-p40;
 					text-align: left;
 					@include flex-grow(1);
@@ -269,12 +283,10 @@
 				}
 
 				.b-link {
-					padding: 8px 0 8px 35px;
 					display: block;
 					width: 100%;
 					height: 100%;
 					color: $color-gray-d-p30;
-					font-size: 16px;
 					letter-spacing: 2px;
 					line-height: 1.5em;
 					@include box-sizing(border-box);
@@ -286,7 +298,6 @@
 			}
 
 			.product-banner {
-				padding: 30px 0 20px 38px;
 				border-left: 1px solid $color-gray-l-p40;
 
 				.img-wrap {
@@ -521,8 +532,22 @@
 			}
 		}
 
-		.sub-menu-wrap .sub-menu .list-block {
-			width: 22.5vw;
+		.sub-menu-wrap {
+			.sub-menu {
+				.list-block {
+					padding: 20px;
+					width: 22.5vw;
+				}
+
+				.b-link {
+					padding: 4px 0;
+					font-size: 14px;
+				}
+			}
+
+			.product-banner {
+				padding: 20px;
+			}
 		}
 	}
 }

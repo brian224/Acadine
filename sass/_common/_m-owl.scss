@@ -104,6 +104,8 @@
 }
 
 .jQ-owl {
+	position: relative;
+
 	&.is-light .m-owl-dots .m-owl-dot {
 		&:hover span, &.active span {
 			background: $color-white;
@@ -127,8 +129,6 @@
 
 @include respond(Desktops) {
 	.jQ-owl {
-		position: relative;
-		
 		&:hover .m-owl-ctrl {
 			opacity: 1;
 		}

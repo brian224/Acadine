@@ -3,15 +3,23 @@
 	display: inline-block;
 }
 
-.kv-owl .item img {
-	max-height: 100%;
+.kv-owl .item {
+	.img-wrap {
+		@include display-flex;
+		@include align-items(center);
+		@include justify-content(center);
+	}
+
+	img {
+		max-height: 100%;
+	}
 }
 
 .m-cut {
 	margin: 0 auto;
 
 	.main-tab > .m-tab-wrap {
-		.tab-list {
+		> * {
 			&:nth-child(2n+1) .btn-tab {
 				background: $color-gray-d-p30;
 
@@ -45,6 +53,7 @@
 .food-list {
 	@include display-flex;
 	@include flex-wrap(wrap);
+	
 	.owl-stage {
 		@include display-flex;
 		@include align-items(stretch);
@@ -59,19 +68,13 @@
 		position: relative;
 		background: $color-white;
 		text-align: center;
-		@include display-flex;
-		@include align-items(stretch);
-		@include align-content(stretch);
-		@include justify-content(space-between);
-		@include flex-direction(column);
 	}
 
 	.img-wrap {
 		overflow: hidden;
-
-		img {
-			width: 100%;
-		}
+		@include display-flex;
+		@include align-items(center);
+		@include justify-content(center);
 	}
 
 	.btn-like {
@@ -219,6 +222,7 @@
 			height: 270px;
 
 			img {
+				height: 100%;
 				@include transition(ease-in all 0.3s);
 			}
 		}
@@ -292,10 +296,6 @@
 		}
 	}
 
-	.kv .jQ-video {
-		height: 44.5vw;
-	}
-
 	.kv-owl .m-owl-dots {
 		bottom: 40px;
 	}
@@ -306,7 +306,16 @@
 		line-height: 0;
 
 		.list {
+			@include display-flex;
+			@include align-items(stretch);
+			@include align-content(stretch);
+			@include justify-content(space-between);
+			@include flex-direction(column);
 			width: calc((100% - 60px) / 3);
+		}
+
+		.item-info {
+			@include flex-grow(1);
 		}
 
 		.food-link {
@@ -360,6 +369,19 @@
 		margin-bottom: -14px;
 	}
 
+	.kv-owl .item {
+		height: 300px;
+
+		.img-wrap {
+			height: 300px;
+
+			img {
+				width: auto;
+				height: 100%;
+			}
+		}
+	}
+
 	.m-cut .main-tab > .m-tab-wrap {
 		margin: 0 0 20px 0;
 
@@ -383,8 +405,14 @@
 		}
 	}
 
-	.food-list .list {
-		margin: 0 10px 20px 10px;
+	.food-list {
+		.list {
+			margin: 0 10px 20px 10px;
+		}
+
+		.img-wrap {
+			height: 135px;
+		}
 	}
 }
 
@@ -398,9 +426,12 @@
 	}
 
 	.food-list {
+		.img-wrap img {
+			width: 100%;
+		}
+
 		.item-info {
 			padding: 15px 20px 10px 20px;
-			@include flex-grow(1);
 		}
 
 		.btn-read-more {
@@ -426,40 +457,97 @@
 		}
 	}
 
-	.kv .jQ-video {
-		height: 57vw;
+	.owl-stage {
+		@include display-flex;
 	}
 
-	.kv-owl .item .img-wrap {
-		margin-left: -14vw;
-		width: 128vw;
+	.kv-owl .item {
+		height: 38.6vw;
+
+		.img-wrap {
+			width: 100vw;
+			height: 38.6vw;
+
+			img {
+				width: auto;
+				height: 100%;
+			}
+		}
 	}
 
-	.slide-list {
-		.owl-item {
+	.m-cut .main-tab {
+		> .m-tab-wrap {
+			padding-top: 40px;
+			max-height: 40px;
+			position: relative;
+			overflow: hidden;
+			box-sizing: border-box;
+			z-index: 1;
 			@include transition(ease-in all 0.3s);
 
-			&:not(.active) {
-				@include transform(scale(0.95));
+			&:after {
+				content: '';
+				position: absolute;
+				top: 17px;
+				right: 20px;
+				border-top: 6px solid $color-white;
+				border-right: 6px solid transparent;
+				border-left: 6px solid transparent;
+				z-index: 1;
+				@include transition(ease-in all 0.3s);
+			}
+
+			&.is-active {
+				max-height: 1000px;
+
+				&:after {
+					@include transform(rotate(180deg));
+				}
+			}
+
+			.m-selected-item {
+				background: $color-text-major !important;
+				height: 40px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				overflow: hidden;
+				font-size: 16px;
+				line-height: 40px;
+
+				.text {
+					color: $color-white;
+				}
+			}
+	
+			.btn-tab {
+				width: 100%;
+				height: 40px;
+				position: relative;
+				font-size: 16px;
+	
+				.m-icon {
+					position: absolute;
+					top: 0;
+					left: 20px;
+					font-size: 60px;
+				}
 			}
 		}
 
-		.btn-like {
-			width: 40px;
-			height: 40px;
+		> .m-tab-content {
+			padding-top: 20px;
 		}
 	}
 
 	.food-cut {
-		width: calc(100vw - 100px);
-
 		.owl-stage-outer {
 			overflow: visible;
 		}
 
-		.list {
-			margin: 0 10px;
-			width: calc(100% - 20px);
+		.food-list .list {
+			margin: 0 20px 20px 20px;
 		}
 	}
 }

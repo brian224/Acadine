@@ -526,6 +526,11 @@
 	color: $color-white;
 	font-weight: bold;
 	text-align: center;
+	@include transition(ease-in all 0.3s);
+
+	&:hover {
+		background: darken($color-text-major, 10%);
+	}
 }
 
 @include respond(Desktops) {
@@ -886,6 +891,7 @@
 
 	.brand-info-wrap {
 		.brand-logo {
+			width: 250px;
 			height: 160px;
 		}
 
@@ -1372,6 +1378,7 @@
 
 	.brand-info-wrap {
 		.brand-logo {
+			width: 125px;
 			height: 80px;
 		}
 
