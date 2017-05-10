@@ -6,6 +6,10 @@
 .b-normalize {
     @import "_common/normalize";
 
+    &.editor-area img {
+        max-width: 100%;
+    }
+
     &:after {
         content : "";
         width   : 100%;

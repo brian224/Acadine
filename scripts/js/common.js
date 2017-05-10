@@ -182,7 +182,7 @@
 				_idx  = $this.find('.is-curr').length !== 0 ? $this.find('.is-curr').parent().index() : 0;
 
 			for (var i = 0; i < $this.find('a.b-link').length; i++) {
-				_str += '<option>' + $this.find('a.b-link').eq(i).text() + '</option>';
+				_str += '<option value="' + $this.find('a.b-link').eq(i).attr('href') + '">' + $this.find('a.b-link').eq(i).text() + '</option>';
 			}
 
 			_str += '</select>';
@@ -430,6 +430,12 @@
 		$(common._share).on('click' , function(e){
 			e.preventDefault();
 			common.openWin($(this));
+		});
+
+		$(common._tagSelect).on('change', 'select', function(){
+			if($(this).val() !== '' && $(this).val() !== 'javascript:;' && $(this).val() !== '#') {
+				window.location.href = $(this).val();
+			}
 		});
 	});
 

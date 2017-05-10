@@ -655,6 +655,11 @@
 }
 
 @include respond(HD) {
+	.catalog {
+		margin: 0 auto;
+		width: 1300px;
+	}
+
 	.l-body.is-padding-arrow .jQ-owl.is-padding:not(.kv-owl) {
 		.owl-prev {
 			left: 0;
@@ -995,6 +1000,32 @@
 }
 
 @include browsers('IE9') {
+	.catalog-wrap .catalog {
+		display: table;
+
+		.list {
+			display: table-cell;
+			height: 100%;
+
+			> .b-link {
+				display: block;
+				height: 58px;
+			}
+		}
+	}
+
+	.masonry-list {
+		overflow: hidden;
+
+		.list-block {
+			float: left;
+
+			&:not(:first-child) {
+				margin-left: 20px;
+			}
+		}
+	}
+
 	.shopping-list {
 		.img-wrap {
 			text-align: center;
@@ -1007,9 +1038,8 @@
 		}
 
 		.btn-read-more {
-			margin: 0 !important;
 			position: absolute;
-			bottom: 20px;
+			bottom: 0;
 			left: 32px;
 			right: 32px;
 		}

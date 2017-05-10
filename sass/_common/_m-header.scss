@@ -762,7 +762,14 @@
 
 	.shortcut-wrap {
 		.quick-list {
-			overflow: hidden;
+			&:after {
+				content : "";
+				width   : 100%;
+				height  : 0;
+				clear   : both;
+				@include clearfix;
+				@include display(block);
+			}
 
 			.location-selecter {
 				float: left;
