@@ -171,7 +171,6 @@
 		border-bottom: 1px solid $color-gray-l-p30;
 		color: $color-black;
 		font-weight: bold;
-		@include transition(ease-in all 0.3s);
 
 		&.is-curr {
 			background: $color-white;
@@ -327,6 +326,7 @@
 	border: 1px solid $color-gray-l-p20;
 
 	.brand-logo {
+		margin: 0 auto;
 		@include display-flex;
 		@include align-items(center);
 		@include justify-content(center);

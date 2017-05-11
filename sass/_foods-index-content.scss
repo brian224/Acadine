@@ -273,8 +273,11 @@
 
 	.m-cut .main-tab > .m-tab-wrap {
 		margin-bottom: 36px;
+		@include display-flex;
 
 		.tab-list {
+			@include flex-grow(1);
+			width: 100%;
 			vertical-align: bottom;
 			overflow: hidden;
 		}
@@ -461,17 +464,23 @@
 		@include display-flex;
 	}
 
-	.kv-owl .item {
-		height: 38.6vw;
-
-		.img-wrap {
-			width: 100vw;
+	.kv-owl {
+		.item {
 			height: 38.6vw;
-
-			img {
-				width: auto;
-				height: 100%;
+	
+			.img-wrap {
+				width: 100vw;
+				height: 38.6vw;
+	
+				img {
+					width: auto;
+					height: 100%;
+				}
 			}
+		}
+
+		.m-owl-dots {
+			bottom: 5px;
 		}
 	}
 

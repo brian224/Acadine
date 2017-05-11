@@ -26,6 +26,7 @@
 		this._share        = '.jQ-share';
 		this._browserAdj   = '.jQ-browserAdj';
 		this._adjHeight    = '.jQ-adjHeight';
+		this._clearInput   = '.jQ-clear-input';
 		this._leavePage    = false;
 		this._animateSpeed = 400;
 		this._masonryLoad  = false;
@@ -377,7 +378,18 @@
 		});
 
 		$(common._like + ', ' + common._calendar).on('click', function(){
-			$(this).toggleClass('is-add');
+			var $this = $(this),
+				_bindID = $this.data('bind');
+
+			if (_bindID !== '' && _bindID !== undefined) {
+				$(common._like).each(function(){
+					if (_bindID === $(this).data('bind')) {
+						$(this).toggleClass('is-add');
+					}
+				});
+			} else {
+				$this.toggleClass('is-add');
+			}
 		});
 
 		$(common._btnAccordion).on('click', function(){
@@ -425,6 +437,10 @@
 			} else {
 				$(this).siblings('.m-box-holder').find('.m-inputbox').val(_val + 1);
 			}
+		});
+
+		$(common._clearInput).on('click', function(){
+			$('.jQ-clear-area .m-inputbox').val('');
 		});
 
 		$(common._share).on('click' , function(e){

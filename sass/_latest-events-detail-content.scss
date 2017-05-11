@@ -1,0 +1,315 @@
+﻿.m-section {
+	margin: 0 auto;
+
+	> * {
+		background: $color-white;
+	}
+}
+
+.m-section-hd {
+	.post-tools {
+		position: relative;
+
+		.btn-wrap {
+			position: absolute;
+			top: 0;
+			right: 0;
+	
+			> *:not(:first-child) {
+				margin-left: 15px;
+				padding-left: 15px;
+		
+				&:after {
+					content: '';
+					margin-top: -7px;
+					background: $color-gray-l-p10;
+					display: block;
+					width: 1px;
+					height: 14px;
+					position: absolute;
+					top: 50%;
+					left: 0;
+				}
+			}
+		}
+	}
+
+	.post-catalog {
+		padding: 0 20px;
+		position: relative;
+
+		&:before, &:after {
+			content: '';
+			background: $color-gray-d-p10;
+			display: block;
+			width: 28px;
+			height: 1px;
+			position: absolute;
+			top: 50%;
+		}
+
+		&:before {
+			right: 100%;
+		}
+
+		&:after {
+			left: 100%;
+		}
+
+		> *:first-child {
+			margin-right: 5px;
+		}
+
+		.m-icon {
+			font-size: 24px;
+		}
+
+		.text {
+			font-size: 16px;
+			letter-spacing: 1px;
+		}
+	}
+
+	.post-title {
+		color: $color-gray-d-p30;
+		font-weight: bold;
+		line-height: 1.5em;
+	}
+
+	.activity-period {
+		color: $color-gray-l-p10;
+		line-height: 1.5em;
+	}
+
+	.btn-tool {
+		&.btn-fb-share .m-icon {
+			background: $color-facebook;
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+			color: $color-white;
+			font-size: 24px;
+			line-height: 38px;
+		}
+
+		&.btn-calendar .m-icon {
+			color: $color-gray-l-p20;
+		}
+
+		&:hover .text {
+			color: $color-text-major;
+		}
+
+		> *:first-child {
+			margin-right: 7px;
+		}
+
+		.m-icon {
+			font-size: 30px;
+		}
+
+		.text {
+			color: $color-black;
+			font-size: 12px;
+			@include transition(ease-in all 0.3s);
+		}
+	}
+}
+
+.m-section-bd .btn-link {
+	color: $color-white;
+	@include transition(ease-in all 0.3s);
+
+	.text {
+		font-size: 14px;
+	}
+
+	.m-icon {
+		font-size: 20px;
+	}
+
+	> *:first-child {
+		margin-right: 5px;
+	}
+}
+
+.m-section-ft .link-wrap {
+	@include display-flex;
+	@include align-items(center);
+	@include justify-content(space-between);
+
+	.b-link {
+		color: $color-gray-d-p30;
+		letter-spacing: 1px;
+		@include transition(ease-in all 0.3s);
+
+		&:hover {
+			color: $color-text-major;
+		}
+	}
+}
+
+@include respond(Desktops) {
+	.m-section-hd, .m-section-bd {
+		padding-right: 60px;
+		padding-left: 60px;
+	}
+
+	.m-section-ft .link-wrap .b-link {
+		font-size: 18px;
+	}
+}
+
+@include respond(Desktops-Tablets) {
+	.m-cut {
+		margin-right: 10px;
+		margin-left: 10px;
+		padding: 50px 0 100px 0;
+	}
+
+	.m-section {
+		max-width: 1140px;
+	}
+
+	.m-section-hd {
+		padding-top: 40px;
+
+		.post-tools {
+			margin-bottom: 16px;
+		}
+
+		.post-title {
+			font-size: 36px;
+		}
+
+		.activity-period {
+			font-size: 15px;
+		}
+	}
+
+	.m-section-bd {
+		padding-top: 40px;
+		padding-bottom: 40px;
+
+		.btn-wrap {
+			margin-top: 30px;
+		}
+
+		.btn-link {
+			height: 50px;
+			line-height: 50px;
+		}
+	}
+
+	.m-section-ft {
+		margin-top: 20px;
+
+		.link-wrap {
+			padding: 0 20px;
+			height: 80px;
+
+			.b-link {
+				&:not(:first-child):not(:last-child) {
+					> *:first-child {
+						margin-right: 5px;
+					}
+				}
+
+				&:first-child, &:last-child {
+					> *:first-child {
+						margin-right: 10px;
+					}
+				}
+			}
+		}
+	}
+}
+
+@include respond(HD) {
+	.m-section {
+		width: 1140px;
+	}
+}
+
+@include respond(Tablets) {
+	.m-section-hd, .m-section-bd {
+		padding-right: 30px;
+		padding-left: 30px;
+	}
+
+	.m-section-ft .link-wrap .b-link {
+		font-size: 14px;
+	}
+}
+
+@include respond(Tablets-Mobiles) {}
+
+@include respond(Mobiles) {
+	.m-cut {
+		margin: 10px;
+		padding-bottom: 10px;
+	}
+
+	.m-section-hd, .m-section-bd {
+		padding-right: 20px;
+		padding-bottom: 20px;
+		padding-left: 20px;
+	}
+
+	.m-section-hd {
+		padding-top: 20px;
+
+		.post-tools {
+			padding-top: 30px;
+
+			.btn-wrap {
+				height: 30px;
+			}
+		}
+
+		.post-catalog {
+			margin: 20px 0 10px 0;
+		}
+
+		.post-title {
+			font-size: 24px;
+		}
+	}
+
+	.m-section-bd {
+		.btn-wrap {
+			margin-top: 10px;
+		}
+
+		.btn-link {
+			height: 40px;
+			line-height: 40px;
+		}
+	}
+
+	.m-section-ft {
+		margin-top: 10px;
+
+		.link-wrap {
+			padding: 0 10px;
+
+			.b-link {
+				width: 40px;
+				height: 40px;
+				font-size: 20px;
+				line-height: 40px;
+				text-align: center;
+			}
+		}
+	}
+}
+
+@include devices(iphone) {}
+
+@include respond(Iphone5) {}
+
+@include browsers('IE') {}
+
+@include browsers('IE9') {}
+
+@include browsers('Safari') {}
