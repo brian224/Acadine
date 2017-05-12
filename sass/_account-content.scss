@@ -124,7 +124,7 @@
 		font-size: 16px;
 	}
 
-	> *:not(.members-item-list .b-link) {
+	.table-rotate .b-link {
 		color: #0054fe;
 		text-decoration: underline;
 
@@ -204,6 +204,7 @@
 
 	.act-type {
 		position: absolute;
+		color: $color-black;
 		line-height: 1.5em;
 
 		> * {
@@ -1405,6 +1406,41 @@
 
 @include browsers('IE') {}
 
-@include browsers('IE9') {}
+@include browsers('IE9') {
+	.members-item-list .list:not(:nth-child(3n+1)) {
+		margin-left: 10px;
+		width: calc((100% - 21px) /3);
+	}
+
+	.favorite-list .item-list {
+		display: table;
+		width: 100%;
+		box-sizing: border-box;
+
+		> * {
+			padding-right: 10px;
+			padding-left: 10px;
+			display: table-cell;
+		}
+
+		.item-pic {
+			width: 248px;
+		}
+
+		.item-text-info {
+			vertical-align: top;
+		}
+
+		.item-sub-info > * {
+			display: table-cell;
+			width: 50%;
+			text-align: right;
+
+			&:first-child {
+				padding-right: 20px;
+			}
+		}
+	}
+}
 
 @include browsers('Safari') {}

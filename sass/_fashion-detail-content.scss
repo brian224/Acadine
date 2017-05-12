@@ -998,9 +998,24 @@
 }
 
 @include browsers('IE') {
-	.favorite-list .btn-read-more {
-		margin-right: 40px;
-		margin-left: 40px;
+	.post-tools .btn-tool.btn-like {
+		height: 26px;
+
+		> * {
+			vertical-align: top;
+		}
+	}
+
+	.favorite-list {
+		.btn-like {
+			width: 66px;
+			height: 66px;
+		}
+
+		.btn-read-more {
+			margin-right: 40px;
+			margin-left: 40px;
+		}
 	}
 
 	.shopping-list .btn-read-more {

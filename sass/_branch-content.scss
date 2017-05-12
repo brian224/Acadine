@@ -1008,6 +1008,11 @@
 }
 
 @include browsers('IE') {
+	.slide-list .btn-like {
+		width: 66px;
+		height: 66px;
+	}
+
 	.food-list .btn-read-more {
 		margin-right: 40px;
 		margin-left: 40px;

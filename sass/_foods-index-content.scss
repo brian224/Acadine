@@ -578,17 +578,50 @@
 }
 
 @include browsers('IE') {
+	.food-list {
+		.list {
+			width: calc((100% - 61px) / 3);
+		}
+
+		.btn-read-more {
+			margin-right: 40px;
+			margin-left: 40px;
+		}
+
+		.btn-like {
+			width: 66px;
+			height: 66px;
+		}
+	}
+}
+
+@include browsers('IE9') {
+	.m-cut .main-tab>.m-tab-wrap {
+		display: table;
+		width: 100%;
+		max-width: 1300px;
+
+		.tab-list {
+			display: table-cell !important;
+			width: auto;
+		}
+	}
+
+	.food-list .list {
+		display: inline-block;
+		vertical-align: top;
+	}
+}
+
+@include browsers('Safari') {
 	.food-list .btn-read-more {
 		margin-right: 40px;
 		margin-left: 40px;
 	}
 }
 
-@include browsers('IE9') {}
-
-@include browsers('Safari') {
-	.food-list .btn-read-more {
-		margin-right: 40px;
-		margin-left: 40px;
+@include browsers('Edge') {
+	.food-list .list {
+		width: calc((100% - 61px) / 3);
 	}
 }

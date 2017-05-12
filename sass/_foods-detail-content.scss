@@ -585,8 +585,39 @@
 	}
 }
 
-@include browsers('IE') {}
+@include browsers('IE') {
+	.food-list {
+		.list {
+			width: calc((100% - 61px) / 3);
+		}
 
-@include browsers('IE9') {}
+		.btn-like {
+			width: 66px;
+			height: 66px;
+		}
+	}
+}
+
+@include browsers('IE9') {
+	.m-cut .service-location-list {
+		font-size: 0;
+		line-height: 0;
+
+		.list {
+			display: inline-block;
+		}
+	}
+
+	.food-list .list {
+		display: inline-block;
+		vertical-align: top;
+	}
+}
 
 @include browsers('Safari') {}
+
+@include browsers('Edge') {
+	.food-list .list {
+		width: calc((100% - 61px) / 3);
+	}
+}

@@ -8,9 +8,9 @@
 	}
 
 	page.prototype.flexInIE = function() {
-		$(common._separateUl).each(function(){
+		$(pageObj._separateUl).each(function(){
 			var _row    = $(this).data('row'),
-				_length = $(this).finf('.masonry-item').length,
+				_length = $(this).find('.masonry-item').length,
 				_count  = Math.ceil(_length / _row);
 
 			for (var i = 0; i <= _count; i++) {

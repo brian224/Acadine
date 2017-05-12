@@ -361,7 +361,11 @@
 	}
 }
 
-@include browsers('IE') {}
+@include browsers('IE') {
+	.store-selection .is-selector.m-box-holder .m-selection {
+		height: 2em;
+	}
+}
 
 @include browsers('IE9') {}
 

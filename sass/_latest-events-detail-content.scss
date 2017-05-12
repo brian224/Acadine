@@ -308,8 +308,30 @@
 
 @include respond(Iphone5) {}
 
-@include browsers('IE') {}
+@include browsers('IE') {
+	.m-section-hd .post-tools .btn-wrap > * {
+		overflow: visible;
+	}
+}
 
-@include browsers('IE9') {}
+@include browsers('IE9') {
+	.m-section-ft .link-wrap {
+		font-size: 0;
+		line-height: 0;
+
+		.b-link {
+			display: inline-block;
+			width: 33.33%;
+
+			&:not(:first-child):not(:last-child) {
+				text-align: center;
+			}
+
+			&:last-child {
+				text-align: right;
+			}
+		}
+	}
+}
 
 @include browsers('Safari') {}
