@@ -30,17 +30,14 @@
 
 @include respond(Desktops) {
 	.m-footer {
-		padding: 28px 280px 64px 32px;
+		padding: 24px 32px 64px 32px;
 
 		.copyright {
-			bottom: 0;
 			left: 0;
 			right: 0;
 		}
 
 		.social-link {
-			top: 18px;
-
 			&.instagram {
 				right: 230px;
 			}
@@ -51,7 +48,6 @@
 		}
 
 		.footer-logo {
-			top: 16px;
 			right: 54px;
 		}
 	}
@@ -67,14 +63,31 @@
 			line-height: 0;
 	
 			.list {
-				padding: 0 10px 0 9px;
+				padding: 0 9px 0 10px;
 				display: inline-block;
-				border-left: 1px solid $color-white;
+				position: relative;
 				font-size: 14px;
-				line-height: 16px;
+				line-height: 1.5em;
+
+				&:before {
+					content: '';
+					margin-top: -7px;
+					background: $color-white;
+					display: block;
+					width: 1px;
+					height: 14px;
+					position: absolute;
+					top: 50%;
+					left: 0;
+				}
 
 				&:first-child {
+					padding-left: 0;
 					border-left: 0;
+
+					&:before {
+						display: none;
+					}
 				}
 			}
 
@@ -85,6 +98,7 @@
 
 		.copyright {
 			position: absolute;
+			bottom: 16px;
 			line-height: 32px;
 		}
 
@@ -92,6 +106,7 @@
 			width: 30px;
 			height: 30px;
 			position: absolute;
+			bottom: 16px;
 			font-size: 16px;
 			line-height: 30px;
 		}
@@ -101,6 +116,7 @@
 			width: 90px;
 			height: 38px;
 			position: absolute;
+			bottom: 16px;
 		}
 	}
 }
@@ -110,8 +126,7 @@
 		width: $main-max-width;
 
 		.info-list .list {
-			padding: 0 20px 0 19px;
-			letter-spacing: 1px;
+			padding: 0 18px;
 		}
 	}
 }
@@ -122,12 +137,9 @@
 
 		.copyright {
 			left: 41px;
-			bottom: 16px;
 		}
 
 		.social-link {
-			bottom: 16px;
-
 			&.instagram {
 				right: 186px;
 			}
@@ -138,7 +150,6 @@
 		}
 
 		.footer-logo {
-			bottom: 16px;
 			right: 32px;
 		}
 	}

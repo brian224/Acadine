@@ -1,0 +1,51 @@
+﻿.m-cut, .social-list {
+	margin: 0 auto;
+}
+
+.social-list .list-item > * {
+	background: $color-white;
+}
+
+@include respond(Desktops) {}
+
+@include respond(Desktops-Tablets) {
+	.social-list {
+		.list-item, .item-sizer {
+			width: calc((100% - 60px) / 3);
+		}
+
+		.list-item {
+			padding-bottom: 14px;
+		}
+	}
+}
+
+@include respond(HD) {
+	.m-cut {
+		width: 1090px;
+	}
+
+	.social-list {
+		.list-item, .item-sizer {
+			width: 350px;
+		}
+	}
+}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {}
+
+@include respond(Mobiles) {}
+
+@include devices(iphone) {}
+
+@include respond(Iphone5) {}
+
+@include browsers('IE') {}
+
+@include browsers('IE9') {}
+
+@include browsers('Safari') {}
+
+@include browsers('Edge') {}

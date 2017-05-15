@@ -82,22 +82,32 @@
 	}
 
 	.btn-tool {
-		&.btn-fb-share .m-icon {
-			background: $color-facebook;
-			width: 30px;
-			height: 30px;
-			border-radius: 50%;
-			color: $color-white;
-			font-size: 24px;
-			line-height: 38px;
+		&.btn-fb-share {
+			.m-icon {
+				background: $color-facebook;
+				width: 30px;
+				height: 30px;
+				border-radius: 50%;
+				color: $color-white;
+				font-size: 24px;
+				line-height: 38px;
+			}
+
+			&:hover .text {
+				color: $color-facebook;
+			}
 		}
 
-		&.btn-calendar .m-icon {
-			color: $color-gray-l-p20;
-		}
+		&.btn-calendar {
+			.m-icon {
+				color: $color-gray-l-p20;
+			}
 
-		&:hover .text {
-			color: $color-text-major;
+			&:hover {
+				.m-icon, .text {
+					color: $color-text-major;
+				}
+			}
 		}
 
 		> *:first-child {
@@ -106,6 +116,7 @@
 
 		.m-icon {
 			font-size: 30px;
+			@include transition(ease-in all 0.3s);
 		}
 
 		.text {
