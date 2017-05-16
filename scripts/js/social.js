@@ -4,28 +4,24 @@
 	var pageObj = new page();
 
 	function page() {
-		this._item = '.list-item';
+		this._item  = '.list-item';
+		this._sizer = '.item-sizer';
+		this._sizerWidth = $(this._sizer).width();
 	}
 
 	projects.$w.load(function(){
-		$('.social-list').masonry({
-			itemSelector: pageObj._item,
-			columnWidth: '.item-sizer',
-			gutter: 20
-		});
+		console.log($('iframe').length);
+
+		setTimeout(function () {
+			$('.social-list').masonry({
+				itemSelector: pageObj._item,
+				columnWidth: pageObj._sizer,
+				gutter: 20
+			});
+		}, 2000);
 	});
 
 	projects.$d.ready(function(){
-		$(pageObj._item).each(function(){
-			var _decodeUrl = decodeURI($(this).data('url')),
-				_width     = _decodeUrl.split('width="')[1].split('"')[0],
-				_height    = _decodeUrl.split('height="')[1].split('"')[0],
-				_newHeight = (_height / _width * 350)|0;
-
-			$(this).html(_decodeUrl.replace(new RegExp(_width , 'g'),'350').replace(new RegExp(_height, 'g'), _newHeight));
-
-			console.log($(this).find('iframe')[0].contentWindow.postMessage(document.querySelector("html").scrollHeight, 'http://www.feds'));
-		});
 	});
 
 	projects.$w.on('scroll' , function(){

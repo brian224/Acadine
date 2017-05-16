@@ -2,6 +2,31 @@
 	margin: 0 auto;
 }
 
+.main-tab > .m-tab-wrap .tab-list .btn-tab {
+	padding: 0 14px;
+	height: 40px;
+	border: 1px solid $color-gray-l-p10;
+	color: $color-gray-d-p30;
+
+	> *:first-child {
+		margin-right: 7px;
+	}
+
+	.m-icon {
+		font-size: 20px;
+	}
+
+	.text {
+		font-size: 14px;
+	}
+
+	&.is-curr {
+		background: $color-gray-d-p40;
+		border-color: $color-gray-d-p40;
+		color: $color-white;
+	}
+}
+
 .social-list .list-item > * {
 	background: $color-white;
 }
@@ -9,7 +34,13 @@
 @include respond(Desktops) {}
 
 @include respond(Desktops-Tablets) {
+	.m-cut {
+		padding-top: 50px;
+	}
+
 	.social-list {
+		margin-top: 40px;
+		
 		.list-item, .item-sizer {
 			width: calc((100% - 60px) / 3);
 		}
