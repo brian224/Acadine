@@ -7,6 +7,7 @@
 	height: 40px;
 	border: 1px solid $color-gray-l-p10;
 	color: $color-gray-d-p30;
+	@include transition(ease-in all 0.3s);
 
 	> *:first-child {
 		margin-right: 7px;
@@ -20,6 +21,10 @@
 		font-size: 14px;
 	}
 
+	&:hover {
+		background: $color-white;
+	}
+
 	&.is-curr {
 		background: $color-gray-d-p40;
 		border-color: $color-gray-d-p40;
@@ -27,22 +32,45 @@
 	}
 }
 
-.social-list .list-item > * {
-	background: $color-white;
+.social-list .list-item {
+	vertical-align: top;
+	
+	> * {
+		background: $color-white;
+		box-sizing: border-box;
+	}
 }
 
-@include respond(Desktops) {}
+@include respond(Desktops) {
+	.m-cut {
+		padding-bottom: 100px;
+		width: calc(100% - 20px);
+		max-width: 1090px;
+	}
+
+	.social-list {
+		.list-item, .item-sizer {
+			width: calc((100% - 40px) / 3);
+		}
+	}
+}
 
 @include respond(Desktops-Tablets) {
 	.m-cut {
 		padding-top: 50px;
 	}
 
+	.content-list .btn-more {
+		margin-top: 36px;
+	}
+
 	.social-list {
 		margin-top: 40px;
-		
-		.list-item, .item-sizer {
-			width: calc((100% - 60px) / 3);
+
+		&.fb-post {
+			.list-item, .item-sizer {
+				width: 350px;
+			}
 		}
 
 		.list-item {
@@ -52,10 +80,6 @@
 }
 
 @include respond(HD) {
-	.m-cut {
-		width: 1090px;
-	}
-
 	.social-list {
 		.list-item, .item-sizer {
 			width: 350px;
@@ -63,15 +87,70 @@
 	}
 }
 
-@include respond(Tablets) {}
+@media screen and (max-width: 1110px) {
+	.social-list.fb-post {
+		width: 720px;
+	}
+}
 
-@include respond(Tablets-Mobiles) {}
+@include respond(Tablets) {
+	.m-cut {
+		padding-bottom: 50px;
+	}
 
-@include respond(Mobiles) {}
+	.social-list {
+		.list-item, .item-sizer {
+			width: calc((100% - 20px) / 2);
+		}
+	}
+}
+
+@include respond(Tablets-Mobiles) {
+	.m-cut {
+		margin: 0 20px;
+	}
+}
+
+@include respond(Mobiles) {
+	.m-cut {
+		padding: 20px 0 30px 0;
+	}
+
+	.content-list .btn-more {
+		margin-top: 20px;
+	}
+
+	.social-list {
+		margin-top: 20px;
+
+		&.fb-post, .list-item, .item-sizer {
+			width: 100%;
+		}
+
+		.list-item {
+			padding-bottom: 14px;
+		}
+	}
+}
 
 @include devices(iphone) {}
 
-@include respond(Iphone5) {}
+@media screen and (max-width: 375px) {
+	.m-cut {
+		margin: 0 12px;
+	}
+}
+
+@include respond(Iphone5) {
+	.social-list.fb-post {
+		@include transform(scale(0.846));
+		@include transform-origin(top, left);
+
+		.list-item, .item-sizer {
+			width: 350px;
+		}
+	}
+}
 
 @include browsers('IE') {}
 
