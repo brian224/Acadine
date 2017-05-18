@@ -148,6 +148,7 @@
                         },
                         lazyLoad           : ( $owl.data('img-load') !== true ) ? false : true,
                         autoplay           : ( $owl.data('autoplay') !== true ) ? false : true,
+                        rtl                : ( $owl.data('rtl') !== true ) ? false : true,
                         autoplayTimeout    : $owl.data('timeout') ? $owl.data('timeout') : 5000,
                         navContainerClass  : $owl.data('ctrl-class') ? $owl.data('ctrl-class') + '-ctrl' : 'm-owl-ctrl',
                         dotsClass          : $owl.data('ctrl-class') ? $owl.data('ctrl-class') + '-dots' : 'm-owl-dots ' + ( $owl.data('dots-position') !== 'relative' ? 'is-absolute' : 'is-relative') + '',

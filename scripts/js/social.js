@@ -4,12 +4,13 @@
 	var pageObj = new page();
 
 	function page() {
-		this._socialList = '.social-list';
-		this._item       = '.list-item';
-		this._sizer      = '.item-sizer';
-		this._sizerWidth = $(this._sizer).width();
-		this._comparison = 0;
-		this._backup     = 0;
+		this._socialList  = '.social-list';
+		this._item        = '.list-item';
+		this._sizer       = '.item-sizer';
+		this._masonryLoad = '.jQ-masonry-load';
+		this._sizerWidth  = $(this._sizer).width();
+		this._comparison  = 0;
+		this._backup      = 0;
 	}
 
 	page.prototype.getHeight = function() {
@@ -80,6 +81,11 @@
 					pageObj.masonryMobileHeight();
 				}
 			}
+		});
+
+		$(pageObj._masonryLoad).on('click', function(){
+			var _str = $($(this).prev().html());
+			$(this).prev().append(_str).masonry('appended', _str);
 		});
 	});
 
