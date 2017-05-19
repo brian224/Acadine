@@ -34,7 +34,16 @@
 					gutter: 20
 				});
 
+				var elems = $(this).masonry('getItemElements'),
+					_array = [];
+
+				for (var i = 0; i < elems.length; i++) {
+					_array.push(elems[i].clientHeight);
+				}
+
 				$(this).attr('data-masonry-complete', true);
+
+				console.log(_array);
 			}
 		});
 	}
