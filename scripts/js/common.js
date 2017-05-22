@@ -267,7 +267,7 @@
 		common.showFooter();
 
 		// 網址有 # 可定位頁籤
-		if (projects._HREF.split('#')[1] !== undefined) {
+		if (projects._HREF.split('#')[1] !== undefined && $('.main-tab').length !== 0) {
 			common.tabSwitch(projects._HREF.split('#')[1].split('&')[0], projects._HREF.split('&')[1]);
 		}
 	});

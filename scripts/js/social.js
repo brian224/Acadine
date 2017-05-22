@@ -34,16 +34,8 @@
 					gutter: 20
 				});
 
-				var elems = $(this).masonry('getItemElements'),
-					_array = [];
-
-				for (var i = 0; i < elems.length; i++) {
-					_array.push(elems[i].clientHeight);
-				}
-
+				pageObj.masonryResetHeight($(this));
 				$(this).attr('data-masonry-complete', true);
-
-				console.log(_array);
 			}
 		});
 	}
@@ -71,6 +63,14 @@
 		});
 	}
 
+	page.prototype.masonryResetHeight = function($this) {
+		var _elems = $this.masonry('getItemElements');
+
+		for (var i = 0; i < _elems.length; i++) {
+			$this.find('.fb-post').eq(i).css({'height': _elems[i].clientHeight});
+		}
+	}
+
 	projects.$w.load(function(){
 		if (projects.device() !== 'Mobile') {
 			pageObj.getHeight();
@@ -94,7 +94,9 @@
 
 		$(pageObj._masonryLoad).on('click', function(){
 			var _str = $($(this).prev().html());
+
 			$(this).prev().append(_str).masonry('appended', _str);
+			pageObj.masonryResetHeight($(this).prev());
 		});
 	});
 

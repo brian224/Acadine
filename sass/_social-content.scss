@@ -33,9 +33,10 @@
 }
 
 .social-list .list-item {
+	overflow: hidden;
 	vertical-align: top;
 	
-	> * {
+	.fb-post > * {
 		background: $color-white;
 		box-sizing: border-box;
 	}
@@ -74,7 +75,11 @@
 		}
 
 		.list-item {
-			padding-bottom: 14px;
+			margin-bottom: 10px;
+
+			.fb-post {
+				overflow-y: scroll;
+			}
 		}
 	}
 }

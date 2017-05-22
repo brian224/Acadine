@@ -48,7 +48,6 @@
 
 	.b-link {
 		margin-top: 25px;
-		padding: 0 32px;
 		border: 1px solid $color-white;
 		@include transition(ease-in all 0.3s);
 
@@ -95,6 +94,7 @@
 			border-radius: 50%;
 			box-shadow: 0 0 30px $color-black;
 			z-index: -1;
+			@include transform(scale(0.9));
 		}
 	}
 
@@ -164,8 +164,25 @@
 }
 
 @include respond(Desktops) {
+	.m-section-hd .page-title {
+		font-size: 30px;
+	}
+
 	.cover-owl-list {
 		padding: 90px 4%;
+
+		&:before {
+			width: calc(100 / 70 * 4%);
+		}
+	}
+
+	.desc-owl-list .b-link {
+		padding: 0 32px;
+		height: 50px;
+
+		> * {
+			line-height: 50px;
+		}
 	}
 
 	.dm-list {
@@ -190,10 +207,6 @@
 		@include display-flex;
 		@include align-items(center);
 		@include justify-content(space-between);
-
-		.page-title {
-			font-size: 30px;
-		}
 	}
 
 	.m-section-bd {
@@ -215,63 +228,66 @@
 
 	.cover-owl-list {
 		width: 70%;
+		position: relative;
+
+		&:before {
+			content: '';
+			background: $color-white;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			right: 0;
+			z-index: 1;
+		}
 	}
 
 	.desc-owl-list {
 		width: 30%;
-
-		.b-link {
-			height: 50px;
-
-			> * {
-				line-height: 50px;
-			}
-		}
 	}
 
-	.dm-list {
-		.owl-stage .owl-item {
-			opacity: 0;
-			z-index: -1;
+	.dm-list .owl-stage .owl-item {
+		z-index: -1;
 
-			&.active {
+		&.active {
+			z-index: 4;
+
+			+ *, + * + *, + * + * + * {
 				opacity: 1;
-				z-index: 4;
+				@include transform-origin(right, center);
+			}
 
-				+ *, + * + *, + * + * + * {
-					opacity: 1;
-					@include transform-origin(right, center);
-				}
+			+ * {
+				margin-right: -200px;
+				z-index: 3;
+				@include transform(scale(0.9));
 
-				+ * {
-					margin-right: -200px;
-					z-index: 3;
-					@include transform(scale(0.9));
-
-					&:before {
-						@include transform(scale(0.8));
-					}
-				}
-
-				+ * + * {
-					margin-right: -235px;
-					z-index: 2;
+				&:before {
 					@include transform(scale(0.8));
-
-					&:before {
-						@include transform(scale(0.7));
-					}
 				}
+			}
 
-				+ * + * + * {
-					margin-right: -275px;
-					z-index: 1;
+			+ * + * {
+				margin-right: -235px;
+				z-index: 2;
+				@include transform(scale(0.8));
+
+				&:before {
 					@include transform(scale(0.7));
-
-					&:before {
-						@include transform(scale(0.6));
-					}
 				}
+			}
+
+			+ * + * + * {
+				margin-right: -275px;
+				z-index: 1;
+				@include transform(scale(0.7));
+
+				&:before {
+					@include transform(scale(0.6));
+				}
+			}
+
+			+ * + * + * + * {
+				opacity: 0;
 			}
 		}
 	}
@@ -299,8 +315,26 @@
 }
 
 @include respond(Tablets) {
+	.m-section-hd .page-title {
+		font-size: 24px;
+	}
+
 	.cover-owl-list {
 		padding: 90px 56px;
+
+		&:before {
+			width: 56px;
+		}
+	}
+
+	.desc-owl-list {
+		.dm-name {
+			font-size: 18px;
+		}
+
+		.active-time {
+			font-size: 14px;
+		}
 	}
 
 	.dm-list {
@@ -326,7 +360,16 @@
 	}
 }
 
-@include respond(Tablets-Mobiles) {}
+@include respond(Tablets-Mobiles) {
+	.desc-owl-list .b-link {
+		padding: 0 20px;
+		height: 40px;
+
+		> * {
+			line-height: 40px;
+		}
+	}
+}
 
 @include respond(Mobiles) {
 	.m-section-hd {
