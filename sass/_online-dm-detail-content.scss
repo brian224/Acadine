@@ -6,6 +6,7 @@
 
 .main-cut {
 	margin: 0 auto;
+	position: relative;
 }
 
 .dm-reader {
@@ -184,6 +185,7 @@
 			display: inline-block;
 			height: 30px;
 			vertical-align: top;
+			font-size: 14px;
 			line-height: 30px;
 		}
 	}
@@ -204,7 +206,7 @@
 			font-size: 18px;
 		}
 
-		&:hover, &.hide {
+		&:hover, &.hide, &.is-active {
 			opacity: 0.5;
 		}
 	}
@@ -274,36 +276,34 @@
 }
 
 .thumbnails {
-	background: rgba(0,0,0,0.5);
-	max-height: 0;
+	background: rgba(0,0,0,0.75);
 	position: absolute;
-	bottom: 40px;
 	left: 0;
 	right: 0;
 	overflow: hidden;
-	@include transition(ease-in all 0.3s);
+	opacity: 0;
+	z-index: -1;
 
 	&.show {
-		max-height: 100vh;
+		opacity: 1;
+		z-index: 1;
 	}
 
 	ul {
 		margin: 10px;
-		padding: 0 50px;
 		@include display-flex;
-		@include flex-wrap(wrap);
+		overflow-x: scroll;
 		list-style: none;
 	}
 
 	li {
-		margin: 5px;
+		margin-bottom: 24px;
+		@include display-flex;
+		position: relative;
+		box-sizing: border-box;
 		cursor: pointer;
 		font-size: 0;
 		line-height: 0;
-
-		&.current img {
-			opacity: 1;
-		}
 	}
 
 	figure {
@@ -314,7 +314,6 @@
 
 	img {
 		height: 100px;
-		opacity: 0.5;
 	}
 }
 
@@ -524,24 +523,16 @@
 
 		.magazine-viewport {
 			height: calc(100% - 40px);
-
-			.container {
-				width: 113.5vh;
-				height: 80vh;
-			}
-
-			.magazine {
-				width: 113.5vh;
-				height: 80vh;
-				top: -40vh;
-				left: -56.75vh;
-			}
 		}
 	}
 
 	.main-cut {
 		height: 540px;
 		overflow: hidden;
+
+		.dm-reader {
+			max-width: $main-max-width;
+		}
 
 		.dm-list {
 			padding-top: 20px;
@@ -573,6 +564,32 @@
 
 	.tools {
 		height: 40px;
+	}
+
+	.thumbnails {
+		margin-top: -85px;
+		top: 50%;
+
+		li {
+			border: 4px solid transparent;
+			border-radius: 4px;
+	
+			&.current {
+				border-color: $color-text-major;
+			}
+	
+			span {
+				display: block;
+				position: absolute;
+				bottom: -24px;
+				left: 0;
+				right: 0;
+				color: $color-white;
+				font-size: 12px;
+				line-height: 1.5em;
+				text-align: center;
+			}
+		}
 	}
 
 	.m-cut {
@@ -635,9 +652,9 @@
 @include respond(Desktops-Tablets) {
 	.main-cut {
 		@include display-flex;
-		max-width: $main-max-width;
 
 		.dm-reader {
+			margin: 0 auto;
 			@include flex-grow(1);
 		}
 	}
@@ -682,24 +699,30 @@
 }
 
 @include respond(HD) {
-	.main-content {
+	.dm-list {
+		position: relative;
+		z-index: 1;
+	}
+
+	.tools {
 		position: relative;
 
-		&:before {
+		&:before, &:after {
 			content: '';
 			background: $color-black;
 			display: block;
 			width: 100%;
-			height: 40px;
+			height: 100%;
 			position: absolute;
-			bottom: 0;
-			left: 0;
-			z-index: 0;
+			top: 0;
 		}
 
-		.main-cut {
-			position: relative;
-			z-index: 1;
+		&:before {
+			left: 100%;
+		}
+
+		&:after {
+			right: 100%;
 		}
 	}
 
@@ -723,7 +746,31 @@
 	}
 }
 
+@media screen and (min-width: 1746px) {
+	.main-content {
+		.main-cut {
+			position: relative;
+			z-index: 1;
+		}
+
+		.dm-list {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+		}
+	}
+
+	.thumbnails {
+		right: 173px;
+	}
+}
+
 @include respond(Tablets) {
+	.main-cut .dm-reader {
+		width: 100%;
+	}
+
 	.magazine-viewport {
 		height: calc(100vh - 166px);
 
@@ -732,6 +779,10 @@
 			width: calc((100vh - 166px) * 0.8 * 0.71);
 			height: calc((100vh - 166px) * 0.8);
 		}
+	}
+
+	.thumbnails {
+		top: calc((100vh - 166px) / 2);
 	}
 
 	.m-cut {
@@ -792,21 +843,33 @@
 	}
 
 	.thumbnails {
-		bottom: 80px;
+		margin-top: -80px;
 
 		li {
 			margin: 5px 0;
+			padding-bottom: 24px;
 		}
 
 		figure {
 			margin: 0 5px;
-		}
-
-		img {
-			height: 50px;
+			position: relative;
+			border: 4px solid transparent;
+			border-radius: 4px;
 
 			&.current {
-				opacity: 1;
+				border-color: $color-text-major;
+			}
+
+			.desc {
+				display: block;
+				position: absolute;
+				bottom: -24px;
+				left: 0;
+				right: 0;
+				color: $color-white;
+				font-size: 12px;
+				line-height: 1.5em;
+				text-align: center;
 			}
 		}
 	}
@@ -834,13 +897,21 @@
 }
 
 @include respond(Mobiles) {
+	.dm-title {
+		padding: 10px;
+		color: $color-white;
+		font-size: 18px;
+		line-height: 1.5em;
+		text-align: center;
+	}
+
 	.magazine-viewport {
-		height: calc(100vh - 136px);
+		height: calc(100vh - 210px);
 
 		.container {
-			margin-top: calc((100vh - 136px) * 0.1);
-			width: calc((100vh - 136px) * 0.8 * 0.71);
-			height: calc((100vh - 136px) * 0.8);
+			margin-top: calc((100vh - 210px) * 0.1);
+			width: calc((100vh - 210px) * 0.8 * 0.71);
+			height: calc((100vh - 210px) * 0.8);
 		}
 
 		.next-button, .previous-button {
@@ -855,6 +926,10 @@
 			width: auto;
 			text-align: center;
 		}
+	}
+
+	.thumbnails {
+		top: calc((100vh - 210px) / 2);
 	}
 
 	.m-cut {
@@ -897,7 +972,11 @@
 	}
 }
 
-@include devices(iphone) {}
+@include devices(iphone) {
+	.shopping-list .btn-read-more {
+		margin: 0 15px 25px 15px;
+	}
+}
 
 @include respond(Iphone5) {}
 

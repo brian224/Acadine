@@ -198,19 +198,18 @@ function resizeViewport() {
 
 	$('.magazine-viewport').zoom('resize');
 
-	if ($('.magazine').turn('zoom')==1) {
+	if ($('.magazine').turn('zoom') == 1) {
 		var bound = calculateBound({
-			width: options.width,
-			height: options.height,
-			boundWidth: Math.min(options.width, width),
-			boundHeight: Math.min(options.height, height)
+			width       : options.width,
+			height      : options.height,
+			boundWidth  : Math.min(options.width, width),
+			boundHeight : Math.min(options.height, height)
 		});
 
-		if (bound.width%2!==0)
-			bound.width-=1;
+		if (bound.width%2 !== 0)
+			bound.width -= 1;
 
-			
-		if (bound.width!=$('.magazine').width() || bound.height!=$('.magazine').height()) {
+		if (bound.width != $('.magazine').width() || bound.height != $('.magazine').height()) {
 
 			$('.magazine').turn('size', bound.width, bound.height);
 

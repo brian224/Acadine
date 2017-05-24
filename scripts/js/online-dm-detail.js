@@ -36,21 +36,22 @@
 			height     : $('.container').height(),
 			pages      : pageObj._totalPage,
 			when       : {
-				turning: function(event, page, view) {
+				turning : function(event, page, view) {
 					var book        = $(this),
-						currentPage = book.turn('page'),
-						pages       = book.turn('pages');
+						currentPage = (book.turn('page') >= 10) ? book.turn('page') : '0' + book.turn('page'),
+						pages       = (book.turn('pages') >= 10) ? book.turn('pages') : '0' + book.turn('pages'),
+						newPage     = (page >= 10) ? page : '0' + page;
 			
 					history.pushState(null, null, window.location.href.split('#')[0] + '#page' + page);
 
 					disableControls(page);
 
 					if (projects.device() !== 'PC') {
-						$('.thumbnails .page-'+currentPage).removeClass('current');
-						$('.thumbnails .page-'+page).addClass('current');
+						$('.thumbnails .page-' + currentPage).parent('figure').removeClass('current');
+						$('.thumbnails .page-' + newPage).parent('figure').addClass('current');
 					} else {
-						$('.thumbnails .page-'+currentPage).parents('li').removeClass('current');
-						$('.thumbnails .page-'+page).parents('li').addClass('current');
+						$('.thumbnails .page-' + currentPage).parents('li').removeClass('current');
+						$('.thumbnails .page-' + newPage).parents('li').addClass('current');
 					}
 
 					if (view[0] === 0) {
@@ -61,7 +62,7 @@
 						$('.jQ-pages').text(view[0] + '~' + view[1] + '/' + pageObj._totalPage);
 					}
 				},
-				turned: function(event, page, view) {
+				turned  : function(event, page, view) {
 					disableControls(page);
 
 					$(this).turn('center');
@@ -76,7 +77,7 @@
 						$('.jQ-pages').text(view[0] + '/' + pageObj._totalPage);
 					}
 				},
-				missing: function (event, pages) {
+				missing : function (event, pages) {
 					for (var i = 0; i < pages.length; i++) addPage(pages[i], $(this));
 				}
 			}
@@ -86,7 +87,7 @@
 	page.prototype.toggleFullScreen = function(element) {
 		var $elem = $(element);
 
-		if ( ! pageObj._iOS ) {
+		// if ( ! pageObj._iOS ) {
 			if ( ( document.fullScreenElement !== undefined && document.fullScreenElement === null ) ||
 			( document.msFullscreenElement !== undefined && document.msFullscreenElement === null ) ||
 			( document.mozFullScreen !== undefined && ! document.mozFullScreen ) ||
@@ -113,7 +114,7 @@
 					document.msExitFullscreen();
 				}
 			}
-		}
+		// }
 		$(pageObj._magazine).turn('size', $('.container').width(), $('.container').height());
 	}
 
@@ -192,7 +193,7 @@
 					e.preventDefault();
 				break;
 				case esc:
-					$(pageObj._mViewport).zoom('zoomOut');	
+					$(pageObj._mViewport).zoom('zoomOut');
 					e.preventDefault();
 				break;
 			}
@@ -209,8 +210,18 @@
 
 		if (window.location.href.split('#page')[1] !== undefined) {
 			if ($(pageObj._magazine).turn('is')) $(pageObj._magazine).turn('page', window.location.href.split('#page')[1]);
+			if (projects.device() !== 'PC') {
+				$('.thumbnails .page-' + window.location.href.split('#page')[1]).parent('figure').addClass('current');
+			} else {
+				$('.thumbnails .page-' + window.location.href.split('#page')[1]).parents('li').addClass('current');
+			}
 		} else {
 			if ($(pageObj._magazine).turn('is')) $(pageObj._magazine).turn('page', 1);
+			if (projects.device() !== 'PC') {
+				$('.thumbnails .page-01').parent('figure').addClass('current');
+			} else {
+				$('.thumbnails .page-01').parents('li').addClass('current');
+			}
 		}
 
 		$(pageObj._thumbnails).click(function(event) {
@@ -225,9 +236,9 @@
 			}
 		});
 
-		$(pageObj._thumbnails + ' li').on('click', function() {
-			$(this).addClass('current').siblings().removeClass('current');
-		});
+		// $(pageObj._thumbnails + ' li').on('click', function() {
+		// 	$(this).addClass('current').siblings().removeClass('current');
+		// });
 
 		$('.next-button').on('click', function() {
 			$(pageObj._magazine).turn('next');
@@ -252,12 +263,15 @@
 				$(pageObj._mViewport).zoom('zoomOut');
 		});
 
-		$('.show-list').on('click', function() {
+		$('.jQ-show-list').on('click', function() {
 			$(pageObj._thumbnails).toggleClass('show');
+			$(this).toggleClass('is-active');
 		});
 
 		$(pageObj._fullScreen).on('click', function() {
 			pageObj.toggleFullScreen('.main-content');
+			$(this).toggleClass('is-active');
+			$(pageObj._mViewport).zoom('zoomOut');
 		});
 	});
 
