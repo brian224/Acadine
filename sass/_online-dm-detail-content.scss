@@ -1,7 +1,6 @@
 ﻿.main-content {
 	background: $color-gray-d-p40;
 	width: 100%;
-	height: 100%;
 }
 
 .main-cut {
@@ -17,7 +16,6 @@
 	.container {
 		margin: auto;
 		position: absolute;
-		top: 50%;
 		left: 50%;
 	}
 
@@ -334,6 +332,8 @@
 		font-size: 12px;
 		font-weight: bold;
 		line-height: 1.5em;
+		word-break: break-all;
+		word-wrap: break-word;
 		@include transition(ease-in all 0.3s);
 	}
 
@@ -527,7 +527,7 @@
 	}
 
 	.main-cut {
-		height: 540px;
+		height: calc(100vh - 180px);
 		overflow: hidden;
 
 		.dm-reader {
@@ -547,18 +547,15 @@
 	}
 
 	.magazine-viewport {
-		min-height: 500px;
+		min-height: calc(100% - 40px);
 
 		.container {
-			width: 664px;
-			height: 468px;
+			height: 100%;
+			top: 0;
 		}
 
 		.magazine {
-			width: 664px;
-			height: 468px;
-			top: -234px;
-			left: -332px;
+			top: 0;
 		}
 	}
 
@@ -773,12 +770,6 @@
 
 	.magazine-viewport {
 		height: calc(100vh - 166px);
-
-		.container {
-			margin-top: calc((100vh - 166px) * 0.1);
-			width: calc((100vh - 166px) * 0.8 * 0.71);
-			height: calc((100vh - 166px) * 0.8);
-		}
 	}
 
 	.thumbnails {
@@ -907,12 +898,6 @@
 
 	.magazine-viewport {
 		height: calc(100vh - 210px);
-
-		.container {
-			margin-top: calc((100vh - 210px) * 0.1);
-			width: calc((100vh - 210px) * 0.8 * 0.71);
-			height: calc((100vh - 210px) * 0.8);
-		}
 
 		.next-button, .previous-button {
 			display: none;

@@ -1,6 +1,7 @@
 /*
  * Magazine sample
 */
+var _newSrc = '';
 
 function addPage(page, book) {
 	var id, pages = book.turn('pages');
@@ -39,7 +40,7 @@ function loadPage(page, pageElement) {
 	// Load the page
 
 	(page < 10) ? page = '0' + page : page;
-	img.attr('src', '../../content/img/online-dm/dm01/' +  page + '.jpg');
+	img.attr('src', _newSrc +  page + '.jpg');
 
 	// loadRegions(page, pageElement);
 }
@@ -151,8 +152,8 @@ function loadLargePage(page, pageElement) {
 
 	// Loadnew page
 	(page < 10) ? page = '0' + page : page;
-	// img.attr('src', '../../content/img/online-dm/dm01/' +  page + '-large.jpg');
-	img.attr('src', '../../content/img/online-dm/dm01/' +  page + '.jpg');
+	// img.attr('src', _newSrc +  page + '-large.jpg');
+	img.attr('src', _newSrc +  page + '.jpg');
 }
 
 // Load small page
@@ -166,7 +167,7 @@ function loadSmallPage(page, pageElement) {
 	img.unbind('load');
 	// Loadnew page
 	(page < 10) ? page = '0' + page : page;
-	img.attr('src', '../../content/img/online-dm/dm01/' +  page + '.jpg');
+	img.attr('src', _newSrc +  page + '.jpg');
 }
 
 // http://code.google.com/p/chromium/issues/detail?id=128488
@@ -283,12 +284,6 @@ function setPreview(view) {
 	preview.css({backgroundPosition:
 		'0px -'+((view-1)*previewHeight)+'px'
 	});
-}
-
-// Width of the flipbook when zoomed in
-
-function largeMagazineWidth() {
-	return 2214;
 }
 
 // decode URL Parameters

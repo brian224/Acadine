@@ -8,19 +8,29 @@
 		this._display      = '';
 		this._autoCenter   = false;
 		this._mViewport    = '.magazine-viewport';
+		this._container    = '.container';
 		this._magazine     = '.magazine';
 		this._thumbnails   = '.thumbnails';
 		this._fullScreen   = '.jQ-full-screen';
 		this._totalPage    = $(this._thumbnails + ' img').length;
 		this._iOS          = /iPad|iPhone|iPod/.test( this._userAgent ) && ! window.MSStream;
+		this._largeWidth   = 2214; // 放大倍率 (px)
+		this._imgSrc       = $(this._thumbnails + ' img').attr('src');
+		this._imgSrcArray  = this._imgSrc.split('/');
+		this._newImage     = new Image;
 		this.escTip;
 		this._bookPlaying
 	}
 
 	page.prototype.prepare = function() {
+		pageObj._newImage.src = pageObj._imgSrc;
+
 		if (projects.device() !== 'PC') {
+			$(pageObj._container).width(pageObj._newImage.width / pageObj._newImage.height * $(pageObj._mViewport).height());
 			pageObj._display = 'single';
 		} else {
+			$(pageObj._container).width(pageObj._newImage.width / pageObj._newImage.height * $(pageObj._mViewport).height() * 2);
+			$(pageObj._magazine).css('left', (- $(pageObj._container).width() / 2));
 			pageObj._display    = 'double';
 			pageObj._autoCenter = true;
 		}
@@ -32,8 +42,8 @@
 			duration   : 1000,
 			elevation  : 100,
 			gradients  : true,
-			width      : $('.container').width(),
-			height     : $('.container').height(),
+			width      : $(pageObj._container).width(),
+			height     : $(pageObj._mViewport).height(),
 			pages      : pageObj._totalPage,
 			when       : {
 				turning : function(event, page, view) {
@@ -115,19 +125,29 @@
 				}
 			}
 		// }
-		$(pageObj._magazine).turn('size', $('.container').width(), $('.container').height());
+		$(pageObj._magazine).turn('size', $(pageObj._container).width(), $(pageObj._container).height());
+	}
+
+	page.prototype.setNewSrc = function() {
+		pageObj._imgSrcArray.splice(pageObj._imgSrcArray.length - 1, 1);
+		_newSrc = pageObj._imgSrcArray.join('/') + '/';
 	}
 
 	projects.$w.load(function(){
 	});
 
 	projects.$d.ready(function(){
+		pageObj.setNewSrc();
 		pageObj.prepare();
 
 		$(pageObj._mViewport).zoom({
 			flipbook: $(pageObj._magazine),
-			max: function() { 
-				return largeMagazineWidth()/$(pageObj._magazine).width();
+			max: function() {
+				if (projects.device() !== 'PC') {
+					return pageObj._largeWidth / 2 / $(pageObj._magazine).width();
+				} else {
+					return pageObj._largeWidth / $(pageObj._magazine).width();
+				}
 			}, 
 			when: {
 				swipeLeft: function() {
@@ -155,8 +175,8 @@
 					}
 
 					if (projects.device() !== 'PC') {
-						$('.container').draggable();
-						$('.container').draggable('enable');
+						$(pageObj._container).draggable();
+						$(pageObj._container).draggable('enable');
 					}
 				},
 				zoomOut: function () {
@@ -164,7 +184,7 @@
 					$('.zoom-icon').removeClass('zoom-icon-out').addClass('zoom-icon-in');
 
 					if (projects.device() !== 'PC') {
-						$('.container').attr('style', '').draggable('disable');
+						$(pageObj._container).attr('style', '').draggable('disable');
 					}
 
 					setTimeout(function(){
@@ -236,10 +256,6 @@
 			}
 		});
 
-		// $(pageObj._thumbnails + ' li').on('click', function() {
-		// 	$(this).addClass('current').siblings().removeClass('current');
-		// });
-
 		$('.next-button').on('click', function() {
 			$(pageObj._magazine).turn('next');
 		});
@@ -273,6 +289,17 @@
 			$(this).toggleClass('is-active');
 			$(pageObj._mViewport).zoom('zoomOut');
 		});
+	});
+
+	projects.$w.resize(function(){
+		if (projects.device() !== 'PC') {
+			$(pageObj._container).width(pageObj._newImage.width / pageObj._newImage.height * $(pageObj._mViewport).height());
+		} else {
+			$(pageObj._container).width(pageObj._newImage.width / pageObj._newImage.height * $(pageObj._mViewport).height() * 2);
+			$(pageObj._magazine).css('left', (- $(pageObj._container).width() / 2));
+			pageObj._display    = 'double';
+		}
+		$(pageObj._magazine).turn('size', $(pageObj._container).width(), $(pageObj._container).height());
 	});
 
 	if ( ! window.pageObj ) {
