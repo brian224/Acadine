@@ -958,6 +958,31 @@
 }
 
 @include devices(iphone) {
+	.fullScreen {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 4;
+
+		.dm-title {
+			display: none;
+		}
+
+		.dm-reader {
+			height: 100vh;
+		}
+
+		.magazine-viewport {
+			height: calc(100vh - 160px);
+
+			.magazine {
+				top: 10px;
+			}
+		}
+	}
+
 	.shopping-list .btn-read-more {
 		margin: 0 15px 25px 15px;
 	}
@@ -1009,6 +1034,10 @@
 }
 
 @include browsers('Safari') {
+	.magazine-viewport {
+		height: calc(100vh - 220px);
+	}
+	
 	.shopping-list .btn-read-more {
 		margin-right: 32px;
 		margin-left: 32px;
