@@ -19,18 +19,20 @@
 		this._imgSrc       = $(this._thumbnails + ' img').attr('src');
 		this._imgSrcArray  = this._imgSrc.split('/');
 		this._newImage     = new Image;
+		this._aspectRatio  = 0;
 		this.escTip;
 		this._bookPlaying
 	}
 
 	page.prototype.prepare = function() {
 		pageObj._newImage.src = pageObj._imgSrc;
+		pageObj._aspectRatio = pageObj._newImage.width / pageObj._newImage.height;
 
 		if (projects.device() !== 'PC') {
-			$(pageObj._container).width(pageObj._newImage.width / pageObj._newImage.height * $(pageObj._mViewport).height());
+			$(pageObj._container).width(pageObj._aspectRatio * $(pageObj._mViewport).height());
 			pageObj._display = 'single';
 		} else {
-			$(pageObj._container).width(pageObj._newImage.width / pageObj._newImage.height * $(pageObj._mViewport).height() * 2);
+			$(pageObj._container).width(pageObj._aspectRatio * $(pageObj._mViewport).height() * 2);
 			$(pageObj._magazine).css('left', (- $(pageObj._container).width() / 2));
 			pageObj._display    = 'double';
 			pageObj._autoCenter = true;
@@ -160,10 +162,10 @@
 					$(this).zoom('flipbook').turn('previous');
 				},
 				resize: function(event, scale, page, pageElement) {
-					if (scale == 1)
-						loadSmallPage(page, pageElement);
-					else
-						loadLargePage(page, pageElement);
+					// if (scale == 1)
+					// 	loadSmallPage(page, pageElement);
+					// else
+					// 	loadLargePage(page, pageElement);
 				},
 				zoomIn: function () {
 					$(pageObj._magazine).removeClass('animated').addClass('zoom-in');
@@ -183,12 +185,16 @@
 					}
 				},
 				zoomOut: function () {
+					if (projects.device() === 'PC') {
+						$(pageObj._magazine).turn('options').width = pageObj._aspectRatio * $(pageObj._container).height() * 2;
+					} else {
+						$(pageObj._magazine).turn('options').width = pageObj._aspectRatio * $(pageObj._container).height();
+						$(pageObj._container).attr('style', '').draggable('disable');
+						$(pageObj._container).width(pageObj._aspectRatio * $(pageObj._mViewport).height());
+					}
+					$(pageObj._magazine).turn('options').height = $(pageObj._mViewport).height();
 					$('.exit-message').hide();
 					$('.zoom-icon').removeClass('zoom-icon-out').addClass('zoom-icon-in');
-
-					if (projects.device() !== 'PC') {
-						$(pageObj._container).attr('style', '').draggable('disable');
-					}
 
 					setTimeout(function(){
 						$(pageObj._magazine).addClass('animated').removeClass('zoom-in');
@@ -296,7 +302,7 @@
 
 	projects.$w.resize(function(){
 		if (projects.device() === 'PC') {
-			$(pageObj._container).width(pageObj._newImage.width / pageObj._newImage.height * $(pageObj._mViewport).height() * 2);
+			$(pageObj._container).width(pageObj._aspectRatio * $(pageObj._mViewport).height() * 2);
 			$(pageObj._magazine).css('left', (- $(pageObj._container).width() / 2));
 			pageObj._display = 'double';
 		}

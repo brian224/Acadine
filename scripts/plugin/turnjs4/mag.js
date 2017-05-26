@@ -1,7 +1,9 @@
 /*
  * Magazine sample
 */
-var _newSrc = '';
+var $magazine  = $('.magazine'),
+	$mViewport = $('.magazine-viewport'),
+	_newSrc    = '';
 
 function addPage(page, book) {
 	var id, pages = book.turn('pages');
@@ -49,13 +51,13 @@ function loadPage(page, pageElement) {
 
 function zoomTo(event) {
 	setTimeout(function() {
-		if ($('.magazine-viewport').data().regionClicked) {
-			$('.magazine-viewport').data().regionClicked = false;
+		if ($mViewport.data().regionClicked) {
+			$mViewport.data().regionClicked = false;
 		} else {
-			if ($('.magazine-viewport').zoom('value')==1) {
-				$('.magazine-viewport').zoom('zoomIn', event);
+			if ($mViewport.zoom('value')==1) {
+				$mViewport.zoom('zoomIn', event);
 			} else {
-				$('.magazine-viewport').zoom('zoomOut');
+				$mViewport.zoom('zoomOut');
 			}
 		}
 	}, 1);
@@ -77,7 +79,7 @@ function loadRegions(page, element) {
 
 function addRegion(region, pageElement) {
 	var reg = $('<div />', {'class': 'region  ' + region['class']}),
-		options = $('.magazine').turn('options'),
+		options = $magazine.turn('options'),
 		pageWidth = options.width/2,
 		pageHeight = options.height;
 
@@ -97,10 +99,10 @@ function regionClick(event) {
 	var region = $(event.target);
 
 	if (region.hasClass('region')) {
-		$('.magazine-viewport').data().regionClicked = true;
+		$mViewport.data().regionClicked = true;
 		
 		setTimeout(function() {
-			$('.magazine-viewport').data().regionClicked = false;
+			$mViewport.data().regionClicked = false;
 		}, 100);
 		
 		var regionType = $.trim(region.attr('class').replace('region', ''));
@@ -121,16 +123,16 @@ function processRegion(region, regionType) {
 		break;
 		case 'zoom' :
 			var regionOffset = region.offset(),
-				viewportOffset = $('.magazine-viewport').offset(),
+				viewportOffset = $mViewport.offset(),
 				pos = {
 					x: regionOffset.left-viewportOffset.left,
 					y: regionOffset.top-viewportOffset.top
 				};
 
-			$('.magazine-viewport').zoom('zoomIn', pos);
+			$mViewport.zoom('zoomIn', pos);
 		break;
 		case 'to-page' :
-			$('.magazine').turn('page', data.page);
+			$magazine.turn('page', data.page);
 		break;
 	}
 
@@ -182,7 +184,7 @@ function disableControls(page) {
 	else
 		$('.previous-button, .first-button').removeClass('hide');
 				
-	if (page==$('.magazine').turn('pages'))
+	if (page==$magazine.turn('pages'))
 		$('.next-button, .last-button').addClass('hide');
 	else
 		$('.next-button, .last-button').removeClass('hide');
@@ -193,13 +195,13 @@ function disableControls(page) {
 function resizeViewport() {
 	var width = $(window).width(),
 		height = $(window).height(),
-		options = $('.magazine').turn('options');
+		options = $magazine.turn('options');
 
-	$('.magazine').removeClass('animated');
+	$magazine.removeClass('animated');
 
-	$('.magazine-viewport').zoom('resize');
+	$mViewport.zoom('resize');
 
-	if ($('.magazine').turn('zoom') == 1) {
+	if ($magazine.turn('zoom') == 1) {
 		var bound = calculateBound({
 			width       : options.width,
 			height      : options.height,
@@ -210,25 +212,25 @@ function resizeViewport() {
 		if (bound.width%2 !== 0)
 			bound.width -= 1;
 
-		if (bound.width != $('.magazine').width() || bound.height != $('.magazine').height()) {
+		if (bound.width != $magazine.width() || bound.height != $magazine.height()) {
 
-			$('.magazine').turn('size', bound.width, bound.height);
+			$magazine.turn('size', bound.width, bound.height);
 
-			if ($('.magazine').turn('page')==1)
-				$('.magazine').turn('peel', 'br');
+			if ($magazine.turn('page')==1)
+				$magazine.turn('peel', 'br');
 		}
 	}
 
-	var magazineOffset = $('.magazine').offset(),
-		boundH = height - magazineOffset.top - $('.magazine').height(),
-		marginTop = (boundH - $('.thumbnails > div').height()) / 2;
+	var magazineOffset = $magazine.offset(),
+		boundH         = height - magazineOffset.top - $magazine.height(),
+		marginTop      = (boundH - $('.thumbnails > div').height()) / 2;
 
-	if (magazineOffset.top<$('.made').height())
+	if (magazineOffset.top < $('.made').height())
 		$('.made').hide();
 	else
 		$('.made').show();
 
-	$('.magazine').addClass('animated');
+	$magazine.addClass('animated');
 }
 
 // Number of views in a flipbook

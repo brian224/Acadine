@@ -519,6 +519,12 @@
 			width: 100%;
 			height: 100%;
 			max-width: 100%;
+
+			.dm-reader {
+				padding-right: 173px;
+				max-width: 100%;
+				box-sizing: border-box;
+			}
 		}
 
 		.magazine-viewport {
@@ -1037,7 +1043,7 @@
 	.magazine-viewport {
 		height: calc(100vh - 220px);
 	}
-	
+
 	.shopping-list .btn-read-more {
 		margin-right: 32px;
 		margin-left: 32px;
