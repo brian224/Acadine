@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="../../content/css/account.css?CSS=20160420_01">
 </head>
 <body>
-	<div class="l-body maintain show-header">
+	<div class="l-body my-card show-header">
 		<!--#include virtual="../Shared/Header.html" -->
 		<div class="l-main">
 			<div class="l-content b-clearfix">
@@ -27,15 +27,15 @@
 							</div>
 						</li>
 						<li class="list"><a href="my-calendar.html" class="b-link">我的行事曆</a></li>
-						<li class="list"><a href="my-card.html" class="b-link">我的遠百卡</a></li>
+						<li class="list"><a href="my-card.html" class="b-link is-curr">我的遠百卡</a></li>
 						<li class="list"><a href="favorite.html" class="b-link">我的最愛</a></li>
 						<li class="list">
-							<button class="b-link is-curr">帳戶相關設定</button>
+							<button class="b-link">帳戶相關設定</button>
 							<div class="sub-category-wrap">
 								<ul class="sub-category-list">
 									<li class="list"><a href="javascript:;" class="sub-link">修改會員資料</a></li>
 									<li class="list"><a href="javascript:;" class="sub-link">變更密碼</a></li>
-									<li class="list"><a href="maintain.html" class="sub-link is-curr">配送地址維護</a></li>
+									<li class="list"><a href="maintain.html" class="sub-link">配送地址維護</a></li>
 									<li class="list"><a href="javascript:;" class="sub-link">電子報訂閱 / 取消</a></li>
 									<li class="list"><a href="setting.html" class="sub-link">快速登入設定</a></li>
 								</ul>
@@ -48,7 +48,7 @@
 						<li class="list"><a href="javascript:;" class="b-link"><i class="m-icon m-icon-home"></i></a></li>
 						<li class="list"><a href="javascript:;" class="b-link"><em class="text">遠東百貨</em></a></li>
 						<li class="list"><a href="javascript:;" class="b-link"><em class="text">我的帳戶</em></a></li>
-						<li class="list"><a href="javascript:;" class="b-link"><em class="text">帳戶相關設定</em></a></li>
+						<li class="list"><a href="javascript:;" class="b-link"><em class="text">我的最愛</em></a></li>
 					</ol>
 				</div>
 				<h2 class="cut-title">
@@ -59,61 +59,82 @@
 					<div class="main-cut b-clearfix">
 						<em class="main-msg b-block b-text-center">親愛的 蔡依琳 您好！<br class="b-hide-dt">這是您的帳戶與專屬優惠。</em>
 						<div class="main-content b-float-right-md b-clearfix">
-							<div class="info-wrap b-col-dt-12 b-col-xs-12">
-								<h3 class="sub-title">配送地址維護</h3>
-								<div class="btn-wrap">
-									<a href="javascript:;" class="btn-link">新增收件人</a>
+							<div class="info-wrap b-col-dt-12 b-col-xs-12 b-float-left-dt">
+								<h3 class="sub-title">我的遠百卡</h3>
+								<div class="info-text"><span class="text">您的遠百卡資訊如下：</span></div>
+								<div class="m-tab main-tab">
+									<ul class="m-tab-wrap b-middle jQ-select" data-structure="html">
+										<li class="tab-list list">
+											<button class="btn-tab jQ-tab is-curr">網路會員卡</button>
+										</li>
+										<li class="tab-list list">
+											<button class="btn-tab jQ-tab">VVIP</button>
+										</li>
+										<li class="tab-list list">
+											<button class="btn-tab jQ-tab">VIP</button>
+										</li>
+										<li class="tab-list list">
+											<button class="btn-tab jQ-tab">運動活力卡</button>
+										</li>
+										<li class="tab-list list">
+											<button class="btn-tab jQ-tab">美女子美好卡</button>
+										</li>
+										<li class="tab-list list">
+											<button class="btn-tab jQ-tab">兒童卡</button>
+										</li>
+										<li class="tab-list list">
+											<button class="btn-tab jQ-tab">HG卡</button>
+										</li>
+										<li class="m-selected-item b-hide-dt"></li>
+									</ul>
+									<ul class="m-tab-content">
+										<li class="content-list is-curr">
+											<div class="card-info-wrap">
+												<p class="desc">凡於遠東百貨官網註冊的帳號都有一組網路會員卡號，登入帳號後可看到卡號，憑卡號可於實體店面使用。<br>建議您可至 【我的帳戶】的【帳戶相關設定】中完整填寫您的個人資訊，不論您在遠東百貨線上購物，或是遠東百貨現場消費，在登入官網後都可以查詢交易紀錄，您可隨時掌握消費相關資訊。此外，網路會員綁定HAPPYGO卡後，於線上購物及遠東百貨現場消費都可同步累積點數。</p>
+												<div class="card-code b-text-center">
+													<div class="card-pic">
+														<figure class="img-wrap">
+															<img src="../../content/img/account/cards/sample-card.png" alt="">
+														</figure>
+													</div>
+													<h4 class="code-title">會員條碼</h4>
+													<ul class="card-code-pic">
+														<li class="list">
+															<figure class="img-wrap">
+																<img src="../../content/img/account/cards/barcode.jpg" alt="">
+															</figure>
+														</li>
+														<li class="list">
+															<figure class="img-wrap">
+																<img src="../../content/img/account/cards/qrcode.jpg" alt="">
+															</figure>
+														</li>
+													</ul>
+												</div>
+												<div class="card-info-desc b-text-center">
+													<em class="text b-block">卡片類別：遠東百貨網路會員卡</em>
+													<em class="text b-block">發卡公司：遠東百貨</em>
+												</div>
+												<div class="btn-wrap b-text-center">
+													<a href="javascript:;" class="btn-link btn-sub b-col-xs-6">卡友權益</a>
+													<a href="javascript:;" class="btn-link btn-main b-col-xs-6">最新活動</a>
+												</div>
+											</div>
+										</li>
+										<li class="content-list">
+										</li>
+										<li class="content-list">
+										</li>
+										<li class="content-list">
+										</li>
+										<li class="content-list">
+										</li>
+										<li class="content-list">
+										</li>
+										<li class="content-list">
+										</li>
+									</ul>
 								</div>
-							</div>
-							<div class="table-wrap">
-								<table class="m-table table-rotate">
-									<thead>
-										<tr>
-											<td><em class="text b-bold"></em></td>
-											<td><em class="text b-bold">收件人</em></td>
-											<td><em class="text b-bold">地址</em></td>
-											<td><em class="text b-bold">手機</em></td>
-											<td><em class="text b-bold">修改</em></td>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td data-label="" class="b-text-right-xs"><button class="btn-delete"><em class="text b-hide-text">刪除</em></button></td>
-											<td data-label="收件人"><em class="text">蔡**</em></td>
-											<td data-label="地址"><em class="text">100台北市忠孝東路四段100號10樓</em></td>
-											<td data-label="手機"><em class="text">0912***123</em></td>
-											<td data-label="修改"><em class="text"><a href="javascript:;" class="btn-link">修改</a></em></td>
-										</tr>
-										<tr>
-											<td data-label="" class="b-text-right-xs"><button class="btn-delete"><em class="text b-hide-text">刪除</em></button></td>
-											<td data-label="收件人"><em class="text">蔡**</em></td>
-											<td data-label="地址"><em class="text">100台北市忠孝東路四段100號10樓</em></td>
-											<td data-label="手機"><em class="text">0912***123</em></td>
-											<td data-label="修改"><em class="text"><a href="javascript:;" class="btn-link">修改</a></em></td>
-										</tr>
-										<tr>
-											<td data-label="" class="b-text-right-xs"><button class="btn-delete"><em class="text b-hide-text">刪除</em></button></td>
-											<td data-label="收件人"><em class="text">蔡**</em></td>
-											<td data-label="地址"><em class="text">100台北市忠孝東路四段100號10樓</em></td>
-											<td data-label="手機"><em class="text">0912***123</em></td>
-											<td data-label="修改"><em class="text"><a href="javascript:;" class="btn-link">修改</a></em></td>
-										</tr>
-										<tr>
-											<td data-label="" class="b-text-right-xs"><button class="btn-delete"><em class="text b-hide-text">刪除</em></button></td>
-											<td data-label="收件人"><em class="text">蔡**</em></td>
-											<td data-label="地址"><em class="text">100台北市忠孝東路四段100號10樓</em></td>
-											<td data-label="手機"><em class="text">0912***123</em></td>
-											<td data-label="修改"><em class="text"><a href="javascript:;" class="btn-link">修改</a></em></td>
-										</tr>
-										<tr>
-											<td data-label="" class="b-text-right-xs"><button class="btn-delete"><em class="text b-hide-text">刪除</em></button></td>
-											<td data-label="收件人"><em class="text">蔡**</em></td>
-											<td data-label="地址"><em class="text">100台北市忠孝東路四段100號10樓</em></td>
-											<td data-label="手機"><em class="text">0912***123</em></td>
-											<td data-label="修改"><em class="text"><a href="javascript:;" class="btn-link">修改</a></em></td>
-										</tr>
-									</tbody>
-								</table>
 							</div>
 						</div>
 					</div>

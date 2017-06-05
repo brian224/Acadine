@@ -376,6 +376,14 @@
 		&.is-curr {
 			display: block;
 		}
+
+		.btn-link {
+			display: inline-block;
+			border: 0;
+			color: $color-white;
+			text-align: center;
+			@include transition(ease-in all 0.3s);
+		}
 	}
 }
 
@@ -386,6 +394,10 @@
 
 	.m-table {
 		margin-bottom: 0;
+
+		&:not(:last-child) tbody tr {
+			border-bottom: 0;
+		}
 	}
 }
 
@@ -587,6 +599,42 @@
 			vertical-align: top;
 			font-size: 14px;
 		}
+	}
+}
+
+.my-card .card-info-wrap {
+	color: $color-gray-d-p30;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 24px;
+
+	.card-code {
+		margin: 15px auto 0 auto;
+		display: table;
+	}
+
+	.img-wrap img {
+		max-width: 100%;
+	}
+
+	.code-title {
+		font-size: 16px;
+	}
+
+	.card-code-pic .list {
+		margin-bottom: 15px;
+		padding-bottom: 15px;
+		border-bottom: 1px solid $color-gray-l-p40;
+
+		.img-wrap {
+			margin: 10px 0;
+		}
+	}
+
+	.btn-wrap {
+		margin-top: 40px;
+		font-size: 0;
+		line-height: 0;
 	}
 }
 
@@ -894,6 +942,30 @@
 
 		.img-wrap {
 			border: 1px solid $color-gray-l-p40;
+		}
+	}
+
+	.my-card {
+		.m-tab.main-tab > .m-tab-wrap {
+			@include display-flex;
+			@include align-items(stretch);
+			@include justify-content(space-between);
+
+			.tab-list {
+				@include flex-grow(1);
+
+				.btn-tab {
+					width: 100%;
+				}
+			}
+		}
+
+		.card-info-wrap {
+			padding: 0 75px;
+	
+			.btn-wrap > * {
+				margin: 0 4px;
+			}
 		}
 	}
 }
@@ -1308,6 +1380,10 @@
 		}
 	}
 
+	.table-wrap .m-table:last-child {
+		border-top: 0;
+	}
+
 	.btn-tab {
 		padding: 5px 10px;
 		min-height: 40px;
@@ -1395,6 +1471,74 @@
 	
 			.item-price {
 				margin-bottom: 20px;
+			}
+		}
+	}
+
+	.my-card {
+		.main-tab {
+			border-top: 1px solid $color-gray-l-p30;
+
+			> .m-tab-wrap {
+				padding-top: 40px;
+				background: $color-white;
+				display: block;
+				max-height: 40px;
+				position: relative;
+				box-sizing: border-box;
+				overflow: hidden;
+				@include transition(ease-in all 0.3s);
+	
+				&:after {
+					content: '';
+					position: absolute;
+					top: 17px;
+					right: 20px;
+					border-top: 6px solid $color-gray-d-p30;
+					border-right: 6px solid transparent;
+					border-left: 6px solid transparent;
+					z-index: 1;
+					@include transition(ease-in all 0.3s);
+				}
+	
+				&.is-active {
+					max-height: 1000px;
+	
+					&:after {
+						@include transform(rotate(180deg));
+					}
+				}
+	
+				.btn-tab {
+					width: 100%;
+					border-top: 0;
+					border-right: 1px solid $color-gray-l-p30;
+					border-bottom: 0;
+					border-left: 1px solid $color-gray-l-p30;
+				}
+	
+				.m-selected-item {
+					height: 40px;
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					overflow: hidden;
+					font-size: 16px;
+					line-height: 40px;
+				}
+			}
+		}
+
+		.card-info-wrap {
+			padding: 0 20px;
+	
+			.btn-wrap {
+				@include display-flex;
+	
+				> *:not(:first-child) {
+					margin-left: 10px;
+				}
 			}
 		}
 	}
