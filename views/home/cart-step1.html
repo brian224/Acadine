@@ -25,9 +25,9 @@
 							<div class="member-info">
 								<em class="member-name">蔡依林</em>
 								<div class="coupon-info">
-									<span class="coupon-name">購物金(線上抵用券)</span>
-									<span class="highlight">2</span>
-									<span class="unit">張</span>
+									<span class="coupon-name">購物金</span>
+									<span class="highlight">3,500</span>
+									<span class="unit">元</span>
 								</div>
 								<div class="coupon-info">
 									<span class="coupon-name">HAPPY GO 點數</span>
@@ -233,12 +233,10 @@
 							<div class="purchase-info b-text-right"><em class="text">共 <span class="highlight">3</span> 件商品，商品金額：<span class="highlight">8,208</span> 元</em></div>
 							<div class="purchase-info b-text-right-dt b-middle">
 								<div class="b-col-dt-10 b-col-xs-9">
-									<div class="coupon-selection">
-										<span class="text b-inline">使用購物金(抵用券)折抵</span>
-										<div class="m-box-holder is-selector">
-											<select name="" id="" class="m-selection">
-												<option value="">100 元購物金折價券</option>
-											</select>
+									<div class="coupon-selection b-middle-dt">
+										<span class="text b-inline b-col-xs-12">使用購物金(抵用券)折抵</span>
+										<div class="m-box-holder b-col-xs-10">
+											<input type="text" class="m-inputbox" placeholder="">
 										</div>
 										<span class="text b-inline">元</span>
 									</div>
@@ -286,7 +284,7 @@
 									<input type="text" class="m-inputbox" placeholder="輸入姓名">
 								</div>
 							</div>
-							<div class="m-form b-col-dt-12 b-col-xs-12 b-clearfix">
+							<div class="m-form set-v-spacing b-col-dt-12 b-col-xs-12 b-clearfix">
 								<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">付款人電話</em>
 								<div class="b-col-dt-4 b-col-xs-12 b-clearfix b-float-left-dt">
 									<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">市話（日）</em>
@@ -337,7 +335,7 @@
 							</div>
 							<div class="m-form b-col-dt-12 b-col-xs-12 b-clearfix">
 								<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">地址</em>
-								<div class="m-form-group-dt b-col-dt-12 b-col-xs-12">
+								<div class="m-form-group-dt b-col-dt-12 b-col-xs-12 b-clearfix">
 									<div class="b-col-dt-2 b-col-xs-6 b-float-left-xs">
 										<div class="m-box-holder is-selector b-col-dt-12 b-col-xs-11">
 											<select name="" id="" class="m-selection">
@@ -366,31 +364,200 @@
 							<div class="m-form b-col-dt-12 b-col-xs-12 b-clearfix">
 								<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">發票資訊</em>
 								<div class="m-form-group-dt b-col-dt-12 b-col-xs-12 b-clearfix">
-									<div class="b-col-dt-3 b-col-xs-12">
-										<label class="m-lab jQ-radio b-col-dt-12 b-col-xs-12">
-											<div class="m-box-holder is-radio">
-												<input type="radio" name="invoice" class="m-radio" value="invoice-2">
-											</div>
-											<em class="text">二聯式</em>
-										</label>
-									</div>
-									<div class="b-col-dt-9 b-col-xs-12 b-clearfix">
-										<label class="m-lab jQ-radio b-col-dt-2 b-col-xs-12 b-float-left">
-											<div class="m-box-holder is-radio">
-												<input type="radio" name="invoice" class="m-radio" value="invoice-3">
-											</div>
-											<em class="text">三聯式</em>
-										</label>
-										<div class="b-col-dt-3 b-col-xs-6 b-float-left">
-											<div class="m-box-holder b-col-dt-11 b-col-xs-11">
-												<input type="text" class="m-inputbox" placeholder="統編">
-											</div>
-										</div>
-										<div class="b-col-dt-3 b-col-xs-6 b-float-left">
-											<div class="m-box-holder b-col-dt-11 b-col-xs-11 b-float-right-xs">
-												<input type="text" class="m-inputbox" placeholder="發票抬頭">
-											</div>
-										</div>
+									<em class="m-form-addon note b-col-dt-12 b-col-xs-12 b-block">*請選擇發票處理方式</em>
+								</div>
+								<div class="m-form-group-dt b-col-dt-12 b-col-xs-12 b-clearfix">
+									<div class="m-tab main-tab b-col-dt-12 b-col-xs-12 b-block">
+										<ul class="m-tab-wrap invoice-selection">
+											<li class="tab-list b-block-xs b-text-left-xs">
+												<label class="m-lab jQ-radio jQ-tab">
+													<div class="m-box-holder is-radio">
+														<input type="radio" name="invoice" class="m-radio" value="phone">
+													</div>
+													<em class="text">手機條碼載具</em>
+												</label>
+											</li>
+											<li class="tab-list b-block-xs b-text-left-xs">
+												<label class="m-lab jQ-radio jQ-tab">
+													<div class="m-box-holder is-radio">
+														<input type="radio" name="invoice" class="m-radio" value="citizen-digital">
+													</div>
+													<em class="text">自然人憑證載具</em>
+												</label>
+											</li>
+											<li class="tab-list b-block-xs b-text-left-xs">
+												<label class="m-lab jQ-radio jQ-tab">
+													<div class="m-box-holder is-radio">
+														<input type="radio" name="invoice" class="m-radio" value="donate">
+													</div>
+													<em class="text">捐贈</em>
+												</label>
+											</li>
+											<li class="tab-list b-block-xs b-text-left-xs">
+												<label class="m-lab jQ-radio jQ-tab">
+													<div class="m-box-holder is-radio">
+														<input type="radio" name="invoice" class="m-radio" value="e-invoice">
+													</div>
+													<em class="text">公司用電子發票(發票証明聯)</em>
+												</label>
+											</li>
+											<li class="tab-list b-block-xs b-text-left-xs">
+												<label class="m-lab jQ-radio jQ-tab">
+													<div class="m-box-holder is-radio">
+														<input type="radio" name="invoice" class="m-radio" value="p-invoice">
+													</div>
+													<em class="text">索取紙本發票</em>
+												</label>
+											</li>
+										</ul>
+										<ul class="m-tab-content">
+											<li class="content-list">
+												<label class="m-lab">
+													<em class="text">手機條碼</em>
+													<div class="m-box-holder">
+														<input type="text" class="m-inputbox" placeholder="請輸入手機號碼">
+													</div>
+												</label>
+												<em class="note b-col-dt-12 b-col-xs-12 b-block">※ 依統一發票使用辦法規定：個人戶 (二聯式) 發票一經開立，不得任意更改為公司戶 (三聯式)發票。</em>
+												<label class="m-lab jQ-checkbox is-checked b-block">
+													<div class="m-box-holder is-checkbox">
+														<input type="checkbox" class="m-checkbox" checked="checked">
+													</div>
+													<span class="text">若本人後續辦理退貨作業，同意由遠東百貨代為處理銷售憑證 (例如：發票處理或銷貨折讓)</span>
+												</label>
+											</li>
+											<li class="content-list">
+												<label class="m-lab">
+													<em class="text">自然人憑證</em>
+													<div class="m-box-holder">
+														<input type="text" class="m-inputbox" placeholder="請輸入自然人憑證證號">
+													</div>
+												</label>
+												<em class="note b-col-dt-12 b-col-xs-12 b-block">※ 依統一發票使用辦法規定：個人戶 (二聯式) 發票一經開立，不得任意更改為公司戶 (三聯式)發票。</em>
+												<label class="m-lab jQ-checkbox is-checked b-block">
+													<div class="m-box-holder is-checkbox">
+														<input type="checkbox" class="m-checkbox" checked="checked">
+													</div>
+													<span class="text">若本人後續辦理退貨作業，同意由遠東百貨代為處理銷售憑證 (例如：發票處理或銷貨折讓)</span>
+												</label>
+											</li>
+											<li class="content-list">
+												<label class="m-lab">
+													<em class="text b-block-xs">請輸入愛心碼：</em>
+													<div class="m-box-holder">
+														<input type="text" class="m-inputbox" placeholder="">
+													</div>
+													<a href="https://www.einvoice.nat.gov.tw/APMEMBERVAN/XcaOrgPreserveCodeQuery/XcaOrgPreserveCodeQuery" class="b-link b-inline" target="_blank">(愛心碼查詢)</a>
+												</label>
+												<label class="m-lab jQ-checkbox is-checked b-block">
+													<div class="m-box-holder is-checkbox">
+														<input type="checkbox" class="m-checkbox" checked="checked">
+													</div>
+													<span class="text">若本人後續辦理退貨作業，同意由遠東百貨代為處理銷售憑證 (例如：發票處理或銷貨折讓)</span>
+												</label>
+											</li>
+											<li class="content-list">
+												<div class="m-form-group-dt b-col-dt-12 b-col-xs-12">
+													<div class="b-col-dt-4 b-col-xs-12 b-clearfix b-float-left-dt">
+														<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">統一編號</em>
+														<div class="m-box-holder b-col-dt-12 b-col-xs-12 b-block">
+															<input type="text" class="m-inputbox" placeholder="請輸入統一編號">
+														</div>
+													</div>
+													<div class="b-col-dt-4 b-col-xs-12 b-clearfix b-float-left-dt">
+														<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">發票抬頭</em>
+														<div class="m-box-holder b-col-dt-12 b-col-xs-12 b-block">
+															<input type="text" class="m-inputbox" placeholder="請填寫發票抬頭">
+														</div>
+													</div>
+													<div class="b-col-dt-4 b-col-xs-12 b-clearfix b-float-left-dt">
+														<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">收件人</em>
+														<div class="m-box-holder b-col-dt-12 b-col-xs-12 b-block">
+															<input type="text" class="m-inputbox" placeholder="請填寫姓名">
+														</div>
+													</div>
+												</div>
+												<div class="m-form b-col-dt-12 b-col-xs-12 b-clearfix">
+													<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">地址</em>
+													<div class="m-form-group-dt b-col-dt-12 b-col-xs-12">
+														<div class="b-col-dt-2 b-col-xs-6 b-float-left-xs">
+															<div class="m-box-holder is-selector b-col-dt-12 b-col-xs-11">
+																<select name="" id="" class="m-selection">
+																	<option value="">選擇縣市</option>
+																	<option value="">台北市</option>
+																	<option value="">新北市</option>
+																</select>
+															</div>
+														</div>
+														<div class="b-col-dt-2 b-col-xs-6 b-float-left-xs">
+															<div class="m-box-holder is-selector b-col-dt-12 b-col-xs-11 b-float-right-xs">
+																<select name="" id="" class="m-selection">
+																	<option value="">選擇區域</option>
+																	<option value="">中山區</option>
+																	<option value="">中正區</option>
+																</select>
+															</div>
+														</div>
+														<div class="b-col-dt-8 b-col-xs-12 b-float-left-xs">
+															<div class="m-box-holder b-col-dt-12 b-col-xs-12">
+																<input type="text" class="m-inputbox" placeholder="地址">
+															</div>
+														</div>
+													</div>
+												</div>
+												<em class="note b-col-dt-12 b-col-xs-12 b-block">※ 依統一發票使用辦法規定：個人戶 (二聯式) 發票一經開立，不得任意更改為公司戶 (三聯式)發票。</em>
+												<label class="m-lab jQ-checkbox is-checked b-block">
+													<div class="m-box-holder is-checkbox">
+														<input type="checkbox" class="m-checkbox" checked="checked">
+													</div>
+													<span class="text">若本人後續辦理退貨作業，同意由遠東百貨代為處理銷售憑證 (例如：發票處理或銷貨折讓)</span>
+												</label>
+											</li>
+											<li class="content-list">
+												<div class="m-form-group-dt b-col-dt-12 b-col-xs-12">
+													<div class="b-col-dt-4 b-col-xs-12 b-clearfix b-float-left-dt">
+														<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">收件人</em>
+														<div class="m-box-holder b-col-dt-12 b-col-xs-12 b-block">
+															<input type="text" class="m-inputbox" placeholder="請填寫姓名">
+														</div>
+													</div>
+												</div>
+												<div class="m-form b-col-dt-12 b-col-xs-12 b-clearfix">
+													<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">地址</em>
+													<div class="m-form-group-dt b-col-dt-12 b-col-xs-12">
+														<div class="b-col-dt-2 b-col-xs-6 b-float-left-xs">
+															<div class="m-box-holder is-selector b-col-dt-12 b-col-xs-11">
+																<select name="" id="" class="m-selection">
+																	<option value="">選擇縣市</option>
+																	<option value="">台北市</option>
+																	<option value="">新北市</option>
+																</select>
+															</div>
+														</div>
+														<div class="b-col-dt-2 b-col-xs-6 b-float-left-xs">
+															<div class="m-box-holder is-selector b-col-dt-12 b-col-xs-11 b-float-right-xs">
+																<select name="" id="" class="m-selection">
+																	<option value="">選擇區域</option>
+																	<option value="">中山區</option>
+																	<option value="">中正區</option>
+																</select>
+															</div>
+														</div>
+														<div class="b-col-dt-8 b-col-xs-12 b-float-left-xs">
+															<div class="m-box-holder b-col-dt-12 b-col-xs-12">
+																<input type="text" class="m-inputbox" placeholder="地址">
+															</div>
+														</div>
+													</div>
+												</div>
+												<label class="m-lab jQ-checkbox is-checked b-block">
+													<div class="m-box-holder is-checkbox">
+														<input type="checkbox" class="m-checkbox" checked="checked">
+													</div>
+													<span class="text">若本人後續辦理退貨作業，同意由遠東百貨代為處理銷售憑證 (例如：發票處理或銷貨折讓)</span>
+												</label>
+											</li>
+										</ul>
 									</div>
 								</div>
 							</div>
@@ -408,7 +575,7 @@
 								</em>
 								<span class="sub-desc b-float-left b-block">宅配商品：共 <span class="highlight">3</span> 件，您可視需要選擇不同的配</span>
 							</h4>
-							<div class="m-form b-col-dt-12 b-col-xs-12 b-clearfix">
+							<div class="m-form set-v-spacing b-col-dt-12 b-col-xs-12 b-clearfix">
 								<label class="m-lab jQ-checkbox b-col-md-4 b-col-tm-6 b-col-xs-12 b-float-left-tm">
 									<div class="m-box-holder is-checkbox">
 										<input type="checkbox" class="m-checkbox">
@@ -422,7 +589,7 @@
 									<span class="text">選擇不同配送地址</span>
 								</label>
 							</div>
-							<div class="m-form b-col-dt-12 b-col-xs-12">
+							<div class="m-form set-v-spacing b-col-dt-12 b-col-xs-12">
 								<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">收件人姓名</em>
 								<div class="b-col-dt-4 b-col-xs-12 b-clearfix b-float-left-dt">
 									<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">市話（日）</em>

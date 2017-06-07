@@ -330,6 +330,9 @@ $color-btn-cancel : $color-gray-l-p10;
 
 		.coupon-selection {
 			margin-bottom: 10px;
+			font-size: 14px;
+			letter-spacing: 1px;
+			line-height: 1.5em;
 		}
 
 		.btn-link {
@@ -662,6 +665,19 @@ $color-btn-cancel : $color-gray-l-p10;
 	@include transition(ease-in all 0.3s);
 }
 
+.invoice-selection {
+	margin-bottom: 10px;
+
+	.m-lab {
+		font-size: 14px;
+		line-height: 30px;
+	}
+}
+
+.content-list .m-form-group-dt {
+	margin-bottom: 10px;
+}
+
 @include respond(Desktops) {
 	.m-cut {
 		margin-bottom: 70px;
@@ -959,6 +975,11 @@ $color-btn-cancel : $color-gray-l-p10;
 			text-align: right;
 		}
 	}
+
+	.invoice-selection {
+		@include display-flex;
+		@include justify-content(space-between);
+	}
 }
 
 @include respond(HD) {
@@ -1162,6 +1183,10 @@ $color-btn-cancel : $color-gray-l-p10;
 			.note {
 				padding: 0;
 			}
+
+			.m-box-holder {
+				vertical-align: middle;
+			}
 		}
 
 		.m-table {
@@ -1179,9 +1204,9 @@ $color-btn-cancel : $color-gray-l-p10;
 			}
 		}
 
-		.m-lab {
+		/*.m-lab {
 			line-height: 40px;
-		}
+		}*/
 
 		.purchase-info {
 			padding: 10px 0;
@@ -1316,6 +1341,22 @@ $color-btn-cancel : $color-gray-l-p10;
 		td:before {
 			padding-left: 10px;
 			text-align: left;
+		}
+	}
+
+	.set-v-spacing > *:not(:first-child) {
+		margin-top: 10px;
+	}
+
+	.m-lab.jQ-checkbox {
+		padding-left: 25px;
+		position: relative;
+
+		.is-checkbox {
+			margin-top: -10px;
+			position: absolute;
+			top: 50%;
+			left: 0;
 		}
 	}
 }

@@ -231,7 +231,27 @@
 }
 
 @include respond(Desktops-Tablets) {
-    /* br */
+    /* vertical-align middle */
+    .b-middle-dt {
+        height    : 100%;
+        font-size : 0;
+        position  : relative;
+
+        &:before {
+            content     : "";
+            font-size   : 0;
+            height      : 100%;
+            line-height : 0;
+            zoom        : 1;
+            @include inline-block;
+        }
+
+        > * {
+            @include inline-block;
+        }
+    }
+
+   /* br */
     .b-br-dt {
         display : block !important;
     }

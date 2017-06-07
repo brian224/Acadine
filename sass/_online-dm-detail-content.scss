@@ -910,6 +910,12 @@
 		}
 	}
 
+	@include screen(landscape) {
+		.magazine-viewport {
+			min-height: 360px;
+		}
+	}
+
 	.tools {
 		display: block;
 

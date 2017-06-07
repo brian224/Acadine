@@ -298,6 +298,10 @@
 			$(this).toggleClass('is-active');
 			$(pageObj._mViewport).zoom('zoomOut');
 		});
+
+		$(pageObj._magazine).dblclick(function(){
+			$(pageObj._mViewport).zoom('zoomOut');
+		});
 	});
 
 	projects.$w.resize(function(){
