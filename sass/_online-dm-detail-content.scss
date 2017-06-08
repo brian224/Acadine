@@ -512,7 +512,6 @@
 
 @include respond(Desktops) {
 	.fullScreen {
-		width: 100%;
 		height: 100%;
 
 		.main-cut {
@@ -1003,6 +1002,15 @@
 @include respond(Iphone5) {}
 
 @include browsers('IE') {
+	.main-cut .dm-reader {
+		width: calc(100vw - 173px);
+		@include transform(translateZ(0));
+	}
+
+	.magazine-viewport {
+		min-height: calc(100vh - 220px);
+	}
+
 	.shopping-list .btn-read-more {
 		margin-right: 32px;
 		margin-left: 32px;
@@ -1010,6 +1018,25 @@
 }
 
 @include browsers('IE9') {
+	.tools {
+		position: relative;
+
+		> * {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+		}
+
+		.center-part {
+			left: 33.33%;
+			right: 66.67%;
+		}
+
+		.right-part {
+			right: 0;
+		}
+	}
+
 	.shopping-list {
 		font-size: 0;
 		line-height: 0;

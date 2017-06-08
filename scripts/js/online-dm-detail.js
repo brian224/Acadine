@@ -7,6 +7,7 @@
 		this._defaultWidth = (projects.device() !== 'PC') ? 'MT' : 'P';
 		this._display      = '';
 		this._autoCenter   = false;
+		this._testValue    = false;
 		this._mViewport    = '.magazine-viewport';
 		this._container    = '.container';
 		this._magazine     = '.magazine';
@@ -55,7 +56,9 @@
 						pages       = (book.turn('pages') >= 10) ? book.turn('pages') : '0' + book.turn('pages'),
 						newPage     = (page >= 10) ? page : '0' + page;
 			
-					history.pushState(null, null, window.location.href.split('#')[0] + '#page' + page);
+					if (typeof(history.pushState) !== 'undefined') {
+						history.pushState(null, null, window.location.href.split('#')[0] + '#page' + page);
+					}
 
 					disableControls(page);
 
@@ -105,7 +108,7 @@
 			( document.msFullscreenElement !== undefined && document.msFullscreenElement === null ) ||
 			( document.mozFullScreen !== undefined && ! document.mozFullScreen ) ||
 			( document.webkitIsFullScreen !== undefined && ! document.webkitIsFullScreen ) ) {
-				$elem.addClass('fullScreen');
+				// $elem.addClass('fullScreen');
 				if ( $elem[0].requestFullScreen ) {
 					$elem[0].requestFullScreen();
 				} else if ( $elem[0].mozRequestFullScreen ) {
@@ -116,7 +119,7 @@
 					$elem[0].msRequestFullscreen();
 				}
 			} else {
-				$elem.removeClass('fullScreen');
+				// $elem.removeClass('fullScreen');
 				if ( document.cancelFullScreen ) {
 					document.cancelFullScreen();
 				} else if ( document.mozCancelFullScreen ) {
@@ -128,9 +131,9 @@
 				}
 			}
 		} else {
-			$elem.toggleClass('fullScreen');
+			// $elem.toggleClass('fullScreen');
 		}
-		$(pageObj._magazine).turn('size', $(pageObj._container).width(), $(pageObj._container).height());
+		// $(pageObj._magazine).turn('size', $(pageObj._container).width(), $(pageObj._container).height());
 	}
 
 	page.prototype.setNewSrc = function() {
@@ -228,15 +231,6 @@
 			}
 		});
 
-		$(window).resize(function() {
-			if ((pageObj._defaultWidth === 'MT' && $(window).width() >= 1000) || (pageObj._defaultWidth === 'P' && $(window).width() < 1000)) {
-				$(pageObj._magazine).turn('destroy');
-				pageObj.prepare();
-
-				pageObj._defaultWidth = ($(window).width() < 1000) ? 'MT' : 'P';
-			}
-		});
-
 		if (window.location.href.split('#page')[1] !== undefined) {
 			if ($(pageObj._magazine).turn('is')) $(pageObj._magazine).turn('page', window.location.href.split('#page')[1]);
 			if (projects.device() !== 'PC') {
@@ -302,13 +296,31 @@
 		$(pageObj._magazine).dblclick(function(){
 			$(pageObj._mViewport).zoom('zoomOut');
 		});
+
+		projects.$d.on('webkitfullscreenchange mozfullscreenchange fullscreenchange msfullscreenchange', function(e) {
+			pageObj._testValue = !pageObj._testValue;
+
+			$('.main-content').toggleClass('fullScreen');
+			if (projects.device() === 'PC') {
+				$(pageObj._container).width(pageObj._aspectRatio * $(pageObj._mViewport).height() * 2);
+				$(pageObj._magazine).css('left', (- $(pageObj._container).width() / 2));
+				$(pageObj._magazine).turn('size', $(pageObj._container).width(), $(pageObj._container).height());
+			}
+		});
 	});
 
 	projects.$w.resize(function(){
-		if (projects.device() === 'PC') {
+		if (projects.device() === 'PC' && pageObj._testValue === false) {
 			$(pageObj._container).width(pageObj._aspectRatio * $(pageObj._mViewport).height() * 2);
 			$(pageObj._magazine).css('left', (- $(pageObj._container).width() / 2));
 			pageObj._display = 'double';
+		}
+
+		if ((pageObj._defaultWidth === 'MT' && projects.$w.width() >= 1000) || (pageObj._defaultWidth === 'P' && projects.$w.width() < 1000)) {
+			$(pageObj._magazine).turn('destroy');
+			pageObj.prepare();
+
+			pageObj._defaultWidth = (projects.$w.width() < 1000) ? 'MT' : 'P';
 		}
 		$(pageObj._magazine).turn('size', $(pageObj._container).width(), $(pageObj._container).height());
 	});
