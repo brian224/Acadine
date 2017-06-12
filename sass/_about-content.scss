@@ -6,6 +6,19 @@
 .content-wrap {
 	padding: 0 10px;
 	background: #f4f4f4;
+	position: relative;
+
+	&:before {
+		content: '';
+		background: $color-white;
+		display: block;
+		width: 120%;
+		height: 50%;
+		position: absolute;
+		bottom: -10%;
+		left: -10%;
+		@include transform(rotate(6deg));
+	}
 }
 
 .main-cut {
@@ -261,6 +274,10 @@
 	}
 
 	.mascot-info {
+		&:not(:last-child) {
+			margin-bottom: 80px;
+		}
+
 		.mascot-title {
 			margin-bottom: 20px;
 			font-size: 30px;
@@ -395,8 +412,14 @@
 		margin-top: 20px;
 	}
 
-	.mascot-info .desc-owl-list {
-		padding-left: 40px;
+	.mascot-info {
+		&:not(:last-child) {
+			margin-bottom: 40px;
+		}
+
+		.desc-owl-list {
+			padding-left: 40px;
+		}
 	}
 }
 
@@ -518,8 +541,28 @@
 		}
 	}
 
-	.mascot-info > * {
-		width: 100%;
+	.mascot-info {
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+
+		> * {
+			width: 100%;
+		}
+
+		.mascot-title:after {
+			width: 54px;
+			height: 3px;
+		}
+
+		.mascot-owl-list {
+			margin: 10px auto 0 auto;
+			display: block;
+		}
+
+		.mascot-list {
+			margin: 0 auto;
+		}
 	}
 }
 
