@@ -448,8 +448,8 @@
 		line-height: 1.5em;
 	}
 
-	.info-list .list {
-		border-color: $color-black;
+	.info-list .list:after {
+		background: $color-black;
 	}
 }
 
