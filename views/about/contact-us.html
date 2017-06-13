@@ -99,7 +99,7 @@
 							<li class="list b-col-dt-12 b-col-xs-12 b-clearfix">
 								<span class="text b-text-right-dt b-text-left-xs b-col-md-2 b-col-tm-3 b-col-xs-12 b-float-left is-reqired">姓名</span>
 								<div class="value-form b-col-md-10 b-col-tm-9 b-col-xs-12 b-float-left">
-									<label class="m-lab b-col-dt-6 b-col-xs-12 b-float-left">
+									<label class="m-lab b-col-dt-6 b-col-xs-12 b-float-left error">
 										<div class="m-box-holder b-col-dt-12 b-col-xs-12">
 											<input type="text" class="m-inputbox" placeholder="">
 										</div>
@@ -169,6 +169,23 @@
 								</div>
 							</li>
 							<li class="list b-col-dt-12 b-col-xs-12 b-clearfix">
+								<span class="text b-text-right-dt b-text-left-xs b-col-md-2 b-col-tm-3 b-col-xs-12 b-float-left is-reqired">驗證碼</span>
+								<div class="value-form b-col-md-10 b-col-tm-9 b-col-xs-12 b-float-left">
+									<label class="m-lab b-col-dt-6 b-col-xs-12 b-float-left">
+										<div class="m-box-holder b-col-dt-12 b-col-xs-12">
+											<input type="text" class="m-inputbox" placeholder="">
+										</div>
+										<span class="alert b-col-dt-12 b-col-xs-12">驗證碼必填！</span>
+									</label>
+									<div class="verification b-col-dt-4 b-col-xs-12 b-float-left b-text-left">
+										<figure class="img-wrap b-inline">
+											<img src="../../content/img/verification/01.jpg" alt="">
+										</figure>
+										<a href="javascript:;" class="b-link b-inline">更新驗證碼</a>
+									</div>
+								</div>
+							</li>
+							<li class="list b-col-dt-12 b-col-xs-12 b-clearfix">
 								<div class="value-form b-col-md-10 b-col-tm-9 b-col-xs-12 b-float-right">
 									<label class="m-lab jQ-checkbox b-col-dt-12 b-col-xs-12">
 										<div class="m-box-holder is-checkbox">
@@ -179,15 +196,15 @@
 								</div>
 							</li>
 							<li class="list b-col-dt-12 b-col-xs-12 b-clearfix">
-								<div class="btn-wrap b-col-md-10 b-col-tm-9 b-col-xs-12 b-float-right">
+								<div class="btn-wrap b-col-md-10 b-col-tm-9 b-col-xs-12 b-float-right-dt">
 									<div class="b-col-dt-10">
-										<a href="javascript:;" class="btn-link b-col-dt-5 b-col-xs-12 b-float-left">重填</a>
-										<a href="javascript:;" class="btn-link b-col-dt-6 b-col-xs-12 b-float-right">確認送出</a>
+										<a href="javascript:;" class="btn-link b-col-dt-5 btn-light b-col-xs-6 b-float-left">重填</a>
+										<a href="javascript:;" class="btn-link b-col-dt-6 b-col-xs-6 b-float-right">確認送出</a>
 									</div>
 								</div>
 							</li>
 						</ul>
-						<div class="">
+						<div class="precautions">
 							<p class="b-desc">注意事項：</p>
 							<ol class="order-list is-decimal">
 								<li class="list">本網頁為遠東百貨客戶服務『聯絡我們』，僅限欲聯繫遠東百貨相關服務使用。</li>
@@ -198,26 +215,62 @@
 							</ol>
 						</div>
 						<h3 class="sub-title">您也可以利用以下客服專線與我們聯繫</h3>
+						<ul class="branch-info-list b-clearfix">
+							<li class="list b-col-md-4 b-col-sm-6 b-col-xs-12">
+								<em class="branch-name b-block">寶慶遠百</em>
+								<span class="text b-block">服務電話：<a href="tel:0223816088#9" class="tel-link">(02)2381-6088 #9</a></span>
+								<span class="text b-block">免付費專線電話：<a href="tel:0800231022" class="tel-link">0800-231-022</a></span>
+							</li>
+							<li class="list b-col-md-4 b-col-sm-6 b-col-xs-12">
+								<em class="branch-name b-block">板橋遠百</em>
+								<span class="text b-block">服務電話：<a href="tel:0289525678" class="tel-link">(02)8952-5678</a></span>
+								<span class="text b-block">免付費專線電話：<a href="tel:0800048999" class="tel-link">0800-048-999</a></span>
+							</li>
+							<li class="list b-col-md-4 b-col-sm-6 b-col-xs-12">
+								<em class="branch-name b-block">板橋大遠百</em>
+								<span class="text b-block">服務電話：<a href="tel:0277054168" class="tel-link">02-77054168</a></span>
+								<span class="text b-block">免付費專線電話：<a href="tel:0809081968  " class="tel-link">0809-081-968  </a></span>
+							</li>
+							<li class="list b-col-md-4 b-col-sm-6 b-col-xs-12">
+								<em class="branch-name b-block">桃園遠百</em>
+								<span class="text b-block">服務電話：<a href="tel:033359811" class="tel-link">03-3359811</a></span>
+								<span class="text b-block">免付費專線電話：<a href="tel:0800311140" class="tel-link">0800-311-140</a></span>
+							</li>
+							<li class="list b-col-md-4 b-col-sm-6 b-col-xs-12">
+								<em class="branch-name b-block">新竹大遠百</em>
+								<span class="text b-block">服務電話：<a href="tel:035233121" class="tel-link">03-5233121</a></span>
+								<span class="text b-block">免付費專線電話：<a href="tel:0800351818 " class="tel-link">0800-351-818 </a></span>
+							</li>
+							<li class="list b-col-md-4 b-col-sm-6 b-col-xs-12">
+								<em class="branch-name b-block">台中大遠百</em>
+								<span class="text b-block">服務電話：<a href="tel:0437022168" class="tel-link">04-3702-2168</a></span>
+								<span class="text b-block">免付費專線電話：<a href="tel:0809082288" class="tel-link">0809-082-288</a></span>
+							</li>
+							<li class="list b-col-md-4 b-col-sm-6 b-col-xs-12">
+								<em class="branch-name b-block">嘉義遠百</em>
+								<span class="text b-block">服務電話：<a href="tel:052365137" class="tel-link">05-2365137</a></span>
+								<span class="text b-block">免付費專線電話：<a href="tel:0800523510" class="tel-link">0800-523-510</a></span>
+							</li>
+							<li class="list b-col-md-4 b-col-sm-6 b-col-xs-12">
+								<em class="branch-name b-block">台南大遠百</em>
+								<span class="text b-block">成功店服務電話：<a href="tel:062098999#9" class="tel-link">(06)2098999#9</a></span>
+								<span class="text b-block">服務電話：<a href="tel:0800008777" class="tel-link">0800-008-777</a></span>
+								<span class="text b-block">免付費專線電話：<a href="tel:062259101" class="tel-link">(06)2259101</a></span>
+							</li>
+							<li class="list b-col-md-4 b-col-sm-6 b-col-xs-12">
+								<em class="branch-name b-block">高雄大遠百</em>
+								<span class="text b-block">服務電話：<a href="tel:079728888" class="tel-link">07-972-8888</a></span>
+								<span class="text b-block">免付費專線電話：<a href="tel:0800523510" class="tel-link">0800-523-510</a></span>
+							</li>
+							<li class="list b-col-md-4 b-col-sm-6 b-col-xs-12">
+								<em class="branch-name b-block">花蓮遠百</em>
+								<span class="text b-block">服務電話：<a href="tel:038355588" class="tel-link">03-835-5588</a></span>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
-			<aside class="l-side">
-				<div class="pagination">
-					<ul class="cut-dot"></ul>
-				</div>
-				<div class="function-list">
-					<button class="btn-side-menu jQ-side-menu b-hide-text is-active">side menu</button>
-					<ul class="collapse-wrap">
-						<li class="list"><a href="javascript:;" class="b-link"><i class="m-icon m-icon-announcement"></i><em class="b-hide-text">即時公告</em></a></li>
-						<li class="list"><a href="javascript:;" class="b-link"><i class="m-icon m-icon-card"></i><em class="b-hide-text">卡友專區</em></a></li>
-						<li class="list"><a href="javascript:;" class="b-link"><i class="m-icon m-icon-gift"></i><em class="b-hide-text">贈獎專區</em></a></a></li>
-						<li class="list"><a href="javascript:;" class="b-link"><i class="m-icon m-icon-note"></i><em class="b-hide-text">活動報名</em></a></a></li>
-						<li class="list"><a href="javascript:;" class="b-link"><i class="m-icon m-icon-service"></i><em class="b-hide-text">智能客服</em></a></a></li>
-						<li class="list"><a href="javascript:;" class="b-link"><i class="m-icon m-icon-parking"></i><em class="b-hide-text">交通資訊</em></a></a></li>
-					</ul>
-				</div>
-				<button class="btn-top jQ-top">TOP</button>
-			</aside>
+			<!--#include virtual="../Shared/Side.html" -->
 		</div>
 		<!--#include virtual="../Shared/Footer.html" -->
 	</div>

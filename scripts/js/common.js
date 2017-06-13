@@ -405,10 +405,22 @@
 		});
 
 		$(common._checkbox).on('click', function(){
-			if($(this).find('input[type="checkbox"]:checked').length !== 0) {
-				$(this).addClass('is-checked');
+			if ($(this).data('select-all') === true) {
+				var _name = $(this).data('gruop-name');
+
+				if($(this).find('input[type="checkbox"]:checked').length === 0) {
+					$(this).addClass('is-checked').find('input[type="checkbox"]').prop('checked', true);
+					$('[data-select-name="' + _name + '"]').addClass('is-checked').find('input[type="checkbox"]').prop('checked', true);
+				} else {
+					$(this).removeClass('is-checked').find('input[type="checkbox"]').prop('checked', false);
+					$('[data-select-name="' + _name + '"]').removeClass('is-checked').find('input[type="checkbox"]').prop('checked', false);
+				}
 			} else {
-				$(this).removeClass('is-checked');
+				if($(this).find('input[type="checkbox"]:checked').length === 0) {
+					$(this).addClass('is-checked').find('input[type="checkbox"]').prop('checked', true);
+				} else {
+					$(this).removeClass('is-checked').find('input[type="checkbox"]').prop('checked', false);
+				}
 			}
 		});
 

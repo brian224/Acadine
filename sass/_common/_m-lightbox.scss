@@ -1,0 +1,92 @@
+.m-lightbox-content {
+	padding-bottom: 40px;
+	background: $color-white;
+	border-radius: 5px;
+	box-shadow: 0 0 20px rgba($color-black, 0.15);
+
+	.m-lightbox-hd {
+		padding: 0 40px;
+		height: 50px;
+		position: relative;
+	}
+
+	.m-lightbox-bd {
+		padding: 0 40px;
+	}
+
+	.btn-close-box {
+		background: $color-gray-l-p20;
+		display: block;
+		width: 24px;
+		height: 24px;
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		border-radius: 50%;
+		@include transition(ease-in all 0.3s);
+
+		&:hover {
+			background: darken($color-gray-l-p20, 10%);
+		}
+
+		&:before, &:after {
+			content: '';
+			margin: -1px 0 0 -8px;
+			background: $color-white;
+			display: block;
+			width: 16px;
+			height: 2px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+		}
+
+		&:before {
+			@include transform(rotate(45deg));
+		}
+
+		&:after {
+			@include transform(rotate(-45deg));
+		}
+	}
+
+	.box-msg {
+		color: $color-gray-d-p30;
+		font-size: 20px;
+		font-weight: bold;
+		line-height: 1.5em;
+	}
+
+	.btn-wrap > * {
+		height: 40px;
+		border: 1px solid $color-gray-d-p30;
+		color: $color-gray-d-p30;
+		font-size: 16px;
+		font-weight: bold;
+		@include transition(ease-in all 0.3s);
+
+		&:hover {
+			background: $color-text-major;
+			border-color: $color-text-major;
+			color: $color-white;
+		}
+	}
+}
+
+@include respond(Desktops) {}
+
+@include respond(Desktops-Tablets) {
+	.m-lightbox-content {
+		min-width: 376px;
+
+		.box-msg {
+			margin-bottom: 24px;
+		}
+	}
+}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {}
+
+@include respond(Mobiles) {}

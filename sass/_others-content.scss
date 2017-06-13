@@ -56,7 +56,7 @@
 		line-height: 36px;
 	}
 
-	.main-msg {
+	.main-msg .text {
 		font-weight: bold;
 		line-height: 1.5em;
 	}
@@ -67,6 +67,10 @@
 		font-size: 14px;
 		font-weight: bold;
 		text-decoration: underline;
+
+		&:hover {
+			text-decoration: none;
+		}
 	}
 
 	.is-reqired:before {
@@ -196,6 +200,16 @@
 		color: $color-white;
 	}
 
+	&.btn-light {
+		background: $color-gray-l-p40;
+		border-color: $color-gray-l-p40;
+
+		&:hover {
+			background: darken($color-gray-l-p40, 10);
+			color: $color-gray-d-p30;
+		}
+	}
+
 	> * {
 		display: inline-block;
 		vertical-align: middle;
@@ -203,11 +217,47 @@
 	}
 }
 
-.guest-msg, .guest-msg .b-link {
-	font-size: 16px;
+.contact-us .branch-info-list {
+	.branch-name {
+		color: $color-gray-d-p30;
+		font-weight: bold;
+	}
+
+	.text {
+		font-weight: normal;
+	}
+
+	.tel-link {
+		color: $color-gray-d-p30;
+	}
 }
 
-@include respond(Desktops) {}
+.contact-us-sent .l-content {
+	@include display-flex;
+	@include flex-direction(column);
+
+	.content-wrap {
+		@include flex-grow(1);
+	}
+}
+
+@include respond(Desktops) {
+	.contact-us .branch-info-list {
+		margin-bottom: 50px;
+
+		&:before {
+			left: 33.33%;
+		}
+
+		&:after {
+			right: 33.33%;
+		}
+
+		.list:not(:nth-child(3n+1)) {
+			padding-left: 40px;
+		}
+	}
+}
 
 @include respond(Desktops-Tablets) {
 	.cut-title {
@@ -221,6 +271,17 @@
 	.main-cut {
 		padding: 40px;
 		top: -30px;
+
+		.main-msg {
+			.m-icon {
+				margin-bottom: 0;
+				font-size: 76px;
+			}
+
+			.text {
+				font-size: 24px;
+			}
+		}
 
 		.info-form .list {
 			margin-bottom: 35px;
@@ -238,6 +299,52 @@
 	.affiliates-list .list {
 		margin-top: 40px;
 		margin-bottom: 40px;
+	}
+
+	.contact-us {
+		.guest-msg, .guest-msg .b-link {
+			font-size: 16px;
+		}
+
+		.sub-title {
+			font-size: 24px;
+		}
+
+		.m-textarea {
+			height: 200px;
+		}
+
+		.branch-info-list {
+			@include display-flex;
+			@include align-content(stretch);
+			@include align-items(stretch);
+			@include justify-content(flex-start);
+			@include flex-wrap(wrap);
+			position: relative;
+
+			&:before, &:after {
+				content: '';
+				background: $color-gray-l-p40;
+				display: block;
+				width: 1px;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+			}
+
+			.list {
+				padding-right: 20px;
+			}
+
+			.branch-name {
+				font-size: 18px;
+			}
+
+			.text {
+				font-size: 16px;
+			}
+		}
 	}
 }
 
@@ -258,7 +365,21 @@
 	}
 }
 
-@include respond(Tablets) {}
+@include respond(Tablets) {
+	.contact-us .branch-info-list {
+		&:before {
+			left: 50%;
+		}
+
+		&:after {
+			display: none;
+		}
+
+		.list:nth-child(2n) {
+			padding-left: 40px;
+		}
+	}
+}
 
 @include respond(Tablets-Mobiles) {}
 
@@ -274,11 +395,65 @@
 	.main-cut {
 		padding: 20px; 
 		top: -15px;
+
+		.main-msg {
+			.m-icon {
+				margin-bottom: 0;
+				font-size: 40px;
+			}
+
+			.text {
+				font-size: 20px;
+			}
+		}
+
+		> *:not(:last-child), > * > *:not(:last-child) {
+			margin-bottom: 20px;
+		}
 	}
 
 	.affiliates-list .list {
 		margin-top: 20px;
 		margin-bottom: 20px;
+	}
+
+	.contact-us {
+		.guest-msg, .guest-msg .b-link {
+			font-size: 14px;
+		}
+
+		.main-cut .text {
+			font-size: 14px;
+			line-height: 2em;
+		}
+
+		.sub-title {
+			line-height: 1.5em;
+
+			&:after {
+				bottom: 4px;
+			}
+		}
+
+		.m-textarea {
+			height: 100px;
+		}
+
+		.verification {
+			margin-top: 10px;
+		}
+
+		.btn-wrap > * {
+			@include display-flex;
+
+			.btn-link.btn-light {
+				margin-right: 10px;
+			}
+		}
+
+		.branch-info-list .branch-name {
+			font-size: 16px;
+		}
 	}
 }
 

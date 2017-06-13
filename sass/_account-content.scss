@@ -120,17 +120,12 @@
 		list-style: disc outside;
 	}
 
-	.b-desc {
-		font-size: 16px;
+	.b-bold {
+		font-weight: bold;
 	}
 
-	.b-link {
-		color: #0054fe;
-		text-decoration: underline;
-
-		&:hover {
-			text-decoration: none;
-		}
+	.b-desc {
+		font-size: 16px;
 	}
 }
 
@@ -605,6 +600,17 @@
 	}
 }
 
+.record .main-content {
+	.b-link {
+		color: #0054fe;
+		text-decoration: underline;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+
 .my-card .card-info-wrap {
 	color: $color-gray-d-p30;
 	font-size: 14px;
@@ -647,6 +653,42 @@
 		.btn-link {
 			border: 0;
 			color: $color-white;
+		}
+	}
+}
+
+.epaper {
+	.sample-icon {
+		margin: 0 10px;
+
+		> * {
+			margin: 0;
+		}
+	}
+
+	.m-box-holder.is-checkbox {
+		width: 24px;
+		height: 24px;
+		border-radius: 50%;
+
+		&:before {
+			top: 5px;
+			left: 4px;
+			border-bottom-color: $color-white;
+			border-left-color: $color-white;
+		}
+	}
+
+	.is-checked .m-box-holder.is-checkbox {
+		background: $color-gray-l-p10;
+	}
+
+	.btn-wrap {
+		font-size: 0;
+		line-height: 0;
+
+		> *:not(:first-child) {
+			margin-left: 10px;
 		}
 	}
 }
@@ -749,6 +791,10 @@
 
 	.favorite-list .item-list .img-wrap {
 		width: 226px;
+	}
+
+	.epaper .m-table td {
+		padding: 0 50px;
 	}
 }
 
@@ -1169,6 +1215,10 @@
 	.favorite-list .item-list .item-text-info {
 		font-size: 16px;
 	}
+
+	.epaper .m-table td {
+		padding: 0 20px;
+	}
 }
 
 @include respond(Mobiles) {
@@ -1563,6 +1613,20 @@
 					margin-left: 10px;
 				}
 			}
+		}
+	}
+
+	.epaper {
+		.table-wrap {
+			margin: 20px 0;
+
+			.m-table td {
+				height: 40px;
+			}
+		}
+
+		.btn-wrap {
+			@include display-flex;
 		}
 	}
 }
