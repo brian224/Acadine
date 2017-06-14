@@ -8,7 +8,7 @@
 	background: #f4f4f4;
 	position: relative;
 
-	&:before {
+	&.add-bg:before {
 		content: '';
 		background: $color-white;
 		display: block;

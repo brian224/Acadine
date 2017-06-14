@@ -1,0 +1,157 @@
+﻿.l-body .l-content {
+	background: $color-gray-l-p40;
+	position: relative;
+}
+
+.content-wrap {
+	padding: 0 10px;
+	background: #f4f4f4;
+}
+
+.main-cut {
+	margin: 0 auto;
+}
+
+.cate-title {
+	position: relative;
+	color: $color-gray-d-p30;
+	font-weight: bold;
+	line-height: 1.5em;
+
+	&:after {
+		content: '';
+		background: $color-gray-d-p30;
+		display: block;
+		width: 36px;
+		height: 4px;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}
+
+	.b-link {
+		color: $color-gray-d-p30;
+	}
+}
+
+.map-trees {
+	font-size: 0;
+	line-height: 0;
+
+	.list {
+		vertical-align: top;
+	}
+}
+
+.sub-list .b-link {
+	color: $color-gray-d-p30;
+	font-weight: bold;
+	letter-spacing: 1px;
+	line-height: 1.5em;
+}
+
+@include respond(Desktops) {
+	.main-cut {
+		padding-bottom: 100px; 
+	}
+
+	.cate-list:not(:last-child) {
+		margin-bottom: 80px;
+	}
+}
+
+@include respond(Desktops-Tablets) {
+	.cut-title {
+		margin-top: 27px;
+	}
+
+	.map-trees {
+		padding-top: 40px;
+	}
+
+	.cate-title {
+		margin-bottom: 20px;
+		padding: 0 20px 9px 0;
+		font-size: 20px;
+	}
+
+	.sub-list {
+		padding: 9px 32px 9px 0;
+
+		.b-link {
+			font-size: 16px;
+		}
+	}
+}
+
+@include respond(HD) {
+	.content-wrap {
+		padding: 0;
+	}
+
+	.main-cut {
+		width: 1200px;
+	}
+}
+
+@include respond(Tablets) {
+	.content-wrap {
+		padding: 0 50px;
+	}
+}
+
+@include respond(Tablets-Mobiles) {
+	.main-cut {
+		padding-bottom: 40px; 
+	}
+
+	.cate-list:not(:last-child) {
+		margin-bottom: 40px;
+	}
+}
+
+@include respond(Mobiles) {
+	.content-wrap {
+		padding: 0 20px;
+	}
+
+	.cut-title {
+		margin-top: 15px;
+	}
+
+	.main-cut {
+		padding-bottom: 0; 
+	}
+
+	.map-trees {
+		padding-top: 20px;
+
+		.list {
+			margin-bottom: 40px;
+		}
+	}
+
+	.cate-title {
+		margin-bottom: 10px;
+		padding: 0 18px 9px 0;
+		font-size: 18px;
+	}
+
+	.sub-list {
+		padding: 5px 28px 5px 0;
+
+		.b-link {
+			font-size: 14px;
+		}
+	}
+}
+
+@include devices(iphone) {}
+
+@include respond(Iphone5) {}
+
+@include browsers('IE') {}
+
+@include browsers('IE9') {}
+
+@include browsers('Safari') {}

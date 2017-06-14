@@ -751,7 +751,7 @@
 }
 
 @include respond(HD) {
-	.faq, .registration, .edit {
+	.faq, .registration, .edit, .certification, .terms, .policy {
 		.m-cut-bd {
 			padding: 72px 168px
 		}

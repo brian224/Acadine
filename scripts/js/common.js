@@ -27,6 +27,8 @@
 		this._browserAdj   = '.jQ-browserAdj';
 		this._adjHeight    = '.jQ-adjHeight';
 		this._clearInput   = '.jQ-clear-input';
+		this._openBox      = '.jQ-open-box';
+		this._closeBox     = '.jQ-close-box';
 		this._leavePage    = false;
 		this._animateSpeed = 400;
 		this._masonryLoad  = false;
@@ -262,6 +264,26 @@
 		}, common._animateSpeed);
 	}
 
+	// 點擊目標區域以外的地方可關閉目標區域
+	page.prototype.offClick = function(_target) {
+		projects.$d.off('click').on('click' , function(e){
+			if (_target === '.m-lightbox-content') {
+				// 關閉 lightbox
+				e.stopPropagation();
+
+				if (!$(e.target).is(common._openBox + ', ' + common._openBox + ' *,' + _target + ', ' + _target + ' *') && $(common._lBody).hasClass('show-lightbox')) {
+					common.closeBoxEvent();
+				}
+			}
+		});
+	}
+
+	page.prototype.closeBoxEvent = function() {
+		$(common._lBody).addClass('fade-out').on('webkitAnimationEnd oAnimationend oAnimationEnd msAnimationEnd animationend', function(){
+			$(common._lBody).removeClass('show-lightbox fade-out').off('webkitAnimationEnd oAnimationend oAnimationEnd msAnimationEnd animationend');
+		});
+	}
+
 	projects.$w.load(function(){
 		common.headerHeight();
 		common.showFooter();
@@ -460,9 +482,24 @@
 			common.openWin($(this));
 		});
 
+		$(common._openBox).on('click' , function(){
+			$(common._lBody).addClass('show-lightbox');
+			common.offClick('.m-lightbox-content');
+		});
+
+		$(common._closeBox).on('click' , function(){
+			common.closeBoxEvent();
+		});
+
 		$(common._tagSelect).on('change', 'select', function(){
 			if($(this).val() !== '' && $(this).val() !== 'javascript:;' && $(this).val() !== '#') {
 				window.location.href = $(this).val();
+			}
+		});
+
+		projects.$d.keydown(function(e){
+			if (e.keyCode === 27 && $(common._lBody).hasClass('show-lightbox')) {
+				common.closeBoxEvent();
 			}
 		});
 	});

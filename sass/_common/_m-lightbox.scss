@@ -89,4 +89,17 @@
 
 @include respond(Tablets-Mobiles) {}
 
-@include respond(Mobiles) {}
+@include respond(Mobiles) {
+	.m-lightbox-content .box-msg {
+		margin-bottom: 20px;
+	}
+}
+
+@include browsers('IE9') {
+	.m-lightbox-content {
+		margin-left: -188px;
+		position: absolute;
+		top: 40%;
+		left: 50%;
+	}
+}

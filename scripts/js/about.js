@@ -48,6 +48,14 @@
 		$(pageObj._btnNext).on('click', function(){
 			projects.owlNext(pageObj._passiveOwl);
 		});
+
+		$(common._tab).on('click', function(){
+			if ($(this).hasClass('sunny-baby')) {
+				$('.content-wrap').addClass('add-bg');
+			} else {
+				$('.content-wrap').removeClass('add-bg');
+			}
+		});
 	});
 
 	if ( ! window.pageObj ) {
