@@ -79,8 +79,17 @@
 		projects.$d.off('click').on('click' , function(e){
 			e.stopPropagation();
 
-			if (!$(e.target).is(_target + ', ' + _target + ' *')) {
-				$(_target).removeClass('is-active');
+			if (_target === '.m-lightbox-content') {
+				// 關閉 lightbox
+				e.stopPropagation();
+
+				if (!$(e.target).is(common._openBox + ', ' + common._openBox + ' *,' + _target + ', ' + _target + ' *') && $(common._lBody).hasClass('show-lightbox')) {
+					common.closeBoxEvent();
+				}
+			} else if (_target === '.jQ-category') {
+				if (!$(e.target).is(_target + ', ' + _target + ' *')) {
+					$(_target).removeClass('is-active');
+				}
 			}
 		});
 	}
@@ -262,20 +271,6 @@
 		projects.$hb.animate({
 			'scrollTop' : $('.main-tab').offset().top - $(common._lHeader).height()
 		}, common._animateSpeed);
-	}
-
-	// 點擊目標區域以外的地方可關閉目標區域
-	page.prototype.offClick = function(_target) {
-		projects.$d.off('click').on('click' , function(e){
-			if (_target === '.m-lightbox-content') {
-				// 關閉 lightbox
-				e.stopPropagation();
-
-				if (!$(e.target).is(common._openBox + ', ' + common._openBox + ' *,' + _target + ', ' + _target + ' *') && $(common._lBody).hasClass('show-lightbox')) {
-					common.closeBoxEvent();
-				}
-			}
-		});
 	}
 
 	page.prototype.closeBoxEvent = function() {

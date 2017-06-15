@@ -6,7 +6,6 @@
 	function page() {
 		this._category   = '.jQ-category';
 		this._curr       = '.jQ-curr';
-		this._datepicker = '.jQ-datepicker';
 	}
 
 	projects.$w.load(function(){
@@ -18,10 +17,6 @@
 		}
 
 		$(pageObj._curr).text($('.category-list .is-curr').eq(-1).text());
-
-		if ($(pageObj._datepicker).length !== 0) {
-			$(pageObj._datepicker).DatePicker();
-		}
 
 		$(pageObj._category).on('click', function(){
 			if (projects.$w.width() < 740) {
@@ -35,6 +30,7 @@
 			if ($(this).next().length >= 1) {
 				$(this).toggleClass('is-active');
 			}
+			$(this).parent().siblings().find('.b-link').removeClass('is-active');
 		});
 	});
 

@@ -23,35 +23,47 @@
 
 @include respond(Mobiles) {
 	.m-table.table-rotate {
-		thead {
-			display: none;
-		}
-
-		tbody {
-			tr {
-				display: block;
-				position: relative;
-				overflow: hidden;
-			}
-
-			td {
-				display: table;
-				width: 100%;
-				position: relative;
-				font-size: 14px;
-				text-align: left;
-
+		&.no-label > tbody > tr {
+			> td, > th {
 				> * {
-					padding: 10px 0 10px 18px;
-					display: table-cell;
-					vertical-align: middle;
+					padding-right: 18px;
 				}
 
 				&:before {
-					content: attr(data-label);
-					display: table-cell;
-					width: 30%;
-					vertical-align: middle;
+					display: none;
+				}
+			}
+		}
+
+		> thead {
+			display: none;
+		}
+
+		> tbody {
+			> tr {
+				display: block;
+				position: relative;
+				overflow: hidden;
+
+				> td, > th {
+					display: table;
+					width: 100%;
+					position: relative;
+					font-size: 14px;
+					text-align: left;
+
+					> * {
+						padding: 10px 0 10px 18px;
+						display: table-cell;
+						vertical-align: middle;
+					}
+
+					&:before {
+						content: attr(data-label);
+						display: table-cell;
+						width: 30%;
+						vertical-align: middle;
+					}
 				}
 			}
 		}
