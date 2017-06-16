@@ -769,8 +769,24 @@
 }
 
 @include respond(Tablets) {
-	.main-cut .dm-reader {
-		width: 100%;
+	.main-cut {
+		.dm-reader {
+			width: 100%;
+		}
+
+		.dm-list {
+			display: block !important;
+			white-space: nowrap;
+
+			> .list {
+				display: inline-block;
+				vertical-align: top;
+			}
+
+			.desc {
+				white-space: normal;
+			}
+		}
 	}
 
 	.magazine-viewport {
@@ -779,6 +795,16 @@
 
 	.thumbnails {
 		top: calc((100vh - 166px) / 2);
+
+		ul {
+			display: block !important;
+			white-space: nowrap;
+
+			li {
+				display: inline-block;
+				vertical-align: top;
+			}
+		}
 	}
 
 	.m-cut {

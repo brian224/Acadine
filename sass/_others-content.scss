@@ -136,6 +136,10 @@
 	}
 }
 
+.main-content {
+	margin: 0 auto;
+}
+
 .sub-title {
 	padding-bottom: 12px;
 	position: relative;
@@ -176,8 +180,13 @@
 	}
 }
 
-.img-wrap img {
-	max-width: 100%;
+.img-wrap {
+	text-align: center;
+
+	img {
+		max-width: 100%;
+		max-height: 100%;
+	}
 }
 
 .btn-link {
@@ -241,6 +250,76 @@
 	}
 }
 
+.activities-list {
+	margin: 0 auto;
+	font-size: 0;
+	line-height: 0;
+
+	.list {
+		margin: 0 10px;
+		background: $color-white;
+		display: inline-block;
+		position: relative;
+		box-shadow: 0 0 8px rgba($color-black, 0.05);
+		vertical-align: top;
+		letter-spacing: 1px;
+
+		> .b-link {
+			display: block;
+		}
+	}
+
+	.img-wrap {
+		overflow: hidden;
+
+		img {
+			width: 100%;
+			@include transition(ease-in all 0.3s);
+		}
+
+		.desc {
+			display: none;
+		}
+	}
+
+	.act-title {
+		color: $color-gray-d-p30;
+		font-size: 20px;
+		font-weight: bold;
+		line-height: 1.5em;
+	}
+
+	.act-time, .desc {
+		font-size: 14px;
+	}
+
+	.act-time {
+		display: block;
+		color: $color-gray-l-p20;
+		font-weight: bold;
+		line-height: 1.5em;
+	}
+
+	.desc {
+		margin-top: 12px;
+		padding: 16px 0;
+		position: relative;
+		color: $color-gray-d-p30;
+		line-height: 1.5em;
+
+		&:before {
+			content: '';
+			background: $color-gray-d-p30;
+			display: block;
+			width: 36px;
+			height: 4px;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
+}
+
 @include respond(Desktops) {
 	.contact-us .branch-info-list {
 		margin-bottom: 50px;
@@ -255,6 +334,18 @@
 
 		.list:not(:nth-child(3n+1)) {
 			padding-left: 40px;
+		}
+	}
+
+	.activities-list .list {
+		width: calc((100% - 60px) / 3);
+
+		&.main-list {
+			width: calc((100% - 40px) / 2);
+		}
+
+		.b-link:hover .img-wrap img {
+			@include transform(scale(1.05));
 		}
 	}
 }
@@ -292,6 +383,11 @@
 		}
 	}
 
+	.main-content {
+		padding-bottom: 100px;
+		max-width: 1300px;
+	}
+
 	.sub-title {
 		margin-bottom: 20px;
 	}
@@ -299,6 +395,11 @@
 	.affiliates-list .list {
 		margin-top: 40px;
 		margin-bottom: 40px;
+
+		.img-wrap {
+			width: 152px;
+			height: 76px;
+		}
 	}
 
 	.contact-us {
@@ -346,6 +447,34 @@
 			}
 		}
 	}
+
+	.activities-list {
+		@include display-flex;
+		@include flex-wrap(wrap);
+
+		.list {
+			margin-bottom: 20px;
+		}
+
+		.img-wrap {
+			@include display-flex;
+			@include align-items(center);
+			@include justify-content(center);
+			height: 270px;
+
+			img {
+				max-height: none;
+			}
+		}
+
+		.act-info {
+			padding: 36px;
+		}
+
+		.act-time {
+			margin-top: 18px;
+		}
+	}
 }
 
 @include respond(HD) {
@@ -359,9 +488,17 @@
 		width: 1300px;
 	}
 
+	.main-content {
+		max-width: 1320px;
+	}
+
 	.affiliates .main-cut {
 		padding-right: 100px;
 		padding-left: 100px;
+	}
+
+	.activities-list .list {
+		width: 420px;
 	}
 }
 
@@ -378,6 +515,10 @@
 		.list:nth-child(2n) {
 			padding-left: 40px;
 		}
+	}
+
+	.activities-list .list {
+		width: calc((100% - 40px) / 2);
 	}
 }
 
@@ -415,6 +556,11 @@
 	.affiliates-list .list {
 		margin-top: 20px;
 		margin-bottom: 20px;
+
+		.img-wrap {
+			width: 76px;
+			height: 38px;
+		}
 	}
 
 	.contact-us {
@@ -453,6 +599,16 @@
 
 		.branch-info-list .branch-name {
 			font-size: 16px;
+		}
+	}
+
+	.activities-list {
+		.list {
+			margin-bottom: 20px;
+		}
+
+		.act-info {
+			padding: 18px 18px 36px 18px;
 		}
 	}
 }
@@ -555,6 +711,10 @@
 				content: '二十、';
 			}
 		}
+	}
+
+	.activities-list .list {
+		width: calc((100% - 61px) / 3);
 	}
 }
 
