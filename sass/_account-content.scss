@@ -600,14 +600,12 @@
 	}
 }
 
-.record .main-content {
-	.b-link {
-		color: #0054fe;
-		text-decoration: underline;
+.record .main-content .b-link {
+	color: #0054fe;
+	text-decoration: underline;
 
-		&:hover {
-			text-decoration: none;
-		}
+	&:hover {
+		text-decoration: none;
 	}
 }
 

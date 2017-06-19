@@ -250,6 +250,10 @@
 	}
 }
 
+.latest-news .main-content {
+	padding-top: 20px;
+}
+
 .activities-list {
 	margin: 0 auto;
 	font-size: 0;
@@ -320,7 +324,30 @@
 	}
 }
 
+.error {
+	.l-content {
+		@include display-flex;
+		@include align-items(center);
+		@include justify-content(center);
+		@include flex-direction(column);
+	}
+
+	.content-wrap {
+		background: none;
+		width: 100%;
+
+		.text, .guest-msg {
+			color: $color-gray-d-p30;
+			font-weight: bold;
+		}
+	}
+}
+
 @include respond(Desktops) {
+	.cut-title {
+		margin-bottom: 72px;
+	}
+
 	.contact-us .branch-info-list {
 		margin-bottom: 50px;
 
@@ -353,10 +380,6 @@
 @include respond(Desktops-Tablets) {
 	.cut-title {
 		margin-top: 27px;
-	}
-
-	.content-wrap {
-		margin-top: 72px;
 	}
 
 	.main-cut {
@@ -460,7 +483,7 @@
 			@include display-flex;
 			@include align-items(center);
 			@include justify-content(center);
-			height: 270px;
+			max-height: 270px;
 
 			img {
 				max-height: none;
@@ -473,6 +496,25 @@
 
 		.act-time {
 			margin-top: 18px;
+		}
+	}
+
+	.error {
+		.main-msg {
+			.m-icon {
+				margin-bottom: 30px;
+				font-size: 112px;
+			}
+
+			.text {
+				font-size: 30px;
+			}
+		}
+
+		.guest-msg {
+			margin-bottom: 40px;
+			font-size: 16px;
+			line-height: 2em;
 		}
 	}
 }
@@ -602,6 +644,10 @@
 		}
 	}
 
+	.latest-news .main-content {
+		padding-bottom: 20px;
+	}
+
 	.activities-list {
 		.list {
 			margin-bottom: 20px;
@@ -609,6 +655,25 @@
 
 		.act-info {
 			padding: 18px 18px 36px 18px;
+		}
+	}
+
+	.error {
+		.main-msg {
+			.m-icon {
+				margin-bottom: 20px;
+				font-size: 60px;
+			}
+
+			.text {
+				font-size: 20px;
+			}
+		}
+
+		.guest-msg {
+			margin-bottom: 20px;
+			font-size: 14px;
+			line-height: 2em;
 		}
 	}
 }

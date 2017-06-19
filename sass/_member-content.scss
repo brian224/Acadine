@@ -486,12 +486,15 @@
 	.m-cut-bd {
 		margin: 20px auto;
 		padding: 72px 48px;
-		width: 960px;
+
+		> * {
+			margin: 0 auto;
+			width: 960px;
+		}
 	}
 
 	.cut-title {
 		margin-top: 27px;
-		padding: 20px 30px;
 	}
 
 	.step-list {

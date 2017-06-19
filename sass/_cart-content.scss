@@ -372,19 +372,9 @@ $color-btn-cancel : $color-gray-l-p10;
 	}
 }
 
-.receipt-detail {
-	.info-title {
-		padding-bottom: 10px !important;
-		border-bottom: 1px solid $color-gray-l-p30;
-	}
-
-	.text {
-		color: $color-gray;
-	}
-
-	.note .text {
-		color: $color-btn-main;
-	}
+.info-title {
+	padding-bottom: 10px !important;
+	border-bottom: 1px solid $color-gray-l-p30;
 }
 
 .m-cut-ft .ft-title {
@@ -933,13 +923,6 @@ $color-btn-cancel : $color-gray-l-p10;
 		}
 	}
 
-	.receipt-detail {
-		@include display-flex;
-		@include align-items(stretch);
-		@include align-content(stretch);
-		@include justify-content(space-between);
-	}
-
 	.m-cut-ft .ft-title {
 		margin-bottom: 15px;
 	}
@@ -1261,10 +1244,6 @@ $color-btn-cancel : $color-gray-l-p10;
 		}
 	}
 
-	.receipt-detail > *:not(:last-child) {
-		margin-bottom: 20px;
-	}
-
 	.counter {
 		@include align-items(center);
 		@include justify-content(flex-end);
@@ -1420,20 +1399,6 @@ $color-btn-cancel : $color-gray-l-p10;
 	.counter {
 		font-size: 0;
 		white-space: nowrap;
-	}
-
-	.receipt-detail {
-		overflow: hidden;
-
-		> * {
-			&:nth-child(2n) {
-				float: right;
-			}
-	
-			&:nth-child(2n+1) {
-				float: left;
-			}
-		}
 	}
 
 	.recommended-list {

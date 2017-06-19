@@ -288,13 +288,13 @@
 
 @include respond(Desktops) {
 	.l-body.show-header .category-content {
-		top: 386px;
+		top: 402px;
 	}
 
 	.category-content {
 		width: 200px;
 		position: absolute;
-		top: 336px;
+		top: 352px;
 		left: 10px;
 
 		.category-list {
