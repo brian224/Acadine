@@ -307,6 +307,15 @@ $color-btn-cancel : $color-gray-l-p10;
 		.btn-delete {
 			font-size: 16px;
 		}
+
+		.phone-style {
+			padding-left: 36px;
+			text-indent: -36px;
+
+			.sub-phone-info {
+				padding-left: 24px;
+			}
+		}
 	}
 
 	.b-link {
@@ -372,7 +381,7 @@ $color-btn-cancel : $color-gray-l-p10;
 	}
 }
 
-.info-title {
+.info-title.underline {
 	padding-bottom: 10px !important;
 	border-bottom: 1px solid $color-gray-l-p30;
 }
@@ -704,7 +713,7 @@ $color-btn-cancel : $color-gray-l-p10;
 			}
 
 			tr td {
-				padding: 0 16px;
+				padding: 0 10px;
 			}
 
 			.item-info {
@@ -1234,13 +1243,11 @@ $color-btn-cancel : $color-gray-l-p10;
 		}
 	}
 
-	.payment-selection {
-		> * {
-			margin-bottom: 10px;
+	.payment-selection > * {
+		margin-bottom: 10px;
 
-			.payment-img > *:not(:last-child), > *:not(:last-child) {
-				margin-right: 10px;
-			}
+		.payment-img > *:not(:last-child), > *:not(:last-child) {
+			margin-right: 10px;
 		}
 	}
 
@@ -1337,6 +1344,10 @@ $color-btn-cancel : $color-gray-l-p10;
 			top: 50%;
 			left: 0;
 		}
+	}
+
+	.cart-step2 .m-table.table-rotate tbody td {
+		font-size: 12px;
 	}
 }
 

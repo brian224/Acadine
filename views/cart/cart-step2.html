@@ -148,7 +148,7 @@
 							<div class="purchase-info b-text-right"><em class="text">HAPPYGO卡號累積點數 卡號：<span class="highlight">1234123145646</span> 本次累點約 <span class="highlight">80</span> 點</em></div>
 						</div>
 						<div class="sheet form-input">
-							<h4 class="info-title b-clearfix">
+							<h4 class="info-title underline b-clearfix">
 								<em class="main-desc b-float-left-dt b-block">付款資料明細</em>
 							</h4>
 							<div class="m-form b-col-dt-12 b-col-xs-12">
@@ -159,11 +159,11 @@
 								<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">付款人電話</em>
 								<div class="b-col-dt-4 b-col-xs-12 b-clearfix b-float-left-dt">
 									<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">市話（日）</em>
-									<span class="text b-col-dt-12 b-col-xs-12 b-block">02- 82263668 分機123</span>
+									<span class="text b-col-dt-12 b-col-xs-12 b-block">02-82263668 分機123</span>
 								</div>
 								<div class="b-col-dt-4 b-col-xs-12 b-clearfix b-float-left-dt">
 									<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">市話（夜）</em>
-									<span class="text b-col-dt-12 b-col-xs-12 b-block">02- 82263668 分機123</span>
+									<span class="text b-col-dt-12 b-col-xs-12 b-block">02-82263668 分機123</span>
 								</div>
 								<div class="b-col-dt-4 b-col-xs-12 b-clearfix b-float-left-dt">
 									<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">手機號碼</em>
@@ -189,44 +189,103 @@
 								<span class="text b-col-dt-12 b-col-xs-12 b-block">選擇索取紙本發票：收件人：蔡依琳小姐 / 地址：新北市板橋區縣政路16號21樓</span>
 							</div>
 						</div>
-						<div class="receipt-detail">
-							<div class="sheet form-input">
-								<h4 class="info-title b-clearfix">
-									<em class="main-desc b-float-left-dt b-block">商品配送明細</em>
-								</h4>
-								<div class="m-form b-col-dt-12 b-col-xs-12">
-									<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">收件人姓名</em>
-									<span class="text b-col-dt-12 b-col-xs-12 b-block">蔡依琳</span>
-								</div>
-								<div class="m-form b-col-dt-12 b-col-xs-12 b-clearfix">
-									<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">收件人電話</em>
-									<div class="b-col-md-5 b-col-sm-12 b-clearfix b-float-left-dt">
-										<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">市話（日）</em>
-										<span class="text b-col-dt-12 b-col-xs-12 b-block">02- 82263668 分機123</span>
-									</div>
-									<div class="b-col-md-5 b-col-sm-12 b-clearfix b-float-left-dt">
-										<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">市話（夜）</em>
-										<span class="text b-col-dt-12 b-col-xs-12 b-block">02- 82263668 分機123</span>
-									</div>
-									<div class="b-col-md-2 b-col-sm-12 b-clearfix b-float-left-dt">
-										<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">手機號碼</em>
-										<span class="text b-col-dt-12 b-col-xs-12 b-block">0912345678</span>
-									</div>
-								</div>
-								<div class="m-form b-col-dt-12 b-col-xs-12 b-clearfix">
-									<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">地址</em>
-									<span class="text b-col-dt-12 b-col-xs-12 b-block">220 新北市板橋區新站路20號16樓</span>
-								</div>
-								<div class="m-form b-col-dt-12 b-col-xs-12 b-clearfix">
-									<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">配送方式</em>
-									<span class="text b-col-dt-12 b-col-xs-12 b-block">到店取貨 ( 地點 : MegaCity 板橋大遠百 ／ 地址: 新北市板橋區新站路28號 )</span>
-								</div>
-								<div class="m-form b-col-dt-12 b-col-xs-12 b-clearfix">
-									<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">配送特殊需求</em>
-									<span class="text b-col-dt-12 b-col-xs-12 b-block">管理員代收</span>
-									<p class="note"><em class="text">您購買的商品將於七日內送貨到府。</em></p>
-								</div>
-							</div>
+						<div class="sheet">
+							<h4 class="info-title underline b-clearfix">
+								<em class="main-desc b-float-left-dt b-block">商品配送明細</em>
+							</h4>
+							<table class="m-table table-rotate">
+								<thead>
+									<tr>
+										<td><em class="text">商品</em></td>
+										<td><em class="text">配送方式</em></td>
+										<td><em class="text">贈品</em></td>
+										<td><em class="text">單價(NT$)</em></td>
+										<td><em class="text">數量</em></td>
+										<td><em class="text">小計(NT$)</em></td>
+										<td><em class="text">配送資訊</em></td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="b-text-right-xs" data-label="商品">
+											<div class="item-info">
+												<figure class="img-wrap b-hide-xs">
+													<img src="../../content/img/cart/sheet/01.jpg" alt="STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑">
+													<figcaption class="desc b-hide-text">STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑</figcaption>
+												</figure>
+												<em class="item-name">STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑</em>
+											</div>
+										</td>
+										<td class="b-text-right-xs" data-label="配送方式"><em class="text">宅配</em></td>
+										<td class="b-text-right-xs" data-label="贈品"><em class="text">雅詩蘭黛特潤精華 5ml</em></td>
+										<td class="b-text-right-xs" data-label="單價(NT$)"><em class="text">3,990 元</em></td>
+										<td class="b-text-right-xs" data-label="數量"><em class="text">1</em></td>
+										<td class="b-text-right-xs" data-label="小計(NT$)"><em class="text">3,990 元</em></td>
+										<td class="b-text-left b-text-right-xs" data-label="配送資訊">
+											<div class="deliver-info">
+												<em class="text b-block">收件人：蔡依琳</em>
+												<div class="phone-style b-inline"><em class="text">電話：市話(日) 02-82263668 分機123<br><span class="sub-phone-info">(夜) 02-82263668</span><br>手機 0912345678</em></div>
+												<em class="text b-block">地址：新北市板橋區新站路20號16樓</em>
+												<em class="text b-block">配送特殊需求： 管理員代收</em>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td class="b-text-right-xs" data-label="商品">
+											<div class="item-info">
+												<figure class="img-wrap b-hide-xs">
+													<img src="../../content/img/cart/sheet/01.jpg" alt="STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑">
+													<figcaption class="desc b-hide-text">STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑</figcaption>
+												</figure>
+												<em class="item-name">STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑</em>
+											</div>
+											<p class="note b-text-right-xs"><i class="m-icon m-icon-bell-o"></i><em class="text">限時24小時，指定商品結帳再85折</em></p>
+										</td>
+										<td class="b-text-right-xs" data-label="配送方式"><em class="text">宅配</em></td>
+										<td class="b-text-right-xs" data-label="贈品"><em class="text"></em></td>
+										<td class="b-text-right-xs" data-label="單價(NT$)"><em class="text">3,990 元</em></td>
+										<td class="b-text-right-xs" data-label="數量"><em class="text">1</em></td>
+										<td class="b-text-right-xs" data-label="小計(NT$)"><em class="text">3,990 元</em></td>
+										<td class="b-text-left b-text-right-xs" data-label="配送資訊">
+											<div class="deliver-info">
+												<em class="text b-block">收件人：蔡依琳</em>
+												<div class="phone-style b-inline"><em class="text">電話：市話(日) 02-82263668 分機123<br><span class="sub-phone-info">(夜) 02-82263668</span><br>手機 0912345678</em></div>
+												<em class="text b-block">地址：新北市板橋區新站路20號16樓</em>
+												<em class="text b-block">配送特殊需求： 管理員代收</em>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td class="b-text-right-xs" data-label="商品">
+											<div class="item-info">
+												<figure class="img-wrap b-hide-xs">
+													<img src="../../content/img/cart/sheet/01.jpg" alt="STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑">
+													<figcaption class="desc b-hide-text">STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑</figcaption>
+												</figure>
+												<em class="item-name">STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑</em>
+											</div>
+											<p class="note b-text-right-xs"><i class="m-icon m-icon-bell-o"></i><em class="text">限時24小時，指定商品結帳再85折</em></p>
+										</td>
+										<td class="b-text-right-xs" data-label="配送方式">
+											<div class="deliver-info">
+												<em class="text">到店取貨</em>
+												<p class="note b-bold b-text-center b-text-right-xs"><em class="text">取貨地點：<br class="b-hide-xs">板橋大遠百-7樓服務台</em></p>
+											</div>
+										</td>
+										<td class="b-text-right-xs" data-label="贈品"><em class="text">雅詩蘭黛特潤精華 5ml</em></td>
+										<td class="b-text-right-xs" data-label="單價(NT$)"><em class="text">3,990 元</em></td>
+										<td class="b-text-right-xs" data-label="數量"><em class="text">1</em></td>
+										<td class="b-text-right-xs" data-label="小計(NT$)"><em class="text">3,990 元</em></td>
+										<td class="b-text-left b-text-right-xs" data-label="配送資訊">
+											<div class="deliver-info">
+												<em class="text b-block">收件人：蔡依琳</em>
+												<div class="phone-style b-inline"><em class="text">電話：市話(日) 02-82263668 分機123<br><span class="sub-phone-info">(夜) 02-82263668</span><br>手機 0912345678</em></div>
+												<em class="text b-block">到店取貨，取貨地點：板橋大遠百-7樓服務台。</em>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
 						<div class="btn-wrap b-text-right">
 							<a href="cart-step1.html" class="btn-link btn-cancel b-col-xs-6">返回編輯</a>
