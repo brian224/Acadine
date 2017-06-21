@@ -26,7 +26,7 @@
 		display: inline-block;
 		height: 40px;
 		position: relative;
-		right: 1px;
+		right: 2px;
 		border-radius: 20px;
 		color: $color-white;
 		font-size: 14px;
@@ -640,6 +640,7 @@
 
 		.result-list .list-item {
 			padding-bottom: 20px;
+			display: block;
 		}
 	}
 

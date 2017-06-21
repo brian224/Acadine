@@ -88,8 +88,14 @@
 		z-index: 3;
 	}
 
-	.l-body.show-header .l-content {
-		padding-top: 120px;
+	.l-body {
+		&.show-header .l-content {
+			padding-top: 120px;
+		}
+
+		.l-content {
+			min-height: calc(100vh - 108px);
+		}
 	}
 
 	@media screen and ( min-height : 700px ) {
@@ -110,7 +116,6 @@
 	.l-body {
 		.l-content {
 			padding-top: 70px;
-			min-height: calc(100vh - 108px);
 		}
 
 		&.show-footer .l-side .btn-top {
@@ -134,8 +139,14 @@
 		padding: 0 10px;
 	}
 
-	.l-body.show-header .l-content {
-		padding-top: 86px;
+	.l-body {
+		&.show-header .l-content {
+			padding-top: 86px;
+		}
+
+		.l-content {
+			min-height: calc(100vh - 134px);
+		}
 	}
 }
 
