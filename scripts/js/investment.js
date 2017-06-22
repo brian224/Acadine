@@ -4,8 +4,8 @@
 	var pageObj = new page();
 
 	function page() {
-		this._category   = '.jQ-category';
-		this._curr       = '.jQ-curr';
+		this._category = '.jQ-category';
+		this._curr     = '.jQ-curr';
 	}
 
 	projects.$w.load(function(){
@@ -31,6 +31,13 @@
 				$(this).toggleClass('is-active');
 			}
 			$(this).parent().siblings().find('.b-link').removeClass('is-active');
+
+			if (projects.$w.width() >= 1024) {
+				$(pageObj._category).on('webkitTransitionEnd oTransitionend oTransitionEnd msTransitionEnd transitionend', function(){
+					$('.main-cut').animate({'min-height': $(pageObj._category).height()}, 400);
+					$(pageObj._category).off('webkitTransitionEnd oTransitionend oTransitionEnd msTransitionEnd transitionend');
+				});
+			}
 		});
 	});
 

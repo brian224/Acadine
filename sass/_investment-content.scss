@@ -34,22 +34,17 @@
 		.sub-link {
 			display: block;
 			position: relative;
-			color: $color-white;
 			letter-spacing: 1px;
 			text-align: left;
 			@include transition(ease-in all 0.3s);
 
 			&:before {
 				content: '';
-				background: $color-warning;
+				background: $color-gray-d-p30;
 				display: block;
 				width: 0;
 				position: absolute;
 				@include transition(ease-in all 0.3s);
-			}
-
-			&:hover, &.is-curr {
-				color: $color-warning;
 			}
 		}
 	}
@@ -327,15 +322,23 @@
 						padding-bottom: 20px;
 						background: $color-gray-d-p30;
 						max-height: 1000px;
+
+						.sub-link {
+							color: $color-white;
+
+							&:hover, &.is-curr {
+								color: $color-warning;
+
+								&:before {
+									background: $color-warning;
+								}
+							}
+						}
 					}
 				}
 	
 				&.is-active {
-					background: $color-gray-d-p30;
-					color: $color-white;
-
 					&:before {
-						background: $color-white;
 						width: 36px;
 					}
 	
@@ -346,14 +349,16 @@
 				}
 			}
 		}
+
 		.sub-category-wrap {
-			background: $color-gray-d-p30;
+			background: $color-gray-l-p20;
 		}
 
 		.sub-link {
 			padding: 10px 32px;
 			height: 42px;
 			box-sizing: border-box;
+			color: $color-gray-d-p30;
 			font-size: 14px;
 			line-height: 1.5em;
 
@@ -518,10 +523,10 @@
 				}
 
 				&.is-curr {
-					color: $color-white;
+					color: $color-gray-d-p30;
 
 					&:before {
-						background: $color-white;
+						background: $color-gray-d-p30;
 					}
 				}
 			}
