@@ -29,6 +29,7 @@
 		this._clearInput   = '.jQ-clear-input';
 		this._openBox      = '.jQ-open-box';
 		this._closeBox     = '.jQ-close-box';
+		this._btnFunc      = '.jQ-btn-func';
 		this._leavePage    = false;
 		this._animateSpeed = 400;
 		this._masonryLoad  = false;
@@ -484,6 +485,11 @@
 
 		$(common._closeBox).on('click' , function(){
 			common.closeBoxEvent();
+		});
+
+		$(common._btnFunc).on('click' , function(){
+			$(this).toggleClass('show-func');
+			$(common._sudMenu).removeClass('is-active');
 		});
 
 		$(common._tagSelect).on('change', 'select', function(){

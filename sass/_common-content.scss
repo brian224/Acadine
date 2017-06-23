@@ -42,6 +42,10 @@ body {
 			padding: 10px 0;
 			width: 100%;
 		}
+
+		.btn-func {
+			margin: 0 auto;
+		}
 	
 		.m-icon {
 			color: $color-black;
@@ -532,7 +536,7 @@ body {
 	}
 
 	.l-side {
-		.function-list .b-link {
+		.function-list .btn-func {
 			display: block;
 
 			&:hover .m-icon {
