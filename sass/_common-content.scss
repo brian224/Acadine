@@ -45,6 +45,11 @@ body {
 
 		.btn-func {
 			margin: 0 auto;
+
+			&.show-func ~ .popup-function {
+				display: block;
+				@include transition(ease-in all 0.3s);
+			}
 		}
 	
 		.m-icon {
@@ -59,7 +64,6 @@ body {
 		min-height: 50px;
 		max-height: 0;
 		opacity: 0;
-		overflow: hidden;
 		@include transition(ease-in all 0.3s);
 	}
 
@@ -147,6 +151,197 @@ body {
 		background: $color-gray-d-p10;
 		border-radius: 50%;
 		color: $color-white;
+	}
+
+	.popup-function {
+		background: $color-white;
+		display: none;
+		border-radius: 4px;
+		box-sizing: border-box;
+		box-shadow: 0 2px 16px rgba($color-black, 0.35);
+		line-height: 0;
+
+		.function-wrap {
+			padding: 12px 24px;
+			height: 100%;
+			box-sizing: border-box;
+
+			> *:not(:first-child) {
+				margin-top: 10px;
+			}
+		}
+		
+		.function-title {
+			position: relative;
+			color: $color-gray-d-p30;
+			font-size: 16px;
+			line-height: 1.5em;
+
+			&:after {
+				content: '';
+				background: $color-gray-d-p40;
+				display: block;
+				width: 25px;
+				height: 4px;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+			}
+		}
+
+		.img-wrap img {
+			width: 100%;
+		}
+
+		.link-list .item-list {
+			border-bottom: 1px solid $color-gray-l-p40;
+
+			.b-link {
+				padding: 10px 0;
+				color: $color-gray-d-p30;
+				@include transition(ease-in all 0.3s);
+
+				&:hover {
+					color: $color-text-major;
+				}
+
+				.text {
+					font-size: 14px;
+					line-height: 1.5em;
+				}
+			}
+
+			.img-wrap {
+				margin-right: 10px;
+				width: 76px;
+			}
+		}
+
+		.btn-link {
+			border: 1px solid $color-gray-d-p40;
+			color: $color-gray-d-p30;
+			font-size: 14px;
+			@include transition(ease-in all 0.3s);
+
+			&:hover {
+				background: $color-text-major;
+				border-color: $color-text-major;
+				color: $color-white;
+			}
+		}
+
+		.store-img.img-wrap {
+			@include display-flex;
+			@include align-items(center);
+			@include justify-content(center);
+			height: 150px;
+			overflow: hidden;
+		}
+
+		.info-wrap {
+			font-size: 15px;
+			line-height: 1.5em;
+
+			.b-link {
+				color: $color-black;
+			}
+		}
+
+		.parking-info {
+			margin-top: 10px;
+			padding-top: 10px;
+			border-top: 1px solid $color-gray;
+			font-size: 0;
+			line-height: 0;
+
+			.m-icon {
+				margin-right: 3px;
+				color: #004ca1;
+				font-size: 24px;
+				line-height: 1.5em;
+			}
+
+			.text {
+				font-size: 12px;
+				line-height: 1.5em;
+			}
+		}
+
+		.reaction-list {
+			border-radius: 0 0 4px 4px;
+			overflow: hidden;
+			font-size: 0;
+			line-height: 0;
+
+			.b-link {
+				padding: 10px 0;
+				background: #004ca1;
+				@include transition(ease-in all 0.3s);
+
+				&:hover {
+					background: darken(#004ca1, 10%);
+				}
+			}
+
+			.b-link, .m-icon {
+				color: $color-white;
+			}
+
+			.m-icon {
+				margin: 0 5px;
+				font-size: 16px;
+				line-height: 1.5em;
+			}
+
+			.text {
+				font-size: 12px;
+				line-height: 1.5em;
+			}
+		}
+
+		.code-list {
+			margin-bottom: 18px;
+
+			.item-list {
+				padding: 24px 0;
+				border-bottom: 1px solid $color-gray-l-p30;
+				font-size: 0;
+				line-height: 0;
+
+				&.qrcode .img-wrap {
+					width: 124px;
+				}
+			}
+
+			.function-title {
+				font-size: 14px;
+			}
+
+			.code-info > *:not(:first-child) {
+				margin-top: 10px;
+			}
+
+			.text {
+				color: $color-black;
+				font-size: 12px;
+				line-height: 1.5em;
+			}
+
+			.b-link {
+				color: #0068b7;
+				text-decoration: underline;
+
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
+
+		.hint-text {
+			color: #0068b7;
+			font-size: 12px;
+			line-height: 1.5em;
+		}
 	}
 }
 
@@ -536,11 +731,17 @@ body {
 	}
 
 	.l-side {
-		.function-list .btn-func {
-			display: block;
+		.function-list {
+			.list {
+				position: relative;
+			}
 
-			&:hover .m-icon {
-				color: $color-text-major;
+			.btn-func {
+				display: block;
+	
+				&:hover .m-icon {
+					color: $color-text-major;
+				}
 			}
 		}
 
@@ -568,6 +769,55 @@ body {
 				margin: -4px 0 0 -4px;
 				width: 8px;
 				height: 8px;
+			}
+		}
+
+		.popup-function {
+			margin-right: 20px;
+			width: 242px;
+			position: absolute;
+			top: 0;
+			right: 100%;
+
+			&.align-bottom {
+				top: auto;
+				bottom: 0;
+
+				&:before {
+					top: auto;
+					bottom: 18px;
+				}
+			}
+
+			&.wide-size {
+				width: 320px;
+			}
+
+			&:before {
+				content: '';
+				display: block;
+				width: 0;
+				height: 0;
+				position: absolute;
+				top: 18px;
+				right: -8px;
+				border-top: 5px solid transparent;
+				border-bottom: 5px solid transparent;
+				border-left: 8px solid $color-white;
+			}
+
+			.function-title {
+				padding: 10px 0;
+				font-size: 18px;
+
+				.m-icon {
+					margin-right: 5px;
+				}
+			}
+
+			.btn-link {
+				height: 30px;
+				line-height: 28px;
 			}
 		}
 	}
@@ -613,6 +863,24 @@ body {
 				height: 34px;
 				font-size: 12px;
 				line-height: 34px;
+			}
+
+			.popup-function {
+				top: -150px;
+
+				&:before {
+					top: 160px;
+				}
+
+				&.align-bottom {
+					top: auto;
+					bottom: -150px;
+
+					&:before {
+						top: auto;
+						bottom: 160px;
+					}
+				}
 			}
 		}
 	}
@@ -672,10 +940,52 @@ body {
 	.l-side {
 		.function-list {
 			margin-bottom: 30px;
+
+			&.hide-menu {
+				.collapse-wrap {
+					background: none;
+					box-shadow: none;
+	
+					.btn-func {
+						opacity: 0;
+					}
+				}
+
+				.btn-side-menu {
+					position: fixed;
+					bottom: 14px;
+					left: auto;
+					right: 14px;
+				}
+			}
 		}
 
 		.btn-top {
 			display: none;
+		}
+
+		.popup-function {
+			max-height: calc(100vh - 140px);
+			position: fixed;
+			top: 71px;
+			left: 15px;
+			right: 15px;
+			overflow-y: scroll;
+			z-index: 1;
+
+			.function-title {
+				padding: 10px 0;
+				font-size: 18px;
+
+				.m-icon {
+					margin-right: 5px;
+				}
+			}
+
+			.btn-link {
+				height: 30px;
+				line-height: 28px;
+			}
 		}
 	}
 
@@ -693,8 +1003,22 @@ body {
 }
 
 @include respond(Iphone5) {
-	.l-side .function-list {
-		margin-bottom: 0;
+	.l-side {
+		.function-list {
+			margin-bottom: 0;
+		}
+
+		.popup-function {
+			.parking-info .parking-count {
+				display: block !important;
+				width: 100% !important;
+				text-align: left !important;
+			}
+
+			.code-list .qrcode .function-title {
+				white-space: nowrap;
+			}
+		}
 	}
 }
 
