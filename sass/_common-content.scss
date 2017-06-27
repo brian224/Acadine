@@ -47,8 +47,8 @@ body {
 			margin: 0 auto;
 
 			&.show-func ~ .popup-function {
-				display: block;
-				@include transition(ease-in all 0.3s);
+				opacity: 1;
+				overflow: visible;
 			}
 		}
 	
@@ -155,11 +155,14 @@ body {
 
 	.popup-function {
 		background: $color-white;
-		display: none;
+		max-height: 0;
 		border-radius: 4px;
 		box-sizing: border-box;
 		box-shadow: 0 2px 16px rgba($color-black, 0.35);
+		opacity: 0;
+		overflow: hidden;
 		line-height: 0;
+		@include transition(ease-in all 0.3s);
 
 		.function-wrap {
 			padding: 12px 24px;
@@ -738,6 +741,10 @@ body {
 
 			.btn-func {
 				display: block;
+
+				&.show-func ~ .popup-function {
+					max-height: 100vh;
+				}
 	
 				&:hover .m-icon {
 					color: $color-text-major;
@@ -776,15 +783,20 @@ body {
 			margin-right: 20px;
 			width: 242px;
 			position: absolute;
-			top: 0;
 			right: 100%;
 
+			&:not(.align-bottom) {
+				top: 0;
+
+				&:before {
+					top: 18px;
+				}
+			}
+
 			&.align-bottom {
-				top: auto;
 				bottom: 0;
 
 				&:before {
-					top: auto;
 					bottom: 18px;
 				}
 			}
@@ -799,7 +811,6 @@ body {
 				width: 0;
 				height: 0;
 				position: absolute;
-				top: 18px;
 				right: -8px;
 				border-top: 5px solid transparent;
 				border-bottom: 5px solid transparent;
@@ -958,6 +969,10 @@ body {
 					right: 14px;
 				}
 			}
+
+			.btn-func.show-func ~ .popup-function {
+				max-height: calc(100vh - 140px);
+			}
 		}
 
 		.btn-top {
@@ -965,7 +980,6 @@ body {
 		}
 
 		.popup-function {
-			max-height: calc(100vh - 140px);
 			position: fixed;
 			top: 71px;
 			left: 15px;

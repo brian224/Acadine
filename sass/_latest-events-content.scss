@@ -1,4 +1,4 @@
-﻿.main-tab {
+﻿.l-content .main-tab {
 	.m-tab-wrap {
 		margin: 0 10px;
 	}
@@ -185,7 +185,7 @@
 }
 
 @include respond(Desktops) {
-	.main-tab {
+	.l-content .main-tab {
 		.m-tab-wrap .btn-tab:not(.is-curr):hover {
 			color: #fff100;
 		}
@@ -221,7 +221,7 @@
 		margin-top: 27px;
 	}
 
-	.main-tab {
+	.l-content .main-tab {
 		margin: 0 auto;
 
 		.btn-tab {
@@ -294,7 +294,7 @@
 }
 
 @include respond(HD) {
-	.main-tab {
+	.l-content .main-tab {
 		width: 1320px;
 	}
 
@@ -304,7 +304,7 @@
 }
 
 @include respond(Tablets) {
-	.main-tab .sub-tab .m-tab-wrap .tab-list {
+	.l-content .main-tab .sub-tab .m-tab-wrap .tab-list {
 		width: 20%;
 
 		&:nth-child(5n + 1):before {
@@ -318,7 +318,7 @@
 }
 
 @include respond(Tablets-Mobiles) {
-	.main-tab .sub-tab {
+	.l-content .main-tab .sub-tab {
 		.btn-tab {
 			height: 60px;
 			font-size: 18px;
@@ -340,7 +340,7 @@
 		margin-top: 15px;
 	}
 
-	.main-tab {
+	.l-content .main-tab {
 		.btn-tab {
 			height: 40px;
 			font-size: 16px;
@@ -451,7 +451,7 @@
 }
 
 @include browsers('IE9') {
-	.main-tab .sub-tab .m-tab-wrap {
+	.l-content .main-tab .sub-tab .m-tab-wrap {
 		display: table;
 		width: calc(100% - 20px);
 		@include box-sizing(border-box);
