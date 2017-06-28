@@ -1,4 +1,4 @@
-.main-tab {
+.l-content .main-tab {
 	> .m-tab-wrap {
 		display: table;
 		width: 100%;
@@ -542,7 +542,7 @@
 		margin-left: 20px;
 	}
 
-	.main-tab {
+	.l-content .main-tab {
 		> .m-tab-wrap {
 			margin-bottom: 40px;
 	
@@ -714,7 +714,7 @@
 		}
 	}
 
-	.brand-info .btn-wrap {
+	.brand-info .l-content .btn-wrap {
 		margin-top: 50px;
 	}
 
@@ -773,7 +773,7 @@
 		margin-top: 27px;
 	}
 
-	.main-tab > .m-tab-wrap .btn-tab {
+	.l-content .main-tab > .m-tab-wrap .btn-tab {
 		padding-bottom: 15px;
 
 		&:after {
@@ -982,7 +982,7 @@
 }
 
 @include respond(Tablets-Mobiles) {
-	.main-tab {
+	.l-content .main-tab {
 		> .m-tab-wrap {
 			margin-bottom: 15px;
 
@@ -1133,7 +1133,7 @@
 		}
 	}
 
-	.brand-info .btn-wrap {
+	.brand-info .l-content .btn-wrap {
 		margin-top: 24px;
 	}
 
@@ -1188,7 +1188,7 @@
 		margin-top: 15px;
 	}
 
-	.main-tab > .m-tab-wrap .btn-tab:after {
+	.l-content .main-tab > .m-tab-wrap .btn-tab:after {
 		left: 0;
 		width: 100%;
 	}
@@ -1265,7 +1265,7 @@
 		}
 	}
 
-	.brand-info .btn-wrap {
+	.brand-info .l-content .btn-wrap {
 		margin-top: 25px;
 	}
 

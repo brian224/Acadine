@@ -346,6 +346,197 @@ body {
 			line-height: 1.5em;
 		}
 	}
+
+	.customer-service {
+		.function-wrap {
+			padding: 0;
+			border-radius: 4px;
+			overflow: hidden;
+
+			> *:not(:first-child) {
+				margin-top: 0;
+			}
+		}
+
+		.function-hd {
+			background: #00419a;
+			height: 50px;
+			position: relative;
+			line-height: 50px;
+
+			.function-title {
+				padding-left: 24px;
+
+				&:after {
+					display: none;
+				}
+
+				> * {
+					color: $color-white;
+				}
+
+				.m-icon {
+					font-size: 20px;
+				}
+
+				.text {
+					font-size: 14px;
+				}
+			}
+		}
+
+		.btn-close {
+			display: block;
+			width: 40px;
+			height: 40px;
+			position: absolute;
+			top: 5px;
+			right: 0;
+
+			&:before, &:after {
+				content: '';
+				margin-left: -9px;
+				background: $color-white;
+				display: block;
+				width: 18px;
+				height: 1px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+			}
+
+			&:before {
+				@include transform(rotate(45deg));
+			}
+
+			&:after {
+				@include transform(rotate(-45deg));
+			}
+		}
+
+		.function-bd {
+			overflow-y: auto;
+
+			.chat-wrap {
+				padding: 0 20px 15px 20px;
+
+				> * {
+					margin-top: 15px;
+					overflow: hidden;
+				}
+			}
+
+			.chat-time {
+				margin-right: auto;
+				margin-left: auto;
+				width: 100px;
+				height: 24px;
+				border: 1px solid $color-gray-l-p40;
+				border-radius: 12px;
+				box-sizing: border-box;
+				color: #448aca;
+				font-size: 12px;
+				letter-spacing: 1px;
+				line-height: 22px;
+			}
+
+			.msg-wrap {
+				&.robot .msg-wording:before {
+					right: 100%;
+					border-right: 7px solid $color-gray-l-p40;
+				}
+
+				&.user .msg-wording:before {
+					left: 100%;
+					border-left: 7px solid $color-gray-l-p40;
+				}
+
+				.head-img-wrap {
+					background: $color-gray-l-p40;
+					width: 44px;
+					height: 44px;
+					border: 1px solid $color-gray-l-p30;
+					border-radius: 50%;
+					box-sizing: border-box;
+					overflow: hidden;
+				}
+
+				.msg-wording {
+					margin: 5px 15px 0 15px;
+					padding: 8px;
+					background: $color-gray-l-p40;
+					max-width: 60%;
+					position: relative;
+					border-radius: 3px;
+					color: $color-gray-d-p30;
+					font-size: 12px;
+					line-height: 1.5em;
+
+					&:before {
+						content: '';
+						display: block;
+						width: 0;
+						height: 0;
+						position: absolute;
+						top: 12px;
+						border-top: 4px solid transparent;
+						border-bottom: 4px solid transparent;
+					}
+				}
+			}
+		}
+
+		.function-ft {
+			.m-box-holder {
+				padding: 18px 20px;
+				background: #f0f2f5;
+				@include display-flex;
+				border: 0;
+				font-size: 14px;
+
+				> * {
+					height: 36px;
+					border-radius: 4px;
+				}
+
+				.m-inputbox {
+					@include flex-grow(1);
+					width: auto;
+					border: 1px solid $color-gray-l-p40;
+					box-sizing: border-box;
+					color: $color-gray-d-p30;
+					line-height: 34px;
+				}
+
+				.btn-send {
+					padding: 0 10px;
+					margin-left: 10px;
+					background: $color-text-major;
+					color: $color-white;
+
+					&:hover {
+						background: darken($color-text-major, 10%);
+					}
+				}
+			}
+
+			.link-wrap {
+				height: 30px;
+			}
+
+			.b-link {
+				margin-right: 20px;
+				color: #00419a;
+				font-size: 12px;
+				line-height: 2.5em;
+				text-decoration: underline;
+
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
+	}
 }
 
 .arrow-prev, .arrow-next {
@@ -736,12 +927,16 @@ body {
 	.l-side {
 		.function-list {
 			.list {
-				position: relative;
+				@for $i from 1 through 6 {
+					&:nth-child(#{$i}) .popup-function:not(.align-bottom):before {
+						top: 42px + (48px * ($i - 1));
+					}
+				}
 			}
 
 			.btn-func {
 				display: block;
-
+	
 				&.show-func ~ .popup-function {
 					max-height: 100vh;
 				}
@@ -787,22 +982,22 @@ body {
 
 			&:not(.align-bottom) {
 				top: 0;
-
-				&:before {
-					top: 18px;
-				}
 			}
 
 			&.align-bottom {
 				bottom: 0;
 
 				&:before {
-					bottom: 18px;
+					bottom: 70px;
 				}
 			}
 
 			&.wide-size {
 				width: 320px;
+			}
+
+			&.customer-service {
+				width: 350px;
 			}
 
 			&:before {
@@ -830,6 +1025,10 @@ body {
 				height: 30px;
 				line-height: 28px;
 			}
+		}
+
+		.customer-service .function-bd {
+			height: 40vh;
 		}
 	}
 
@@ -877,10 +1076,12 @@ body {
 			}
 
 			.popup-function {
-				top: -150px;
+				&:not(.align-bottom) {
+					top: -150px;
 
-				&:before {
-					top: 160px;
+					&:before {
+						top: 160px;
+					}
 				}
 
 				&.align-bottom {
@@ -999,6 +1200,22 @@ body {
 			.btn-link {
 				height: 30px;
 				line-height: 28px;
+			}
+		}
+
+		.customer-service .function-wrap {
+			padding-bottom: 102px;
+			position: relative;
+
+			.function-bd {
+				max-height: calc(100vh - 292px);
+			}
+
+			.function-ft {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
 			}
 		}
 	}

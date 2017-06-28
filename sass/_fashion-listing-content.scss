@@ -90,7 +90,7 @@
 	}
 }
 
-.favorite-list {
+.l-content .favorite-list {
 	.list {
 		display: inline-block;
 		position: relative;
@@ -211,7 +211,7 @@
 		margin-bottom: 60px;
 	}
 
-	.favorite-list {
+	.l-content .favorite-list {
 		margin: 0 auto 50px auto;
 
 		.list {
@@ -290,7 +290,7 @@
 		}
 	}
 
-	.favorite-list {
+	.l-content .favorite-list {
 		font-size: 0;
 		line-height: 0;
 
@@ -323,7 +323,7 @@
 		width: $main-max-width;
 	}
 
-	.favorite-list {
+	.l-content .favorite-list {
 		width: 1320px;
 
 		.list {
@@ -337,7 +337,7 @@
 		padding: 0 10px;
 	}
 
-	.favorite-list {
+	.l-content .favorite-list {
 		margin: 0 auto 30px auto;
 
 		.list {
@@ -376,7 +376,7 @@
 		margin-top: 40px;
 	}
 
-	.favorite-list {
+	.l-content .favorite-list {
 		.item-info {
 			padding: 15px 20px 10px 20px;
 			@include flex-grow(1);
@@ -435,7 +435,7 @@
 		width: calc(100vw - 40px);
 	}
 
-	.favorite-list {
+	.l-content .favorite-list {
 		margin-bottom: 20px;
 
 		.list {
@@ -454,7 +454,7 @@
 }
 
 @include devices(iphone) {
-	.favorite-list .btn-read-more {
+	.l-content .favorite-list .btn-read-more {
 		margin: 0 20px 20px 20px;
 	}
 }
@@ -470,7 +470,7 @@
 }
 
 @include browsers('IE') {
-	.favorite-list {
+	.l-content .favorite-list {
 		.btn-like {
 			width: 66px;
 			height: 66px;
@@ -500,7 +500,7 @@
 }
 
 @include browsers('Safari') {
-	.favorite-list .btn-read-more {
+	.l-content .favorite-list .btn-read-more {
 		margin-right: 40px;
 		margin-left: 40px;
 	}

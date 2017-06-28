@@ -12,27 +12,29 @@
 	max-height: 0;
 	overflow: hidden;
 	color: $color-white;
-	font-size: 14px;
-	line-height: 1.5em;
 	@include transition(ease-in all 0.3s);
 
 	.marquee-content {
-		padding-right: 34px;
 		position: relative;
 		box-sizing: border-box;
 	}
 
 	.m-icon {
+		margin-right: 5px;
 		font-size: 20px;
+	}
+
+	.marquee-wording .text {
+		font-size: 14px;
+		line-height: 1.5em;
 	}
 
 	.btn-close {
 		margin-top: -12px;
-		width: 24px;
-		height: 24px;
+		width: 24px !important;
+		height: 24px !important;
 		position: absolute;
 		top: 50%;
-		right: 0;
 		border: 1px solid $color-white;
 		border-radius: 50%;
 		box-sizing: border-box;
@@ -222,7 +224,8 @@
 			@include transition(ease-in all 0.3s);
 
 			&:hover {
-				background: $color-gray-d-p30;
+				background: $color-gray-l-p30;
+				border-color: $color-gray-l-p30;
 				color: $color-white;
 			}
 
@@ -469,7 +472,17 @@
 
 @include respond(Desktops) {
 	.show-marquee .marquee-wrap {
-		padding: 15px 0;
+		padding: 13px 0;
+	}
+
+	.marquee-wrap {
+		.marquee-content {
+			padding-right: 54px;
+		}
+
+		.btn-close {
+			right: 20px;
+		}
 	}
 
 	.m-logo .b-link {
@@ -1067,7 +1080,19 @@
 
 @include respond(Tablets-Mobiles) {
 	.show-marquee .marquee-wrap {
-		padding: 10px 0;
+		padding: 10px;
+	}
+
+	.marquee-wrap {
+		padding: 0 10px;
+
+		.marquee-content {
+			padding-right: 34px;
+		}
+
+		.btn-close {
+			right: 0;
+		}
 	}
 
 	.m-logo .b-link {
@@ -1116,8 +1141,18 @@
 		}
 	}
 
+	.marquee-wrap .marquee-wording {
+		@include display-flex;
+		@include align-items(center);
+		@include justify-content(center);
+
+		.m-icon {
+			margin-right: 10px;
+		}
+	}
+
 	.m-logo {
-		position: fixed;
+		position: absolute;
 		top: 15px;
 		left: 10px;
 		z-index: 2;
@@ -1125,7 +1160,7 @@
 
 	.shortcut-wrap {
 		background: #f4f4f4;
-		min-height: 96px;
+		min-height: 0;
 		position: relative;
 		overflow: hidden;
 		@include transition(ease-in all 0.3s);
@@ -1195,7 +1230,7 @@
 	.btn-mobile-menu {
 		width: 46px;
 		height: 46px;
-		position: fixed;
+		position: absolute;
 		top: 5px;
 		right: 5px;
 		z-index: 2;
@@ -1331,6 +1366,7 @@
 		.menu-list {
 			margin: 0 25px;
 			@include order(2);
+			line-height: 0;
 
 			&.is-highlight {
 				@include order(1);
