@@ -577,11 +577,18 @@
 				}
 			}
 
+			> .b-link:hover {
+				.img-wrap img {
+					@include transform(scale(1.05));
+				}
+			}
+
 			.img-wrap {
 				overflow: hidden;
 
 				img {
 					width: 100%;
+					@include transition(ease-in all 0.3s);
 				}
 			}
 
@@ -595,25 +602,35 @@
 				}
 
 				.item-title {
-					margin-bottom: 12px;
-					padding-bottom: 20px;
-					position: relative;
 					font-size: 18px;
 					font-weight: bold;
 
-					&:after {
-						content: '';
-						background: $color-gray-d-p40;
-						display: block;
-						width: 35px;
-						height: 4px;
-						position: absolute;
-						bottom: 0;
-						left: 0;
-					}
-
 					.b-link {
+						margin-bottom: 12px;
+						padding-bottom: 20px;
+						position: relative;
 						color: $color-gray-d-p40;
+						@include transition(ease-in all 0.3s);
+
+						&:after {
+							content: '';
+							background: $color-gray-d-p40;
+							display: block;
+							width: 35px;
+							height: 4px;
+							position: absolute;
+							bottom: 0;
+							left: 0;
+							@include transition(ease-in all 0.3s);
+						}
+
+						&:hover {
+							color: $color-text-major;
+
+							&:after {
+								background: $color-text-major;
+							}
+						}
 					}
 				}
 
