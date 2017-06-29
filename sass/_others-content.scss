@@ -1937,11 +1937,53 @@
 	.activities-list .list {
 		width: calc((100% - 61px) / 3);
 	}
+
+	.contact-us-sent .l-content {
+		@include align-items(center);
+
+		.content-wrap {
+			width: 100%;
+		}
+	}
+
+	.error .l-content {
+		display: table;
+		width: 100%;
+
+		.content-wrap {
+			display: table-cell;
+			vertical-align: middle;
+		}
+	}
+
+	.keyword-search .guide-filter .guide-desc {
+		width: 100%;
+	}
 }
 
 @include browsers('IE9') {
 	.keyword-search .input-content {
 		width: 884px;
+	}
+
+	.affiliates-list, .branch-info-list {
+		font-size: 0;
+		line-height: 0;
+
+		.list {
+			display: inline-block;
+		}
+	}
+
+	.branch-info-list {
+		.list {
+			margin-bottom: 20px;
+			vertical-align: top;
+		}
+
+		.branch-name {
+			line-height: 1.5em;
+		}
 	}
 }
 

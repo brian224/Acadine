@@ -1256,7 +1256,25 @@ body {
 @include browsers('IE') {}
 
 @include browsers('IE9') {
-	.l-side .pagination .btn-dot {
-		margin: 0 auto;
+	.l-side {
+		.function-list .list {
+			@for $i from 1 through 6 {
+				&:nth-child(#{$i}) .popup-function:not(.align-bottom):before {
+					top: 46px + (56px * ($i - 1));
+				}
+			}
+		}
+
+		.customer-service .function-ft .m-box-holder {
+			width: 100%;
+
+			.m-inputbox {
+				width: calc(100% - 70px);
+			}
+		}
+
+		.pagination .btn-dot {
+			margin: 0 auto;
+		}
 	}
 }

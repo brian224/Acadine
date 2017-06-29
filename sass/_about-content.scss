@@ -25,7 +25,7 @@
 	margin: 0 auto;
 }
 
-.main-tab {
+.l-content .main-tab {
 	> .m-tab-wrap {
 		display: table;
 		width: 100%;
@@ -258,7 +258,7 @@
 		padding-bottom: 100px; 
 	}
 
-	.main-tab {
+	.l-content .main-tab {
 		> .m-tab-wrap {
 			margin-top: 36px;
 
@@ -306,7 +306,7 @@
 		margin-top: 27px;
 	}
 
-	.main-tab {
+	.l-content .main-tab {
 		> .m-tab-wrap > .tab-list .btn-tab {
 			padding-bottom: 15px;
 	
@@ -408,7 +408,7 @@
 		padding: 0 50px;
 	}
 
-	.main-tab > .m-tab-wrap {
+	.l-content .main-tab > .m-tab-wrap {
 		margin-top: 20px;
 	}
 
@@ -428,7 +428,7 @@
 		padding-bottom: 40px; 
 	}
 
-	.main-tab {
+	.l-content .main-tab {
 		> .m-tab-wrap > .tab-list .btn-tab {
 			.m-icon {
 				margin-top: 15px;
@@ -487,7 +487,7 @@
 		padding-bottom: 50px; 
 	}
 
-	.main-tab {
+	.l-content .main-tab {
 		> .m-tab-wrap > .tab-list .btn-tab {
 			padding-bottom: 10px;
 			width: 100%;
@@ -569,7 +569,7 @@
 @include devices(iphone) {}
 
 @include respond(Iphone5) {
-	.main-tab > .m-tab-wrap > .tab-list {
+	.l-content .main-tab > .m-tab-wrap > .tab-list {
 		@include display-flex;
 		@include align-items(stretch);
 		@include flex-direction(column);
@@ -583,6 +583,20 @@
 
 @include browsers('IE') {}
 
-@include browsers('IE9') {}
+@include browsers('IE9') {
+	.matter-list .matter-info {
+		font-size: 0;
+		line-height: 0;
+
+		> * {
+			vertical-align: middle;
+		}
+
+		.event-list {
+			display: inline-block;
+			width: calc(100% - 116px);
+		}
+	}
+}
 
 @include browsers('Safari') {}

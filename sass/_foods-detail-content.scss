@@ -4,9 +4,15 @@
 }
 
 .kv-owl .item .img-wrap {
+	margin: 0;
 	@include display-flex;
 	@include align-items(center);
 	@include justify-content(center);
+	width: 100%;
+
+	img {
+		min-width: 100%;
+	}
 }
 
 .m-cut {

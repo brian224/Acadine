@@ -35,6 +35,7 @@
 		this._langSwitch   = '.jQ-lang-switch';
 		this._closePopup   = '.jQ-close-popup';
 		this._sendMsg      = '.jQ-send-msg';
+		this._shortcutWrap = '.shortcut-wrap';
 		this._leavePage    = false;
 		this._animateSpeed = 400;
 		this._masonryLoad  = false;
@@ -286,9 +287,13 @@
 	}
 
 	page.prototype.closeBoxEvent = function() {
-		$(common._lBody).addClass('fade-out').on('webkitAnimationEnd oAnimationend oAnimationEnd msAnimationEnd animationend', function(){
-			$(common._lBody).removeClass('show-lightbox fade-out').off('webkitAnimationEnd oAnimationend oAnimationEnd msAnimationEnd animationend');
-		});
+		if (navigator.userAgent.indexOf('MSIE 9') > 0) {
+			$(common._lBody).removeClass('show-lightbox');
+		} else {
+			$(common._lBody).addClass('fade-out').on('webkitAnimationEnd oAnimationend oAnimationEnd msAnimationEnd animationend', function(){
+				$(common._lBody).removeClass('show-lightbox fade-out').off('webkitAnimationEnd oAnimationend oAnimationEnd msAnimationEnd animationend');
+			});
+		}
 	}
 
 	page.prototype.sendServiceMsg = function() {
@@ -297,6 +302,13 @@
 		$chatWrap.append('<div class="msg-wrap user b-clearfix"><figure class="head-img-wrap img-wrap b-float-right"><img src="../../content/img/shared/heads/user.png" alt=""></figure><p class="msg-wording b-inline b-float-right b-text-left">' + $(common._sendMsg + ' .m-inputbox').val() + '</p></div>');
 		$(common._sendMsg + ' .m-inputbox').val('');
 		$('.function-bd').scrollTop($chatWrap[0].scrollHeight);
+	}
+
+	page.prototype.mobileHeaderReset = function() {
+		var _str = $(common._shortcutWrap)[0].outerHTML;
+
+		$(common._shortcutWrap).remove();
+		$('.header-wrap').append(_str);
 	}
 
 	projects.$w.load(function(){
@@ -318,6 +330,8 @@
 		}
 
 		if (projects.device() === 'Mobile') {
+			common.mobileHeaderReset();
+			
 			$(common._owl).on('drag.owl.carousel', function(){
 				common.touchLock($('body').scrollTop());
 			});
@@ -433,7 +447,7 @@
 			$(this).addClass('is-curr').parent().siblings().find(common._tab).removeClass('is-curr');
 			$(this).parents('.m-tab-wrap').siblings('.m-tab-content').children('.content-list').eq(_idx).addClass('is-curr').siblings().removeClass('is-curr');
 
-			if ($(this).attr('data-hushtag') !== undefined) {
+			if ($(this).attr('data-hushtag') !== undefined && history.pushState !== undefined) {
 				history.pushState('' , document.title , projects._HREF.split('#')[0] + '#' + $(this).attr('data-hushtag'));
 			}
 		});

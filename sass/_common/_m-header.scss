@@ -1103,6 +1103,59 @@
 
 @include respond(Mobiles) {
 	.l-header {
+		.header-wrap {
+			background: $color-white;
+			max-height: 56px;
+			position: relative;
+			@include transition(ease-in all 0.3s);
+
+			&:after {
+				content: '';
+				background: $color-white;
+				display: block;
+				width: 100%;
+				height: 56px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+				z-index: 1;
+			}
+
+			&.is-active {
+				max-height: 100vh;
+				box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+				overflow-y: scroll;
+
+				.l-nav {
+					padding-top: 56px;
+					max-height: 1000px;
+				}
+
+				.shortcut-wrap {
+					display: block;
+				}
+
+				.btn-mobile-menu {
+					&:before {
+						margin-top: 0;
+						@include transform(rotate(45deg));
+					}
+		
+					&:after {
+						margin-top: 0;
+						margin-left: -15px;
+						width: 30px;
+						@include transform(rotate(-45deg));
+					}
+		
+					em {
+						background: transparent !important;
+					}
+				}
+			}
+		}
+
 		button:not(.btn-mobile-menu) {
 			width: 100%;
 			height: 40px;
@@ -1160,6 +1213,7 @@
 
 	.shortcut-wrap {
 		background: #f4f4f4;
+		display: none;
 		min-height: 0;
 		position: relative;
 		overflow: hidden;
@@ -1177,8 +1231,6 @@
 
 		.quick-list {
 			padding: 15px 25px 20px 25px;
-			@include display-flex;
-			@include flex-direction(column);
 		}
 	}
 
@@ -1211,11 +1263,15 @@
 		}
 	}
 
-	.location-selecter > * {
-		width: 100%;
+	.location-selecter {
+		min-height: auto;
 
-		&.is-active {
-			max-height: 1000px;
+		> * {
+			width: 100%;
+	
+			&.is-active {
+				max-height: 1000px;
+			}
 		}
 	}
 
@@ -1224,6 +1280,10 @@
 
 		&.is-active {
 			max-height: 1000px;
+		}
+
+		.btn-language-switch {
+			font-weight: normal !important;
 		}
 	}
 
@@ -1268,10 +1328,6 @@
 			height: 3px;
 			@include transition(ease-in all 0.3s);
 		}
-	}
-
-	.btn-language-switch {
-		font-weight: bold;
 	}
 
 	.main-menu {
@@ -1377,7 +1433,7 @@
 
 				&:before, &:after {
 					content: '';
-					background: $color-gray-d-p30;
+					background: #484848;
 					display: block;
 					width: 25px;
 					position: absolute;
@@ -1408,29 +1464,16 @@
 			}
 
 			.menu-slider {
-				background: $color-gray-d-p30;
+				background: #484848;
 			}
 
 			.sub-menu-wrap .sub-menu .b-link {
 				height: 40px;
-				position: relative;
 				border-bottom: 1px solid $color-gray-d-p10;
 				color: $color-white;
 				font-size: 14px;
 				line-height: 40px;
-
-				&:after {
-					content: '';
-					display: block;
-					width: 6px;
-					height: 6px;
-					position: absolute;
-					top: 16px;
-					right: 3px;
-					border-right: 1px solid $color-white;
-					border-bottom: 1px solid $color-white;
-					@include transform(rotate(-45deg));
-				}
+				text-indent: 14px;
 			}
 		}
 
@@ -1483,7 +1526,7 @@
 	.shortcut-wrap {
 		.quick-list {
 			&:after {
-				content : "";
+				content : '';
 				width   : 100%;
 				height  : 0;
 				clear   : both;
@@ -1530,7 +1573,15 @@
 			.list {
 				display: table-cell;
 				vertical-align: middle;
+
+				.btn-func {
+					height: 70px;
+				}
 			}
+		}
+
+		.popup-function .function-wrap > *:last-child {
+			margin-bottom: 20px;
 		}
 	}
 
@@ -1545,5 +1596,11 @@
 				width: 200px;
 			}
 		}
+	}
+}
+
+@include devices(iphone) {
+	.shortcut-wrap .quick-list {
+		padding-bottom: 45px;
 	}
 }

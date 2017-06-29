@@ -1,6 +1,7 @@
 ﻿.l-body .l-content {
 	background: $color-gray-l-p40;
 	position: relative;
+	@include transition(none);
 }
 
 .category-content .category-list {
