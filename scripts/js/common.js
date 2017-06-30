@@ -97,6 +97,10 @@
 				if (!$(e.target).is(_target + ', ' + _target + ' *')) {
 					$(_target).removeClass('is-active');
 				}
+			} else if (_target === '.popup-function') {
+				if (!$(e.target).is(_target + ', ' + _target + ' *, ' + common._btnFunc + ', ' + common._btnFunc + ' *')) {
+					$(_target).prev().removeClass('show-func');
+				}
 			}
 		});
 	}
@@ -563,6 +567,8 @@
 					$('.quick-list .is-active').removeClass('is-active');
 				}
 			}
+
+			common.offClick('.popup-function');
 		});
 
 		$(common._closePopup).on('click' , function(){
