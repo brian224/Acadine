@@ -20,7 +20,7 @@
 		$(pageObj._curr).text($('.category-list .is-curr').eq(-1).text());
 
 		if ($(pageObj._datepicker).length !== 0) {
-			$(pageObj._datepicker).DatePicker();
+			$(pageObj._datepicker + ' .m-inputbox').DatePicker();
 		}
 
 		$(pageObj._category).on('click', function(){
@@ -35,6 +35,12 @@
 			if ($(this).next().length >= 1) {
 				$(this).toggleClass('is-active');
 			}
+		});
+
+		$(pageObj._datepicker + ' .m-icon').on('click', function(){
+			$(this).prev().find('.m-inputbox').trigger('click');
+
+			return false;
 		});
 	});
 

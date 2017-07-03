@@ -7,6 +7,7 @@
 	function page() {
 		this._lBody        = '.l-body';
 		this._lHeader      = '.l-header';
+		this._lContent     = '.l-content';
 		this._owl          = '.jQ-owl';
 		this._countHeight  = '.jQ-count-height';
 		this._btnTop       = '.jQ-top';
@@ -143,7 +144,7 @@
 	// 捲動暫停影片
 	page.prototype.pauseVideo = function() {
 		$(common._video).each(function(){
-			if ($(this).offset().top + $(this).height() < projects.$w.scrollTop() + parseInt($('.l-content').css('padding-top'), 10) || common._leavePage === true) {
+			if ($(this).offset().top + $(this).height() < projects.$w.scrollTop() + parseInt($(common._lContent).css('padding-top'), 10) || common._leavePage === true) {
 				for (var i = 0; i < projects._media._player.length; i++) {
 					if ( ! projects._media._player[i].getPlayerState ) return false;
 					if (projects._media._player[i].getPlayerState() === 1) {
@@ -167,7 +168,7 @@
 	// 重回視窗繼續影片
 	page.prototype.returnPage = function() {
 		$(common._video).each(function(){
-			if ($(this).parents('.owl-item').hasClass('active') && $(this).offset().top + $(this).height() > projects.$w.scrollTop() + parseInt($('.l-content').css('padding-top'), 10)) {
+			if ($(this).parents('.owl-item').hasClass('active') && $(this).offset().top + $(this).height() > projects.$w.scrollTop() + parseInt($(common._lContent).css('padding-top'), 10)) {
 				for (var i = 0; i < projects._media._player.length; i++) {
 					if ( ! projects._media._player[i].getPlayerState ) return false;
 					if (projects._media._player[i].getPlayerState() === 2) {
@@ -348,6 +349,10 @@
 			
 			if ($(common._tagSelect).length !== 0) {
 				common.changeToSelect();
+			}
+
+			if ($(common._lBody).hasClass('show-marquee')) {
+				$(common._lContent).css('padding-top', $('.marquee-wrap').height() + parseInt($(common._lContent).css('padding-top'), 10));
 			}
 		}
 
@@ -573,11 +578,19 @@
 
 		$(common._closePopup).on('click' , function(){
 			$(this).parents('.popup-function').prev().removeClass('show-func');
+			
+			if (projects.device() === 'Mobile') {
+				$('.function-list').removeClass('hide-menu')
+			}
 		});
 
 		$(common._btnMarquee).on('click' , function(){
 			$(common._lBody).removeClass('show-marquee');
 			sessionStorage.setItem('marquee', 'readed');
+
+			if (projects.device() === 'Mobile') {
+				$(common._lContent).css('padding-top', '');
+			}
 		});
 
 		$(common._sendMsg + ' .btn-send').on('click' , function(){

@@ -144,8 +144,9 @@ $color-third : #f39700;
 		border-radius: 50%;
 		font-weight: bold;
 		text-align: center;
+		@include transition(ease-in all 0.3s);
 
-		&.is-curr {
+		&:hover, &.is-curr {
 			background: $color-third !important;
 			color: $color-white !important;
 		}

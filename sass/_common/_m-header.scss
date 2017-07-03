@@ -186,7 +186,7 @@
 				@include transition(ease-in all 0.3s);
 
 				&:hover {
-					background: darken($color-gray-l-p10, 10%);
+					background: $color-text-major;
 				}
 			}
 		}
@@ -203,7 +203,8 @@
 			@include transition(ease-in all 0.3s);
 
 			&:hover {
-				background: $color-gray-l-p30;
+				background: $color-text-major;
+				border-color: $color-text-major;
 				color: $color-white;
 			}
 		}
@@ -224,8 +225,8 @@
 			@include transition(ease-in all 0.3s);
 
 			&:hover {
-				background: $color-gray-l-p30;
-				border-color: $color-gray-l-p30;
+				background: $color-gray-d-p30;
+				border-color: $color-gray-d-p30;
 				color: $color-white;
 			}
 
@@ -302,7 +303,7 @@
 					@include transition(ease-in all 0.3s);
 				}
 
-				&.is-curr {
+				&.is-curr, &:hover {
 					font-weight: bold;
 
 					&:after {
@@ -320,6 +321,20 @@
 				position: relative;
 				font-size: 0;
 				line-height: 0;
+
+				.b-link:hover {
+					img {
+						@include transform(scale(1.05));
+					}
+
+					.item-text-info > *:first-child {
+						color: $color-text-major;
+
+						&:after {
+							background: $color-text-major;
+						}
+					}
+				}
 	
 				.item-pic {
 					padding-right: 10px;
@@ -340,6 +355,10 @@
 					@include justify-content(center);
 					box-sizing: border-box;
 					overflow: hidden;
+
+					img {
+						@include transition(ease-in all 0.3s);
+					}
 				}
 	
 				.item-text-info {
@@ -353,6 +372,7 @@
 						margin-right: 30px;
 						padding-bottom: 6px;
 						position: relative;
+						@include transition(ease-in all 0.3s);
 	
 						&:after {
 							content: '';
@@ -363,6 +383,7 @@
 							position: absolute;
 							bottom: 0;
 							left: 0;
+							@include transition(ease-in all 0.3s);
 						}
 					}
 	

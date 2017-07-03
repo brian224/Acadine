@@ -63,6 +63,10 @@ $color-third : #f39700;
 			background: $color-third;
 		}
 
+		.btn-radius:hover {
+			background: darken($color-third, 10%);
+		}
+
 		.m-tab.sub-tab > .m-tab-wrap {
 			text-align: left;
 
@@ -227,7 +231,7 @@ $color-third : #f39700;
 
 	.info-box {
 		@include display-flex;
-		@include align-items(center);
+		@include align-items(flex-start);
 		@include justify-content(center);
 		@include flex-direction(column);
 	}
@@ -237,23 +241,28 @@ $color-third : #f39700;
 		font-weight: bold;
 	}
 
-	.info-list .list {
-		@include display-flex;
-		@include align-items(flex-start);
-		@include justify-content(flex-start);
+	.desc {
+		color: $color-gray-d-p40;
+	}
 
-		&:nth-child(2n+1) .m-icon {
-			color: #024ea4;
+	.info-list {
+		&.is-peach .m-icon {
+			color: #e3017f;
 		}
 
-		&:nth-child(2n) .m-icon {
-			color: #e93226;
+		&.is-blue .m-icon {
+			color: #2ea7e0;
 		}
 
-		.text {
-			color: $color-gray-d-p40;
-			font-weight: bold;
-			line-height: 1.5em;
+		.list {
+			@include display-flex;
+			@include align-items(flex-start);
+			@include justify-content(flex-start);
+	
+			.text {
+				color: $color-gray-d-p40;
+				line-height: 1.2em;
+			}
 		}
 	}
 
@@ -885,13 +894,29 @@ $color-third : #f39700;
 	.other-info {
 		margin-top: 40px;
 
-		.info-title {
-			font-size: 36px;
+		.info-box {
+			padding: 0 40px;
 		}
 
-		.info-list .list .m-icon {
+		.info-title {
 			font-size: 36px;
-			line-height: 44px;
+			line-height: 1.5em;
+		}
+
+		.desc {
+			font-size: 24px;
+			line-height: 1.5em;
+		}
+
+		.info-list .list {
+			.m-icon {
+				font-size: 36px;
+				line-height: 44px;
+			}
+
+			.text {
+				font-size: 18px;
+			}
 		}
 	}
 
@@ -1148,6 +1173,10 @@ $color-third : #f39700;
 	}
 
 	.other-info {
+		.desc {
+			margin-bottom: 10px;
+		}
+
 		.info-list .list {
 			&:not(:last-child) {
 				padding-bottom: 20px;
@@ -1397,8 +1426,8 @@ $color-third : #f39700;
 		width: 400px;
 	}
 
-	.other-info .img-wrap {
-		max-width: 736px;
+	.other-info .info-box {
+		padding: 0 65px;
 	}
 
 	.currency-exchange, .content-list.storage-lockers {
@@ -1625,8 +1654,18 @@ $color-third : #f39700;
 	.other-info {
 		margin-top: 20px;
 
+		.info-box {
+			padding: 0 20px;
+		}
+
 		.info-title {
 			font-size: 20px;
+			line-height: 1.5em;
+		}
+
+		.desc {
+			font-size: 16px;
+			line-height: 1.5em;
 		}
 
 		.info-list .list .m-icon {
@@ -1802,6 +1841,10 @@ $color-third : #f39700;
 
 		.info-box {
 			margin-top: 10px;
+		}
+
+		.desc {
+			margin-bottom: 10px;
 		}
 
 		.info-list .list {

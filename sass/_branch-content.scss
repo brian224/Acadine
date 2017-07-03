@@ -54,6 +54,7 @@
 			font-weight: bold;
 			letter-spacing: 1px;
 			line-height: 1.5em;
+			@include transition(ease-in all 0.3s);
 
 			&:after {
 				content: '';
@@ -494,8 +495,12 @@
 				@include transform(scale(1.05));
 			}
 
-			.item-info .info-title:after {
-				background: $color-text-major;
+			.item-info .info-title {
+				color: $color-text-major;
+
+				&:after {
+					background: $color-text-major;
+				}
 			}
 
 			.btn-read-more {
@@ -658,6 +663,14 @@
 			&:hover {
 				border: 1px solid $color-gray-l-p30;
 				box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+
+				.item-info .info-title {
+					color: $color-text-major;
+
+					&:after {
+						background: $color-text-major;
+					}
+				}
 			}
 		}
 

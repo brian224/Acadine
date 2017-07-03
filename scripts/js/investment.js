@@ -26,6 +26,14 @@
 			}
 		});
 
+		$(pageObj._curr).on('click', function(){
+			if ($(pageObj._category).hasClass('is-active')) {
+				$(pageObj._category).removeClass('is-active');
+
+				return false;
+			}
+		});
+
 		$(pageObj._category + ' .b-link').on('click', function(){
 			if ($(this).next().length >= 1) {
 				$(this).toggleClass('is-active');

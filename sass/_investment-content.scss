@@ -670,7 +670,11 @@
 	}
 
 	.main-cut {
-		padding-bottom: 50px; 
+		padding-bottom: 50px;
+
+		.b-link {
+			word-wrap: break-word;
+		}
 	}
 
 	.btn-link {

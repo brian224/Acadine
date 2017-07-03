@@ -167,9 +167,10 @@ body {
 		.function-wrap {
 			padding: 12px 24px;
 			height: 100%;
+			position: relative;
 			box-sizing: border-box;
 
-			> *:not(:first-child) {
+			> *:not(:first-child):not(.btn-close) {
 				margin-top: 10px;
 			}
 		}
@@ -345,6 +346,41 @@ body {
 			font-size: 12px;
 			line-height: 1.5em;
 		}
+
+		.btn-close {
+			display: block;
+			width: 32px;
+			height: 32px;
+			position: absolute;
+			top: 9px;
+			right: 9px;
+			border-radius: 50%;
+			@include transition(ease-in all 0.3s);
+
+			&:hover {
+				background: darken($color-white, 10%);
+			}
+
+			&:before, &:after {
+				content: '';
+				margin-left: -9px;
+				background: $color-gray-d-p30;
+				display: block;
+				width: 18px;
+				height: 1px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+			}
+
+			&:before {
+				@include transform(rotate(45deg));
+			}
+
+			&:after {
+				@include transform(rotate(-45deg));
+			}
+		}
 	}
 
 	.customer-service {
@@ -386,31 +422,12 @@ body {
 		}
 
 		.btn-close {
-			display: block;
-			width: 40px;
-			height: 40px;
-			position: absolute;
-			top: 5px;
-			right: 0;
+			&:hover {
+				background: darken(#00419a, 10%);
+			}
 
 			&:before, &:after {
-				content: '';
-				margin-left: -9px;
 				background: $color-white;
-				display: block;
-				width: 18px;
-				height: 1px;
-				position: absolute;
-				top: 50%;
-				left: 50%;
-			}
-
-			&:before {
-				@include transform(rotate(45deg));
-			}
-
-			&:after {
-				@include transform(rotate(-45deg));
 			}
 		}
 
@@ -513,6 +530,7 @@ body {
 					margin-left: 10px;
 					background: $color-text-major;
 					color: $color-white;
+					@include transition(ease-in all 0.3s);
 
 					&:hover {
 						background: darken($color-text-major, 10%);

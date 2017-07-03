@@ -177,19 +177,21 @@
 }
 
 @include respond(Mobiles) {
-	.l-body.show-marquee .l-header .header-wrap.is-active {
-		max-height: 80vh;
+	.l-body {
+		&.show-marquee .l-header .header-wrap.is-active {
+			max-height: 80vh;
+		}
+
+		.l-content {
+			padding-top: 56px;
+			min-height: calc(100vh - 78px);
+		}
 	}
 
 	.l-nav {
 		max-height: 0;
 		overflow: hidden;
 		@include transition(ease-in all 0.3s);
-	}
-
-	.l-body .l-content {
-		padding-top: 56px;
-		min-height: calc(100vh - 78px);
 	}
 
 	.l-side {

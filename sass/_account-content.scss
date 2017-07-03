@@ -161,6 +161,20 @@
 
 		> .b-link {
 			display: block;
+
+			&:hover {
+				.img-wrap img {
+					@include transform(scale(1.05));
+				}
+
+				.act-title {
+					color: $color-text-major;
+				}
+
+				.desc:before {
+					background: $color-text-major;
+				}
+			}
 		}
 	}
 
@@ -182,6 +196,7 @@
 		font-size: 20px;
 		font-weight: bold;
 		line-height: 1.5em;
+		@include transition(ease-in all 0.3s);
 	}
 
 	.act-time, .desc {
@@ -211,6 +226,7 @@
 			position: absolute;
 			top: 0;
 			left: 0;
+			@include transition(ease-in all 0.3s);
 		}
 	}
 
@@ -282,6 +298,7 @@
 	font-weight: bold;
 	line-height: 2em;
 	text-align: left;
+	@include transition(ease-in all 0.3s);
 
 	&:after {
 		content: '';
@@ -292,6 +309,7 @@
 		position: absolute;
 		bottom: 8px;
 		left: 0;
+		@include transition(ease-in all 0.3s);
 	}
 }
 
@@ -306,12 +324,53 @@
 	line-height: 30px;
 }
 
-.l-content .info-list .list {
-	color: $color-gray-d-p30;
+.l-content {
+	.info-list .list {
+		color: $color-gray-d-p30;
 
-	.highlight {
-		padding: 0 10px 0 20px;
-		font-size: 20px;
+		.highlight {
+			padding: 0 10px 0 20px;
+			font-size: 20px;
+		}
+	}
+
+	.btn-tab {
+		border-bottom: 1px solid $color-gray-l-p30;
+		color: $color-gray-l-p10;
+		font-weight: bold;
+		line-height: 1.5em;
+		@include transition(ease-in all 0.3s);
+
+		&.is-curr {
+			background: $color-white;
+			border: 1px solid $color-gray-l-p30;
+			border-bottom: 0;
+			color: $color-gray-d-p30;
+		}
+
+		&:not(.is-curr):hover {
+			color: $color-text-major;
+		}
+	}
+
+	.m-tab-content {
+		background: $color-white;
+		border: 1px solid $color-gray-l-p30;
+		border-top: 0;
+
+		.content-list {
+			display: none;
+
+			&.is-curr {
+				display: block;
+			}
+
+			.btn-link {
+				display: inline-block;
+				text-align: center;
+				@include transition(ease-in all 0.3s);
+			}
+		}
 	}
 }
 
@@ -365,42 +424,6 @@
 		font-size: 16px;
 		line-height: 34px;
 		@include box-sizing(border-box);
-	}
-}
-
-.l-content {
-	.btn-tab {
-		border-bottom: 1px solid $color-gray-l-p30;
-		color: $color-gray-l-p10;
-		font-weight: bold;
-		line-height: 1.5em;
-
-		&.is-curr {
-			background: $color-white;
-			border: 1px solid $color-gray-l-p30;
-			border-bottom: 0;
-			color: $color-gray-d-p30;
-		}
-	}
-
-	.m-tab-content {
-		background: $color-white;
-		border: 1px solid $color-gray-l-p30;
-		border-top: 0;
-
-		.content-list {
-			display: none;
-
-			&.is-curr {
-				display: block;
-			}
-
-			.btn-link {
-				display: inline-block;
-				text-align: center;
-				@include transition(ease-in all 0.3s);
-			}
-		}
 	}
 }
 
@@ -586,8 +609,17 @@
 		@include justify-content(space-between);
 	}
 
-	.img-wrap img {
-		width: 100%;
+	.item-pic .b-link:hover img {
+		@include transform(scale(1.05));
+	}
+
+	.img-wrap {
+		overflow: hidden;
+
+		img {
+			width: 100%;
+			@include transition(ease-in all 0.3s);
+		}
 	}
 
 	.item-text-info {
@@ -597,6 +629,14 @@
 		@include flex-direction(column);
 		@include flex-grow(1);
 		letter-spacing: 1px;
+
+		.b-link:hover .sub-title {
+			color: $color-text-major;
+
+			&:after {
+				background: $color-text-major;
+			}
+		}
 
 		.sub-title {
 			line-height: 1.5em;
@@ -806,10 +846,6 @@
 		width: calc(100vw - 260px);
 	}
 
-	.members-item-list .list .b-link:hover .img-wrap img {
-		@include transform(scale(1.05));
-	}
-
 	.l-content .btn-tab {
 		height: 80px;
 	}
@@ -831,6 +867,10 @@
 
 	.epaper .m-table td {
 		padding: 0 50px;
+	}
+
+	.m-icon-calendar {
+		cursor: pointer;
 	}
 }
 
@@ -1432,12 +1472,27 @@
 		margin-bottom: 20px;
 	}
 
-	.l-content .info-list {
-		margin-bottom: 30px;
-		margin-left: 30px;
+	.l-content {
+		.btn-tab {
+			padding: 5px 10px;
+			min-height: 40px;
+			font-size: 16px;
+			white-space: normal;
+			word-wrap: break-word;
+			word-break: break-all;
+		}
 
-		.list {
-			font-size: 14px;
+		.m-tab-content {
+			padding: 20px 0;
+		}
+
+		.info-list {
+			margin-bottom: 30px;
+			margin-left: 30px;
+	
+			.list {
+				font-size: 14px;
+			}
 		}
 	}
 
@@ -1525,6 +1580,19 @@
 	}
 
 	.record {
+		.datepicker-wrap .m-form {
+			@include display-flex;
+			@include align-items(center);
+
+			.m-lab {
+				@include flex-grow(1);
+
+				.m-box-holder {
+					width: 100%;
+				}
+			}
+		}
+
 		.m-form {
 			margin-top: 10px;
 		}
@@ -1546,18 +1614,6 @@
 
 	.table-wrap .m-table:last-child {
 		border-top: 0;
-	}
-
-	.l-content {
-		.btn-tab {
-			padding: 5px 10px;
-			min-height: 40px;
-			font-size: 16px;
-		}
-
-		.m-tab-content {
-			padding: 20px 0;
-		}
 	}
 
 	.m-table {
@@ -1715,6 +1771,7 @@
 
 			.m-table td {
 				height: 40px;
+				white-space: nowrap;
 			}
 		}
 

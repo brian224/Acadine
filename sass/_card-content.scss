@@ -115,6 +115,11 @@
 		color: $color-gray-l-p10;
 		font-weight: bold;
 		line-height: 1.5em;
+		@include transition(ease-in all 0.3s);
+
+		&:hover {
+			color: $color-text-major;
+		}
 
 		&.is-curr {
 			background: $color-white;

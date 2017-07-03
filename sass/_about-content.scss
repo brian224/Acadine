@@ -23,6 +23,7 @@
 
 .main-cut {
 	margin: 0 auto;
+	position: relative;
 }
 
 .l-content .main-tab {
@@ -41,6 +42,7 @@
 
 				> * {
 					display: block;
+					@include transition(ease-in all 0.3s);
 				}
 
 				.m-icon {
@@ -62,6 +64,7 @@
 					bottom: -1px;
 					left: 50%;
 					opacity: 0;
+					@include transition(ease-in all 0.3s);
 				}
 
 				&.is-curr, &:hover {
@@ -568,18 +571,7 @@
 
 @include devices(iphone) {}
 
-@include respond(Iphone5) {
-	.l-content .main-tab > .m-tab-wrap > .tab-list {
-		@include display-flex;
-		@include align-items(stretch);
-		@include flex-direction(column);
-
-		.btn-tab {
-			@include flex-grow(1);
-			height: auto !important;
-		}
-	}
-}
+@include respond(Iphone5) {}
 
 @include browsers('IE') {}
 
