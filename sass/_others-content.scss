@@ -760,25 +760,11 @@
 	.act-list .list {
 		background: $color-white;
 		@include display-flex;
+		box-sizing: border-box;
 		box-shadow: 0 0 8px rgba($color-black, 0.05);
 
-		&.main-act {
-			@include flex-direction(column);
-
-			.item-info {
-				@include align-items(center);
-			}
-		}
-
-		&:not(.main-act) {
-			> * {
-				width: 50%;
-				box-sizing: border-box;
-			}
-
-			.item-info {
-				@include align-items(flex-start);
-			}
+		> * {
+			box-sizing: border-box;
 		}
 
 		.b-link {
@@ -791,14 +777,19 @@
 				@include transform(scale(1.05));
 			}
 
-			.img-wrap img {
-				@include transition(ease-in all 0.3s);
+			.img-wrap {
+				width: 100%;
+
+				img {
+					@include transition(ease-in all 0.3s);
+				}
 			}
 		}
 
 		.item-info {
 			background: $color-white;
 			@include display-flex;
+			@include align-items(flex-start);
 			@include flex-direction(column);
 			@include justify-content(center);
 		}
@@ -813,7 +804,6 @@
 
 		.btn-link {
 			margin-top: 10px;
-			border-radius: 3px;
 			color: $color-gray-d-p40;
 
 			&:hover {
@@ -890,7 +880,7 @@
 			@include transition(ease-in all 0.3s);
 
 			&:hover {
-				background: darken($color-gray-l-p10, 10%);
+				background: $color-text-major;
 			}
 		}
 	}
@@ -1039,10 +1029,10 @@
 
 	.members-only {
 		.kv-owl .item {
-			height: 32vw;
+			height: auto;
 
 			.img-wrap {
-				height: 32vw;
+				height: auto;
 			}
 		}
 
@@ -1051,26 +1041,17 @@
 		}
 
 		.act-list .list {
-			&.main-act {
-				> .b-link {
-					max-height: calc(100% - 180px);
-				}
-
-				.item-info {
-					padding: 0 30px;
-					min-height: 180px;
-				}
-			}
+			padding-right: 50px;
 
 			.item-info {
-				padding: 30px;
+				padding: 30px 30px 30px 50px;
 			}
 
-			.order-tag, .act-title {
-				font-size: 18px;
+			.order-tag {
+				font-size: 20px;
 			}
 
-			.btn-link {
+			.act-title, .btn-link {
 				font-size: 16px;
 			}
 		}
@@ -1355,25 +1336,15 @@
 
 		.act-list {
 			margin: 0 0 20px 0;
-			padding-left: calc(50% + 10px);
 			position: relative;
 
 			.list {
 				margin-bottom: 20px;
+				@include align-items(center);
 				width: 100%;
 
-				&.main-act {
-					margin-bottom: 0;
-					width: auto;
-					position: absolute;
-					top: 0;
-					bottom: 0;
-					left: 0;
-					right: calc(50% + 10px);
-
-					.item-info {
-						box-sizing: border-box;
-					}
+				.img-wrap {
+					max-height: 270px;
 				}
 			}
 		}
@@ -1470,6 +1441,10 @@
 		font-size: 14px;
 	}
 
+	.members-only .act-list .list {
+		padding-right: 25px;
+	}
+
 	.keyword-search {
 		.content-wrap {
 			min-height: calc(100vh - 260px);
@@ -1493,17 +1468,6 @@
 					width: 28px;
 				}
 			}
-		}
-	}
-
-	.members-only .act-list .list.main-act {
-		> .b-link {
-			max-height: calc(100% - 124px);
-		}
-
-		.item-info {
-			padding: 0 20px;
-			min-height: 124px;
 		}
 	}
 
@@ -1533,7 +1497,11 @@
 				padding: 10px 20px;
 			}
 
-			.order-tag, .act-title {
+			.order-tag {
+				font-size: 18px;
+			}
+
+			.act-title {
 				font-size: 14px;
 			}
 
@@ -1798,12 +1766,30 @@
 	}
 
 	.members-only {
+		.kv-owl .item .img-wrap {
+			@include display-flex;
+			@include align-items(center);
+			@include justify-content(center);
+
+			img {
+				width: auto;
+				height: 150px;
+				max-width: none;
+				min-width: auto;
+			}
+		}
+
 		.m-cut {
 			margin: 0 10px;
 		}
 
 		.act-list .list {
 			margin-bottom: 10px;
+			@include flex-direction(column);
+
+			.btn-link {
+				margin: 0 20px 20px 20px;
+			}
 		}
 	}
 
@@ -1833,24 +1819,14 @@
 	.members-only .act-list .list {
 		@include flex-direction(column);
 
-		&.main-act .btn-link {
-			display: block;
-			width: 100% !important;
-		}
-
-		&:not(.main-act) {
-			> * {
-				width: 100%;
-			}
-
-			.item-info {
-				@include align-items(center);
-				text-align: center;
-			}
+		> * {
+			width: 100%;
 		}
 
 		.item-info {
 			padding: 15px 20px;
+			@include align-items(center);
+			text-align: center;
 		}
 	}
 }

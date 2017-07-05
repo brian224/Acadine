@@ -242,22 +242,24 @@
 
 	page.prototype.totalHeight = function() {
 		$(common._browserAdj).each(function(){
-			$(common._adjHeight).attr('style', '');
+			var $adjHeight = $(this).find(common._adjHeight);
+			
+			$adjHeight.attr('style', '');
 
-			if (navigator.appVersion.indexOf("MSIE 9") !== -1) {
+			if (navigator.userAgent.indexOf('MSIE 9') > 0) {
 				var _maxHeight = 0;
 
-				$(this).find(common._adjHeight).each(function(){
+				$adjHeight.each(function(){
 					if (_maxHeight < $(this).height()) {
 						_maxHeight = $(this).height();
 					}
 				});
 				
-				$(this).find(common._adjHeight).each(function(){
+				$adjHeight.each(function(){
 					$(this).height(_maxHeight);
 				});
 			} else {
-				$(this).find(common._adjHeight).each(function(){
+				$adjHeight.each(function(){
 					$(this).height($(this).parent().height());
 				});
 			}
@@ -357,7 +359,7 @@
 		}
 
 		// 不支援 flex 撐高滿版補充事件
-		if ((projects._browsers.safari === true && projects._browsers.chrome === false) || projects._browsers.msie === true) {
+		if (((projects._browsers.safari === true && projects._browsers.chrome === false) || navigator.userAgent.indexOf('MSIE 9') > 0) && projects.device() !== 'Mobile') {
 			common.totalHeight();
 		}
 
@@ -458,6 +460,10 @@
 
 			if ($(this).attr('data-hushtag') !== undefined && history.pushState !== undefined) {
 				history.pushState('' , document.title , projects._HREF.split('#')[0] + '#' + $(this).attr('data-hushtag'));
+			}
+
+			if ($(common._browserAdj).length !== 0) {
+				common.totalHeight();
 			}
 		});
 
