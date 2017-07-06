@@ -765,6 +765,10 @@
 	}
 }
 
+.replacement .info-wrap .btn-wrap .btn-link {
+	margin: 0 10px;
+}
+
 @include respond(Desktops) {
 	.l-body.show-header .category-content {
 		top: 480px;
@@ -1782,6 +1786,16 @@
 
 		.btn-wrap {
 			@include display-flex;
+		}
+	}
+
+	.return, .replacement, .cancel-order {
+		.info-wrap {
+			margin-bottom: 20px;
+
+			.btn-wrap {
+				margin-top: 20px;
+			}
 		}
 	}
 }

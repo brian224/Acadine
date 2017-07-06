@@ -28,6 +28,15 @@
 				$(this).addClass('is-active');
 				$(common._sudMenu).removeClass('is-active');
 				common.offClick(pageObj._category);
+			} else if (projects.$w.width() >= 1024) {
+				if (navigator.userAgent.indexOf('MSIE 9') > 0) {
+					$('.main-content').css('min-height', $(this).height());
+				} else {
+					$(this).on('webkitTransitionEnd oTransitionend oTransitionEnd msTransitionEnd transitionend', function(){
+						$(this).off('webkitTransitionEnd oTransitionend oTransitionEnd msTransitionEnd transitionend');
+						$('.main-content').css('min-height', $(this).height());
+					});
+				}
 			}
 		});
 
