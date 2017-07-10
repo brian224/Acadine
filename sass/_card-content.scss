@@ -115,7 +115,7 @@
 		color: $color-gray-l-p10;
 		font-weight: bold;
 		line-height: 1.5em;
-		@include transition(ease-in all 0.3s);
+		@include transition(ease-in color 0.3s);
 
 		&:hover {
 			color: $color-text-major;
@@ -250,20 +250,6 @@
 		overflow: visible;
 	}
 
-	.editor-area {
-		img {
-			max-width: 100%;
-		}
-
-		.precautions {
-			background: $color-gray-l-p40;
-	
-			.order-list {
-				font-size: 14px;
-			}
-		}
-	}
-
 	.link-wrap {
 		background: $color-white;
 		@include display-flex;
@@ -283,6 +269,20 @@
 			&:hover {
 				color: $color-text-major;
 			}
+		}
+	}
+}
+
+.editor-area {
+	img {
+		max-width: 100%;
+	}
+
+	.precautions {
+		background: $color-gray-l-p40;
+
+		.order-list {
+			font-size: 14px;
 		}
 	}
 }
@@ -443,10 +443,6 @@
 			padding-bottom: 100px;
 		}
 
-		.editor-area {
-			padding: 0 50px;
-		}
-
 		.precautions {
 			padding: 10px 35px;
 		}
@@ -470,6 +466,10 @@
 				}
 			}
 		}
+	}
+
+	.editor-area {
+		padding: 0 50px;
 	}
 }
 
@@ -509,7 +509,7 @@
 		}
 	}
 
-	.card-detail .editor-area {
+	.editor-area {
 		padding: 0 75px;
 	}
 }
@@ -796,10 +796,6 @@
 			padding-bottom: 50px;
 		}
 
-		.editor-area {
-			padding: 0 10px;
-		}
-
 		.precautions {
 			padding: 5px 10px;
 		}
@@ -816,6 +812,10 @@
 				text-align: center;
 			}
 		}
+	}
+
+	.editor-area {
+		padding: 0 10px;
 	}
 }
 
