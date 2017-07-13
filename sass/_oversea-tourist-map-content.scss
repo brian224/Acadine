@@ -1,8 +1,8 @@
 .pin-list {
-	.store .attractions-info {
+	.branch-tag .attractions-info {
 		padding: 10px 0;
 		bottom: 100%;
-		left: 0;
+		left: 50%;
 		text-align: center;
 
 		&:after {
@@ -39,14 +39,9 @@
 	.pin-list > .list {
 		position: absolute;
 
-		&.store {
-			top: 32.5%;
-			left: 35.3%;
-		}
-
-		&.the-435-art-zone {
-			top: 9.83%;
-			left: 32.03%;
+		&.crescent {
+			top: 7%;
+			left: 2.6%;
 
 			.attractions-info {
 				top: 100%;
@@ -60,16 +55,16 @@
 			}
 		}
 
-		&.the-cihui-mazu-temple {
-			top: 31%;
-			left: 2.8%;
+		&.the-435-art-zone {
+			top: 20.8%;
+			left: 5.9%;
 
 			.attractions-info {
 				top: 0;
 				left: 100%;
 
 				&:after {
-					margin-right: -4px;
+					margin-right: -5px;
 					top: 15%;
 					right: 100%;
 					@include transform(rotate(90deg));
@@ -77,9 +72,92 @@
 			}
 		}
 
+		&.the-cihui-mazu-temple {
+			top: 53%;
+			left: 34.5%;
+
+			.attractions-info {
+				bottom: 0;
+				left: 100%;
+
+				&:after {
+					margin-right: -5px;
+					bottom: 15%;
+					right: 100%;
+					@include transform(rotate(90deg));
+				}
+			}
+		}
+
 		&.da-gwan-su-sier {
-			top: 31.67%;
-			left: 57.11%;
+			top: 50.67%;
+			left: 26.6%;
+
+			.attractions-info {
+				bottom: 0;
+				right: 100%;
+
+				&:after {
+					margin-left: -5px;
+					bottom: 15%;
+					left: 100%;
+					@include transform(rotate(-90deg));
+				}
+			}
+		}
+
+		&.the-lin-family-mansion-and-garden {
+			top: 58%;
+			left: 20.85%;
+
+			.attractions-info {
+				bottom: 15%;
+				left: 100%;
+
+				&:after {
+					margin-right: -5px;
+					bottom: 15%;
+					right: 100%;
+					@include transform(rotate(90deg));
+				}
+			}
+		}
+
+		&.nan-ya-night-market {
+			top: 74.5%;
+			left: 22.92%;
+
+			.attractions-info {
+				bottom: 100%;
+				left: 0;
+
+				&:after {
+					top: 100%;
+					left: 15%;
+				}
+			}
+		}
+
+		&.sports {
+			top: 40%;
+			left: 28.83%;
+
+			.attractions-info {
+				top: -30%;
+				right: 100%;
+
+				&:after {
+					margin-left: -5px;
+					top: 15%;
+					left: 100%;
+					@include transform(rotate(-90deg));
+				}
+			}
+		}
+
+		&.station {
+			top: 24.5%;
+			left: 40.5%;
 
 			.attractions-info {
 				top: 0;
@@ -94,32 +172,97 @@
 			}
 		}
 
-		&.the-lin-family-mansion-and-garden {
-			top: 72.17%;
-			left: 7.43%;
+		&.shr {
+			top: 35.5%;
+			left: 38.9%;
 
 			.attractions-info {
-				bottom: 100%;
-				left: 0;
+				top: -100%;
+				right: 100%;
 
 				&:after {
-					top: 100%;
-					left: 15%;
+					margin-left: -5px;
+					top: 20%;
+					left: 100%;
+					@include transform(rotate(-90deg));
 				}
 			}
 		}
 
-		&.nan-ya-night-market {
-			top: 73.33%;
-			left: 35.46%;
+		&.mega-city {
+			top: 6.5%;
+			left: 46.17%;
+		}
+
+		&.fe-store {
+			top: 45.5%;
+			left: 50%;
+		}
+
+		&.music-park {
+			top: 60%;
+			left: 44%;
 
 			.attractions-info {
-				bottom: 100%;
-				left: 0;
+				bottom: 15%;
+				right: 100%;
 
 				&:after {
-					top: 100%;
-					left: 15%;
+					margin-left: -5px;
+					bottom: 15%;
+					left: 100%;
+					@include transform(rotate(-90deg));
+				}
+			}
+		}
+
+		&.city-hall {
+			top: 30.5%;
+			left: 50.88%;
+
+			.attractions-info {
+				top: 0;
+				right: 100%;
+
+				&:after {
+					margin-left: -5px;
+					top: 15%;
+					left: 100%;
+					@include transform(rotate(-90deg));
+				}
+			}
+		}
+
+		&.green-living {
+			top: 41.5%;
+			left: 58.39%;
+
+			.attractions-info {
+				top: -30%;
+				right: 100%;
+
+				&:after {
+					margin-left: -5px;
+					top: 15%;
+					left: 100%;
+					@include transform(rotate(-90deg));
+				}
+			}
+		}
+
+		&.stadium {
+			top: 57%;
+			left: 61.9%;
+
+			.attractions-info {
+				bottom: 15%;
+				right: 100%;
+
+				&:after {
+					margin-left: -5px;
+					bottom: 15%;
+					left: 100%;
+					@include transform(rotate(-90deg));
 				}
 			}
 		}
@@ -127,7 +270,7 @@
 }
 
 @include respond(Desktops-Tablets) {
-	.pin-list .store .attractions-info .info-title {
+	.pin-list .branch-tag .attractions-info .info-title {
 		font-size: 16px;
 		font-weight: bold;
 	}
@@ -136,7 +279,7 @@
 @include respond(HD) {}
 
 @include respond(Tablets) {
-	.pin-list > .list.store .attractions-info {
+	.pin-list > .list.branch-tag .attractions-info {
 		margin-left: -180px;
 		top: 20%;
 	}
@@ -144,10 +287,15 @@
 
 @include respond(Tablets-Mobiles) {
 	.pin-list > .list {
-		&.store {
+		&.crescent .btn-attractions {
+			top: 7%;
+			left: 2.6%;
+		}
+
+		&.fe-store {
 			.btn-attractions {
-				top: 32.5%;
-				left: 35.3%;
+				top: 45.5%;
+				left: 50%;
 			}
 
 			.attractions-info {
@@ -157,19 +305,19 @@
 		}
 
 		&.the-435-art-zone .btn-attractions {
-			top: 9.83%;
-			left: 32.03%;
+			top: 20.8%;
+			left: 5.9%;
 		}
 
 		&.the-cihui-mazu-temple .btn-attractions {
-			top: 31%;
-			left: 2.8%;
+			top: 53%;
+			left: 34.5%;
 		}
 
 		&.da-gwan-su-sier {
 			.btn-attractions {
-				top: 31.67%;
-				left: 57.11%;
+				top: 50.67%;
+				left: 26.6%;
 			}
 
 			.attractions-info {
@@ -179,20 +327,65 @@
 		}
 
 		&.the-lin-family-mansion-and-garden .btn-attractions {
-			top: 72.17%;
-			left: 7.43%;
+			top: 58%;
+			left: 20.85%;
 		}
 
 		&.nan-ya-night-market .btn-attractions {
-			top: 73.33%;
-			left: 35.46%;
+			top: 74.5%;
+			left: 22.92%;
+		}
+
+		&.sports .btn-attractions {
+			top: 40%;
+			left: 28.83%;
+		}
+
+		&.station .btn-attractions {
+			top: 24.5%;
+			left: 40.5%;
+		}
+
+		&.shr .btn-attractions {
+			top: 35.5%;
+			left: 38.9%;
+		}
+
+		&.mega-city .btn-attractions {
+			top: 6.5%;
+			left: 46.17%;
+		}
+
+		&.branch-tag .btn-attractions {
+			top: 45.5%;
+			left: 50%;
+		}
+
+		&.music-park .btn-attractions {
+			top: 60%;
+			left: 44%;
+		}
+
+		&.city-hall .btn-attractions {
+			top: 30.5%;
+			left: 50.88%;
+		}
+
+		&.green-living .btn-attractions {
+			top: 41.5%;
+			left: 58.39%;
+		}
+
+		&.stadium .btn-attractions {
+			top: 57%;
+			left: 61.9%;
 		}
 
 		.btn-attractions {
 			position: absolute;
 		}
 
-		&:not(.store) .attractions-info {
+		&:not(.branch-tag) .attractions-info {
 			top: 0;
 			bottom: 0;
 			right: 0;
@@ -220,7 +413,7 @@
 		@include transform-origin(left);
 	}
 
-	.pin-list > .list.store .attractions-info {
+	.pin-list > .list.branch-tag .attractions-info {
 		margin-left: -80px;
 		padding: 5px 20px;
 		top: 10%;

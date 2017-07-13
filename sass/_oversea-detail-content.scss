@@ -1016,6 +1016,10 @@ $color-third : #f39700;
 		margin-top: 60px;
 		margin-bottom: 100px;
 
+		.branch-tag .attractions-info {
+			margin-left: -144px;
+		}
+
 		.attractions-info {
 			width: 288px;
 		}
@@ -1023,19 +1027,17 @@ $color-third : #f39700;
 		.guide-book {
 			position: absolute;
 			top: 32px;
+			bottom: 32px;
 			right: 32px;
+			overflow-y: scroll;
 			box-shadow: 6px 8px 18px rgba(125, 125, 125, 0.75);
 		}
 
 		.attractions-list {
-			padding: 15px 32px 0 32px;
+			padding: 15px 32px;
 
-			.list .btn-attractions {
-				padding: 15px 0;
-	
-				> * {
-					display: block;
-				}
+			.list .btn-attractions > * {
+				display: block;
 			}
 		}
 	}

@@ -19,7 +19,7 @@
 		});
 
 		$('.attractions-list ' + pageObj._hover).each(function(){
-				$(this).after(pageObj._array[parseInt($(this).data('index'), 10) - 1]);
+			$(this).after(pageObj._array[parseInt($(this).data('index'), 10) - 1]);
 		});
 
 		pageObj._pinned = true;
