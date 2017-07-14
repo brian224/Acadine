@@ -72,12 +72,18 @@
 }
 
 .menu-list {
-	&.is-highlight .list .text {
-		color: #0073ce;
+	&.is-highlight {
+		&:before {
+			content: '';
+			display: inline-block;
+		}
+
+		.list .text {
+			color: #0073ce;
+		}
 	}
 
 	.menu-slider {
-		background: $color-white;
 		max-height: 0;
 		overflow: hidden;
 		@include transition(ease-in all 0.5s);
@@ -173,6 +179,7 @@
 
 			> * {
 				height: 34px;
+				border-radius: 17px;
 			}
 
 			.m-input {
@@ -556,24 +563,39 @@
 			font-size: 16px;
 			letter-spacing: 1px;
 
+			&.has-bg .sub-menu-wrap {
+				padding: 0 0 0 65px;
+				width: 995px;
+
+				.sub-menu {
+					.list-block {
+						padding: 30px 0 40px 0;
+					}
+
+					.b-link {
+						padding: 8px 0 8px 35px;
+					}
+				}
+			}
+
+			&:not(.has-bg) .sub-menu-wrap .sub-menu {
+				.list-block {
+					padding: 20px 0;
+				}
+
+				.b-link {
+					padding: 4px 20px;
+				}
+			}
+
 			.text {
 				line-height: 70px;
 			}
 		}
 
 		.sub-menu-wrap {
-			padding: 0 0 0 65px;
-			width: 995px;
-
-			.sub-menu {
-				.list-block {
-					padding: 30px 0 40px 0;
-				}
-
-				.b-link {
-					padding: 8px 0 8px 35px;
-					font-size: 16px;
-				}
+			.sub-menu .b-link {
+				font-size: 16px;
 			}
 
 			.product-banner {
@@ -731,12 +753,51 @@
 		line-height: 0;
 		text-align: center;
 
-		&.is-highlight .list .text:after {
-			background: #0073ce;
+		&.is-highlight {
+			margin-left: 18px;
+			@include display-flex;
+			@include align-items(center);
+
+			&:before {
+				margin-right: 18px;
+				background: $color-gray-l-p10;
+				width: 1px;
+				height: 20px;
+			}
+
+			.list .text:after {
+				background: #0073ce;
+			}
 		}
 
 		> .list {
 			display: inline-block;
+
+			&.has-bg .menu-slider {
+				background: $color-white;
+				right: 0;
+				box-shadow: 0 4px 8px rgba($color-black, 0.04);
+
+				.sub-menu-wrap .sub-menu {
+					width: 600px;
+				}
+			}
+
+			&:not(.has-bg) {
+				position: relative;
+
+				.menu-slider {
+					box-shadow: 0 4px 8px rgba($color-black, 0.04);
+				}
+
+				.sub-menu-wrap .sub-menu {
+					min-width: 100px;
+
+					.b-link {
+						white-space: nowrap;
+					}
+				}
+			}
 
 			.text {
 				position: relative;
@@ -770,8 +831,6 @@
 			position: absolute;
 			top: 100%;
 			left: 0;
-			right: 0;
-			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
 			z-index: -1;
 
 			&:hover {
@@ -788,10 +847,10 @@
 			@include box-sizing(border-box);
 
 			.sub-menu {
+				background: $color-white;
 				@include display-flex;
 				@include align-content(stretch);
 				@include align-items(stretch);
-				width: 600px;
 
 				.list-block {
 					border-left: 1px solid $color-gray-l-p40;
@@ -1074,6 +1133,10 @@
 			font-size: 14px;
 			line-height: 36px;
 
+			&.has-bg .menu-slider .sub-menu-wrap .sub-menu .list-block {
+				width: 22.5vw;
+			}
+
 			> .text {
 				height: 100%;
 			}
@@ -1083,7 +1146,6 @@
 			.sub-menu {
 				.list-block {
 					padding: 20px;
-					width: 22.5vw;
 				}
 
 				.b-link {
@@ -1139,13 +1201,13 @@
 				position: absolute;
 				top: 0;
 				left: 0;
-				box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+				box-shadow: 0 0 5px rgba($color-black, 0.3);
 				z-index: 1;
 			}
 
 			&.is-active {
 				max-height: 100vh;
-				box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+				box-shadow: 0 0 5px rgba($color-black, 0.3);
 				overflow-y: scroll;
 
 				.l-nav {
@@ -1447,6 +1509,12 @@
 
 			&.is-highlight {
 				@include order(1);
+
+				&:before {
+					background: $color-gray-l-p30;
+					width: 100%;
+					height: 1px;
+				}
 			}
 
 			> .list {

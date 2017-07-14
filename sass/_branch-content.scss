@@ -1,9 +1,4 @@
-﻿.menu-list.is-highlight:before {
-	content: '';
-	display: inline-block;
-}
-
-.kv {
+﻿.kv {
 	position: relative;
 
 	.m-btn-slide {
@@ -582,19 +577,6 @@
 }
 
 @include respond(Desktops-Tablets) {
-	.menu-list.is-highlight {
-		margin-left: 18px;
-		@include display-flex;
-		@include align-items(center);
-
-		&:before {
-			margin-right: 18px;
-			background: $color-gray-l-p10;
-			width: 1px;
-			height: 20px;
-		}
-	}
-
 	.kv .jQ-video {
 		height: 44.5vw;
 	}
@@ -902,12 +884,6 @@
 }
 
 @include respond(Mobiles) {
-	.menu-list.is-highlight:before {
-		background: $color-gray-l-p30;
-		width: 100%;
-		height: 1px;
-	}
-
 	.m-cut {
 		.jQ-owl {
 			margin-bottom: 20px;

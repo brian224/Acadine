@@ -354,7 +354,7 @@
 			}
 
 			if ($(common._lBody).hasClass('show-marquee')) {
-				$(common._lContent).css('padding-top', $('.marquee-wrap').height() + parseInt($(common._lContent).css('padding-top'), 10));
+				$(common._lContent).css('padding-top', $('.marquee-wrap').outerHeight() + parseInt($(common._lContent).css('padding-top'), 10));
 			}
 		}
 

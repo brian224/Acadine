@@ -254,9 +254,7 @@
 				$(pageObj._magazine).turn('page', page[1]);
 			}
 
-			if ($(window).width() < 1000) {
-				$(pageObj._thumbnails).removeClass('show');
-			}
+			$(pageObj._thumbnails).removeClass('show');
 		});
 
 		$('.next-button').on('click', function() {

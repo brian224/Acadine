@@ -26,6 +26,10 @@
 	}
 }
 
+.menu-list.is-highlight:before {
+	display: none;
+}
+
 .m-cut {
 	width: 100vw;
 	position: relative;
