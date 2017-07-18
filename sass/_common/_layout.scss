@@ -197,6 +197,7 @@
 	.l-side {
 		width: 54px;
 		bottom: 60px;
+		z-index: 5;
 		@include flex-direction(column-reverse);
 		@include justify-content(flex-start);
 	}

@@ -48,7 +48,6 @@ body {
 
 			&.show-func ~ .popup-function {
 				opacity: 1;
-				overflow: visible;
 			}
 		}
 	
@@ -952,6 +951,7 @@ body {
 	
 				&.show-func ~ .popup-function {
 					max-height: 100vh;
+					overflow: visible;
 				}
 	
 				&:hover .m-icon {
@@ -1189,7 +1189,8 @@ body {
 			}
 
 			.btn-func.show-func ~ .popup-function {
-				max-height: calc(100vh - 140px);
+				max-height: calc(100vh - 150px);
+				overflow-y: scroll;
 			}
 		}
 
@@ -1225,10 +1226,12 @@ body {
 			position: relative;
 
 			.function-bd {
+				margin-top: 0 !important;
 				max-height: calc(100vh - 292px);
 			}
 
 			.function-ft {
+				margin-top: 0 !important;
 				position: absolute;
 				bottom: 0;
 				left: 0;

@@ -275,9 +275,9 @@
 	@include align-items(stretch);
 	@include justify-content(flex-start);
 
-	&:not(:first-child) .service-sub-list .list {
-		display: block;
-		width: auto;
+	.service-sub-list.two-columns .list {
+		display: inline-block;
+		width: 50%;
 	}
 
 	.service-info {
@@ -303,8 +303,8 @@
 		line-height: 0;
 
 		.list {
-			display: inline-block;
-			width: 50%;
+			display: block;
+			width: auto;
 			position: relative;
 			vertical-align: top;
 			color: $color-gray;
