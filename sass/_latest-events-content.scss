@@ -1,4 +1,18 @@
-﻿.l-content .main-tab {
+﻿.latest-events {
+	.menu-list.is-highlight:before {
+		display: none;
+	}
+
+	.l-content .main-tab .btn-tab {
+		background: #6f132a;
+	}
+
+	.l-content .main-tab .btn-tab.is-curr, .sub-tab .m-tab-wrap {
+		background: #d12249;
+	}
+}
+
+.l-content .main-tab {
 	.m-tab-wrap {
 		margin: 0 10px;
 	}
