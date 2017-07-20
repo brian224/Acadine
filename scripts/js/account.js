@@ -7,6 +7,7 @@
 		this._category   = '.jQ-category';
 		this._curr       = '.jQ-curr';
 		this._datepicker = '.jQ-datepicker';
+		this._btnClear   = '.jQ-clear';
 	}
 
 	projects.$w.load(function(){
@@ -58,6 +59,11 @@
 			$(this).prev().find('.m-inputbox').trigger('click');
 
 			return false;
+		});
+
+		$(pageObj._btnClear).on('click', function(){
+			$('input, textarea').val('').prop('checked', false);
+			$(common._checkbox + ', ' + common._radio).removeClass('is-checked');
 		});
 	});
 

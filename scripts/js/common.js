@@ -278,7 +278,7 @@
 					_sub  = $(this).data('sub');
 
 				if (_main !== undefined) {
-					$('.main-tab > .m-tab-wrap > .tab-list').eq(_main).find(common._tab).trigger('click');
+					$('.l-main .main-tab > .m-tab-wrap > .tab-list').eq(_main).find(common._tab).trigger('click');
 				}
 
 				if (_sub !== undefined) {
@@ -342,7 +342,9 @@
 		}
 
 		if (projects.device() === 'Mobile') {
-			common.mobileHeaderReset();
+			if ($(common._shortcutWrap).length !== 0) {
+				common.mobileHeaderReset();
+			}
 			
 			$(common._owl).on('drag.owl.carousel', function(){
 				common.touchLock($('body').scrollTop());

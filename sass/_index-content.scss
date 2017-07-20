@@ -615,7 +615,11 @@
 	}
 }
 
-@include respond(Mobiles) {}
+@include respond(Mobiles) {
+	.l-header .header-wrap:after {
+		display: none;
+	}
+}
 
 @include respond(Iphone5) {}
 
