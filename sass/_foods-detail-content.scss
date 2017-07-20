@@ -1,9 +1,4 @@
-﻿.menu-list.is-highlight:before {
-	content: '';
-	display: inline-block;
-}
-
-.kv-owl .item .img-wrap {
+﻿.kv-owl .item .img-wrap {
 	margin: 0;
 	@include display-flex;
 	@include align-items(center);

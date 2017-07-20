@@ -1,9 +1,15 @@
-.l-header .btn-lang {
-	color: $color-gray-l-p10;
-	letter-spacing: 2px;
+.l-header {
+	&.main-header .menu-list.is-highlight:before {
+		display: none;
+	}
 
-	&.is-curr {
-		color: $color-black;
+	.btn-lang {
+		color: $color-gray-l-p10;
+		letter-spacing: 2px;
+
+		&.is-curr {
+			color: $color-black;
+		}
 	}
 }
 
