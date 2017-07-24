@@ -107,6 +107,66 @@
 			text-decoration: none;
 		}
 	}
+
+	.l-lightbox {
+		.m-lightbox-content .m-lightbox-bd {
+			padding: 0 20px;
+		}
+
+		.code-list {
+			margin-bottom: 18px;
+	
+			.item-list {
+				padding: 24px 0;
+				border-bottom: 1px solid $color-gray-l-p30;
+				font-size: 0;
+				line-height: 0;
+	
+				&.qrcode .img-wrap {
+					width: 124px;
+				}
+	
+				.barcode.img-wrap {
+					margin: 0 auto;
+					width: 204px;
+				}
+			}
+	
+			.function-title {
+				font-size: 14px;
+				line-height: 1.5em;
+			}
+	
+			.code-info > *:not(:first-child) {
+				margin-top: 10px;
+			}
+	
+			.text {
+				color: $color-black;
+				font-size: 12px;
+				line-height: 1.5em;
+			}
+	
+			.b-link {
+				color: #0068b7;
+				text-decoration: underline;
+	
+				&:hover {
+					text-decoration: none;
+				}
+			}
+	
+			.img-wrap img {
+				width: 100%;
+			}
+		}
+
+		.hint-text {
+			color: #0068b7;
+			font-size: 12px;
+			line-height: 1.5em;
+		}
+	}
 }
 
 .calendar .calendar-pagination .m-pagination-bd .page-ctrl .text {
@@ -845,6 +905,16 @@
 
 		.item-info {
 			padding: 20px 0;
+		}
+
+		.l-lightbox .code-list .item-list {
+			@include display-flex;
+			@include align-items(center);
+			@include justify-content(space-between);
+
+			.code-info {
+				@include flex-grow(1);
+			}
 		}
 	}
 
@@ -1810,7 +1880,11 @@
 
 @include devices(iphone) {}
 
-@include respond(Iphone5) {}
+@include respond(Iphone5) {
+	.order-detail .l-lightbox .code-list .qrcode .function-title {
+		white-space: nowrap;
+	}
+}
 
 @include browsers('IE') {}
 

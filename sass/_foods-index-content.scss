@@ -485,8 +485,8 @@
 
 	.m-cut .main-tab {
 		> .m-tab-wrap {
-			padding-top: 40px;
-			max-height: 40px;
+			background: $color-text-major;
+			height: 40px;
 			position: relative;
 			overflow: hidden;
 			box-sizing: border-box;
@@ -513,6 +513,26 @@
 				}
 			}
 
+			.m-selection {
+				background: none;
+				width: 100%;
+				height: 40px;
+				position: relative;
+				z-index: 1;
+				color: $color-white;
+				font-size: 0;
+				line-height: 40px;
+			}
+	
+			.icon-wrap {
+				position: absolute;
+				top: 0;
+				left: 20px;
+				width: 60px;
+				opacity: 0.25;
+				z-index: 2;
+			}
+
 			.m-selected-item {
 				background: $color-text-major !important;
 				height: 40px;
@@ -521,26 +541,10 @@
 				left: 0;
 				right: 0;
 				overflow: hidden;
+				z-index: 0;
+				color: $color-white;
 				font-size: 16px;
 				line-height: 40px;
-
-				.text {
-					color: $color-white;
-				}
-			}
-	
-			.btn-tab {
-				width: 100%;
-				height: 40px;
-				position: relative;
-				font-size: 16px;
-	
-				.icon-wrap {
-					position: absolute;
-					top: 0;
-					left: 20px;
-					width: 60px;
-				}
 			}
 		}
 
@@ -566,15 +570,7 @@
 	}
 }
 
-@include respond(Iphone5) {
-	.food-cut {
-		width: 232px;
-
-		.list {
-			width: 212px;
-		}
-	}
-}
+@include respond(Iphone5) {}
 
 @include browsers('IE') {
 	.food-list {

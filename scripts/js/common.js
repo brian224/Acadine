@@ -204,10 +204,12 @@
 		}
 	}
 
+	// pc tab 到 M 版變成 <select>
 	page.prototype.changeToSelect = function() {
 		$(common._tagSelect).each(function(){
 			var $this = $(this),
 				_str  = '<select class="m-selection">',
+				_icon = [],
 				_idx  = $this.find('.is-curr').length !== 0 ? $this.find('.is-curr').parent().index() : 0;
 
 			if ($this.find('button').length !== 0) {
@@ -222,10 +224,28 @@
 
 			_str += '</select>';
 
-			$this.html(_str).find('option').eq(_idx).attr('selected', 'selected');
+			// 特例：美食首頁
+			if ($this.data('case') === 'food') {
+				for (var i = 0; i < $this.find('> *').length; i++) {
+					_icon.push($this.find('> *').eq(i).find('.icon-wrap')[0].outerHTML);
+				}
+
+				_str += '<div class="m-selected-item b-hide-dt b-text-center"></div>';
+
+				$this.html(_str + _icon[_idx]).find('option').eq(_idx).attr('selected', 'selected');
+				$this.find('.m-selected-item').text($this.find('option').eq(_idx).text());
+			} else {
+				$this.html(_str).find('option').eq(_idx).attr('selected', 'selected');
+			}
 
 			$this.on('change', '.m-selection', function(){
 				var _idx = $(this).find('option:selected').index();
+
+				if ($this.data('case') === 'food') {
+					$(this).siblings('.icon-wrap').remove();
+					$(this).siblings('.m-selected-item').text($(this).find('option:selected').text());
+					$(this).parent().append(_icon[_idx]);
+				}
 
 				$(this).parents('.m-tab-wrap').siblings('.m-tab-content').children('.content-list').eq(_idx).addClass('is-curr').siblings().removeClass('is-curr');
 			});
@@ -471,6 +491,10 @@
 
 			if ($(common._browserAdj).length !== 0) {
 				common.totalHeight();
+			}
+
+			if ($(common._lBody).hasClass('foods-index')) {
+				$('.kv-tab-content').children('.content-list').eq(_idx).addClass('is-curr').siblings().removeClass('is-curr');
 			}
 		});
 
