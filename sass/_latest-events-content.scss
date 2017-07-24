@@ -350,6 +350,10 @@
 }
 
 @include respond(Mobiles) {
+	.latest-events .l-content .main-tab .sub-tab .m-tab-wrap .m-selection {
+		background: #d12249;
+	}
+
 	.cut-title {
 		margin-top: 15px;
 	}
