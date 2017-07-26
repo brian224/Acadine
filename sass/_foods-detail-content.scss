@@ -615,7 +615,11 @@
 	}
 }
 
-@include browsers('Safari') {}
+@include browsers('Safari') {
+	.food-list .food-link {
+		height: auto;
+	}
+}
 
 @include browsers('Edge') {
 	.food-list .list {

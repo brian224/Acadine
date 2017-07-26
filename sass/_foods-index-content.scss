@@ -609,9 +609,15 @@
 }
 
 @include browsers('Safari') {
-	.food-list .btn-read-more {
-		margin-right: 40px;
-		margin-left: 40px;
+	.food-list {
+		.food-link {
+			height: auto;
+		}
+
+		.btn-read-more {
+			margin-right: 40px;
+			margin-left: 40px;
+		}
 	}
 }
 
