@@ -18,8 +18,8 @@
 		this._video        = '.jQ-video';
 		this._mute         = '.jQ-mute';
 		this._tab          = '.jQ-tab';
-		this._like         = '.jQ-like';
-		this._calendar     = '.jQ-calendar';
+		// this._like         = '.jQ-like';
+		// this._calendar     = '.jQ-calendar';
 		this._btnAccordion = '.jQ-btn-accordion';
 		this._checkbox     = '.jQ-checkbox';
 		this._radio        = '.jQ-radio';
@@ -498,20 +498,20 @@
 			}
 		});
 
-		$(common._like + ', ' + common._calendar).on('click', function(){
-			var $this = $(this),
-				_bindID = $this.data('bind');
+		// $(common._like + ', ' + common._calendar).on('click', function(){
+		// 	var $this = $(this),
+		// 		_bindID = $this.data('bind');
 
-			if (_bindID !== '' && _bindID !== undefined) {
-				$(common._like).each(function(){
-					if (_bindID === $(this).data('bind')) {
-						$(this).toggleClass('is-add');
-					}
-				});
-			} else {
-				$this.toggleClass('is-add');
-			}
-		});
+		// 	if (_bindID !== '' && _bindID !== undefined) {
+		// 		$(common._like).each(function(){
+		// 			if (_bindID === $(this).data('bind')) {
+		// 				$(this).toggleClass('is-add');
+		// 			}
+		// 		});
+		// 	} else {
+		// 		$this.toggleClass('is-add');
+		// 	}
+		// });
 
 		$(common._btnAccordion).on('click', function(){
 			$(this).parents('.m-accordion').toggleClass('is-open');

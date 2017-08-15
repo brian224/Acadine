@@ -20,6 +20,14 @@
 	}
 }
 
+.login .m-cut-bd .m-lab {
+	margin-top: 20px;
+
+	.alert {
+		right: 0;
+	}
+}
+
 .change-password .m-cut-bd .msg {
 	color: $color-gray-d-p10;
 	font-weight: normal;
@@ -123,6 +131,10 @@
 }
 
 .registration, .edit, .change-password {
+	.m-cut-bd .alert {
+		left: 0;
+	}
+
 	.is-reqired:before {
 		content: '*';
 	}
@@ -204,21 +216,39 @@
 		text-decoration: underline;
 	}
 
+	form {
+		.m-box-holder:not(.is-checkbox):not(.is-selector):not(.is-radio) {
+			border: 0;
+		}
+
+		input[type="radio"] {
+			@include appearance(radio);
+		}
+
+		.m-inputbox {
+			border: 1px solid $color-gray-l-p10;
+
+			&.is-error {
+				border-color: $color-text-major;
+			}
+		}
+
+		.alert {
+			padding-left: 0;
+			position: absolute;
+			top: 100%;
+			color: $color-text-major;
+			font-size: 14px;
+			font-weight: bold;
+			line-height: 1.8em;
+		}
+	}
+
 	.m-lab {
 		font-size: 14px;
 
 		&.jQ-checkbox {
 			text-align: left;
-		}
-
-		&.error {
-			.m-box-holder {
-				border-color: $color-text-major;
-			}
-
-			.alert {
-				display: block;
-			}
 		}
 
 		.m-inputbox {
@@ -227,15 +257,6 @@
 			font-size: 14px;
 			line-height: 34px;
 			@include box-sizing(border-box);
-		}
-
-		.alert {
-			display: none;
-			top: 5px;
-			color: $color-text-major;
-			font-weight: bold;
-			line-height: 1.5em;
-			text-align: center;
 		}
 	}
 
@@ -484,7 +505,7 @@
 	}
 
 	.m-cut-bd {
-		margin: 20px auto;
+		margin: 20px;
 		padding: 72px 48px;
 
 		> * {
@@ -536,12 +557,8 @@
 			left: 50%;
 		}
 
-		.m-lab {
-			margin-top: 20px;
-
-			.text:first-child {
-				padding-right: 16px;
-			}
+		.m-lab .text:first-child {
+			padding-right: 16px;
 		}
 	}
 
@@ -761,6 +778,7 @@
 	}
 
 	.m-cut-bd {
+		margin: 20px auto;
 		width: 1300px;
 	}
 }
@@ -864,8 +882,14 @@
 		}
 	}
 
-	.login .m-cut-bd .m-lab .text:first-child {
-		padding-right: 10px;
+	.login .m-cut-bd {
+		> *:not(:last-child) .function-wrap {
+			margin-top: 20px;
+		}
+
+		.m-lab .text:first-child {
+			padding-right: 10px;
+		}
 	}
 
 	.change-password .m-cut-bd {

@@ -8,6 +8,7 @@
 		this._curr       = '.jQ-curr';
 		this._datepicker = '.jQ-datepicker';
 		this._btnClear   = '.jQ-clear';
+		this._btnAdd     = '.jQ-add';
 	}
 
 	projects.$w.load(function(){

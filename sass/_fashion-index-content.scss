@@ -8,7 +8,7 @@
 		@include display-flex;
 		@include align-items(stretch);
 		@include align-content(stretch);
-		@include justify-content(center);
+		@include justify-content(space-around);
 		height: 100%;
 		font-size: 0;
 		line-height: 0;
@@ -405,10 +405,6 @@
 		height: 60px;
 
 		.catalog {
-			> .list .b-link {
-				padding: 0 20px;
-			}
-
 			.m-icon {
 				font-size: 26px;
 			}
@@ -571,7 +567,7 @@
 		position: relative;
 
 		.catalog > .list {
-			padding: 0 15px;
+			padding: 0 10px;
 
 			.b-link {
 				box-sizing: border-box;
@@ -697,10 +693,6 @@
 }
 
 @include respond(Tablets) {
-	.catalog-wrap .catalog > .list .b-link {
-		padding: 0 10px;
-	}
-
 	.m-cut {
 		margin-right: 10px;
 		margin-left: 10px;

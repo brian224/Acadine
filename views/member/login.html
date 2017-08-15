@@ -39,50 +39,52 @@
 					</header>
 					<div class="m-cut-bd b-clearfix">
 						<div class="b-col-dt-6 b-col-xs-12 b-float-left-dt b-clearfix">
-							<h3 class="sub-title">會員登入</h3>
-							<label class="m-lab b-col-dt-12 b-col-xs-12 b-clearfix">
-								<span class="text b-col-dt-3 b-col-xs-3 b-float-left b-text-right">E-Mail</span>
-								<div class="m-box-holder b-col-dt-9 b-col-xs-9 b-float-left">
-									<input type="email" class="m-inputbox" placeholder="請輸入 E-Mail">
-								</div>
-								<span class="alert b-col-dt-9 b-col-xs-9 b-float-right b-text-left">E-Mail輸入錯誤 !請重新輸入</span>
-							</label>
-							<label class="m-lab b-col-dt-12 b-col-xs-12 b-clearfix error">
-								<span class="text b-col-dt-3 b-col-xs-3 b-float-left b-text-right">密碼</span>
-								<div class="m-box-holder b-col-dt-9 b-col-xs-9 b-float-left">
-									<input type="password" class="m-inputbox" placeholder="請輸入密碼英文字母需區分大小寫">
-								</div>
-								<span class="alert b-col-dt-9 b-col-xs-9 b-float-right b-text-left">密碼輸入錯誤 !請重新輸入</span>
-							</label>
-							<label class="m-lab b-col-dt-12 b-col-xs-12 b-clearfix">
-								<span class="text b-col-dt-3 b-col-xs-3 b-float-left b-text-right">驗證碼</span>
-								<div class="m-box-holder b-col-dt-9 b-col-xs-9 b-float-left">
-									<input type="text" class="m-inputbox" placeholder="請輸入驗證碼(不分大小寫)">
-								</div>
-								<span class="alert b-col-dt-9 b-col-xs-9 b-float-right b-text-left">輸入錯誤！</span>
-							</label>
-							<div class="function-wrap b-col-dt-9 b-col-xs-12 b-float-right">
-								<div class="b-middle">
-									<label class="m-lab jQ-checkbox b-col-dt-6 b-col-xs-6">
-										<div class="m-box-holder is-checkbox">
-											<input type="checkbox" class="m-checkbox">
+							<form>
+								<h3 class="sub-title">會員登入</h3>
+								<label class="m-lab b-col-dt-12 b-col-xs-12 b-clearfix">
+									<span class="text b-col-dt-3 b-col-xs-3 b-float-left b-text-right">E-Mail</span>
+									<div class="m-box-holder b-col-dt-9 b-col-xs-9 b-float-left">
+										<input type="email" name="email" class="m-inputbox required" placeholder="請輸入 E-Mail" data-msg="E-Mail為必填" data-msg-email="E-Mail輸入錯誤！請重新輸入">
+									</div>
+									<span class="alert b-col-dt-9 b-col-xs-9 b-float-right b-text-left"><label for="email" class="is-error b-text-warning"></label></span>
+								</label>
+								<label class="m-lab b-col-dt-12 b-col-xs-12 b-clearfix">
+									<span class="text b-col-dt-3 b-col-xs-3 b-float-left b-text-right">密碼</span>
+									<div class="m-box-holder b-col-dt-9 b-col-xs-9 b-float-left">
+										<input type="password" name="password" class="m-inputbox required" placeholder="請輸入密碼英文字母需區分大小寫" data-msg="密碼為必填">
+									</div>
+									<span class="alert b-col-dt-9 b-col-xs-9 b-float-right b-text-left"><label for="password" class="is-error b-text-warning"></label></span>
+								</label>
+								<label class="m-lab b-col-dt-12 b-col-xs-12 b-clearfix">
+									<span class="text b-col-dt-3 b-col-xs-3 b-float-left b-text-right">驗證碼</span>
+									<div class="m-box-holder b-col-dt-9 b-col-xs-9 b-float-left">
+										<input type="text" name="verification" class="m-inputbox required" placeholder="請輸入驗證碼(不分大小寫)" placeholder="請輸入密碼英文字母需區分大小寫" data-msg="驗證碼為必填">
+									</div>
+									<span class="alert b-col-dt-9 b-col-xs-9 b-float-right b-text-left"><label for="verification" class="is-error b-text-warning"></label></span>
+								</label>
+								<div class="function-wrap b-col-dt-9 b-col-xs-12 b-float-right-dt">
+									<div class="b-middle">
+										<label class="m-lab jQ-checkbox b-col-dt-6 b-col-xs-6">
+											<div class="m-box-holder is-checkbox">
+												<input type="checkbox" class="m-checkbox">
+											</div>
+											<span class="text">記住我的帳號</span>
+										</label>
+										<div class="verification b-col-dt-6 b-col-xs-6 b-text-right">
+											<figure class="img-wrap b-inline">
+												<img src="../../content/img/verification/01.jpg" alt="">
+											</figure>
+											<button class="b-link b-block b-text-right b-col-dt-12 b-col-xs-12">更新驗證碼</button>
 										</div>
-										<span class="text">記住我的帳號</span>
-									</label>
-									<div class="verification b-col-dt-6 b-col-xs-6 b-text-right">
-										<figure class="img-wrap b-inline">
-											<img src="../../content/img/verification/01.jpg" alt="">
-										</figure>
-										<button class="b-link b-block b-text-right b-col-dt-12 b-col-xs-12">更新驗證碼</button>
+									</div>
+									<button class="btn-link b-col-dt-12 b-col-xs-12" type="submit">登入</button>
+									<div class="help-links-wrap">
+										<a href="faq.html" class="b-link">常見問題</a>
+										<a href="forget-password.html" class="b-link">忘記密碼</a>
+										<a href="certification.html" class="b-link">補發會員認證信</a>
 									</div>
 								</div>
-								<a href="javascript:;" class="btn-link b-col-dt-12 b-col-xs-12">登入</a>
-								<div class="help-links-wrap">
-									<a href="faq.html" class="b-link">常見問題</a>
-									<a href="forget-password.html" class="b-link">忘記密碼</a>
-									<a href="certification.html" class="b-link">補發會員認證信</a>
-								</div>
-							</div>
+							</form>
 						</div>
 						<div class="b-col-dt-6 b-col-xs-12 b-float-left-dt">
 							<div class="function-wrap">
@@ -115,5 +117,6 @@
 	<!--#include virtual="../Shared/Not-support.html" -->
 </body>
 <!--#include virtual="../Shared/GlobalScriptFt.html" -->
-<!-- <script defer src="../../scripts/js/member.js?JS=20160420_01"></script> -->
+<script defer src="../../Scripts/plugin/jquery.validation/jquery.validate.min.js?js=20160420_01"></script>
+<script defer src="../../scripts/js/member.js?JS=20160420_01"></script>
 </html>

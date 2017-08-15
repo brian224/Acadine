@@ -1258,8 +1258,9 @@
 				}
 			}
 
-			button:not(.btn-mobile-menu) {
+			button:not(.btn-mobile-menu), .jQ-sub-menu {
 				height: 40px;
+				color: $color-black;
 				font-size: 14px;
 				font-weight: bold;
 				letter-spacing: 1px;

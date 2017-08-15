@@ -344,23 +344,40 @@
     };
 
     /* validate */
-    factory.prototype.validate = function(element , selfMethod , event) {
+    factory.prototype.validate = function(object) {
         if ( jQuery.fn.validate ) {
             var _settings = null;
 
             projects.addMethod();
 
-            if ( typeof(selfMethod) === 'function' ) {
-                selfMethod.call();
+            if ( object && typeof(object.selfMethod) === 'function' ) {
+                object.selfMethod.call();
             }
 
             for ( var i = 0 , $forms = jQuery('form') ; i < $forms.length ; i ++ ) {
                 $forms.eq(i).validate({
-                    errorClass : 'is-error',
-                    validClass : 'is-success',
+                    errorClass : ( object && object.errorClass ) ? object.errorClass : 'is-error',
+                    validClass : ( object && object.validClass ) ? object.validClass : 'is-success',
                     onkeyup    : function(element) {
-                        if ( event === 'onkeyup' ) {
+                        if ( object && typeof(object.event) === 'string' && object.event === 'keyup' ) {
                             jQuery(element).valid();
+                        } else if ( object && typeof(object.event) === 'object' ) {
+                            for ( var i = 0 ; i < object.event.length; i ++ ) {
+                                if ( object.event[i] === 'keyup' ) {
+                                    jQuery(element).valid();
+                                }
+                            }
+                        }
+                    },
+                    onfocusout : function(element) {
+                        if ( object && typeof(object.event) === 'string' && object.event === 'focusout' ) {
+                            jQuery(element).valid();
+                        } else if ( object && typeof(object.event) === 'object' ) {
+                            for ( var i = 0 ; i < object.event.length; i ++ ) {
+                                if ( object.event[i] === 'focusout' ) {
+                                    jQuery(element).valid();
+                                }
+                            }
                         }
                     }
                 });
