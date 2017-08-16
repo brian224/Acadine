@@ -24,6 +24,7 @@
 	margin-top: 20px;
 
 	.alert {
+		left: auto;
 		right: 0;
 	}
 }
@@ -131,10 +132,6 @@
 }
 
 .registration, .edit, .change-password {
-	.m-cut-bd .alert {
-		left: 0;
-	}
-
 	.is-reqired:before {
 		content: '*';
 	}
@@ -217,15 +214,21 @@
 	}
 
 	form {
-		.m-box-holder:not(.is-checkbox):not(.is-selector):not(.is-radio) {
-			border: 0;
+		.m-box-holder {
+			&:not(.is-checkbox):not(.is-radio) {
+				border: 0;
+			}
+
+			&.error {
+				border-color: $color-text-major;
+			}
 		}
 
 		input[type="radio"] {
 			@include appearance(radio);
 		}
 
-		.m-inputbox {
+		.m-inputbox, .m-selection {
 			border: 1px solid $color-gray-l-p10;
 
 			&.is-error {
@@ -235,8 +238,6 @@
 
 		.alert {
 			padding-left: 0;
-			position: absolute;
-			top: 100%;
 			color: $color-text-major;
 			font-size: 14px;
 			font-weight: bold;
@@ -563,7 +564,7 @@
 	}
 
 	.forget-password {
-		.m-cut-bd > *:not(:first-child) {
+		.m-cut-bd form > *:not(:first-child) {
 			margin-top: 30px;
 		}
 
@@ -577,11 +578,15 @@
 		padding-right: 24px;
 		padding-left: 24px;
 
-		> * {
-			margin-top: 20px;
+		form {
+			width: auto;
 
-			&:last-child {
-				margin-top: 60px;
+			> * {
+				margin-top: 20px;
+
+				&:last-child {
+					margin-top: 60px;
+				}
 			}
 		}
 
@@ -694,6 +699,12 @@
 	}
 
 	.m-cut-bd {
+		form .alert {
+			position: absolute;
+			top: 100%;
+			left: 0;
+		}
+
 		.is-selector ~ * {
 			padding-left: 10px;
 		}
@@ -873,7 +884,7 @@
 		margin: 0 10px 25px 10px;
 		padding: 25px 0;
 
-		> *:not(:last-child), .function-wrap:not(:last-child) {
+		form > *:not(:last-child), > *:not(:last-child), .function-wrap:not(:last-child) {
 			margin-bottom: 20px;
 		}
 
@@ -893,6 +904,14 @@
 	}
 
 	.change-password .m-cut-bd {
+		form {
+			margin-top: 0 !important;
+
+			> *:last-child {
+				margin-top: 20px;
+			}
+		}
+
 		.msg {
 			margin-top: 10px;
 		}
@@ -965,7 +984,7 @@
 		}
 
 		.info-form .list:not(:last-child) {
-			margin-bottom: 35px;
+			margin-bottom: 20px;
 		}
 
 		.m-cut-bd .m-lab.jQ-checkbox {
@@ -1099,6 +1118,10 @@
 
 	.btn-link {
 		letter-spacing: 0;
+	}
+
+	.step-list .list:not(:last-child):before {
+		width: 33vw;
 	}
 }
 

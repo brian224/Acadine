@@ -379,6 +379,11 @@
                                 }
                             }
                         }
+                    },
+                    invalidHandler : function(event, validator){
+                        if (validator.invalid.gender !== undefined) {
+                            $('.m-radio').parent('.m-box-holder.is-radio').addClass('error');
+                        }
                     }
                 });
 
@@ -416,6 +421,8 @@
             var _enSort     = new Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3);
             var _numSort    = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5);
             var _multiply   = new Array(9, 8, 7, 6, 5, 4, 3, 2, 1, 1);
+
+            if (!$(elem).hasClass('required') && value.length === 0) return true;
             
             if ( value.length != 10 ) return false;
 
