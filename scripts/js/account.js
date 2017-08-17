@@ -15,6 +15,10 @@
 	});
 
 	projects.$d.ready(function(){
+		projects.validate({
+			event : 'focusout'
+		});
+
 		if (projects.$w.width() >= 1024) {
 			$('.main-content').css('min-height', $(pageObj._category).height());
 		}

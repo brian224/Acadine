@@ -568,7 +568,7 @@
 			margin-top: 30px;
 		}
 
-		.desc {
+		.desc, .desc .b-link {
 			font-size: 16px;
 			line-height: 1.75em;
 		}
@@ -687,6 +687,10 @@
 
 		.m-icon-sand-mail {
 			font-size: 84px;
+		}
+
+		.m-cut-bd form .alert {
+			position: relative;
 		}
 	}
 

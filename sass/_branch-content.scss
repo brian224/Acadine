@@ -483,6 +483,7 @@
 
 		.btn-read-more {
 			margin-bottom: 34px !important;
+			@include transition(ease-in all 0.3s);
 		}
 
 		.food-link:hover {
@@ -499,6 +500,7 @@
 			}
 
 			.btn-read-more {
+				background: $color-text-major;;
 				border-color: $color-text-major;
 
 				&:after {

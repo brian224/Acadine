@@ -18,142 +18,150 @@
 				<div class="content-wrap b-clearfix">
 					<div class="main-cut">
 						<em class="text guest-msg b-col-dt-12 b-col-xs-12 b-text-center b-block">歡迎您來到遠東百貨，若 <a href="../member/faq.html" class="b-link">常見問題</a> 無法解決您的問題，歡迎您提出疑問，將由專人儘速為您解答，謝謝。</em>
-						<ul class="info-form">
-							<li class="list b-col-dt-12 b-col-xs-12 b-clearfix">
-								<span class="text b-text-right-dt b-text-left-xs b-col-md-2 b-col-tm-3 b-col-xs-12 b-float-left is-reqired">問題類別</span>
-								<div class="value-form b-col-md-10 b-col-tm-9 b-col-xs-12 b-float-left">
-									<div class="b-col-dt-4 b-col-xs-12 b-float-left">
-										<div class="m-box-holder b-col-dt-9 b-col-xs-12 b-float-left is-selector">
-											<select name="" id="" class="m-selection b-col-dt-12 b-col-xs-12">
-												<option value="">卡友相關</option>
-											</select>
+						<form action="contact-us-sent.html">
+							<ul class="info-form">
+								<li class="list b-col-dt-12 b-col-xs-12 b-clearfix">
+									<span class="text b-text-right-dt b-text-left-xs b-col-md-2 b-col-tm-3 b-col-xs-12 b-float-left is-reqired">問題類別</span>
+									<div class="value-form b-col-md-10 b-col-tm-9 b-col-xs-12 b-float-left">
+										<div class="m-lab b-col-dt-4 b-col-xs-12 b-float-left">
+											<div class="m-box-holder b-col-dt-9 b-col-xs-12 b-float-left is-selector">
+												<select name="qtype" id="" class="m-selection b-col-dt-12 b-col-xs-12 required" data-msg="類別必填！">
+													<option value="">請選擇</option>
+													<option value="卡友相關">卡友相關</option>
+												</select>
+											</div>
+											<span class="alert b-col-dt-9 b-col-xs-12 b-float-left-dt b-block-xs b-text-center"><label for="qtype" class="is-error b-text-warning"></label></span>
 										</div>
 									</div>
-								</div>
-							</li>
-							<li class="list b-col-dt-12 b-col-xs-12 b-clearfix">
-								<span class="text b-text-right-dt b-text-left-xs b-col-md-2 b-col-tm-3 b-col-xs-12 b-float-left is-reqired">選擇店別</span>
-								<div class="value-form b-col-md-10 b-col-tm-9 b-col-xs-12 b-float-left">
-									<div class="b-col-dt-4 b-col-xs-12 b-float-left">
-										<div class="m-box-holder b-col-dt-9 b-col-xs-12 b-float-left is-selector">
-											<select name="" id="" class="m-selection b-col-dt-12 b-col-xs-12">
-												<option value="">板橋大遠百</option>
-												<option value="">寶慶遠百</option>
-												<option value="">板橋遠百</option>
-												<option value="">桃園遠百</option>
-											</select>
+								</li>
+								<li class="list b-col-dt-12 b-col-xs-12 b-clearfix">
+									<span class="text b-text-right-dt b-text-left-xs b-col-md-2 b-col-tm-3 b-col-xs-12 b-float-left is-reqired">選擇店別</span>
+									<div class="value-form b-col-md-10 b-col-tm-9 b-col-xs-12 b-float-left">
+										<div class="m-lab b-col-dt-4 b-col-xs-12 b-float-left">
+											<div class="m-box-holder b-col-dt-9 b-col-xs-12 b-float-left is-selector">
+												<select name="store" id="" class="m-selection b-col-dt-12 b-col-xs-12 required" data-msg="店別必填！">
+													<option value="">請選擇</option>
+													<option value="板橋大遠百">板橋大遠百</option>
+													<option value="寶慶遠百">寶慶遠百</option>
+													<option value="板橋遠百">板橋遠百</option>
+													<option value="桃園遠百">桃園遠百</option>
+												</select>
+											</div>
+											<span class="alert b-col-dt-9 b-col-xs-12 b-float-left-dt b-block-xs b-text-center"><label for="store" class="is-error b-text-warning"></label></span>
 										</div>
 									</div>
-								</div>
-							</li>
-							<li class="list b-col-dt-12 b-col-xs-12 b-clearfix">
-								<span class="text b-text-right-dt b-text-left-xs b-col-md-2 b-col-tm-3 b-col-xs-12 b-float-left is-reqired">姓名</span>
-								<div class="value-form b-col-md-10 b-col-tm-9 b-col-xs-12 b-float-left">
-									<label class="m-lab b-col-dt-6 b-col-xs-12 b-float-left error">
-										<div class="m-box-holder b-col-dt-12 b-col-xs-12">
-											<input type="text" class="m-inputbox" placeholder="">
-										</div>
-										<span class="alert b-col-dt-12 b-col-xs-12">姓名必填！</span>
-									</label>
-								</div>
-							</li>
-							<li class="list b-col-dt-12 b-col-xs-12 b-clearfix">
-								<span class="text b-text-right-dt b-text-left-xs b-col-md-2 b-col-tm-3 b-col-xs-12 b-float-left is-reqired">性別</span>
-								<div class="value-form b-col-md-10 b-col-tm-9 b-col-xs-12 b-float-left b-clearfix">
-									<label class="m-lab jQ-radio b-col-dt-2 b-col-xs-6 b-float-left b-text-center-dt b-text-left-xs">
-										<div class="m-box-holder is-radio">
-											<input type="radio" name="gender" class="m-radio" value="male">
-										</div>
-										<em class="text">男</em>
-									</label>
-									<label class="m-lab jQ-radio b-col-dt-2 b-col-xs-6 b-float-left b-text-center-dt b-text-left-xs">
-										<div class="m-box-holder is-radio">
-											<input type="radio" name="gender" class="m-radio" value="female">
-										</div>
-										<em class="text">女</em>
-									</label>
-								</div>
-							</li>
-							<li class="list b-col-dt-12 b-col-xs-12 b-clearfix">
-								<span class="text b-text-right-dt b-text-left-xs b-col-md-2 b-col-tm-3 b-col-xs-12 b-float-left is-reqired">電子郵件</span>
-								<div class="value-form b-col-md-10 b-col-tm-9 b-col-xs-12 b-float-left b-middle">
-									<label class="m-lab b-col-dt-6 b-col-xs-12">
-										<div class="m-box-holder b-col-dt-12 b-col-xs-12">
-											<input type="email" class="m-inputbox" placeholder="">
-										</div>
-										<span class="alert b-col-dt-12 b-col-xs-12">E-Mail 輸入錯誤！</span>
-									</label>
-								</div>
-							</li>
-							<li class="list b-col-dt-12 b-col-xs-12 b-clearfix">
-								<span class="text b-text-right-dt b-text-left-xs b-col-md-2 b-col-tm-3 b-col-xs-12 b-float-left is-reqired">行動電話</span>
-								<div class="value-form b-col-md-10 b-col-tm-9 b-col-xs-12 b-float-left">
-									<label class="m-lab b-col-dt-6 b-col-xs-12 b-float-left">
-										<div class="m-box-holder b-col-dt-12 b-col-xs-12">
-											<input type="tel" class="m-inputbox" placeholder="">
-										</div>
-										<span class="alert b-col-dt-12 b-col-xs-12">行動電話輸入錯誤！</span>
-									</label>
-								</div>
-							</li>
-							<li class="list b-col-dt-12 b-col-xs-12 b-clearfix">
-								<span class="text b-text-right-dt b-text-left-xs b-col-md-2 b-col-tm-3 b-col-xs-12 b-float-left is-reqired">主旨</span>
-								<div class="value-form b-col-md-10 b-col-tm-9 b-col-xs-12 b-float-left">
-									<label class="m-lab b-col-dt-6 b-col-xs-12 b-float-left">
-										<div class="m-box-holder b-col-dt-12 b-col-xs-12">
-											<input type="text" class="m-inputbox" placeholder="">
-										</div>
-										<span class="alert b-col-dt-12 b-col-xs-12">主旨必填！</span>
-									</label>
-								</div>
-							</li>
-							<li class="list b-col-dt-12 b-col-xs-12 b-clearfix">
-								<span class="text b-text-right-dt b-text-left-xs b-col-md-2 b-col-tm-3 b-col-xs-12 b-float-left is-reqired">您的意見</span>
-								<div class="value-form b-col-md-10 b-col-tm-9 b-col-xs-12 b-float-left">
-									<label class="m-lab b-col-dt-10 b-col-xs-12 b-float-left">
-										<div class="m-box-holder b-col-dt-12 b-col-xs-12">
-											<textarea type="text" class="m-textarea" placeholder=""></textarea>
-										</div>
-										<span class="alert b-col-dt-12 b-col-xs-12">您的意見必填！</span>
-									</label>
-								</div>
-							</li>
-							<li class="list b-col-dt-12 b-col-xs-12 b-clearfix">
-								<span class="text b-text-right-dt b-text-left-xs b-col-md-2 b-col-tm-3 b-col-xs-12 b-float-left is-reqired">驗證碼</span>
-								<div class="value-form b-col-md-10 b-col-tm-9 b-col-xs-12 b-float-left">
-									<label class="m-lab b-col-dt-6 b-col-xs-12 b-float-left">
-										<div class="m-box-holder b-col-dt-12 b-col-xs-12">
-											<input type="text" class="m-inputbox" placeholder="">
-										</div>
-										<span class="alert b-col-dt-12 b-col-xs-12">驗證碼必填！</span>
-									</label>
-									<div class="verification b-col-dt-4 b-col-xs-12 b-float-left b-text-left">
-										<figure class="img-wrap b-inline">
-											<img src="../../content/img/verification/01.jpg" alt="">
-										</figure>
-										<button class="b-link b-inline">更新驗證碼</button>
+								</li>
+								<li class="list b-col-dt-12 b-col-xs-12 b-clearfix">
+									<span class="text b-text-right-dt b-text-left-xs b-col-md-2 b-col-tm-3 b-col-xs-12 b-float-left is-reqired">姓名</span>
+									<div class="value-form b-col-md-10 b-col-tm-9 b-col-xs-12 b-float-left">
+										<label class="m-lab b-col-dt-6 b-col-xs-12 b-float-left">
+											<div class="m-box-holder b-col-dt-12 b-col-xs-12">
+												<input type="text" name="username" class="m-inputbox required" placeholder="" data-msg="姓名必填！">
+											</div>
+											<span class="alert b-col-dt-12 b-col-xs-12 b-inline-dt b-block-xs b-text-center"><label for="username" class="is-error b-text-warning"></label></span>
+										</label>
 									</div>
-								</div>
-							</li>
-							<li class="list b-col-dt-12 b-col-xs-12 b-clearfix">
-								<div class="value-form b-col-md-10 b-col-tm-9 b-col-xs-12 b-float-right">
-									<label class="m-lab jQ-checkbox b-col-dt-12 b-col-xs-12">
-										<div class="m-box-holder is-checkbox">
-											<input type="checkbox" class="m-checkbox">
-										</div>
-										<span class="text">本人同意遠東百貨得使用上述填寫資料以便聯繫本人或回覆本人之問題或意見</span>
-									</label>
-								</div>
-							</li>
-							<li class="list b-col-dt-12 b-col-xs-12 b-clearfix">
-								<div class="btn-wrap b-col-md-10 b-col-tm-9 b-col-xs-12 b-float-right-dt">
-									<div class="b-col-dt-10">
-										<button class="btn-link b-col-dt-5 btn-light b-col-xs-6 b-float-left jQ-clear">重填</button>
-										<a href="contact-us-sent.html" class="btn-link b-col-dt-6 b-col-xs-6 b-float-right">確認送出</a>
+								</li>
+								<li class="list b-col-dt-12 b-col-xs-12 b-clearfix">
+									<span class="text b-text-right-dt b-text-left-xs b-col-md-2 b-col-tm-3 b-col-xs-12 b-float-left is-reqired">性別</span>
+									<div class="value-form b-col-md-10 b-col-tm-9 b-col-xs-12 b-float-left b-clearfix">
+										<label class="m-lab jQ-radio b-col-dt-2 b-col-xs-6 b-float-left b-text-center-dt b-text-left-xs">
+											<div class="m-box-holder is-radio">
+												<input type="radio" name="gender" class="m-radio required" value="male" data-msg="性別為必填！">
+											</div>
+											<em class="text">男</em>
+										</label>
+										<label class="m-lab jQ-radio b-col-dt-2 b-col-xs-6 b-float-left b-text-center-dt b-text-left-xs">
+											<div class="m-box-holder is-radio">
+												<input type="radio" name="gender" class="m-radio" value="female">
+											</div>
+											<em class="text">女</em>
+										</label>
+										<span class="alert b-col-dt-4 b-col-xs-12 b-block-xs b-text-center"><label for="gender" class="is-error b-text-warning"></label></span>
 									</div>
-								</div>
-							</li>
-						</ul>
+								</li>
+								<li class="list b-col-dt-12 b-col-xs-12 b-clearfix">
+									<span class="text b-text-right-dt b-text-left-xs b-col-md-2 b-col-tm-3 b-col-xs-12 b-float-left is-reqired">電子郵件</span>
+									<div class="value-form b-col-md-10 b-col-tm-9 b-col-xs-12 b-float-left b-middle">
+										<label class="m-lab b-col-dt-6 b-col-xs-12">
+											<div class="m-box-holder b-col-dt-12 b-col-xs-12">
+												<input type="email" name="email" class="m-inputbox required" placeholder="" data-msg="E-Mail為必填" data-msg-email="E-Mail輸入錯誤！請重新輸入">
+											</div>
+											<span class="alert b-col-dt-12 b-col-xs-12 b-inline-dt b-block-xs b-text-center"><label for="email" class="is-error b-text-warning"></label></span>
+										</label>
+									</div>
+								</li>
+								<li class="list b-col-dt-12 b-col-xs-12 b-clearfix">
+									<span class="text b-text-right-dt b-text-left-xs b-col-md-2 b-col-tm-3 b-col-xs-12 b-float-left is-reqired">行動電話</span>
+									<div class="value-form b-col-md-10 b-col-tm-9 b-col-xs-12 b-float-left">
+										<label class="m-lab b-col-dt-6 b-col-xs-12 b-float-left">
+											<div class="m-box-holder b-col-dt-12 b-col-xs-12">
+												<input type="tel" name="phone" class="m-inputbox required phone" placeholder="" data-msg="行動電話為必填" data-msg-phone="行動電話輸入錯誤！">
+											</div>
+											<span class="alert b-col-dt-12 b-col-xs-12 b-inline-dt b-block-xs b-text-center"><label for="phone" class="is-error b-text-warning"></label></span>
+										</label>
+									</div>
+								</li>
+								<li class="list b-col-dt-12 b-col-xs-12 b-clearfix">
+									<span class="text b-text-right-dt b-text-left-xs b-col-md-2 b-col-tm-3 b-col-xs-12 b-float-left is-reqired">主旨</span>
+									<div class="value-form b-col-md-10 b-col-tm-9 b-col-xs-12 b-float-left">
+										<label class="m-lab b-col-dt-6 b-col-xs-12 b-float-left">
+											<div class="m-box-holder b-col-dt-12 b-col-xs-12">
+												<input type="text" name="qtitle" class="m-inputbox required" placeholder="" data-msg="主旨必填！">
+											</div>
+											<span class="alert b-col-dt-12 b-col-xs-12 b-inline-dt b-block-xs b-text-center"><label for="qtitle" class="is-error b-text-warning"></label></span>
+										</label>
+									</div>
+								</li>
+								<li class="list b-col-dt-12 b-col-xs-12 b-clearfix">
+									<span class="text b-text-right-dt b-text-left-xs b-col-md-2 b-col-tm-3 b-col-xs-12 b-float-left is-reqired">您的意見</span>
+									<div class="value-form b-col-md-10 b-col-tm-9 b-col-xs-12 b-float-left">
+										<label class="m-lab b-col-dt-10 b-col-xs-12 b-float-left">
+											<div class="m-box-holder b-col-dt-12 b-col-xs-12">
+												<textarea type="text" name="opinion" class="m-textarea required" placeholder="" data-msg="您的意見必填！"></textarea>
+											</div>
+											<span class="alert b-col-dt-12 b-col-xs-12 b-block-xs b-text-center"><label for="opinion" class="is-error b-text-warning"></label></span>
+										</label>
+									</div>
+								</li>
+								<li class="list b-col-dt-12 b-col-xs-12 b-clearfix">
+									<span class="text b-text-right-dt b-text-left-xs b-col-md-2 b-col-tm-3 b-col-xs-12 b-float-left is-reqired">驗證碼</span>
+									<div class="value-form b-col-md-10 b-col-tm-9 b-col-xs-12 b-float-left">
+										<label class="m-lab b-col-dt-6 b-col-xs-12 b-float-left">
+											<div class="m-box-holder b-col-dt-12 b-col-xs-12">
+												<input type="text" name="verification" class="m-inputbox required" placeholder="請輸入驗證碼(不分大小寫)" data-msg="驗證碼為必填">
+											</div>
+											<span class="alert b-col-dt-12 b-col-xs-12 b-block-xs b-text-center"><label for="verification" class="is-error b-text-warning"></label></span>
+										</label>
+										<div class="verification b-col-dt-4 b-col-xs-12 b-float-left b-text-left">
+											<figure class="img-wrap b-inline">
+												<img src="../../content/img/verification/01.jpg" alt="">
+											</figure>
+											<button class="b-link b-inline">更新驗證碼</button>
+										</div>
+									</div>
+								</li>
+								<li class="list b-col-dt-12 b-col-xs-12 b-clearfix">
+									<div class="value-form b-col-md-10 b-col-tm-9 b-col-xs-12 b-float-right">
+										<label class="m-lab jQ-checkbox b-col-dt-12 b-col-xs-12">
+											<div class="m-box-holder is-checkbox">
+												<input type="checkbox" name="agreement" class="m-checkbox required" data-msg="請勾選同意">
+											</div>
+											<span class="text">本人同意遠東百貨得使用上述填寫資料以便聯繫本人或回覆本人之問題或意見</span>
+											<span class="alert b-col-dt-12 b-col-xs-12 b-block-xs b-text-center-xs"><label for="agreement" class="is-error b-text-warning"></label></span>
+										</label>
+									</div>
+								</li>
+								<li class="list b-col-dt-12 b-col-xs-12 b-clearfix">
+									<div class="btn-wrap b-col-md-10 b-col-tm-9 b-col-xs-12 b-float-right-dt">
+										<div class="b-col-dt-10">
+											<button class="btn-link b-col-dt-5 btn-light b-col-xs-6 b-float-left jQ-clear">重填</button>
+											<button class="btn-link b-col-dt-6 b-col-xs-6 b-float-right" type="submit" data-submit="">確認送出</button>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</form>
 						<div class="precautions">
 							<p class="b-desc">注意事項：</p>
 							<ol class="order-list is-decimal">
@@ -227,5 +235,6 @@
 	<!--#include virtual="../Shared/Not-support.html" -->
 </body>
 <!--#include virtual="../Shared/GlobalScriptFt.html" -->
+<script defer src="../../scripts/plugin/jquery.validation/jquery.validate.min.js?js=20160420_01"></script>
 <script defer src="../../scripts/js/account.js?JS=20160420_01"></script>
 </html>

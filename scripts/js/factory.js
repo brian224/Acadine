@@ -384,6 +384,9 @@
                         if (validator.invalid.gender !== undefined) {
                             $('.m-radio').parent('.m-box-holder.is-radio').addClass('error');
                         }
+                        if (validator.invalid.agreement !== undefined) {
+                            $('.m-checkbox').parent('.m-box-holder.is-checkbox').addClass('error');
+                        }
                     }
                 });
 

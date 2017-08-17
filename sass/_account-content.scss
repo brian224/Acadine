@@ -114,11 +114,9 @@
 		}
 
 		.code-list {
-			margin-bottom: 18px;
-	
 			.item-list {
 				padding: 24px 0;
-				border-bottom: 1px solid $color-gray-l-p30;
+				border-top: 1px solid $color-gray-l-p30;
 				font-size: 0;
 				line-height: 0;
 	
@@ -1881,8 +1879,14 @@
 @include devices(iphone) {}
 
 @include respond(Iphone5) {
-	.order-detail .l-lightbox .code-list .qrcode .function-title {
-		white-space: nowrap;
+	.order-detail .l-lightbox .code-list {
+		.qrcode .function-title {
+			white-space: nowrap;
+		}
+
+		.item-list .barcode.img-wrap {
+			width: 100%;
+		}
 	}
 }
 
