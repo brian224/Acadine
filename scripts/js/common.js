@@ -18,8 +18,6 @@
 		this._video        = '.jQ-video';
 		this._mute         = '.jQ-mute';
 		this._tab          = '.jQ-tab';
-		// this._like         = '.jQ-like';
-		// this._calendar     = '.jQ-calendar';
 		this._btnAccordion = '.jQ-btn-accordion';
 		this._checkbox     = '.jQ-checkbox';
 		this._radio        = '.jQ-radio';
@@ -37,6 +35,9 @@
 		this._closePopup   = '.jQ-close-popup';
 		this._sendMsg      = '.jQ-send-msg';
 		this._btnSearch    = '.jQ-btn-search';
+		this._btnOpen      = '.jQ-open-calendar';
+		this._btnClose     = '.jQ-close-calendar';
+		this._addingWrap   = '.adding-wrap';
 		this._shortcutWrap = '.shortcut-wrap';
 		this._leavePage    = false;
 		this._animateSpeed = 400;
@@ -106,6 +107,10 @@
 			} else if (_target === common._select) {
 				if (!$(e.target).is(_target + ', ' + _target + ' *')) {
 					$(_target).removeClass('is-active');
+				}
+			} else if (_target === '.calendar-box') {
+				if (!$(e.target).is(_target + ', ' + _target + ' *, .adding-wrap, .adding-wrap *')) {
+					$('.adding-wrap').removeClass('is-open');
 				}
 			}
 		});
@@ -498,21 +503,6 @@
 			}
 		});
 
-		// $(common._like + ', ' + common._calendar).on('click', function(){
-		// 	var $this = $(this),
-		// 		_bindID = $this.data('bind');
-
-		// 	if (_bindID !== '' && _bindID !== undefined) {
-		// 		$(common._like).each(function(){
-		// 			if (_bindID === $(this).data('bind')) {
-		// 				$(this).toggleClass('is-add');
-		// 			}
-		// 		});
-		// 	} else {
-		// 		$this.toggleClass('is-add');
-		// 	}
-		// });
-
 		$(common._btnAccordion).on('click', function(){
 			$(this).parents('.m-accordion').toggleClass('is-open');
 
@@ -634,6 +624,26 @@
 			if ($(this).prev('input').val() !== '') {
 				window.location.href = $(this).data('url') + '?keyword=' + $(this).prev('input').val();
 			}
+		});
+
+		$(common._btnOpen).on('click', function(){
+			if ($(this).parent(common._addingWrap).hasClass('is-open')) {
+				$(this).parent(common._addingWrap).removeClass('is-open');
+			} else {
+				$(common._addingWrap).removeClass('is-open');
+				$(this).parent(common._addingWrap).addClass('is-open');
+				common.offClick('.calendar-box');
+
+				if ($(window).scrollTop() > $(this).next('.calendar-box').offset().top - $(common._lHeader).height()) {
+					projects.$hb.animate({
+						'scrollTop' : $(this).next('.calendar-box').offset().top - $(common._lHeader).height()
+					}, common._animateSpeed);
+				}
+			}
+		});
+
+		$(common._btnClose).on('click', function(){
+			$(this).parent().parent(common._addingWrap).removeClass('is-open');
 		});
 
 		$(common._sendMsg + ' .btn-send').on('click' , function(){

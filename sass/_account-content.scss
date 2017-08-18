@@ -167,9 +167,82 @@
 	}
 }
 
-.calendar .calendar-pagination .m-pagination-bd .page-ctrl .text {
-	color: $color-gray-d-p30;
-	font-size: 20px;
+.calendar {
+	.adding-wrap {
+		padding: 0 20px;
+		position: relative;
+
+		&.is-open .calendar-box {
+			opacity: 1;
+			z-index: 1;
+		}
+
+		.btn-text {
+			color: #ff6a5b;
+			font-size: 14px;
+			text-decoration: underline;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+
+		.calendar-box {
+			margin-bottom: 20px;
+			background: $color-white;
+			position: absolute;
+			bottom: 100%;
+			left: 50%;
+			border-width: 1px 1px 3px 1px;
+			border-style: solid;
+			border-color: $color-gray-d-p30;
+			box-sizing: border-box;
+			opacity: 0;
+			z-index: -1;
+
+			&:before, &:after {
+				content: '';
+				margin-left: -6px;
+				display: block;
+				width: 0;
+				height: 0;
+				position: absolute;
+				left: 50%;
+				border-right: 6px solid transparent;
+				border-left: 6px solid transparent;
+			}
+
+			&:before {
+				bottom: -13px;
+				border-top: 10px solid $color-gray-d-p30;
+			}
+
+			&:after {
+				bottom: -9px;
+				border-top: 10px solid $color-white;
+			}
+
+			.box-title {
+				margin-bottom: 20px;
+				color: $color-gray-d-p30;
+				font-size: 16px;
+			}
+		}
+
+		.selection-list .list {
+			margin-bottom: 20px;
+			color: $color-gray-d-p30;
+		}
+
+		.m-box-holder.is-checkbox:before {
+			border-color: $color-text-major;
+		}
+	}
+
+	.calendar-pagination .m-pagination-bd .page-ctrl .text {
+		color: $color-gray-d-p30;
+		font-size: 20px;
+	}
 }
 
 .main-content {
@@ -1107,19 +1180,32 @@
 		}
 	}
 
-	.calendar .members-item-list {
-		.act-info {
-			padding-bottom: 100px;
+	.calendar {
+		.adding-wrap {
+			margin-bottom: 20px;
+			padding-bottom: 12px;
+
+			.calendar-box {
+				margin-left: -160px;
+				padding: 40px 30px;
+				width: 320px;
+			}
 		}
 
-		.act-type {
-			bottom: 72px;
-		}
+		.members-item-list {
+			.act-info {
+				padding-bottom: 100px;
+			}
 
-		.btn-link {
-			bottom: 20px;
-			left: 30px;
-			right: 30px;
+			.act-type {
+				bottom: 72px;
+			}
+
+			.btn-link {
+				bottom: 20px;
+				left: 30px;
+				right: 30px;
+			}
 		}
 	}
 
@@ -1351,7 +1437,7 @@
 		}
 	}
 
-	.m-lab .m-box-holder {
+	.m-lab .m-box-holder:not(.is-checkbox) {
 		width: 100%;
 		box-sizing: border-box;
 	}
@@ -1421,6 +1507,7 @@
 	.category-content {
 		height: 40px;
 		position: relative;
+		z-index: 2;
 
 		&.is-active {
 			.category-list {
@@ -1621,6 +1708,16 @@
 	}
 
 	.calendar {
+		.adding-wrap {
+			margin: 20px 0 40px 0;
+
+			.calendar-box {
+				margin-left: -150px;
+				padding: 30px 20px;
+				width: 300px;
+			}
+		}
+
 		.calendar-pagination {
 			margin-bottom: 20px;
 

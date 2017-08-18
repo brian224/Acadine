@@ -28,6 +28,7 @@
 	top: 0;
 	left: 0;
 	right: 0;
+	@include transform(translateZ(0));
 }
 
 .l-nav {
@@ -186,6 +187,10 @@
 			padding-top: 56px;
 			min-height: calc(100vh - 78px);
 		}
+	}
+
+	.l-header {
+		min-height: 56px;
 	}
 
 	.l-nav {

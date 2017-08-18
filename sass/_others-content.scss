@@ -1040,7 +1040,7 @@
 		
 				.item-sizer, .list-item {
 					width: calc((100% - 40px) / 3);
-					max-width: 320px;
+					min-width: 260px;
 				}
 			}
 		}
@@ -1341,7 +1341,7 @@
 				margin: 0 auto;
 
 				.list-item {
-					padding-bottom: 40px;
+					padding-bottom: 20px;
 				}
 
 				.item-gutter {
@@ -1432,10 +1432,14 @@
 		@include box-sizing(border-box);
 
 		.result-list {
-			max-width: 1040px;
+			max-width: 1300px;
+	
+			.item-sizer, .list-item {
+				width: 310px;
+			}
 
 			.item-gutter {
-				width: 40px;
+				width: 20px;
 			}
 		}
 	}
@@ -1782,8 +1786,10 @@
 			}
 
 			.result-list .list-item {
+				margin: 0 auto;
 				padding-bottom: 20px;
 				display: block;
+				max-width: 320px;
 
 				.img-wrap img {
 					max-width: none;

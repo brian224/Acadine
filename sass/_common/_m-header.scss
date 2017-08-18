@@ -158,6 +158,23 @@
 		opacity: 0;
 		overflow: hidden;
 		@include transition(ease-in all 0.3s);
+
+		.function-wrap .btn-link {
+			position: relative;
+
+			.count {
+				margin-top: -10px;
+				padding: 0 10px;
+				background: #ff6a5b;
+				position: absolute;
+				top: 50%;
+				right: 20px;
+				border-radius: 10px;
+				color: $color-white;
+				font-size: 12px;
+				line-height: 20px;
+			}
+		}
 		
 		.function-title {
 			border-bottom: 1px solid $color-gray-l-p40;
@@ -262,6 +279,15 @@
 					color: $color-white;
 				}
 			}
+
+			&.btn-cancel {
+				border: 1px solid $color-gray-l-p10;
+				color: $color-white;
+
+				&:hover {
+					background: darken($color-gray-l-p10 , 10%);
+				}
+			}
 		}
 
 		.info-hint {
@@ -290,6 +316,10 @@
 				color: $color-gray-l-p10;
 				font-size: 12px;
 				line-height: 1.5em;
+			}
+
+			.b-highlight {
+				color: #ff6a5b;
 			}
 		}
 
@@ -1458,6 +1488,10 @@
 					}
 				}
 
+				.info-hint {
+					margin-top: 16px;
+				}
+
 				.btn-func {
 					width: calc((100vw - 50px) / 4);
 					height: 56px;
@@ -1601,6 +1635,10 @@
 
 				.m-tab-wrap .btn-tab {
 					font-weight: normal;
+				}
+
+				.btn-link.btn-cancel, .m-box-holder .btn-search {
+					color: $color-white;
 				}
 			}
 		}

@@ -1,0 +1,155 @@
+﻿.m-section {
+	margin: 0 auto;
+
+	> * {
+		background: $color-white;
+	}
+}
+
+.m-section-hd {
+	.post-title {
+		color: $color-gray-d-p30;
+		font-weight: bold;
+		line-height: 1.5em;
+	}
+
+	.activity-period {
+		color: $color-gray-l-p10;
+		line-height: 1.5em;
+	}
+}
+
+.m-section-bd .btn-link {
+	color: $color-white;
+	@include transition(ease-in all 0.3s);
+
+	.text {
+		font-size: 14px;
+	}
+
+	.m-icon {
+		font-size: 20px;
+	}
+
+	> *:first-child {
+		margin-right: 5px;
+	}
+}
+
+@include respond(Desktops) {
+	.m-section-hd, .m-section-bd {
+		padding-right: 60px;
+		padding-left: 60px;
+	}
+}
+
+@include respond(Desktops-Tablets) {
+	.m-cut {
+		margin-right: 10px;
+		margin-left: 10px;
+		padding: 50px 0 100px 0;
+	}
+
+	.m-section {
+		max-width: 1140px;
+	}
+
+	.m-section-hd {
+		padding-top: 40px;
+
+		.post-tools {
+			margin-bottom: 16px;
+		}
+
+		.post-title {
+			font-size: 36px;
+		}
+
+		.activity-period {
+			font-size: 15px;
+		}
+	}
+
+	.m-section-bd {
+		padding-top: 40px;
+		padding-bottom: 40px;
+
+		.btn-wrap {
+			margin-top: 30px;
+		}
+
+		.btn-link {
+			height: 50px;
+			line-height: 50px;
+		}
+	}
+}
+
+@include respond(HD) {
+	.m-section {
+		width: 1140px;
+	}
+}
+
+@include respond(Tablets) {
+	.m-section-hd, .m-section-bd {
+		padding-right: 30px;
+		padding-left: 30px;
+	}
+}
+
+@include respond(Tablets-Mobiles) {}
+
+@include respond(Mobiles) {
+	.m-cut {
+		margin: 10px;
+		padding-bottom: 10px;
+	}
+
+	.m-section-hd, .m-section-bd {
+		padding-right: 20px;
+		padding-bottom: 20px;
+		padding-left: 20px;
+	}
+
+	.m-section-hd {
+		padding-top: 20px;
+
+		.post-tools {
+			padding-top: 30px;
+
+			.btn-wrap {
+				height: 30px;
+			}
+		}
+
+		.post-catalog {
+			margin: 20px 0 10px 0;
+		}
+
+		.post-title {
+			font-size: 24px;
+		}
+	}
+
+	.m-section-bd {
+		.btn-wrap {
+			margin-top: 10px;
+		}
+
+		.btn-link {
+			height: 40px;
+			line-height: 40px;
+		}
+	}
+}
+
+@include devices(iphone) {}
+
+@include respond(Iphone5) {}
+
+@include browsers('IE') {}
+
+@include browsers('IE9') {}
+
+@include browsers('Safari') {}

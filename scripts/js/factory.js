@@ -394,7 +394,7 @@
 
                 _settings.submitHandler = function(form) {
                     if ( jQuery(form).data('submit') ) {
-                        eval(jQuery(form).data('submit'));
+                        eval(jQuery(form).data('submit'))(form);
                         return false;
                     } else {
                         form.submit();
