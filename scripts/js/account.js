@@ -8,6 +8,7 @@
 		this._curr       = '.jQ-curr';
 		this._datepicker = '.jQ-datepicker';
 		this._btnClear   = '.jQ-clear';
+		this._btnAdd     = '.jQ-add';
 	}
 
 	projects.$w.load(function(){
@@ -68,6 +69,10 @@
 		$(pageObj._btnClear).on('click', function(){
 			$('input, textarea').val('').prop('checked', false);
 			$(common._checkbox + ', ' + common._radio).removeClass('is-checked');
+		});
+
+		$(pageObj._btnAdd).on('click', function(){
+			$('.adding-wrap').addClass('is-open');
 		});
 	});
 

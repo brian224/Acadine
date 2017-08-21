@@ -64,40 +64,61 @@
 								<div class="btn-wrap">
 									<button class="btn-link jQ-add">新增收件人</button>
 								</div>
-							</div>
-							<!-- <div class="m-lab b-col-dt-12 b-col-xs-12 b-clearfix">
-								<span class="text b-col-md-3 b-col-tm-4 b-col-xs-12 b-float-left b-text-right-dt b-text-left-xs">收件人：</span>
-								<div class="value-form b-col-md-8 b-col-tm-8 b-col-xs-12 b-float-left b-middle b-text-left">
-									<label class="m-lab b-col-dt-6 b-col-xs-12">
-										<div class="m-box-holder b-col-dt-12 b-col-xs-12">
-											<input type="text" class="m-inputbox" placeholder="">
+								<div class="adding-wrap">
+									<form action="">
+										<div class="m-lab b-col-md-12 b-col-tm-12 b-clearfix">
+											<span class="text b-col-dt-2 b-col-xs-12 b-float-left b-text-right-dt b-text-left-xs b-bold">收件人：</span>
+											<div class="value-form b-col-md-8 b-col-sm-7 b-col-xs-12 b-middle b-text-left b-float-left">
+												<div class="m-box-holder b-col-dt-6 b-col-xs-12">
+													<input type="text" name="recipient" class="m-inputbox required" placeholder="請輸入收件人" data-msg="收件人為必填" value="">
+												</div>
+												<span class="alert b-col-dt-6 b-col-xs-12 b-block-dt b-text-center"><label for="recipient" class="is-error b-text-warning"></label></span>
+											</div>
 										</div>
-										<span class="alert b-col-dt-12 b-col-xs-12 b-text-center"></span>
-									</label>
+										<div class="m-lab b-col-md-12 b-col-tm-12 b-clearfix">
+											<span class="text b-col-dt-2 b-col-xs-12 b-float-left b-text-right-dt b-text-left-xs b-bold">地址：</span>
+											<div class="value-form b-col-dt-8 b-col-xs-12 b-middle b-text-left b-float-left">
+												<div class="b-col-dt-3 b-col-xs-6 b-float-left">
+													<div class="m-box-holder b-col-dt-12 b-col-xs-11 b-float-left-xs is-selector">
+														<select name="city" id="" class="m-selection b-col-dt-12 b-col-xs-12 required" data-msg="縣市為必選">
+															<option value="">請選擇</option>
+															<option value="">新北市</option>
+														</select>
+													</div>
+													<span class="alert b-col-dt-12 b-col-xs-11 b-float-left-xs b-block b-text-center"><label for="city" class="is-error b-text-warning"></label></span>
+												</div>
+												<div class="b-col-dt-3 b-col-xs-6 b-float-left">
+													<div class="m-box-holder b-col-dt-12 b-col-xs-11 b-float-right-xs is-selector">
+														<select name="district" id="" class="m-selection b-col-dt-12 b-col-xs-12 required" data-msg="行政區為必選">
+															<option value="">請選擇</option>
+															<option value="">中和區</option>
+														</select>
+													</div>
+													<span class="alert b-col-dt-12 b-col-xs-11 b-float-right-xs b-block b-text-center"><label for="district" class="is-error b-text-warning"></label></span>
+												</div>
+												<label class="m-lab b-col-dt-12 b-col-xs-12">
+													<div class="m-box-holder b-col-dt-12 b-col-xs-12">
+														<input type="text" name="address" class="m-inputbox required" placeholder="請輸入地址" data-msg="地址為必填" value="">
+													</div>
+													<span class="alert b-col-dt-12 b-col-xs-12 b-block b-text-center"><label for="address" class="is-error b-text-warning"></label></span>
+												</label>
+											</div>
+										</div>
+										<div class="m-lab b-col-md-12 b-col-tm-12 b-clearfix">
+											<span class="text b-col-dt-2 b-col-xs-12 b-float-left b-text-right-dt b-text-left-xs b-bold">手機：</span>
+											<div class="value-form b-col-md-8 b-col-sm-7 b-col-xs-12 b-middle b-text-left b-float-left">
+												<div class="m-box-holder b-col-dt-6 b-col-xs-12">
+													<input type="text" name="phone" class="m-inputbox phone required" placeholder="請輸入手機" data-msg="手機為必填" data-msg-phone="手機輸入錯誤！">
+												</div>
+												<span class="alert b-col-dt-6 b-col-xs-12 b-block-dt b-text-center"><label for="phone" class="is-error b-text-warning"></label></span>
+											</div>
+										</div>
+										<div class="btn-wrap b-text-center">
+											<button class="btn-link b-col-dt-3 b-col-xs-12" type="submit">確定新增</button>
+										</div>
+									</form>
 								</div>
 							</div>
-							<div class="m-lab b-col-dt-12 b-col-xs-12 b-clearfix">
-								<span class="text b-col-md-3 b-col-tm-4 b-col-xs-12 b-float-left b-text-right-dt b-text-left-xs">地址：</span>
-								<div class="value-form b-col-md-8 b-col-tm-8 b-col-xs-12 b-float-left b-middle b-text-left">
-									<label class="m-lab b-col-dt-6 b-col-xs-12">
-										<div class="m-box-holder b-col-dt-12 b-col-xs-12">
-											<input type="text" class="m-inputbox" placeholder="">
-										</div>
-										<span class="alert b-col-dt-12 b-col-xs-12 b-text-center"></span>
-									</label>
-								</div>
-							</div>
-							<div class="m-lab b-col-dt-12 b-col-xs-12 b-clearfix">
-								<span class="text b-col-md-3 b-col-tm-4 b-col-xs-12 b-float-left b-text-right-dt b-text-left-xs">手機：</span>
-								<div class="value-form b-col-md-8 b-col-tm-8 b-col-xs-12 b-float-left b-middle b-text-left">
-									<label class="m-lab b-col-dt-6 b-col-xs-12">
-										<div class="m-box-holder b-col-dt-12 b-col-xs-12">
-											<input type="text" class="m-inputbox" placeholder="">
-										</div>
-										<span class="alert b-col-dt-12 b-col-xs-12 b-text-center"></span>
-									</label>
-								</div>
-							</div> -->
 							<div class="table-wrap">
 								<table class="m-table table-rotate">
 									<thead>
@@ -115,35 +136,35 @@
 											<td data-label="收件人"><em class="text">蔡**</em></td>
 											<td data-label="地址"><em class="text">100台北市忠孝東路四段100號10樓</em></td>
 											<td data-label="手機"><em class="text">0912***123</em></td>
-											<td data-label="修改"><em class="text"><a href="javascript:;" class="btn-link">修改</a></em></td>
+											<td data-label="修改"><em class="text"><button class="btn-link">修改</button></em></td>
 										</tr>
 										<tr>
 											<td data-label="" class="b-text-right-xs"><button class="btn-delete"><em class="text b-hide-text">刪除</em></button></td>
 											<td data-label="收件人"><em class="text">蔡**</em></td>
 											<td data-label="地址"><em class="text">100台北市忠孝東路四段100號10樓</em></td>
 											<td data-label="手機"><em class="text">0912***123</em></td>
-											<td data-label="修改"><em class="text"><a href="javascript:;" class="btn-link">修改</a></em></td>
+											<td data-label="修改"><em class="text"><button class="btn-link">修改</button></em></td>
 										</tr>
 										<tr>
 											<td data-label="" class="b-text-right-xs"><button class="btn-delete"><em class="text b-hide-text">刪除</em></button></td>
 											<td data-label="收件人"><em class="text">蔡**</em></td>
 											<td data-label="地址"><em class="text">100台北市忠孝東路四段100號10樓</em></td>
 											<td data-label="手機"><em class="text">0912***123</em></td>
-											<td data-label="修改"><em class="text"><a href="javascript:;" class="btn-link">修改</a></em></td>
+											<td data-label="修改"><em class="text"><button class="btn-link">修改</button></em></td>
 										</tr>
 										<tr>
 											<td data-label="" class="b-text-right-xs"><button class="btn-delete"><em class="text b-hide-text">刪除</em></button></td>
 											<td data-label="收件人"><em class="text">蔡**</em></td>
 											<td data-label="地址"><em class="text">100台北市忠孝東路四段100號10樓</em></td>
 											<td data-label="手機"><em class="text">0912***123</em></td>
-											<td data-label="修改"><em class="text"><a href="javascript:;" class="btn-link">修改</a></em></td>
+											<td data-label="修改"><em class="text"><button class="btn-link">修改</button></em></td>
 										</tr>
 										<tr>
 											<td data-label="" class="b-text-right-xs"><button class="btn-delete"><em class="text b-hide-text">刪除</em></button></td>
 											<td data-label="收件人"><em class="text">蔡**</em></td>
 											<td data-label="地址"><em class="text">100台北市忠孝東路四段100號10樓</em></td>
 											<td data-label="手機"><em class="text">0912***123</em></td>
-											<td data-label="修改"><em class="text"><a href="javascript:;" class="btn-link">修改</a></em></td>
+											<td data-label="修改"><em class="text"><button class="btn-link">修改</button></em></td>
 										</tr>
 									</tbody>
 								</table>
@@ -159,6 +180,7 @@
 	<!--#include virtual="../Shared/Not-support.html" -->
 </body>
 <!--#include virtual="../Shared/GlobalScriptFt.html" -->
+<script defer src="../../scripts/plugin/jquery.validation/jquery.validate.min.js?js=20160420_01"></script>
 <script defer src="../../scripts/plugin/sugarfun-datepicker/datepicker.min.js?JS=20160420_01"></script>
 <script defer src="../../scripts/js/account.js?JS=20160420_01"></script>
 </html>

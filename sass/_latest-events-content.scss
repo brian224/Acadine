@@ -454,12 +454,8 @@
 }
 
 @include respond(Tablets) {
-	.l-content .main-tab .sub-tab .m-tab-wrap .tab-list {
-		width: 20%;
-
-		&:nth-child(5n + 1):before {
-			display: none;
-		}
+	.l-content .main-tab .sub-tab .m-tab-wrap .tab-list:nth-child(5n + 1):before {
+		display: none;
 	}
 
 	.activities-list > .list {
