@@ -75,6 +75,15 @@
 			border-color: $color-text-major;
 			color: $color-white;
 		}
+
+		&.btn-cancel {
+			border-color: $color-gray-l-p10;
+			color: $color-white;
+
+			&:hover {
+				background: darken($color-gray-l-p10 , 10%);
+			}
+		}
 	}
 }
 

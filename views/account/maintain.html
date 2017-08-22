@@ -62,61 +62,7 @@
 							<div class="info-wrap b-col-dt-12 b-col-xs-12">
 								<h3 class="sub-title">配送地址維護</h3>
 								<div class="btn-wrap">
-									<button class="btn-link jQ-add">新增收件人</button>
-								</div>
-								<div class="adding-wrap">
-									<form action="">
-										<div class="m-lab b-col-md-12 b-col-tm-12 b-clearfix">
-											<span class="text b-col-dt-2 b-col-xs-12 b-float-left b-text-right-dt b-text-left-xs b-bold">收件人：</span>
-											<div class="value-form b-col-md-8 b-col-sm-7 b-col-xs-12 b-middle b-text-left b-float-left">
-												<div class="m-box-holder b-col-dt-6 b-col-xs-12">
-													<input type="text" name="recipient" class="m-inputbox required" placeholder="請輸入收件人" data-msg="收件人為必填" value="">
-												</div>
-												<span class="alert b-col-dt-6 b-col-xs-12 b-block-dt b-text-center"><label for="recipient" class="is-error b-text-warning"></label></span>
-											</div>
-										</div>
-										<div class="m-lab b-col-md-12 b-col-tm-12 b-clearfix">
-											<span class="text b-col-dt-2 b-col-xs-12 b-float-left b-text-right-dt b-text-left-xs b-bold">地址：</span>
-											<div class="value-form b-col-dt-8 b-col-xs-12 b-middle b-text-left b-float-left">
-												<div class="b-col-dt-3 b-col-xs-6 b-float-left">
-													<div class="m-box-holder b-col-dt-12 b-col-xs-11 b-float-left-xs is-selector">
-														<select name="city" id="" class="m-selection b-col-dt-12 b-col-xs-12 required" data-msg="縣市為必選">
-															<option value="">請選擇</option>
-															<option value="">新北市</option>
-														</select>
-													</div>
-													<span class="alert b-col-dt-12 b-col-xs-11 b-float-left-xs b-block b-text-center"><label for="city" class="is-error b-text-warning"></label></span>
-												</div>
-												<div class="b-col-dt-3 b-col-xs-6 b-float-left">
-													<div class="m-box-holder b-col-dt-12 b-col-xs-11 b-float-right-xs is-selector">
-														<select name="district" id="" class="m-selection b-col-dt-12 b-col-xs-12 required" data-msg="行政區為必選">
-															<option value="">請選擇</option>
-															<option value="">中和區</option>
-														</select>
-													</div>
-													<span class="alert b-col-dt-12 b-col-xs-11 b-float-right-xs b-block b-text-center"><label for="district" class="is-error b-text-warning"></label></span>
-												</div>
-												<label class="m-lab b-col-dt-12 b-col-xs-12">
-													<div class="m-box-holder b-col-dt-12 b-col-xs-12">
-														<input type="text" name="address" class="m-inputbox required" placeholder="請輸入地址" data-msg="地址為必填" value="">
-													</div>
-													<span class="alert b-col-dt-12 b-col-xs-12 b-block b-text-center"><label for="address" class="is-error b-text-warning"></label></span>
-												</label>
-											</div>
-										</div>
-										<div class="m-lab b-col-md-12 b-col-tm-12 b-clearfix">
-											<span class="text b-col-dt-2 b-col-xs-12 b-float-left b-text-right-dt b-text-left-xs b-bold">手機：</span>
-											<div class="value-form b-col-md-8 b-col-sm-7 b-col-xs-12 b-middle b-text-left b-float-left">
-												<div class="m-box-holder b-col-dt-6 b-col-xs-12">
-													<input type="text" name="phone" class="m-inputbox phone required" placeholder="請輸入手機" data-msg="手機為必填" data-msg-phone="手機輸入錯誤！">
-												</div>
-												<span class="alert b-col-dt-6 b-col-xs-12 b-block-dt b-text-center"><label for="phone" class="is-error b-text-warning"></label></span>
-											</div>
-										</div>
-										<div class="btn-wrap b-text-center">
-											<button class="btn-link b-col-dt-3 b-col-xs-12" type="submit">確定新增</button>
-										</div>
-									</form>
+									<button class="btn-link jQ-open-box" data-type="add">新增收件人</button>
 								</div>
 							</div>
 							<div class="table-wrap">
@@ -133,38 +79,38 @@
 									<tbody>
 										<tr>
 											<td data-label="" class="b-text-right-xs"><button class="btn-delete"><em class="text b-hide-text">刪除</em></button></td>
-											<td data-label="收件人"><em class="text">蔡**</em></td>
-											<td data-label="地址"><em class="text">100台北市忠孝東路四段100號10樓</em></td>
-											<td data-label="手機"><em class="text">0912***123</em></td>
-											<td data-label="修改"><em class="text"><button class="btn-link">修改</button></em></td>
+											<td data-label="收件人"><em class="text info-name">蔡**</em></td>
+											<td data-label="地址"><em class="text info-addr">100台北市忠孝東路四段100號10樓</em></td>
+											<td data-label="手機"><em class="text info-phone">0987***321</em></td>
+											<td data-label="修改"><button class="btn-link jQ-open-box" data-type="edit">修改</button></td>
 										</tr>
 										<tr>
 											<td data-label="" class="b-text-right-xs"><button class="btn-delete"><em class="text b-hide-text">刪除</em></button></td>
-											<td data-label="收件人"><em class="text">蔡**</em></td>
-											<td data-label="地址"><em class="text">100台北市忠孝東路四段100號10樓</em></td>
-											<td data-label="手機"><em class="text">0912***123</em></td>
-											<td data-label="修改"><em class="text"><button class="btn-link">修改</button></em></td>
+											<td data-label="收件人"><em class="text info-name">切*</em></td>
+											<td data-label="地址"><em class="text info-addr">813高雄市左營區高鐵路1號</em></td>
+											<td data-label="手機"><em class="text info-phone">0999***999</em></td>
+											<td data-label="修改"><button class="btn-link jQ-open-box" data-type="edit">修改</button></td>
 										</tr>
 										<tr>
 											<td data-label="" class="b-text-right-xs"><button class="btn-delete"><em class="text b-hide-text">刪除</em></button></td>
-											<td data-label="收件人"><em class="text">蔡**</em></td>
-											<td data-label="地址"><em class="text">100台北市忠孝東路四段100號10樓</em></td>
-											<td data-label="手機"><em class="text">0912***123</em></td>
-											<td data-label="修改"><em class="text"><button class="btn-link">修改</button></em></td>
+											<td data-label="收件人"><em class="text info-name">林**</em></td>
+											<td data-label="地址"><em class="text info-addr">103台北市大同區承德路三段100號10樓</em></td>
+											<td data-label="手機"><em class="text info-phone">0912***478</em></td>
+											<td data-label="修改"><button class="btn-link jQ-open-box" data-type="edit">修改</button></td>
 										</tr>
 										<tr>
 											<td data-label="" class="b-text-right-xs"><button class="btn-delete"><em class="text b-hide-text">刪除</em></button></td>
-											<td data-label="收件人"><em class="text">蔡**</em></td>
-											<td data-label="地址"><em class="text">100台北市忠孝東路四段100號10樓</em></td>
-											<td data-label="手機"><em class="text">0912***123</em></td>
-											<td data-label="修改"><em class="text"><button class="btn-link">修改</button></em></td>
+											<td data-label="收件人"><em class="text info-name">李**</em></td>
+											<td data-label="地址"><em class="text info-addr">104台北中山區中山北路二段100號10樓</em></td>
+											<td data-label="手機"><em class="text info-phone">0963***742</em></td>
+											<td data-label="修改"><button class="btn-link jQ-open-box" data-type="edit">修改</button></td>
 										</tr>
 										<tr>
 											<td data-label="" class="b-text-right-xs"><button class="btn-delete"><em class="text b-hide-text">刪除</em></button></td>
-											<td data-label="收件人"><em class="text">蔡**</em></td>
-											<td data-label="地址"><em class="text">100台北市忠孝東路四段100號10樓</em></td>
-											<td data-label="手機"><em class="text">0912***123</em></td>
-											<td data-label="修改"><em class="text"><button class="btn-link">修改</button></em></td>
+											<td data-label="收件人"><em class="text info-name">金城**</em></td>
+											<td data-label="地址"><em class="text info-addr">100台北市忠孝東路四段100號10樓</em></td>
+											<td data-label="手機"><em class="text info-phone">0911***111</em></td>
+											<td data-label="修改"><button class="btn-link jQ-open-box" data-type="edit">修改</button></td>
 										</tr>
 									</tbody>
 								</table>
@@ -176,6 +122,74 @@
 			<!--#include virtual="../Shared/Side.html" -->
 		</div>
 		<!--#include virtual="../Shared/Footer-main.html" -->
+		<div class="l-lightbox">
+			<div class="m-lightbox-content">
+				<header class="m-lightbox-hd b-middle">
+					<h3 class="lightbox-title b-inline b-bold b-text-center b-col-dt-12 b-col-xs-12"></h3>
+					<button class="btn-close-box jQ-close-box">
+						<em class="text b-hide-text">關閉</em>
+					</button>
+				</header>
+				<div class="m-lightbox-bd b-text-center">
+					<div class="adding-wrap">
+						<form action="">
+							<div class="m-lab b-col-md-12 b-col-tm-12 b-clearfix">
+								<span class="text b-col-dt-2 b-col-xs-12 b-float-left b-text-right-dt b-text-left-xs b-bold">收件人：</span>
+								<div class="value-form b-col-md-8 b-col-sm-7 b-col-xs-12 b-middle b-text-left b-float-left">
+									<div class="m-box-holder b-col-dt-6 b-col-xs-12">
+										<input type="text" name="recipient" class="m-inputbox required" placeholder="請輸入收件人" data-msg="收件人為必填" value="">
+									</div>
+									<span class="alert b-col-dt-6 b-col-xs-12 b-block-dt b-text-center"><label for="recipient" class="is-error b-text-warning"></label></span>
+								</div>
+							</div>
+							<div class="m-lab b-col-md-12 b-col-tm-12 b-clearfix">
+								<span class="text b-col-dt-2 b-col-xs-12 b-float-left b-text-right-dt b-text-left-xs b-bold">地址：</span>
+								<div class="value-form b-col-dt-10 b-col-xs-12 b-middle b-text-left b-float-left">
+									<div class="b-col-dt-3 b-col-xs-6 b-float-left">
+										<div class="m-box-holder b-col-dt-12 b-col-xs-11 b-float-left-xs is-selector">
+											<select name="city" id="" class="m-selection b-col-dt-12 b-col-xs-12 required" data-msg="縣市為必選">
+												<option value="">請選擇</option>
+												<option value="新北市">新北市</option>
+											</select>
+										</div>
+										<span class="alert b-col-dt-12 b-col-xs-11 b-float-left-xs b-block b-text-center"><label for="city" class="is-error b-text-warning"></label></span>
+									</div>
+									<div class="b-col-dt-3 b-col-xs-6 b-float-left">
+										<div class="m-box-holder b-col-dt-12 b-col-xs-11 b-float-right-xs is-selector">
+											<select name="district" id="" class="m-selection b-col-dt-12 b-col-xs-12 required" data-msg="行政區為必選">
+												<option value="">請選擇</option>
+												<option value="中和區">中和區</option>
+											</select>
+										</div>
+										<span class="alert b-col-dt-12 b-col-xs-11 b-float-right-xs b-block b-text-center"><label for="district" class="is-error b-text-warning"></label></span>
+									</div>
+									<label class="m-lab b-col-dt-12 b-col-xs-12">
+										<div class="m-box-holder b-col-dt-12 b-col-xs-12">
+											<input type="text" name="address" class="m-inputbox required" placeholder="請輸入地址" data-msg="地址為必填" value="">
+										</div>
+										<span class="alert b-col-dt-12 b-col-xs-12 b-block b-text-center"><label for="address" class="is-error b-text-warning"></label></span>
+									</label>
+								</div>
+							</div>
+							<div class="m-lab b-col-md-12 b-col-tm-12 b-clearfix">
+								<span class="text b-col-dt-2 b-col-xs-12 b-float-left b-text-right-dt b-text-left-xs b-bold">手機：</span>
+								<div class="value-form b-col-md-8 b-col-sm-7 b-col-xs-12 b-middle b-text-left b-float-left">
+									<div class="m-box-holder b-col-dt-6 b-col-xs-12">
+										<input type="text" name="phone" class="m-inputbox phone required" placeholder="請輸入手機" data-msg="手機為必填" data-msg-phone="手機輸入錯誤！">
+									</div>
+									<span class="alert b-col-dt-6 b-col-xs-12 b-block-dt b-text-center"><label for="phone" class="is-error b-text-warning"></label></span>
+								</div>
+							</div>
+							<div class="btn-wrap b-text-center">
+								<button class="btn-link btn-cancel b-col-dt-3 b-col-xs-5 jQ-close-box cancel" type="reset"><em class="text">取消</em></button>
+								<button class="btn-link b-col-dt-3 b-col-xs-5" type="submit"></button>
+							</div>
+						</form>
+					</div>
+				</div>
+				<footer class="m-lightbox-ft"></footer>
+			</div>
+		</div>
 	</div>
 	<!--#include virtual="../Shared/Not-support.html" -->
 </body>

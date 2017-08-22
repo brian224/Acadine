@@ -907,14 +907,7 @@
 }
 
 .maintain .adding-wrap {
-	max-height: 0;
-	overflow: hidden;
 	line-height: 0;
-	@include transition(ease-in all 0.3s);
-
-	&.is-open {
-		max-height: 1000px;
-	}
 
 	form {
 		.m-box-holder {
@@ -934,12 +927,19 @@
 		}
 
 		.alert {
-			padding-left: 0;
+			padding-left: 20px;
+			position: absolute;
+			top: 100%;
+			left: 0;
 			color: $color-text-major;
 			font-size: 14px;
 			font-weight: bold;
 			line-height: 1.8em;
 		}
+	}
+
+	.btn-wrap > * {
+		margin: 0 10px;
 	}
 }
 
@@ -1062,6 +1062,10 @@
 
 	.m-icon-calendar {
 		cursor: pointer;
+	}
+
+	.maintain .m-lightbox-content {
+		width: 800px;
 	}
 }
 
@@ -1357,12 +1361,12 @@
 		}
 
 		.m-lab {
-			margin-top: 20px;
+			margin-top: 25px;
 			cursor: default;
 		}
 
 		.value-form > * {
-			margin-left: 20px;
+			padding-left: 20px;
 		}
 
 		.btn-wrap {

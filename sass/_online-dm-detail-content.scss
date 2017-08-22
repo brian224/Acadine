@@ -794,6 +794,7 @@
 	}
 
 	.thumbnails {
+		margin-top: -80px;
 		top: calc((100vh - 166px) / 2);
 
 		ul {
@@ -865,8 +866,6 @@
 	}
 
 	.thumbnails {
-		margin-top: -80px;
-
 		li {
 			margin: 5px 0;
 			padding-bottom: 24px;
@@ -1001,7 +1000,7 @@
 		bottom: 0;
 		left: 0;
 		right: 0;
-		z-index: 4;
+		z-index: 6;
 
 		.dm-title {
 			display: none;
@@ -1009,14 +1008,17 @@
 
 		.dm-reader {
 			height: 100vh;
+
+			.tools {
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				right: 0;
+			}
 		}
 
 		.magazine-viewport {
-			height: calc(100vh - 160px);
-
-			.magazine {
-				top: 10px;
-			}
+			height: calc(100vh - 80px);
 		}
 	}
 

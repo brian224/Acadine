@@ -331,6 +331,8 @@
 				$(common._lBody).removeClass('show-lightbox fade-out').off('webkitAnimationEnd oAnimationend oAnimationEnd msAnimationEnd animationend');
 			});
 		}
+
+		$('.m-lightbox-content form').validate().resetForm();
 	}
 
 	page.prototype.sendServiceMsg = function() {
