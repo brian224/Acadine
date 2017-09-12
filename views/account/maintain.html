@@ -82,35 +82,35 @@
 											<td data-label="收件人"><em class="text info-name">蔡**</em></td>
 											<td data-label="地址"><em class="text info-addr">100台北市忠孝東路四段100號10樓</em></td>
 											<td data-label="手機"><em class="text info-phone">0987***321</em></td>
-											<td data-label="修改"><button class="btn-link jQ-open-box" data-type="edit">修改</button></td>
+											<td data-label="修改"><em class="text"><button class="btn-link jQ-open-box" data-type="edit">修改</button></em></td>
 										</tr>
 										<tr>
 											<td data-label="" class="b-text-right-xs"><button class="btn-delete"><em class="text b-hide-text">刪除</em></button></td>
 											<td data-label="收件人"><em class="text info-name">切*</em></td>
 											<td data-label="地址"><em class="text info-addr">813高雄市左營區高鐵路1號</em></td>
 											<td data-label="手機"><em class="text info-phone">0999***999</em></td>
-											<td data-label="修改"><button class="btn-link jQ-open-box" data-type="edit">修改</button></td>
+											<td data-label="修改"><em class="text"><button class="btn-link jQ-open-box" data-type="edit">修改</button></em></td>
 										</tr>
 										<tr>
 											<td data-label="" class="b-text-right-xs"><button class="btn-delete"><em class="text b-hide-text">刪除</em></button></td>
 											<td data-label="收件人"><em class="text info-name">林**</em></td>
 											<td data-label="地址"><em class="text info-addr">103台北市大同區承德路三段100號10樓</em></td>
 											<td data-label="手機"><em class="text info-phone">0912***478</em></td>
-											<td data-label="修改"><button class="btn-link jQ-open-box" data-type="edit">修改</button></td>
+											<td data-label="修改"><em class="text"><button class="btn-link jQ-open-box" data-type="edit">修改</button></em></td>
 										</tr>
 										<tr>
 											<td data-label="" class="b-text-right-xs"><button class="btn-delete"><em class="text b-hide-text">刪除</em></button></td>
 											<td data-label="收件人"><em class="text info-name">李**</em></td>
 											<td data-label="地址"><em class="text info-addr">104台北中山區中山北路二段100號10樓</em></td>
 											<td data-label="手機"><em class="text info-phone">0963***742</em></td>
-											<td data-label="修改"><button class="btn-link jQ-open-box" data-type="edit">修改</button></td>
+											<td data-label="修改"><em class="text"><button class="btn-link jQ-open-box" data-type="edit">修改</button></em></td>
 										</tr>
 										<tr>
 											<td data-label="" class="b-text-right-xs"><button class="btn-delete"><em class="text b-hide-text">刪除</em></button></td>
 											<td data-label="收件人"><em class="text info-name">金城**</em></td>
 											<td data-label="地址"><em class="text info-addr">100台北市忠孝東路四段100號10樓</em></td>
 											<td data-label="手機"><em class="text info-phone">0911***111</em></td>
-											<td data-label="修改"><button class="btn-link jQ-open-box" data-type="edit">修改</button></td>
+											<td data-label="修改"><em class="text"><button class="btn-link jQ-open-box" data-type="edit">修改</button></em></td>
 										</tr>
 									</tbody>
 								</table>
@@ -125,7 +125,7 @@
 		<div class="l-lightbox">
 			<div class="m-lightbox-content">
 				<header class="m-lightbox-hd b-middle">
-					<h3 class="lightbox-title b-inline b-bold b-text-center b-col-dt-12 b-col-xs-12"></h3>
+					<h3 class="lightbox-title b-inline b-bold b-text-center b-col-dt-12 b-col-xs-12" data-add="新增收件人" data-edit="修改收件人資訊"></h3>
 					<button class="btn-close-box jQ-close-box">
 						<em class="text b-hide-text">關閉</em>
 					</button>
@@ -180,9 +180,9 @@
 									<span class="alert b-col-dt-6 b-col-xs-12 b-block-dt b-text-center"><label for="phone" class="is-error b-text-warning"></label></span>
 								</div>
 							</div>
-							<div class="btn-wrap b-text-center">
-								<button class="btn-link btn-cancel b-col-dt-3 b-col-xs-5 jQ-close-box cancel" type="reset"><em class="text">取消</em></button>
-								<button class="btn-link b-col-dt-3 b-col-xs-5" type="submit"></button>
+							<div class="btn-wrap b-text-center b-clearfix">
+								<button class="btn-link btn-cancel b-col-dt-3 b-col-xs-5 b-float-left-xs jQ-close-box cancel" type="reset"><em class="text">取消</em></button>
+								<button class="btn-link b-col-dt-3 b-col-xs-5 b-float-right-xs" type="submit" data-add="確定新增" data-edit="確定修改"></button>
 							</div>
 						</form>
 					</div>

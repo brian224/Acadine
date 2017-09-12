@@ -4,11 +4,10 @@
 	var pageObj = new page();
 
 	function page() {
-		this._category    = '.jQ-category';
-		this._curr        = '.jQ-curr';
-		this._datepicker  = '.jQ-datepicker';
-		this._btnClear    = '.jQ-clear';
-		// this._deliverInfo = '.jQ-deliver-info';
+		this._category   = '.jQ-category';
+		this._curr       = '.jQ-curr';
+		this._datepicker = '.jQ-datepicker';
+		this._btnClear   = '.jQ-clear';
 	}
 
 	projects.$w.load(function(){
@@ -28,23 +27,6 @@
 		if ($(pageObj._datepicker).length !== 0) {
 			$(pageObj._datepicker + ' .m-inputbox').DatePicker();
 		}
-
-		// $(pageObj._deliverInfo).each(function(){
-		// 	var _name     = $(this).data('name').split(''),
-		// 		_addr     = $(this).data('address'),
-		// 		_phone    = $(this).data('phone').split('');
-
-		// 	if (_name.length > 2) {
-		// 		_name.splice(1, 2, '*', '*');
-		// 	} else {
-		// 		_name.splice(1, 1, '*');
-		// 	}
-		// 	_phone.splice(4, 3, '*', '*', '*');
-
-		// 	$(this).find('.info-name').text(_name.join(''));
-		// 	$(this).find('.info-addr').text(_addr);
-		// 	$(this).find('.info-phone').text(_phone.join(''));
-		// });
 
 		$(pageObj._category).on('click', function(){
 			if (projects.$w.width() < 740) {
@@ -88,13 +70,13 @@
 			$(common._checkbox + ', ' + common._radio).removeClass('is-checked');
 		});
 
-		$(common._openBox).on('click' , function(){
+		$(common._openBox).on('click', function(){
 			if ($(this).data('type') === 'add') {
-				$('.lightbox-title').text('新增收件人');
-				$('.m-lightbox-content .btn-link[type="submit"]').text('確定新增');
+				$('.lightbox-title').text($('.lightbox-title').data('add'));
+				$('.m-lightbox-content .btn-link[type="submit"]').text($('.m-lightbox-content .btn-link[type="submit"]').data('add'));
 			} else if ($(this).data('type') === 'edit') {
-				$('.lightbox-title').text('修改收件人資訊');
-				$('.m-lightbox-content .btn-link[type="submit"]').text('確定修改');
+				$('.lightbox-title').text($('.lightbox-title').data('edit'));
+				$('.m-lightbox-content .btn-link[type="submit"]').text($('.m-lightbox-content .btn-link[type="submit"]').data('edit'));
 			}
 		});
 	});

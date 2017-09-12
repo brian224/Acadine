@@ -937,10 +937,6 @@
 			line-height: 1.8em;
 		}
 	}
-
-	.btn-wrap > * {
-		margin: 0 10px;
-	}
 }
 
 @include respond(Desktops) {
@@ -1358,6 +1354,10 @@
 	.maintain .adding-wrap {
 		form > .m-lab {
 			margin-top: 35px;
+
+			&:first-child {
+				margin-top: 0;
+			}
 		}
 
 		.m-lab {
@@ -1371,6 +1371,10 @@
 
 		.btn-wrap {
 			margin-top: 35px;
+
+			> * {
+				margin: 0 10px;
+			}
 		}
 	}
 }
@@ -1565,6 +1569,10 @@
 
 	.epaper .m-table td {
 		padding: 0 20px;
+	}
+
+	.maintain .m-lightbox-content {
+		width: calc(100vw - 20px);
 	}
 }
 
@@ -2039,16 +2047,28 @@
 		}
 
 		.adding-wrap {
-			form > .m-lab {
-				margin-top: 20px;
+			form > .m-lab:first-child {
+				margin-top: 0;
 			}
 
 			.m-lab {
-				margin-top: 10px;
+				margin-top: 25px;
 			}
 
 			.btn-wrap {
-				margin-top: 20px;
+				margin-top: 25px;
+			}
+		}
+
+		.m-lightbox-content {
+			padding-bottom: 0;
+			max-height: calc(100vh - 40px);
+
+			.m-lightbox-bd {
+				padding: 0 20px 20px 20px;
+				height: calc(100vh - 104px);
+				overflow-y: scroll;
+				box-sizing: border-box;
 			}
 		}
 	}
