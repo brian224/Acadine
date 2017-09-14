@@ -500,7 +500,7 @@
 				common.totalHeight();
 			}
 
-			if ($(common._lBody).hasClass('foods-index')) {
+			if ($(common._lBody).hasClass('foods-index') && $(this).data('kv-switch') === true) {
 				$('.kv-tab-content').children('.content-list').eq(_idx).addClass('is-curr').siblings().removeClass('is-curr');
 			}
 		});
@@ -517,7 +517,7 @@
 			}
 		});
 
-		$(common._checkbox).on('click', function(){
+		$(common._lBody).on('click', common._checkbox, function(){
 			if ($(this).data('select-all') === true) {
 				var _name = $(this).data('gruop-name');
 
@@ -537,7 +537,7 @@
 			}
 		});
 
-		$(common._radio).on('click', function(){
+		$(common._lBody).on('click', common._radio, function(){
 			if($(this).find('input[type="radio"]:checked').length !== 0) {
 				var _name = $(this).find('input[type="radio"]:checked').attr('name');
 
@@ -546,7 +546,7 @@
 			}
 
 			if($(this).parent().hasClass('deliver-method')) {
-				if($(this).find('input[type="radio"]').val() === 'store') {
+				if($(this).data('deliver') === 'store') {
 					$(this).parent().addClass('is-store');
 				} else {
 					$(this).parent().removeClass('is-store');
@@ -554,7 +554,7 @@
 			}
 		});
 
-		$(common._calc).on('click', function(){
+		$(common._lBody).on('click', common._calc, function(){
 			var _val = parseInt($(this).siblings('.m-box-holder').find('.m-inputbox').val(), 10);
 
 			if ($(this).data('calc') === 'minus') {
@@ -628,7 +628,7 @@
 			}
 		});
 
-		$(common._btnOpen).on('click', function(){
+		$(common._lBody).on('click', common._btnOpen, function(){
 			if ($(this).parent(common._addingWrap).hasClass('is-open')) {
 				$(this).parent(common._addingWrap).removeClass('is-open');
 			} else {
@@ -644,7 +644,7 @@
 			}
 		});
 
-		$(common._btnClose).on('click', function(){
+		$(common._lBody).on('click', common._btnClose, function(){
 			$(this).parent().parent(common._addingWrap).removeClass('is-open');
 		});
 

@@ -96,7 +96,7 @@
 
 	index.prototype.mousewheel = function() {
 		projects.mousewheel(projects.$hb, function(e){
-			if (!$(e.target).is('.sub-menu, .sub-menu *, .search-result-list, .search-result-list *')) {
+			if (!$(e.target).is('.sub-menu, .sub-menu *, .search-result-list, .search-result-list *, .popup-function, .popup-function *')) {
 				e.preventDefault();
 				e.stopPropagation();
 

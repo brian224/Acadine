@@ -455,11 +455,6 @@
 
 		.img-wrap {
 			height: 272px;
-
-			img {
-				width: auto;
-				min-height: 100%;
-			}
 		}
 
 		.item-info {
@@ -566,6 +561,11 @@
 
 		.img-wrap {
 			width: 100%;
+
+			img {
+				width: auto;
+				height: 100%;
+			}
 		}
 
 		.btn-read-more {
@@ -612,16 +612,9 @@
 		padding: 25px 0 50px 0;
 	}
 
-	.shopping-list {
-		.list {
-			margin-bottom: 20px;
-			width: calc((100% - 40px) / 3);
-		}
-
-		.img-wrap img {
-			width: auto;
-			height: 100%;
-		}
+	.shopping-list .list {
+		margin-bottom: 20px;
+		width: calc((100% - 40px) / 3);
 	}
 }
 

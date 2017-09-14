@@ -154,25 +154,30 @@
 	}
 
 	.popup-function {
+		@include display-flex;
 		max-height: 0;
 		opacity: 0;
 		overflow: hidden;
 		@include transition(ease-in all 0.3s);
 
-		.function-wrap .btn-link {
-			position: relative;
+		.function-wrap {
+			overflow-y: scroll;
+			
+			.btn-link {
+				position: relative;
 
-			.count {
-				margin-top: -10px;
-				padding: 0 10px;
-				background: #ff6a5b;
-				position: absolute;
-				top: 50%;
-				right: 20px;
-				border-radius: 10px;
-				color: $color-white;
-				font-size: 12px;
-				line-height: 20px;
+				.count {
+					margin-top: -10px;
+					padding: 0 10px;
+					background: #ff6a5b;
+					position: absolute;
+					top: 50%;
+					right: 20px;
+					border-radius: 10px;
+					color: $color-white;
+					font-size: 12px;
+					line-height: 20px;
+				}
 			}
 		}
 		
@@ -262,7 +267,7 @@
 
 			&.fb-login {
 				border: 1px solid $color-facebook;
-				color: $color-facebook;
+				color: $color-facebook !important;
 
 				&:hover {
 					background: $color-facebook;
@@ -272,7 +277,7 @@
 
 			&.google-login {
 				border: 1px solid $color-google;
-				color: $color-google;
+				color: $color-google !important;
 
 				&:hover {
 					background: $color-google;
@@ -729,7 +734,7 @@
 				position: relative;
 
 				&.show-func ~ .popup-function {
-					max-height: 100vh;
+					max-height: calc(100vh - 200px);
 				}
 		
 				&.shopping .count {
@@ -767,8 +772,7 @@
 			}
 
 			.function-wrap {
-				padding: 10px 30px 25px 30px;
-				height: 100%;
+				padding: 10px 20px 25px 30px;
 				box-sizing: border-box;
 			}
 
@@ -1077,17 +1081,6 @@
 						font-family : 'feds-font';
 					}
 				}
-			}
-		}
-	}
-
-	@media screen and ( max-height : 750px ) {
-		.main-menu .popup-function {
-			height: calc(100vh - 200px);
-
-			.function-wrap {
-				padding-right: 20px;
-				overflow-y: scroll;
 			}
 		}
 	}
