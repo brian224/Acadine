@@ -91,6 +91,7 @@
 				color: $color-white;
 				font-size: 24px;
 				line-height: 38px;
+				text-align: center;
 			}
 
 			&:hover .text {
@@ -196,6 +197,21 @@
 		.activity-period {
 			font-size: 15px;
 		}
+
+		.btn-calendar {
+			width: auto;
+			height: 30px;
+			font-size: 30px;
+			line-height: 30px;
+
+			> * {
+				vertical-align: top;
+			}
+
+			.m-icon {
+				width: 30px;
+			}
+		}
 	}
 
 	.m-section-bd {
@@ -248,12 +264,27 @@
 		padding-left: 30px;
 	}
 
+	.m-section-hd .m-adding-wrap .calendar-box {
+		&:before, &:after {
+			right: 30px;
+		}
+	}
+
 	.m-section-ft .link-wrap .b-link {
 		font-size: 14px;
 	}
 }
 
-@include respond(Tablets-Mobiles) {}
+@include respond(Tablets-Mobiles) {
+	.m-section-hd .m-adding-wrap .calendar-box {
+		left: auto;
+		right: -20px;
+
+		&:before, &:after {
+			left: auto;
+		}
+	}
+}
 
 @include respond(Mobiles) {
 	.m-cut {
@@ -284,6 +315,19 @@
 
 		.post-title {
 			font-size: 24px;
+		}
+
+		.m-adding-wrap .calendar-box {
+			&:before, &:after {
+				right: 24px;
+			}
+		}
+
+		.btn-calendar {
+			width: 30px;
+			height: 30px;
+			font-size: 0;
+			line-height: 0;
 		}
 	}
 

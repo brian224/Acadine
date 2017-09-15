@@ -37,7 +37,7 @@
 		this._btnSearch    = '.jQ-btn-search';
 		this._btnOpen      = '.jQ-open-calendar';
 		this._btnClose     = '.jQ-close-calendar';
-		this._addingWrap   = '.adding-wrap';
+		this._addingWrap   = '.m-adding-wrap';
 		this._shortcutWrap = '.shortcut-wrap';
 		this._leavePage    = false;
 		this._animateSpeed = 400;
@@ -120,7 +120,7 @@
 	page.prototype.showFooter = function() {
 		var _totalH  = (projects._browsers.msie && projects._browsers.version === 9) ? projects.$b.height() : projects.$hb.height(),
 			_cutH    = projects.$w.height(),
-			_scrollH = (projects._browsers.chrome || projects._browsers.safari) ? projects.$b.scrollTop() : projects.$hb.scrollTop();
+			_scrollH = projects.$w.scrollTop();
 
 		if (_totalH <= _cutH + Math.ceil(_scrollH)) {
 			$(common._lBody).addClass('show-footer');
@@ -192,7 +192,7 @@
 
 	page.prototype.touchLock = function(_scrollTop) {
 		$(common._owl).on('touchmove touchend', function(e){
-			projects.$b.scrollTop(_scrollTop);
+			projects.$w.scrollTop(_scrollTop);
 		});
 	}
 
@@ -319,7 +319,7 @@
 		});
 
 		projects.$hb.animate({
-			'scrollTop' : $('.main-tab').offset().top - $(common._lHeader).height()
+			'scrollTop' : $(common._lContent + ' .main-tab').offset().top - $(common._lHeader).height()
 		}, common._animateSpeed);
 	}
 
@@ -636,7 +636,7 @@
 				$(this).parent(common._addingWrap).addClass('is-open');
 				common.offClick('.calendar-box');
 
-				if ($(window).scrollTop() > $(this).next('.calendar-box').offset().top - $(common._lHeader).height()) {
+				if (projects.$w.scrollTop() > $(this).next('.calendar-box').offset().top - $(common._lHeader).height()) {
 					projects.$hb.animate({
 						'scrollTop' : $(this).next('.calendar-box').offset().top - $(common._lHeader).height()
 					}, common._animateSpeed);

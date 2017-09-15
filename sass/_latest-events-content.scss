@@ -162,24 +162,9 @@
 			font-size: 24px;
 		}
 	}
-}
 
-.btn-link {
-	background: $color-white;
-	display: inline-block;
-	height: 40px;
-	border: 1px solid $color-gray-d-p30;
-	box-sizing: border-box;
-	color: $color-gray-d-p30;
-	letter-spacing: 1px;
-	line-height: 40px;
-	text-align: center;
-	@include transition(ease-in all 0.3s);
-
-	&:hover {
-		background: $color-text-major;
-		border-color: $color-text-major;
-		color: $color-white;
+	.m-adding-wrap {
+		position: absolute;
 	}
 }
 
@@ -263,7 +248,7 @@
 		> .list {
 			margin-bottom: 50px;
 
-			.adding-wrap .calendar-box {
+			.m-adding-wrap .calendar-box {
 				margin-left: -160px;
 				left: 50%;
 
@@ -272,7 +257,7 @@
 				}
 			}
 
-			&:nth-child(3n) .adding-wrap .calendar-box {
+			&:nth-child(3n) .m-adding-wrap .calendar-box {
 				margin-left: 0;
 				left: auto;
 				right: -36px;
@@ -301,21 +286,9 @@
 			}
 		}
 
-		.adding-wrap {
+		.m-adding-wrap {
 			bottom: 5px;
 			right: 36px;
-
-			.calendar-box {
-				padding: 60px 30px 40px 30px;
-				width: 320px;
-			}
-		}
-
-		.btn-calendar {
-			width: 34px;
-			height: 34px;
-			font-size: 34px;
-			line-height: 34px;
 		}
 	}
 
@@ -453,14 +426,12 @@
 			}
 		}
 
-		.adding-wrap {
+		.m-adding-wrap {
 			bottom: -6px;
 			right: 8px;
 
 			.calendar-box {
 				margin-left: -150px;
-				padding: 60px 20px 30px 20px;
-				width: 300px;
 				right: -8px;
 
 				&:before, &:after {
@@ -468,26 +439,6 @@
 				}
 			}
 		}
-
-		.btn-calendar {
-			width: 44px;
-			height: 44px;
-			font-size: 24px;
-			line-height: 44px;
-
-			.m-icon {
-				&:before, &:after {
-					margin: -12px 0 0 -12px;
-					top: 50%;
-					left: 50%;
-				}
-			}
-		}
-	}
-
-	.btn-link {
-		padding: 0 10px;
-		font-size: 14px;
 	}
 }
 

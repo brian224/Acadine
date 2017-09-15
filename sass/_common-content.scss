@@ -149,6 +149,7 @@ body {
 	.btn-top {
 		background: $color-gray-d-p10;
 		border-radius: 50%;
+		pointer-events: none;
 		color: $color-white;
 	}
 

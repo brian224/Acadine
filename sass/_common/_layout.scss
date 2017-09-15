@@ -134,6 +134,7 @@
 		&.show-footer .l-side .btn-top {
 			opacity: 1;
 			z-index: 1;
+			pointer-events: auto;
 		}
 	}
 

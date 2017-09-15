@@ -1,5 +1,5 @@
-.adding-wrap {
-	position: absolute;
+.m-adding-wrap {
+	position: relative;
 
 	&.is-open .calendar-box {
 		opacity: 1;
@@ -17,16 +17,46 @@
 	}
 
 	.calendar-box {
-		margin-bottom: 20px;
 		background: $color-white;
 		position: absolute;
-		bottom: 100%;
-		border-width: 1px 1px 3px 1px;
+		border-width: 1px;
 		border-style: solid;
 		border-color: $color-gray-d-p30;
 		box-sizing: border-box;
 		opacity: 0;
 		z-index: -1;
+
+		&.is-bottom {
+			margin-top: 20px;
+			top: 100%;
+			border-top-width: 3px;
+
+			&:before {
+				top: -13px;
+				border-bottom: 10px solid $color-gray-d-p30;
+			}
+
+			&:after {
+				top: -9px;
+				border-bottom: 10px solid $color-white;
+			}
+		}
+
+		&:not(.is-bottom) {
+			margin-bottom: 20px;
+			bottom: 100%;
+			border-bottom-width: 3px;
+
+			&:before {
+				bottom: -13px;
+				border-top: 10px solid $color-gray-d-p30;
+			}
+
+			&:after {
+				bottom: -9px;
+				border-top: 10px solid $color-white;
+			}
+		}
 
 		&:before, &:after {
 			content: '';
@@ -37,16 +67,6 @@
 			position: absolute;
 			border-right: 6px solid transparent;
 			border-left: 6px solid transparent;
-		}
-
-		&:before {
-			bottom: -13px;
-			border-top: 10px solid $color-gray-d-p30;
-		}
-
-		&:after {
-			bottom: -9px;
-			border-top: 10px solid $color-white;
 		}
 
 		.btn-close {
@@ -91,6 +111,26 @@
 			font-size: 16px;
 			line-height: 1.5em;
 		}
+
+		.btn-link {
+			background: $color-white;
+			display: inline-block;
+			height: 40px;
+			position: relative;
+			border: 1px solid $color-gray-d-p30;
+			box-sizing: border-box;
+			color: $color-gray-d-p30;
+			letter-spacing: 1px;
+			line-height: 40px;
+			text-align: center;
+			@include transition(ease-in all 0.3s);
+
+			&:hover {
+				background: $color-text-major;
+				border-color: $color-text-major;
+				color: $color-white;
+			}
+		}
 	}
 
 	.selection-list .list {
@@ -111,6 +151,10 @@
 			&:not(.is-checkbox) {
 				width: 100%;
 			}
+		}
+
+		.text {
+			line-height: inherit;
 		}
 	}
 
@@ -154,10 +198,58 @@
 
 @include respond(Desktops) {}
 
-@include respond(Desktops-Tablets) {}
+@include respond(Desktops-Tablets) {
+	.m-adding-wrap .calendar-box {
+		margin-left: -160px;
+		padding: 60px 30px 40px 30px;
+		width: 320px;
+		left: 50%;
+
+		&:before, &:after {
+			left: 50%;
+		}
+
+		.btn-link {
+			padding: 0 30px;
+			font-size: 16px;
+		}
+	}
+
+	.btn-calendar {
+		width: 34px;
+		height: 34px;
+		font-size: 34px;
+		line-height: 34px;
+	}
+}
 
 @include respond(Tablets) {}
 
 @include respond(Tablets-Mobiles) {}
 
-@include respond(Mobiles) {}
+@include respond(Mobiles) {
+	.m-adding-wrap .calendar-box {
+		padding: 60px 20px 30px 20px;
+		width: 300px;
+
+		.btn-link {
+			padding: 0 10px;
+			font-size: 14px;
+		}
+	}
+
+	.btn-calendar {
+		width: 44px;
+		height: 44px;
+		font-size: 24px;
+		line-height: 44px;
+
+		.m-icon {
+			&:before, &:after {
+				margin: -12px 0 0 -12px;
+				top: 50%;
+				left: 50%;
+			}
+		}
+	}
+}

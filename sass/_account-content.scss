@@ -283,7 +283,7 @@
 	font-size: 0;
 	line-height: 0;
 
-	.list {
+	> .list {
 		background: $color-white;
 		display: inline-block;
 		position: relative;
@@ -378,8 +378,11 @@
 		}
 	}
 
-	.btn-calendar {
+	.m-adding-wrap {
 		position: absolute;
+	}
+
+	.btn-calendar {
 		color: $color-gray-l-p20;
 
 		&:hover {
@@ -1256,9 +1259,20 @@
 		@include flex-wrap(wrap);
 		@include justify-content(space-between);
 
-		.list {
+		> .list {
 			margin-bottom: 30px;
 			width: calc((100% - 20px) / 3);
+
+			&:nth-child(3n) .m-adding-wrap .calendar-box {
+				margin-left: 0;
+				left: auto;
+				right: -30px;
+
+				&:before, &:after {
+					left: auto;
+					right: 42px;
+				}
+			}
 		}
 
 		.act-info {
@@ -1275,20 +1289,16 @@
 
 		.act-type {
 			bottom: 22px;
-			left: 36px;
+			left: 30px;
 
 			.text {
 				font-size: 16px;
 			}
 		}
 
-		.btn-calendar {
-			width: 34px;
-			height: 34px;
-			bottom: 17px;
-			right: 36px;
-			font-size: 34px;
-			line-height: 34px;
+		.m-adding-wrap {
+			bottom: 5px;
+			right: 30px;
 		}
 	}
 
@@ -1411,7 +1421,7 @@
 		}
 	}
 
-	.members-item-list .list {
+	.members-item-list > .list {
 		width: 320px;
 	}
 
@@ -1812,7 +1822,7 @@
 	}
 
 	.members-item-list {
-		.list {
+		> .list {
 			margin-bottom: 20px;
 		}
 
@@ -1829,19 +1839,15 @@
 			}
 		}
 
-		.btn-calendar {
-			width: 44px;
-			height: 44px;
-			bottom: 2px;
+		.m-adding-wrap {
+			bottom: -6px;
 			right: 8px;
-			font-size: 24px;
-			line-height: 44px;
 
-			.m-icon {
+			.calendar-box {
+				right: -8px;
+
 				&:before, &:after {
-					margin: -12px 0 0 -12px;
-					top: 50%;
-					left: 50%;
+					right: 24px;
 				}
 			}
 		}
