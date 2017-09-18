@@ -88,18 +88,16 @@
 	}
 }
 
-@include devices(iphone) {}
+@include devices(iphone) {
+	.shopping-list .btn-read-more {
+		margin-right: 32px;
+		margin-left: 32px;
+	}
+}
 
 @include respond(Iphone5) {
-	.brand-store {
-		.img-wrap {
-			width: 120px;
-			height: 120px;
-		}
-
-		.brand-info {
-			width: auto;
-		}
+	.brand-store .brand-info {
+		width: auto;
 	}
 }
 

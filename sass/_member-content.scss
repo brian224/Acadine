@@ -20,13 +20,9 @@
 	}
 }
 
-.login .m-cut-bd .m-lab {
-	margin-top: 20px;
-
-	.alert {
-		left: auto;
-		right: 0;
-	}
+.login .m-cut-bd .m-lab .alert {
+	left: auto;
+	right: 0;
 }
 
 .change-password .m-cut-bd .msg {
@@ -957,11 +953,11 @@
 
 	.faq .m-cut-bd {
 		.m-accordion-hd .btn-switch {
-			padding: 5px 30px 5px 36px;
+			padding: 12px 40px 12px 38px;
 			min-height: 30px;
-			font-size: 13px;
+			font-size: 14px;
 			line-height: 1.5em;
-			text-indent: -26px;
+			text-indent: -28px;
 
 			&:before, &:after {
 				margin-top: -1px;

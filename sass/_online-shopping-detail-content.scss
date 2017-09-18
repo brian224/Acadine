@@ -32,6 +32,13 @@
 		}
 
 		.photo-slider {
+			opacity: 0;
+			@include transition(ease-in all 0.5s);
+			
+			&.owl-loaded {
+				opacity: 1;
+			}
+
 			.owl-stage {
 				@include display-flex;
 				@include align-items(stretch);
@@ -353,6 +360,8 @@
 		}
 
 		.photo-album {
+			width: 50%;
+			max-width: 600px;
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -436,10 +445,6 @@
 			.owl-stage .owl-item {
 				margin: 0 5px;
 				width: 122px !important;
-			}
-
-			.img-wrap {
-				height: 96px;
 			}
 		}
 
@@ -554,8 +559,14 @@
 	}
 
 	.merchandise-info {
+		padding-left: 600px;
+
 		.info-header, .item-detail {
 			padding: 0 50px;
+		}
+
+		.photo-album {
+			width: 600px;
 		}
 	}
 

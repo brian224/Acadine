@@ -337,13 +337,6 @@ $color-btn-cancel : $color-gray-l-p10;
 			line-height: 1.5em;
 		}
 
-		.coupon-selection {
-			margin-bottom: 10px;
-			font-size: 14px;
-			letter-spacing: 1px;
-			line-height: 1.5em;
-		}
-
 		.btn-link {
 			vertical-align: middle;
 		}
@@ -392,6 +385,7 @@ $color-btn-cancel : $color-gray-l-p10;
 
 .deliver-method {
 	&:not(.is-store) .is-selector {
+		display: none;
 		max-height: 0;
 		border: 0;
 		opacity: 0;
@@ -716,7 +710,7 @@ $color-btn-cancel : $color-gray-l-p10;
 				padding: 0 10px;
 			}
 
-			.item-info {
+			.item-info:not(:only-child) {
 				margin-bottom: 12px;
 			}
 
@@ -889,15 +883,11 @@ $color-btn-cancel : $color-gray-l-p10;
 		}
 
 		.m-lab {
-			line-height: 30px;
+			line-height: 28px;
 		}
 
 		.purchase-info {
 			padding: 15px 0;
-
-			.coupon-selection > * {
-				margin: 0 3px;
-			}
 
 			.m-lab {
 				margin-left: 10px;
@@ -1196,23 +1186,8 @@ $color-btn-cancel : $color-gray-l-p10;
 			}
 		}
 
-		/*.m-lab {
-			line-height: 40px;
-		}*/
-
 		.purchase-info {
 			padding: 10px 0;
-
-			.coupon-selection, .m-lab {
-				.text {
-					padding: 5px 0;
-					display: inline-block;
-				}
-			}
-
-			.coupon-selection ~ .highlight {
-				margin-top: 10px;
-			}
 
 			.btn-confirm {
 				margin-top: 5px;
@@ -1306,6 +1281,18 @@ $color-btn-cancel : $color-gray-l-p10;
 		tr {
 			@include display-flex;
 			@include flex-direction(column);
+
+			td, th {
+				&:before {
+					padding-top: 15px;
+					padding-bottom: 15px;
+					vertical-align: top;
+				}
+
+				> * {
+					padding: 15px 10px 15px 18px;
+				}
+			}
 
 			td {
 				@include order(1);

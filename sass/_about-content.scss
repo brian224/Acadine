@@ -217,12 +217,15 @@
 	}
 
 	.btn-owl-controler {
+		width: 28px;
+		height: 58px;
 		position: absolute;
-		top: 50%;
 
 		&:before, &:after {
 			content: '';
 			display: block;
+			width: 8px;
+			height: 29px;
 			background: $color-gray-d-p30;
 		}
 
@@ -381,17 +384,8 @@
 		}
 
 		.btn-owl-controler {
-			width: 28px;
-			height: 58px;
-
-			&:before, &:after {
-				width: 8px;
-				height: 29px;
-			}
-
-			&.btn-prev, &.btn-next {
-				margin-top: -29px;
-			}
+			margin-top: -29px;
+			top: 50%;
 		}
 	}
 }
@@ -565,6 +559,10 @@
 
 		.mascot-list {
 			margin: 0 auto;
+		}
+
+		.btn-owl-controler {
+			bottom: 20%;
 		}
 	}
 }

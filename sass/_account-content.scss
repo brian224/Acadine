@@ -702,20 +702,20 @@
 }
 
 .m-pagination-bd .page-ctrl {
-	position: relative;
+	.m-button:hover, .is-active {
+		background: $color-text-major;
+		border-color: $color-text-major;
+		color: $color-white;
 
-	&:not(:first-child):not(:last-child):not(:nth-child(2)) {
-		&:before {
-			content: '';
-			margin-top: -8px;
-			background: $color-gray-d-p30;
-			width: 2px;
-			height: 16px;
-			position: absolute;
-			top: 50%;
-			left: -1px;
+		&:before, &:after {
+			border-top: 2px solid $color-white;
+			border-left: 2px solid $color-white;
 		}
 	}
+}
+
+.calendar-pagination .m-pagination-bd .page-ctrl {
+	position: relative;
 
 	.text {
 		padding: 0 8px;
@@ -743,13 +743,6 @@
 				height: 24px;
 				border-top-color: $color-white;
 				border-left-color: $color-white;
-			}
-		}
-
-		&:not(.btn-go-back):not(.btn-go-next) {
-			&:hover {
-				color: $color-text-major;
-				font-weight: bold;
 			}
 		}
 
@@ -877,6 +870,10 @@
 		}
 	}
 
+	.m-table .m-lab {
+		font-size: 14px;
+	}
+
 	.m-box-holder.is-checkbox {
 		width: 24px;
 		height: 24px;
@@ -930,10 +927,6 @@
 		}
 
 		.alert {
-			padding-left: 20px;
-			position: absolute;
-			top: 100%;
-			left: 0;
 			color: $color-text-major;
 			font-size: 14px;
 			font-weight: bold;
@@ -1044,7 +1037,7 @@
 		}
 	}
 
-	.m-pagination-bd .page-ctrl {
+	.calendar-pagination .m-pagination-bd .page-ctrl {
 		&:not(:first-child):not(:last-child) {
 			width: auto;
 		}
@@ -1323,7 +1316,7 @@
 		margin-bottom: 50px;
 	}
 
-	.m-pagination-bd .page-ctrl {
+	.calendar-pagination .m-pagination-bd .page-ctrl {
 		&:first-child {
 			margin-right: 60px;
 		}
@@ -1362,11 +1355,20 @@
 	}
 
 	.maintain .adding-wrap {
-		form > .m-lab {
-			margin-top: 35px;
+		form {
+			> .m-lab {
+				margin-top: 35px;
 
-			&:first-child {
-				margin-top: 0;
+				&:first-child {
+					margin-top: 0;
+				}
+			}
+
+			.alert {
+				padding-left: 20px;
+				position: absolute;
+				top: 100%;
+				left: 0;
 			}
 		}
 
@@ -1686,6 +1688,14 @@
 		padding-bottom: 50px; 
 	}
 
+	.main-content .notice-list .list {
+		line-height: 1.6em;
+
+		&:not(:first-child) {
+			padding-top: 10px;
+		}
+	}
+
 	.main-msg {
 		padding: 30px 0;
 	}
@@ -1718,8 +1728,12 @@
 			margin: 0 20px;
 		}
 
-		.btn-wrap {
+		.main-tab, .btn-wrap {
 			margin-top: 30px;
+		}
+
+		.m-pagination {
+			margin-bottom: 20px;
 		}
 	}
 
@@ -1860,6 +1874,10 @@
 	.btn-link {
 		padding: 0 10px;
 		font-size: 14px;
+
+		> .m-icon {
+			font-size: 20px;
+		}
 	}
 
 	.account .card-list .list {
@@ -2022,6 +2040,10 @@
 		}
 	}
 
+	.favorite .btn-delete {
+		right: -8px;
+	}
+
 	.epaper {
 		.table-wrap {
 			margin: 20px 0;
@@ -2049,7 +2071,7 @@
 
 	.maintain {
 		.info-wrap {
-			margin-bottom: 40px;
+			margin-bottom: 20px;
 		}
 
 		.adding-wrap {
@@ -2058,7 +2080,7 @@
 			}
 
 			.m-lab {
-				margin-top: 25px;
+				margin-top: 10px;
 			}
 
 			.btn-wrap {
@@ -2072,11 +2094,19 @@
 
 			.m-lightbox-bd {
 				padding: 0 20px 20px 20px;
-				height: calc(100vh - 104px);
+				max-height: calc(100vh - 104px);
 				overflow-y: scroll;
 				box-sizing: border-box;
 			}
+
+			.btn-wrap > * {
+				width: 46%;
+			}
 		}
+	}
+
+	.setting .main-content .main-msg {
+		padding: 45px 0;
 	}
 }
 

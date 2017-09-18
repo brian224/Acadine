@@ -35,7 +35,10 @@
 			var _src = $(this).find('img').attr('src'),
 				_idx = $(this).attr('data-index');
 
-			$('.photo-hd img').attr('src', _src);
+			$('.photo-hd img').fadeOut(common._animateSpeed, function() {
+				$(this).attr('src', _src).fadeIn(common._animateSpeed);
+			});
+
 			$(pageObj._photoSwitch).each(function(){
 				if ($(this).attr('data-index') === _idx) {
 					$(this).addClass('is-curr');
