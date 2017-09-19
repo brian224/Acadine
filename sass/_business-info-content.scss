@@ -1229,10 +1229,10 @@
 			@include flex-grow(1);
 
 			.btn-tab {
-				padding: 0 6px;
+				padding: 6px;
 
 				.text {
-					line-height: 40px;
+					line-height: 1.5em;
 				}
 			}
 		}

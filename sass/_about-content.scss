@@ -507,8 +507,14 @@
 	}
 
 	.matter-list .matter-info {
+		@include align-items(flex-start);
+
 		&:not(:first-child) {
-			padding-top: 16px;
+			padding-top: 30px;
+		}
+
+		&:last-child:after {
+			bottom: 50%;
 		}
 
 		&:after {
@@ -523,6 +529,7 @@
 		}
 
 		.event-list {
+			margin-top: 14px;
 			margin-left: 14px;
 			max-width: calc(100% - 64px);
 			font-size: 14px;

@@ -366,6 +366,14 @@ $color-btn-cancel : $color-gray-l-p10;
 	}
 }
 
+.credit-card-wrap .info-wrap {
+	font-size: 0;
+
+	> * {
+		font-size: 14px;
+	}
+}
+
 .order-info {
 	padding: 15px 0;
 
@@ -725,6 +733,10 @@ $color-btn-cancel : $color-gray-l-p10;
 		}
 	}
 
+	.credit-card-wrap .m-box-holder .m-inputbox {
+		padding: 0;
+	}
+
 	.recommended-list {
 		.img-wrap {
 			height: 272px;
@@ -889,8 +901,11 @@ $color-btn-cancel : $color-gray-l-p10;
 		.purchase-info {
 			padding: 15px 0;
 
-			.m-lab {
+			> *:not(:first-child):not(:only-child) {
 				margin-left: 10px;
+			}
+
+			.m-lab {
 				display: inline-block;
 				vertical-align: middle;
 			}
@@ -920,6 +935,10 @@ $color-btn-cancel : $color-gray-l-p10;
 		.img-wrap {
 			max-width: 88px;
 		}
+	}
+
+	.credit-card-wrap {
+		margin-top: 10px;
 	}
 
 	.m-cut-ft .ft-title {
@@ -1150,6 +1169,26 @@ $color-btn-cancel : $color-gray-l-p10;
 				border-bottom: 0;
 			}
 
+			&.recipient-info.form-input {
+				> *:not(.info-title):not(:last-child) {
+					margin-bottom: 30px;
+				}
+
+				.info-title .sub-desc {
+					line-height: 30px;
+				}
+			}
+
+			&.payment-info.form-input {
+				> *:not(.info-title):not(:last-child) {
+					margin-bottom: 30px;
+				}
+
+				> * .m-form-addon {
+					margin-bottom: 0;
+				}
+			}
+
 			.info-title {
 				margin-top: 10px;
 				padding-bottom: 5px;
@@ -1189,10 +1228,11 @@ $color-btn-cancel : $color-gray-l-p10;
 		.purchase-info {
 			padding: 10px 0;
 
+			.text {
+				padding: 5px 0;
+			}
+
 			.btn-confirm {
-				margin-top: 5px;
-				display: block;
-				width: 100%;
 				height: 30px;
 				line-height: 30px;
 			}
