@@ -893,14 +893,8 @@
 		}
 	}
 
-	.login .m-cut-bd {
-		> *:not(:last-child) .function-wrap {
-			margin-top: 20px;
-		}
-
-		.m-lab .text:first-child {
-			padding-right: 10px;
-		}
+	.login .m-cut-bd .m-lab .text:first-child {
+		padding-right: 10px;
 	}
 
 	.change-password .m-cut-bd {

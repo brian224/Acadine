@@ -469,6 +469,12 @@
 			border-color: $color-text-major;
 			color: $color-white;
 		}
+
+		.m-icon {
+			margin-right: 0 !important;
+			margin-left: 10px;
+			font-weight: normal !important;
+		}
 	}
 
 	.btn-like {

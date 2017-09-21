@@ -239,12 +239,20 @@ $color-btn-cancel : $color-gray-l-p10;
 
 		.note {
 			display: block;
+			overflow: hidden;
 			color: $color-btn-main;
-			line-height: 2em;
+			line-height: 1.5em;
 			text-align: left;
 
+			&.has-icon {
+				padding-left: 21px;
+				position: relative;
+			}
+
 			.m-icon {
-				margin-right: 5px;
+				position: absolute;
+				top: 3px;
+				left: 0;
 				font-size: 16px;
 			}
 		}
@@ -981,6 +989,12 @@ $color-btn-cancel : $color-gray-l-p10;
 		@include display-flex;
 		@include justify-content(space-between);
 	}
+
+	.m-table.table-rotate > tbody > tr {
+		> td, > th {
+			font-size: 14px;
+		}
+	}
 }
 
 @include respond(HD) {
@@ -1026,6 +1040,15 @@ $color-btn-cancel : $color-gray-l-p10;
 		.btn-wrap .btn-link {
 			margin-left: 15px;
 			width: 160px;
+		}
+	}
+
+	.invoice-selection {
+		@include flex-wrap(wrap);
+		@include justify-content(flex-start);
+
+		.tab-list {
+			margin-right: 30px;
 		}
 	}
 }
@@ -1233,19 +1256,14 @@ $color-btn-cancel : $color-gray-l-p10;
 			}
 
 			.btn-confirm {
+				margin-top: 10px;
 				height: 30px;
 				line-height: 30px;
 			}
 
-			> .m-lab {
-				&:not(:last-child) {
-					margin-bottom: 10px;
-				}
-
-				&.jQ-checkbox {
-					@include display-flex;
-					@include align-items(center);
-				}
+			> .m-lab.jQ-checkbox {
+				@include display-flex;
+				@include align-items(center);
 			}
 		}
 
@@ -1275,8 +1293,14 @@ $color-btn-cancel : $color-gray-l-p10;
 		}
 	}
 
-	.deliver-method:not(.is-store) .is-selector {
-		display: none;
+	.deliver-method {
+		.is-selector {
+			margin-top: 10px;
+		}
+
+		&:not(.is-store) .is-selector {
+			display: none;
+		}
 	}
 
 	.m-cut-ft .ft-title {
@@ -1392,6 +1416,11 @@ $color-btn-cancel : $color-gray-l-p10;
 	.payment-selection .payment-img {
 		display: block !important;
 		margin-left: 28px;
+	}
+
+	.deliver-method {
+		padding-right: 0 !important;
+		padding-left: 0 !important;
 	}
 }
 

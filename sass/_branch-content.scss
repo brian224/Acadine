@@ -339,6 +339,12 @@
 	.btn-read-more {
 		border-color: $color-gray-d-p30;
 		color: $color-gray-d-p30;
+
+		.m-icon {
+			margin-right: 0 !important;
+			margin-left: 10px;
+			font-weight: normal !important;
+		}
 	}
 
 	.btn-like .m-icon {

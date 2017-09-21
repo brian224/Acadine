@@ -167,82 +167,9 @@
 	}
 }
 
-.calendar {
-	.adding-wrap {
-		padding: 0 20px;
-		position: relative;
-
-		&.is-open .calendar-box {
-			opacity: 1;
-			z-index: 1;
-		}
-
-		.btn-text {
-			color: #ff6a5b;
-			font-size: 14px;
-			text-decoration: underline;
-
-			&:hover {
-				text-decoration: none;
-			}
-		}
-
-		.calendar-box {
-			margin-bottom: 20px;
-			background: $color-white;
-			position: absolute;
-			bottom: 100%;
-			left: 50%;
-			border-width: 1px 1px 3px 1px;
-			border-style: solid;
-			border-color: $color-gray-d-p30;
-			box-sizing: border-box;
-			opacity: 0;
-			z-index: -1;
-
-			&:before, &:after {
-				content: '';
-				margin-left: -6px;
-				display: block;
-				width: 0;
-				height: 0;
-				position: absolute;
-				left: 50%;
-				border-right: 6px solid transparent;
-				border-left: 6px solid transparent;
-			}
-
-			&:before {
-				bottom: -13px;
-				border-top: 10px solid $color-gray-d-p30;
-			}
-
-			&:after {
-				bottom: -9px;
-				border-top: 10px solid $color-white;
-			}
-
-			.box-title {
-				margin-bottom: 20px;
-				color: $color-gray-d-p30;
-				font-size: 16px;
-			}
-		}
-
-		.selection-list .list {
-			margin-bottom: 20px;
-			color: $color-gray-d-p30;
-		}
-
-		.m-box-holder.is-checkbox:before {
-			border-color: $color-text-major;
-		}
-	}
-
-	.calendar-pagination .m-pagination-bd .page-ctrl .text {
-		color: $color-gray-d-p30;
-		font-size: 20px;
-	}
+.calendar .calendar-pagination .m-pagination-bd .page-ctrl .text {
+	color: $color-gray-d-p30;
+	font-size: 20px;
 }
 
 .main-content {
@@ -579,8 +506,11 @@
 			padding: 0 15px;
 			white-space: nowrap;
 
-			.text {
+			> *:last-child {
 				margin-left: 10px;
+			}
+
+			.text {
 				display: inline-block;
 				vertical-align: top;
 				font-size: 14px;
@@ -601,7 +531,7 @@
 	box-sizing: border-box;
 	color: $color-gray-d-p30;
 	letter-spacing: 1px;
-	line-height: 40px;
+	line-height: 38px;
 	text-align: center;
 	@include transition(ease-in all 0.3s);
 
@@ -762,7 +692,7 @@
 	position: relative;
 
 	&:hover:before {
-		background: $color-text-major;
+		background: darken($color-gray-l-p10, 10%);
 	}
 
 	&:before {
@@ -1219,15 +1149,9 @@
 	}
 
 	.calendar {
-		.adding-wrap {
+		.m-adding-wrap {
 			margin-bottom: 20px;
-			padding-bottom: 12px;
-
-			.calendar-box {
-				margin-left: -160px;
-				padding: 40px 30px;
-				width: 320px;
-			}
+			padding: 0 20px 12px 20px;
 		}
 
 		.members-item-list {
@@ -1733,7 +1657,7 @@
 		}
 
 		.m-pagination {
-			margin-bottom: 20px;
+			margin-bottom: 30px;
 		}
 	}
 
@@ -1801,14 +1725,8 @@
 	}
 
 	.calendar {
-		.adding-wrap {
+		.m-adding-wrap {
 			margin: 20px 0 40px 0;
-
-			.calendar-box {
-				margin-left: -150px;
-				padding: 30px 20px;
-				width: 300px;
-			}
 		}
 
 		.calendar-pagination {
@@ -2044,18 +1962,12 @@
 		right: -8px;
 	}
 
-	.epaper {
-		.table-wrap {
-			margin: 20px 0;
+	.epaper .table-wrap {
+		margin: 20px 0;
 
-			.m-table td {
-				height: 40px;
-				white-space: nowrap;
-			}
-		}
-
-		.btn-wrap {
-			@include display-flex;
+		.m-table td {
+			height: 40px;
+			white-space: nowrap;
 		}
 	}
 

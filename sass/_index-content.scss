@@ -159,6 +159,20 @@
 				}
 			}
 
+			.btn-read-more {
+				@include transition(ease-in all 0.3s);
+
+				&:after {
+					color: $color-white;
+				}
+
+				&:hover {
+					background: $color-text-major;
+					border-color: $color-text-major;
+					color: $color-white;
+				}
+			}
+
 			.img-wrap {
 				margin-left: -100%;
 				@include display-flex;

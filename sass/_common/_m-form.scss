@@ -67,11 +67,14 @@
 	}
 
 	&.is-checkbox {
-		margin-right: 5px;
 		background: $color-white;
 		width: 20px;
 		height: 20px;
 		position: relative;
+
+		&:not(:only-child) {
+			margin-right: 5px;
+		}
 
 		&:before {
 			content: '';

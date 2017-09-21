@@ -37,6 +37,7 @@
 		this._btnSearch    = '.jQ-btn-search';
 		this._btnOpen      = '.jQ-open-calendar';
 		this._btnClose     = '.jQ-close-calendar';
+		this._btnLike      = '.jQ-like';
 		this._addingWrap   = '.m-adding-wrap';
 		this._shortcutWrap = '.shortcut-wrap';
 		this._leavePage    = false;
@@ -109,8 +110,8 @@
 					$(_target).removeClass('is-active');
 				}
 			} else if (_target === '.calendar-box') {
-				if (!$(e.target).is(_target + ', ' + _target + ' *, .adding-wrap, .adding-wrap *')) {
-					$('.adding-wrap').removeClass('is-open');
+				if (!$(e.target).is(_target + ', ' + _target + ' *, ' + common._addingWrap + ', ' + common._addingWrap + ' *')) {
+					$(common._addingWrap).removeClass('is-open');
 				}
 			}
 		});
@@ -350,9 +351,20 @@
 		$('.header-wrap').append(_str);
 	}
 
+	page.prototype.btnFavorite = function(elem, decide) {
+		if (decide === true) {
+			$(elem).addClass('is-add');
+			alert('已加入收藏');
+		} else {
+			$(elem).removeClass('is-add');
+			alert('已取消收藏');
+		}
+	}
+
 	projects.$w.load(function(){
 		common.headerHeight();
 		common.showFooter();
+		projects.owlCarousel(common._owl);
 
 		// 網址有 # 可定位頁籤
 		if (projects._HREF.split('?')[1] !== undefined && $('.main-tab').length !== 0) {
@@ -361,7 +373,6 @@
 	});
 
 	projects.$d.ready(function(){
-		projects.owlCarousel(common._owl);
 		common.selectInputCheck();
 
 		if (sessionStorage.getItem('marquee') === 'readed') {
@@ -374,7 +385,7 @@
 			}
 			
 			$(common._owl).on('drag.owl.carousel', function(){
-				common.touchLock($('body').scrollTop());
+				common.touchLock(projects.$w.scrollTop());
 			});
 
 			$(common._owl).on('translated.owl.carousel', function(){
@@ -594,6 +605,10 @@
 				$(common._sideMenu).removeClass('is-active');
 			}
 
+			if($(common._addingWrap).hasClass('is-open')) {
+				$(common._addingWrap).removeClass('is-open');
+			}
+
 			if (projects.device() === 'Mobile') {
 				if ($(this).data('place') === 'aside') {
 					$(this).parents('.function-list').addClass('hide-menu');
@@ -642,6 +657,8 @@
 					}, common._animateSpeed);
 				}
 			}
+
+			$('.show-func').removeClass('show-func');
 		});
 
 		$(common._lBody).on('click', common._btnClose, function(){

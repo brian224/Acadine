@@ -539,20 +539,20 @@
 			margin-bottom: 4px;
 			bottom: -20px;
 		}
+
+		.info-list {
+			.list {
+				padding: 8px 0;
+			}
+
+			.m-icon {
+				font-size: 24px;
+			}
+		}
 	}
 
-	.info-list {
-		.list {
-			padding: 8px 0;
-		}
-
-		.m-icon {
-			font-size: 24px;
-		}
-
-		.text, .b-link {
-			font-size: 14px;
-		}
+	.info-list .text, .b-link {
+		font-size: 14px;
 	}
 
 	.service-list {
@@ -584,15 +584,7 @@
 
 @include devices(iphone) {}
 
-@include respond(Iphone5) {
-	.food-cut {
-		width: 232px;
-
-		.list {
-			width: 212px;
-		}
-	}
-}
+@include respond(Iphone5) {}
 
 @include browsers('IE') {
 	.food-list {

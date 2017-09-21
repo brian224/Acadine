@@ -24,13 +24,12 @@
 	}
 
 	projects.$w.load(function(){
-	});
-
-	projects.$d.ready(function(){
 		if ($(pageObj._photoList).length !== 0) {
 			pageObj.photoOwl();
 		}
+	});
 
+	projects.$d.ready(function(){
 		$(pageObj._photoSwitch).on('click' , function(e){
 			var _src = $(this).find('img').attr('src'),
 				_idx = $(this).attr('data-index');

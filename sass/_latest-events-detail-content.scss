@@ -128,20 +128,26 @@
 	}
 }
 
-.m-section-bd .btn-link {
-	color: $color-white;
-	@include transition(ease-in all 0.3s);
-
-	.text {
-		font-size: 14px;
+.m-section-bd {
+	.editor-area table tbody tr:nth-child(2n+1) {
+		background: #fcfcfc !important;
 	}
 
-	.m-icon {
-		font-size: 20px;
-	}
+	.btn-link {
+		color: $color-white;
+		@include transition(ease-in all 0.3s);
 
-	> *:first-child {
-		margin-right: 5px;
+		.text {
+			font-size: 14px;
+		}
+
+		.m-icon {
+			font-size: 20px;
+		}
+
+		> *:first-child {
+			margin-right: 5px;
+		}
 	}
 }
 

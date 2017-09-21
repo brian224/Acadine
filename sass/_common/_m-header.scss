@@ -160,24 +160,20 @@
 		overflow: hidden;
 		@include transition(ease-in all 0.3s);
 
-		.function-wrap {
-			overflow-y: scroll;
-			
-			.btn-link {
-				position: relative;
+		.function-wrap .btn-link {
+			position: relative;
 
-				.count {
-					margin-top: -10px;
-					padding: 0 10px;
-					background: #ff6a5b;
-					position: absolute;
-					top: 50%;
-					right: 20px;
-					border-radius: 10px;
-					color: $color-white;
-					font-size: 12px;
-					line-height: 20px;
-				}
+			.count {
+				margin-top: -10px;
+				padding: 0 10px;
+				background: #ff6a5b;
+				position: absolute;
+				top: 50%;
+				right: 20px;
+				border-radius: 10px;
+				color: $color-white;
+				font-size: 12px;
+				line-height: 20px;
 			}
 		}
 		
@@ -774,6 +770,8 @@
 			.function-wrap {
 				padding: 10px 20px 25px 30px;
 				box-sizing: border-box;
+				overflow-x: hidden;
+				overflow-y: scroll;
 			}
 
 			.function-title {
@@ -930,7 +928,7 @@
 				border-left: 1px solid $color-gray-l-p40;
 
 				.img-wrap {
-					width: 187px;
+					width: 210px;
 
 					img {
 						width: 100%;
@@ -1254,7 +1252,7 @@
 
 					.l-nav {
 						padding-top: 56px;
-						max-height: 1000px;
+						max-height: 2000px;
 					}
 
 					.shortcut-wrap {
@@ -1395,7 +1393,7 @@
 				width: 100%;
 		
 				&.is-active {
-					max-height: 1000px;
+					max-height: 2000px;
 				}
 			}
 		}
@@ -1404,7 +1402,7 @@
 			margin: 5px 0;
 
 			&.is-active {
-				max-height: 1000px;
+				max-height: 2000px;
 			}
 
 			.btn-language-switch {
@@ -1498,7 +1496,7 @@
 						}
 
 						~ .popup-function {
-							max-height: 1000px;
+							max-height: 2000px;
 						}
 					}
 
@@ -1594,7 +1592,7 @@
 					color: $color-text-major;
 
 					~ .menu-slider {
-						max-height: 1000px;
+						max-height: 2000px;
 						overflow: visible;
 					}
 				}

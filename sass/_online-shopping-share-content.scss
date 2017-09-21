@@ -734,7 +734,12 @@
 	}
 }
 
-@include devices(iphone) {}
+@include devices(iphone) {
+	.shopping-list .btn-read-more {
+		margin-right: 32px;
+		margin-left: 32px;
+	}
+}
 
 @include respond(Iphone5) {}
 
