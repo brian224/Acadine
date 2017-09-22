@@ -491,7 +491,7 @@
 			height: 330px;
 		}
 
-		.img-wrap img {
+		.img-wrap img, .btn-read-more {
 			@include transition(ease-in all 0.3s);
 		}
 
@@ -501,6 +501,8 @@
 			}
 
 			.btn-read-more {
+				border-color: $color-text-major !important;
+
 				&:before {
 					opacity: 0;
 				}
@@ -514,6 +516,11 @@
 		&:not(.shopping-list) .btn-read-more {
 			display: inline-block;
 			min-width: 144px;
+
+			&:after {
+				background: $color-text-major;
+				color: $color-white;
+			}
 		}
 	}
 

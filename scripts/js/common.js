@@ -94,7 +94,7 @@
 				// 關閉 lightbox
 				e.stopPropagation();
 
-				if (!$(e.target).is(common._openBox + ', ' + common._openBox + ' *,' + _target + ', ' + _target + ' *') && $(common._lBody).hasClass('show-lightbox')) {
+				if (!$(e.target).is(common._openBox + ', ' + common._openBox + ' *,' + _target + ', ' + _target + ' *') && $(e.target).data('callback') !== true && $(common._lBody).hasClass('show-lightbox')) {
 					common.closeBoxEvent();
 				}
 			} else if (_target === '.jQ-category') {
@@ -324,6 +324,11 @@
 		}, common._animateSpeed);
 	}
 
+	page.prototype.openBoxEvent = function() {
+		$(common._lBody).addClass('show-lightbox');
+		common.offClick('.m-lightbox-content');
+	}
+
 	page.prototype.closeBoxEvent = function() {
 		if (navigator.userAgent.indexOf('MSIE 9') > 0) {
 			$(common._lBody).removeClass('show-lightbox');
@@ -333,7 +338,9 @@
 			});
 		}
 
-		$('.m-lightbox-content form').validate().resetForm();
+		if ($('.m-lightbox-content form').length !== 0) {
+			$('.m-lightbox-content form').validate().resetForm();
+		}
 	}
 
 	page.prototype.sendServiceMsg = function() {
@@ -353,12 +360,18 @@
 
 	page.prototype.btnFavorite = function(elem, decide) {
 		if (decide === true) {
-			$(elem).addClass('is-add');
+			$(elem).addClass('is-add').find('.text').text('已加入收藏');
 			alert('已加入收藏');
 		} else {
-			$(elem).removeClass('is-add');
+			$(elem).removeClass('is-add').find('.text').text('已取消收藏');
 			alert('已取消收藏');
 		}
+	}
+
+	page.prototype.btnGoogleCalendsr = function(elem) {
+		$(elem).parent('.calendar-box').prev('.btn-calendar').addClass('is-add');
+		alert('已加入行事曆');
+		$(elem).parent().parent(common._addingWrap).removeClass('is-open');
 	}
 
 	projects.$w.load(function(){
@@ -434,9 +447,6 @@
 
 		$(common._menu).on('click', function(){
 			$(common._lHeader + ' .header-wrap').toggleClass('is-active');
-			// $('.show-func').removeClass('show-func');
-			// $('.function-list').removeClass('hide-menu');
-			// $(common._sideMenu).removeClass('is-active');
 		});
 
 		$(common._langSwitch).on('click', function(){
@@ -585,8 +595,7 @@
 		});
 
 		$(common._openBox).on('click' , function(){
-			$(common._lBody).addClass('show-lightbox');
-			common.offClick('.m-lightbox-content');
+			common.openBoxEvent();
 		});
 
 		$(common._closeBox).on('click' , function(){

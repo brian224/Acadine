@@ -167,9 +167,15 @@
 	}
 }
 
-.calendar .calendar-pagination .m-pagination-bd .page-ctrl .text {
-	color: $color-gray-d-p30;
-	font-size: 20px;
+.calendar {
+	.m-lab .m-selection {
+		color: $color-black;
+	}
+
+	.calendar-pagination .m-pagination-bd .page-ctrl .text {
+		color: $color-gray-d-p30;
+		font-size: 20px;
+	}
 }
 
 .main-content {
@@ -570,10 +576,13 @@
 	.m-inputbox, .m-selection {
 		width: 100%;
 		height: 36px;
-		color: $color-gray-l-p20;
 		font-size: 16px;
 		line-height: 34px;
 		@include box-sizing(border-box);
+	}
+
+	.m-selection {
+		color: $color-gray-l-p20;
 	}
 }
 
@@ -789,6 +798,10 @@
 			color: $color-white;
 		}
 	}
+}
+
+.shopping-money .btn-wrap > * {
+	margin: 0 4px;
 }
 
 .epaper {
@@ -1149,9 +1162,17 @@
 	}
 
 	.calendar {
-		.m-adding-wrap {
-			margin-bottom: 20px;
-			padding: 0 20px 12px 20px;
+		.main-content .info-wrap:first-child {
+			margin-top: -12px;
+
+			> * {
+				margin-right: 20px;
+			}
+		}
+
+		.sub-title {
+			margin-bottom: 0;
+			padding-top: 12px;
 		}
 
 		.members-item-list {
@@ -1659,6 +1680,10 @@
 		.m-pagination {
 			margin-bottom: 30px;
 		}
+
+		.btn-wrap > *:not(:last-child) {
+			margin-bottom: 10px;
+		}
 	}
 
 	.setting .main-content .main-msg {
@@ -1725,8 +1750,12 @@
 	}
 
 	.calendar {
-		.m-adding-wrap {
-			margin: 20px 0 40px 0;
+		.main-content .info-wrap:first-child {
+			margin-bottom: 20px;
+
+			> * {
+				margin-bottom: 20px;
+			}
 		}
 
 		.calendar-pagination {

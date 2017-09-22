@@ -60,6 +60,15 @@
 						<div class="main-content b-float-right-md b-clearfix">
 							<div class="info-wrap b-col-dt-12 b-col-xs-12 b-float-left-dt b-middle">
 								<h3 class="sub-title b-inline">我的行事曆</h3>
+								<div class="m-lab b-inline-dt b-block-xs">
+									<div class="m-box-holder is-selector">
+										<select name="" id="" class="m-selection">
+											<option value="">全部活動</option>
+											<option value="">已報名活動</option>
+											<option value="">已追蹤活動</option>
+										</select>
+									</div>
+								</div>
 								<div class="m-adding-wrap b-inline-dt b-block-xs">
 									<button class="btn-text b-bold jQ-open-calendar">同步30天內的活動到google行事曆</button>
 									<div class="calendar-box is-bottom b-text-left-xs">
@@ -115,7 +124,7 @@
 												</label>
 											</li>
 										</ul>
-										<button class="btn-link b-block b-col-dt-12 b-col-xs-12 jQ-close-calendar">加入此行事曆</button>
+										<button class="btn-link b-block b-col-dt-12 b-col-xs-12" onclick="common.btnGoogleCalendsr(this);">加入此行事曆</button>
 									</div>
 								</div>
 							</div>

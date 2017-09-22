@@ -641,12 +641,14 @@ body {
 		display: inline-block;
 		vertical-align: middle;
 		line-height: 34px;
+
+		&:first-child:not(:only-child) {
+			margin-right: 10px;
+		}
 	}
 
 	.m-icon {
-		margin-right: 10px;
 		font-size: 15px;
-		font-weight: bold;
 	}
 
 	.text {

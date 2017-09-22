@@ -80,10 +80,16 @@
 }
 
 .info-list {
+	@include display-flex;
+	@include flex-wrap(wrap);
 	font-size: 0;
 	line-height: 0;
 
 	.list {
+		@include display-flex;
+		@include align-items(flex-start);
+		word-break: break-all;
+
 		> * {
 			color: $color-gray-d-p30;
 		}
@@ -95,7 +101,11 @@
 
 	.text, .b-link {
 		font-weight: bold;
-		line-height: 1.5em;
+		line-height: 1.8em;
+	}
+
+	.b-link {
+		@include transition(ease-in color 0.3s);
 	}
 }
 
@@ -256,8 +266,10 @@
 			margin: 25px 0;
 		}
 
-		.service-location-list .b-link:hover {
-			color: $color-text-major;
+		.service-location-list, .info-list {
+			.b-link:hover {
+				color: $color-text-major;
+			}
 		}
 	}
 
@@ -311,8 +323,6 @@
 	}
 
 	.m-cut {
-		padding-top: 25px;
-
 		.brand-slogan {
 			margin: 20px 0 40px 0;
 			font-size: 16px;
@@ -326,10 +336,6 @@
 		.service-location-list .list > * {
 			font-size: 16px;
 			line-height: 2em;
-		}
-
-		.kv {
-			margin-top: 80px;
 		}
 
 		.jQ-owl {
@@ -450,7 +456,7 @@
 @include respond(Tablets-Mobiles) {
 	.m-cut {
 		margin-bottom: 36px !important;
-		padding: 25px 0 40px 0;
+		padding: 0 0 40px 0;
 
 		.m-section {
 			margin: 0 20px;
@@ -463,17 +469,6 @@
 
 		.m-owl-dots {
 			margin: 12px 0;
-		}
-	}
-
-	.info-list {
-		.list {
-			@include display-flex;
-			@include align-items(center);
-		}
-
-		.b-link {
-			word-break: break-all;
 		}
 	}
 
@@ -524,7 +519,7 @@
 		}
 
 		.kv {
-			margin: 40px 0 20px 0;
+			margin: 0 0 20px 0;
 		}
 
 		.owl-stage {

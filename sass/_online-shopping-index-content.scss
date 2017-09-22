@@ -142,7 +142,7 @@
 		}
 	}
 
-	.btn-link {
+	.btn-read-more {
 		margin-top: 10px;
 		padding: 0 12px;
 		display: inline-block;
@@ -150,11 +150,15 @@
 		height: 36px;
 		border: 1px solid $color-gray-d-p30;
 		color: $color-gray-d-p30;
-		font-size: 14px;
+		font-size: 0;
 		letter-spacing: 1px;
 		line-height: 34px;
 		text-align: center;
 		@include transition(ease-in all 0.3s);
+
+		&:after {
+			color: $color-white;
+		}
 
 		&:hover {
 			background: $color-text-major;
@@ -369,6 +373,10 @@
 		text-align: center;
 		@include box-sizing(border-box);
 		@include transition(ease-in all 0.3s);
+
+		> *:first-child:not(:only-child) {
+			margin-right: 10px;
+		}
 
 		&:hover {
 			background: $color-text-major;

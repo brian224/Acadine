@@ -11,16 +11,15 @@
 	}
 
 	projects.$w.load(function(){
+		if (projects.$w.width() >= 1024) {
+			$('.main-content').css('min-height', $(pageObj._category).height());
+		}
 	});
 
 	projects.$d.ready(function(){
 		projects.validate({
 			event : 'focusout'
 		});
-
-		if (projects.$w.width() >= 1024) {
-			$('.main-content').css('min-height', $(pageObj._category).height());
-		}
 
 		$(pageObj._curr).text($('.category-list .is-curr').eq(-1).text());
 

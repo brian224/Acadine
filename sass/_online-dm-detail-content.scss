@@ -188,7 +188,7 @@
 		}
 	}
 
-	button {
+	button, a {
 		background: none;
 		width: 40px;
 		height: 40px;
@@ -207,6 +207,11 @@
 		&:hover, &.hide, &.is-active {
 			opacity: 0.5;
 		}
+	}
+
+	.btn-download {
+		display: inline-block;
+		text-align: center;
 	}
 
 	.first-button:before,
@@ -468,12 +473,6 @@
 			background: $color-text-major;
 			border-color: $color-text-major;
 			color: $color-white;
-		}
-
-		.m-icon {
-			margin-right: 0 !important;
-			margin-left: 10px;
-			font-weight: normal !important;
 		}
 	}
 
