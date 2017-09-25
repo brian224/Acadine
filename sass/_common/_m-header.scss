@@ -267,7 +267,7 @@
 
 				&:hover {
 					background: $color-facebook;
-					color: $color-white;
+					color: $color-white !important;
 				}
 			}
 
@@ -277,7 +277,7 @@
 
 				&:hover {
 					background: $color-google;
-					color: $color-white;
+					color: $color-white !important;
 				}
 			}
 

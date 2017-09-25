@@ -728,19 +728,35 @@
 	}
 }
 
-.account .card-list .list {
-	vertical-align: bottom;
+.account {
+	.card-list .list {
+		vertical-align: bottom;
 
-	.text-link {
-		color: #ff6a5b;
-		line-height: 1.5em;
+		.text-link {
+			color: #ff6a5b;
+			line-height: 1.5em;
 
-		&:hover .text {
-			text-decoration: none;
+			&:hover .text {
+				text-decoration: none;
+			}
+
+			.text {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.members-item-list {
+		.desc {
+			margin-top: 0;
+
+			&:before {
+				display: none;
+			}
 		}
 
-		.text {
-			text-decoration: underline;
+		.btn-link > *:last-child:not(only-child) {
+			margin-left: 10px;
 		}
 	}
 }
@@ -1149,15 +1165,29 @@
 		}
 	}
 
-	.account .card-list .list {
-		margin-right: 20px;
+	.account {
+		.card-list .list {
+			margin-right: 20px;
 
-		.text-link {
-			font-size: 16px;
+			.text-link {
+				font-size: 16px;
+			}
+
+			.text {
+				margin-top: 10px;
+			}
 		}
 
-		.text {
-			margin-top: 10px;
+		.members-item-list {
+			.act-info {
+				padding-bottom: 60px;
+			}
+
+			.btn-link {
+				bottom: 20px;
+				left: 30px;
+				right: 30px;
+			}
 		}
 	}
 
@@ -1827,16 +1857,28 @@
 		}
 	}
 
-	.account .card-list .list {
-		margin-right: 10px;
-		margin-bottom: 10px;
+	.account {
+		.card-list .list {
+			margin-right: 10px;
+			margin-bottom: 10px;
 
-		.text-link {
-			font-size: 14px;
+			.text-link {
+				font-size: 14px;
+			}
+
+			.text {
+				margin-top: 10px;
+			}
 		}
 
-		.text {
-			margin-top: 10px;
+		.members-item-list {
+			.act-info {
+				padding-bottom: 18px;
+			}
+
+			.btn-link {
+				position: relative;
+			}
 		}
 	}
 

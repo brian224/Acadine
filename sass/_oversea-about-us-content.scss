@@ -1,0 +1,100 @@
+﻿.l-body .l-content {
+	background: $color-gray-l-p40;
+	position: relative;
+}
+
+.content-wrap {
+	padding: 0 10px;
+	background: #f4f4f4;
+}
+
+.main-cut {
+	margin: 0 auto;
+	background: $color-white;
+	position: relative;
+	border: 1px solid $color-gray-l-p30;
+	box-sizing: border-box;
+	color: $color-gray-d-p30;
+	font-size: 14px;
+	line-height: 1.8em;
+
+	> *:not(:last-child), > * > *:not(:last-child) {
+		margin-bottom: 2em;
+	}
+
+	.desc {
+		color: $color-gray-d-p10;
+		line-height: 1.5em;
+	}
+}
+
+@include respond(Desktops) {
+	.content-wrap {
+		min-height: calc(100vh - 120px - 264px - 109px);
+	}
+}
+
+@include respond(Desktops-Tablets) {
+	.cut-title {
+		margin-top: 27px;
+		margin-bottom: 72px;
+	}
+
+	.main-cut {
+		padding: 40px;
+		top: -30px;
+
+		.desc {
+			font-size: 18px;
+		}
+	}
+}
+
+@include respond(HD) {
+	.content-wrap {
+		padding: 0;
+	}
+
+	.main-cut {
+		padding-right: 160px;
+		padding-left: 160px;
+		width: 1300px;
+	}
+}
+
+@include respond(Tablets) {
+	.content-wrap {
+		min-height: calc(100vh - 86px - 204px - 113px);
+	}
+}
+
+@include respond(Tablets-Mobiles) {}
+
+@include respond(Mobiles) {
+	.cut-title {
+		margin-top: 15px;
+	}
+
+	.l-body .content-wrap {
+		margin-top: 36px;
+	}
+
+	.main-cut {
+		padding: 20px; 
+		top: -15px;
+
+		> *:not(:last-child), > * > *:not(:last-child) {
+			margin-bottom: 20px;
+		}
+	}
+}
+
+@include devices(iphone) {}
+
+@include respond(Iphone5) {}
+
+@include browsers('IE') {}
+
+@include browsers('IE9') {}
+
+@include browsers('Safari') {}

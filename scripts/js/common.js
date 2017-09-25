@@ -674,9 +674,9 @@
 			$(this).parent().parent(common._addingWrap).removeClass('is-open');
 		});
 
-		$(common._sendMsg + ' .btn-send').on('click' , function(){
-			common.sendServiceMsg();
-		});
+		// $(common._sendMsg + ' .btn-send').on('click' , function(){
+		// 	common.sendServiceMsg();
+		// });
 
 		$(common._tagSelect).on('change', 'select', function(){
 			if($(this).val() !== '' && $(this).val() !== 'javascript:;' && $(this).val() !== '#') {
@@ -688,9 +688,9 @@
 			if (e.keyCode === 27 && $(common._lBody).hasClass('show-lightbox')) {
 				common.closeBoxEvent();
 			}
-			if (e.keyCode === 13 && $('.customer-service').prev().hasClass('show-func')) {
-				common.sendServiceMsg();
-			}
+			// if (e.keyCode === 13 && $('.customer-service').prev().hasClass('show-func')) {
+			// 	common.sendServiceMsg();
+			// }
 		});
 	});
 
