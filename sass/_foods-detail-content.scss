@@ -56,6 +56,10 @@
 			bottom: 0;
 			left: 0;
 		}
+
+		.hint-text {
+			color: $color-text-major;
+		}
 	}
 
 	.service-location-list {
@@ -331,6 +335,11 @@
 
 		.sub-title {
 			font-size: 20px;
+
+			.hint-text {
+				padding-left: 20px;
+				font-size: 14px;
+			}
 		}
 
 		.service-location-list .list > * {
@@ -511,6 +520,11 @@
 
 		.sub-title {
 			font-size: 18px;
+
+			.hint-text {
+				padding-left: 20px;
+				font-size: 12px;
+			}
 		}
 
 		.service-location-list .list > * {
@@ -579,7 +593,13 @@
 
 @include devices(iphone) {}
 
-@include respond(Iphone5) {}
+@include respond(Iphone5) {
+	.m-cut .sub-title .hint-text {
+		padding-left: 4px;
+		display: inline-block;
+		@include transform(scale(0.9));
+	}
+}
 
 @include browsers('IE') {
 	.food-list {

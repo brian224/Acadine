@@ -130,7 +130,7 @@ $color-btn-cancel : $color-gray-l-p10;
 }
 
 .m-cut-bd {
-	> * {
+	form > *, > * {
 		margin-bottom: 20px;
 	}
 

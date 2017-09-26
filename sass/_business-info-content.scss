@@ -126,16 +126,18 @@
 	}
 
 	.m-accordion {
-		.is-bl-line > * {
-			color: #024ea4;
-		}
-
-		.is-r-line > * {
-			color: #e93226;
-		}
-
 		.text {
 			font-weight: bold;
+		}
+
+		.m-accordion-hd .btn-switch {
+			padding-right: 24px;
+			position: relative;
+
+			.m-icon {
+				position: absolute;
+				left: 0;
+			}
 		}
 
 		.m-accordion-bd .text-wrap {
@@ -327,6 +329,18 @@
 
 .brand-info-wrap {
 	border: 1px solid $color-gray-l-p20;
+
+	.kv-owl .item .img-wrap {
+		margin: 0;
+		@include display-flex;
+		@include align-items(center);
+		@include justify-content(center);
+		width: 100%;
+
+		img {
+			width: 100%;
+		}
+	}
 
 	.brand-logo {
 		margin: 0 auto;
@@ -525,6 +539,163 @@
 			}
 		}
 	}
+
+	.info-list {
+		@include display-flex;
+		@include flex-wrap(wrap);
+		font-size: 0;
+		line-height: 0;
+
+		.list {
+			@include display-flex;
+			@include align-items(flex-start);
+			word-break: break-all;
+
+			> * {
+				color: $color-gray-d-p30;
+			}
+
+			> *:not(:first-child) {
+				margin-left: 15px;
+			}
+		}
+
+		.text, .b-link {
+			font-weight: bold;
+			line-height: 1.8em;
+		}
+
+		.b-link {
+			@include transition(ease-in color 0.3s);
+		}
+	}
+
+	.service-list {
+		text-align: left;
+
+		.list {
+			min-width: 100px;
+			height: 28px;
+			border: 1px solid $color-black;
+			box-sizing: border-box;
+			line-height: 28px;
+			text-align: center;
+		}
+	}
+
+	.food-list {
+		@include display-flex;
+		@include flex-wrap(wrap);
+
+		.owl-stage {
+			@include display-flex;
+			@include align-items(stretch);
+
+			.owl-item {
+				@include display-flex;
+				@include align-items(stretch);
+			}
+		}
+
+		.list {
+			position: relative;
+			background: $color-white;
+			border: 1px solid $color-gray-l-p30;
+			box-sizing: border-box;
+			box-shadow: 0 0 8px rgba($color-black, 0.05);
+			text-align: center;
+		}
+
+		.img-wrap {
+			overflow: hidden;
+			@include display-flex;
+			@include align-items(center);
+			@include justify-content(center);
+		}
+
+		.btn-like {
+			position: absolute;
+			top: 0;
+			right: 0;
+			color: $color-gray-d-p20;
+			font-size: 20px;
+			@include transition(ease-in color 0.3s);
+
+			&:before {
+				content: '';
+				width: 0;
+				height: 0;
+				position: absolute;
+				top: 0;
+				right: 0;
+				border-top: 33px solid $color-gray-l-p40;
+				border-right: 33px solid $color-gray-l-p40;
+				border-bottom: 33px solid transparent;
+				border-left: 33px solid transparent;
+			}
+
+			&:hover {
+				color: $color-text-major;
+			}
+
+			&.is-add .m-icon:after {
+				opacity: 1;
+			}
+
+			.m-icon {
+				position: absolute;
+				top: 10px;
+				right: 10px;
+
+				&:before, &:after {
+					position: absolute;
+					top: 0;
+					right: 0;
+				}
+
+				&:after {
+					content: '\e905';
+					opacity: 0;
+					color: $color-text-major;
+					@include transition(ease-in opacity 0.3s);
+				}
+			}
+		}
+
+		.item-info {
+			background: $color-white;
+			position: relative;
+			color: $color-gray-d-p30;
+			text-align: left;
+			@include box-sizing(border-box);
+
+			.info-title {
+				margin-bottom: 15px;
+				padding-bottom: 9px;
+				position: relative;
+				font-weight: bold;
+				letter-spacing: 1px;
+				line-height: 1.5em;
+
+				&:after {
+					content: '';
+					background: $color-gray-d-p30;
+					display: block;
+					width: 40px;
+					height: 5px;
+					position: absolute;
+					left: 0;
+					bottom: 0;
+					@include transition(ease-in all 0.3s);
+				}
+			}
+
+			.b-desc {
+				font-size: 14px;
+				line-height: 2em;
+			}
+		}
+	}
 }
 
 .btn-return {
@@ -608,6 +779,15 @@
 
 			&.is-open .img-wrap {
 				opacity: 1;
+			}
+
+			.m-accordion-hd {
+				padding: 10px 0;
+
+				.btn-switch {
+					padding-left: 46px;
+					min-height: 36px;
+				}
 			}
 
 			.m-accordion-hd {
@@ -743,7 +923,24 @@
 	}
 
 	.brand-info-wrap {
-		padding: 48px 48px 0 48px;
+		> * {
+			&:not(.kv):not(.brand-logo) {
+				margin-right: 48px;
+				margin-left: 48px;
+			}
+
+			&.brand-logo:first-child {
+				padding-top: 48px;
+			}
+		}
+
+		.kv-owl .item {
+			max-height: 384px;
+
+			.img-wrap {
+				max-height: 384px;
+			}
+		}
 
 		.shopping-list {
 			margin: 0 auto 64px auto;
@@ -790,6 +987,41 @@
 
 			&:hover {
 				color: $color-text-major;
+			}
+		}
+
+		.food-list {
+			padding-bottom: 10px;
+
+			.list {
+				width: calc((100% - 48px) / 3);
+			}
+
+			.img-wrap {
+				height: 188px;
+
+				img {
+					height: 100%;
+					@include transition(ease-in all 0.3s);
+				}
+			}
+
+			.item-info {
+				padding: 25px;
+
+				.info-title {
+					font-size: 20px;
+				}
+			}
+
+			.food-link:hover {
+				.img-wrap img {
+					@include transform(scale(1.05));
+				}
+
+				.item-info .info-title:after {
+					background: $color-text-major;
+				}
 			}
 		}
 	}
@@ -868,6 +1100,10 @@
 	}
 
 	.brand-info-wrap {
+		.kv-owl {
+			padding-bottom: 62px;
+		}
+
 		.brand-logo {
 			width: 250px;
 			height: 160px;
@@ -921,6 +1157,58 @@
 				height: 20px;
 				top: 25px;
 				right: 25px;
+			}
+		}
+
+		.info-list {
+			.list {
+				margin-bottom: 10px;
+				padding: 8px 0;
+			}
+
+			.m-icon {
+				font-size: 28px;
+			}
+
+			.text, .b-link {
+				font-size: 16px;
+			}
+		}
+
+		.service-list {
+			margin: 20px 0 80px 0;
+
+			.list {
+				font-size: 16px;
+				
+				&:not(:first-child) {
+					margin-left: 18px;
+				}
+			}
+		}
+
+		.food-list {
+			margin: 0 -8px;
+			font-size: 0;
+			line-height: 0;
+
+			.list {
+				margin: 0 8px 20px 8px;
+				@include display-flex;
+				@include align-items(stretch);
+				@include align-content(stretch);
+				@include justify-content(space-between);
+				@include flex-direction(column);
+			}
+
+			.item-info {
+				@include flex-grow(1);
+			}
+
+			.food-link {
+				@include display-flex;
+				@include flex-direction(column);
+				height: 100%;
 			}
 		}
 	}
@@ -988,7 +1276,7 @@
 
 @include respond(Tablets) {
 	.m-cut {
-		margin: 32px 50px 0 50px;
+		margin: 32px 20px 0 20px;
 	}
 
 	.sub-tab .btn-tab .text {
@@ -1036,6 +1324,34 @@
 	.floor-info-wrap .m-accordion .counters-list .list {
 		width: 25%;
 	}
+
+	.kv {
+		margin-bottom: -14px;
+	}
+
+	.kv-owl .item {
+		height: 250px;
+
+		.img-wrap {
+			height: 250px;
+		}
+	}
+
+	.info-list {
+		@include display-flex;
+		@include align-items(center);
+		@include flex-wrap(wrap);
+	}
+
+	.food-list {
+		.list {
+			width: calc((100% - 32px) / 2);
+		}
+
+		.img-wrap {
+			height: 178px;
+		}
+	}
 }
 
 @include respond(Tablets-Mobiles) {
@@ -1063,7 +1379,7 @@
 	}
 
 	.m-accordion .btn-switch {
-		height: 40px;
+		min-height: 40px;
 		line-height: 40px;
 	}
 
@@ -1075,9 +1391,16 @@
 		.m-accordion {
 			width: 100%;
 
+			.btn-switch {
+				padding-left: 30px;
+				min-height: 40px;
+			}
+
 			.m-icon {
+				margin-top: -12px;
+				top: 50%;
 				font-size: 24px;
-				line-height: 32px;
+				line-height: 24px;
 			}
 		}
 	}
@@ -1193,7 +1516,18 @@
 	}
 
 	.brand-info-wrap {
-		padding: 24px 24px 0 24px;
+		> *:not(.kv):not(.brand-logo) {
+			margin-right: 24px;
+			margin-left: 24px;
+
+			&:first-child {
+				padding-top: 24px;
+			}
+		}
+
+		.m-owl-dots {
+			margin: 12px 0;
+		}
 
 		.shopping-list {
 			margin: 0 auto 36px auto;
@@ -1224,6 +1558,28 @@
 			.m-owl-dots {
 				margin: 12px 0;
 				bottom: -36px;
+			}
+		}
+
+		.food-list {
+			.img-wrap img {
+				width: 100%;
+			}
+
+			.item-info {
+				padding: 15px 20px 10px 20px;
+
+				.info-title {
+					font-size: 16px;
+				}
+
+				.b-desc {
+					line-height: 1.5em;
+				}
+			}
+
+			.btn-read-more {
+				margin: 0 auto 20px auto;
 			}
 		}
 	}
@@ -1330,6 +1686,23 @@
 	}
 
 	.brand-info-wrap {
+		.kv {
+			margin: 0 0 20px 0;
+		}
+
+		.owl-stage {
+			@include display-flex;
+		}
+
+		.kv-owl .item .img-wrap {
+			height: 32vw;
+		}
+
+		.m-owl-dots {
+			margin-bottom: 4px;
+			bottom: -20px;
+		}
+
 		.brand-logo {
 			width: 125px;
 			height: 80px;
@@ -1343,6 +1716,11 @@
 
 		.sub-title {
 			font-size: 18px;
+
+			.hint-text {
+				padding-left: 20px;
+				font-size: 12px;
+			}
 		}
 
 		.service-location-list .list > * {
@@ -1377,6 +1755,33 @@
 				}
 			}
 		}
+
+		.info-list {
+			.list {
+				padding: 8px 0;
+			}
+
+			.m-icon {
+				font-size: 24px;
+			}
+
+			.text, .b-link {
+				font-size: 14px;
+			}
+		}
+
+		.service-list {
+			margin: 10px -5px 10px -5px;
+
+			.list {
+				margin: 10px 5px 0 5px;
+				font-size: 14px;
+			}
+		}
+
+		.food-list .list {
+			margin-bottom: 20px;
+		}
 	}
 
 	.btn-return {
@@ -1389,7 +1794,13 @@
 
 @include devices(iphone) {}
 
-@include respond(Iphone5) {}
+@include respond(Iphone5) {
+	.m-cut .sub-title .hint-text {
+		padding-left: 4px;
+		display: inline-block;
+		@include transform(scale(0.9));
+	}
+}
 
 @include browsers('IE') {}
 

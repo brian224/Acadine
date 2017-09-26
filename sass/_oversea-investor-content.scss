@@ -1,0 +1,187 @@
+﻿.l-body .l-content {
+	background: $color-gray-l-p40;
+	position: relative;
+}
+
+.content-wrap {
+	padding: 0 10px;
+	background: #f4f4f4;
+}
+
+.main-cut {
+	margin: 0 auto;
+	background: $color-white;
+	position: relative;
+	border: 1px solid $color-gray-l-p30;
+	box-sizing: border-box;
+	color: $color-gray-d-p30;
+	font-size: 14px;
+	line-height: 1.8em;
+}
+
+.sub-title {
+	margin-bottom: 1em;
+	padding: 12px 0;
+	position: relative;
+	color: $color-gray-d-p30;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 2em;
+	text-align: left;
+
+	&:after {
+		content: '';
+		background: $color-gray-d-p30;
+		display: block;
+		width: 35px;
+		height: 4px;
+		position: absolute;
+		bottom: 8px;
+		left: 0;
+	}
+}
+
+.m-table {
+	border: 1px solid $color-gray-l-p20;
+	font-size: 14px;
+
+	> thead {
+		background: $color-gray-d-p30;
+		color: $color-warning;
+	}
+
+	> tbody > tr {
+		border-bottom: 1px solid $color-gray-l-p20;
+
+		> td {
+			color: $color-gray-d-p30;
+		}
+
+		> th {
+			background: $color-gray-d-p30;
+			color: $color-warning;
+		}
+	}
+
+	> * > tr > td:not(:first-child) {
+		border-left: 1px solid $color-gray-l-p20;
+	}
+
+	.sub-table th {
+		color: $color-warning;
+	}
+
+	.b-link {
+		color: $color-gray-d-p30;
+	}
+}
+
+.img-wrap img {
+	max-width: 100%;
+}
+
+@include respond(Desktops) {
+	.content-wrap {
+		min-height: calc(100vh - 120px - 264px - 109px);
+	}
+}
+
+@include respond(Desktops-Tablets) {
+	.cut-title {
+		margin-top: 27px;
+		margin-bottom: 72px;
+	}
+
+	.main-cut {
+		padding: 40px;
+		top: -30px;
+	}
+
+	.info-text {
+		margin-bottom: 50px;
+	}
+
+	.m-table {
+		margin-bottom: 30px;
+
+		> * > * > td {
+			padding: 15px 30px;
+			height: 60px;
+		}
+
+		.sub-table {
+			margin: 30px 0;
+
+			th, td {
+				padding: 0 10px;
+				height: 30px;
+			}
+		}
+	}
+}
+
+@include respond(HD) {
+	.content-wrap {
+		padding: 0;
+	}
+
+	.main-cut {
+		padding-right: 160px;
+		padding-left: 160px;
+		width: 1300px;
+	}
+}
+
+@include respond(Tablets) {
+	.content-wrap {
+		min-height: calc(100vh - 86px - 204px - 113px);
+	}
+}
+
+@include respond(Tablets-Mobiles) {}
+
+@include respond(Mobiles) {
+	.cut-title {
+		margin-top: 15px;
+	}
+
+	.l-body .content-wrap {
+		margin-top: 36px;
+	}
+
+	.main-cut {
+		padding: 20px; 
+		top: -15px;
+	}
+
+	.sub-title {
+		line-height: 1.5em;
+
+		&:after {
+			bottom: 4px;
+		}
+	}
+
+	.info-text {
+		margin-bottom: 30px;
+	}
+
+	.table-wrap {
+		width: 100%;
+		overflow-x: scroll;
+	}
+
+	.m-table td {
+		padding: 10px;
+	}
+}
+
+@include devices(iphone) {}
+
+@include respond(Iphone5) {}
+
+@include browsers('IE') {}
+
+@include browsers('IE9') {}
+
+@include browsers('Safari') {}
