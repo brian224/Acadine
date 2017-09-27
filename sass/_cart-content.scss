@@ -134,6 +134,39 @@ $color-btn-cancel : $color-gray-l-p10;
 		margin-bottom: 20px;
 	}
 
+	form {
+		.m-box-holder {
+			&:not(.is-checkbox):not(.is-radio):not(.is-calc):not(.is-textarea), &.is-calc .m-inputbox {
+				border: 0;
+			}
+
+			&.error {
+				border-color: $color-text-major;
+			}
+		}
+
+		input[type="radio"] {
+			@include appearance(radio);
+		}
+
+		.m-inputbox, .m-selection {
+			border: 1px solid $color-gray-l-p10;
+
+			&.is-error {
+				border-color: $color-text-major;
+			}
+		}
+
+		.alert {
+			padding-left: 0;
+			color: $color-text-major;
+			font-size: 14px;
+			font-weight: bold;
+			line-height: 1.8em;
+			white-space: nowrap;
+		}
+	}
+
 	.member-name {
 		display: block;
 		font-size: 16px;

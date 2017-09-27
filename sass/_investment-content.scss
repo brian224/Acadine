@@ -301,7 +301,7 @@
 			.b-link {
 				padding: 15px 24px;
 				width: 100%;
-				height: 54px;
+				min-height: 54px;
 				box-sizing: border-box;
 				font-size: 16px;
 				text-align: left;
@@ -357,7 +357,7 @@
 
 		.sub-link {
 			padding: 10px 32px;
-			height: 42px;
+			min-height: 42px;
 			box-sizing: border-box;
 			color: $color-gray-d-p30;
 			font-size: 14px;

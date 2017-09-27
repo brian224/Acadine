@@ -381,9 +381,12 @@
                         }
                     },
                     invalidHandler : function(event, validator){
-                        if (validator.invalid.gender !== undefined) {
-                            $('.m-radio').parent('.m-box-holder.is-radio').addClass('error');
+                        for (var _key in validator.invalid) {
+                            if (validator.invalid[_key] !== undefined) {
+                                $('.m-radio[name="' + _key + '"]').parent('.m-box-holder.is-radio').addClass('error');
+                            }
                         }
+
                         if (validator.invalid.agreement !== undefined) {
                             $('.m-checkbox').parent('.m-box-holder.is-checkbox').addClass('error');
                         }

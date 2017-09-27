@@ -70,7 +70,7 @@
 												</div>
 											</td>
 											<td data-label="配送方式">
-												<div class="m-table-xs-wrap deliver-method">
+												<div class="m-table-xs-wrap deliver-method b-text-left">
 													<label class="m-lab jQ-radio b-col-dt-2 b-col-xs-6 b-float-left-xs">
 														<div class="m-box-holder is-radio">
 															<input type="radio" name="deliver-1" class="m-radio required" value="0" data-msg="請選擇配送方式！">
@@ -83,14 +83,15 @@
 														</div>
 														<em class="text">到店取貨</em>
 													</label>
-													<span class="alert b-col-dt-6 b-col-xs-12"><label for="deliver-1" class="is-error b-text-warning"></label></span>
+													<span class="alert"><label for="deliver-1" class="is-error b-text-warning"></label></span>
 													<div class="m-box-holder is-selector">
-														<select name="" id="" class="m-selection">
+														<select name="shop-selection-1" id="" class="m-selection required" data-msg="請選擇分店" disabled="disabled">
 															<option value="">選擇分店</option>
-															<option value="">OOO店</option>
-															<option value="">XXX店</option>
+															<option value="OOO店">OOO店</option>
+															<option value="XXX店">XXX店</option>
 														</select>
 													</div>
+													<span class="alert"><label for="shop-selection-1" class="is-error b-text-warning"></label></span>
 												</div>
 											</td>
 											<td data-label="贈品"><em class="text">雅詩蘭黛特潤精華 5ml</em></td>
@@ -98,18 +99,18 @@
 											<td class="b-text-right-xs" data-label="數量">
 												<div class="m-table-xs-wrap">
 													<div class="counter">
-														<button class="btn-count jQ-calc" data-calc="minus">-</button>
-														<div class="m-box-holder">
+														<button type="button" class="btn-count jQ-calc" data-calc="minus">-</button>
+														<div class="m-box-holder is-calc">
 															<input type="text" class="m-inputbox" value="1">
 														</div>
-														<button class="btn-count jQ-calc" data-calc="plus">+</button>
+														<button type="button" class="btn-count jQ-calc" data-calc="plus">+</button>
 													</div>
 												</div>
 											</td>
 											<td class="b-text-right-xs" data-label="小計(NT$)"><em class="text">3,990 元</em></td>
 											<td class="b-text-left-xs btn-delete-wrap">
 												<div class="m-table-xs-wrap">
-													<button class="btn-delete jQ-delelte">
+													<button class="btn-delete jQ-delelte" type="button">
 														<i class="m-icon m-icon-delete"></i>
 														<em class="text b-hide-text">刪除</em>
 													</button>
@@ -131,7 +132,7 @@
 												</div>
 											</td>
 											<td data-label="配送方式">
-												<div class="m-table-xs-wrap deliver-method">
+												<div class="m-table-xs-wrap deliver-method b-text-left">
 													<label class="m-lab jQ-radio b-col-dt-2 b-col-xs-6 b-float-left-xs">
 														<div class="m-box-holder is-radio">
 															<input type="radio" name="deliver-2" class="m-radio required" value="0" data-msg="請選擇配送方式！">
@@ -144,15 +145,15 @@
 														</div>
 														<em class="text">到店取貨</em>
 													</label>
-													<span class="alert b-col-dt-6 b-col-xs-12"><i class="m-icon m-icon-info-3"></i><label for="deliver-2" class="is-error b-text-warning"></label></span>
+													<span class="alert"><label for="deliver-2" class="is-error b-text-warning"></label></span>
 													<div class="m-box-holder is-selector">
-														<select name="" id="" class="m-selection">
+														<select name="shop-selection-2" id="" class="m-selection required" data-msg="請選擇分店" disabled="disabled">
 															<option value="">選擇分店</option>
-															<option value="">OOO店</option>
-															<option value="">XXX店</option>
+															<option value="OOO店">OOO店</option>
+															<option value="XXX店">XXX店</option>
 														</select>
 													</div>
-													<p class="note error-msg has-icon"><i class="m-icon m-icon-info-3"></i><em class="text">請選擇配送方式！</em></p>
+													<span class="alert"><label for="shop-selection-2" class="is-error b-text-warning"></label></span>
 												</div>
 											</td>
 											<td data-label="贈品"><em class="text">雅詩蘭黛特潤精華 5ml</em></td>
@@ -160,18 +161,18 @@
 											<td class="b-text-right-xs" data-label="數量">
 												<div class="m-table-xs-wrap">
 													<div class="counter">
-														<button class="btn-count jQ-calc" data-calc="minus">-</button>
-														<div class="m-box-holder">
+														<button type="button" class="btn-count jQ-calc" data-calc="minus">-</button>
+														<div class="m-box-holder is-calc">
 															<input type="text" class="m-inputbox" value="1">
 														</div>
-														<button class="btn-count jQ-calc" data-calc="plus">+</button>
+														<button type="button" class="btn-count jQ-calc" data-calc="plus">+</button>
 													</div>
 												</div>
 											</td>
 											<td class="b-text-right-xs" data-label="小計(NT$)"><em class="text">3,990 元</em></td>
 											<td class="b-text-left-xs btn-delete-wrap">
 												<div class="m-table-xs-wrap">
-													<button class="btn-delete jQ-delelte">
+													<button class="btn-delete jQ-delelte" type="button">
 														<i class="m-icon m-icon-delete"></i>
 														<em class="text b-hide-text">刪除</em>
 													</button>
@@ -192,7 +193,7 @@
 												</div>
 											</td>
 											<td data-label="配送方式">
-												<div class="m-table-xs-wrap deliver-method">
+												<div class="m-table-xs-wrap deliver-method b-text-left">
 													<label class="m-lab jQ-radio b-col-dt-2 b-col-xs-6 b-float-left-xs">
 														<div class="m-box-holder is-radio">
 															<input type="radio" name="deliver-3" class="m-radio required" value="0" data-msg="請選擇配送方式！">
@@ -205,14 +206,16 @@
 														</div>
 														<em class="text">到店取貨</em>
 													</label>
-													<span class="alert b-col-dt-6 b-col-xs-12"><label for="deliver-3" class="is-error b-text-warning"></label></span>
+													<span class="alert"><label for="deliver-3" class="is-error b-text-warning"></label></span>
 													<div class="m-box-holder is-selector">
-														<select name="" id="" class="m-selection">
+														<select name="shop-selection-3" id="" class="m-selection required" data-msg="請選擇分店" disabled="disabled">
 															<option value="">選擇分店</option>
-															<option value="">OOO店</option>
-															<option value="">XXX店</option>
+															<option value="OOO店">OOO店</option>
+															<option value="板橋大遠百">板橋大遠百</option>
+															<option value="XXX店">XXX店</option>
 														</select>
 													</div>
+													<span class="alert"><label for="shop-selection-3" class="is-error b-text-warning"></label></span>
 												</div>
 											</td>
 											<td data-label="贈品"><em class="text">雅詩蘭黛特潤精華 5ml</em></td>
@@ -220,18 +223,18 @@
 											<td class="b-text-right-xs" data-label="數量">
 												<div class="m-table-xs-wrap">
 													<div class="counter">
-														<button class="btn-count jQ-calc" data-calc="minus">-</button>
-														<div class="m-box-holder">
+														<button type="button" class="btn-count jQ-calc" data-calc="minus">-</button>
+														<div class="m-box-holder is-calc">
 															<input type="text" class="m-inputbox" value="1">
 														</div>
-														<button class="btn-count jQ-calc" data-calc="plus">+</button>
+														<button type="button" class="btn-count jQ-calc" data-calc="plus">+</button>
 													</div>
 												</div>
 											</td>
 											<td class="b-text-right-xs" data-label="小計(NT$)"><em class="text">3,990 元</em></td>
 											<td class="b-text-left-xs btn-delete-wrap">
 												<div class="m-table-xs-wrap">
-													<button class="btn-delete jQ-delelte">
+													<button class="btn-delete jQ-delelte" type="button">
 														<i class="m-icon m-icon-delete"></i>
 														<em class="text b-hide-text">刪除</em>
 													</button>
@@ -259,7 +262,7 @@
 											<input type="text" class="m-inputbox" placeholder="請輸入序號">
 										</div>
 									</label>
-									<button class="btn-link btn-confirm btn-cancel b-col-xs-12">確定</button>
+									<button type="button" class="btn-link btn-confirm btn-cancel b-col-xs-12">確定</button>
 								</div>
 								<div class="purchase-info b-text-right-dt b-middle">
 									<span class="text b-col-xs-12">HAPPYGO 卡累點</span>
@@ -278,8 +281,9 @@
 								<div class="m-form b-col-dt-12 b-col-xs-12">
 									<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">付款人姓名</em>
 									<div class="m-box-holder b-col-dt-6 b-col-xs-12 b-block">
-										<input type="text" class="m-inputbox" placeholder="輸入姓名">
+										<input type="text" name="payer-name" class="m-inputbox required" placeholder="輸入姓名" data-msg="付款人姓名為必填">
 									</div>
+									<span class="alert b-col-dt-12 b-col-xs-12"><label for="payer-name" class="is-error b-text-warning"></label></span>
 								</div>
 								<div class="m-form set-v-spacing b-col-dt-12 b-col-xs-12 b-clearfix">
 									<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">付款人電話</em>
@@ -326,8 +330,9 @@
 									<div class="b-col-dt-4 b-col-xs-12 b-clearfix b-float-left-dt">
 										<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">手機號碼</em>
 										<div class="m-box-holder b-col-dt-12 b-col-xs-12 b-block b-float-left-dt">
-											<input type="text" class="m-inputbox" placeholder="手機號碼">
+											<input type="text" name="payer-mobile" class="m-inputbox required" placeholder="手機號碼" data-msg="手機號碼為必填">
 										</div>
+										<span class="alert b-col-dt-12 b-col-xs-12"><label for="payer-mobile" class="is-error b-text-warning"></label></span>
 									</div>
 								</div>
 								<div class="m-form b-col-dt-12 b-col-xs-12 b-clearfix">
@@ -335,41 +340,42 @@
 									<div class="m-form-group-dt b-col-dt-12 b-col-xs-12 b-clearfix">
 										<div class="b-col-dt-2 b-col-xs-6 b-float-left-xs">
 											<div class="m-box-holder is-selector b-col-dt-12 b-col-xs-11">
-												<select name="" id="" class="m-selection">
+												<select name="payer-city" id="" class="m-selection required" data-msg="縣市為必填">
 													<option value="">選擇縣市</option>
-													<option value="">台北市</option>
-													<option value="">新北市</option>
+													<option value="台北市">台北市</option>
+													<option value="新北市">新北市</option>
 												</select>
 											</div>
+											<span class="alert b-col-dt-12 b-col-xs-12"><label for="payer-city" class="is-error b-text-warning"></label></span>
 										</div>
 										<div class="b-col-dt-2 b-col-xs-6 b-float-left-xs">
 											<div class="m-box-holder is-selector b-col-dt-12 b-col-xs-11 b-float-right-xs">
-												<select name="" id="" class="m-selection">
+												<select name="payer-area" id="" class="m-selection required" data-msg="區域為必填">
 													<option value="">選擇區域</option>
-													<option value="">中山區</option>
-													<option value="">中正區</option>
+													<option value="中山區">中山區</option>
+													<option value="中正區">中正區</option>
 												</select>
 											</div>
+											<span class="alert b-col-dt-12 b-col-xs-11 b-float-right-xs"><label for="payer-area" class="is-error b-text-warning"></label></span>
 										</div>
 										<div class="b-col-dt-8 b-col-xs-12 b-float-left-xs">
 											<div class="m-box-holder b-col-dt-12 b-col-xs-12">
-												<input type="text" class="m-inputbox" placeholder="地址">
+												<input type="text" name="payer-address" class="m-inputbox required" placeholder="地址" data-msg="地址為必填">
 											</div>
+											<span class="alert b-col-dt-12 b-col-xs-12"><label for="payer-address" class="is-error b-text-warning"></label></span>
 										</div>
 									</div>
 								</div>
 								<div class="m-form b-col-dt-12 b-col-xs-12 b-clearfix">
 									<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">發票資訊</em>
-									<div class="m-form-group-dt b-col-dt-12 b-col-xs-12 b-clearfix">
-										<em class="m-form-addon note b-col-dt-12 b-col-xs-12 b-block">*請選擇發票處理方式</em>
-									</div>
+									<span class="alert b-col-dt-12 b-col-xs-12"><label for="invoice" class="is-error b-text-warning"></label></span>
 									<div class="m-form-group-dt b-col-dt-12 b-col-xs-12 b-clearfix">
 										<div class="m-tab main-tab b-col-dt-12 b-col-xs-12 b-block">
 											<ul class="m-tab-wrap invoice-selection">
 												<li class="tab-list b-block-xs b-text-left-xs">
 													<label class="m-lab jQ-radio jQ-tab">
 														<div class="m-box-holder is-radio">
-															<input type="radio" name="invoice" class="m-radio required" value="happygo">
+															<input type="radio" name="invoice" class="m-radio required" value="happygo" data-msg="*請選擇發票處理方式">
 														</div>
 														<em class="text">HAPPYGO卡載具</em>
 													</label>
@@ -428,8 +434,9 @@
 													<label class="m-lab b-col-xs-12">
 														<em class="text">HAPPYGO卡號</em>
 														<div class="m-box-holder b-col-xs-12">
-															<input type="text" class="m-inputbox" placeholder="請輸入HAPPYGO卡號">
+															<input type="text" name="happygo-num" class="m-inputbox required" placeholder="請輸入HAPPYGO卡號" disabled="disabled" data-msg="HAPPYGO卡號為必填">
 														</div>
+														<span class="alert"><label for="happygo-num" class="is-error b-text-warning"></label></span>
 													</label>
 													<label class="m-lab jQ-checkbox is-checked b-block">
 														<div class="m-box-holder is-checkbox">
@@ -442,8 +449,9 @@
 													<label class="m-lab b-col-xs-12">
 														<em class="text">手機條碼</em>
 														<div class="m-box-holder b-col-xs-12">
-															<input type="text" class="m-inputbox" placeholder="請輸入手機號碼">
+															<input type="text" name="phone-code" class="m-inputbox required" placeholder="請輸入手機條碼" disabled="disabled" data-msg="手機條碼為必填">
 														</div>
+														<span class="alert"><label for="phone-code" class="is-error b-text-warning"></label></span>
 													</label>
 													<em class="note b-col-dt-12 b-col-xs-12 b-block">※ 依統一發票使用辦法規定：個人戶 (二聯式) 發票一經開立，不得任意更改為公司戶 (三聯式)發票。</em>
 													<label class="m-lab jQ-checkbox is-checked b-block">
@@ -457,8 +465,9 @@
 													<label class="m-lab b-col-xs-12">
 														<em class="text">自然人憑證</em>
 														<div class="m-box-holder b-col-xs-12">
-															<input type="text" class="m-inputbox" placeholder="請輸入自然人憑證證號">
+															<input type="text" name="citizen-digital" class="m-inputbox required" placeholder="請輸入自然人憑證證號" disabled="disabled" data-msg="自然人憑證證號為必填">
 														</div>
+														<span class="alert"><label for="citizen-digital" class="is-error b-text-warning"></label></span>
 													</label>
 													<em class="note b-col-dt-12 b-col-xs-12 b-block">※ 依統一發票使用辦法規定：個人戶 (二聯式) 發票一經開立，不得任意更改為公司戶 (三聯式)發票。</em>
 													<label class="m-lab jQ-checkbox is-checked b-block">
@@ -496,20 +505,23 @@
 														<div class="b-col-dt-4 b-col-xs-12 b-clearfix b-float-left-dt">
 															<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">統一編號</em>
 															<div class="m-box-holder b-col-dt-12 b-col-xs-12 b-block">
-																<input type="text" class="m-inputbox" placeholder="請輸入統一編號">
+																<input type="text" name="gui" class="m-inputbox required" placeholder="請輸入統一編號" disabled="disabled" data-msg="統一編號為必填">
 															</div>
+															<span class="alert"><label for="gui" class="is-error b-text-warning"></label></span>
 														</div>
 														<div class="b-col-dt-4 b-col-xs-12 b-clearfix b-float-left-dt">
 															<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">發票抬頭</em>
 															<div class="m-box-holder b-col-dt-12 b-col-xs-12 b-block">
-																<input type="text" class="m-inputbox" placeholder="請填寫發票抬頭">
+																<input type="text" name="invoice-title" class="m-inputbox required" placeholder="請填寫發票抬頭" disabled="disabled" data-msg="發票抬頭為必填">
 															</div>
+															<span class="alert"><label for="invoice-title" class="is-error b-text-warning"></label></span>
 														</div>
 														<div class="b-col-dt-4 b-col-xs-12 b-clearfix b-float-left-dt">
 															<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">收件人</em>
 															<div class="m-box-holder b-col-dt-12 b-col-xs-12 b-block">
-																<input type="text" class="m-inputbox" placeholder="請填寫姓名">
+																<input type="text" name="invoice-recipient" class="m-inputbox required" placeholder="請填寫姓名" disabled="disabled" data-msg="收件人為必填">
 															</div>
+															<span class="alert"><label for="invoice-recipient" class="is-error b-text-warning"></label></span>
 														</div>
 													</div>
 													<div class="m-form b-col-dt-12 b-col-xs-12 b-clearfix">
@@ -517,26 +529,29 @@
 														<div class="m-form-group-dt b-col-dt-12 b-col-xs-12">
 															<div class="b-col-dt-2 b-col-xs-6 b-float-left-xs">
 																<div class="m-box-holder is-selector b-col-dt-12 b-col-xs-11">
-																	<select name="" id="" class="m-selection">
+																	<select name="corporation-city" id="" class="m-selection required" disabled="disabled" data-msg="縣市為必填">
 																		<option value="">選擇縣市</option>
 																		<option value="">台北市</option>
-																		<option value="">新北市</option>
+																		<option value="新北市">新北市</option>
 																	</select>
 																</div>
+																<span class="alert"><label for="corporation-city" class="is-error b-text-warning"></label></span>
 															</div>
 															<div class="b-col-dt-2 b-col-xs-6 b-float-left-xs">
 																<div class="m-box-holder is-selector b-col-dt-12 b-col-xs-11 b-float-right-xs">
-																	<select name="" id="" class="m-selection">
+																	<select name="corporation-area" id="" class="m-selection required" disabled="disabled" data-msg="區域為必填">
 																		<option value="">選擇區域</option>
-																		<option value="">中山區</option>
-																		<option value="">中正區</option>
+																		<option value="中山區">中山區</option>
+																		<option value="中正區">中正區</option>
 																	</select>
 																</div>
+																<span class="alert"><label for="corporation-area" class="is-error b-text-warning"></label></span>
 															</div>
 															<div class="b-col-dt-8 b-col-xs-12 b-float-left-xs">
 																<div class="m-box-holder b-col-dt-12 b-col-xs-12">
-																	<input type="text" class="m-inputbox" placeholder="地址">
+																	<input type="text" name="corporation-address" class="m-inputbox required" placeholder="地址" disabled="disabled" data-msg="地址為必填">
 																</div>
+																<span class="alert"><label for="corporation-address" class="is-error b-text-warning"></label></span>
 															</div>
 														</div>
 													</div>
@@ -553,7 +568,7 @@
 														<div class="b-col-dt-4 b-col-xs-12 b-clearfix b-float-left-dt">
 															<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">收件人</em>
 															<div class="m-box-holder b-col-dt-12 b-col-xs-12 b-block">
-																<input type="text" class="m-inputbox" placeholder="請填寫姓名">
+																<input type="text" class="m-inputbox required" placeholder="請填寫姓名">
 															</div>
 														</div>
 													</div>
@@ -562,25 +577,25 @@
 														<div class="m-form-group-dt b-col-dt-12 b-col-xs-12 b-clearfix">
 															<div class="b-col-dt-2 b-col-xs-6 b-float-left-xs">
 																<div class="m-box-holder is-selector b-col-dt-12 b-col-xs-11">
-																	<select name="" id="" class="m-selection">
+																	<select name="" id="" class="m-selection required">
 																		<option value="">選擇縣市</option>
-																		<option value="">台北市</option>
-																		<option value="">新北市</option>
+																		<option value="台北市">台北市</option>
+																		<option value="新北市">新北市</option>
 																	</select>
 																</div>
 															</div>
 															<div class="b-col-dt-2 b-col-xs-6 b-float-left-xs">
 																<div class="m-box-holder is-selector b-col-dt-12 b-col-xs-11 b-float-right-xs">
-																	<select name="" id="" class="m-selection">
+																	<select name="" id="" class="m-selection required">
 																		<option value="">選擇區域</option>
-																		<option value="">中山區</option>
-																		<option value="">中正區</option>
+																		<option value="中山區">中山區</option>
+																		<option value="中正區">中正區</option>
 																	</select>
 																</div>
 															</div>
 															<div class="b-col-dt-8 b-col-xs-12 b-float-left-xs">
 																<div class="m-box-holder b-col-dt-12 b-col-xs-12">
-																	<input type="text" class="m-inputbox" placeholder="地址">
+																	<input type="text" class="m-inputbox required" placeholder="地址">
 																</div>
 															</div>
 														</div>
@@ -626,11 +641,11 @@
 									</div>
 								</div>
 								<div class="m-form b-col-dt-12 b-col-xs-12">
-									<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">付款人姓名</em>
+									<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">收件人姓名</em>
 									<div class="m-box-holder b-col-dt-6 b-col-xs-12 b-block">
-										<input type="text" class="m-inputbox required" name="payer" placeholder="輸入姓名">
+										<input type="text" class="m-inputbox required" name="recipient-name" placeholder="輸入姓名" data-msg="收件人姓名為必填">
 									</div>
-									<span class="alert b-col-dt-12 b-col-xs-12 b-inline-dt"><label for="payer" class="is-error b-text-warning"></label></span>
+									<span class="alert b-col-dt-12 b-col-xs-12"><label for="recipient-name" class="is-error b-text-warning"></label></span>
 								</div>
 								<div class="m-form set-v-spacing b-col-dt-12 b-col-xs-12">
 									<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">收件人電話</em>
@@ -677,8 +692,9 @@
 									<div class="b-col-dt-4 b-col-xs-12 b-clearfix b-float-left-dt">
 										<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">手機號碼</em>
 										<div class="m-box-holder b-col-dt-12 b-col-xs-12 b-block b-float-left-dt">
-											<input type="text" class="m-inputbox" placeholder="手機號碼">
+											<input type="text" name="recipient-mobile" class="m-inputbox required" placeholder="手機號碼" data-msg="手機號碼為必填">
 										</div>
+										<span class="alert b-col-dt-12 b-col-xs-12"><label for="recipient-mobile" class="is-error b-text-warning"></label></span>
 									</div>
 								</div>
 								<div class="m-form b-col-dt-12 b-col-xs-12 b-clearfix">
@@ -686,27 +702,29 @@
 									<div class="m-form-group-dt b-col-dt-12 b-col-xs-12">
 										<div class="b-col-dt-2 b-col-xs-6 b-float-left-xs">
 											<div class="m-box-holder is-selector b-col-dt-12 b-col-xs-11">
-												<select name="" id="" class="m-selection">
+												<select name="recipient-city" id="" class="m-selection required" data-msg="縣市為必填">
 													<option value="">選擇縣市</option>
-													<option value="">台北市</option>
-													<option value="">新北市</option>
+													<option value="1">台北市</option>
+													<option value="2">新北市</option>
 												</select>
 											</div>
+											<span class="alert b-col-dt-12 b-col-xs-12"><label for="recipient-city" class="is-error b-text-warning"></label></span>
 										</div>
 										<div class="b-col-dt-2 b-col-xs-6 b-float-left-xs">
 											<div class="m-box-holder is-selector b-col-dt-12 b-col-xs-11 b-float-right-xs">
-												<select name="" id="" class="m-selection">
+												<select name="recipient-area" id="" class="m-selection required" data-msg="區域為必填">
 													<option value="">選擇區域</option>
-													<option value="">中山區</option>
-													<option value="">中正區</option>
+													<option value="1">中山區</option>
+													<option value="2">中正區</option>
 												</select>
 											</div>
+											<span class="alert b-col-dt-12 b-col-xs-11 b-float-right-xs"><label for="recipient-area" class="is-error b-text-warning"></label></span>
 										</div>
 										<div class="b-col-dt-8 b-col-xs-12 b-float-left-xs">
 											<div class="m-box-holder b-col-dt-12 b-col-xs-12">
-												<input type="text" class="m-inputbox required" name="address" placeholder="地址">
+												<input type="text" class="m-inputbox required" name="recipient-address" placeholder="地址" data-msg="地址為必填">
 											</div>
-											<span class="alert b-col-dt-12 b-col-xs-12 b-inline-dt"><label for="address" class="is-error b-text-warning"></label></span>
+											<span class="alert b-col-dt-12 b-col-xs-12"><label for="recipient-address" class="is-error b-text-warning"></label></span>
 										</div>
 									</div>
 								</div>

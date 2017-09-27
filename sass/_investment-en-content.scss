@@ -1,0 +1,50 @@
+﻿.history-events {
+	&:not(:last-child):after {
+		left: 113px;
+	}
+
+	.event-time {
+		width: 106px;
+		vertical-align: top;
+
+		.event-year {
+			text-align: left;
+		}
+	}
+
+	.event-desc {
+		width: calc(100% - 106px);
+	}
+}
+
+@include respond(Desktops) {}
+
+@include respond(Desktops-Tablets) {}
+
+@include respond(HD) {
+	.category-content {
+		.category-list .b-link {
+			font-size: 18px;
+		}
+
+		.sub-link {
+			font-size: 16px;
+		}
+	}
+}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {}
+
+@include respond(Mobiles) {}
+
+@include devices(iphone) {}
+
+@include respond(Iphone5) {}
+
+@include browsers('IE') {}
+
+@include browsers('IE9') {}
+
+@include browsers('Safari') {}

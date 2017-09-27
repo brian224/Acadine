@@ -563,15 +563,21 @@
 				var _name = $(this).find('input[type="radio"]:checked').attr('name');
 
 				$('input[type="radio"][name="' + _name + '"]').parents(common._radio).removeClass('is-checked');
+				$('input[type="radio"][name="' + _name + '"]').parent().removeClass('error');
 				$(this).addClass('is-checked');
 			}
 
 			if($(this).parent().hasClass('deliver-method')) {
 				if($(this).data('deliver') === 'store') {
-					$(this).parent().addClass('is-store');
+					$(this).parent().addClass('is-store').find('.m-selection').prop('disabled', '');
 				} else {
-					$(this).parent().removeClass('is-store');
+					$(this).parent().removeClass('is-store').find('.m-selection').prop('disabled', 'disabled');
 				}
+			}
+
+			if($(this).parents('.m-tab-wrap').hasClass('invoice-selection')) {
+				$(this).parents('.m-tab-wrap').next('.m-tab-content').find('.content-list').find('input, select').prop('disabled', 'disabled');
+				$(this).parents('.m-tab-wrap').next('.m-tab-content').find('.content-list').eq($(this).parent().index()).find('input, select').prop('disabled', '');
 			}
 		});
 
