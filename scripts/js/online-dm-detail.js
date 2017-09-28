@@ -141,8 +141,9 @@
 	}
 
 	page.prototype.setNewSrc = function() {
-		pageObj._imgSrcArray.splice(pageObj._imgSrcArray.length - 1, 1);
-		_newSrc = pageObj._imgSrcArray.join('/') + '/';
+		$(pageObj._thumbnails + ' img').each(function(){
+			_newSrc.push($(this).attr('src'));
+		});
 	}
 
 	page.prototype.zoomFunction = function() {

@@ -319,7 +319,7 @@
 			}
 		});
 
-		projects.$hb.animate({
+		projects.$w.animate({
 			'scrollTop' : $(common._lContent + ' .main-tab').offset().top - $(common._lHeader).height()
 		}, common._animateSpeed);
 	}

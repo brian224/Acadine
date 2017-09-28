@@ -407,14 +407,6 @@ $color-btn-cancel : $color-gray-l-p10;
 	}
 }
 
-.credit-card-wrap .info-wrap {
-	font-size: 0;
-
-	> * {
-		font-size: 14px;
-	}
-}
-
 .order-info {
 	padding: 15px 0;
 
@@ -976,10 +968,6 @@ $color-btn-cancel : $color-gray-l-p10;
 		.img-wrap {
 			max-width: 88px;
 		}
-	}
-
-	.credit-card-wrap {
-		margin-top: 10px;
 	}
 
 	.m-cut-ft .ft-title {

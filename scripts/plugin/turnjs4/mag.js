@@ -3,7 +3,7 @@
 */
 var $magazine  = $('.magazine'),
 	$mViewport = $('.magazine-viewport'),
-	_newSrc    = '';
+	_newSrc    = [];
 
 function addPage(page, book) {
 	var id, pages = book.turn('pages');
@@ -41,9 +41,7 @@ function loadPage(page, pageElement) {
 
 	// Load the page
 
-	(page < 10) ? page = '0' + page : page;
-	img.attr('src', _newSrc +  page + '.jpg');
-
+	img.attr('src', _newSrc[page - 1]);
 	// loadRegions(page, pageElement);
 }
 
@@ -153,9 +151,8 @@ function loadLargePage(page, pageElement) {
 	});
 
 	// Loadnew page
-	(page < 10) ? page = '0' + page : page;
 	// img.attr('src', _newSrc +  page + '-large.jpg');
-	img.attr('src', _newSrc +  page + '.jpg');
+	img.attr('src', _newSrc[page - 1]);
 }
 
 // Load small page
@@ -168,8 +165,7 @@ function loadSmallPage(page, pageElement) {
 
 	img.unbind('load');
 	// Loadnew page
-	(page < 10) ? page = '0' + page : page;
-	img.attr('src', _newSrc +  page + '.jpg');
+	img.attr('src', _newSrc[page - 1]);
 }
 
 // http://code.google.com/p/chromium/issues/detail?id=128488

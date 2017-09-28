@@ -20,306 +20,272 @@
 						</ol>
 					</header>
 					<div class="m-cut-bd">
-						<div class="sheet underline">
-							<h4 class="info-title">會員帳戶</h4>
-							<div class="member-info">
-								<em class="member-name">蔡依林</em>
-								<div class="coupon-info">
-									<span class="coupon-name">購物金</span>
-									<span class="highlight">3,500</span>
-									<span class="unit">元</span>
-								</div>
-								<div class="coupon-info">
-									<span class="coupon-name">HAPPY GO 點數</span>
-									<span class="highlight">26568</span>
-									<span class="unit">點</span>
-								</div>
-							</div>
-						</div>
-						<h2 class="main-title b-text-center-xs">確認付款方式</h2>
-						<div class="sheet">
-							<h4 class="info-title b-clearfix">
-								<em class="main-desc b-float-left-dt b-block">選擇付款方式</em>
-							</h4>
-							<div class="payment-selection m-form b-col-dt-12 b-col-xs-12 b-clearfix">
-								<div class="b-col-dt-6 b-col-xs-12 b-float-left b-block">
-									<label class="m-lab jQ-radio">
-										<div class="m-box-holder is-radio">
-											<input type="radio" name="deliver-3" class="m-radio" value="home">
-										</div>
-										<em class="text">信用卡付款</em>
-									</label>
-									<a href="javascript:;" class="b-link" target="_blank">說明</a>
-									<div class="payment-img b-inline">
-										<figure class="img-wrap b-inline">
-											<img src="../../content/img/cart/payment/01.png" alt="VISA">
-											<figcaption class="desc b-hide-text">VISA</figcaption>
-										</figure>
-										<figure class="img-wrap b-inline">
-											<img src="../../content/img/cart/payment/02.png" alt="MasterCard">
-											<figcaption class="desc b-hide-text">MasterCard</figcaption>
-										</figure>
-										<figure class="img-wrap b-inline">
-											<img src="../../content/img/cart/payment/03.png" alt="JCB">
-											<figcaption class="desc b-hide-text">JCB</figcaption>
-										</figure>
+						<form action="cart-step3.html">
+							<div class="sheet underline">
+								<h4 class="info-title">會員帳戶</h4>
+								<div class="member-info">
+									<em class="member-name">蔡依林</em>
+									<div class="coupon-info">
+										<span class="coupon-name">購物金</span>
+										<span class="highlight">3,500</span>
+										<span class="unit">元</span>
 									</div>
-								</div>
-								<div class="b-col-dt-6 b-col-xs-12 b-float-left b-block">
-									<label class="m-lab jQ-radio">
-										<div class="m-box-holder is-radio">
-											<input type="radio" name="deliver-3" class="m-radio" value="store">
-										</div>
-										<em class="text">歐付寶付款</em>
-									</label>
-									<a href="javascript:;" class="b-link" target="_blank">說明</a>
-									<div class="payment-img b-inline">
-										<figure class="img-wrap b-inline">
-											<img src="../../content/img/cart/payment/04.png" alt="aiipay 歐付寶">
-											<figcaption class="desc b-hide-text">aiipay 歐付寶</figcaption>
-										</figure>
+									<div class="coupon-info">
+										<span class="coupon-name">HAPPY GO 點數</span>
+										<span class="highlight">26568</span>
+										<span class="unit">點</span>
 									</div>
 								</div>
 							</div>
-							<div class="credit-card-wrap">
-								<div class="info-wrap b-middle">
-									<span class="text b-inline b-col-dt-2">信用卡卡號</span>
-									<label class="m-lab b-col-dt-10">
-										<div class="m-box-holder b-col-md-1 b-col-sm-2">
-											<input type="number" class="m-inputbox b-text-center" value="" maxlength="4">
+							<h2 class="main-title b-text-center-xs">確認付款方式</h2>
+							<div class="sheet">
+								<h4 class="info-title b-clearfix">
+									<em class="main-desc b-float-left-dt b-block">選擇付款方式</em>
+									<span class="alert"><label for="payment" class="is-error b-text-warning"></label></span>
+								</h4>
+								<div class="payment-selection m-form b-col-dt-12 b-col-xs-12 b-clearfix">
+									<div class="b-col-dt-6 b-col-xs-12 b-float-left b-block">
+										<label class="m-lab jQ-radio">
+											<div class="m-box-holder is-radio">
+												<input type="radio" name="payment" class="m-radio required" value="home" data-msg="付款方式為必填" checked="checked">
+											</div>
+											<em class="text">信用卡付款</em>
+										</label>
+										<a href="javascript:;" class="b-link" target="_blank">說明</a>
+										<div class="payment-img b-inline">
+											<figure class="img-wrap b-inline">
+												<img src="../../content/img/cart/payment/01.png" alt="VISA">
+												<figcaption class="desc b-hide-text">VISA</figcaption>
+											</figure>
+											<figure class="img-wrap b-inline">
+												<img src="../../content/img/cart/payment/02.png" alt="MasterCard">
+												<figcaption class="desc b-hide-text">MasterCard</figcaption>
+											</figure>
+											<figure class="img-wrap b-inline">
+												<img src="../../content/img/cart/payment/03.png" alt="JCB">
+												<figcaption class="desc b-hide-text">JCB</figcaption>
+											</figure>
 										</div>
-										<span class="text"> - </span>
-										<div class="m-box-holder b-col-md-1 b-col-sm-2">
-											<input type="number" class="m-inputbox b-text-center" value="" maxlength="4">
-										</div>
-										<span class="text"> - </span>
-										<div class="m-box-holder b-col-md-1 b-col-sm-2">
-											<input type="number" class="m-inputbox b-text-center" value="" maxlength="4">
-										</div>
-										<span class="text"> - </span>
-										<div class="m-box-holder b-col-md-1 b-col-sm-2">
-											<input type="number" class="m-inputbox b-text-center" value="" maxlength="4">
-										</div>
-									</label>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="btn-wrap b-text-right">
-							<a href="cart-step1.html" class="btn-link btn-cancel b-col-xs-6">返回編輯</a>
-							<a href="cart-step3.html" class="btn-link btn-main b-col-xs-6">前往付款</a>
-						</div>
-						<div class="sheet underline">
-							<h4 class="info-title b-clearfix">
-								<em class="main-desc b-float-left-dt b-block">本次訂購商品</em>
-								<span class="sub-desc b-float-right-dt b-block">共 <span class="highlight">3</span> 件商品，請確認以下商品資訊並進行結帳</span>
-							</h4>
-							<table class="m-table table-rotate">
-								<thead>
-									<tr>
-										<td><em class="text">商品</em></td>
-										<td><em class="text">配送方式</em></td>
-										<td><em class="text">贈品</em></td>
-										<td><em class="text">單價(NT$)</em></td>
-										<td><em class="text">數量</em></td>
-										<td><em class="text">小計(NT$)</em></td>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td data-label="商品">
-											<a href="javascript:;" class="b-link">STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑</a>
-										</td>
-										<td data-label="配送方式"><em class="text">宅配</em></td>
-										<td data-label="贈品"><em class="text">雅詩蘭黛特潤精華 5ml</em></td>
-										<td class="b-text-right-xs" data-label="單價(NT$)"><em class="text">3,990 元</em></td>
-										<td class="b-text-right-xs" data-label="數量"><em class="text">1</em></td>
-										<td class="b-text-right-xs" data-label="小計(NT$)"><em class="text">3,990 元</em></td>
-									</tr>
-									<tr>
-										<td data-label="商品">
-											<a href="javascript:;" class="b-link">STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑</a>
-										</td>
-										<td data-label="配送方式"><em class="text">宅配</em></td>
-										<td data-label="贈品"></td>
-										<td class="b-text-right-xs" data-label="單價(NT$)"><em class="text">3,990 元</em></td>
-										<td class="b-text-right-xs" data-label="數量"><em class="text">1</em></td>
-										<td class="b-text-right-xs" data-label="小計(NT$)"><em class="text">3,990 元</em></td>
-									</tr>
-									<tr>
-										<td data-label="商品">
-											<a href="javascript:;" class="b-link">STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑</a>
-										</td>
-										<td data-label="配送方式"><em class="text">到店取貨<br>板橋大遠百7樓服務台</em></td>
-										<td data-label="贈品"></td>
-										<td class="b-text-right-xs" data-label="單價(NT$)"><em class="text">3,990 元</em></td>
-										<td class="b-text-right-xs" data-label="數量"><em class="text">1</em></td>
-										<td class="b-text-right-xs" data-label="小計(NT$)"><em class="text">3,990 元</em></td>
-									</tr>
-								</tbody>
-							</table>
-							<div class="purchase-info b-text-right"><em class="text">共 <span class="highlight">3</span> 件商品，商品金額： <span class="highlight">8,008</span> 元</em></div>
-							<div class="purchase-info b-text-right">
-								<em class="text b-col-dt-10 b-col-xs-8 b-text-right-xs b-inline">使用購物金(抵用券)折抵</em>
-								<em class="text b-col-dt-2 b-col-xs-4 b-text-right-xs b-inline"><span class="highlight">-100</span> 元</em>
+							<div class="btn-wrap b-text-right">
+								<a href="cart-step1.html" class="btn-link btn-cancel b-col-xs-6">返回編輯</a>
+								<button type="submit" class="btn-link btn-main b-col-xs-6">前往付款</button>
 							</div>
-							<div class="purchase-info b-text-right">
-								<em class="text b-col-dt-10 b-col-xs-8 b-text-right-xs b-inline">使用折價券序號折抵</em>
-								<em class="text b-col-dt-2 b-col-xs-4 b-text-right-xs b-inline"><span class="highlight">-100</span> 元</em>
-							</div>
-							<div class="purchase-info b-text-right"><em class="text">金額總計： <span class="highlight">8,008</span> 元</em></div>
-							<div class="purchase-info b-text-right"><em class="text">HAPPYGO卡號累積點數 卡號：<span class="highlight">1234123145646</span> 本次累點約 <span class="highlight">80</span> 點</em></div>
-							<div class="purchase-info b-text-right"><em class="text">此筆訂單可獲得的購物金為：<span class="highlight">80</span> 元</em></div>
-						</div>
-						<div class="sheet form-input payment-info">
-							<h4 class="info-title underline b-clearfix">
-								<em class="main-desc b-float-left-dt b-block">付款資料明細</em>
-							</h4>
-							<div class="m-form b-col-dt-12 b-col-xs-12">
-								<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">付款人姓名</em>
-								<span class="text b-col-dt-12 b-col-xs-12 b-block">蔡依琳</span>
-							</div>
-							<div class="m-form b-col-md-6 b-col-sm-12 b-clearfix">
-								<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">付款人電話</em>
-								<div class="b-col-dt-4 b-col-xs-12 b-clearfix b-float-left-dt">
-									<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">市話（日）</em>
-									<span class="text b-col-dt-12 b-col-xs-12 b-block">02-82263668 分機123</span>
+							<div class="sheet underline">
+								<h4 class="info-title b-clearfix">
+									<em class="main-desc b-float-left-dt b-block">本次訂購商品</em>
+									<span class="sub-desc b-float-right-dt b-block">共 <span class="highlight">3</span> 件商品，請確認以下商品資訊並進行結帳</span>
+								</h4>
+								<table class="m-table table-rotate">
+									<thead>
+										<tr>
+											<td><em class="text">商品</em></td>
+											<td><em class="text">配送方式</em></td>
+											<td><em class="text">贈品</em></td>
+											<td><em class="text">單價(NT$)</em></td>
+											<td><em class="text">數量</em></td>
+											<td><em class="text">小計(NT$)</em></td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td data-label="商品">
+												<a href="javascript:;" class="b-link">STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑</a>
+											</td>
+											<td data-label="配送方式"><em class="text">宅配</em></td>
+											<td data-label="贈品"><em class="text">雅詩蘭黛特潤精華 5ml</em></td>
+											<td class="b-text-right-xs" data-label="單價(NT$)"><em class="text">3,990 元</em></td>
+											<td class="b-text-right-xs" data-label="數量"><em class="text">1</em></td>
+											<td class="b-text-right-xs" data-label="小計(NT$)"><em class="text">3,990 元</em></td>
+										</tr>
+										<tr>
+											<td data-label="商品">
+												<a href="javascript:;" class="b-link">STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑</a>
+											</td>
+											<td data-label="配送方式"><em class="text">宅配</em></td>
+											<td data-label="贈品"></td>
+											<td class="b-text-right-xs" data-label="單價(NT$)"><em class="text">3,990 元</em></td>
+											<td class="b-text-right-xs" data-label="數量"><em class="text">1</em></td>
+											<td class="b-text-right-xs" data-label="小計(NT$)"><em class="text">3,990 元</em></td>
+										</tr>
+										<tr>
+											<td data-label="商品">
+												<a href="javascript:;" class="b-link">STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑</a>
+											</td>
+											<td data-label="配送方式"><em class="text">到店取貨<br>板橋大遠百7樓服務台</em></td>
+											<td data-label="贈品"></td>
+											<td class="b-text-right-xs" data-label="單價(NT$)"><em class="text">3,990 元</em></td>
+											<td class="b-text-right-xs" data-label="數量"><em class="text">1</em></td>
+											<td class="b-text-right-xs" data-label="小計(NT$)"><em class="text">3,990 元</em></td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="purchase-info b-text-right"><em class="text">共 <span class="highlight">3</span> 件商品，商品金額： <span class="highlight">8,008</span> 元</em></div>
+								<div class="purchase-info b-text-right">
+									<em class="text b-col-dt-10 b-col-xs-8 b-text-right-xs b-inline">使用購物金(抵用券)折抵</em>
+									<em class="text b-col-dt-2 b-col-xs-4 b-text-right-xs b-inline"><span class="highlight">-100</span> 元</em>
 								</div>
-								<div class="b-col-dt-4 b-col-xs-12 b-clearfix b-float-left-dt">
-									<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">市話（夜）</em>
-									<span class="text b-col-dt-12 b-col-xs-12 b-block">02-82263668 分機123</span>
+								<div class="purchase-info b-text-right">
+									<em class="text b-col-dt-10 b-col-xs-8 b-text-right-xs b-inline">使用折價券序號折抵</em>
+									<em class="text b-col-dt-2 b-col-xs-4 b-text-right-xs b-inline"><span class="highlight">-100</span> 元</em>
 								</div>
-								<div class="b-col-dt-4 b-col-xs-12 b-clearfix b-float-left-dt">
-									<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">手機號碼</em>
-									<span class="text b-col-dt-12 b-col-xs-12 b-block">0912345678</span>
+								<div class="purchase-info b-text-right"><em class="text">金額總計： <span class="highlight">8,008</span> 元</em></div>
+								<div class="purchase-info b-text-right"><em class="text">HAPPYGO卡號累積點數 卡號：<span class="highlight">1234123145646</span> 本次累點約 <span class="highlight">80</span> 點</em></div>
+								<div class="purchase-info b-text-right"><em class="text">此筆訂單可獲得的購物金為：<span class="highlight">80</span> 元</em></div>
+							</div>
+							<div class="sheet form-input payment-info">
+								<h4 class="info-title underline b-clearfix">
+									<em class="main-desc b-float-left-dt b-block">付款資料明細</em>
+								</h4>
+								<div class="m-form b-col-dt-12 b-col-xs-12">
+									<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">付款人姓名</em>
+									<span class="text b-col-dt-12 b-col-xs-12 b-block">蔡依琳</span>
+								</div>
+								<div class="m-form b-col-md-6 b-col-sm-12 b-clearfix">
+									<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">付款人電話</em>
+									<div class="b-col-dt-4 b-col-xs-12 b-clearfix b-float-left-dt">
+										<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">市話（日）</em>
+										<span class="text b-col-dt-12 b-col-xs-12 b-block">02-82263668 分機123</span>
+									</div>
+									<div class="b-col-dt-4 b-col-xs-12 b-clearfix b-float-left-dt">
+										<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">市話（夜）</em>
+										<span class="text b-col-dt-12 b-col-xs-12 b-block">02-82263668 分機123</span>
+									</div>
+									<div class="b-col-dt-4 b-col-xs-12 b-clearfix b-float-left-dt">
+										<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">手機號碼</em>
+										<span class="text b-col-dt-12 b-col-xs-12 b-block">0912345678</span>
+									</div>
+								</div>
+								<div class="m-form b-col-dt-12 b-col-xs-12 b-clearfix">
+									<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">地址</em>
+									<span class="text b-col-dt-12 b-col-xs-12 b-block">220 新北市板橋區新站路20號16樓</span>
+								</div>
+								<div class="m-form b-col-dt-12 b-col-xs-12 b-clearfix">
+									<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">付款方式</em>
+									<span class="text b-col-dt-12 b-col-xs-12 b-block">信用卡12期付款</span>
+								</div>
+								<div class="m-form b-col-dt-12 b-col-xs-12 b-clearfix">
+									<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">發票資訊</em>
+									<span class="text b-col-dt-12 b-col-xs-12 b-block">選擇將發票存取於手機條碼</span>
+									<span class="text b-col-dt-12 b-col-xs-12 b-block">選擇將發票存取於自然人憑證</span>
+									<span class="text b-col-dt-12 b-col-xs-12 b-block">選擇將發票捐贈：5222 社團法人台灣愛兔協會</span>
+									<span class="text b-col-dt-12 b-col-xs-12 b-block">選擇開立公司用電子發票（發票證明聯）收件人：蔡依琳小姐</span>
+									<span class="text b-col-dt-12 b-col-xs-12 b-block">統一編號：123456789 發票抬頭：xxx有限公司</span>
+									<span class="text b-col-dt-12 b-col-xs-12 b-block">地址：新北市板橋區縣政路16號21樓</span>
+									<span class="text b-col-dt-12 b-col-xs-12 b-block">選擇索取紙本發票：收件人：蔡依琳小姐 / 地址：新北市板橋區縣政路16號21樓</span>
 								</div>
 							</div>
-							<div class="m-form b-col-dt-12 b-col-xs-12 b-clearfix">
-								<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">地址</em>
-								<span class="text b-col-dt-12 b-col-xs-12 b-block">220 新北市板橋區新站路20號16樓</span>
-							</div>
-							<div class="m-form b-col-dt-12 b-col-xs-12 b-clearfix">
-								<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">付款方式</em>
-								<span class="text b-col-dt-12 b-col-xs-12 b-block">信用卡12期付款</span>
-							</div>
-							<div class="m-form b-col-dt-12 b-col-xs-12 b-clearfix">
-								<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">發票資訊</em>
-								<span class="text b-col-dt-12 b-col-xs-12 b-block">選擇將發票存取於手機條碼</span>
-								<span class="text b-col-dt-12 b-col-xs-12 b-block">選擇將發票存取於自然人憑證</span>
-								<span class="text b-col-dt-12 b-col-xs-12 b-block">選擇將發票捐贈：5222 社團法人台灣愛兔協會</span>
-								<span class="text b-col-dt-12 b-col-xs-12 b-block">選擇開立公司用電子發票（發票證明聯）收件人：蔡依琳小姐</span>
-								<span class="text b-col-dt-12 b-col-xs-12 b-block">統一編號：123456789 發票抬頭：xxx有限公司</span>
-								<span class="text b-col-dt-12 b-col-xs-12 b-block">地址：新北市板橋區縣政路16號21樓</span>
-								<span class="text b-col-dt-12 b-col-xs-12 b-block">選擇索取紙本發票：收件人：蔡依琳小姐 / 地址：新北市板橋區縣政路16號21樓</span>
-							</div>
-						</div>
-						<div class="sheet">
-							<h4 class="info-title underline b-clearfix">
-								<em class="main-desc b-float-left-dt b-block">商品配送明細</em>
-							</h4>
-							<table class="m-table table-rotate">
-								<thead>
-									<tr>
-										<td><em class="text">商品</em></td>
-										<td><em class="text">配送方式</em></td>
-										<td><em class="text">贈品</em></td>
-										<td><em class="text">單價(NT$)</em></td>
-										<td><em class="text">數量</em></td>
-										<td><em class="text">小計(NT$)</em></td>
-										<td><em class="text">配送資訊</em></td>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td class="b-text-right-xs" data-label="商品">
-											<div class="m-table-xs-wrap">
-												<div class="item-info">
-													<figure class="img-wrap b-hide-xs">
-														<img src="../../content/img/cart/sheet/01.jpg" alt="STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑">
-														<figcaption class="desc b-hide-text">STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑</figcaption>
-													</figure>
-													<em class="item-name">STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑</em>
+							<div class="sheet">
+								<h4 class="info-title underline b-clearfix">
+									<em class="main-desc b-float-left-dt b-block">商品配送明細</em>
+								</h4>
+								<table class="m-table table-rotate">
+									<thead>
+										<tr>
+											<td><em class="text">商品</em></td>
+											<td><em class="text">配送方式</em></td>
+											<td><em class="text">贈品</em></td>
+											<td><em class="text">單價(NT$)</em></td>
+											<td><em class="text">數量</em></td>
+											<td><em class="text">小計(NT$)</em></td>
+											<td><em class="text">配送資訊</em></td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="b-text-right-xs" data-label="商品">
+												<div class="m-table-xs-wrap">
+													<div class="item-info">
+														<figure class="img-wrap b-hide-xs">
+															<img src="../../content/img/cart/sheet/01.jpg" alt="STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑">
+															<figcaption class="desc b-hide-text">STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑</figcaption>
+														</figure>
+														<em class="item-name">STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑</em>
+													</div>
 												</div>
-											</div>
-										</td>
-										<td class="b-text-right-xs" data-label="配送方式"><em class="text">宅配</em></td>
-										<td class="b-text-right-xs" data-label="贈品"><em class="text">雅詩蘭黛特潤精華 5ml</em></td>
-										<td class="b-text-right-xs" data-label="單價(NT$)"><em class="text">3,990 元</em></td>
-										<td class="b-text-right-xs" data-label="數量"><em class="text">1</em></td>
-										<td class="b-text-right-xs" data-label="小計(NT$)"><em class="text">3,990 元</em></td>
-										<td class="b-text-left b-text-right-xs" data-label="配送資訊">
-											<div class="deliver-info">
-												<em class="text b-block">收件人：蔡依琳</em>
-												<div class="phone-style b-inline"><em class="text">電話：市話(日) 02-82263668 分機123<br><span class="sub-phone-info">(夜) 02-82263668</span><br>手機 0912345678</em></div>
-												<em class="text b-block">地址：新北市板橋區新站路20號16樓</em>
-												<em class="text b-block">配送特殊需求： 管理員代收</em>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td class="b-text-right-xs" data-label="商品">
-											<div class="m-table-xs-wrap">
-												<div class="item-info">
-													<figure class="img-wrap b-hide-xs">
-														<img src="../../content/img/cart/sheet/02.jpg" alt="STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑">
-														<figcaption class="desc b-hide-text">STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑</figcaption>
-													</figure>
-													<em class="item-name">STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑</em>
+											</td>
+											<td class="b-text-right-xs" data-label="配送方式"><em class="text">宅配</em></td>
+											<td class="b-text-right-xs" data-label="贈品"><em class="text">雅詩蘭黛特潤精華 5ml</em></td>
+											<td class="b-text-right-xs" data-label="單價(NT$)"><em class="text">3,990 元</em></td>
+											<td class="b-text-right-xs" data-label="數量"><em class="text">1</em></td>
+											<td class="b-text-right-xs" data-label="小計(NT$)"><em class="text">3,990 元</em></td>
+											<td class="b-text-left b-text-right-xs" data-label="配送資訊">
+												<div class="deliver-info">
+													<em class="text b-block">收件人：蔡依琳</em>
+													<div class="phone-style b-inline"><em class="text">電話：市話(日) 02-82263668 分機123<br><span class="sub-phone-info">(夜) 02-82263668</span><br>手機 0912345678</em></div>
+													<em class="text b-block">地址：新北市板橋區新站路20號16樓</em>
+													<em class="text b-block">配送特殊需求： 管理員代收</em>
 												</div>
-												<p class="note b-text-right-xs"><i class="m-icon m-icon-bell-o"></i><em class="text">限時24小時，指定商品結帳再85折</em></p>
-											</div>
-										</td>
-										<td class="b-text-right-xs" data-label="配送方式"><em class="text">宅配</em></td>
-										<td class="b-text-right-xs" data-label="贈品"><em class="text"></em></td>
-										<td class="b-text-right-xs" data-label="單價(NT$)"><em class="text">3,990 元</em></td>
-										<td class="b-text-right-xs" data-label="數量"><em class="text">1</em></td>
-										<td class="b-text-right-xs" data-label="小計(NT$)"><em class="text">3,990 元</em></td>
-										<td class="b-text-left b-text-right-xs" data-label="配送資訊">
-											<div class="deliver-info">
-												<em class="text b-block">收件人：蔡依琳</em>
-												<div class="phone-style b-inline"><em class="text">電話：市話(日) 02-82263668 分機123<br><span class="sub-phone-info">(夜) 02-82263668</span><br>手機 0912345678</em></div>
-												<em class="text b-block">地址：新北市板橋區新站路20號16樓</em>
-												<em class="text b-block">配送特殊需求： 管理員代收</em>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td class="b-text-right-xs" data-label="商品">
-											<div class="m-table-xs-wrap">
-												<div class="item-info">
-													<figure class="img-wrap b-hide-xs">
-														<img src="../../content/img/cart/sheet/03.jpg" alt="STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑">
-														<figcaption class="desc b-hide-text">STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑</figcaption>
-													</figure>
-													<em class="item-name">STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑</em>
+											</td>
+										</tr>
+										<tr>
+											<td class="b-text-right-xs" data-label="商品">
+												<div class="m-table-xs-wrap">
+													<div class="item-info">
+														<figure class="img-wrap b-hide-xs">
+															<img src="../../content/img/cart/sheet/02.jpg" alt="STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑">
+															<figcaption class="desc b-hide-text">STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑</figcaption>
+														</figure>
+														<em class="item-name">STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑</em>
+													</div>
+													<p class="note b-text-right-xs"><i class="m-icon m-icon-bell-o"></i><em class="text">限時24小時，指定商品結帳再85折</em></p>
 												</div>
-												<p class="note b-text-right-xs"><i class="m-icon m-icon-bell-o"></i><em class="text">限時24小時，指定商品結帳再85折</em></p>
-											</div>
-										</td>
-										<td class="b-text-right-xs" data-label="配送方式">
-											<div class="deliver-info">
-												<em class="text">到店取貨</em>
-												<p class="note b-bold b-text-center b-text-right-xs"><em class="text">取貨地點：<br class="b-hide-xs">板橋大遠百-7樓服務台</em></p>
-											</div>
-										</td>
-										<td class="b-text-right-xs" data-label="贈品"><em class="text">雅詩蘭黛特潤精華 5ml</em></td>
-										<td class="b-text-right-xs" data-label="單價(NT$)"><em class="text">3,990 元</em></td>
-										<td class="b-text-right-xs" data-label="數量"><em class="text">1</em></td>
-										<td class="b-text-right-xs" data-label="小計(NT$)"><em class="text">3,990 元</em></td>
-										<td class="b-text-left b-text-right-xs" data-label="配送資訊">
-											<div class="deliver-info">
-												<em class="text b-block">收件人：蔡依琳</em>
-												<div class="phone-style b-inline"><em class="text">電話：市話(日) 02-82263668 分機123<br><span class="sub-phone-info">(夜) 02-82263668</span><br>手機 0912345678</em></div>
-												<em class="text b-block">到店取貨，取貨地點：板橋大遠百-7樓服務台。</em>
-											</div>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-						<div class="btn-wrap b-text-right">
-							<a href="cart-step1.html" class="btn-link btn-cancel b-col-xs-6">返回編輯</a>
-							<a href="cart-step3.html" class="btn-link btn-main b-col-xs-6">前往付款</a>
-						</div>
+											</td>
+											<td class="b-text-right-xs" data-label="配送方式"><em class="text">宅配</em></td>
+											<td class="b-text-right-xs" data-label="贈品"><em class="text"></em></td>
+											<td class="b-text-right-xs" data-label="單價(NT$)"><em class="text">3,990 元</em></td>
+											<td class="b-text-right-xs" data-label="數量"><em class="text">1</em></td>
+											<td class="b-text-right-xs" data-label="小計(NT$)"><em class="text">3,990 元</em></td>
+											<td class="b-text-left b-text-right-xs" data-label="配送資訊">
+												<div class="deliver-info">
+													<em class="text b-block">收件人：蔡依琳</em>
+													<div class="phone-style b-inline"><em class="text">電話：市話(日) 02-82263668 分機123<br><span class="sub-phone-info">(夜) 02-82263668</span><br>手機 0912345678</em></div>
+													<em class="text b-block">地址：新北市板橋區新站路20號16樓</em>
+													<em class="text b-block">配送特殊需求： 管理員代收</em>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td class="b-text-right-xs" data-label="商品">
+												<div class="m-table-xs-wrap">
+													<div class="item-info">
+														<figure class="img-wrap b-hide-xs">
+															<img src="../../content/img/cart/sheet/03.jpg" alt="STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑">
+															<figcaption class="desc b-hide-text">STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑</figcaption>
+														</figure>
+														<em class="item-name">STEVE MADDEN - 摺疊肩背手拿絨布兩用小包 - 古典黑</em>
+													</div>
+													<p class="note b-text-right-xs"><i class="m-icon m-icon-bell-o"></i><em class="text">限時24小時，指定商品結帳再85折</em></p>
+												</div>
+											</td>
+											<td class="b-text-right-xs" data-label="配送方式">
+												<div class="deliver-info">
+													<em class="text">到店取貨</em>
+													<p class="note b-bold b-text-center b-text-right-xs"><em class="text">取貨地點：<br class="b-hide-xs">板橋大遠百-7樓服務台</em></p>
+												</div>
+											</td>
+											<td class="b-text-right-xs" data-label="贈品"><em class="text">雅詩蘭黛特潤精華 5ml</em></td>
+											<td class="b-text-right-xs" data-label="單價(NT$)"><em class="text">3,990 元</em></td>
+											<td class="b-text-right-xs" data-label="數量"><em class="text">1</em></td>
+											<td class="b-text-right-xs" data-label="小計(NT$)"><em class="text">3,990 元</em></td>
+											<td class="b-text-left b-text-right-xs" data-label="配送資訊">
+												<div class="deliver-info">
+													<em class="text b-block">收件人：蔡依琳</em>
+													<div class="phone-style b-inline"><em class="text">電話：市話(日) 02-82263668 分機123<br><span class="sub-phone-info">(夜) 02-82263668</span><br>手機 0912345678</em></div>
+													<em class="text b-block">到店取貨，取貨地點：板橋大遠百-7樓服務台。</em>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="btn-wrap b-text-right">
+								<a href="cart-step1.html" class="btn-link btn-cancel b-col-xs-6">返回編輯</a>
+								<button type="submit" class="btn-link btn-main b-col-xs-6">前往付款</button>
+							</div>
+						</form>
 					</div>
 				</section>
 			</div>
@@ -329,4 +295,6 @@
 	<!--#include virtual="../Shared/Not-support.html" -->
 </body>
 <!--#include virtual="../Shared/GlobalScriptFt.html" -->
+<script defer src="../../scripts/plugin/jquery.validation/jquery.validate.min.js?js=20160420_01"></script>
+<script defer src="../../scripts/js/cart.js?JS=20160420_01"></script>
 </html>

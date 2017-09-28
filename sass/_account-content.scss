@@ -821,6 +821,16 @@
 		margin: 0 4px;
 	}
 
+	.m-table .b-link {
+		color: #0054fe;
+		text-decoration: underline;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+
 	.l-lightbox {
 		.m-lightbox-content .m-lightbox-bd {
 			padding: 0 20px;

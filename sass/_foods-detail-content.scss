@@ -42,7 +42,7 @@
 		font-weight: bold;
 
 		&:not(:first-child) {
-			margin-top: 20px;
+			margin-top: 12px;
 			border-top: 1px solid $color-gray-l-p20;
 		}
 
@@ -79,6 +79,69 @@
 
 		.b-link {
 			@include transition(ease-in color 0.3s);
+		}
+	}
+}
+
+.post-tools {
+	> * {
+		display: inline-block;
+		vertical-align: bottom;
+	}
+
+	.info-tag {
+		padding: 0 10px;
+		background: $color-gray-d-p30;
+		color: $color-white;
+		font-size: 0;
+		letter-spacing: 1px;
+
+		> * {
+			display: inline-block;
+			height: 26px;
+			font-size: 13px;
+			line-height: 26px;
+
+			&:not(:first-child):before {
+				content: '|';
+				padding: 0 5px;
+			}
+		}
+	}
+
+	.btn-tool {
+		&.btn-fb-share:hover > * {
+			color: $color-facebook;
+		}
+
+		&.btn-like {
+			.m-icon {
+				width: 20px;
+				height: 26px;
+
+				&:before, &:after {
+					left: 0;
+				}
+			}
+
+			&:hover > * {
+				color: $color-text-major;
+			}
+		}
+
+		> * {
+			line-height: 26px;
+			@include transition(ease-in all 0.3s);
+		}
+
+		.m-icon {
+			color: $color-gray-l-p10;
+			font-size: 20px;
+		}
+
+		.text {
+			color: $color-gray-d-p30;
+			font-size: 14px;
 		}
 	}
 }
@@ -356,6 +419,16 @@
 		}
 	}
 
+	.post-tools .btn-tool {
+		&:not(:last-child) {
+			margin-right: 16px;
+		}
+
+		.m-icon {
+			padding-right: 6px;
+		}
+	}
+
 	.info-list {
 		.list {
 			margin-top: 10px;
@@ -558,6 +631,10 @@
 				font-size: 24px;
 			}
 		}
+	}
+
+	.post-tools .btn-tool:not(:last-child) {
+		margin-right: 10px;
 	}
 
 	.info-list .text, .b-link {

@@ -390,6 +390,18 @@
                         if (validator.invalid.agreement !== undefined) {
                             $('.m-checkbox').parent('.m-box-holder.is-checkbox').addClass('error');
                         }
+                    },
+                    rules : {
+                        password : 'passwordRule',
+                        checkpassword : {
+                            equalTo : '[name="password"]'
+                        }
+                    },
+                    messages : {
+                        password :$forms.eq(i).find('[name="password"]').data('msg-type'),
+                        checkpassword : {
+                            equalTo : $forms.eq(i).find('[name="checkpassword"]').data('msg-equal')
+                        }
                     }
                 });
 
@@ -419,6 +431,12 @@
         jQuery.validator.addMethod('phone' , function (value, elem, params) {
             var _phone = /^09[0-9]{8}$/;
             return this.optional(elem) || ( _phone.test(value) );
+        });
+
+        /* password checked */
+        jQuery.validator.addMethod('passwordRule' , function (value, elem, params) {
+            var _password = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+            return this.optional(elem) || ( _password.test(value) );
         });
 
         /* idcard checked */
@@ -473,6 +491,9 @@
             },
             'phone' : {
                 phone : true
+            },
+            'passwordRule' : {
+                passwordRule : true
             },
             'idcard' : {
                 idcard : true
