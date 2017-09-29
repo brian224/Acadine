@@ -160,23 +160,27 @@
 		overflow: hidden;
 		@include transition(ease-in all 0.3s);
 
-		.function-wrap .btn-link {
-			position: relative;
+		.function-wrap {
+			width: 100%;
 
-			.count {
-				margin-top: -10px;
-				padding: 0 10px;
-				background: #ff6a5b;
-				position: absolute;
-				top: 50%;
-				right: 20px;
-				border-radius: 10px;
-				color: $color-white;
-				font-size: 12px;
-				line-height: 20px;
+			.btn-link {
+				position: relative;
+	
+				.count {
+					margin-top: -10px;
+					padding: 0 10px;
+					background: #ff6a5b;
+					position: absolute;
+					top: 50%;
+					right: 20px;
+					border-radius: 10px;
+					color: $color-white;
+					font-size: 12px;
+					line-height: 20px;
+				}
 			}
 		}
-		
+
 		.function-title {
 			border-bottom: 1px solid $color-gray-l-p40;
 			color: $color-gray-d-p30;

@@ -38,8 +38,11 @@
 		this._btnOpen      = '.jQ-open-calendar';
 		this._btnClose     = '.jQ-close-calendar';
 		this._btnLike      = '.jQ-like';
+		this._btnFinish    = '.jQ-finish';
+		this._btnNext      = '.jQ-next';
 		this._addingWrap   = '.m-adding-wrap';
 		this._shortcutWrap = '.shortcut-wrap';
+		this._teachOwl     = '.teach-owl';
 		this._leavePage    = false;
 		this._animateSpeed = 400;
 		this._masonryLoad  = false;
@@ -85,6 +88,13 @@
 		});
 	}
 
+	// 首次使用教學
+	page.prototype.teachLesson = function() {
+		if (localStorage.getItem('teach-lesson') !== 'true') {
+			$(common._lBody).addClass('show-teach');
+		}
+	}
+
 	// 點擊目標區域以外的地方可關閉目標區域
 	page.prototype.offClick = function(_target) {
 		projects.$d.off('click').on('click' , function(e){
@@ -126,8 +136,8 @@
 		if (_totalH <= _cutH + Math.ceil(_scrollH)) {
 			$(common._lBody).addClass('show-footer');
 
-			if ($(common._lBody).hasClass('branch') && !common._masonryLoad) {
-				var $item = $('<li class="list-item"><a href="javascript:;" class="b-link from-instagram"><figure class="img-wrap"><img src="../../content/img/branch/social/09.png" alt=""><figcaption class="desc">是時候來點下午茶囉！ 喝茶也要很時尚是時候來點下午茶囉！ 喝茶也要很時尚是時候來點下午茶囉！ 喝茶也要很時尚</figcaption></figure></a></li><li class="list-item"><a href="javascript:;" class="b-link from-facebook"><figure class="img-wrap"><img src="../../content/img/branch/social/10.jpg" alt=""><figcaption class="desc">歡慶週年慶，小編極力爭取限量雲朵家族來店禮抽獎唷！【遠百IG限定活動】 完成下列兩個步驟，即符合抽獎資格 1. 追蹤遠百IG帳號 。</figcaption></figure></a></li><li class="list-item"><a href="javascript:;" class="b-link from-instagram"><figure class="img-wrap"><img src="../../content/img/branch/social/11.jpg" alt=""><figcaption class="desc">是時候來點下午茶囉！ 喝茶也要很時尚</figcaption></figure></a></li><li class="list-item"><a href="javascript:;" class="b-link from-facebook"><figure class="img-wrap"><img src="../../content/img/branch/social/12.jpg" alt=""><figcaption class="desc">歡慶週年慶，小編極力爭取限量雲朵家族來店禮抽獎唷！【遠百IG限定活動】 完成下列兩個步驟，即符合抽獎資格 1. 追蹤遠百IG帳號 。</figcaption></figure></a></li><li class="list-item"><a href="javascript:;" class="b-link from-instagram"><figure class="img-wrap"><img src="../../content/img/branch/social/13.jpg" alt=""><figcaption class="desc">是時候來點下午茶囉！ 喝茶也要很時尚</figcaption></figure></a></li><li class="list-item"><a href="javascript:;" class="b-link from-instagram"><figure class="img-wrap"><img src="../../content/img/branch/social/14.jpg" alt=""><figcaption class="desc">歡慶週年慶，小編極力爭取限量雲朵家族來店禮抽獎唷！【遠百IG限定活動】 完成下列兩個步驟，即符合抽獎資格 1. 追蹤遠百IG帳號 。</figcaption></figure></a></li><li class="list-item"><a href="javascript:;" class="b-link from-instagram"><figure class="img-wrap"><img src="../../content/img/branch/social/15.jpg" alt=""><figcaption class="desc">是時候來點下午茶囉！ 喝茶也要很時尚</figcaption></figure></a></li><li class="list-item"><a href="javascript:;" class="b-link from-instagram"><figure class="img-wrap"><img src="../../content/img/branch/social/16.jpg" alt=""><figcaption class="desc">歡慶週年慶，小編極力爭取限量雲朵家族來店禮抽獎唷！【遠百IG限定活動】 完成下列兩個步驟，即符合抽獎資格 1. 追蹤遠百IG帳號 。</figcaption></figure></a></li>');
+			if ($(common._lBody).hasClass('branch') && !common._masonryLoad && localStorage.getItem('teach-lesson') === 'true') {
+				var $item = $(pageObj._masonryArray.join(''));
 
 				$('.social-wall').append($item).masonry('appended', $item);
 				common._masonryLoad = true;
@@ -387,6 +397,7 @@
 
 	projects.$d.ready(function(){
 		common.selectInputCheck();
+		common.teachLesson();
 
 		if (sessionStorage.getItem('marquee') === 'readed') {
 			$(common._lBody).removeClass('show-marquee');
@@ -435,6 +446,34 @@
 		}
 
 		common.selectUI();
+
+		// 結束首次教學
+		$(common._btnFinish).on('click', function(){
+			localStorage.setItem('teach-lesson', true);
+
+			$(common._lBody).addClass('fade-out').on('webkitAnimationEnd oAnimationend oAnimationEnd msAnimationEnd animationend', function(){
+				$(common._lBody).removeClass('show-teach fade-out').off('webkitAnimationEnd oAnimationend oAnimationEnd msAnimationEnd animationend');
+			});
+		});
+
+		// 教學下一步
+		$(common._btnNext).on('click', function(){
+			if (projects.device() !== 'Mobile') {
+				$('.m-teach').attr('data-step', $(this).data('next'));
+			} else {
+				projects.owlNext(common._teachOwl);
+			}
+		});
+
+		projects.owlEvents(common._teachOwl, 'changed.owl.carousel' , function(event){
+			var _index = event.item.index;
+
+			if (_index === event.item.count - 1) {
+				$(common._teachOwl).next('.btn-wrap').addClass('end-owl');
+			} else {
+				$(common._teachOwl).next('.btn-wrap').removeClass('end-owl');
+			}
+		});
 
 		$(common._btnTop).on('click', function(){
 			projects.$hb.animate({'scrollTop': 0}, common._animateSpeed);
