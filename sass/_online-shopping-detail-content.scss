@@ -32,13 +32,6 @@
 		}
 
 		.photo-slider {
-			opacity: 0;
-			@include transition(ease-in all 0.5s);
-			
-			&.owl-loaded {
-				opacity: 1;
-			}
-
 			.owl-stage {
 				@include display-flex;
 				@include align-items(stretch);
@@ -189,6 +182,8 @@
 			}
 
 			&.btn-like {
+				line-height: 0;
+				
 				&.is-add .m-icon:after {
 					opacity: 1;
 				}

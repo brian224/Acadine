@@ -370,12 +370,15 @@
 
 	page.prototype.btnFavorite = function(elem, decide) {
 		if (decide === true) {
-			$(elem).addClass('is-add').find('.text').text('已加入收藏');
-			alert('已加入收藏');
+			$(elem).addClass('is-add show-text').find('.text').text('已加入收藏');
 		} else {
-			$(elem).removeClass('is-add').find('.text').text('已取消收藏');
-			alert('已取消收藏');
+			$(elem).removeClass('is-add').addClass('show-text').find('.text').text('已取消收藏');
 		}
+
+		$(elem).find('.text').delay(1500).queue(function(){
+			$(this).dequeue();
+			$(elem).removeClass('show-text');
+		});
 	}
 
 	page.prototype.btnGoogleCalendsr = function(elem) {
@@ -657,6 +660,10 @@
 
 			if ($(this).data('sidebar-close') === true) {
 				$(common._sideMenu).removeClass('is-active');
+			}
+
+			if ($(this).data('place') !== 'aside') {
+				$(common._lBody).removeClass('is-padding-arrow');
 			}
 
 			if($(common._addingWrap).hasClass('is-open')) {

@@ -109,6 +109,12 @@
 
 .jQ-owl {
 	position: relative;
+	opacity: 0;
+	@include transition(ease-in all 0.5s);
+	
+	&.owl-loaded {
+		opacity: 1;
+	}
 
 	&.is-light .m-owl-dots .m-owl-dot {
 		&:hover span, &.active span {

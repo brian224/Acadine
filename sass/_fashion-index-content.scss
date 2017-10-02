@@ -149,6 +149,7 @@
 	right: 0;
 	color: $color-gray-d-p20;
 	font-size: 20px;
+	line-height: 0;
 	@include transition(ease-in color 0.3s);
 
 	&:hover {
@@ -157,6 +158,35 @@
 
 	&.is-add .m-icon:after {
 		opacity: 1;
+	}
+
+	&.show-text .text {
+		margin-left: -38px;
+		padding: 2px 8px;
+		background: $color-gray-d-p10;
+		width: auto;
+		height: auto;
+		position: absolute;
+		bottom: -27px;
+		right: -10px;
+		border-radius: 4px;
+		opacity: 1;
+		overflow: visible;
+		font-size: 12px;
+		line-height: 1.5em;
+		text-indent: 0;
+		white-space: nowrap;
+
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			bottom: 100%;
+			right: 16px;
+			border-right: 4px solid transparent;
+			border-bottom: 4px solid $color-gray-d-p10;
+			border-left: 4px solid transparent;
+		}
 	}
 
 	.m-icon {
@@ -172,6 +202,12 @@
 			color: $color-text-major;
 			@include transition(ease-in opacity 0.3s);
 		}
+	}
+
+	.text {
+		opacity: 0;
+		color: $color-white;
+		@include transition(ease-in opacity 0.3s);
 	}
 }
 
@@ -395,7 +431,6 @@
 
 		.m-icon {
 			margin-right: 0 !important;
-			margin-left: 10px;
 			font-weight: normal !important;
 		}
 	}
@@ -936,6 +971,10 @@
 	}
 
 	.slide-list {
+		.owl-stage .owl-item {
+			overflow: visible;
+		}
+
 		.owl-item {
 			@include transition(ease-in all 0.3s);
 
@@ -947,6 +986,17 @@
 		.btn-like {
 			width: 40px;
 			height: 40px;
+
+			&.show-text .text {
+				bottom: -18px;
+				left: 50%;
+				right: auto;
+
+				&:after {
+					margin-right: -4px;
+					right: 50%;
+				}
+			}
 		}
 	}
 

@@ -375,10 +375,6 @@
 		position: relative;
 		border: 1px solid $color-gray-l-p30;
 		@include box-sizing(border-box);
-
-		> .shopping-link:hover .img-wrap img {
-			@include transform(scale(1.05));
-		}
 	}
 
 	.shopping-link {
@@ -387,12 +383,18 @@
 		@include align-content(stretch);
 		@include justify-content(space-between);
 		@include flex-direction(column);
-		height: auto;
+		height: 100%;
 
-		&:hover .btn-read-more {
-			background: $color-text-major;
-			border-color: $color-text-major;
-			color: $color-white;
+		&:hover {
+			.img-wrap img {
+				@include transform(scale(1.05));
+			}
+
+			.btn-read-more {
+				background: $color-text-major;
+				border-color: $color-text-major;
+				color: $color-white;
+			}
 		}
 	}
 
@@ -468,12 +470,6 @@
 		display: block;
 		border-color: $color-gray-d-p30;
 		color: $color-gray-d-p30;
-
-		&:hover {
-			background: $color-text-major;
-			border-color: $color-text-major;
-			color: $color-white;
-		}
 	}
 
 	.btn-like {
@@ -484,6 +480,7 @@
 		right: 0;
 		color: $color-gray-d-p20;
 		font-size: 20px;
+		line-height: 0;
 		@include transition(ease-in color 0.3s);
 
 		&:hover {
@@ -492,6 +489,35 @@
 
 		&.is-add .m-icon:after {
 			opacity: 1;
+		}
+
+		&.show-text .text {
+			margin-left: -38px;
+			padding: 2px 8px;
+			background: $color-gray-d-p10;
+			width: auto;
+			height: auto;
+			position: absolute;
+			bottom: -18px;
+			right: 0;
+			border-radius: 4px;
+			opacity: 1;
+			overflow: visible;
+			font-size: 12px;
+			line-height: 1.5em;
+			text-indent: 0;
+			white-space: nowrap;
+
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				bottom: 100%;
+				right: 16px;
+				border-right: 4px solid transparent;
+				border-bottom: 4px solid $color-gray-d-p10;
+				border-left: 4px solid transparent;
+			}
 		}
 
 		.m-icon {
@@ -511,6 +537,12 @@
 				color: $color-text-major;
 				@include transition(ease-in opacity 0.3s);
 			}
+		}
+
+		.text {
+			opacity: 0;
+			color: $color-white;
+			@include transition(ease-in opacity 0.3s);
 		}
 	}
 }

@@ -132,6 +132,8 @@
 		}
 
 		&.btn-like {
+			line-height: 0;
+			
 			.m-icon {
 				width: 20px;
 				height: 26px;
@@ -179,7 +181,7 @@
 	}
 }
 
-.btn-like {
+.btn-like:not(.btn-tool) {
 	color: $color-gray-d-p20;
 	font-size: 20px;
 	@include transition(ease-in color 0.3s);
@@ -190,6 +192,36 @@
 
 	&.is-add .m-icon:after {
 		opacity: 1;
+	}
+
+	&.show-text .text {
+		margin-left: -38px;
+		padding: 2px 8px;
+		background: $color-gray-d-p10;
+		width: auto;
+		height: auto;
+		position: absolute;
+		bottom: -30px;
+		left: 50%;
+		border-radius: 4px;
+		opacity: 1;
+		overflow: visible;
+		font-size: 12px;
+		line-height: 1.5em;
+		text-indent: 0;
+		white-space: nowrap;
+
+		&:after {
+			content: '';
+			margin-left: -4px;
+			display: block;
+			position: absolute;
+			bottom: 100%;
+			left: 50%;
+			border-right: 4px solid transparent;
+			border-bottom: 4px solid $color-gray-d-p10;
+			border-left: 4px solid transparent;
+		}
 	}
 
 	.m-icon {
@@ -205,9 +237,23 @@
 			@include transition(ease-in opacity 0.3s);
 		}
 	}
+
+	.text {
+		opacity: 0;
+		color: $color-white;
+		@include transition(ease-in opacity 0.3s);
+	}
 }
 
 .slide-list {
+	.owl-stage-outer {
+		overflow: visible;
+	}
+
+	.owl-stage .owl-item {
+		overflow: visible;
+	}
+
 	.img-wrap {
 		overflow: hidden;
 
@@ -416,8 +462,22 @@
 		}
 	}
 
+	.favorite-link:hover .btn-read-more {
+		background: $color-text-major;
+
+		&:before {
+			opacity: 0;
+			color: $color-white !important;
+		}
+
+		&:after {
+			background: transparent !important;
+		}
+	}
+
 	.btn-read-more {
 		display: inline-block;
+		background: transparent;
 		border-color: $color-gray-d-p30;
 		color: $color-gray-d-p30;
 		overflow: hidden;
@@ -425,6 +485,7 @@
 		text-indent: 200%;
 		text-overflow: ellipsis;
 		white-space: nowrap;
+		@include transition(ease-in all 0.3s);
 	}
 }
 
@@ -643,6 +704,14 @@
 			height: 20px;
 			top: 15px;
 			right: 15px;
+
+			&.show-text .text {
+				margin-left: -40px;
+
+				&:after {
+					margin-left: -2px;
+				}
+			}
 		}
 
 		.m-owl-dots.is-absolute {
@@ -668,6 +737,21 @@
 
 		.btn-read-more {
 			margin: 0 auto;
+		}
+
+		.btn-like {
+			width: 66px;
+			height: 66px;
+
+			&.show-text .text {
+				bottom: 9px;
+				left: auto;
+				right: 0;
+
+				&:after {
+					margin-left: 14px;
+				}
+			}
 		}
 	}
 }
@@ -698,6 +782,11 @@
 			width: 1300px;
 		}
 
+		&.favorite-cut {
+			width: 1320px;
+			overflow: hidden;
+		}
+
 		.sub-title {
 			margin-right: auto;
 			margin-left: auto;
@@ -705,21 +794,28 @@
 		}
 	}
 
-	.l-content .favorite-list, .shopping-list {
-		width: 1320px;
-	}
-
 	.shopping-list {
-		&:before {
+		width: 1320px;
+
+		&:before, &:after {
 			content: '';
-			margin-left: -960px;
 			background: $color-white;
 			display: block;
-			width: 1920px;
+			width: 500px;
 			height: 100%;
 			position: absolute;
 			top: 0;
+			z-index: 1;
+		}
+
+		&:before {
+			margin-left: 660px;
 			left: 50%;
+		}
+
+		&:after {
+			margin-right: 660px;
+			right: 50%;
 		}
 
 		.list {
@@ -924,6 +1020,10 @@
 		.btn-like {
 			width: 40px;
 			height: 40px;
+
+			&.show-text .text {
+				bottom: -18px;
+			}
 		}
 	}
 

@@ -373,6 +373,7 @@
 		right: 0;
 		color: $color-gray-d-p20;
 		font-size: 20px;
+		line-height: 0;
 		@include transition(ease-in color 0.3s);
 
 		&:hover {
@@ -381,6 +382,35 @@
 
 		&.is-add .m-icon:after {
 			opacity: 1;
+		}
+
+		&.show-text .text {
+			margin-left: -38px;
+			padding: 2px 8px;
+			background: $color-gray-d-p10;
+			width: auto;
+			height: auto;
+			position: absolute;
+			bottom: -18px;
+			right: 0;
+			border-radius: 4px;
+			opacity: 1;
+			overflow: visible;
+			font-size: 12px;
+			line-height: 1.5em;
+			text-indent: 0;
+			white-space: nowrap;
+
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				bottom: 100%;
+				right: 16px;
+				border-right: 4px solid transparent;
+				border-bottom: 4px solid $color-gray-d-p10;
+				border-left: 4px solid transparent;
+			}
 		}
 
 		.m-icon {
@@ -400,6 +430,12 @@
 				color: $color-text-major;
 				@include transition(ease-in opacity 0.3s);
 			}
+		}
+
+		.text {
+			opacity: 0;
+			color: $color-white;
+			@include transition(ease-in opacity 0.3s);
 		}
 	}
 }

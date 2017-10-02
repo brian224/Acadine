@@ -60,6 +60,7 @@
 .btn-like {
 	color: $color-gray-d-p20;
 	font-size: 20px;
+	line-height: 0;
 	@include transition(ease-in color 0.3s);
 
 	&:hover {
@@ -68,6 +69,34 @@
 
 	&.is-add .m-icon:after {
 		opacity: 1;
+	}
+
+	&.show-text .text {
+		padding: 2px 8px;
+		background: $color-gray-d-p10;
+		width: auto;
+		height: auto;
+		position: absolute;
+		bottom: 9px;
+		right: 0;
+		border-radius: 4px;
+		opacity: 1;
+		overflow: visible;
+		font-size: 12px;
+		line-height: 1.5em;
+		text-indent: 0;
+		white-space: nowrap;
+
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			bottom: 100%;
+			right: 16px;
+			border-right: 4px solid transparent;
+			border-bottom: 4px solid $color-gray-d-p10;
+			border-left: 4px solid transparent;
+		}
 	}
 
 	.m-icon {
@@ -82,6 +111,12 @@
 			color: $color-text-major;
 			@include transition(ease-in opacity 0.3s);
 		}
+	}
+
+	.text {
+		opacity: 0;
+		color: $color-white;
+		@include transition(ease-in opacity 0.3s);
 	}
 }
 
@@ -102,6 +137,8 @@
 	}
 
 	.btn-like {
+		width: 66px;
+		height: 66px;
 		position: absolute;
 		top: 0;
 		right: 0;
@@ -171,7 +208,21 @@
 		}
 	}
 
+	.favorite-link:hover .btn-read-more {
+		background: $color-text-major;
+
+		&:before {
+			opacity: 0;
+			color: $color-white !important;
+		}
+
+		&:after {
+			background: transparent !important;
+		}
+	}
+
 	.btn-read-more {
+		background: transparent;
 		display: inline-block;
 		border-color: $color-gray-d-p30;
 		color: $color-gray-d-p30;
@@ -180,6 +231,7 @@
 		text-indent: 200%;
 		text-overflow: ellipsis;
 		white-space: nowrap;
+		@include transition(ease-in all 0.3s);
 	}
 }
 
@@ -436,11 +488,6 @@
 
 		.list {
 			margin-top: 20px;
-		}
-
-		.btn-like {
-			width: 40px;
-			height: 40px;
 		}
 	}
 

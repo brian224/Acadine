@@ -74,6 +74,7 @@
 		right: 0;
 		color: $color-gray-d-p20;
 		font-size: 20px;
+		line-height: 0;
 		@include transition(ease-in color 0.3s);
 
 		&:hover {
@@ -82,6 +83,36 @@
 
 		&.is-add .m-icon:after {
 			opacity: 1;
+		}
+
+		&.show-text .text {
+			margin-left: -38px;
+			padding: 2px 8px;
+			background: $color-gray-d-p10;
+			width: auto;
+			height: auto;
+			position: absolute;
+			bottom: -30px;
+			left: 50%;
+			border-radius: 4px;
+			opacity: 1;
+			overflow: visible;
+			font-size: 12px;
+			line-height: 1.5em;
+			text-indent: 0;
+			white-space: nowrap;
+
+			&:after {
+				content: '';
+				margin-left: -4px;
+				display: block;
+				position: absolute;
+				bottom: 100%;
+				left: 50%;
+				border-right: 4px solid transparent;
+				border-bottom: 4px solid $color-gray-d-p10;
+				border-left: 4px solid transparent;
+			}
 		}
 
 		.m-icon {
@@ -97,6 +128,12 @@
 				color: $color-text-major;
 				@include transition(ease-in opacity 0.3s);
 			}
+		}
+
+		.text {
+			opacity: 0;
+			color: $color-white;
+			@include transition(ease-in opacity 0.3s);
 		}
 	}
 
@@ -158,6 +195,10 @@
 }
 
 .food-list {
+	.owl-stage-outer {
+		overflow: visible;
+	}
+
 	.owl-stage {
 		@include display-flex;
 		@include align-items(stretch);
@@ -165,6 +206,7 @@
 		.owl-item {
 			@include display-flex;
 			@include align-items(stretch);
+			overflow: visible;
 		}
 	}
 
@@ -617,6 +659,21 @@
 		.btn-read-more {
 			margin: 0 auto;
 		}
+
+		.btn-like {
+			height: 66px;
+
+			.text {
+				margin-left: 0 !important;
+				bottom: 9px !important;
+				left: auto !important;
+				right: 0;
+
+				&:after {
+					margin-left: 14px !important;
+				}
+			}
+		}
 	}
 
 	.movie-list {
@@ -648,6 +705,10 @@
 				border: 1px solid $color-gray-l-p30;
 				box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
 
+				.img-wrap img {
+					@include transform(scale(1.05));
+				}
+
 				.item-info .info-title {
 					color: $color-text-major;
 
@@ -660,6 +721,10 @@
 
 		.img-wrap {
 			width: 100%;
+
+			img {
+				@include transition(ease-in all 0.3s);
+			}
 		}
 
 		.btn-read-more {
@@ -716,6 +781,11 @@
 
 	.m-cut {
 		width: $main-max-width;
+
+		&.food-cut {
+			width: 1320px;
+			overflow: hidden;
+		}
 	}
 
 	.activity-list, .food-list, .movie-list, .shopping-list {
@@ -917,6 +987,10 @@
 		.btn-like {
 			width: 40px;
 			height: 40px;
+
+			&.show-text .text {
+				bottom: -18px;
+			}
 		}
 	}
 
@@ -944,6 +1018,10 @@
 			position: absolute;
 			top: 0;
 			left: 50%;
+		}
+
+		.owl-stage .owl-item {
+			overflow: visible;
 		}
 
 		.owl-item:not(.active) .btn-like {
