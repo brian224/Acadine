@@ -37,7 +37,6 @@
 		this._btnSearch    = '.jQ-btn-search';
 		this._btnOpen      = '.jQ-open-calendar';
 		this._btnClose     = '.jQ-close-calendar';
-		this._btnLike      = '.jQ-like';
 		this._btnFinish    = '.jQ-finish';
 		this._btnNext      = '.jQ-next';
 		this._addingWrap   = '.m-adding-wrap';
@@ -368,6 +367,7 @@
 		$('.header-wrap').append(_str);
 	}
 
+	// 加入 / 取消 收藏事件
 	page.prototype.btnFavorite = function(elem, decide) {
 		if (decide === true) {
 			$(elem).addClass('is-add show-text').find('.text').text('已加入收藏');
@@ -381,6 +381,7 @@
 		});
 	}
 
+	// 加入 / 取消 行事曆事件
 	page.prototype.btnGoogleCalendsr = function(elem) {
 		$(elem).parent('.calendar-box').prev('.btn-calendar').addClass('is-add');
 		alert('已加入行事曆');
@@ -455,7 +456,8 @@
 			localStorage.setItem('teach-lesson', true);
 
 			$(common._lBody).addClass('fade-out').on('webkitAnimationEnd oAnimationend oAnimationEnd msAnimationEnd animationend', function(){
-				$(common._lBody).removeClass('show-teach fade-out').off('webkitAnimationEnd oAnimationend oAnimationEnd msAnimationEnd animationend');
+				$(common._lBody).removeClass('show-teach').off('webkitAnimationEnd oAnimationend oAnimationEnd msAnimationEnd animationend');
+				$('.m-teach').remove();
 			});
 		});
 

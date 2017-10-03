@@ -19,7 +19,11 @@
 
 @include respond(Desktops) {}
 
-@include respond(Desktops-Tablets) {}
+@include respond(Desktops-Tablets) {
+	.shortcut-wrap .quick-list {
+		@include justify-content(flex-end);
+	}
+}
 
 @include respond(HD) {
 	.category-content {
