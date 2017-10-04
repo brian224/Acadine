@@ -294,20 +294,10 @@ $color-btn-cancel : $color-gray-l-p10;
 	.m-table {
 		width: 100%;
 
-		thead {
-			td {
-				text-align: center;
-			}
-
-			.text {
-				color: $color-gray-d-p40;
-				font-size: 14px;
-				font-weight: bold;
-			}
-		}
-
-		tbody td {
-			text-align: center;
+		thead .text {
+			color: $color-gray-d-p40;
+			font-size: 14px;
+			font-weight: bold;
 		}
 
 		tr {
@@ -316,7 +306,7 @@ $color-btn-cancel : $color-gray-l-p10;
 
 		.item-info {
 			@include display-flex;
-			@include align-items(center);
+			@include align-items(flex-start);
 			@include justify-content(center);
 		}
 
@@ -347,15 +337,6 @@ $color-btn-cancel : $color-gray-l-p10;
 
 		.btn-delete {
 			font-size: 16px;
-		}
-
-		.phone-style {
-			padding-left: 36px;
-			text-indent: -36px;
-
-			.sub-phone-info {
-				padding-left: 24px;
-			}
 		}
 	}
 
@@ -752,6 +733,12 @@ $color-btn-cancel : $color-gray-l-p10;
 	margin-bottom: 10px;
 }
 
+.cart-step2, .cart-step3 {
+	.m-cut-bd .purchase-info {
+		padding-right: 10px !important;
+	}
+}
+
 @include respond(Desktops) {
 	.m-cut {
 		margin-bottom: 70px;
@@ -964,6 +951,7 @@ $color-btn-cancel : $color-gray-l-p10;
 			tbody td {
 				padding-top: 30px;
 				padding-bottom: 30px;
+				vertical-align: top;
 			}
 
 			.item-info .item-name {

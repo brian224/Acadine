@@ -487,6 +487,10 @@
 		.list {
 			margin-bottom: 30px;
 			width: calc((100% - 60px) / 4);
+
+			&:not(:nth-child(4n)) {
+				margin-right: 20px;
+			}
 		}
 
 		.img-wrap {
@@ -591,7 +595,7 @@
 		@include align-items(stretch);
 		@include align-content(stretch);
 		@include flex-wrap(wrap);
-		@include justify-content(space-between);
+		@include justify-content(flex-start);
 		font-size: 0;
 		line-height: 0;
 
@@ -651,6 +655,10 @@
 	.shopping-list .list {
 		margin-bottom: 20px;
 		width: calc((100% - 40px) / 3);
+
+		&:not(:nth-child(3n)) {
+			margin-right: 20px;
+		}
 	}
 }
 

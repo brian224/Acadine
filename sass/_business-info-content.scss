@@ -136,7 +136,6 @@
 
 			.m-icon {
 				position: absolute;
-				top: 0;
 				left: 0;
 			}
 		}
@@ -1096,6 +1095,10 @@
 		}
 
 		.m-accordion {
+			.m-accordion-hd .btn-switch .m-icon {
+				top: 0;
+			}
+
 			.m-icon {
 				margin-right: 10px;
 			}
@@ -1662,7 +1665,9 @@
 		}
 
 		.m-accordion {
-			margin-bottom: 10px;
+			.m-accordion-hd .btn-switch .m-icon {
+				top: 50%;
+			}
 
 			.m-icon {
 				margin-right: 6px;

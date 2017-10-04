@@ -570,20 +570,14 @@
 	.l-header {
 		height: 100vh;
 		max-height: inherit;
-		overflow: hidden;
+		position: relative;
+		overflow-y: scroll;
 	}
 
 	.shortcut-wrap {
 		margin: 0;
 		background: #f4f4f4;
 		max-height: inherit !important;
-
-		.quick-list {
-			padding-right: 0;
-			height: 100vh;
-			overflow-y: scroll;
-			@include justify-content(center);
-		}
 	}
 
 	.m-logo, .btn-mobile-menu, .language-selecter, .l-nav {
@@ -623,7 +617,7 @@
 		}
 	}
 
-	.l-main {
+	.l-main, .l-footer {
 		display: none;
 	}
 }

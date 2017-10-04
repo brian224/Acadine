@@ -136,10 +136,43 @@
 	index.prototype.geolocation = function() {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(function(position) {
-				var _latitude  = position.coords.latitude,
-					_longitude = position.coords.longitude;
+				$('.location-list').html('');
+				
+				var _latitude   = position.coords.latitude, // 緯度
+					_longitude  = position.coords.longitude, // 經度
+					_url        = $('#gpsLocation').val(),
+					_branchList = '<li class="list title">選擇分店</li>',
+					_data       = [
+									{"Name":"寶慶遠百","GpsX":1.000000000,"GpsY":1.000000000,"Distance":122.9005562058953,"Url":"/tw/32"},
+									{"Name":"板橋遠百","GpsX":1.000000000,"GpsY":1.000000000,"Distance":122.9005562058953,"Url":"/tw/37"},
+									{"Name":"桃園遠百","GpsX":1.000000000,"GpsY":1.000000000,"Distance":122.9005562058953,"Url":"/tw/40"},
+									{"Name":"新竹大遠百","GpsX":1.000000000,"GpsY":1.000000000,"Distance":122.9005562058953,"Url":"/tw/42"},
+									{"Name":"台中大遠百","GpsX":1.000000000,"GpsY":1.000000000,"Distance":122.9005562058953,"Url":"/tw/48"},
+									{"Name":"嘉義遠百","GpsX":1.000000000,"GpsY":1.000000000,"Distance":122.9005562058953,"Url":"/tw/50"},
+									{"Name":"台南大遠百","GpsX":1.000000000,"GpsY":1.000000000,"Distance":122.9005562058953,"Url":"/tw/51"},
+									{"Name":"高雄大遠百","GpsX":1.000000000,"GpsY":1.000000000,"Distance":122.9005562058953,"Url":"/tw/52"},
+									{"Name":"花蓮遠百","GpsX":1.000000000,"GpsY":1.000000000,"Distance":122.9005562058953,"Url":"/tw/53"},
+									{"Name":"板橋大遠百","GpsX":25.013673100,"GpsY":121.464733800,"Distance":136.40998774455292,"Url":"/tw/34"}
+								];
 
-				alert('你所在的經緯度為：' + _latitude + ' , ' + _longitude + '，將為你列出最接近你的分店。');
+				// $.ajax({
+				// 	type     : 'GET',
+				// 	url      : _url + 'GpsX=' + _longitude + '&GpsY=' + _latitude,
+				// 	dataType : 'json',
+				// 	success  : function(data) {
+				// 		console.log(data);
+				// 	},
+				// 	complete : function(data) {
+				// 	}
+				// });
+
+				// alert('你所在的經緯度為：' + _latitude + ' , ' + _longitude + '，將為你列出最接近你的分店。');
+
+				for (var i = 0; i < _data.length; i++) {
+					_branchList += '<li class="list"><a href="' + _data[i].Url + '" class="b-link b-block">' + _data[i].Name + '</a></li>'
+				}
+
+				$('.location-list').html(_branchList);
 
 				$('.location-list .list:not(.title)').on('click', function(){
 					window.location.href = 'branch.html';

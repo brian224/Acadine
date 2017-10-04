@@ -42,6 +42,7 @@
 		this._addingWrap   = '.m-adding-wrap';
 		this._shortcutWrap = '.shortcut-wrap';
 		this._teachOwl     = '.teach-owl';
+		this._teachWrap    = '.m-teach';
 		this._leavePage    = false;
 		this._animateSpeed = 400;
 		this._masonryLoad  = false;
@@ -89,7 +90,7 @@
 
 	// 首次使用教學
 	page.prototype.teachLesson = function() {
-		if (localStorage.getItem('teach-lesson') !== 'true') {
+		if (localStorage.getItem('teach-lesson') !== 'true' && $(common._teachWrap).length !== 0) {
 			$(common._lBody).addClass('show-teach');
 		}
 	}
@@ -457,14 +458,14 @@
 
 			$(common._lBody).addClass('fade-out').on('webkitAnimationEnd oAnimationend oAnimationEnd msAnimationEnd animationend', function(){
 				$(common._lBody).removeClass('show-teach').off('webkitAnimationEnd oAnimationend oAnimationEnd msAnimationEnd animationend');
-				$('.m-teach').remove();
+				$(common._teachWrap).remove();
 			});
 		});
 
 		// 教學下一步
 		$(common._btnNext).on('click', function(){
 			if (projects.device() !== 'Mobile') {
-				$('.m-teach').attr('data-step', $(this).data('next'));
+				$(common._teachWrap).attr('data-step', $(this).data('next'));
 			} else {
 				projects.owlNext(common._teachOwl);
 			}

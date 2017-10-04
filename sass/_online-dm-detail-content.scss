@@ -1059,8 +1059,14 @@
 		}
 	}
 
-	.shopping-list .btn-read-more {
-		margin: 0 15px 25px 15px;
+	.shopping-list {
+		.shopping-link {
+			height: auto;
+		}
+
+		.btn-read-more {
+			margin: 0 15px 25px 15px;
+		}
 	}
 }
 

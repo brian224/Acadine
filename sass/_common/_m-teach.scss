@@ -1,4 +1,4 @@
-.l-body.show-teach {
+.l-body.show-teach:not(.cart-step1):not(.cart-step2):not(.cart-step3) {
 	height: 100vh;
 	overflow: hidden;
 
@@ -50,6 +50,7 @@
 		line-height: 0;
 
 		.btn-link {
+			background: none;
 			border: 1px solid $color-white;
 			color: $color-white;
 			@include transition(ease-in all 0.3s);
@@ -341,6 +342,7 @@
 			}
 
 			.btn-link {
+				display: inline-block;
 				height: 40px;
 
 				&.is-end {
