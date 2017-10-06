@@ -92,7 +92,7 @@
 	.menu-slider {
 		max-height: 0;
 		overflow: hidden;
-		@include transition(ease-in all 0.5s);
+		@include transition(ease-in all 0.3s);
 	}
 }
 
@@ -877,7 +877,7 @@
 				}
 
 				&:hover ~ .menu-slider {
-					max-height: 1000px;
+					max-height: 50vh;
 				}
 			}
 		}
@@ -889,7 +889,7 @@
 			z-index: -1;
 
 			&:hover {
-				max-height: 1000px;
+				max-height: 50vh;
 			}
 		}
 

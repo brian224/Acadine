@@ -390,7 +390,6 @@
 	}
 
 	projects.$w.load(function(){
-		common.headerHeight();
 		common.showFooter();
 		projects.owlCarousel(common._owl);
 
@@ -401,6 +400,7 @@
 	});
 
 	projects.$d.ready(function(){
+		common.headerHeight();
 		common.selectInputCheck();
 		common.teachLesson();
 

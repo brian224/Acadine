@@ -523,29 +523,29 @@
 			}
 		}
 	}
+
+	.btn-link {
+		background: $color-white;
+		display: inline-block;
+		height: 40px;
+		border: 1px solid $color-gray-d-p30;
+		box-sizing: border-box;
+		color: $color-gray-d-p30;
+		letter-spacing: 1px;
+		line-height: 38px;
+		text-align: center;
+		@include transition(ease-in all 0.3s);
+
+		&:hover {
+			background: $color-text-major;
+			border-color: $color-text-major;
+			color: $color-white;
+		}
+	}
 }
 
 .link-list .list {
 	display: inline-block;
-}
-
-.btn-link {
-	background: $color-white;
-	display: inline-block;
-	height: 40px;
-	border: 1px solid $color-gray-d-p30;
-	box-sizing: border-box;
-	color: $color-gray-d-p30;
-	letter-spacing: 1px;
-	line-height: 38px;
-	text-align: center;
-	@include transition(ease-in all 0.3s);
-
-	&:hover {
-		background: $color-text-major;
-		border-color: $color-text-major;
-		color: $color-white;
-	}
 }
 
 .m-form {
@@ -1243,6 +1243,11 @@
 				border: 1px solid $color-gray-l-p40;
 			}
 		}
+
+		.btn-link {
+			padding: 0 30px;
+			font-size: 16px;
+		}
 	}
 
 	.account {
@@ -1305,20 +1310,25 @@
 	.members-item-list {
 		@include display-flex;
 		@include flex-wrap(wrap);
-		@include justify-content(space-between);
+		@include justify-content(flex-start);
 
 		> .list {
+			margin-right: 10px;
 			margin-bottom: 30px;
 			width: calc((100% - 20px) / 3);
 
-			&:nth-child(3n) .m-adding-wrap .calendar-box {
-				margin-left: 0;
-				left: auto;
-				right: -30px;
-
-				&:before, &:after {
+			&:nth-child(3n) {
+				margin-right: 0;
+				
+				.m-adding-wrap .calendar-box {
+					margin-left: 0;
 					left: auto;
-					right: 42px;
+					right: -30px;
+	
+					&:before, &:after {
+						left: auto;
+						right: 42px;
+					}
 				}
 			}
 		}
@@ -1352,11 +1362,6 @@
 
 	.link-list .list {
 		margin: 0 0 20px 20px;
-	}
-
-	.btn-link {
-		padding: 0 30px;
-		font-size: 16px;
 	}
 
 	.m-table {

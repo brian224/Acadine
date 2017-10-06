@@ -211,6 +211,12 @@
 	.l-lightbox {
 		padding: 20px;
 	}
+
+	@include screen(landscape) {
+		.l-side {
+			display: none;
+		}
+	}
 }
 
 @include devices(iphone) {}

@@ -1028,6 +1028,14 @@
 			opacity: 0;
 		}
 
+		.list {
+			@include display-flex;
+		}
+
+		.shopping-link {
+			height: auto;
+		}
+
 		.m-icon {
 			line-height: 40px;
 

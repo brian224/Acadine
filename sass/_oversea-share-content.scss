@@ -265,7 +265,12 @@ $color-third : #f39700;
 	.localtion-list {
 		color: $color-gray;
 		font-size: 14px;
-		line-height: 2em;
+		line-height: 1.5em;
+
+		.list > * {
+			padding-top: 0.5em;
+			vertical-align: top;
+		}
 	}
 
 	.tel-link {

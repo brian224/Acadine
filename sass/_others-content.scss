@@ -668,7 +668,12 @@
 				.localtion-list {
 					color: $color-gray;
 					font-size: 14px;
-					line-height: 2em;
+					line-height: 1.5em;
+
+					.list > * {
+						padding-bottom: 0.5em;
+						vertical-align: top;
+					}
 
 					.is-curr > * {
 						color: $color-text-major;
@@ -899,6 +904,10 @@
 				background: $color-text-major;
 			}
 		}
+	}
+
+	.gsc-adBlock {
+		display: none;
 	}
 
 	.result-content {

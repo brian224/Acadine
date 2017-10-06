@@ -43,6 +43,10 @@
 				background: $color-white;
 			}
 		}
+
+		.text {
+			white-space: normal;
+		}
 	}
 
 	.sub-tab .btn-tab {
@@ -75,6 +79,7 @@
 				position: absolute;
 				top: 50%;
 				left: 0;
+				z-index: 1;
 			}
 		}
 	}
@@ -180,14 +185,17 @@
 		}
 
 		.sub-tab {
-			.btn-tab {
+			.m-tab-wrap:not(.is-shop-list) .btn-tab {
 				height: 90px;
-				font-size: 18px;
-				line-height: 90px;
 	
 				&:after {
 					height: 9px;
 				}
+			}
+
+			.btn-tab {
+				font-size: 18px;
+				line-height: 1.5em;
 			}
 	
 			.m-tab-wrap .tab-list:first-child:before {
@@ -225,14 +233,27 @@
 		}
 
 		.sub-tab {
-			.btn-tab:after {
-				margin-left: -45px;
-				width: 90px;
-				bottom: 0;
+			.btn-tab {
+				padding: 0 20px;
+
+				&:after {
+					margin-left: -45px;
+					width: 90px;
+					bottom: 0;
+				}
 			}
 
 			.m-tab-wrap {
 				margin-bottom: 50px;
+
+				&.is-shop-list {
+					@include flex-wrap(wrap);
+					@include justify-content(center);
+
+					.tab-list {
+						@include flex-grow(unset);
+					}
+				}
 	
 				.tab-list {
 					@include flex-grow(1);
@@ -314,10 +335,6 @@
 }
 
 @include respond(Tablets) {
-	.l-content .main-tab .sub-tab .m-tab-wrap .tab-list:nth-child(5n + 1):before {
-		display: none;
-	}
-
 	.activities-list > .list {
 		width: calc((100% - 40px) / 2);
 	}
