@@ -7,10 +7,6 @@
 		@include animation(fade-in 0.3s forwards);
 	}
 
-	&.show-marquee .marquee-wrap {
-		max-height: 100px;
-	}
-
 	&.fade-out .l-lightbox {
 		@include animation(fade-out 0.3s forwards);
 	}
@@ -29,6 +25,10 @@
 	left: 0;
 	right: 0;
 	@include transform(translateZ(0));
+
+	&.show-marquee .marquee-wrap {
+		max-height: 100px;
+	}
 }
 
 .l-nav {
@@ -91,6 +91,10 @@
 @include respond(Desktops) {
 	.l-header {
 		z-index: 3;
+
+		&.show-marquee .l-content {
+			padding-top: 120px;
+		}
 	}
 
 	.l-body {
@@ -98,11 +102,7 @@
 			padding-top: 120px;
 		}
 
-		&.show-marquee .l-content {
-			padding-top: 120px;
-		}
-
-		&.show-marquee.show-header .l-content {
+		&.show-header .show-marquee ~ .l-content {
 			padding-top: 170px;
 		}
 
@@ -154,17 +154,17 @@
 			padding-top: 86px;
 		}
 
-		&.show-marquee.show-header .l-content {
+		&.show-header .show-marquee ~ .l-content {
 			padding-top: 130px;
-		}
-
-		&.show-marquee .l-content {
-			padding-top: 80px;
 		}
 
 		.l-content {
 			min-height: calc(100vh - 134px);
 		}
+	}
+
+	.l-header.show-marquee .l-content {
+		padding-top: 80px;
 	}
 }
 
@@ -179,19 +179,17 @@
 }
 
 @include respond(Mobiles) {
-	.l-body {
-		&.show-marquee .l-header .header-wrap.is-active {
-			max-height: 80vh;
-		}
-
-		.l-content {
-			padding-top: 56px;
-			min-height: calc(100vh - 78px);
-		}
+	.l-body .l-content {
+		padding-top: 56px;
+		min-height: calc(100vh - 78px);
 	}
 
 	.l-header {
 		min-height: 56px;
+
+		&.show-marquee .header-wrap.is-active {
+			max-height: 80vh;
+		}
 	}
 
 	.l-nav {
