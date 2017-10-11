@@ -5,6 +5,29 @@
 .m-section-bd {
 	background: $color-white;
 
+	form {
+		.m-box-holder {
+			border: 0;
+		}
+
+		.m-inputbox, .m-selection {
+			border: 1px solid $color-gray-l-p10;
+
+			&.is-error {
+				border-color: $color-text-major;
+			}
+		}
+
+		.alert {
+			padding-left: 0;
+			color: $color-text-major;
+			font-size: 14px;
+			font-weight: bold;
+			line-height: 1.8em;
+			white-space: nowrap;
+		}
+	}
+
 	.form-title {
 		font-weight: bold;
 		line-height: 1.5em;
@@ -18,26 +41,9 @@
 		vertical-align: top;
 		font-size: 14px;
 
-		&.error {
-			.m-box-holder {
-				border-color: $color-text-major;
-			}
-
-			.alert {
-				display: block;
-			}
-		}
-
 		.text {
 			margin-bottom: 5px;
 			color: $color-gray-l-p10;
-			line-height: 1.5em;
-		}
-
-		.alert {
-			display: none;
-			color: $color-text-major;
-			font-weight: bold;
 			line-height: 1.5em;
 		}
 	}
@@ -45,7 +51,7 @@
 	.m-box-holder {
 		border-color: $color-gray-l-p40;
 
-		.m-inputbox {
+		.m-inputbox, .m-selection {
 			height: 40px;
 			color: $color-gray-d-p40;
 			font-size: 14px;

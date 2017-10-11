@@ -30,75 +30,81 @@
 						</header>
 						<div class="m-section-bd b-clearfix">
 							<h3 class="form-title b-text-center">填寫報名資料</h3>
-							<div class="m-form b-clearfix">
-								<div class="b-col-md-6 b-col-tm-12 b-float-left-md b-clearfix">
-									<figure class="img-wrap">
-										<img src="../../content/img/latest-events-form/poster.jpg" alt="遠百播音小天使">
-									</figure>
+							<form action="/tw/Event/Apply/77">
+								<div class="m-form b-clearfix">
+									<div class="b-col-md-6 b-col-tm-12 b-float-left-md b-clearfix">
+										<figure class="img-wrap">
+											<img src="../../content/img/latest-events-form/poster.jpg" alt="遠百播音小天使">
+										</figure>
+									</div>
+									<div class="form-area b-col-md-6 b-col-tm-12 b-float-left-md b-clearfix jQ-clear-area">
+										<label class="m-lab b-col-dt-6 b-col-xs-12">
+											<span class="text b-block">選擇店別</span>
+											<div class="m-box-holder is-selector b-col-dt-12 b-col-xs-12">
+												<select name="branch-name" id="" class="m-selection required" data-msg="店別為必填">
+													<option value="">選擇店別</option>
+													<option value="寶慶遠百">寶慶遠百</option>
+													<option value="板橋大遠百">板橋大遠百</option>
+												</select>
+											</div>
+											<span class="alert b-col-dt-12 b-col-xs-12"><label for="branch-name" class="is-error b-text-warning"></label></span>
+										</label>
+										<label class="m-lab b-col-dt-6 b-col-xs-12">
+											<span class="text b-block">聯絡人姓名</span>
+											<div class="m-box-holder b-col-dt-12 b-col-xs-12">
+												<input type="text" name="contact-name" class="m-inputbox required" placeholder="" value="" data-msg="聯絡人姓名為必填">
+											</div>
+											<span class="alert b-col-dt-12 b-col-xs-12"><label for="contact-name" class="is-error b-text-warning"></label></span>
+										</label>
+										<label class="m-lab b-col-dt-6 b-col-xs-12">
+											<span class="text b-block">聯絡電話</span>
+											<div class="m-box-holder b-col-dt-12 b-col-xs-12">
+												<input type="tel" name="phone-number" class="m-inputbox required" placeholder="" value="" data-msg="聯絡電話為必填">
+											</div>
+											<span class="alert b-col-dt-12 b-col-xs-12"><label for="phone-number" class="is-error b-text-warning"></label></span>
+										</label>
+										<label class="m-lab b-col-dt-6 b-col-xs-12">
+											<span class="text b-block">E-Mail</span>
+											<div class="m-box-holder b-col-dt-12 b-col-xs-12">
+												<input type="email" name="email" class="m-inputbox required" placeholder="" value="" data-msg="E-Mail為必填" data-msg-email="E-Mail格式錯誤">
+											</div>
+											<span class="alert b-col-dt-12 b-col-xs-12"><label for="email" class="is-error b-text-warning"></label></span>
+										</label>
+										<label class="m-lab b-col-dt-6 b-col-xs-12">
+											<span class="text b-block">參賽者家長姓名</span>
+											<div class="m-box-holder b-col-dt-12 b-col-xs-12">
+												<input type="text" name="parent-name" class="m-inputbox required" placeholder="" value="" data-msg="參賽者家長姓名為必填">
+											</div>
+											<span class="alert b-col-dt-12 b-col-xs-12"><label for="parent-name" class="is-error b-text-warning"></label></span>
+										</label>
+										<label class="m-lab b-col-dt-6 b-col-xs-12">
+											<span class="text b-block">參賽者子女姓名</span>
+											<div class="m-box-holder b-col-dt-12 b-col-xs-12">
+												<input type="text" name="child-name" class="m-inputbox required" placeholder="" value="" data-msg="參賽者子女姓名為必填">
+											</div>
+											<span class="alert b-col-dt-12 b-col-xs-12"><label for="child-name" class="is-error b-text-warning"></label></span>
+										</label>
+										<label class="m-lab b-col-dt-6 b-col-xs-12">
+											<span class="text b-block">服務單位</span>
+											<div class="m-box-holder b-col-dt-12 b-col-xs-12">
+												<input type="text" name="service-units" class="m-inputbox required" placeholder="" value="" data-msg="服務單位為必填">
+											</div>
+											<span class="alert b-col-dt-12 b-col-xs-12"><label for="service-units" class="is-error b-text-warning"></label></span>
+										</label>
+										<label class="m-lab b-col-dt-6 b-col-xs-12">
+											<span class="text b-block">參加人數</span>
+											<div class="m-box-holder b-col-dt-12 b-col-xs-12">
+												<input type="number" name="participant" class="m-inputbox required" placeholder="" value="" data-msg="參加人數為必填">
+											</div>
+											<span class="alert b-col-dt-12 b-col-xs-12"><label for="participant" class="is-error b-text-warning"></label></span>
+										</label>
+									</div>
 								</div>
-								<div class="form-area b-col-md-6 b-col-tm-12 b-float-left-md b-clearfix jQ-clear-area">
-									<label class="m-lab b-col-dt-6 b-col-xs-12 error">
-										<span class="text b-block">選擇店別</span>
-										<div class="m-box-holder b-col-dt-12 b-col-xs-12">
-											<input type="text" class="m-inputbox" placeholder="" value="">
-										</div>
-										<span class="alert b-col-dt-12 b-col-xs-12">此欄位必填！請輸入店別</span>
-									</label>
-									<label class="m-lab b-col-dt-6 b-col-xs-12">
-										<span class="text b-block">聯絡人姓名</span>
-										<div class="m-box-holder b-col-dt-12 b-col-xs-12">
-											<input type="text" class="m-inputbox" placeholder="" value="蔡爸爸">
-										</div>
-										<span class="alert b-col-dt-12 b-col-xs-12">此欄位必填！請輸入聯絡人姓名</span>
-									</label>
-									<label class="m-lab b-col-dt-6 b-col-xs-12">
-										<span class="text b-block">聯絡電話</span>
-										<div class="m-box-holder b-col-dt-12 b-col-xs-12">
-											<input type="tel" class="m-inputbox" placeholder="" value="0988945945">
-										</div>
-										<span class="alert b-col-dt-12 b-col-xs-12">輸入錯誤！請重新輸入</span>
-									</label>
-									<label class="m-lab b-col-dt-6 b-col-xs-12">
-										<span class="text b-block">E-Mail</span>
-										<div class="m-box-holder b-col-dt-12 b-col-xs-12">
-											<input type="email" class="m-inputbox" placeholder="" value="jolin.915@gmail.com">
-										</div>
-										<span class="alert b-col-dt-12 b-col-xs-12">輸入錯誤！請重新輸入</span>
-									</label>
-									<label class="m-lab b-col-dt-6 b-col-xs-12">
-										<span class="text b-block">參賽者家長姓名</span>
-										<div class="m-box-holder b-col-dt-12 b-col-xs-12">
-											<input type="text" class="m-inputbox" placeholder="" value="蔡萬才">
-										</div>
-										<span class="alert b-col-dt-12 b-col-xs-12">此欄位必填！請輸入家長姓名</span>
-									</label>
-									<label class="m-lab b-col-dt-6 b-col-xs-12">
-										<span class="text b-block">參賽者子女姓名</span>
-										<div class="m-box-holder b-col-dt-12 b-col-xs-12">
-											<input type="text" class="m-inputbox" placeholder="" value="蔡依林">
-										</div>
-										<span class="alert b-col-dt-12 b-col-xs-12">此欄位必填！請輸入子女姓名</span>
-									</label>
-									<label class="m-lab b-col-dt-6 b-col-xs-12">
-										<span class="text b-block">服務單位</span>
-										<div class="m-box-holder b-col-dt-12 b-col-xs-12">
-											<input type="text" class="m-inputbox" placeholder="" value="方形堂">
-										</div>
-										<span class="alert b-col-dt-12 b-col-xs-12">此欄位必填！請輸入服務單位</span>
-									</label>
-									<label class="m-lab b-col-dt-6 b-col-xs-12">
-										<span class="text b-block">參加人數</span>
-										<div class="m-box-holder b-col-dt-12 b-col-xs-12">
-											<input type="number" class="m-inputbox" placeholder="" value="2">
-										</div>
-										<span class="alert b-col-dt-12 b-col-xs-12">此欄位必填！請輸入參加人數</span>
-									</label>
+								<div class="btn-wrap b-text-center">
+									<button class="btn-link btn-cancel b-col-md-2 b-col-sm-3 b-inline b-middle jQ-clear-input"><em class="text">清除重填</em></button>
+									<button type="submit" class="btn-link btn-main b-col-md-2 b-col-sm-3 b-inline b-middle"><em class="text">確認送出</em><i class="m-icon m-icon-long-arrow-right"></i></button>
 								</div>
-							</div>
-							<div class="btn-wrap b-text-center">
-								<button class="btn-link btn-cancel b-col-md-2 b-col-sm-3 b-inline b-middle jQ-clear-input"><em class="text">清除重填</em></button>
-								<a href="latest-events-result.html" class="btn-link btn-main b-col-md-2 b-col-sm-3 b-inline b-middle"><em class="text">確認送出</em><i class="m-icon m-icon-long-arrow-right"></i></a>
-							</div>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -110,4 +116,6 @@
 	<!--#include virtual="../Shared/Not-support.html" -->
 </body>
 <!--#include virtual="../Shared/GlobalScriptFt.html" -->
+<script defer src="../../scripts/plugin/jquery.validation/jquery.validate.min.js?js=20160420_01"></script>
+<script defer src="../../scripts/js/latest-events-form.js?JS=20160420_01"></script>
 </html>

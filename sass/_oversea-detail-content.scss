@@ -386,36 +386,80 @@ $color-third : #f39700;
 			line-height: 30px;
 			text-align: center;
 
+			&.m-icon-toilet-f {
+				background: #ea6a92;
+			}
+
+			&.m-icon-toilet-m {
+				background: #7dbdd3;
+			}
+
+			&.m-icon-toilet-goodwill, &.m-icon-baby, &.m-icon-diaper-changer, &.m-icon-bottle {
+				background: #f6b275;
+			}
+
+			&.m-icon-accessibility, &.m-icon-elevator-barrier-free {
+				background: #9cc15c;
+			}
+
 			&.m-icon-toilet {
 				background: #eb6100;
 			}
 
 			&.m-icon-gift {
-				background: #448aca;
+				background: #d14000;
 			}
 
-			&.m-icon-elevator {
-				background: #097c25;
+			&.m-icon-elevator, &.m-icon-escalator {
+				background: #5a4f48;
 			}
 
-			&.m-icon-escalator {
-				background: #f39800;
+			&.m-icon-info, &.m-icon-reference {
+				background: #4868b1;
 			}
 
-			&.m-icon-info {
-				background: #e5004f;
+			&.m-icon-vip, &.m-icon-vvip {
+				background: #cea713;
 			}
 
-			&.m-icon-accessibility {
-				background: #996c33;
+			&.m-icon-revise {
+				background: #ceaf98;
 			}
 
-			&.m-icon-baby {
-				background: #8f82bc;
+			&.m-icon-skin-care {
+				background: #c77fb3;
 			}
 
-			&.m-icon-parking {
+			&.m-icon-make-up {
+				background: #e73f65;
+			}
+
+			&.m-icon-sofa {
+				background: #2c9474;
+			}
+
+			&.m-icon-atm {
+				background: #639dd4;
+			}
+
+			&.m-icon-public-phone {
+				background: #369eca;
+			}
+
+			&.m-icon-lockers {
+				background: #a58472;
+			}
+
+			&.m-icon-parking, &.m-icon-parking-goodwill {
 				background: #1d2088;
+			}
+
+			&.m-icon-charging {
+				background: #ffee4d;
+			}
+
+			&.m-icon-aed {
+				background: #d92d29;
 			}
 		}
 

@@ -23,8 +23,8 @@
 		}
 	}
 
-	.footer-logo {
-		background: image-url('shared/footer-logo.png') 0 0 no-repeat;
+	.footer-logo img {
+		width: 100%;
 	}
 }
 
@@ -112,7 +112,6 @@
 		}
 
 		.footer-logo {
-			background-size: 90px auto;
 			width: 90px;
 			height: 38px;
 			position: absolute;

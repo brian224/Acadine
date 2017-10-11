@@ -33,6 +33,7 @@
 
 		.photo-slider {
 			.owl-stage {
+				margin: 0;
 				@include display-flex;
 				@include align-items(stretch);
 				@include justify-content(space-between);

@@ -449,8 +449,12 @@
 	.m-cut {
 		margin-bottom: 70px;
 
-		.m-owl-dots {
-			margin: 25px 0;
+		.owl-stage-outer {
+			margin-bottom: 25px;
+		}
+
+		.btn-more {
+			margin-top: 25px;
 		}
 	}
 
@@ -588,6 +592,10 @@
 					float: right;
 				}
 			}
+		}
+
+		.m-owl-dots {
+			margin: 25px 0;
 		}
 
 		.btn-read-more {
@@ -845,8 +853,12 @@
 	.m-cut {
 		margin-bottom: 36px !important;
 
-		.m-owl-dots {
-			margin: 12px 0;
+		.owl-stage-outer {
+			margin-bottom: 12px;
+		}
+
+		.btn-more {
+			margin-top: 12px;
 		}
 	}
 
@@ -949,6 +961,10 @@
 			}
 		}
 
+		.m-owl-dots {
+			margin: 12px 0;
+		}
+
 		.btn-read-more {
 			margin-bottom: 25px;
 		}
@@ -1033,6 +1049,7 @@
 		}
 
 		.shopping-link {
+			width: 100%;
 			height: auto;
 		}
 

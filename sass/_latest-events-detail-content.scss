@@ -152,9 +152,7 @@
 }
 
 .m-section-ft .link-wrap {
-	@include display-flex;
-	@include align-items(center);
-	@include justify-content(space-between);
+	position: relative;
 
 	.b-link {
 		color: $color-gray-d-p30;
@@ -163,6 +161,12 @@
 
 		&:hover {
 			color: $color-text-major;
+		}
+
+		&.btn-return {
+			position: absolute;
+			top: 0;
+			left: 33.33%;
 		}
 	}
 }
@@ -352,7 +356,8 @@
 		margin-top: 10px;
 
 		.link-wrap {
-			padding: 0 10px;
+			padding: 0 20px;
+			height: 40px;
 
 			.b-link {
 				width: 40px;

@@ -16,6 +16,12 @@
 			for (var i = 0; i < $(this).find('.item').length; i++) {
 				$(this).find('.item').eq(i).attr('data-index', i);
 			}
+
+			if ($(this).find('.item').length === 3) {
+				$(this).addClass('count-three');
+			} else if ($(this).find('.item').length === 2) {
+				$(this).addClass('count-two');
+			}
 		});
 
 		$(pageObj._nowPage).text($('.dm-list .item').eq(0).data('index') + 1);

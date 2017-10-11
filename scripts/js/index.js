@@ -142,24 +142,42 @@
 				var _latitude   = position.coords.latitude, // 緯度
 					_longitude  = position.coords.longitude, // 經度
 					_url        = $('#gpsLocation').val(),
-					_branchList = '<li class="list title">選擇分店</li>';
+					_branchList = '';
 
 				$.ajax({
 					type     : 'GET',
 					url      : _url + 'GpsX=' + _longitude + '&GpsY=' + _latitude,
 					dataType : 'json',
 					success  : function(data) {
-						for (var i = 0; i < _data.length; i++) {
-							_branchList += '<li class="list"><a href="' + data[i].Url + '" class="b-link b-block">' + data[i].Name + '</a></li>'
+						for (var i = 0; i < data.length; i++) {
+							_branchList += '<li class="list"><a href="' + data[i].Url + '" class="b-link b-block b-bold"><em class="name">' + data[i].Name + '</em><span class="distance">' + data[i].Distance.toFixed(2) + 'km</span></a></li>'
 						}
 
 						$(indexObj._locationList).html(_branchList);
 					},
 					complete : function(data) {
 					}
-				});
-				// alert('你所在的經緯度為：' + _latitude + ' , ' + _longitude + '，將為你列出最接近你的分店。');
+				});			
 			}, function() {
+				// window.location.href = $('#defaultBranch').val();
+				
+				var _data = [{"Name":"板橋遠百","GpsX":121.464402000,"GpsY":25.011361000,"Distance":7.8837996639437771,"Url":"/tw/50"},
+							{"Name":"Mega City 板橋大遠百","GpsX":121.466880000,"GpsY":25.013950000,"Distance":7.9213595329652851,"Url":"/tw/54"},
+							{"Name":"寶慶遠百","GpsX":121.509014000,"GpsY":25.041859000,"Distance":9.2022718664903618,"Url":"/tw/32"},
+							{"Name":"桃園遠百","GpsX":121.313795000,"GpsY":24.989982000,"Distance":22.14011788511073,"Url":"/tw/40"},
+							{"Name":"新竹大遠百","GpsX":120.964880000,"GpsY":24.802178000,"Distance":62.6436140017616,"Url":"/tw/42"},
+							{"Name":"花蓮遠百","GpsX":121.599776000,"GpsY":23.978682000,"Distance":108.18172525127569,"Url":"/tw/52"},
+							{"Name":"Top City 台中大遠百","GpsX":120.644555000,"GpsY":24.164204000,"Distance":129.40683811334316,"Url":"/tw/53"},
+							{"Name":"嘉義遠百","GpsX":120.441096000,"GpsY":23.473118000,"Distance":201.444925032278,"Url":"/tw/37"},
+							{"Name":"台南大遠百 成功店","GpsX":120.214358000,"GpsY":22.996651000,"Distance":258.75251649803909,"Url":"/tw/48"},
+							{"Name":"台南大遠百 公園店","GpsX":120.206047000,"GpsY":22.995735000,"Distance":259.34204463029994,"Url":"/tw/34"},
+							{"Name":"高雄大遠百","GpsX":120.303994000,"GpsY":22.613360000,"Distance":290.18445844198709,"Url":"/tw/51"}],
+					_branchList = '';
+
+				for (var i = 0; i < _data.length; i++) {
+					_branchList += '<li class="list"><a href="' + _data[i].Url + '" class="b-link b-block b-bold"><em class="name">' + _data[i].Name + '</em><span class="distance">' + _data[i].Distance.toFixed(2) + 'km</span></a></li>'
+				}
+				$(indexObj._locationList).html(_branchList);
 			});
 		} else {
 			alert("Browser doesn't support Geolocation");

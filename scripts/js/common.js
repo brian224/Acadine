@@ -390,7 +390,10 @@
 	}
 
 	projects.$w.load(function(){
-		common.showFooter();
+		if (!$(common._lBody).hasClass('show-teach')) {
+			common.showFooter();
+		}
+
 		projects.owlCarousel(common._owl);
 
 		// 網址有 # 可定位頁籤
@@ -404,7 +407,7 @@
 		common.selectInputCheck();
 		common.teachLesson();
 
-		if (sessionStorage.getItem('marquee') === 'readed') {
+		if (sessionStorage.getItem('marquee') === 'readed' && $(common._lHeader).hasClass('show-marquee')) {
 			$(common._lHeader).removeClass('show-marquee');
 		}
 
@@ -758,6 +761,10 @@
 		if (projects.device() !== 'Mobile') {
 			common.showFooter();
 		} else {
+			if (projects.$w.width() > projects.$w.height()) {
+				alert('建議您使用直向瀏覽，將擁有最佳的瀏覽體驗。');
+			}
+
 			if ($(common._tagSelect).length !== 0 && $(common._tagSelect).children().prop('tagName').toLowerCase() !== 'select') {
 				common.changeToSelect();
 			}

@@ -3,10 +3,6 @@
 }
 
 .l-body {
-	.l-content {
-		background: $color-black;
-	}
-	
 	@for $i from 1 through 4 {
 		&[data-cut="#{$i}"] .m-cut:nth-child(#{$i}) {
 			.main-owl .item-info {
@@ -241,10 +237,6 @@
 	bottom: 60px;
 }
 
-.l-footer {
-	background: $color-gray-d-p40;
-}
-
 .m-replace-select .list.back {
 	display: none;
 }
@@ -294,7 +286,11 @@
 			@include transform(scale(0.9));
 			@include transform-origin(top, center);
 		}
-		
+			
+		.l-content {
+			background: $color-black;
+		}
+	
 		@for $i from 1 through 4 {
 			&.scrollUp[data-cut="#{$i}"] .m-cut:nth-child(#{$i + 1}) .main-content {
 				@include animation(scrollDown 1s ease-in-out forwards);
@@ -450,6 +446,10 @@
 		}
 	}
 
+	.l-footer {
+		background: $color-gray-d-p40;
+	}
+
 	.m-footer {
 		@include display-flex;
 		@include align-items(center);
@@ -567,64 +567,132 @@
 @include respond(Tablets) {}
 
 @include respond(Tablets-Mobiles) {
-	.l-header {
-		height: 100vh;
-		max-height: inherit;
+	.l-header, .l-side {
+		display: none;
+	}
+
+	.l-body {
 		position: relative;
-		overflow-y: scroll;
-	}
 
-	.shortcut-wrap {
-		margin: 0;
-		background: #f4f4f4;
-		max-height: inherit !important;
-	}
-
-	.m-logo, .btn-mobile-menu, .language-selecter, .l-nav {
-		display: none !important;
-	}
-
-	.location-selecter {
-		height: auto !important;
-		text-align: center;
+		&:before, &:after {
+			content: '';
+			display: block;
+			width: 100%;
+			height: 2px;
+			position: absolute;
+			left: 0;
+		}
 
 		&:before {
-			display: none;
+			background: #d60c18;
+			top: 2px;
 		}
-	}
 
-	.location-list {
-		padding: 40px 0;
-		font-size: 15px;
-		line-height: 3em;
-		text-align: left;
+		&:after {
+			background: #004ca2;
+			top: 6px;
+		}
 
-		> * {
-			&:first-child {
-				font-size: 20px;
-				font-weight: bold;
+		.l-content {
+			padding: 0 !important;
+			background: $color-white;
+			height: calc(100vh - 58px);
+			min-height: 0;
+
+			.l-content-hd {
+				padding: 40px 0 20px 0;
+				background: #f4f4f4;
+				@include display-flex;
+				@include align-items(center);
+				@include justify-content(center);
+				@include flex-direction(column);
+
+				.hint {
+					margin-top: 16px;
+					color: $color-text-major;
+					font-size: 14px;
+					line-height: 1.5em;
+				}
 			}
 
-			&:not(:first-child) .b-link {
-				display: block;
-				color: $color-gray-d-p20;
+			.l-content-bd {
+				height: calc(100vh - 182px);
+				overflow-y: scroll;
+			}
+		}
 
-				&:active {
-					background: $color-text-major;
-					color: $color-white;
+		.m-logo {
+			position: relative;
+
+			.b-link {
+				width: 125px;
+				height: 27px;
+
+				img {
+					width: 100%;
 				}
 			}
 		}
+
+		.location-list {
+			margin: 0 24px;
+
+			.list {
+				position: relative;
+
+				&:after {
+					content: '';
+					margin-top: -4px;
+					display: block;
+					width: 8px;
+					height: 8px;
+					position: absolute;
+					top: 50%;
+					right: 2px;
+					border-right: 1px solid $color-gray-l-p10;
+					border-bottom: 1px solid $color-gray-l-p10;
+					box-sizing: border-box;
+					@include transform(rotate(-45deg));
+				}
+
+				&:not(:first-child) {
+					border-top: 1px solid $color-gray-l-p40;
+				}
+			}
+
+			.b-link {
+				padding: 13px 0;
+				font-size: 15px;
+				line-height: 1.6em;
+			}
+
+			.name {
+				padding-right: 0.5em;
+				color: $color-gray-d-p30;
+			}
+
+			.distance {
+				color: $color-gray-l-p30;
+			}
+		}
 	}
 
-	.l-main, .l-footer {
-		display: none;
+	.l-footer {
+		background: $color-gray-d-p30;
+		bottom: 0;
+	}
+
+	.m-footer .text {
+		padding: 17px 0;
+		color: $color-white;
+		font-size: 12px;
+		line-height: 2em;
 	}
 }
 
 @include respond(Mobiles) {
-	.l-header .header-wrap:after {
-		display: none;
+	.m-footer {
+		padding: 0;
 	}
 }
 

@@ -169,16 +169,28 @@
 	}
 
 	.cart-list {
+		.owl-stage, .owl-item {
+			@include display-flex;
+		}
+
 		.list {
+			width: 100%;
 			position: relative;
 
-			.b-link:hover {
-				.img-wrap img {
-					@include transform(scale(1.05));
-				}
+			.b-link {
+				@include display-flex;
+				@include flex-direction(column);
+				@include justify-content(space-between);
+				height: 100%;
 
-				.info-title {
-					color: $color-text-major;
+				&:hover {
+					.img-wrap img {
+						@include transform(scale(1.05));
+					}
+
+					.info-title {
+						color: $color-text-major;
+					}
 				}
 			}
 
@@ -199,6 +211,9 @@
 		}
 
 		.info-title {
+			padding: 0.25em 0;
+			@include flex-grow(1);
+			line-height: 1.5em;
 			@include transition(ease-in all 0.3s);
 		}
 
@@ -207,6 +222,13 @@
 			color: $color-black;
 			text-overflow: ellipsis;
 			white-space: nowrap;
+		}
+
+		.item-info {
+			@include display-flex;
+			@include flex-direction(column);
+			@include justify-content(space-between);
+			@include flex-grow(1);
 		}
 
 		.main-info {
@@ -386,14 +408,8 @@
 }
 
 @include respond(Desktops) {
-	.act-timer {
-		.act-info {
-			padding: 20px 40px;
-		}
-
-		/*.img-wrap {
-			height: 300px;
-		}*/
+	.act-timer .act-info {
+		padding: 20px 40px;
 	}
 
 	.cart-wrap {
@@ -410,6 +426,7 @@
 	.shopping-list {
 		.list {
 			margin-right: 10px !important;
+			margin-left: 10px;
 			width: calc((100% - 80px) / 4);
 		}
 
