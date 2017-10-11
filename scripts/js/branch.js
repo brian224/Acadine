@@ -11,16 +11,18 @@
 
 	projects.$w.load(function(){
 		// 取出一半的社群內容做為第二次瀑布流用
-		for (var i = (pageObj._masonryLength / 2) - 1; i < pageObj._masonryLength; i++) {
-			var $this = $('.social-wall .list-item').eq(pageObj._masonryLength / 2);
+		if (pageObj._masonryLength > 8) {
+			for (var i = 8; i < pageObj._masonryLength; i++) {
+				var $this = $('.social-wall .list-item').eq(8);
 
-			if ($this[0] !== undefined) {
-				pageObj._masonryArray.push($this[0].outerHTML);
-				$('.social-wall .list-item').eq(pageObj._masonryLength / 2).remove();
+				if ($this[0] !== undefined) {
+					pageObj._masonryArray.push($this[0].outerHTML);
+					$('.social-wall .list-item').eq(8).remove();
+				}
 			}
-		}
 
-		$('.hidden-place').html(pageObj._masonryArray.join(''));
+			$('.hidden-place').html(pageObj._masonryArray.join(''));
+		}
 
 		$('.social-wall').masonry({
 			itemSelector: '.list-item',

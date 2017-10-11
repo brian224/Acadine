@@ -405,7 +405,7 @@
 		common.teachLesson();
 
 		if (sessionStorage.getItem('marquee') === 'readed') {
-			$(common._lBody).removeClass('show-marquee');
+			$(common._lHeader).removeClass('show-marquee');
 		}
 
 		if (projects.device() === 'Mobile') {
@@ -427,7 +427,7 @@
 				common.changeToSelect();
 			}
 
-			if ($(common._lBody).hasClass('show-marquee')) {
+			if ($(common._lHeader).hasClass('show-marquee')) {
 				$(common._lContent).css('padding-top', $('.marquee-wrap').outerHeight() + parseInt($(common._lContent).css('padding-top'), 10));
 			}
 		}
@@ -693,7 +693,7 @@
 		});
 
 		$(common._btnMarquee).on('click' , function(){
-			$(common._lBody).removeClass('show-marquee');
+			$(common._lHeader).removeClass('show-marquee');
 			sessionStorage.setItem('marquee', 'readed');
 
 			if (projects.device() === 'Mobile') {
