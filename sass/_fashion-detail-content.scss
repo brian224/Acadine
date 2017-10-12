@@ -1163,6 +1163,10 @@
 }
 
 @include browsers('Safari') {
+	.catalog-wrap .catalog>.list .b-link {
+		height: 58px;
+	}
+
 	.l-content .favorite-list .btn-read-more {
 		margin-right: 40px;
 		margin-left: 40px;

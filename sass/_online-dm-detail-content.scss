@@ -1149,9 +1149,16 @@
 		height: calc(100vh - 220px);
 	}
 
-	.shopping-list .btn-read-more {
-		margin-right: 32px;
-		margin-left: 32px;
+	.shopping-list {
+		.shopping-link {
+			@include flex-grow(1);
+			height: auto;
+		}
+
+		.btn-read-more {
+			margin-right: 32px;
+			margin-left: 32px;
+		}
 	}
 }
 

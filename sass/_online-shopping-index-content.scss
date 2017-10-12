@@ -747,4 +747,10 @@
 	}
 }
 
-@include browsers('Safari') {}
+@include browsers('Safari') {
+	.new-arrive-list .sales-wording {
+		&:before, &:after {
+			width: 30%;
+		}
+	}
+}
