@@ -1010,8 +1010,14 @@
 
 		.list {
 			margin: 0 10px;
+			@include display-flex;
 			width: calc(100% - 20px);
 			border: 1px solid $color-gray-l-p40;
+		}
+
+		.shopping-link {
+			@include flex-grow(1);
+			height: auto;
 		}
 		
 		.owl-item:not(.active) .btn-like {

@@ -342,6 +342,18 @@
 			font-size: 18px;
 		}
 	}
+
+	@include screen(landscape) {
+		.kv-owl .item .img-wrap {
+			margin-left: 0;
+			width: 100%;
+
+			img {
+				width: 100%;
+				max-height: none;
+			}
+		}
+	}
 }
 
 @include devices(iphone) {}

@@ -737,18 +737,8 @@
 		}
 	}
 
-	.kv-owl .item {
-		height: 100px;
-
-		.img-wrap {
-			height: 100px;
-
-			img {
-				width: auto;
-				height: 100%;
-				min-width: auto;
-			}
-		}
+	.kv-owl .item .img-wrap img {
+		width: 100%;
 	}
 
 	.l-content .main-tab {

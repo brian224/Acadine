@@ -971,12 +971,6 @@
 		}
 	}
 
-	@include screen(landscape) {
-		.magazine-viewport {
-			min-height: 360px;
-		}
-	}
-
 	.tools {
 		display: block;
 
@@ -1028,6 +1022,12 @@
 			}
 		}
 	}
+
+	@include screen(landscape) {
+		.magazine-viewport {
+			min-height: 360px;
+		}
+	}
 }
 
 @include devices(iphone) {
@@ -1062,6 +1062,7 @@
 	.shopping-list {
 		.shopping-link {
 			height: auto;
+			@include flex-grow(1);
 		}
 
 		.btn-read-more {
