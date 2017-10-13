@@ -17,13 +17,13 @@
 	}
 
 	page.prototype.showResult = function() {
-		if (Math.round(Math.random()) === 0) {
-			$('.result-content.empty-result').addClass('is-show');
-			$('.result-content.has-result').removeClass('is-show');
-		} else {
-			$('.result-content.has-result').addClass('is-show');
-			$('.result-content.empty-result').removeClass('is-show');
-		}
+		// if (Math.round(Math.random()) === 0) {
+		// 	$('.result-content.empty-result').addClass('is-show');
+		// 	$('.result-content.has-result').removeClass('is-show');
+		// } else {
+		// 	$('.result-content.has-result').addClass('is-show');
+		// 	$('.result-content.empty-result').removeClass('is-show');
+		// }
 
 		projects.$hb.animate({
 			'scrollTop' : $('.result-content').offset().top - $(common._lHeader).height()

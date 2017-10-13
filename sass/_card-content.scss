@@ -294,9 +294,6 @@
 
 	.link-wrap {
 		background: $color-white;
-		@include display-flex;
-		@include align-items(center);
-		@include justify-content(space-between);
 		position: absolute;
 		left: -1px;
 		right: -1px;
@@ -307,6 +304,12 @@
 			color: $color-gray-d-p30;
 			letter-spacing: 1px;
 			@include transition(ease-in all 0.3s);
+
+			&.btn-return {
+				position: absolute;
+				top: 0;
+				left: 33.33%;
+			}
 
 			&:hover {
 				color: $color-text-major;

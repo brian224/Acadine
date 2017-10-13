@@ -121,8 +121,27 @@
 		font-size: 14px;
 		line-height: 1.8em;
 
-		.list {
+		> .list {
 			margin-bottom: 1.8em;
+		}
+	}
+
+	.order-list {
+		list-style-position: outside;
+
+		&.is-cjk-ideographic {
+			margin-left: 1.5em;
+			list-style-type: cjk-ideographic;
+		}
+
+		&.is-decimal {
+			margin-left: 1.2em;
+			list-style-type: decimal;
+		}
+
+		&.is-lower-alpha {
+			margin-left: 1.2em;
+			list-style-type: lower-alpha;
 		}
 	}
 }

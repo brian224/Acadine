@@ -230,7 +230,6 @@
 		margin-bottom: 12px;
 		padding-bottom: 20px;
 		position: relative;
-		color: $color-gray-d-p40;
 		font-size: 18px;
 		font-weight: bold;
 
@@ -242,6 +241,10 @@
 			position: absolute;
 			bottom: 0;
 			left: 0;
+		}
+
+		.b-link {
+			color: $color-gray-d-p40;
 		}
 	}
 

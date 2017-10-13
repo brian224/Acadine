@@ -494,8 +494,21 @@
 	}
 
 	@media screen and ( max-height : 650px ) {
+		.m-cut.social-cut {
+			.cut-title {
+				margin-bottom: 0;
+				padding: 24px 0;
+			}
+
+			.social-wall {
+				@include transform(scale(0.7));
+			}
+		}
+	}
+
+	@media screen and ( max-height : 600px ) {
 		.m-cut.social-cut .social-wall {
-			@include transform(scale(0.7));
+			@include transform(scale(0.6));
 		}
 	}
 }

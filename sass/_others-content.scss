@@ -1074,6 +1074,29 @@
 	}
 }
 
+.gift-center-detail .link-wrap {
+	background: $color-white;
+	position: relative;
+	border: 1px solid $color-gray-l-p30;
+	box-sizing: border-box;
+
+	.b-link {
+		color: $color-gray-d-p30;
+		letter-spacing: 1px;
+		@include transition(ease-in all 0.3s);
+
+		&.btn-return {
+			position: absolute;
+			top: 0;
+			left: 33.33%;
+		}
+
+		&:hover {
+			color: $color-text-major;
+		}
+	}
+}
+
 @include respond(Desktops) {
 	.l-body:not(.latest-news):not(.gift-center):not(.gift-center-detail) .cut-title {
 		margin-bottom: 72px;

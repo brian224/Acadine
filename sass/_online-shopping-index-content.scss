@@ -437,12 +437,12 @@
 		max-width: 1300px;
 
 		> .list {
-			width: calc((100% - 40px) / 3);
+			width: calc((100% - 60px) / 3);
 			max-width: 420px;
 		}
 
 		.main-intro {
-			width: calc(((100% - 40px) / 3 * 2) + 20px);
+			width: calc(((100% - 60px) / 3 * 2) + 20px);
 			max-width: 860px;
 		}
 	}
@@ -502,10 +502,17 @@
 
 	.new-arrive-list {
 		margin-top: 10px;
+		margin-right: -10px;
+		margin-left: -10px;
 		@include display-flex;
 		@include align-items(center);
 		@include flex-wrap(wrap);
-		@include justify-content(space-between);
+		@include justify-content(flex-start);
+
+		.list {
+			margin-right: 10px;
+			margin-left: 10px;
+		}
 
 		.main-intro {
 			@include display-flex;
@@ -560,11 +567,15 @@
 		}
 	}
 
-	.new-arrive-list > .list {
-		width: 420px;
+	.new-arrive-list {
+		max-width: 1320px;
 
-		&.main-intro {
-			width: 860px;
+		> .list {
+			width: 420px;
+
+			&.main-intro {
+				width: 860px;
+			}
 		}
 	}
 }

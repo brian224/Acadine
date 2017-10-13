@@ -124,6 +124,17 @@
 	@include align-items(center);
 	@include justify-content(center);
 
+	.sub-menu {
+		.list-block .list {
+			opacity: 1;
+		}
+
+		.list {
+			opacity: 0;
+			@include transition(ease-in all 0.3s);
+		}
+	}
+
 	.function-list .btn-func {
 		&.show-func ~ .popup-function {
 			opacity: 1;
