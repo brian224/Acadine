@@ -77,6 +77,8 @@
 					} else {
 						$('.jQ-pages').text(view[0] + '~' + view[1] + '/' + pageObj._totalPage);
 					}
+
+					$(common._loading).addClass('is-hide');
 				},
 				turned  : function(event, page, view) {
 					disableControls(page);

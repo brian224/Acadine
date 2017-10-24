@@ -889,7 +889,7 @@
 
 				&:hover ~ .menu-slider {
 					max-height : 50vh;
-					z-index    : 2;
+					/*z-index    : 2;*/
 					visibility : visible;
 				}
 			}
@@ -904,7 +904,7 @@
 
 			&:hover {
 				max-height : 50vh;
-				z-index    : 2;
+				/*z-index    : 2;*/
 				visibility : visible;
 			}
 		}

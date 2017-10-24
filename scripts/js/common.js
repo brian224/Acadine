@@ -39,6 +39,7 @@
         this._btnClose     = '.jQ-close-calendar';
         this._btnFinish    = '.jQ-finish';
         this._btnNext      = '.jQ-next';
+        this._loading      = '.jQ-loading';
         this._addingWrap   = '.m-adding-wrap';
         this._shortcutWrap = '.shortcut-wrap';
         this._teachOwl     = '.teach-owl';
@@ -226,7 +227,6 @@
                             $cloneArea.val(_areaDate[i].zip);
                         }
 
-                        
                         if ( _areaValue && _areaValue === $cloneArea.val() ) {
                             $cloneArea.prop('selected', true);
                         }
@@ -593,7 +593,7 @@
 
         // 網址有 # 可定位頁籤
         if (projects._HREF.split('?')[1] !== undefined && $(common._lContent + ' .main-tab').length !== 0) {
-            common.tabSwitch(projects._HREF.split('?')[1].split('&')[0], projects._HREF.split('&')[1]);
+            common.tabSwitch(decodeURI(projects._HREF.split('?')[1].split('&')[0]), decodeURI(projects._HREF.split('&')[1]));
         }
     });
 
@@ -626,7 +626,6 @@
             }
             common.include($self);
         }
-        
     });
 
     projects.$d.ready(function(){
@@ -818,7 +817,7 @@
             if ($(this).data('select-all') === true) {
                 var _name = $(this).data('gruop-name');
 
-                if($(this).find('input[type="checkbox"]:checked').length === 0) {
+                if ($(this).find('input[type="checkbox"]:checked').length === 0) {
                     $(this).addClass('is-checked').find('input[type="checkbox"]').prop('checked', true);
                     $('[data-select-name="' + _name + '"]').addClass('is-checked').find('input[type="checkbox"]').prop('checked', true);
                 } else {
@@ -826,7 +825,7 @@
                     $('[data-select-name="' + _name + '"]').removeClass('is-checked').find('input[type="checkbox"]').prop('checked', false);
                 }
             } else {
-                if($(this).find('input[type="checkbox"]:checked').length === 0) {
+                if ($(this).find('input[type="checkbox"]:checked').length === 0) {
                     $(this).addClass('is-checked').find('input[type="checkbox"]').prop('checked', true);
                 } else {
                     $(this).removeClass('is-checked').find('input[type="checkbox"]').prop('checked', false);
@@ -990,7 +989,7 @@
             common.showFooter();
         } else {
             if (projects.$w.width() > projects.$w.height()) {
-                alert('建議您使用直向瀏覽，將擁有最佳的瀏覽體驗。');
+                // alert('建議您使用直向瀏覽，將擁有最佳的瀏覽體驗。');
             }
 
             if ($(common._tagSelect).length !== 0 && $(common._tagSelect).children().prop('tagName').toLowerCase() !== 'select') {

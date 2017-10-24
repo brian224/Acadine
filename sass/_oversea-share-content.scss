@@ -513,6 +513,10 @@ $color-third : #f39700;
 }
 
 @include respond(Mobiles) {
+	.btn-language-switch {
+		width: 100%;
+	}
+
 	.main-tab > .m-tab-wrap .tab-list {
 		vertical-align: top;
 

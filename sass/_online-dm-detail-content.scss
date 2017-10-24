@@ -58,6 +58,10 @@
 		z-index: 1;
 		@include transition(ease-in all 0.3s);
 
+		&.hide {
+			opacity: 0.25;
+		}
+
 		&:hover {
 			opacity: 0.5;
 		}

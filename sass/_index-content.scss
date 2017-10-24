@@ -277,6 +277,14 @@
 			height: calc(100vh - 120px);
 		}
 
+		&.show-header .kv-owl .item {
+			height: calc(100vh - 120px);
+
+			.img-wrap {
+				height: calc(100vh - 120px);
+			}
+		}
+
 		&.scale-150 .m-cut .main-content .item .item-info {
 			@include transform(scale(0.8));
 			@include transform-origin(top, center);
@@ -400,10 +408,12 @@
 	}
 
 	.kv-owl .item {
-		height: calc(100vh - 120px);
+		height: calc(100vh - 70px);
+		@include transition(ease-in all 0.3s);
 
 		.img-wrap {
-			height: calc(100vh - 120px);
+			height: calc(100vh - 70px);
+			@include transition(ease-in all 0.3s);
 		}
 	}
 
@@ -509,6 +519,13 @@
 	@media screen and ( max-height : 600px ) {
 		.m-cut.social-cut .social-wall {
 			@include transform(scale(0.6));
+		}
+	}
+
+	@include screen('4/3') {
+		.kv-owl .item img {
+			width: auto;
+			min-height: 100%;
 		}
 	}
 }
