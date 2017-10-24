@@ -1,0 +1,35 @@
+.m-no-data {
+    width       : 100%;
+    line-height : 1.5em;
+    border      : 1px solid $color-gray-d-p10;
+    position    : relative;
+    @include box-sizing(border-box);
+}
+
+@include respond(Desktops) {
+    .m-no-data {
+        margin-top: 20px;
+        padding   : 10px;
+        font-size : 22px;
+    }
+}
+
+@include respond(Desktops-Tablets) {}
+
+@include respond(Tablets-Mobiles) {}
+
+@include respond(Tablets) {
+    .m-no-data {
+        margin-top: 15px;
+        padding   : 8px;
+        font-size : 18px;
+    }
+}
+
+@include respond(Mobiles) {
+    .m-no-data {
+        margin-top: 10px;
+        padding   : 5px;
+        font-size : 16px;
+    }
+}

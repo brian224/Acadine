@@ -18,7 +18,8 @@
 
 	projects.$d.ready(function(){
 		projects.validate({
-			event : 'focusout'
+			event          : 'focusout',
+			invalidHandler : common.validateHandler
 		});
 
 		$(pageObj._curr).text($('.category-list .is-curr').eq(-1).text());

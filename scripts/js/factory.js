@@ -381,26 +381,8 @@
                         }
                     },
                     invalidHandler : function(event, validator){
-                        for (var _key in validator.invalid) {
-                            if (validator.invalid[_key] !== undefined) {
-                                $('.m-radio[name="' + _key + '"]').parent('.m-box-holder.is-radio').addClass('error');
-                            }
-                        }
-
-                        if (validator.invalid.agreement !== undefined) {
-                            $('.m-checkbox').parent('.m-box-holder.is-checkbox').addClass('error');
-                        }
-                    },
-                    rules : {
-                        password : 'passwordRule',
-                        checkpassword : {
-                            equalTo : '[name="password"]'
-                        }
-                    },
-                    messages : {
-                        password :$forms.eq(i).find('[name="password"]').data('msg-type'),
-                        checkpassword : {
-                            equalTo : $forms.eq(i).find('[name="checkpassword"]').data('msg-equal')
+                        if ( object && typeof(object.invalidHandler) === 'function' ) {
+                            object.invalidHandler(event, validator);
                         }
                     }
                 });
@@ -433,12 +415,6 @@
             return this.optional(elem) || ( _phone.test(value) );
         });
 
-        /* password checked */
-        jQuery.validator.addMethod('passwordRule' , function (value, elem, params) {
-            var _password = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-            return this.optional(elem) || ( _password.test(value) );
-        });
-
         /* idcard checked */
         jQuery.validator.addMethod('idcard' , function (value, elem, params){
             var _countyCode = 'ABCDEFGHJKLMNPQRSTUVXYWZIO';
@@ -446,12 +422,12 @@
             var _numSort    = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5);
             var _multiply   = new Array(9, 8, 7, 6, 5, 4, 3, 2, 1, 1);
 
-            if (!$(elem).hasClass('required') && value.length === 0) return true;
-            
+            if ( ! jQuery(elem).hasClass('required') ) return true;
+
             if ( value.length != 10 ) return false;
 
-            var _index = _countyCode.indexOf( value.charAt(0) );
-            
+            var _index = _countyCode.indexOf( value.toUpperCase().charAt(0) );
+
             if ( _index === -1 ) return false;
 
             var _sum = _enSort[_index] + ( _numSort[_index] * 9 );
@@ -465,8 +441,6 @@
             }
             
             if ( _sum % 10 != 0 ) return false;
-            
-            return true;
         });
 
         /* either checked */
@@ -491,9 +465,6 @@
             },
             'phone' : {
                 phone : true
-            },
-            'passwordRule' : {
-                passwordRule : true
             },
             'idcard' : {
                 idcard : true

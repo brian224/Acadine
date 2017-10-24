@@ -7,7 +7,8 @@
     @import "_common/normalize";
 
     &.editor-area img {
-        max-width: 100%;
+        height    : auto !important;
+        max-width : 100%;
     }
 
     &:after {

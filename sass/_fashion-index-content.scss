@@ -869,7 +869,7 @@
 				height: 270px;
 
 				img {
-					height: 100%;
+					height: auto !important;
 				}
 			}
 		}
@@ -983,7 +983,8 @@
 			}
 
 			> *:not(.shopping-list) .img-wrap img {
-				width: 100%;
+				width     : auto !important;
+				max-width : 100%;
 			}
 		}
 

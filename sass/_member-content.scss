@@ -423,6 +423,17 @@
 	font-size: 16px;
 }
 
+.member .policy {
+	.main-cut {
+		font-size   : 14px;
+		line-height : 1.8em;
+
+		> *:not(:last-child) {
+			margin-bottom : 2em;
+		}
+	}
+}
+
 .step-list {
 	@include display-flex;
 	@include justify-content(space-between);
