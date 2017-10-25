@@ -74,10 +74,17 @@
 	.deliver-info {
 		color: $color-gray-d-p30;
 		font-size: 16px;
-		line-height: 36px;
+		line-height: 1.5em;
 
-		> .list {
-			margin-bottom: 20px;
+		.text {
+			padding: 6px 0;
+			@include display-flex;
+		}
+
+		.info-key {
+			padding-right: 16px;
+			min-width: 112px;
+			box-sizing: border-box;
 		}
 	}
 
@@ -87,6 +94,17 @@
 		font-size: 20px;
 		font-weight: bold;
 		letter-spacing: 1px;
+
+		td {
+			padding: 10px 0;
+			height: auto;
+		}
+
+		.count-value {
+			padding-left: 20px;
+			min-width: 136px;
+			box-sizing: border-box;
+		}
 	}
 
 	.item-info {
@@ -1126,6 +1144,10 @@
 	}
 
 	.order-detail {
+		.deliver-info {
+			margin-right: 0;
+		}
+
 		.m-table tfoot td {
 			padding-right: 30px;
 		}

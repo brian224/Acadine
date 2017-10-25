@@ -135,7 +135,7 @@
 
 	//
 	index.prototype.iniBranchList = function (latitude, longitude) {
-		$(indexObj._locationList).html('');
+		// $(indexObj._locationList).html('');
 
 		var _latitude   = latitude, // 緯度
 			_longitude  = longitude, // 經度

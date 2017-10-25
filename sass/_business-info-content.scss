@@ -256,6 +256,7 @@
 
 				.list {
 					display: inline-block;
+					box-sizing: border-box;
 					line-height: 1.5em;
 					text-align: left;
 				}
@@ -328,6 +329,7 @@
 }
 
 .brand-info-wrap {
+	padding-bottom: 24px;		
 	border: 1px solid $color-gray-l-p20;
 
 	.kv-owl .item .img-wrap {
@@ -353,9 +355,14 @@
 		}
 	}
 
-	.brand-slogan {
+	.brand-name, .brand-slogan {
 		color: $color-gray-d-p30;
 		font-weight: bold;
+	}
+
+	.brand-name {
+		margin-top: 12px;
+		border-bottom: 1px solid $color-gray-l-p20;
 	}
 
 	.sub-title {
@@ -888,7 +895,7 @@
 
 		.m-accordion {
 			.btn-switch {
-				padding-left: 108px;
+				padding-left: 100px;
 				height: 80px;
 
 				.text {
@@ -901,6 +908,7 @@
 			}
 
 			.m-accordion-bd {
+				padding-right: 36px;
 				padding-left: 100px;
 			}
 
@@ -910,7 +918,6 @@
 				.list {
 					padding: 6px 14px 6px 0;
 					width: 25%;
-					box-sizing: border-box;
 					font-size: 14px;
 				}
 			}
@@ -920,7 +927,7 @@
 			margin-top: -22px;
 			width: 44px;
 			height: 44px;
-			left: 60px;
+			left: 52px;
 		}
 	}
 
@@ -980,8 +987,12 @@
 			}
 		}
 
+		.brand-slogan {
+			margin: 50px 0 80px 0;
+		}
+
 		.shopping-list {
-			margin: 0 auto 64px auto;
+			margin: 0 auto 40px auto;
 			padding: 21px 0 0 0;
 
 			.list {
@@ -1151,8 +1162,11 @@
 			height: 160px;
 		}
 
+		.brand-name {
+			font-size: 20px;
+		}
+
 		.brand-slogan {
-			margin: 50px 0 80px 0;
 			font-size: 16px;
 			line-height: 2em;
 		}
@@ -1488,7 +1502,7 @@
 
 		.m-accordion {
 			.btn-switch {
-				padding-left: 54px;
+				padding-left: 50px;
 				height: 40px;
 
 				.text {
@@ -1501,14 +1515,14 @@
 			}
 
 			.m-accordion-bd {
-				padding-left: 50px;
+				padding: 0 18px 0 50px;
 			}
 
 			.counters-list {
 				margin: 15px 0;
 
 				.list {
-					padding: 3px 0;
+					padding: 3px 12px 3px 0;
 					font-size: 12px;
 				}
 			}
@@ -1518,7 +1532,7 @@
 			margin-top: -11px;
 			width: 22px;
 			height: 22px;
-			left: 30px;
+			left: 24px;
 		}
 	}
 
@@ -1558,17 +1572,27 @@
 	}
 
 	.brand-info-wrap {
-		> *:not(.kv):not(.brand-logo) {
-			margin-right: 24px;
-			margin-left: 24px;
+		> * {
+			&:not(.kv):not(.brand-logo) {
+				margin-right: 24px;
+				margin-left: 24px;
 
-			&:first-child {
+				&:first-child {
+					padding-top: 24px;
+				}
+			}
+
+			&.brand-logo:first-child {
 				padding-top: 24px;
 			}
 		}
 
 		.m-owl-dots {
 			margin: 12px 0;
+		}
+
+		.brand-slogan {
+			margin: 20px 0 40px 0;
 		}
 
 		.shopping-list {
@@ -1744,8 +1768,30 @@
 			margin-bottom: 10px;
 		}
 
-		.m-accordion .counters-list .list {
-			width: 50%;
+		.img-icon {
+			left: 18px;
+		}
+
+		.m-accordion {
+			.btn-switch {
+				padding-left: 44px;
+			}
+
+			.m-accordion-bd {
+				padding-left: 44px;
+			}
+
+			.counters-list .list {
+				padding-top: 5px;
+				padding-bottom: 5px;
+				width: 50%;
+				box-sizing: border-box;
+				vertical-align: top;
+
+				&:nth-child(2n) {
+					padding-right: 0;
+				}
+			}
 		}
 	}
 
@@ -1778,8 +1824,11 @@
 			height: 80px;
 		}
 
+		.brand-name {
+			font-size: 18px;
+		}
+
 		.brand-slogan {
-			margin: 20px 0 40px 0;
 			font-size: 14px;
 			line-height: 2em;
 		}

@@ -38,15 +38,15 @@
 	});
 
 	projects.$d.ready(function(){
-		$(pageObj._keyword).on('click', function(){
-			$(this).addClass('is-curr').parent().siblings().find(pageObj._keyword).removeClass('is-curr');
+		// $(pageObj._keyword).on('click', function(){
+		// 	$(this).addClass('is-curr').parent().siblings().find(pageObj._keyword).removeClass('is-curr');
 
-			pageObj.showResult();
-		});
+		// 	pageObj.showResult();
+		// });
 
-		$(pageObj._search).on('click', function(){
-			pageObj.showResult();
-		});
+		// $(pageObj._search).on('click', function(){
+		// 	pageObj.showResult();
+		// });
 
 		if ( projects.device() !== 'PC') {
 			$('.not-here').on('click', function(){

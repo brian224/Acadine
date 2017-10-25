@@ -1154,6 +1154,10 @@
 					width: calc((100% - 40px) / 3);
 					min-width: 260px;
 				}
+
+				.list-item .img-wrap {
+					height: calc((100% - 40px) / 3);
+				}
 			}
 		}
 	}
@@ -1481,7 +1485,7 @@
 		}
 
 		.guide-filter {
-			bottom: 40px;
+			bottom: 20px;
 		}
 	}
 
@@ -1607,6 +1611,10 @@
 				width: 310px;
 			}
 
+			.list-item .img-wrap {
+				height: 310px;
+			}
+
 			.item-gutter {
 				width: 20px;
 			}
@@ -1670,7 +1678,11 @@
 				.item-sizer, .list-item {
 					width: 320px;
 				}
-		
+
+				.list-item .img-wrap {
+					height: 320px;
+				}
+
 				.item-gutter {
 					width: 28px;
 				}

@@ -822,6 +822,10 @@ $color-third : #f39700;
 }
 
 .main-recommended {
+	&.jQ-owl .m-owl-ctrl {
+		line-height: 0;
+	}
+
 	.item {
 		border: 1px solid $color-gray-l-p40;
 
@@ -1449,7 +1453,7 @@ $color-third : #f39700;
 		}
 
 		.item-info {
-			padding: 20px 30px;
+			padding: 20px 30px 76px 30px;
 		}
 	}
 

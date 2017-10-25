@@ -581,14 +581,6 @@
 }
 
 @include respond(HD) {
-	.kv-owl .item {
-		height: calc(100vh - 120px);
-
-		.img-wrap {
-			height: calc(100vh - 120px);
-		}
-	}
-
 	.m-footer {
 		padding: 0;
 	}

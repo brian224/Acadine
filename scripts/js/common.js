@@ -428,8 +428,8 @@
                     _str += '<option value="" class="jQ-tab">' + $this.find('> *').eq(i).text() + '</option>';
                 }
             } else if ($this.find('a').length !== 0) {
-                for (var i = 0; i < $this.find('a.b-link').length; i++) {
-                    _str += '<option value="' + $this.find('a.b-link').eq(i).attr('href') + '">' + $this.find('a.b-link').eq(i).text() + '</option>';
+                for (var i = 0; i < $this.find('a').length; i++) {
+                    _str += '<option value="' + $this.find('a').eq(i).attr('href') + '">' + $this.find('a').eq(i).text() + '</option>';
                 }
             }
 

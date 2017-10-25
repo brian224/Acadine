@@ -1,7 +1,11 @@
+.m-no-data-wrap {
+    display : block;
+    width   : 100%;
+}
+
 .m-no-data {
     width       : 100%;
     line-height : 1.5em;
-    border      : 1px solid $color-gray-d-p10;
     position    : relative;
     @include box-sizing(border-box);
 }
