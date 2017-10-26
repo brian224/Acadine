@@ -1528,11 +1528,6 @@ $color-btn-cancel : $color-gray-l-p10;
 		display: block !important;
 		margin-left: 28px;
 	}
-
-	.deliver-method {
-		padding-right: 0 !important;
-		padding-left: 0 !important;
-	}
 }
 
 @include browsers('IE') {

@@ -94,6 +94,8 @@
 					} else if (view[0] === 1) {
 						$('.jQ-pages').text(view[0] + '/' + pageObj._totalPage);
 					}
+
+					$(common._loading).addClass('is-hide');
 				},
 				missing : function (event, pages) {
 					for (var i = 0; i < pages.length; i++) addPage(pages[i], $(this));

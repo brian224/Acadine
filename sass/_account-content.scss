@@ -68,6 +68,10 @@
 	font-size: 20px;
 	font-weight: bold;
 	line-height: 1.5em;
+
+	.sub-msg {
+		font-size: 16px;
+	}
 }
 
 .order-detail {
@@ -75,6 +79,35 @@
 		color: $color-gray-d-p30;
 		font-size: 16px;
 		line-height: 1.5em;
+
+		&.order-info {
+			margin-bottom: 12px;
+			@include display-flex;
+			@include flex-wrap(wrap);
+			@include justify-content(space-between);
+
+			> *:not(:last-child) {
+				margin-right: 20px;
+			}
+		}
+
+		.deliver-type {
+			padding-left: 28px;
+			position: relative;
+			font-size: 20px;
+
+			&:before {
+				content: '';
+				margin-top: -3px;
+				background: $color-gray-d-p30;
+				display: block;
+				width: 6px;
+				height: 6px;
+				position: absolute;
+				top: 50%;
+				left: 8px;
+			}
+		}
 
 		.text {
 			padding: 6px 0;
@@ -124,6 +157,11 @@
 		&:hover {
 			text-decoration: none;
 		}
+	}
+
+	.link-list {
+		font-size: 0;
+		line-height: 0;
 	}
 
 	.l-lightbox {
@@ -1049,6 +1087,10 @@
 		}
 	}
 
+	.main-msg {
+		padding-left: 200px !important;
+	}
+
 	.order-detail {
 		.m-table td {
 			padding: 0 20px;
@@ -1153,7 +1195,11 @@
 		}
 
 		.link-list .list {
-			margin: 0 20px 20px 0;
+			margin: 0;
+
+			&:not(:first-child) {
+				margin: 0 0 0 10px;
+			}
 		}
 
 		.item-info {
@@ -1532,6 +1578,10 @@
 			font-size: 18px;
 			line-height: 1.5em;
 		}
+	}
+
+	.main-msg {
+		padding-left: 300px;
 	}
 }
 

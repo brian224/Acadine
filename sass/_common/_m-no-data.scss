@@ -15,6 +15,10 @@
         margin-top: 20px;
         padding   : 10px;
         font-size : 22px;
+
+        &.text-xs {
+            font-size: 16px;
+        }
     }
 }
 
@@ -27,6 +31,10 @@
         margin-top: 15px;
         padding   : 8px;
         font-size : 18px;
+
+        &.text-xs {
+            font-size: 14px;
+        }
     }
 }
 
@@ -35,5 +43,9 @@
         margin-top: 10px;
         padding   : 5px;
         font-size : 16px;
+
+        &.text-xs {
+            font-size: 14px;
+        }
     }
 }
