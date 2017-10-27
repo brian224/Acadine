@@ -684,6 +684,23 @@
 
 		common.selectUI();
 
+		// $(common._owl).each(function(){
+		// 	if ($(this).data('autoplay') === true && $(this).find('.item').length !== 0) {
+		// 		for (var i = 0; i < $(this).find('.item').length; i++) {
+		// 			$(this).find('.item').eq(i).attr('data-index', i);
+		// 		}
+
+		// 		$(this).on('translated.owl.carousel' , function(){
+		// 			if ($(this).find('.active .item').data('index') === $(this).find('.owl-item').length - 1) {
+		// 				$(this).delay(5000).queue(function() {
+		// 					$(this).dequeue();
+		// 					$(this).trigger('to.owl', 0);
+		// 				});
+		// 			}
+		// 		});
+		// 	}
+		// });
+
 		// 結束首次教學
 		$(common._btnFinish).on('click', function(){
 			localStorage.setItem('teach-lesson', true);
@@ -887,7 +904,15 @@
 			if ($(this).data('calc') === 'minus') {
 				_val <= 2 ? $(this).siblings('.m-box-holder').find('.m-inputbox').val(1) : $(this).siblings('.m-box-holder').find('.m-inputbox').val(_val - 1);
 			} else {
-				$(this).siblings('.m-box-holder').find('.m-inputbox').val(_val + 1);
+				_val >= 99 ? $(this).siblings('.m-box-holder').find('.m-inputbox').val(99) : $(this).siblings('.m-box-holder').find('.m-inputbox').val(_val + 1);
+			}
+		});
+
+		$(common._lBody).on('input', '.is-calc .m-inputbox', function(){
+			if (parseInt($(this).val(), 10) > 99) {
+				$(this).val(99);
+			} else if (parseInt($(this).val(), 10) < 1) {
+				$(this).val(1);
 			}
 		});
 
@@ -994,6 +1019,14 @@
 			}
 		});
 
+		$('input, textarea, select').on('focus', function(){
+			$(this).attr('data-focus', 'here');
+		});
+
+		$('input, textarea, select').on('blur', function(){
+			$(this).attr('data-focus', '');
+		});
+
 		projects.$d.keydown(function(e){
 			if (e.keyCode === 27 && $(common._lBody).hasClass('show-lightbox')) {
 				common.closeBoxEvent();
@@ -1013,8 +1046,8 @@
 		if (projects.device() !== 'Mobile') {
 			common.showFooter();
 		} else {
-			if (projects.$w.width() > projects.$w.height()) {
-				// alert('建議您使用直向瀏覽，將擁有最佳的瀏覽體驗。');
+			if (projects.$w.width() > projects.$w.height() && $('[data-focus=here]').length === 0) {
+				alert('建議您使用直向瀏覽，將擁有最佳的瀏覽體驗。');
 			}
 
 			if ($(common._tagSelect).length !== 0 && $(common._tagSelect).children().prop('tagName').toLowerCase() !== 'select') {

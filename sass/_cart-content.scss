@@ -794,6 +794,10 @@ $color-btn-cancel : $color-gray-l-p10;
 		}
 	}
 
+	.m-box-holder.is-calc .m-inputbox {
+		padding: 0;
+	}
+
 	.credit-card-wrap .m-box-holder .m-inputbox {
 		padding: 0;
 	}

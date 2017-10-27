@@ -87,7 +87,8 @@
 			@include justify-content(space-between);
 
 			> *:not(:last-child) {
-				margin-right: 20px;
+				padding-right: 20px;
+				box-sizing: border-box;
 			}
 		}
 

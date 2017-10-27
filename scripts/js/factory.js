@@ -476,7 +476,7 @@
     };
 
     /* youtube */
-    factory.prototype._media  = {
+    factory.prototype._media = {
         _length   : 0,
         _id       : null,
         _player   : [],
