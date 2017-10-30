@@ -504,19 +504,22 @@
 
 	page.prototype.tabSwitch = function(_anchor, _accordion) {
 		$(common._tab).each(function(){
-			if ($(this).hasClass(_anchor)) {
-				var _main = $(this).data('main'),
-					_sub  = $(this).data('sub');
+			if ($(this).hasClass(_anchor) || $(this).data('hushtag') === _anchor) {
+				var $this = $(this),
+					_main = $this.data('main'),
+					_sub  = $this.data('sub');
 
 				if (_main !== undefined) {
 					$('.l-main .main-tab > .m-tab-wrap > .tab-list').eq(_main).find(common._tab).trigger('click');
 				}
 
 				if (_sub !== undefined) {
-					$(this).parents('.sub-tab').find('> .m-tab-wrap > .tab-list').eq(_sub).find(common._tab).trigger('click');
+					$this.parents('.sub-tab').find('> .m-tab-wrap > .tab-list').eq(_sub).find(common._tab).trigger('click');
 				}
 
-				$(this).trigger('click');
+				setTimeout(function(){
+					$this.trigger('click');
+				}, 0);
 
 				if (_accordion !== undefined) {
 					$(common._btnAccordion + '[data-hushtag="' + _accordion + '"]').trigger('click');
@@ -588,13 +591,10 @@
 		for ( var _key in validator.invalid ) {
 			if ( validator.invalid[_key] !== undefined ) {
 				$('.m-radio[name="' + _key + '"]').parent('.m-box-holder.is-radio').addClass('error');
+				$('.m-checkbox[name="' + _key + '"]').parent('.m-box-holder.is-checkbox').addClass('error');
 			}
 		}
-
-		if ( validator.invalid.agreement !== undefined ) {
-			$('.m-checkbox').parent('.m-box-holder.is-checkbox').addClass('error');
-		}
-	};
+	}
 
 	projects.$w.load(function(){
 		if (!$(common._lBody).hasClass('show-teach')) {
@@ -606,7 +606,7 @@
 		// 網址有 # 可定位頁籤
 		if (projects._HREF.split('tab=')[1] !== undefined && projects._HREF.split('accordion=')[1] !== undefined && $(common._lContent + ' .main-tab').length !== 0 && $(common._lContent + ' .m-accordion').length !== 0) {
 			common.tabSwitch(decodeURI(projects._HREF.split('tab=')[1].split('&')[0]), decodeURI(projects._HREF.split('accordion=')[1].split('&')[0]));
-		} else if (projects._HREF.split('tab=')[1] !== undefined && projects._HREF.split('accordion=')[1] === undefined && $(common._lContent + ' .main-tab').length !== 0 && $(common._lContent + ' .m-accordion').length === 0) {
+		} else if (projects._HREF.split('tab=')[1] !== undefined && projects._HREF.split('accordion=')[1] === undefined && $(common._lContent + ' .main-tab').length !== 0) {
 			common.tabSwitch(decodeURI(projects._HREF.split('tab=')[1].split('&')[0]));
 		}
 	});

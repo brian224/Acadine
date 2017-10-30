@@ -48,11 +48,11 @@
 			pageObj.showResult();
 		});
 
-		$(common._tagSelect + ' .b-link').on('click', function(){
-			projects.$hb.animate({
-				'scrollTop' : $(common._lContent + ' .main-tab').offset().top - $(common._lHeader).height()
-			}, common._animateSpeed);
-		});
+		// $(common._tagSelect + ' .b-link').on('click', function(){
+		// 	projects.$hb.animate({
+		// 		'scrollTop' : $(common._lContent + ' .main-tab').offset().top - $(common._lHeader).height()
+		// 	}, common._animateSpeed);
+		// });
 	});
 
 	projects.$w.on('scroll' , function(){

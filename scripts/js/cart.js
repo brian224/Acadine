@@ -15,7 +15,8 @@
             common.countyArea();
             
             projects.validate({
-                event : 'focusout'
+                event          : 'focusout',
+                invalidHandler : common.validateHandler
             });
 
             $(cartObj._creditCard + ' .m-inputbox').on('keyup change', function(){

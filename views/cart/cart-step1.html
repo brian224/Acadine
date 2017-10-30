@@ -440,9 +440,10 @@
 													</label>
 													<label class="m-lab jQ-checkbox is-checked b-block">
 														<div class="m-box-holder is-checkbox">
-															<input type="checkbox" class="m-checkbox" checked="checked">
+															<input type="checkbox" name="happygo-agreement" class="m-checkbox required" checked="checked" data-msg="此欄位為必填">
 														</div>
 														<span class="text">若本人後續辦理退貨作業，同意由遠東百貨代為處理銷售憑證 (例如：發票處理或銷貨折讓)</span>
+														<span class="alert"><label for="happygo-agreement" class="is-error b-text-warning"></label></span>
 													</label>
 												</li>
 												<li class="content-list">
@@ -456,9 +457,10 @@
 													<em class="note b-col-dt-12 b-col-xs-12 b-block">※ 依統一發票使用辦法規定：個人戶 (二聯式) 發票一經開立，不得任意更改為公司戶 (三聯式)發票。</em>
 													<label class="m-lab jQ-checkbox is-checked b-block">
 														<div class="m-box-holder is-checkbox">
-															<input type="checkbox" class="m-checkbox" checked="checked">
+															<input type="checkbox" name="phone-agreement" class="m-checkbox required" checked="checked" data-msg="此欄位為必填">
 														</div>
 														<span class="text">若本人後續辦理退貨作業，同意由遠東百貨代為處理銷售憑證 (例如：發票處理或銷貨折讓)</span>
+														<span class="alert"><label for="phone-agreement" class="is-error b-text-warning"></label></span>
 													</label>
 												</li>
 												<li class="content-list">
@@ -472,32 +474,36 @@
 													<em class="note b-col-dt-12 b-col-xs-12 b-block">※ 依統一發票使用辦法規定：個人戶 (二聯式) 發票一經開立，不得任意更改為公司戶 (三聯式)發票。</em>
 													<label class="m-lab jQ-checkbox is-checked b-block">
 														<div class="m-box-holder is-checkbox">
-															<input type="checkbox" class="m-checkbox" checked="checked">
+															<input type="checkbox" name="citizen-agreement" class="m-checkbox required" checked="checked" data-msg="此欄位為必填">
 														</div>
 														<span class="text">若本人後續辦理退貨作業，同意由遠東百貨代為處理銷售憑證 (例如：發票處理或銷貨折讓)</span>
+														<span class="alert"><label for="citizen-agreement" class="is-error b-text-warning"></label></span>
 													</label>
 												</li>
 												<li class="content-list">
 													<label class="m-lab jQ-checkbox is-checked b-block">
 														<div class="m-box-holder is-checkbox">
-															<input type="checkbox" class="m-checkbox" checked="checked">
+															<input type="checkbox" name="credit-agreement" class="m-checkbox required" checked="checked" data-msg="此欄位為必填">
 														</div>
 														<span class="text">若本人後續辦理退貨作業，同意由遠東百貨代為處理銷售憑證 (例如：發票處理或銷貨折讓)</span>
+														<span class="alert"><label for="credit-agreement" class="is-error b-text-warning"></label></span>
 													</label>
 												</li>
 												<li class="content-list">
 													<label class="m-lab b-col-xs-12">
 														<em class="text b-block-xs">請輸入愛心碼：</em>
 														<div class="m-box-holder b-col-xs-12">
-															<input type="text" class="m-inputbox" placeholder="">
+															<input type="text" name="heart-code" class="m-inputbox required" placeholder="" data-msg="愛心碼為必填">
 														</div>
 														<a href="https://www.einvoice.nat.gov.tw/APMEMBERVAN/XcaOrgPreserveCodeQuery/XcaOrgPreserveCodeQuery" class="b-link b-inline" target="_blank">(愛心碼查詢)</a>
+														<span class="alert"><label for="heart-code" class="is-error b-text-warning"></label></span>
 													</label>
 													<label class="m-lab jQ-checkbox is-checked b-block">
 														<div class="m-box-holder is-checkbox">
-															<input type="checkbox" class="m-checkbox" checked="checked">
+															<input type="checkbox" name="heart-agreement" class="m-checkbox required" checked="checked" data-msg="此欄位為必填">
 														</div>
 														<span class="text">若本人後續辦理退貨作業，同意由遠東百貨代為處理銷售憑證 (例如：發票處理或銷貨折讓)</span>
+														<span class="alert"><label for="heart-agreement" class="is-error b-text-warning"></label></span>
 													</label>
 												</li>
 												<li class="content-list">
@@ -558,9 +564,10 @@
 													<em class="note b-col-dt-12 b-col-xs-12 b-block">※ 依統一發票使用辦法規定：個人戶 (二聯式) 發票一經開立，不得任意更改為公司戶 (三聯式)發票。</em>
 													<label class="m-lab jQ-checkbox is-checked b-block">
 														<div class="m-box-holder is-checkbox">
-															<input type="checkbox" class="m-checkbox" checked="checked">
+															<input type="checkbox" name="corporation-agreement" class="m-checkbox required" checked="checked" data-msg="此欄位為必填">
 														</div>
 														<span class="text">若本人後續辦理退貨作業，同意由遠東百貨代為處理銷售憑證 (例如：發票處理或銷貨折讓)</span>
+														<span class="alert"><label for="corporation-agreement" class="is-error b-text-warning"></label></span>
 													</label>
 												</li>
 												<li class="content-list">
@@ -568,8 +575,9 @@
 														<div class="b-col-dt-4 b-col-xs-12 b-clearfix b-float-left-dt">
 															<em class="m-form-addon b-col-dt-12 b-col-xs-12 b-block">收件人</em>
 															<div class="m-box-holder b-col-dt-12 b-col-xs-12 b-block">
-																<input type="text" class="m-inputbox required" placeholder="請填寫姓名">
+																<input type="text" name="invoice-recipient-name" class="m-inputbox required" placeholder="請填寫姓名" data-msg="收件人姓名為必填">
 															</div>
+															<span class="alert b-col-dt-12 b-col-xs-12"><label for="invoice-recipient-name" class="is-error b-text-warning"></label></span>
 														</div>
 													</div>
 													<div class="m-form b-col-dt-12 b-col-xs-12 b-clearfix">
@@ -577,34 +585,38 @@
 														<div class="m-form-group-dt b-col-dt-12 b-col-xs-12 b-clearfix">
 															<div class="b-col-dt-2 b-col-xs-6 b-float-left-xs">
 																<div class="m-box-holder is-selector b-col-dt-12 b-col-xs-11">
-																	<select name="" id="" class="m-selection required">
+																	<select name="invoice-recipient-city" id="" class="m-selection required" data-msg="縣市為必填">
 																		<option value="">選擇縣市</option>
 																		<option value="台北市">台北市</option>
 																		<option value="新北市">新北市</option>
 																	</select>
 																</div>
+																<span class="alert b-col-dt-12 b-col-xs-12"><label for="invoice-recipient-city" class="is-error b-text-warning"></label></span>
 															</div>
 															<div class="b-col-dt-2 b-col-xs-6 b-float-left-xs">
 																<div class="m-box-holder is-selector b-col-dt-12 b-col-xs-11 b-float-right-xs">
-																	<select name="" id="" class="m-selection required">
+																	<select name="invoice-recipient-area" id="" class="m-selection required" data-msg="區域為必填">
 																		<option value="">選擇區域</option>
 																		<option value="中山區">中山區</option>
 																		<option value="中正區">中正區</option>
 																	</select>
 																</div>
+																<span class="alert b-col-dt-12 b-col-xs-12"><label for="invoice-recipient-area" class="is-error b-text-warning"></label></span>
 															</div>
 															<div class="b-col-dt-8 b-col-xs-12 b-float-left-xs">
 																<div class="m-box-holder b-col-dt-12 b-col-xs-12">
-																	<input type="text" class="m-inputbox required" placeholder="地址">
+																	<input name="invoice-recipient-address" type="text" class="m-inputbox required" placeholder="地址" data-msg="地址為必填">
 																</div>
+																<span class="alert b-col-dt-12 b-col-xs-12"><label for="invoice-recipient-address" class="is-error b-text-warning"></label></span>
 															</div>
 														</div>
 													</div>
 													<label class="m-lab jQ-checkbox is-checked b-block">
 														<div class="m-box-holder is-checkbox">
-															<input type="checkbox" class="m-checkbox" checked="checked">
+															<input type="checkbox" name="paper-agreement" class="m-checkbox required" checked="checked" data-msg="此欄位為必填">
 														</div>
 														<span class="text">若本人後續辦理退貨作業，同意由遠東百貨代為處理銷售憑證 (例如：發票處理或銷貨折讓)</span>
+														<span class="alert"><label for="paper-agreement" class="is-error b-text-warning"></label></span>
 													</label>
 												</li>
 											</ul>

@@ -515,6 +515,10 @@
 				}
 			}
 
+			.shopping-list img {
+				height: 100%;
+			}
+
 			.main-link .item-info {
 				padding-bottom: 70px;
 			}
@@ -528,6 +532,10 @@
 	.masonry-link {
 		&.is-separate .img-wrap {
 			height: 330px;
+
+			img {
+				height: 100%;
+			}
 		}
 
 		.img-wrap img, .btn-read-more {

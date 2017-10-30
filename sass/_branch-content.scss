@@ -319,6 +319,7 @@
 	.list {
 		width: 100%;
 		position: relative;
+		box-sizing: border-box;
 	}
 
 	.shopping-link {
@@ -568,10 +569,6 @@
 			border-left: 23px solid transparent;
 		}
 
-		.list {
-			padding-top: 21px;
-		}
-
 		.img-wrap {
 			height: 272px;
 
@@ -581,7 +578,7 @@
 		}
 
 		.item-info {
-			padding: 0 32px 48px 32px;
+			padding: 20px 32px 48px 32px;
 
 			.main-info {
 				> *:first-child {
@@ -640,6 +637,7 @@
 
 		.list {
 			margin: 0 auto;
+			width: calc(100% - 20px);
 		}
 	}
 

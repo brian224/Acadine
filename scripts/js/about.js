@@ -17,6 +17,7 @@
 		});
 
 		projects.owlCarousel(pageObj._passiveOwl);
+		$(pageObj._btnPrev).addClass('disabled');
 	}
 
 	page.prototype.owlSync = function() {
@@ -32,6 +33,19 @@
 	}
 
 	projects.$w.load(function(){
+		$(pageObj._passiveOwl).on('translated.owl.carousel' , function(){
+			var _idx    = $(this).find('.active .item').data('index'),
+				_length = $(this).find('.item').length;
+
+			if (_idx === _length - 1) {
+				$(pageObj._btnNext).addClass('disabled');
+			} else if (_idx === 0) {
+				$(pageObj._btnPrev).addClass('disabled');
+			} else {
+				$(pageObj._btnNext).removeClass('disabled');
+				$(pageObj._btnPrev).removeClass('disabled');
+			}
+		});
 	});
 
 	projects.$d.ready(function(){
