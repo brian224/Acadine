@@ -995,20 +995,12 @@
 			margin: 0 auto 40px auto;
 			padding: 21px 0 0 0;
 
-			.list {
-				padding-top: 21px;
-			}
-
-			.img-wrap {
-				height: 272px;
-
-				img {
-					width: auto;
-				}
-			}
+			/*.img-wrap {
+				height: 300px;
+			}*/
 
 			.item-info {
-				padding: 0 32px 48px 32px;
+				padding: 20px 32px 48px 32px;
 
 				.main-info {
 					> *:first-child {

@@ -116,6 +116,16 @@
 	.result-list .list-item {
 		display: inline-block;
 
+		&.not-here {
+			position: relative;
+
+			&:hover, .is-touch {
+				.guide-filter {
+					opacity: 1;
+				}
+			}
+		}
+
 		.img-wrap {
 			overflow: hidden;
 
@@ -164,6 +174,75 @@
 			background: $color-text-major;
 			border-color: $color-text-major;
 			color: $color-white;
+		}
+	}
+
+	.btn-link {
+		margin-top: 10px;
+		padding: 0 12px;
+		display: inline-block;
+		min-width: 144px;
+		height: 36px;
+		border: 1px solid $color-gray-d-p30;
+		color: $color-gray-d-p30;
+		font-size: 14px;
+		letter-spacing: 1px;
+		line-height: 34px;
+		text-align: center;
+		@include transition(ease-in all 0.3s);
+
+		&:hover {
+			background: $color-text-major;
+			border-color: $color-text-major;
+			color: $color-white;
+		}
+	}
+}
+
+.guide-filter {
+	padding: 18px;
+	background: rgba($color-black, 0.8);
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	opacity: 0;
+	z-index: 1;
+	@include transition(ease-in all 0.3s);
+
+	.guide-content {
+		padding: 20px;
+		@include display-flex;
+		@include align-items(center);
+		@include justify-content(center);
+		@include flex-direction(column);
+		height: 100%;
+		border: 1px solid $color-gray-l-p20;
+		box-sizing: border-box;
+	}
+
+	.guide-desc {
+		margin-bottom: 10px;
+		padding-bottom: 10px;
+		border-bottom: 1px solid $color-gray-l-p20;
+		font-size: 14px;
+		line-height: 1.6em;
+	}
+
+	.guide-desc, .btn-link {
+		color: $color-white;
+	}
+
+	.btn-link {
+		background: $color-text-major;
+		display: block;
+		width: 100%;
+		border: 0;
+		border-radius: 5px;
+
+		&:hover {
+			background: darken($color-text-major, 10%);
+			border: 0;
 		}
 	}
 }
@@ -491,13 +570,17 @@
 			margin: 0 auto;
 
 			.list-item {
-				padding-bottom: 40px;
+				padding-bottom: 20px;
 			}
 
 			.item-gutter {
 				width: 20px;
 			}
 		}
+	}
+
+	.guide-filter {
+		bottom: 20px;
 	}
 
 	.new-arrive-list {
@@ -661,6 +744,10 @@
 			padding-bottom: 20px;
 			display: block;
 		}
+	}
+
+	.guide-filter {
+		bottom: 20px;
 	}
 
 	.m-pagination {

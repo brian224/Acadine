@@ -494,10 +494,10 @@
 				$adjHeight.each(function(){
 					$(this).height(_maxHeight);
 				});
-			} else {
-				$adjHeight.each(function(){
-					$(this).height($(this).parent().height());
-				});
+			// } else {
+			// 	$adjHeight.each(function(){
+			// 		$(this).height($(this).parent().height());
+			// 	});
 			}
 		});
 	}

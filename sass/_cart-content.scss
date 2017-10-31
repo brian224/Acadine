@@ -807,14 +807,9 @@ $color-btn-cancel : $color-gray-l-p10;
 			width: calc((100vw - 80px) / 4) !important;
 		}
 
-		.img-wrap {
-			height: 272px;
-
-			img {
-				width: auto;
-				height: 100%;
-			}
-		}
+		/*.img-wrap {
+			height: 300px;
+		}*/
 
 		.item-info {
 			padding: 15px 32px;
@@ -1077,7 +1072,7 @@ $color-btn-cancel : $color-gray-l-p10;
 		left: 1px;
 
 		.owl-item {
-			margin: 0 32px 0 1px;
+			margin: 0 33px 0 0;
 			width: 300px !important;
 		}
 	}

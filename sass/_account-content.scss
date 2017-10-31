@@ -451,6 +451,10 @@
 
 .l-body:not(.my-card) .l-content .btn-link {
 	background: $color-white;
+
+	&:hover {
+		background: $color-text-major;
+	}
 }
 
 .l-content {
