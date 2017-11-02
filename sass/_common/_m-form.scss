@@ -18,13 +18,19 @@
 .m-lab {
 	display: inline-block;
 
-	&.is-checked .m-box-holder {
-		&.is-checkbox:before {
-			opacity: 1;
+	&.is-checked {
+		.m-box-holder {
+			&.is-checkbox:before {
+				opacity: 1;
+			}
+
+			&.is-radio:before {
+				opacity: 1;
+			}
 		}
 
-		&.is-radio:before {
-			opacity: 1;
+		.alert {
+			display: none !important;
 		}
 	}
 

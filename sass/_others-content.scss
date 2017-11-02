@@ -2274,6 +2274,16 @@
 			line-height: 1.5em;
 		}
 	}
+
+	.gift-center-detail .sheet .info-list {
+		display: block;
+		font-size: 0;
+		line-height: 0;
+
+		> * {
+			display: inline-block;
+		}
+	}
 }
 
 @include browsers('Safari') {}

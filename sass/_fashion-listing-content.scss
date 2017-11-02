@@ -339,6 +339,8 @@
 	}
 
 	.l-content .favorite-list {
+		@include display-flex;
+		@include flex-wrap(wrap);
 		font-size: 0;
 		line-height: 0;
 

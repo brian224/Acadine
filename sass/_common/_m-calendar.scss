@@ -3,7 +3,6 @@
 
 	&.is-open .calendar-box {
 		opacity: 1;
-		z-index: 1;
 	}
 
 	.btn-text {
@@ -18,7 +17,7 @@
 
 	.calendar-box {
 		background: $color-white;
-		position: absolute;
+		left: 50%;
 		border-width: 1px;
 		border-style: solid;
 		border-color: $color-gray-d-p30;
@@ -133,9 +132,17 @@
 		}
 	}
 
-	.selection-list .list {
-		margin-bottom: 20px;
-		color: $color-gray-d-p30;
+	.selection-list {
+		overflow-y: scroll;
+
+		.list {
+			margin-bottom: 20px;
+			color: $color-gray-d-p30;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
 	}
 
 	.m-lab {
@@ -199,19 +206,30 @@
 @include respond(Desktops) {}
 
 @include respond(Desktops-Tablets) {
-	.m-adding-wrap .calendar-box {
-		margin-left: -160px;
-		padding: 60px 30px 40px 30px;
-		width: 320px;
-		left: 50%;
-
-		&:before, &:after {
-			left: 50%;
+	.m-adding-wrap {
+		&.is-open .calendar-box {
+			z-index: 1;
 		}
 
-		.btn-link {
-			padding: 0 30px;
-			font-size: 16px;
+		.calendar-box {
+			margin-left: -160px;
+			padding: 40px 30px;
+			width: 320px;
+			position: absolute;
+
+			&:before, &:after {
+				left: 50%;
+			}
+
+			.btn-link {
+				padding: 0 30px;
+				font-size: 16px;
+			}
+		}
+
+		.selection-list {
+			margin-bottom: 20px;
+			max-height: 280px;
 		}
 	}
 
@@ -228,13 +246,32 @@
 @include respond(Tablets-Mobiles) {}
 
 @include respond(Mobiles) {
-	.m-adding-wrap .calendar-box {
-		padding: 60px 20px 30px 20px;
-		width: 300px;
+	.m-adding-wrap {
+		&.is-open .calendar-box {
+			z-index: 5;
+		}
 
-		.btn-link {
-			padding: 0 10px;
-			font-size: 14px;
+		.calendar-box {
+			margin-left: -150px;
+			padding: 30px 20px;
+			width: 300px;
+			position: fixed;
+			top: 0 !important;
+			bottom: 20px !important;
+
+			&:before, &:after {
+				display: none;
+			}
+
+			.btn-link {
+				padding: 0 10px;
+				font-size: 14px;
+			}
+		}
+
+		.selection-list {
+			margin-bottom: 20px;
+			max-height: calc(100vh - 204px);
 		}
 	}
 

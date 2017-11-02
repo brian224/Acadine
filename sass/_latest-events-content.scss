@@ -481,6 +481,15 @@
 		width: calc(100% - 20px);
 		@include box-sizing(border-box);
 
+		&.is-shop-list {
+			display: block;
+			white-space: normal;
+
+			> * {
+				display: inline-block;
+			}
+		}
+
 		> * {
 			display: table-cell;
 		}

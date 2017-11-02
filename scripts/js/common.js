@@ -869,6 +869,8 @@
 			} else {
 				if ($(this).find('input[type="checkbox"]:checked').length === 0) {
 					$(this).addClass('is-checked').find('input[type="checkbox"]').prop('checked', true);
+					$(this).find('.is-checkbox').removeClass('error');
+					$(this).find('.is-error').text('');
 				} else {
 					$(this).removeClass('is-checked').find('input[type="checkbox"]').prop('checked', false);
 				}

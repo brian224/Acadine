@@ -971,32 +971,34 @@
 }
 
 @include browsers('IE9') {
-	.l-content .favorite-list .item-list {
-		display: table;
-		width: 100%;
-		box-sizing: border-box;
+	.l-content {
+		.favorite-list .item-list {
+			.item-text-info {
+				vertical-align: top;
+			}
 
-		> * {
-			padding-right: 10px;
-			padding-left: 10px;
-			display: table-cell;
+			.item-sub-info > * {
+				display: table-cell;
+				width: 50%;
+				text-align: right;
+
+				&:first-child {
+					padding-right: 20px;
+				}
+			}
 		}
 
-		.item-pic {
-			width: 248px;
-		}
+		.favorite-list, .coupon-list {
+			.item-list .b-link {
+				display: table;
+				width: 100%;
+				box-sizing: border-box;
 
-		.item-text-info {
-			vertical-align: top;
-		}
-
-		.item-sub-info > * {
-			display: table-cell;
-			width: 50%;
-			text-align: right;
-
-			&:first-child {
-				padding-right: 20px;
+				> * {
+					padding-right: 10px;
+					padding-left: 10px;
+					display: table-cell;
+				}
 			}
 		}
 	}

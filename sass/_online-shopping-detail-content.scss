@@ -572,7 +572,6 @@
 
 		.owl-stage .owl-item {
 			margin: 0 16px;
-			width: 300px !important;
 		}
 
 		.list {
@@ -790,9 +789,15 @@
 }
 
 @include browsers('IE9') {
-	.shopping-list .btn-read-more {
-		margin-right: auto;
-		margin-left: auto;
+	.shopping-list {
+		.owl-stage .owl-item {
+			width: 300px !important;
+		}
+
+		.btn-read-more {
+			margin-right: auto;
+			margin-left: auto;
+		}
 	}
 
 	.counter {

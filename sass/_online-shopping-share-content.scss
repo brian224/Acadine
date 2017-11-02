@@ -496,6 +496,10 @@
 	.shopping-list {
 		padding: 28px 0 20px 0;
 
+		.owl-item:not(:nth-child(4n)) {
+			margin-right: 20px;
+		}
+
 		.list {
 			margin-bottom: 30px;
 			width: calc((100% - 60px) / 4);
@@ -644,9 +648,9 @@
 		}
 	}
 
-	.shopping-list .list {
+	/*.shopping-list .list {
 		width: 300px;
-	}
+	}*/
 }
 
 @include respond(Tablets) {
@@ -839,7 +843,6 @@
 		line-height: 0;
 
 		> .list {
-			margin-left: 20px;
 			display: inline-block;
 			vertical-align: top;
 

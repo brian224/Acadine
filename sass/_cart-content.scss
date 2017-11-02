@@ -191,6 +191,10 @@ $color-btn-cancel : $color-gray-l-p10;
 			border-bottom: 1px solid $color-gray-l-p30;
 		}
 
+		.no-border {
+			border-bottom: 0 !important;
+		}
+
 		&.form-input > * {
 			margin-bottom: 20px;
 			font-size: 14px;
@@ -293,6 +297,10 @@ $color-btn-cancel : $color-gray-l-p10;
 
 	.m-table {
 		width: 100%;
+
+		&.no-border tr:last-child {
+			border-bottom: 0 !important;
+		}
 
 		thead .text {
 			color: $color-gray-d-p40;

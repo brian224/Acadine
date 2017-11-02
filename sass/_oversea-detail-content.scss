@@ -542,7 +542,7 @@ $color-third : #f39700;
 	.step-list {
 		font-weight: bold;
 
-		@for $i from 1 through 3 {
+		/*@for $i from 1 through 3 {
 			.list:nth-child(#{$i}) .step-title:after {
 				content: '#{$i}';
 			}
@@ -568,7 +568,7 @@ $color-third : #f39700;
 			border-radius: 50%;
 			color: $color-white;
 			text-align: center;
-		}
+		}*/
 
 		.step-title {
 			display: block;
@@ -1341,7 +1341,7 @@ $color-third : #f39700;
 		.step-list {
 			margin-top: 45px;
 
-			.list:not(:last-child):before {
+			/*.list:not(:last-child):before {
 				left: 50px;
 			}
 
@@ -1352,7 +1352,7 @@ $color-third : #f39700;
 				font-size: 50px;
 				line-height: 100px;
 				text-align: center;
-			}
+			}*/
 
 			.list-content {
 				padding-left: 24px;
@@ -2074,7 +2074,7 @@ $color-third : #f39700;
 		.step-list {
 			margin-top: 22px;
 
-			.list:not(:last-child):before {
+			/*.list:not(:last-child):before {
 				left: 25px;
 			}
 
@@ -2084,7 +2084,7 @@ $color-third : #f39700;
 				min-width: 50px;
 				font-size: 24px;
 				line-height: 50px;
-			}
+			}*/
 
 			.list-content {
 				padding-left: 15px;
@@ -2424,9 +2424,9 @@ $color-third : #f39700;
 	.tax-refund .step-list .list {
 		display: table;
 
-		.m-icon {
+		/*.m-icon {
 			vertical-align: top;
-		}
+		}*/
 
 		.list-content {
 			display: table-cell;

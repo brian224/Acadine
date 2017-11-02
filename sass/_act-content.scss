@@ -1,6 +1,6 @@
 ﻿.act-list {
 	@include display-flex;
-	@include align-items(flex-start);
+	@include align-items(stretch);
 	@include justify-content(space-between);
 	@include flex-wrap(wrap);
 
@@ -315,8 +315,13 @@
 }
 
 .shopping-list {
-	.list > .b-link:hover .img-wrap img {
-		@include transform(scale(1.05));
+	.list {
+		@include display-flex;
+		@include flex-direction(column);
+
+		> .b-link:hover .img-wrap img {
+			@include transform(scale(1.05));
+		}
 	}
 
 	.img-wrap img {
@@ -324,8 +329,15 @@
 	}
 
 	.item-info {
+		@include display-flex;
+		@include flex-direction(column);
+
 		.info-title {
 			@include transition(ease-in all 0.3s);
+		}
+
+		.b-desc {
+			@include flex-grow(1);
 		}
 
 		.b-link:hover .info-title {

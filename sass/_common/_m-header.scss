@@ -1744,8 +1744,12 @@
 			}
 		}
 
-		.popup-function .function-wrap > *:last-child {
-			margin-bottom: 20px;
+		.popup-function .function-wrap {
+			max-height: 500px;
+			
+			> *:last-child {
+				margin-bottom: 20px;
+			}
 		}
 	}
 

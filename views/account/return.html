@@ -61,15 +61,31 @@
 						<div class="main-content b-float-right-md b-clearfix">
 							<h3 class="sub-title">退貨</h3>
 							<div class="info-wrap has-bg b-col-dt-12 b-col-xs-12 b-float-left-dt">
-								<div class="info-text">
-									<p class="b-desc"><em class="highlight">很抱歉商品讓您不滿意，請按下確認退貨。</em></p>
-									<span class="text">您現在要退貨 XXXXXX（訂單編號項次），敬請您告訴我們退貨的原因，以方便我們改進服務。</span>
-								</div>
-								<div class="info-text">
-									<div class="btn-wrap b-text-center">
-										<a href="javascript:;" class="btn-link b-col-dt-2 b-col-xs-5">確認退貨</a>
+								<form action="">
+									<div class="info-text">
+										<p class="b-desc"><em class="highlight">很抱歉商品讓您不滿意，請按下確認退貨。</em></p>
+										<span class="text">敬請您告訴我們退貨的原因，以方便我們改進服務。</span>
 									</div>
-								</div>
+									<div class="info-text">
+										<p class="b-desc"><em class="highlight">※提醒您：</em></p>
+										<p class="b-desc"><em class="highlight">1. 若您要辦理退貨，請將發票隨貨物寄回。</em></p>
+										<p class="b-desc"><em class="highlight">2. 若您的訂單中有多個商品，辦理退貨時需將此訂單所有商品寄回。</em></p>
+									</div>
+									<div class="info-text">
+										<label class="m-lab jQ-checkbox is-checked b-block">
+											<div class="m-box-holder is-checkbox">
+												<input type="checkbox" name="agreement" class="m-checkbox required" checked="checked" data-msg="此欄位為必填">
+											</div>
+											<span class="text">本人後續辦理退貨作業，同意由遠東百貨代為處理銷售憑證</span>
+											<span class="alert"><label for="agreement" class="is-error b-text-warning"></label></span>
+										</label>
+									</div>
+									<div class="info-text">
+										<div class="btn-wrap b-text-center">
+											<button type="submit" class="btn-link b-col-dt-3 b-col-xs-5">確認退貨</button>
+										</div>
+									</div>
+								</form>
 							</div>
 							<div class="btn-wrap b-text-center b-col-dt-12 b-col-xs-12 b-float-left-dt b-clearfix">
 								<a href="record.html" class="btn-link b-col-dt-3 b-col-xs-10">回交易查詢記錄</a>
@@ -85,5 +101,6 @@
 	<!--#include virtual="../Shared/Not-support.html" -->
 </body>
 <!--#include virtual="../Shared/GlobalScriptFt.html" -->
+<script defer src="../../scripts/plugin/jquery.validation/jquery.validate.min.js?js=20160420_01"></script>
 <script defer src="../../scripts/js/account.js?JS=20160420_01"></script>
 </html>

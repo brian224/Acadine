@@ -773,6 +773,23 @@
 		display: inline-block;
 		vertical-align: top;
 	}
+
+	.info-list {
+		text-align: left;
+
+		.list {
+			display: inline-block;
+
+			> * {
+				display: inline-block;
+				vertical-align: middle;
+			}
+		}
+	}
+
+	.service-list .list {
+		line-height: inherit;
+	}
 }
 
 @include browsers('Safari') {
