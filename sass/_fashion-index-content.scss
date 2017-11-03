@@ -144,6 +144,8 @@
 }
 
 .slide-list .btn-like {
+	width: 40px;
+	height: 40px;
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -151,6 +153,19 @@
 	font-size: 20px;
 	line-height: 0;
 	@include transition(ease-in color 0.3s);
+
+	&:before {
+		content: '';
+		width: 0;
+		height: 0;
+		position: absolute;
+		top: 0;
+		right: 0;
+		border-top: 33px solid $color-gray-l-p40;
+		border-right: 33px solid $color-gray-l-p40;
+		border-bottom: 33px solid transparent;
+		border-left: 33px solid transparent;
+	}
 
 	&:hover {
 		color: $color-text-major;
@@ -161,14 +176,13 @@
 	}
 
 	&.show-text .text {
-		margin-left: -38px;
 		padding: 2px 8px;
 		background: $color-gray-d-p10;
 		width: auto;
 		height: auto;
 		position: absolute;
-		bottom: -27px;
-		right: -10px;
+		bottom: -20px;
+		right: 0;
 		border-radius: 4px;
 		opacity: 1;
 		overflow: visible;
@@ -191,9 +205,10 @@
 
 	.m-icon {
 		&:before, &:after {
+			margin: -10px -10px 0 0;
 			position: absolute;
-			top: 0;
-			right: 0;
+			top: 50%;
+			right: 50%;
 		}
 
 		&:after {
@@ -450,6 +465,10 @@
 		height: 60px;
 
 		.catalog {
+			> .list {
+				padding: 0 10px;
+			}
+
 			.m-icon {
 				font-size: 26px;
 			}
@@ -626,12 +645,8 @@
 	.catalog-wrap {
 		position: relative;
 
-		.catalog > .list {
-			padding: 0 10px;
-
-			.b-link {
-				box-sizing: border-box;
-			}
+		.catalog > .list .b-link {
+			box-sizing: border-box;
 		}
 	}
 
@@ -692,13 +707,6 @@
 			margin: 0 auto;
 		}
 
-		.btn-like {
-			width: 20px;
-			height: 20px;
-			top: 15px;
-			right: 15px;
-		}
-
 		.m-owl-dots.is-absolute {
 			bottom: 0;
 		}
@@ -753,6 +761,10 @@
 }
 
 @include respond(Tablets) {
+	.catalog-wrap .catalog > .list {
+		padding: 0 9px;
+	}
+
 	.m-cut {
 		margin-right: 10px;
 		margin-left: 10px;
@@ -903,12 +915,10 @@
 
 	.shopping-list {
 		.img-wrap {
-			height: 200px;
 			@include flex-direction(column);
 
 			img {
-				width: auto;
-				max-width: 100%;
+				width: 100%;
 			}
 		}
 
@@ -1013,22 +1023,6 @@
 				@include transform(scale(0.95));
 			}
 		}
-
-		.btn-like {
-			width: 40px;
-			height: 40px;
-
-			&.show-text .text {
-				bottom: -18px;
-				left: 50%;
-				right: auto;
-
-				&:after {
-					margin-right: -4px;
-					right: 50%;
-				}
-			}
-		}
 	}
 
 	.shopping-list {
@@ -1051,13 +1045,12 @@
 			opacity: 0;
 		}
 
-		.m-icon {
-			line-height: 40px;
+		.img-wrap {
+			margin: 5vw 5vw 0 5vw;
+		}
 
-			&:before, &:after {
-				margin-right: -10px;
-				right: 50% !important;
-			}
+		.item-info {
+			padding: 5vw 5vw 25px 5vw;
 		}
 	}
 
@@ -1068,7 +1061,7 @@
 
 @include devices(iphone) {
 	.shopping-list .btn-read-more {
-		margin: 0 15px 25px 15px;
+		margin: 0 5vw 5vw 5vw;
 	}
 }
 

@@ -520,6 +520,19 @@
 			line-height: 0;
 			@include transition(ease-in color 0.3s);
 
+			&:before {
+				content: '';
+				width: 0;
+				height: 0;
+				position: absolute;
+				top: 0;
+				right: 0;
+				border-top: 33px solid $color-gray-l-p40;
+				border-right: 33px solid $color-gray-l-p40;
+				border-bottom: 33px solid transparent;
+				border-left: 33px solid transparent;
+			}
+
 			&:hover {
 				color: $color-text-major;
 			}
@@ -563,9 +576,10 @@
 				height: 100%;
 
 				&:before, &:after {
+					margin: -10px -10px 0 0;
 					position: absolute;
-					top: 0;
-					right: 0;
+					top: 50%;
+					right: 50%;
 				}
 
 				&:after {
@@ -1201,10 +1215,10 @@
 			}
 
 			.btn-like {
-				width: 20px;
-				height: 20px;
-				top: 25px;
-				right: 25px;
+				width: 40px;
+				height: 40px;
+				top: 0;
+				right: 0;
 			}
 		}
 

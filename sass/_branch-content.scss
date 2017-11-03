@@ -77,6 +77,19 @@
 		line-height: 0;
 		@include transition(ease-in color 0.3s);
 
+		&:before {
+			content: '';
+			width: 0;
+			height: 0;
+			position: absolute;
+			top: 0;
+			right: 0;
+			border-top: 33px solid $color-gray-l-p40;
+			border-right: 33px solid $color-gray-l-p40;
+			border-bottom: 33px solid transparent;
+			border-left: 33px solid transparent;
+		}
+
 		&:hover {
 			color: $color-text-major;
 		}
@@ -116,6 +129,10 @@
 		}
 
 		.m-icon {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+
 			&:before, &:after {
 				position: absolute;
 				top: 0;
@@ -219,27 +236,6 @@
 		@include align-content(stretch);
 		@include justify-content(space-between);
 		@include flex-direction(column);
-	}
-
-	.btn-like {
-		.m-icon {
-			position: absolute;
-			top: 10px;
-			right: 10px;
-		}
-
-		&:before {
-			content: '';
-			width: 0;
-			height: 0;
-			position: absolute;
-			top: 0;
-			right: 0;
-			border-top: 33px solid $color-gray-l-p40;
-			border-right: 33px solid $color-gray-l-p40;
-			border-bottom: 33px solid transparent;
-			border-left: 33px solid transparent;
-		}
 	}
 
 	.item-info {
@@ -747,13 +743,6 @@
 			margin: 0 auto;
 		}
 
-		.btn-like {
-			width: 20px;
-			height: 20px;
-			top: 25px;
-			right: 25px;
-		}
-
 		.m-owl-dots.is-absolute {
 			bottom: -64px;
 		}
@@ -952,17 +941,11 @@
 		}
 
 		.img-wrap {
-			height: 240px;
 			@include flex-direction(column);
-
-			img {
-				width: auto;
-				max-width: 100%;
-			}
 		}
 
 		.item-info {
-			padding: 0 15px 25px 15px;
+			padding: 15px 15px 25px 15px;
 
 			.main-info > * {
 				display: block;
@@ -1056,18 +1039,17 @@
 			@include display-flex;
 		}
 
+		.img-wrap {
+			margin: 5vw 5vw 0 5vw;
+		}
+
+		.item-info {
+			padding: 15px 5vw 25px 5vw;
+		}
+
 		.shopping-link {
 			width: 100%;
 			height: auto;
-		}
-
-		.m-icon {
-			line-height: 40px;
-
-			&:before, &:after {
-				margin-right: -10px;
-				right: 50% !important;
-			}
 		}
 	}
 
@@ -1091,7 +1073,7 @@
 	}
 
 	.shopping-list .btn-read-more {
-		margin: 0 15px 25px 15px;
+		margin: 0 5vw 5vw 5vw;
 	}
 }
 

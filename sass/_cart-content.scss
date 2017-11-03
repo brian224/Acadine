@@ -329,7 +329,7 @@ $color-btn-cancel : $color-gray-l-p10;
 			overflow: hidden;
 
 			img {
-				max-height: 100%;
+				width: 100%;
 			}
 		}
 
@@ -614,6 +614,19 @@ $color-btn-cancel : $color-gray-l-p10;
 		font-size: 20px;
 		line-height: 0;
 		@include transition(ease-in color 0.3s);
+
+		&:before {
+			content: '';
+			width: 0;
+			height: 0;
+			position: absolute;
+			top: 0;
+			right: 0;
+			border-top: 33px solid $color-gray-l-p40;
+			border-right: 33px solid $color-gray-l-p40;
+			border-bottom: 33px solid transparent;
+			border-left: 33px solid transparent;
+		}
 
 		&:hover {
 			color: $color-text-major;
@@ -1189,17 +1202,11 @@ $color-btn-cancel : $color-gray-l-p10;
 
 	.recommended-list {
 		.img-wrap {
-			height: 240px;
 			@include flex-direction(column);
-
-			img {
-				width: auto;
-				max-width: 100%;
-			}
 		}
 
 		.item-info {
-			padding: 0 15px 25px 15px;
+			padding: 10px 15px 25px 15px;
 
 			.main-info > * {
 				display: block;
@@ -1440,8 +1447,16 @@ $color-btn-cancel : $color-gray-l-p10;
 			}
 		}
 
-		.img-wrap img {
-			min-width: 100%;
+		.img-wrap {
+			margin: 5vw 5vw 0 5vw;
+
+			img {
+				min-width: 100%;
+			}
+		}
+
+		.item-info {
+			padding: 5vw 5vw 25px 5vw;
 		}
 
 		.counter .m-box-holder {
@@ -1520,7 +1535,12 @@ $color-btn-cancel : $color-gray-l-p10;
 	}
 }
 
-@include devices(iphone) {}
+@include devices(iphone) {
+	.recommended-list .btn-read-more {
+		margin: 0 5vw 5vw 5vw;
+		width: auto;
+	}
+}
 
 @include respond(Iphone5) {
 	.shopping-step-list .list {

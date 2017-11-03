@@ -743,11 +743,7 @@
 	}
 }
 
-@include devices(iphone) {
-	.shopping-list .btn-read-more {
-		margin: 0 15px 25px 15px;
-	}
-}
+@include devices(iphone) {}
 
 @include respond(Iphone5) {}
 
