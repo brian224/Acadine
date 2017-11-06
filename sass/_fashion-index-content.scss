@@ -534,10 +534,6 @@
 				}
 			}
 
-			.shopping-list img {
-				height: 100%;
-			}
-
 			.main-link .item-info {
 				padding-bottom: 70px;
 			}
@@ -610,13 +606,16 @@
 	}
 
 	.shopping-list {
-		/*.img-wrap {
-			height: 272px;*/
-
+		.img-wrap {
 			img {
 				width: 100%;
+				@include transition(ease-in all 0.3s);
 			}
-		/*}*/
+		}
+
+		.shopping-link:hover .img-wrap img {
+			@include transform(scale(1.05));
+		}
 
 		.item-info {
 			padding: 10px 40px 20px 40px;
@@ -717,6 +716,10 @@
 	.catalog {
 		margin: 0 auto;
 		width: 1300px;
+
+		> .list .b-link {
+			padding: 0 20px;
+		}
 	}
 
 	.l-body.is-padding-arrow .jQ-owl.is-padding:not(.kv-owl) {

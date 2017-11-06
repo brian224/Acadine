@@ -1558,6 +1558,10 @@
 
 		.card-info-wrap {
 			padding: 0 75px;
+
+			.owl-item {
+				width: 100%;
+			}
 	
 			.btn-wrap > * {
 				margin: 0 4px;

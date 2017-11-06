@@ -665,7 +665,9 @@
 	}
 
 	.cart-wrap .m-owl-ctrl {
-		display: block;
+		&:not(.disabled) {
+			display: block;
+		}
 
 		> * {
 			position: absolute;

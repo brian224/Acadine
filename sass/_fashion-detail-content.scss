@@ -8,7 +8,7 @@
 		@include display-flex;
 		@include align-items(stretch);
 		@include align-content(stretch);
-		@include justify-content(center);
+		@include justify-content(space-between);
 		height: 100%;
 		font-size: 0;
 		line-height: 0;
@@ -505,10 +505,6 @@
 		height: 60px;
 
 		.catalog {
-			> .list .b-link {
-				padding: 0 20px;
-			}
-
 			.m-icon {
 				font-size: 26px;
 			}
@@ -745,6 +741,10 @@
 	.catalog {
 		margin: 0 auto;
 		width: 1300px;
+
+		> .list .b-link {
+			padding: 0 20px;
+		}
 	}
 
 	.l-body.is-padding-arrow .jQ-owl.is-padding:not(.kv-owl) {

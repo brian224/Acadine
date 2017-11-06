@@ -741,6 +741,43 @@
 			}
 		}
 	}
+
+	.xs-func-wrap {
+		position: relative;
+
+		&.show-action {
+			.jQ-xs-func {
+				opacity: 0;
+				pointer-events: none;
+			}
+
+			.xs-func {
+				opacity: 1;
+				z-index: 1;
+				pointer-events: auto;
+			}
+		}
+
+		.jQ-xs-func {
+			@include transition(ease-in all 0.3s);
+		}
+
+		.xs-func {
+			@include display-flex;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			opacity: 0;
+			pointer-events: none;
+			z-index: -1;
+			@include transition(ease-in all 0.3s);
+		}
+	}
+
+	.xs-func > *:not(:first-child) {
+		margin-left: 10px;
+	}
 }
 
 @include devices(iphone) {}

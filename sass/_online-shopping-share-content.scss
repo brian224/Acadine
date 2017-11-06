@@ -291,12 +291,6 @@
 		@include justify-content(space-between);
 		@include flex-direction(column);
 		height: 100%;
-
-		&:hover .btn-read-more {
-			background: $color-text-major;
-			border-color: $color-text-major;
-			color: $color-white;
-		}
 	}
 
 	.img-wrap {
@@ -525,6 +519,12 @@
 		/*.img-wrap {
 			height: 300px;
 		}*/
+
+		.shopping-link:hover .btn-read-more {
+			background: $color-text-major;
+			border-color: $color-text-major;
+			color: $color-white;
+		}
 
 		.item-info {
 			padding: 15px 32px;

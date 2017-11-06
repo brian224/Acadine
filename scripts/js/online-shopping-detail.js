@@ -23,6 +23,12 @@
 		projects.owlCarousel(pageObj._photoList);
 	}
 
+	page.prototype.showXsFunc = function(elem) {
+		if (projects.device() === 'Mobile') {
+			$(elem).parent().addClass('show-action');
+		}
+	}
+
 	projects.$w.load(function(){
 		if ($(pageObj._photoList).length !== 0) {
 			pageObj.photoOwl();
