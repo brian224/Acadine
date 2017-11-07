@@ -809,9 +809,29 @@
 @include respond(Iphone5) {}
 
 @include browsers('IE') {
-	.shopping-list .counter .m-inputbox {
-		height: 32px !important;
-		line-height: 32px !important;
+	.act-list .img-wrap {
+		display: block;
+
+		img {
+			position: relative;
+			left: -50%;
+		}
+	}
+
+	.act-timer .img-wrap img {
+		position: relative;
+		left: -50%;
+	}
+
+	.shopping-list {
+		.list .b-link {
+			max-height: 304px;
+		}
+
+		.counter .m-inputbox {
+			height: 32px !important;
+			line-height: 32px !important;
+		}
 	}
 }
 

@@ -1104,6 +1104,21 @@
 		min-height: calc(100vh - 220px);
 	}
 
+	.thumbnails {
+		ul {
+			display: block;
+			white-space: nowrap;
+		}
+
+		li {
+			display: inline-block;
+		}
+	}
+
+	.zoom-icon:before {
+		line-height: 18px;
+	}
+
 	.shopping-list .btn-read-more {
 		margin-right: 32px;
 		margin-left: 32px;

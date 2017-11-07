@@ -348,8 +348,9 @@
 
 	.merchandise-info {
 		padding-left: 50%;
-		min-height: 650px;
+		min-height: 720px;
 		position: relative;
+		overflow: hidden;
 
 		.info-header .item-name {
 			padding-bottom: 0;
@@ -364,7 +365,7 @@
 
 			.photo-hd {
 				margin-bottom: 8px;
-				max-height: 540px;
+				max-height: 600px;
 			}
 
 			.photo-slider .owl-stage .owl-item {
@@ -375,6 +376,10 @@
 		.item-detail .item-price .item-code {
 			margin-bottom: 10px;
 		}
+	}
+
+	.l-content .main-tab > .m-tab-content {
+		padding-top: 30px;
 	}
 
 	.shopping-list {
@@ -818,6 +823,10 @@
 
 	.merchandise-info .photo-album .photo-slider .list {
 		width: 100%;
+	}
+
+	.shopping-list .shopping-link {
+		@include flex-grow(1);
 	}
 }
 

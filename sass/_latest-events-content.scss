@@ -470,8 +470,14 @@
 @include respond(Iphone5) {}
 
 @include browsers('IE') {
-	.activities-list > .list {
-		width: calc((100% - 61px) / 3);
+	.activities-list {
+		> .list {
+			width: calc((100% - 61px) / 3);
+		}
+
+		.m-adding-wrap {
+			bottom: 17px;
+		}
 	}
 }
 

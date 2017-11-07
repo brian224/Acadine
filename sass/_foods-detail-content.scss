@@ -757,6 +757,10 @@
 			height: 66px;
 		}
 	}
+
+	.service-list .list {
+		line-height: inherit;
+	}
 }
 
 @include browsers('IE9') {

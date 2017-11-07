@@ -228,6 +228,10 @@ $color-btn-cancel : $color-gray-l-p10;
 				font-size: 14px;
 				font-weight: normal;
 				letter-spacing: 0;
+
+				&.highlight {
+					line-height: 1.5em;
+				}
 			}
 		}
 

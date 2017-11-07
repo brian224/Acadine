@@ -138,12 +138,8 @@
 	}
 
 	.movie-list {
-		.img-wrap {
-			height: 440px;
-
-			img {
-				@include transition(ease-in all 0.3s);
-			}
+		.img-wrap img {
+			@include transition(ease-in all 0.3s);
 		}
 
 		.movie-link:hover .img-wrap img {

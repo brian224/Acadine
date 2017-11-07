@@ -677,16 +677,6 @@ body {
 			display: none;
 		}
 	}
-
-	&:hover .text {
-		&:before {
-			display: none;
-		}
-
-		&:after {
-			display: inline;
-		}
-	}
 }
 
 .main-content .activity-list .img-wrap {
@@ -796,11 +786,6 @@ body {
 	letter-spacing: 1px;
 	text-align: center;
 	@include transition(ease-in all 0.3s);
-
-	&:hover {
-		background: $color-text-major;
-		color: $color-white;
-	}
 }
 
 .btn-link {
@@ -846,13 +831,25 @@ body {
 }
 
 @include respond(Desktops) {
-	.l-body.is-padding-arrow .jQ-owl.is-padding {
-		.owl-prev {
-			left: 64px;
+	.l-body {
+		&.is-padding-arrow .jQ-owl.is-padding {
+			.owl-prev {
+				left: 64px;
+			}
+
+			.owl-next {
+				right: 64px;
+			}
 		}
 
-		.owl-next {
-			right: 64px;
+		&:not(.index) .shopping-list .btn-read-more:hover .text {
+			&:before {
+				display: none;
+			}
+
+			&:after {
+				display: inline;
+			}
 		}
 	}
 
@@ -926,6 +923,11 @@ body {
 
 	.btn-more {
 		width: 420px;
+
+		&:hover {
+			background: $color-text-major;
+			color: $color-white;
+		}
 	}
 }
 
@@ -1305,13 +1307,17 @@ body {
 	}
 }
 
-@include browsers('IE') {}
-
-@include browsers('IE9') {
+@include browsers('IE') {
 	.btn-like {
-		overflow: visible;
+		overflow: visible !important;
 	}
 
+	.l-side .collapse-wrap {
+		line-height: 0;
+	}
+}
+
+@include browsers('IE9') {
 	.l-side {
 		.function-list .list {
 			@for $i from 1 through 6 {
