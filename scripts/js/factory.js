@@ -215,24 +215,27 @@
     factory.prototype.owlMediaInit = function(element) {
         var setTime = null;
 
-        projects.mediaInit(function(){
-            jQuery(element).each(function(i , elem){
-                var $owl = jQuery(elem);
-                var _eq  = $owl.find('.owl-item.active > *').attr('data-media') ? $owl.find('.owl-item.active').index() : null;
+        for (var i = 0, $elem = jQuery(element); i < $elem.length; i++) {
+            if ( $elem.eq(i).find('.owl-item > [data-media]').length !== 0 ) {
+               projects.mediaInit(function(){
+                    jQuery(element).each(function(i , elem){
+                        var $owl = jQuery(elem);
+                        var _eq  = ( $elem.eq(i).find('.owl-item > [data-media]').length !== 0 ) ? $owl.find('.owl-item.active').index() : null;
 
+                        if ( _eq ) {
+                            window.clearTimeout(setTime);
 
-                if ( _eq ) {
-                    window.clearTimeout(setTime);
+                            $owl.find('.m-youtube:eq('+ _eq +') > iframe').load(function(){
+                                setTime = setTimeout(function(){
+                                    projects.owlMediaPlay($owl , _eq);
+                                } , 250);
+                            });
+                        }
 
-                    $owl.find('.m-youtube:eq('+ _eq +') > iframe').load(function(){
-                        setTime = setTimeout(function(){
-                            projects.owlMediaPlay($owl , _eq);
-                        } , 250);
                     });
-                }
-
-            });
-        });
+                });
+            }
+        }
     }
 
     factory.prototype.owlMediaPlay = function(element , eq , type) {
@@ -491,50 +494,42 @@
     };
 
     factory.prototype.mediaInit = function(callback) {
-        var setIntervals = null;
-
         projects.mediaSet();
-        projects.u2bPlayer();
+        projects.u2bPlayer(function(){
+            projects._media.$media = ( jQuery('[data-media]').length !== 0 ) ? jQuery('[data-media]') : null;
 
-        setIntervals = setInterval(function(){
-            if ( window.YT ) {
-                window.clearInterval(setIntervals);
+            if ( projects._media.$media ) {
+                projects._media.$media.each(function(i , elem) {
+                    var $elem       = jQuery(elem);
+                    var _data       = null;
+                    var _opacity    = ( /opacity\=/.test($elem.attr('data-media')) ? ( ( /opacity\=([^?&#]*)/.exec($elem.attr('data-media'))[1] ) | 0 ) : 0 ),
+                        _fullscreen = ( /fullscreen\=/.test($elem.attr('data-media')) ? ( ( /fullscreen\=([^?&#]*)/.exec($elem.attr('data-media'))[1] ) | 0 ) : 0 );
+                    var _closest    = $elem.find($elem.data('elem')) || $elem.next($elem.data('elem')) || $elem.parent().find($elem.data('elem')),
+                        _elem       = $elem.data('elem') ? _closest : $elem,
+                        _elemHeight = _fullscreen ? ( $elem.data('elem') ? ( _elem.parent().height() + 'px' ) : ( _elem.height() + 'px' ) ) : '100%',
+                        _elemWidth  = _fullscreen ? ( $elem.data('elem') ? ( _elem.parent().width() + 'px' ) : ( _elem.width() + 'px' ) ) : '100%',
+                        _top        = _fullscreen ? ( projects._media._orientation === 'landscape' ? ( ( ( parseInt(_elemHeight, 10)  - _elem.width() ) /  2 ) + 'px' ) : '0px' ) : '0px',
+                        _left       = _fullscreen ? ( ( ( _elem.width() / parseInt(_elemHeight, 10) ) <= projects._media._scale ) ? ( ( ( ( _elem.width() - ( _elem.width() / ( parseInt(_elemHeight, 10) / _elem.width() ) ) ) / 2 ) | 0 ) + 'px' ) : '0px' ) : '0px',
+                        _width      = _fullscreen ? ( ( ( _elem.width() / parseInt(_elemHeight, 10) ) <= projects._media._scale ) ? ( ( ( _elem.width() / ( parseInt(_elemHeight, 10) / _elem.width() ) ) | 0 ) + 'px' ) : '100%' ) : '100%',
+                        _height     = _fullscreen ? ( projects._media._orientation === 'landscape' ? ( _elem.width() + 'px' ) : '100%' ) : '100%';
 
-                projects._media.$media = ( jQuery('[data-media]').length !== 0 ) ? jQuery('[data-media]') : null;
+                    var _youtube = '<div class="m-youtube' + ( _opacity === 0 ? ' is-opacity' : '' ) +'" style="width: '+_elemWidth+'; height: '+_elemHeight+'; position:relative; overflow: hidden;"><span id="m-youtube-'+i+'" class="m-youtube-append" style="top: '+ _top +'; height: '+_height+'; width: '+_width+'; left: '+_left+'; position : absolute;"></span></div>';
 
-                if ( projects._media.$media ) {
-                    projects._media.$media.each(function(i , elem) {
-                        var $elem       = jQuery(elem);
-                        var _data       = null;
-                        var _opacity    = ( /opacity\=/.test($elem.attr('data-media')) ? ( ( /opacity\=([^?&#]*)/.exec($elem.attr('data-media'))[1] ) | 0 ) : 0 ),
-                            _fullscreen = ( /fullscreen\=/.test($elem.attr('data-media')) ? ( ( /fullscreen\=([^?&#]*)/.exec($elem.attr('data-media'))[1] ) | 0 ) : 0 );
-                        var _closest    = $elem.find($elem.data('elem')) || $elem.next($elem.data('elem')) || $elem.parent().find($elem.data('elem')),
-                            _elem       = $elem.data('elem') ? _closest : $elem,
-                            _elemHeight = _fullscreen ? ( $elem.data('elem') ? ( _elem.parent().height() + 'px' ) : ( _elem.height() + 'px' ) ) : '100%',
-                            _elemWidth  = _fullscreen ? ( $elem.data('elem') ? ( _elem.parent().width() + 'px' ) : ( _elem.width() + 'px' ) ) : '100%',
-                            _top        = _fullscreen ? ( projects._media._orientation === 'landscape' ? ( ( ( parseInt(_elemHeight, 10)  - _elem.width() ) /  2 ) + 'px' ) : '0px' ) : '0px',
-                            _left       = _fullscreen ? ( ( ( _elem.width() / parseInt(_elemHeight, 10) ) <= projects._media._scale ) ? ( ( ( ( _elem.width() - ( _elem.width() / ( parseInt(_elemHeight, 10) / _elem.width() ) ) ) / 2 ) | 0 ) + 'px' ) : '0px' ) : '0px',
-                            _width      = _fullscreen ? ( ( ( _elem.width() / parseInt(_elemHeight, 10) ) <= projects._media._scale ) ? ( ( ( _elem.width() / ( parseInt(_elemHeight, 10) / _elem.width() ) ) | 0 ) + 'px' ) : '100%' ) : '100%',
-                            _height     = _fullscreen ? ( projects._media._orientation === 'landscape' ? ( _elem.width() + 'px' ) : '100%' ) : '100%';
+                    _data = $elem.data('media');
+                    $elem.attr('data-media' , ( _data + (( /\?/.test(_data) ) ? '&index='+i+'' : '?index='+i+'') ) );
 
-                        var _youtube = '<div class="m-youtube' + ( _opacity === 0 ? ' is-opacity' : '' ) +'" style="width: '+_elemWidth+'; height: '+_elemHeight+'; position:relative; overflow: hidden;"><span id="m-youtube-'+i+'" class="m-youtube-append" style="top: '+ _top +'; height: '+_height+'; width: '+_width+'; left: '+_left+'; position : absolute;"></span></div>';
+                    if ( _elem.find('.m-youtube').length === 0 ) {
+                        _elem.append(_youtube);
 
-                        _data = $elem.data('media');
-                        $elem.attr('data-media' , ( _data + (( /\?/.test(_data) ) ? '&index='+i+'' : '?index='+i+'') ) );
-
-                        if ( _elem.find('.m-youtube').length === 0 ) {
-                            _elem.append(_youtube);
-
-                            if ( /youtube/i.exec( $elem.data('media') )) {
-                                projects.mediaAppend($elem , callback);
-                            }
+                        if ( /youtube/i.exec( $elem.data('media') )) {
+                            projects.mediaAppend($elem , callback);
                         }
-                    });
+                    }
+                });
 
-                    projects.mediaResize();
-                }
+                projects.mediaResize();
             }
-        } , 1);
+        });
     };
 
     factory.prototype.mediaResize = function() {
@@ -578,7 +573,11 @@
         }
     };
 
-    factory.prototype.u2bPlayer = function() {
+    factory.prototype.u2bPlayer = function(fun) {
+        var _setinterval = null;
+
+        if ( projects._media._loaded ) return false;
+
         if ( ! window['YT'] ) {
             var YT = {
                 loading : 0,
@@ -620,13 +619,24 @@
                     }
                 };
 
-                var a = document.createElement('script');
-                a.type  = 'text/javascript';
-                a.id    = 'www-widgetapi-script';
-                a.src   = 'https:' + '//s.ytimg.com/yts/jsbin/www-widgetapi-vfl_Bhgrs/www-widgetapi.js';
-                a.async = true;
-                var b = document.getElementsByTagName('script')[0];
-                b.parentNode.insertBefore(a, b);
+                if ( ! projects._media._loaded ) {
+                    var a = document.createElement('script');
+                    a.type  = 'text/javascript';
+                    a.id    = 'www-widgetapi-script';
+                    a.src   = 'https://s.ytimg.com/yts/jsbin/www-widgetapi-vfl_Bhgrs/www-widgetapi.js';
+                    a.async = true;
+                    var b = document.getElementsByTagName('script')[0];
+                    b.parentNode.insertBefore(a, b);
+
+                    projects._media._loaded = true;
+                }
+
+                _setinterval = setInterval(function(){
+                    if ( typeof(window.YT) !== 'undefined' ) {
+                        clearInterval(_setinterval);
+                        fun();
+                    }
+                }, 1);
             })();
         }
     };
