@@ -358,7 +358,10 @@
 		@include display-flex;
 		@include align-items(center);
 		@include justify-content(center);
+		width: 200%;
 		height: 100%;
+		position: relative;
+		left: -50%;
 		overflow: hidden;
 
 		img {
@@ -783,6 +786,10 @@
 			.item-info .b-link {
 				pointer-events: fill;
 			}
+		}
+
+		.btn-link {
+			width: 144px;
 		}
 
 		.img-wrap img {

@@ -58,7 +58,24 @@
 }
 
 .movie-list {
+	position: relative;
 	text-align: center;
+
+	&:not(.owl-loaded) {
+		@include display-flex;
+		@include align-items(stretch);
+		@include flex-wrap(wrap);
+		@include justify-content(flex-start);
+
+		> .list {
+			@include display-flex;
+			@include align-items(stretch);
+		}
+
+		.movie-link {
+			width: 100%;
+		}
+	}
 
 	.owl-stage {
 		@include display-flex;
@@ -138,6 +155,10 @@
 	}
 
 	.movie-list {
+		&:not(.owl-loaded) > .list {
+			width: calc((100% - 80px) / 4) !important;
+		}
+
 		.img-wrap img {
 			@include transition(ease-in all 0.3s);
 		}
@@ -236,8 +257,8 @@
 }
 
 @include respond(Tablets) {
-	.movie-list .img-wrap {
-		height: 336px;
+	.movie-list:not(.owl-loaded) > .list {
+		width: calc((100% - 60px) / 3) !important;
 	}
 }
 

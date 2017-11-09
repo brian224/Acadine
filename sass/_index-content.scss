@@ -720,7 +720,17 @@
 
 @include respond(Iphone5) {}
 
-@include browsers('IE') {}
+@include browsers('IE') {
+	.owl-stage .owl-item {
+		&.active .item-info {
+			opacity: 1;
+		}
+
+		.item-info {
+			opacity: 0;
+		}
+	}
+}
 
 @include browsers('IE9') {
 	.m-cut .main-content {

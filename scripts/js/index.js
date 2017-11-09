@@ -152,14 +152,14 @@
 					$('.jQ-brandlist-note').html('');
 					
 					for (var i = 0; i < data.length; i++) {
-						_branchList += '<li class="list"><a href="' + data[i].Url + '" class="b-link b-block b-bold"><em class="name">' + data[i].Name + '</em></a></li>'
+						_branchList += '<li class="list"><a href="' + data[i].Url + '" class="b-link b-block b-bold-sm"><em class="name">' + data[i].Name + '</em></a></li>'
 					}
 				} else {
 					$('.jQ-brandlist-head').html('請選擇要進入的分店，依距離遠近排序如下：');
 					$('.jQ-brandlist-note').html('* 貼心提醒 : 公里數為直線定位距離，並非行駛距離');
 
 					for (var i = 0; i < data.length; i++) {
-						_branchList += '<li class="list"><a href="' + data[i].Url + '" class="b-link b-block b-bold"><em class="name">' + data[i].Name + '</em><span class="distance">' + data[i].Distance.toFixed(2) + 'km</span></a></li>'
+						_branchList += '<li class="list"><a href="' + data[i].Url + '" class="b-link b-block b-bold-sm"><em class="name">' + data[i].Name + '</em><span class="distance">' + data[i].Distance.toFixed(2) + 'km</span></a></li>'
 					}
 				}
 

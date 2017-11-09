@@ -210,11 +210,11 @@
 		padding: 20px;
 	}
 
-	@include screen(landscape) {
+	/*@include screen(landscape) {
 		.l-side {
 			display: none;
 		}
-	}
+	}*/
 }
 
 @include devices(iphone) {}

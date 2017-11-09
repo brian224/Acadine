@@ -369,6 +369,22 @@
 	@include justify-content(space-between);
 	position: relative;
 
+	&:not(.owl-loaded) {
+		@include display-flex;
+		@include align-items(stretch);
+		@include flex-wrap(wrap);
+		@include justify-content(flex-start);
+
+		> .list {
+			@include display-flex;
+			@include align-items(stretch);
+		}
+
+		.shopping-link {
+			width: 100%;
+		}
+	}
+
 	.list {
 		background: $color-white;
 		@include display-flex;
@@ -656,6 +672,11 @@
 	.shopping-list {
 		padding: 15px 0;
 
+		&:not(.owl-loaded) > .list {
+			margin: 0 16px;
+			width: calc((100% - 128px) / 4) !important;
+		}
+
 		.m-owl-ctrl {
 			margin-bottom: -8px;
 			position: absolute;
@@ -869,6 +890,10 @@
 
 	.shopping-list {
 		padding: 20px 0;
+
+		&:not(.owl-loaded) > .list {
+			width: calc((100% - 60px) / 3) !important;
+		}
 
 		.list {
 			margin-bottom: 20px;

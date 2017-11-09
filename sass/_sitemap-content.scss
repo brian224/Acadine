@@ -58,6 +58,10 @@
 	.cate-list:not(:last-child) {
 		margin-bottom: 80px;
 	}
+
+	.sub-list .b-link:hover {
+		color: $color-text-major;
+	}
 }
 
 @include respond(Desktops-Tablets) {

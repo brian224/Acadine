@@ -14,10 +14,13 @@
 			for (var i = 0; i < $(this).find('.item').length; i++) {
 				$(this).find('.item').eq(i).attr('data-index', i);
 			}
+
+			if ($(this).data('loop') === false) {
+				$(pageObj._btnPrev).addClass('disabled');
+			}
 		});
 
 		projects.owlCarousel(pageObj._passiveOwl);
-		$(pageObj._btnPrev).addClass('disabled');
 	}
 
 	page.prototype.owlSync = function() {
