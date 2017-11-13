@@ -201,7 +201,6 @@
                                 if ( _autoplay ) {
                                     projects.owlStop($self);
                                 }
-
                             }
                         }
                     });
@@ -217,10 +216,10 @@
 
         for (var i = 0, $elem = jQuery(element); i < $elem.length; i++) {
             if ( $elem.eq(i).find('.owl-item > [data-media]').length !== 0 ) {
-               projects.mediaInit(function(){
+                projects.mediaInit(function(){
                     jQuery(element).each(function(i , elem){
                         var $owl = jQuery(elem);
-                        var _eq  = ( $elem.eq(i).find('.owl-item > [data-media]').length !== 0 ) ? $owl.find('.owl-item.active').index() : null;
+                        var _eq  = ( $elem.eq(i).find('.owl-item > [data-media]').length !== 0 ) ? ( $owl.find('.owl-item.active').data('media') ? $owl.find('.owl-item.active').index() : null ) : null;
 
                         if ( _eq ) {
                             window.clearTimeout(setTime);
@@ -503,17 +502,18 @@
                     var $elem       = jQuery(elem);
                     var _data       = null;
                     var _opacity    = ( /opacity\=/.test($elem.attr('data-media')) ? ( ( /opacity\=([^?&#]*)/.exec($elem.attr('data-media'))[1] ) | 0 ) : 0 ),
+                        _absolute   = ( /absolute\=/.test($elem.attr('data-media')) ? ( ( /absolute\=([^?&#]*)/.exec($elem.attr('data-media'))[1] ) | 0 ) : 0 ),
                         _fullscreen = ( /fullscreen\=/.test($elem.attr('data-media')) ? ( ( /fullscreen\=([^?&#]*)/.exec($elem.attr('data-media'))[1] ) | 0 ) : 0 );
                     var _closest    = $elem.find($elem.data('elem')) || $elem.next($elem.data('elem')) || $elem.parent().find($elem.data('elem')),
                         _elem       = $elem.data('elem') ? _closest : $elem,
-                        _elemHeight = _fullscreen ? ( $elem.data('elem') ? ( _elem.parent().height() + 'px' ) : ( _elem.height() + 'px' ) ) : '100%',
-                        _elemWidth  = _fullscreen ? ( $elem.data('elem') ? ( _elem.parent().width() + 'px' ) : ( _elem.width() + 'px' ) ) : '100%',
-                        _top        = _fullscreen ? ( projects._media._orientation === 'landscape' ? ( ( ( parseInt(_elemHeight, 10)  - _elem.width() ) /  2 ) + 'px' ) : '0px' ) : '0px',
-                        _left       = _fullscreen ? ( ( ( _elem.width() / parseInt(_elemHeight, 10) ) <= projects._media._scale ) ? ( ( ( ( _elem.width() - ( _elem.width() / ( parseInt(_elemHeight, 10) / _elem.width() ) ) ) / 2 ) | 0 ) + 'px' ) : '0px' ) : '0px',
-                        _width      = _fullscreen ? ( ( ( _elem.width() / parseInt(_elemHeight, 10) ) <= projects._media._scale ) ? ( ( ( _elem.width() / ( parseInt(_elemHeight, 10) / _elem.width() ) ) | 0 ) + 'px' ) : '100%' ) : '100%',
+                        _elemHeight = _fullscreen ? ( $elem.data('elem') ? _elem.parent().height() : _elem.height() ) : '100%',
+                        _elemWidth  = _fullscreen ? ( $elem.data('elem') ? _elem.parent().width() : _elem.width() ) : '100%',
+                        _top        = _fullscreen ? ( projects._media._orientation === 'landscape' ? ( ( ( _elemHeight  - _elem.width() ) /  2 ) + 'px' ) : '0px' ) : '0px',
+                        _left       = _fullscreen ? ( ( ( _elem.width() / _elemHeight ) <= projects._media._scale ) ? ( ( ( ( _elem.width() - ( _elem.width() / ( _elemHeight / _elem.width() ) ) ) / 2 ) | 0 ) + 'px' ) : '0px' ) : '0px',
+                        _width      = _fullscreen ? ( ( ( _elem.width() / _elemHeight ) <= projects._media._scale ) ? ( ( ( _elem.width() / ( _elemHeight / _elem.width() ) ) | 0 ) + 'px' ) : '100%' ) : '100%',
                         _height     = _fullscreen ? ( projects._media._orientation === 'landscape' ? ( _elem.width() + 'px' ) : '100%' ) : '100%';
 
-                    var _youtube = '<div class="m-youtube' + ( _opacity === 0 ? ' is-opacity' : '' ) +'" style="width: '+_elemWidth+'; height: '+_elemHeight+'; position:relative; overflow: hidden;"><span id="m-youtube-'+i+'" class="m-youtube-append" style="top: '+ _top +'; height: '+_height+'; width: '+_width+'; left: '+_left+'; position : absolute;"></span></div>';
+                    var _youtube = '<div class="m-youtube' + ( _opacity === 0 ? ' is-opacity' : '' ) +''+ ( _absolute === 1 ? ' is-absolute' : '' ) +'" style="width: '+_elemWidth+'; height: '+_elemHeight+';overflow: hidden;"><span id="m-youtube-'+i+'" class="m-youtube-append" style="top: '+ _top +'; height: '+_height+'; width: '+_width+'; left: '+_left+'; position : absolute;"></span></div>';
 
                     _data = $elem.data('media');
                     $elem.attr('data-media' , ( _data + (( /\?/.test(_data) ) ? '&index='+i+'' : '?index='+i+'') ) );
@@ -591,7 +591,7 @@
         }
         if ( ! YT.loading ) {
             YT.loading = 1;
-
+            
             (function() {
                 var l    = [];
                 YT.ready = function(f) {
@@ -654,6 +654,7 @@
             _bgplay     = /bgplay\=/.test(_url) ? ( ( /bgplay\=([^?&#]*)/.exec(_url)[1] ) | 0 ) : 0;
         var ready       = element.data('ready'),
             stateChange = element.data('statechange');
+        var _setInterval = null;
 
         projects._media._id = 'm-youtube-' + _idx;
 
@@ -707,8 +708,9 @@
                         }
                     },
                     onStateChange : function(event) {
-                        var $owl         = jQuery('.m-youtube-append').eq(_idx).parents('.owl-carousel');
-                        var _owlAutoPlay = $owl.data('autoplay');
+                        var $owl         = jQuery('.m-youtube-append').eq(_idx).parents('.owl-loaded');
+                        var _owlAutoPlay = $owl.data('autoplay'),
+                            _opacity     = ( /opacity\=/.test(_url) ? ( ( /opacity\=([^?&#]*)/.exec(_url)[1] ) | 0 ) : 0 );
 
                         projects._videoState = event.data;
                         // if ( event.data === 0 && ! _loop ) {
@@ -717,11 +719,13 @@
 
                         /* unstarted */
                         if ( event.data === -1 ) {
-                            jQuery('#m-youtube-'+_idx+'').parent().addClass('is-opacity');
-                            // for ( var i = 0 ; i < projects._media._idArray.length ; i ++ ) {
-                            //     if ( _id === projects._media._idArray[i].id ) {
-                            //     }
-                            // }
+                            if ( ! _opacity ) {
+                                jQuery('#m-youtube-'+_idx+'').parent().addClass('is-opacity');
+                            }
+                            
+                            if ( _owl && _owlAutoPlay ) {
+                                projects.owlStop($owl);
+                            }
                         }
 
                         /* playing */
@@ -754,21 +758,29 @@
 
                         /* buffering */
                         if ( event.data === 3 ) {
-                            jQuery('#m-youtube-'+_idx+'').parent().removeClass('is-opacity');
-                            // for ( var i = 0 ; i < projects._media._idArray.length ; i ++ ) {
-                            //     if ( _id === projects._media._idArray[i].id ) {
-                            //     }
-                            // }
+                            if ( ! _opacity ) {
+                                jQuery('#m-youtube-'+_idx+'').parent().removeClass('is-opacity');
+                            }
                         } 
+
+                        /* video cued */
+                        if ( event.data === 5 ) {
+                            if ( _owl && _owlAutoPlay ) {
+                                var _setTime = null;
+
+                                window.clearTimeout(_setTime);
+                                projects.owlPlay($owl, 1);
+
+                                _setTime = setTimeout(function(){
+                                    projects.owlPlay($owl, ($owl.data('timeout') ? $owl.data('timeout') : 5000));
+                                }, 2);
+                            }
+                        }
 
                         /* ended */
                         if ( event.data === 0 ) {
-                            if ( ! _loop ) {
+                            if ( _owl || ! _loop ) {
                                 projects._media._player[_idx].stopVideo();
-                            }
-
-                            if ( _owl && _owlAutoPlay ) {
-                                projects.owlPlay($owl);
                             }
                         }
 
@@ -785,14 +797,18 @@
         );
 
         projects._media._length += 1;
-        
 
         if ( callback && projects._media._length === projects._media.$media.length ) {
-            if ( typeof(callback) === 'function' ) {
-                callback.call();
-            } else if ( typeof(callback) === 'string' ) {
-                eval(callback);
-            }
+            _setInterval = setInterval(function(){
+                if ( typeof(projects._media._player[0].seekTo) !== 'undefined' ) {
+                    window.clearInterval(_setInterval);
+                    if ( typeof(callback) === 'function' ) {
+                        callback.call();
+                    } else if ( typeof(callback) === 'string' ) {
+                        eval(callback);
+                    }
+                }
+            }, 10);
         }
     };
 

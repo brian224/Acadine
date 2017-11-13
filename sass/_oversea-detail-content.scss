@@ -406,7 +406,7 @@ $color-third : #f39700;
 				background: #eb6100;
 			}
 
-			&.m-icon-gift {
+			&.m-icon-gift, &.m-icon-gift-o {
 				background: #d14000;
 			}
 
@@ -2334,6 +2334,19 @@ $color-third : #f39700;
 }
 
 @include browsers('IE') {
+	.google-map-box .main-info {
+		@include align-items(flex-start);
+
+		> * {
+			width: 100%;
+			box-sizing: border-box;
+		}
+	}
+
+	.inner-tab .img-wrap {
+		overflow: hidden;
+	}
+
 	.tourist-map .pin-list .btn-attractions {
 		overflow: visible;
 	}

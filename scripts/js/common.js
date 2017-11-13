@@ -310,6 +310,7 @@
 			} else if (_target === '.popup-function') {
 				if (!$(e.target).is(_target + ', ' + _target + ' *, ' + common._btnFunc + ', ' + common._btnFunc + ' *')) {
 					$(_target).prev().removeClass('show-func');
+					$(common._lBody).removeClass('has-filter');
 				}
 			} else if (_target === common._select) {
 				if (!$(e.target).is(_target + ', ' + _target + ' *')) {
@@ -785,6 +786,7 @@
 			if (projects.device() === 'Mobile' && $('.function-list').hasClass('hide-menu')) {
 				$('.function-list').removeClass('hide-menu');
 				$('.show-func').removeClass('show-func');
+				$(common._lBody).removeClass('has-filter');
 			} else {
 				$(this).toggleClass('is-active');
 
@@ -990,6 +992,7 @@
 			if (projects.device() === 'Mobile') {
 				if ($(this).data('place') === 'aside') {
 					$(this).parents('.function-list').addClass('hide-menu');
+					$(common._lBody).addClass('has-filter');
 				} else {
 					$('.quick-list .is-active').removeClass('is-active');
 				}
@@ -1002,7 +1005,8 @@
 			$(this).parents('.popup-function').prev().removeClass('show-func');
 			
 			if (projects.device() === 'Mobile') {
-				$('.function-list').removeClass('hide-menu')
+				$('.function-list').removeClass('hide-menu');
+				$(common._lBody).removeClass('has-filter');
 			}
 		});
 

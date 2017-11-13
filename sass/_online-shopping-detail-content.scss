@@ -870,6 +870,7 @@
 
 	.shopping-list .shopping-link {
 		@include flex-grow(1);
+		height: 100%;
 	}
 }
 

@@ -209,6 +209,11 @@
 			padding: 50px 0;
 			min-height: 550px;
 			@include box-sizing(border-box);
+
+			.desc {
+				padding: 0 50px;
+				max-width: 1400px;
+			}
 		}
 
 		.service-link-list {
@@ -590,6 +595,11 @@
 
 	.set-flex > *, .content-list .info-list, .content-list .info-link-list {
 		min-height: 275px;
+	}
+
+	.content-list .info-list .list {
+		width: 100%;
+		box-sizing: border-box;
 	}
 }
 

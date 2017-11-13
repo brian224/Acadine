@@ -1246,7 +1246,7 @@
 	.l-body:not(.index) {
 		.l-header {
 			.header-wrap {
-				background: $color-white;
+				background: rgba($color-black, 0.3);
 				max-height: 56px;
 				position: relative;
 				@include transition(ease-in all 0.3s);
@@ -1265,6 +1265,7 @@
 				}
 
 				&.is-active {
+					height: 100vh;
 					max-height: 100vh;
 					box-shadow: 0 0 5px rgba($color-black, 0.3);
 					overflow-y: scroll;
@@ -1677,6 +1678,27 @@
 
 		> * {
 			@include inline-block;
+		}
+	}
+
+	.main-menu .popup-function .function-wrap {
+		max-height: calc(100vh - 200px);
+
+		.m-tab.main-tab {
+			padding-bottom: 20px;
+		}
+	}
+
+	.menu-list>.list .text:hover ~ .menu-slider {
+		opacity: 1;
+	}
+
+	.menu-list .menu-slider {
+		opacity: 0;
+		@include transition(ease-in opacity 0.3s);
+
+		&:hover {
+			opacity: 1;
 		}
 	}
 }

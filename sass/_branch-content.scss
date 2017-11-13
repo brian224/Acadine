@@ -531,7 +531,7 @@
 
 	.food-list {
 		&:not(.owl-loaded) > .list {
-			width: calc(100% / 3) !important;
+			width: calc((100% - 60px) / 3) !important;
 		}
 
 		.img-wrap {
