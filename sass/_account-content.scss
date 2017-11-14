@@ -463,10 +463,6 @@
 
 .l-body:not(.my-card) .l-content .btn-link {
 	background: $color-white;
-
-	&:hover {
-		background: $color-text-major;
-	}
 }
 
 .l-content {
@@ -611,12 +607,6 @@
 		line-height: 38px;
 		text-align: center;
 		@include transition(ease-in all 0.3s);
-
-		&:hover {
-			background: $color-text-major;
-			border-color: $color-text-major;
-			color: $color-white;
-		}
 	}
 }
 
@@ -970,7 +960,6 @@
 		}
 	}
 
-
 	.l-lightbox {
 		.m-lightbox-content .m-lightbox-bd {
 			padding: 0 20px;
@@ -1120,8 +1109,14 @@
 }
 
 @include respond(Desktops) {
-	.l-body.show-header .category-content {
-		top: 480px;
+	.l-body {
+		&.show-header .category-content {
+			top: 480px;
+		}
+
+		&:not(.my-card) .l-content .btn-link:hover {
+			background: $color-text-major;
+		}
 	}
 
 	.category-content {
@@ -1224,6 +1219,12 @@
 
 		.favorite-list .item-list .img-wrap {
 			width: 226px;
+		}
+
+		.btn-link:hover {
+			background: $color-text-major;
+			border-color: $color-text-major;
+			color: $color-white;
 		}
 	}
 

@@ -223,12 +223,6 @@ body {
 			color: $color-gray-d-p30;
 			font-size: 14px;
 			@include transition(ease-in all 0.3s);
-
-			&:hover {
-				background: $color-text-major;
-				border-color: $color-text-major;
-				color: $color-white;
-			}
 		}
 
 		.store-img.img-wrap {
@@ -608,7 +602,6 @@ body {
 		text-align: center;
 		text-indent: 0;
 		@include box-sizing(border-box);
-		@include transition(ease-in all 0.3s);
 	}
 
 	&:before {
@@ -645,7 +638,6 @@ body {
 	text-align: center;
 	text-indent: 0;
 	@include box-sizing(border-box);
-	@include transition(ease-in all 0.3s);
 
 	&:before, &:after {
 		display: none;
@@ -786,32 +778,19 @@ body {
 	line-height: 36px;
 	letter-spacing: 1px;
 	text-align: center;
-	@include transition(ease-in all 0.3s);
 }
 
 .btn-link {
 	&.btn-main {
 		background: $color-btn-main;
-
-		&:hover {
-			background: darken($color-btn-main , 10%);
-		}
 	}
 
 	&.btn-sub {
 		background: $color-btn-sub;
-
-		&:hover {
-			background: darken($color-btn-sub , 10%);
-		}
 	}
 
 	&.btn-cancel {
 		background: $color-btn-cancel;
-
-		&:hover {
-			background: darken($color-btn-cancel , 10%);
-		}
 	}
 
 	&[disabled], &[disabled]:hover {
@@ -852,6 +831,12 @@ body {
 				display: inline;
 			}
 		}
+	}
+
+	.l-side .popup-function .btn-link:hover {
+		background: $color-text-major;
+		border-color: $color-text-major;
+		color: $color-white;
 	}
 
 	.kv-owl .item {
@@ -922,12 +907,33 @@ body {
 		}
 	}
 
+	.btn-read-more {
+		&:before, &:after {
+			@include transition(ease-in all 0.3s);
+		}
+	}
+
 	.btn-more {
 		width: 420px;
+		@include transition(ease-in all 0.3s);
 
 		&:hover {
 			background: $color-text-major;
 			color: $color-white;
+		}
+	}
+
+	.btn-link {
+		&.btn-main:hover {
+			background: darken($color-btn-main , 10%);
+		}
+
+		&.btn-sub:hover {
+			background: darken($color-btn-sub , 10%);
+		}
+
+		&.btn-cancel:hover {
+			background: darken($color-btn-cancel , 10%);
 		}
 	}
 }

@@ -6,9 +6,13 @@
 .b-normalize {
     @import "_common/normalize";
 
-    &.editor-area img {
-        height    : auto !important;
-        max-width : 100%;
+    &.editor-area {
+        overflow : hidden;
+
+        img, iframe {
+            height    : auto !important;
+            max-width : 100%;
+        }
     }
 
     &:after {

@@ -167,7 +167,6 @@
 	letter-spacing: 1px;
 	line-height: 40px;
 	text-align: center;
-	@include transition(ease-in all 0.3s);
 
 	&:hover {
 		background: $color-text-major;
@@ -372,6 +371,10 @@
 
 	.main-content {
 		width: calc(100vw - 260px);
+	}
+
+	.btn-link {
+		@include transition(ease-in all 0.3s);
 	}
 }
 

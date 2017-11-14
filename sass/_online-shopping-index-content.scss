@@ -31,11 +31,6 @@
 		color: $color-white;
 		font-size: 14px;
 		line-height: 40px;
-		@include transition(ease-in all 0.3s);
-
-		&:hover {
-			background: darken($color-text-major, 10%);
-		}
 	}
 }
 
@@ -52,7 +47,6 @@
 		color: $color-text-major;
 		font-weight: bold;
 		text-align: center;
-		@include transition(ease-in all 0.3s);
 
 		&.is-curr, &:hover {
 			background: $color-text-major;
@@ -189,7 +183,6 @@
 		letter-spacing: 1px;
 		line-height: 34px;
 		text-align: center;
-		@include transition(ease-in all 0.3s);
 
 		&:hover {
 			background: $color-text-major;
@@ -454,7 +447,6 @@
 		line-height: 34px;
 		text-align: center;
 		@include box-sizing(border-box);
-		@include transition(ease-in all 0.3s);
 
 		> *:first-child:not(:only-child) {
 			margin-right: 10px;
@@ -499,6 +491,14 @@
 	.input-content {
 		margin: 0 auto 30px auto;
 		width: 880px;
+
+		.btn-search {
+			@include transition(ease-in all 0.3s);
+		}
+	}
+
+	.keyword-list .btn-keyword {
+		@include transition(ease-in all 0.3s);
 	}
 
 	.result-content {
@@ -511,6 +511,10 @@
 				width: calc((100% - 40px) / 3);
 				max-width: 320px;
 			}
+		}
+
+		.btn-link {
+			@include transition(ease-in all 0.3s);
 		}
 	}
 
@@ -526,6 +530,10 @@
 		.main-intro {
 			width: calc(((100% - 60px) / 3 * 2) + 20px);
 			max-width: 860px;
+		}
+
+		.btn-link {
+			@include transition(ease-in all 0.3s);
 		}
 	}
 }

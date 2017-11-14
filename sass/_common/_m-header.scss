@@ -230,10 +230,6 @@
 				border-radius: 17px;
 				color: $color-white;
 				@include transition(ease-in all 0.3s);
-
-				&:hover {
-					background: $color-text-major;
-				}
 			}
 		}
 
@@ -247,12 +243,6 @@
 			line-height: 32px;
 			text-align: center;
 			@include transition(ease-in all 0.3s);
-
-			&:hover {
-				background: $color-text-major;
-				border-color: $color-text-major;
-				color: $color-white;
-			}
 		}
 
 		.img-wrap img {
@@ -268,7 +258,6 @@
 			color: $color-gray-d-p30;
 			font-size: 12px;
 			line-height: 34px;
-			@include transition(ease-in all 0.3s);
 
 			&:hover {
 				background: $color-gray-d-p30;
@@ -584,6 +573,22 @@
 
 	.main-menu {
 		height: 70px;
+
+		.popup-function {
+			.btn-link {
+				@include transition(ease-in all 0.3s);
+			}
+
+			.m-box-holder .btn-search:hover {
+				background: $color-text-major;
+			}
+
+			.btn-keyword:hover {
+				background: $color-text-major;
+				border-color: $color-text-major;
+				color: $color-white;
+			}
+		}
 
 		.function-list .list {
 			@for $i from 1 through 3 {

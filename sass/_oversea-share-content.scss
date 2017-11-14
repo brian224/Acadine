@@ -226,7 +226,6 @@ $color-third : #f39700;
 			letter-spacing: 1px;
 			line-height: 34px;
 			text-align: center;
-			@include transition(ease-in all 0.3s);
 
 			&:hover {
 				background: $color-text-major;
@@ -406,6 +405,10 @@ $color-third : #f39700;
 		.item-sizer, .list-item {
 			width: calc((100% - 40px) / 3);
 			min-width: 260px;
+		}
+
+		.list-item .btn-link {
+			@include transition(ease-in all 0.3s);
 		}
 	}
 

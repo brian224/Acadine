@@ -359,7 +359,6 @@
 	line-height: 38px;
 	text-align: center;
 	@include box-sizing(border-box);
-	@include transition(ease-in all 0.3s);
 
 	&:hover {
 		background: $color-text-major;
@@ -570,6 +569,10 @@
 	.m-footer {
 		padding-right: 52px;
 		padding-bottom: 28px;
+	}
+
+	.btn-link {
+		@include transition(ease-in all 0.3s);
 	}
 }
 

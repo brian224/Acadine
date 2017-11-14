@@ -216,7 +216,6 @@
 	line-height: 38px;
 	text-align: center;
 	@include box-sizing(border-box);
-	@include transition(ease-in all 0.3s);
 
 	&:hover {
 		background: $color-text-major;
@@ -498,7 +497,6 @@
 			color: $color-white;
 			font-size: 14px;
 			line-height: 40px;
-			@include transition(ease-in all 0.3s);
 
 			&:hover {
 				background: darken($color-text-major, 10%);
@@ -519,7 +517,6 @@
 			color: $color-text-major;
 			font-weight: bold;
 			text-align: center;
-			@include transition(ease-in all 0.3s);
 
 			&.is-curr, &:hover {
 				background: $color-text-major;
@@ -700,7 +697,6 @@
 			letter-spacing: 1px;
 			line-height: 34px;
 			text-align: center;
-			@include transition(ease-in all 0.3s);
 
 			&:hover {
 				background: $color-text-major;
@@ -930,7 +926,6 @@
 			color: $color-white;
 			font-size: 14px;
 			line-height: 40px;
-			@include transition(ease-in all 0.3s);
 
 			&:hover {
 				background: $color-text-major;
@@ -1102,6 +1097,10 @@
 		margin-bottom: 72px;
 	}
 
+	.l-content .btn-link {
+		@include transition(ease-in all 0.3s);
+	}
+
 	.contact-us .branch-info-list {
 		margin-bottom: 50px;
 
@@ -1139,9 +1138,17 @@
 			min-height: calc(100vh - 289px);
 		}
 
+		.l-content .keyword-list .btn-keyword {
+			@include transition(ease-in all 0.3s);
+		}
+
 		.input-content {
 			margin: 0 auto 30px auto;
 			width: 880px;
+
+			.btn-search {
+				@include transition(ease-in all 0.3s);
+			}
 		}
 
 		.result-content {
@@ -1158,6 +1165,10 @@
 				.list-item .img-wrap {
 					height: calc((100% - 40px) / 3);
 				}
+			}
+
+			.btn-link {
+				@include transition(ease-in all 0.3s);
 			}
 		}
 	}
@@ -1203,6 +1214,10 @@
 
 		.search-wrap, .result-wrap {
 			width: 940px;
+		}
+
+		.gsc-search-box input.gsc-search-button {
+			@include transition(ease-in all 0.3s);
 		}
 	}
 
