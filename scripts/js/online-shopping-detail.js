@@ -10,8 +10,6 @@
 
 	// 設定 data-index
 	page.prototype.photoOwl = function(num) {
-		$(pageObj._photoList).trigger('destroy.owl');
-
 		$(pageObj._photoList).each(function(){
 			var $this = $(this);
 
@@ -30,7 +28,7 @@
 	}
 
 	projects.$w.load(function(){
-		if ($(pageObj._photoList).length !== 0) {
+		if ($(pageObj._photoList).length !== 0 && $(pageObj._photoList + ' img').length > parseInt($(pageObj._photoList).attr('data-items'), 10)) {
 			pageObj.photoOwl();
 		}
 	});

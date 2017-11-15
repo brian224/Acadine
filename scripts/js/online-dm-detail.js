@@ -17,7 +17,7 @@
 		this._userAgent    = navigator.userAgent || navigator.vendor || window.opera;
 		this._iOS          = /iPad|iPhone|iPod/.test( this._userAgent ) && ! window.MSStream;
 		this._largeWidth   = 2214; // 放大倍率 (px)
-		this._imgSrc       = $(this._thumbnails + ' img').attr('src');
+		this._imgSrc       = $(this._thumbnails + ' img').eq(0).attr('src');
 		this._imgSrcArray  = this._imgSrc.split('/');
 		this._newImage     = new Image;
 		this._aspectRatio  = 0;
@@ -26,82 +26,89 @@
 	}
 
 	page.prototype.prepare = function() {
-		pageObj._newImage.src = pageObj._imgSrc;
-		pageObj._aspectRatio = pageObj._newImage.width / pageObj._newImage.height;
+		pageObj._newImage.onload = function() {
+			pageObj._aspectRatio = pageObj._newImage.width / pageObj._newImage.height;
 
-		if (projects.device() !== 'PC') {
-			$(pageObj._container).width(pageObj._aspectRatio * $(pageObj._mViewport).height());
-			pageObj._display = 'single';
-		} else {
-			$(pageObj._container).width(pageObj._aspectRatio * $(pageObj._mViewport).height() * 2);
-			$(pageObj._magazine).css('left', (- $(pageObj._container).width() / 2));
-			pageObj._display    = 'double';
-			pageObj._autoCenter = true;
+			// if (isNaN(pageObj._aspectRatio) === true) {
+			// 	pageObj._aspectRatio = 0.71062;
+			// }
+
+			if (projects.device() !== 'PC') {
+				$(pageObj._container).width(pageObj._aspectRatio * $(pageObj._mViewport).height());
+				pageObj._display = 'single';
+			} else {
+				$(pageObj._container).width(pageObj._aspectRatio * $(pageObj._mViewport).height() * 2);
+				$(pageObj._magazine).css('left', (- $(pageObj._container).width() / 2));
+				pageObj._display    = 'double';
+				pageObj._autoCenter = true;
+			}
+
+			$(pageObj._magazine).turn({
+				// acceleration: !isChrome(),
+				autoCenter : pageObj._autoCenter,
+				display    : pageObj._display,
+				duration   : 1000,
+				elevation  : 100,
+				gradients  : true,
+				width      : $(pageObj._container).width(),
+				height     : $(pageObj._mViewport).height(),
+				pages      : pageObj._totalPage,
+				when       : {
+					turning : function(event, page, view) {
+						var book        = $(this),
+							currentPage = (book.turn('page') >= 10) ? book.turn('page') : '0' + book.turn('page'),
+							pages       = (book.turn('pages') >= 10) ? book.turn('pages') : '0' + book.turn('pages'),
+							newPage     = (page >= 10) ? page : '0' + page;
+				
+						if (typeof(history.pushState) !== 'undefined') {
+							history.pushState(null, null, window.location.href.split('#')[0] + '#page' + page);
+						}
+
+						disableControls(page);
+
+						if (projects.device() !== 'PC') {
+							$('.thumbnails .page-' + currentPage).parent('figure').removeClass('current');
+							$('.thumbnails .page-' + newPage).parent('figure').addClass('current');
+						} else {
+							$('.thumbnails .page-' + currentPage).parents('li').removeClass('current');
+							$('.thumbnails .page-' + newPage).parents('li').addClass('current');
+						}
+
+						if (view[0] === 0) {
+							$('.jQ-pages').text(view[1] + '/' + pageObj._totalPage);
+						} else if (view[1] === 0 || view[1] === undefined) {
+							$('.jQ-pages').text(view[0] + '/' + pageObj._totalPage);
+						} else {
+							$('.jQ-pages').text(view[0] + '~' + view[1] + '/' + pageObj._totalPage);
+						}
+
+						$(common._loading).addClass('is-hide');
+					},
+					turned  : function(event, page, view) {
+						disableControls(page);
+
+						$(this).turn('center');
+
+						if (page==1) { 
+							$(this).turn('peel', 'br');
+						}
+
+						if (view[0] === 0) {
+							$('.jQ-pages').text(view[1] + '/' + pageObj._totalPage);
+						} else if (view[0] === 1) {
+							$('.jQ-pages').text(view[0] + '/' + pageObj._totalPage);
+						}
+
+						$(common._loading).addClass('is-hide');
+					},
+					missing : function (event, pages) {
+						for (var i = 0; i < pages.length; i++) addPage(pages[i], $(this));
+					}
+				}
+			});
 		}
 
-		$(pageObj._magazine).turn({
-			// acceleration: !isChrome(),
-			autoCenter : pageObj._autoCenter,
-			display    : pageObj._display,
-			duration   : 1000,
-			elevation  : 100,
-			gradients  : true,
-			width      : $(pageObj._container).width(),
-			height     : $(pageObj._mViewport).height(),
-			pages      : pageObj._totalPage,
-			when       : {
-				turning : function(event, page, view) {
-					var book        = $(this),
-						currentPage = (book.turn('page') >= 10) ? book.turn('page') : '0' + book.turn('page'),
-						pages       = (book.turn('pages') >= 10) ? book.turn('pages') : '0' + book.turn('pages'),
-						newPage     = (page >= 10) ? page : '0' + page;
-			
-					if (typeof(history.pushState) !== 'undefined') {
-						history.pushState(null, null, window.location.href.split('#')[0] + '#page' + page);
-					}
-
-					disableControls(page);
-
-					if (projects.device() !== 'PC') {
-						$('.thumbnails .page-' + currentPage).parent('figure').removeClass('current');
-						$('.thumbnails .page-' + newPage).parent('figure').addClass('current');
-					} else {
-						$('.thumbnails .page-' + currentPage).parents('li').removeClass('current');
-						$('.thumbnails .page-' + newPage).parents('li').addClass('current');
-					}
-
-					if (view[0] === 0) {
-						$('.jQ-pages').text(view[1] + '/' + pageObj._totalPage);
-					} else if (view[1] === 0 || view[1] === undefined) {
-						$('.jQ-pages').text(view[0] + '/' + pageObj._totalPage);
-					} else {
-						$('.jQ-pages').text(view[0] + '~' + view[1] + '/' + pageObj._totalPage);
-					}
-
-					$(common._loading).addClass('is-hide');
-				},
-				turned  : function(event, page, view) {
-					disableControls(page);
-
-					$(this).turn('center');
-
-					if (page==1) { 
-						$(this).turn('peel', 'br');
-					}
-
-					if (view[0] === 0) {
-						$('.jQ-pages').text(view[1] + '/' + pageObj._totalPage);
-					} else if (view[0] === 1) {
-						$('.jQ-pages').text(view[0] + '/' + pageObj._totalPage);
-					}
-
-					$(common._loading).addClass('is-hide');
-				},
-				missing : function (event, pages) {
-					for (var i = 0; i < pages.length; i++) addPage(pages[i], $(this));
-				}
-			}
-		});
+		pageObj._newImage.src = pageObj._imgSrc;
 	}
 
 	page.prototype.toggleFullScreen = function(element) {

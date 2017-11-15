@@ -507,12 +507,13 @@
 			margin-right: 20px;
 		}
 
-		.list {
+		&:not(.owl-loaded) > .list {
+			margin-right: 30px !important;
 			margin-bottom: 30px;
-			width: calc((100% - 60px) / 4);
+			width: calc((100% - 150px) / 4) !important;
 
-			&:not(:nth-child(4n)) {
-				margin-right: 20px;
+			&:nth-child(4) {
+				margin-right: 20px !important;
 			}
 		}
 

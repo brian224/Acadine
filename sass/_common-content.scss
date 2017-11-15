@@ -935,6 +935,10 @@ body {
 		&.btn-cancel:hover {
 			background: darken($color-btn-cancel , 10%);
 		}
+
+		&[disabled] {
+			cursor: not-allowed !important;
+		}
 	}
 }
 
