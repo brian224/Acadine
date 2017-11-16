@@ -608,6 +608,8 @@
 		&:before {
 			background: #d60c18;
 			top: 2px;
+			opacity: 1;
+			z-index: 0;
 		}
 
 		&:after {

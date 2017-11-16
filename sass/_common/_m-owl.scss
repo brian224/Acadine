@@ -137,6 +137,10 @@
 	}
 }
 
+.jQ-wait-owl {
+	position: relative;
+}
+
 @include respond(Desktops) {
 	.jQ-owl {
 		&:hover .m-owl-ctrl {

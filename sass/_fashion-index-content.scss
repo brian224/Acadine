@@ -547,7 +547,7 @@
 
 	.masonry-link {
 		&.is-separate .img-wrap {
-			height: 330px;
+			height: calc((100vw - 100px) / 4);
 
 			img {
 				height: 100%;
@@ -741,6 +741,10 @@
 
 	.masonry-list {
 		width: 1300px;
+
+		&.is-separate .img-wrap {
+			height: 330px;
+		}
 
 		.masonry-item {
 			width: 305px;
@@ -1075,6 +1079,18 @@
 	.masonry-list {
 		@include flex-direction(row);
 		@include justify-content(space-between);
+
+		.masonry-item > *:not(.shopping-list):not(.activity-link) {
+			.img-wrap {
+				width: 200%;
+				position: relative;
+				left: -50%;
+			}
+		}
+	}
+
+	.masonry-link {
+		overflow: hidden;
 	}
 
 	.shopping-list .btn-read-more {

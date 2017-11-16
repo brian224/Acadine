@@ -155,9 +155,20 @@
 	position: relative;
 
 	.b-link {
+		@include display-flex;
+		@include align-items(center);
+		@include justify-content(center);
 		color: $color-gray-d-p30;
 		letter-spacing: 1px;
 		@include transition(ease-in all 0.3s);
+
+		&:first-child {
+			@include justify-content(flex-start);
+		}
+
+		&:last-child {
+			@include justify-content(flex-end);
+		}
 
 		&:hover {
 			color: $color-text-major;

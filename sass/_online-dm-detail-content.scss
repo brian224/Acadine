@@ -62,7 +62,7 @@
 			opacity: 0.25;
 		}
 
-		&:hover {
+		&:not(.hide):hover {
 			opacity: 0.5;
 		}
 

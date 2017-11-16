@@ -590,12 +590,8 @@
 	}
 
 	.l-content .favorite-list {
-		.img-wrap {
-			max-height: 270px;
-
-			img {
-				@include transition(ease-in all 0.3s);
-			}
+		.img-wrap img {
+			@include transition(ease-in all 0.3s);
 		}
 
 		.item-info {
