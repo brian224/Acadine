@@ -200,6 +200,7 @@
 
 	.food-link:hover .btn-read-more {
 		background: $color-text-major;
+		border-color: $color-text-major !important;
 
 		&:before {
 			opacity: 0;
@@ -208,6 +209,8 @@
 
 		&:after {
 			background: transparent !important;
+			opacity: 1;
+			color: $color-white !important;
 		}
 	}
 

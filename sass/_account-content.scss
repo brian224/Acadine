@@ -236,6 +236,8 @@
 }
 
 .main-content {
+	@include transition(ease-in all 0.3s);
+
 	.text-link {
 		text-decoration: underline;
 

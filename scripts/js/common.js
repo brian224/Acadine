@@ -667,6 +667,7 @@
 
 		if (sessionStorage.getItem('marquee') === 'readed' && $(common._lHeader).hasClass('show-marquee')) {
 			$(common._lHeader).removeClass('show-marquee');
+			$('.marquee-wrap').remove();
 		}
 
 		if (projects.device() === 'Mobile') {

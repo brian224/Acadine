@@ -326,9 +326,9 @@
 		height: 57vw;
 	}
 
-	.kv-owl .item .img-wrap {
-		margin-left: -14vw;
-		width: 128vw;
+	.kv-owl .item .img-wrap img {
+		width: 100%;
+		max-height: unset;
 	}
 
 	.movie-cut {
