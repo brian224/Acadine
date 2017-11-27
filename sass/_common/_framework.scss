@@ -6,6 +6,7 @@ html , body  {
 }
 
 button {
+	border-radius: 0;
 	@include button-default;
 }
 

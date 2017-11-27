@@ -43,7 +43,7 @@
 			top: 7%;
 			left: 2.6%;
 
-			.attractions-info {
+			/*.attractions-info {
 				top: 100%;
 				left: 0;
 
@@ -52,14 +52,14 @@
 					left: 15%;
 					@include transform(rotate(180deg));
 				}
-			}
+			}*/
 		}
 
 		&.the-435-art-zone {
 			top: 20.8%;
 			left: 5.9%;
 
-			.attractions-info {
+			/*.attractions-info {
 				top: 0;
 				left: 100%;
 
@@ -69,14 +69,14 @@
 					right: 100%;
 					@include transform(rotate(90deg));
 				}
-			}
+			}*/
 		}
 
 		&.the-cihui-mazu-temple {
 			top: 53%;
 			left: 34.5%;
 
-			.attractions-info {
+			/*.attractions-info {
 				bottom: 0;
 				left: 100%;
 
@@ -86,14 +86,14 @@
 					right: 100%;
 					@include transform(rotate(90deg));
 				}
-			}
+			}*/
 		}
 
 		&.da-gwan-su-sier {
 			top: 50.67%;
 			left: 26.6%;
 
-			.attractions-info {
+			/*.attractions-info {
 				bottom: 0;
 				right: 100%;
 
@@ -103,14 +103,14 @@
 					left: 100%;
 					@include transform(rotate(-90deg));
 				}
-			}
+			}*/
 		}
 
 		&.the-lin-family-mansion-and-garden {
 			top: 58%;
 			left: 20.85%;
 
-			.attractions-info {
+			/*.attractions-info {
 				bottom: 15%;
 				left: 100%;
 
@@ -120,14 +120,14 @@
 					right: 100%;
 					@include transform(rotate(90deg));
 				}
-			}
+			}*/
 		}
 
 		&.nan-ya-night-market {
 			top: 74.5%;
 			left: 22.92%;
 
-			.attractions-info {
+			/*.attractions-info {
 				bottom: 100%;
 				left: 0;
 
@@ -135,14 +135,14 @@
 					top: 100%;
 					left: 15%;
 				}
-			}
+			}*/
 		}
 
 		&.sports {
 			top: 40%;
 			left: 28.83%;
 
-			.attractions-info {
+			/*.attractions-info {
 				top: -30%;
 				right: 100%;
 
@@ -152,14 +152,14 @@
 					left: 100%;
 					@include transform(rotate(-90deg));
 				}
-			}
+			}*/
 		}
 
 		&.station {
 			top: 24.5%;
 			left: 40.5%;
 
-			.attractions-info {
+			/*.attractions-info {
 				top: 0;
 				right: 100%;
 
@@ -169,14 +169,14 @@
 					left: 100%;
 					@include transform(rotate(-90deg));
 				}
-			}
+			}*/
 		}
 
 		&.shr {
 			top: 35.5%;
 			left: 38.9%;
 
-			.attractions-info {
+			/*.attractions-info {
 				top: -100%;
 				right: 100%;
 
@@ -186,7 +186,7 @@
 					left: 100%;
 					@include transform(rotate(-90deg));
 				}
-			}
+			}*/
 		}
 
 		&.mega-city {
@@ -203,7 +203,7 @@
 			top: 60%;
 			left: 44%;
 
-			.attractions-info {
+			/*.attractions-info {
 				bottom: 15%;
 				right: 100%;
 
@@ -213,14 +213,14 @@
 					left: 100%;
 					@include transform(rotate(-90deg));
 				}
-			}
+			}*/
 		}
 
 		&.city-hall {
 			top: 30.5%;
 			left: 50.88%;
 
-			.attractions-info {
+			/*.attractions-info {
 				top: 0;
 				right: 100%;
 
@@ -230,14 +230,14 @@
 					left: 100%;
 					@include transform(rotate(-90deg));
 				}
-			}
+			}*/
 		}
 
 		&.green-living {
 			top: 41.5%;
 			left: 58.39%;
 
-			.attractions-info {
+			/*.attractions-info {
 				top: -30%;
 				right: 100%;
 
@@ -247,20 +247,70 @@
 					left: 100%;
 					@include transform(rotate(-90deg));
 				}
-			}
+			}*/
 		}
 
 		&.stadium {
 			top: 57%;
 			left: 61.9%;
 
-			.attractions-info {
+			/*.attractions-info {
 				bottom: 15%;
 				right: 100%;
 
 				&:after {
 					margin-left: -5px;
 					bottom: 15%;
+					left: 100%;
+					@include transform(rotate(-90deg));
+				}
+			}*/
+		}
+
+		.attractions-info {
+			&.to-right-bottom {
+				top: 0;
+				left: 100%;
+
+				&:after {
+					margin-right: -5px;
+					top: 5%;
+					right: 100%;
+					@include transform(rotate(90deg));
+				}
+			}
+
+			&.to-left-bottom {
+				top: 0;
+				right: 100%;
+
+				&:after {
+					margin-left: -5px;
+					top: 5%;
+					left: 100%;
+					@include transform(rotate(-90deg));
+				}
+			}
+
+			&.to-right-top {
+				bottom: 0;
+				left: 100%;
+
+				&:after {
+					margin-right: -5px;
+					bottom: 5%;
+					right: 100%;
+					@include transform(rotate(90deg));
+				}
+			}
+
+			&.to-left-top {
+				bottom: 0;
+				right: 100%;
+
+				&:after {
+					margin-left: -5px;
+					bottom: 5%;
 					left: 100%;
 					@include transform(rotate(-90deg));
 				}

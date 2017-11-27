@@ -670,7 +670,6 @@ $color-third : #f39700;
 
 .tourist-map {
 	position: relative;
-	overflow: hidden;
 
 	.img-wrap img {
 		width: 100%;
@@ -1112,6 +1111,7 @@ $color-third : #f39700;
 		}
 
 		.guide-book {
+			max-width: calc(30% - 32px);
 			position: absolute;
 			top: 32px;
 			bottom: 32px;
@@ -1195,6 +1195,10 @@ $color-third : #f39700;
 
 	.recommended-list .item-list {
 		width: calc((100% - 40px) / 3);
+
+		&:not(:nth-child(3n)) {
+			margin-right: 20px;
+		}
 
 		> .b-link {
 			display: block;
@@ -1435,11 +1439,17 @@ $color-third : #f39700;
 		}
 	}
 
-	.tourist-map .attractions-info .info-list {
-		padding: 15px 24px 0 24px;
+	.tourist-map {
+		.attractions-info .info-list {
+			padding: 15px 24px 0 24px;
 
-		.list {
-			padding: 6px 0 12px 0;
+			.list {
+				padding: 6px 0 12px 0;
+			}
+		}
+
+		.pin-list .btn-attractions {
+			position: initial;
 		}
 	}
 
@@ -1460,8 +1470,8 @@ $color-third : #f39700;
 	.recommended-list {
 		margin-top: 36px;
 		@include display-flex;
-		@include align-items(center);
-		@include justify-content(space-between);
+		@include align-items(stretch);
+		@include justify-content(flex-start);
 		@include flex-wrap(wrap);
 
 		.img-wrap img {
@@ -1471,9 +1481,12 @@ $color-third : #f39700;
 		.item-list {
 			margin-bottom: 20px;
 			overflow: hidden;
+			@include display-flex;
+			@include flex-direction(column);
 
 			.item-info {
 				padding: 20px 36px;
+				@include flex-grow(1);
 			}
 		}
 
@@ -1729,12 +1742,16 @@ $color-third : #f39700;
 	.recommended-list {
 		@include flex-wrap(wrap);
 
-		&:not(.show-hide-items) .item-list:nth-child(3) {
+		/*&:not(.show-hide-items) .item-list:nth-child(3) {
 			display: none;
-		}
+		}*/
 
 		.item-list {
 			width: calc((100% - 20px) / 2);
+
+			&:not(:nth-child(2n)) {
+				margin-right: 20px;
+			}
 		}
 	}
 }
@@ -2187,7 +2204,7 @@ $color-third : #f39700;
 				padding: 0 12px;
 				@include display-flex;
 				@include align-items(stretch);
-				@include justify-content(center);
+				@include justify-content(flex-start);
 				max-height: 0;
 				overflow: hidden;
 				@include transition(ease-in all 0.5s);
