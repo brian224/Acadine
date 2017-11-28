@@ -450,7 +450,7 @@ $color-third : #f39700;
 				background: #a58472;
 			}
 
-			&.m-icon-parking, &.m-icon-parking-goodwill {
+			&.m-icon-parking, &.m-icon-parking-2, &.m-icon-parking-goodwill {
 				background: #1d2088;
 			}
 
@@ -2177,6 +2177,7 @@ $color-third : #f39700;
 
 	.tourist-map {
 		margin: 20px 0;
+		overflow: hidden;
 
 		.pin-list {
 			.btn-attractions {

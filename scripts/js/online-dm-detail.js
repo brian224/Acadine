@@ -29,10 +29,6 @@
 		pageObj._newImage.onload = function() {
 			pageObj._aspectRatio = pageObj._newImage.width / pageObj._newImage.height;
 
-			// if (isNaN(pageObj._aspectRatio) === true) {
-			// 	pageObj._aspectRatio = 0.71062;
-			// }
-
 			if (projects.device() !== 'PC') {
 				$(pageObj._container).width(pageObj._aspectRatio * $(pageObj._mViewport).height());
 				pageObj._display = 'single';
@@ -106,6 +102,7 @@
 					}
 				}
 			});
+			pageObj.zoomFunction();
 		}
 
 		pageObj._newImage.src = pageObj._imgSrc;
@@ -145,7 +142,6 @@
 			$elem.toggleClass('fullScreen');
 			$(pageObj._magazine).turn('destroy');
 			pageObj.prepare();
-			pageObj.zoomFunction();
 			pageObj.anchorFunction();
 		}
 		// $(pageObj._magazine).turn('size', $(pageObj._container).width(), $(pageObj._container).height());
@@ -242,7 +238,6 @@
 	projects.$d.ready(function(){
 		pageObj.setNewSrc();
 		pageObj.prepare();
-		pageObj.zoomFunction();
 		pageObj.anchorFunction();
 
 		if ($.isTouch)
@@ -324,7 +319,6 @@
 			$(pageObj._fullScreen).toggleClass('is-active');
 			$(pageObj._magazine).turn('destroy');
 			pageObj.prepare();
-			pageObj.zoomFunction();
 			pageObj.anchorFunction();
 		});
 	});
