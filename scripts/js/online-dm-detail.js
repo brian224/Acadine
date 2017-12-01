@@ -81,6 +81,8 @@
 						$(common._loading).addClass('is-hide');
 					},
 					turned  : function(event, page, view) {
+						page = parseInt(window.location.href.split('#page')[1], 10);
+
 						disableControls(page);
 
 						$(this).turn('center');
@@ -102,6 +104,9 @@
 					}
 				}
 			});
+			if (window.location.href.split('#page')[1] !== undefined) {
+				$(pageObj._magazine).turn('page', window.location.href.split('#page')[1]);
+			}
 			pageObj.zoomFunction();
 		}
 
