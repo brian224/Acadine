@@ -10,7 +10,6 @@
         overflow : hidden;
 
         img, iframe {
-            height    : auto !important;
             max-width : 100%;
         }
     }
@@ -514,6 +513,12 @@
 }
 
 @include respond(Mobiles) {
+    .b-normalize.editor-area {
+        img, iframe {
+            height : auto !important;
+        }
+    }
+
     /* br */
     .b-br-xs {
         display : block !important;

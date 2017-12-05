@@ -683,7 +683,7 @@
 				$(common._owl).off('touchmove touchend');
 			});
 
-			$(common._sideMenu).removeClass('is-active');
+			// $(common._sideMenu).removeClass('is-active');
 			
 			if ($(common._tagSelect).length !== 0) {
 				common.changeToSelect();

@@ -903,6 +903,14 @@ $color-third : #f39700;
 }
 
 @include respond(Desktops) {
+	.l-body .l-content {
+		overflow: visible;
+	}
+
+	.content-list {
+		overflow: visible;
+	}
+
 	.main-tab > .m-tab-content > .content-list {
 		.btn-tab {
 			.m-icon {
