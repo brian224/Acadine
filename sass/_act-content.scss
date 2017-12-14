@@ -445,10 +445,14 @@
 	}
 
 	.shopping-list {
-		.list {
+		&:not(.owl-loaded) > .list {
 			margin-right: 10px !important;
-			margin-left: 10px;
-			width: calc((100% - 80px) / 4);
+			margin-left: 10px !important;
+			width: calc((100% - 80px) / 4) !important;
+
+			&:nth-child(4n) {
+				margin-right: 0 !important;
+			}
 		}
 
 		.item-info {
@@ -585,11 +589,15 @@
 	}
 
 	.shopping-list {
-		margin: 0 -17px 0 -16px;
+		margin: 0;
 
-		.list {
-			margin: 0 17px 30px 16px;
-			width: calc((100% - 111px) / 4);
+		&:not(.owl-loaded) > .list {
+			margin: 0 33px 30px 0 !important;
+			width: 300px !important;
+
+			&:nth-child(4n) {
+				margin-right: 0 !important;
+			}
 		}
 	}
 }

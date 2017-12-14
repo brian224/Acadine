@@ -99,6 +99,8 @@
 	}
 
 	.item .img-wrap {
+		@include display-flex;
+		@include align-items(flex-end);
 		overflow: hidden;
 
 		img {
@@ -189,7 +191,7 @@
 		width: 384px;
 
 		.item .img-wrap {
-			height: 490px;
+			height: 548px;
 		}
 	}
 }
@@ -372,20 +374,20 @@
 
 		.owl-stage .owl-item.active {
 			+ * {
-				margin-right: -85px;
+				margin-right: -85px !important;
 			}
 
 			+ * + * {
-				margin-right: -105px;
+				margin-right: -105px !important;
 			}
 
 			+ * + * + * {
-				margin-right: -125px;
+				margin-right: -125px !important;
 			}
 		}
 
 		.item .img-wrap {
-			height: 245px;
+			height: 274px;
 		}
 	}
 }
