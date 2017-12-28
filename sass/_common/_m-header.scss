@@ -411,6 +411,7 @@
 				.item-text-info {
 					padding-left: 10px;
 					color: $color-gray-d-p30;
+					vertical-align: top;
 					font-size: 12px;
 					line-height: 1.5em;
 
@@ -772,6 +773,10 @@
 
 			&.wide-size {
 				width: 380px;
+
+				.favorite-list {
+					max-height: calc(100vh - 410px);
+				}
 			}
 
 			&:before {
@@ -789,6 +794,16 @@
 			.function-wrap {
 				padding: 10px 20px 25px 30px;
 				box-sizing: border-box;
+
+				.content-list {
+					overflow: unset;
+				}
+			}
+
+			.favorite-list {
+				margin-right: -20px;
+				padding-right: 20px;
+				max-height: calc(100vh - 344px);
 				overflow-x: hidden;
 				overflow-y: scroll;
 			}

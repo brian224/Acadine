@@ -5,7 +5,7 @@
 
 	function index() {
 		this._quickList     = '.quick-list';
-		this._lNav          = '.l-nav';
+		this._lNav          = '.l-header';
 		this._lFooter       = '.l-footer';
 		this._mCut          = '.m-cut';
 		this._pagination    = '.pagination';
@@ -61,7 +61,7 @@
 			}
 		} else {
 			if (direct < -1) {
-				projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight + _quickListHeight}, common._animateSpeed*2);
+				projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight}, common._animateSpeed*2);
 			} else if (direct < 0 && direct >= -1) {
 				projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top - _lNavHeight}, common._animateSpeed*2);
 			} else if (direct > 1) {

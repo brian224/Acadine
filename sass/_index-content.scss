@@ -273,15 +273,23 @@
 
 @include respond(Desktops) {
 	.l-body {
-		&.show-header .m-cut, &.show-footer .m-cut {
-			height: calc(100vh - 120px);
-		}
+		&.show-header, &.show-footer {
+			.show-marquee ~ .l-main {
+				.m-cut, .kv-owl .item {
+					height: calc(100vh - 170px);
 
-		&.show-header .kv-owl .item {
-			height: calc(100vh - 120px);
+					.img-wrap {
+						height: calc(100vh - 170px);
+					}
+				}
+			}
 
-			.img-wrap {
+			.m-cut, .kv-owl .item {
 				height: calc(100vh - 120px);
+
+				.img-wrap {
+					height: calc(100vh - 120px);
+				}
 			}
 		}
 
