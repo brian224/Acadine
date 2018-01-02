@@ -152,7 +152,11 @@ body {
 		background: $color-gray-d-p10;
 		border-radius: 50%;
 		pointer-events: none;
+		opacity: 0;
+		z-index: -1;
 		color: $color-white;
+		letter-spacing: 1px;
+		@include transition(ease-in all 0.3s);
 	}
 
 	.popup-function {
@@ -1013,12 +1017,8 @@ body {
 			margin-top: 10px;
 			width: 46px;
 			height: 46px;
-			opacity: 0;
-			z-index: -1;
 			font-size: 14px;
-			letter-spacing: 1px;
 			line-height: 46px;
-			@include transition(ease-in all 0.3s);
 
 			&:hover {
 				background: $color-text-major;
@@ -1213,7 +1213,7 @@ body {
 
 	.l-side {
 		.function-list {
-			margin-bottom: 30px;
+			margin-bottom: 20px;
 
 			&.hide-menu {
 				.collapse-wrap {
@@ -1240,7 +1240,10 @@ body {
 		}
 
 		.btn-top {
-			display: none;
+			width: 44px;
+			height: 44px;
+			font-size: 12px;
+			line-height: 44px;
 		}
 
 		.popup-function {
