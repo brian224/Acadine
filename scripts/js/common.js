@@ -425,13 +425,15 @@
 				_icon = [],
 				_idx  = $this.find('.is-curr').length !== 0 ? $this.find('.is-curr').parent().index() : 0;
 
-			if ($this.find('button').length !== 0) {
-				for (var i = 0; i < $this.find('> *').length; i++) {
-					_str += '<option value="" class="jQ-tab" data-hushtag="' + $this.find('> *').eq(i).find(common._tab).attr('data-hushtag') + '" data-main="' + $this.find('> *').eq(i).find(common._tab).attr('data-main') + '">' + $this.find('> *').eq(i).text() + '</option>';
-				}
-			} else if ($this.find('a').length !== 0) {
-				for (var i = 0; i < $this.find('a').length; i++) {
-					_str += '<option value="' + $this.find('a').eq(i).attr('href') + '" data-hushtag="' + $this.find('a').eq(i).attr('data-hushtag') + '">' + $this.find('a').eq(i).text() + '</option>';
+			for (var i = 0; i < $this.find('a, button').length; i++) {
+				$this.find('a, button').eq(i).addClass('funcTarget');
+			}
+
+			for (var i = 0; i < $('.funcTarget').length; i++) {
+				if ($('.funcTarget').eq(i).prop('tagName').toLowerCase() === 'a') {
+					_str += '<option value="' + $('.funcTarget').eq(i).attr('href') + '" data-hushtag="' + $('.funcTarget').eq(i).attr('data-hushtag') + '">' + $('.funcTarget').eq(i).text() + '</option>';
+				} else if ($('.funcTarget').eq(i).prop('tagName').toLowerCase() === 'button' && !$('.funcTarget').eq(i).hasClass('catalog-more')) {
+					_str += '<option value="" class="jQ-tab" data-hushtag="' + $('.funcTarget').eq(i).attr('data-hushtag') + '" data-main="' + $('.funcTarget').eq(i).attr('data-main') + '">' + $('.funcTarget').eq(i).text() + '</option>';
 				}
 			}
 
