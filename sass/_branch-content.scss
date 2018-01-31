@@ -936,7 +936,7 @@
 			display: none;
 		}
 
-		.list, .list .activity-link {
+		.list {
 			@include display-flex;
 			@include align-items(stretch);
 			@include align-content(stretch);
@@ -1013,7 +1013,11 @@
 
 	.kv-owl .item .img-wrap {
 		margin-left: -14vw;
+		@include display-flex;
+		@include align-items(center);
+		@include justify-content(center);
 		width: 128vw;
+		height: 56.89vw;
 	}
 
 	.slide-list {
