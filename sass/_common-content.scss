@@ -992,11 +992,7 @@ body {
 	.l-side {
 		.function-list {
 			.list {
-				@for $i from 1 through 6 {
-					&:nth-child(#{$i}) .popup-function:not(.align-bottom):before {
-						top: 42px + (48px * ($i - 1));
-					}
-				}
+				position: relative;
 			}
 
 			.btn-func {
@@ -1043,11 +1039,16 @@ body {
 			right: 100%;
 
 			&:not(.align-bottom) {
-				top: 0;
+				top: 50%;
+
+				&:before {
+					margin-top: -5px;
+					top: 50%;
+				}
 			}
 
 			&.align-bottom {
-				bottom: 0;
+				bottom: -48px;
 
 				&:before {
 					bottom: 70px;
@@ -1113,6 +1114,7 @@ body {
 
 				.list {
 					padding: 0;
+					position: relative;
 				}
 
 				.m-icon {
@@ -1137,23 +1139,13 @@ body {
 				line-height: 34px;
 			}
 
-			.popup-function {
-				&:not(.align-bottom) {
-					top: -150px;
+			.popup-function.align-bottom {
+				top: auto;
+				bottom: -150px;
 
-					&:before {
-						top: 160px;
-					}
-				}
-
-				&.align-bottom {
-					top: auto;
-					bottom: -150px;
-
-					&:before {
-						top: auto;
-						bottom: 160px;
-					}
+				&:before {
+					top: auto !important;
+					bottom: 160px !important;
 				}
 			}
 		}

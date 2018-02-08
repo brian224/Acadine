@@ -8,6 +8,7 @@
 		this._lBody        = '.l-body';
 		this._lHeader      = '.l-header';
 		this._lContent     = '.l-content';
+		this._lSidePopup   = '.l-side .popup-function';
 		this._owl          = '.jQ-owl';
 		this._countHeight  = '.jQ-count-height';
 		this._btnTop       = '.jQ-top';
@@ -627,6 +628,10 @@
 		});
 	}
 
+	page.prototype.popupMiddle = function(elem) {
+		elem.css('margin-top', - (elem.find('.function-wrap').outerHeight() / 2));
+	}
+
 	projects.$w.load(function(){
 		if (!$(common._lBody).hasClass('show-teach')) {
 			common.showFooter();
@@ -986,6 +991,8 @@
 
 			if ($(this).data('place') !== 'aside') {
 				$(common._lBody).removeClass('is-padding-arrow');
+			} else if ($(this).data('place') === 'aside' && !$(this).next().hasClass('align-bottom')){
+				common.popupMiddle($(this).next());
 			}
 
 			if($(common._addingWrap).hasClass('is-open')) {
