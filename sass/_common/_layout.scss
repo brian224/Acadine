@@ -71,7 +71,6 @@
 	bottom: 0;
 	left: 0;
 	right: 0;
-	z-index: 5;
 }
 
 @include keyframes(fade-in) {
@@ -151,6 +150,10 @@
 
 	.l-footer {
 		z-index: 2;
+	}
+
+	.l-lightbox {
+		z-index: 5;
 	}
 }
 
@@ -233,6 +236,7 @@
 
 	.l-lightbox {
 		padding: 20px;
+		z-index: 6;
 	}
 
 	/*@include screen(landscape) {

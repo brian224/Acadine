@@ -210,10 +210,6 @@
 					font-size: 15px;
 				}
 			}
-
-			.b-highlight {
-				color: $color-text-major;
-			}
 		}
 
 		.item-selection {
@@ -228,6 +224,27 @@
 				.m-selection {
 					line-height: 38px;
 				}
+			}
+		}
+
+		.installments-payment {
+			@include display-flex;
+
+			.listing-wrap {
+				@include display-flex;
+				@include align-items(stretch);
+				@include flex-direction(column);
+
+				.list {
+					@include display-flex;
+					@include justify-content(space-between);
+				}
+			}
+
+			.btn-lightbox {
+				margin-left: 20px;
+				color: $color-text-minor;
+				text-decoration: underline;
 			}
 		}
 
@@ -299,6 +316,10 @@
 				line-height: 26px;
 				text-align: center;
 			}
+		}
+
+		.b-highlight {
+			color: $color-text-major;
 		}
 	}
 }
@@ -449,13 +470,19 @@
 			}
 		}
 
-		.item-detail .item-price {
-			.item-code {
-				margin-bottom: 10px;
+		.item-detail {
+			.item-price {
+				.item-code {
+					margin-bottom: 10px;
+				}
+
+				.btn-link {
+					@include transition(ease-in all 0.3s);
+				}
 			}
 
-			.btn-link {
-				@include transition(ease-in all 0.3s);
+			.installments-payment .btn-lightbox:hover {
+				text-decoration: none;
 			}
 		}
 	}

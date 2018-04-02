@@ -259,6 +259,18 @@
         }
     }
 
+    /* clearfix */
+    .b-clearfix-dt {
+        &:after {
+            content : "";
+            width   : 100%;
+            height  : 0;
+            clear   : both;
+            @include clearfix;
+            @include display(block);
+        }
+    }
+
    /* br */
     .b-br-dt {
         display : block !important;

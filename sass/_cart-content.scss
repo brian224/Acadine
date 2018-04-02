@@ -395,8 +395,60 @@ $color-btn-cancel : $color-gray-l-p10;
 	font-size: 14px;
 	font-weight: bold;
 
+	.installment-info {
+		padding: 0 5px;
+		border: 1px solid $color-gray-l-p30;
+
+		.b-highlight {
+			color: $color-text-major;
+			font-size: 20px;
+		}
+
+		.btn-lightbox {
+			color: $color-btn-sub;
+			text-decoration: underline;
+		}
+	}
+
 	.img-wrap img {
 		width: 100%;
+	}
+}
+
+.card-banner .slide-list {
+	margin-bottom: 20px;
+	width: 100%;
+	max-width: 450px;
+	position: relative;
+
+	.list img {
+		max-width: 100%;
+	}
+
+	.m-owl-dots.is-absolute {
+		bottom: -20px;
+		left: auto;
+		right: 20px;
+		pointer-events: auto;
+
+		&:after {
+			display: none;
+		}
+
+		.m-owl-dot {
+			margin: 0 4px;
+			&:hover span, &.active span {
+				background: $color-black;
+				border-color: $color-black;
+			}
+
+			span {
+				margin: -6px 0 0 -6px;
+				width: 12px;
+				height: 12px;
+				border-color: $color-gray-l-p20;
+			}
+		}
 	}
 }
 
@@ -833,8 +885,17 @@ $color-btn-cancel : $color-gray-l-p10;
 
 		.btn-wrap .btn-link {
 			height: 50px;
+			min-width: 240px;
 			line-height: 50px;
 		}
+	}
+
+	.payment-sheet {
+		padding-top: 50px !important;
+	}
+
+	.payment-selection .installment-info {
+		margin: 0 10px 0 20px;
 	}
 
 	.m-box-holder.is-calc .m-inputbox {
@@ -1036,16 +1097,34 @@ $color-btn-cancel : $color-gray-l-p10;
 
 		.btn-wrap .btn-link {
 			margin-left: 25px;
-			min-width: 240px;
 			height: 50px;
 			line-height: 50px;
 		}
 	}
 
-	.payment-selection {
-		> *, .payment-img {
-			> *:not(:last-child) {
-				margin-right: 16px;
+	.payment-sheet {
+		@include display-flex;
+	}
+
+	.payment-selection .installment-info {
+		padding-bottom: 5px;
+	}
+
+	.main-content {
+		@include display-flex;
+		@include flex-direction(column);
+		@include justify-content(space-between);
+
+		.payment-selection {
+			@include display-flex;
+			@include flex-direction(column);
+			@include flex-grow(1);
+			@include justify-content(space-around);
+
+			> *:not(.installment-block), .payment-img {
+				> *:not(:last-child) {
+					margin-right: 16px;
+				}
 			}
 		}
 
@@ -1161,6 +1240,14 @@ $color-btn-cancel : $color-gray-l-p10;
 		}
 	}
 
+	.payment-sheet {
+		padding-top: 20px !important;
+	}
+
+	.payment-selection .installment-info {
+		margin: 0 20px;
+	}
+
 	.recommended-list {
 		&:not(.owl-loaded) > .list {
 			margin: 0 10px;
@@ -1239,8 +1326,18 @@ $color-btn-cancel : $color-gray-l-p10;
 		}
 	}
 
+	.payment-sheet {
+		padding-top: 20px !important;
+		padding-bottom: 20px !important;
+		@include align-items(flex-end);
+	}
+
 	.payment-selection .img-wrap {
 		max-width: 44px;
+	}
+
+	.installment-block {
+		margin-top: 20px;
 	}
 
 	.recommended-list {
@@ -1440,6 +1537,17 @@ $color-btn-cancel : $color-gray-l-p10;
 		.payment-img > *:not(:last-child), > *:not(:last-child) {
 			margin-right: 10px;
 		}
+
+		&.installment-block .list {
+			margin-right: 0;
+			margin-bottom: 20px;
+		}
+	}
+
+	.payment-selection .installment-info {
+		margin: 5px 0 0 24px;
+		@include display-flex;
+		@include justify-content(space-between);
 	}
 
 	.counter {

@@ -1,8 +1,10 @@
 .m-lightbox-content {
 	padding-bottom: 40px;
 	background: $color-white;
+	max-height: 90vh;
 	border-radius: 5px;
 	box-shadow: 0 0 20px rgba($color-black, 0.15);
+	box-sizing: border-box;
 
 	.m-lightbox-hd {
 		padding: 0 44px;
@@ -17,6 +19,10 @@
 
 	.m-lightbox-bd {
 		padding: 0 40px;
+		max-height: 60vh;
+		box-sizing: border-box;
+		overflow-x: hidden;
+		overflow-y: auto;
 	}
 
 	.btn-close-box {
@@ -60,6 +66,19 @@
 		font-size: 20px;
 		font-weight: bold;
 		line-height: 1.5em;
+
+		&.is-normal {
+			font-size: 14px;
+			font-weight: normal;
+		}
+
+		.b-desc:not(:last-child) {
+			margin-bottom: 1.5em;
+		}
+
+		.b-highlight {
+			color: $color-text-major;
+		}
 	}
 
 	.btn-wrap > * {
@@ -85,9 +104,21 @@
 			}
 		}
 	}
+
+	.m-lightbox-ft {
+		padding: 0 40px;
+
+		> *:first-child {
+			margin-top: 20px;
+		}
+	}
 }
 
-@include respond(Desktops) {}
+@include respond(Desktops) {
+	.m-lightbox-content {
+		max-width: 800px;
+	}
+}
 
 @include respond(Desktops-Tablets) {
 	.m-lightbox-content {
@@ -99,7 +130,11 @@
 	}
 }
 
-@include respond(Tablets) {}
+@include respond(Tablets) {
+	.m-lightbox-content {
+		max-width: 720px;
+	}
+}
 
 @include respond(Tablets-Mobiles) {}
 
