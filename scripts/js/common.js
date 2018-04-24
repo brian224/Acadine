@@ -991,7 +991,7 @@
 
 			if ($(this).data('place') !== 'aside') {
 				$(common._lBody).removeClass('is-padding-arrow');
-			} else if ($(this).data('place') === 'aside' && !$(this).next().hasClass('align-bottom')){
+			} else if ($(this).data('place') === 'aside' && !$(this).next().hasClass('align-bottom') && projects.device() !== 'Mobile'){
 				common.popupMiddle($(this).next());
 			}
 

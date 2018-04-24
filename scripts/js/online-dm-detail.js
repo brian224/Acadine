@@ -30,7 +30,11 @@
 			pageObj._aspectRatio = pageObj._newImage.width / pageObj._newImage.height;
 
 			if (projects.device() !== 'PC') {
-				$(pageObj._container).width(pageObj._aspectRatio * $(pageObj._mViewport).height());
+				if ($('.main-content').hasClass('fullScreen')) {
+					$(pageObj._container).width('100vw');
+				} else {
+					$(pageObj._container).width(pageObj._aspectRatio * $(pageObj._mViewport).height());
+				}
 				pageObj._display = 'single';
 			} else {
 				$(pageObj._container).width(pageObj._aspectRatio * $(pageObj._mViewport).height() * 2);
@@ -145,9 +149,13 @@
 			}
 		} else {
 			$elem.toggleClass('fullScreen');
+			$('.l-side').toggleClass('is-hide');
 			$(pageObj._magazine).turn('destroy');
-			pageObj.prepare();
-			pageObj.anchorFunction();
+
+			setTimeout(function(){
+				pageObj.prepare();
+				pageObj.anchorFunction();
+			}, 250);
 		}
 		// $(pageObj._magazine).turn('size', $(pageObj._container).width(), $(pageObj._container).height());
 	}
@@ -322,6 +330,7 @@
 
 			$('.main-content').toggleClass('fullScreen');
 			$(pageObj._fullScreen).toggleClass('is-active');
+			$('.l-side').toggleClass('is-hide');
 			$(pageObj._magazine).turn('destroy');
 			pageObj.prepare();
 			pageObj.anchorFunction();

@@ -419,30 +419,37 @@
 
         /* idcard checked */
         jQuery.validator.addMethod('idcard' , function (value, elem, params){
-            var _countyCode = 'ABCDEFGHJKLMNPQRSTUVXYWZIO';
-            var _enSort     = new Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3);
-            var _numSort    = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5);
-            var _multiply   = new Array(9, 8, 7, 6, 5, 4, 3, 2, 1, 1);
+            var _county = new Array(1, 10, 19, 28, 37, 46, 55, 64, 39, 73, 82, 2, 11, 20, 48, 29, 38, 47, 56, 65, 74, 83, 21, 3, 12, 30);
+            var _value  = null,
+                _idcard = _value = value.toUpperCase();
 
             if ( ! jQuery(elem).hasClass('required') ) return true;
-
+            
             if ( value.length != 10 ) return false;
 
-            var _index = _countyCode.indexOf( value.toUpperCase().charAt(0) );
+            if ( ! _idcard.match(/^[A-Z]\d{9}$/) ) {
+                return false;
+            } else {
+                var _sum = 0;
 
-            if ( _index === -1 ) return false;
+                //將字串分割為陣列(IE必需這麼做才不會出錯)
+                _idcard = _idcard.split('');
 
-            var _sum = _enSort[_index] + ( _numSort[_index] * 9 );
+                //計算總分
+                _sum = _county[( _idcard[0].charCodeAt(0) - 65 )];
 
-            for(var i = 1 ; i < 10 ; i ++ ) {
-                var _v = parseInt( value.charAt(i) );
+                for ( var i = 1; i <= 8; i ++ ) {
+                    _sum += eval(_idcard[i]) * (9 - i);
+                }
 
-                if ( isNaN(_v) ) return false;
+                _sum += eval(_idcard[9]);
 
-                _sum = _sum + ( _v * _multiply[i] );
+                if ( _sum % 10 == 0 ) {
+                    return true;
+                } else {
+                    return false;
+                }
             }
-            
-            if ( _sum % 10 != 0 ) return false;
         });
 
         /* either checked */

@@ -232,6 +232,10 @@
 		bottom: 60px;
 		z-index: 6;
 		@include justify-content(flex-start);
+
+		&.is-hide {
+			display: none;
+		}
 	}
 
 	.l-lightbox {
