@@ -103,6 +103,9 @@
 }
 
 .magazine {
+	position: relative;
+	z-index: 0;
+
 	.region {
 		background: #0066FF;
 		position: absolute;
@@ -613,7 +616,7 @@
 			padding-top: 20px;
 			width: 172px;
 			border-left: 1px solid $color-gray-d-p20;
-			overflow-y: scroll;
+			overflow-y: auto;
 
 			.img-wrap {
 				margin: 0 auto;
@@ -907,6 +910,31 @@
 }
 
 @include respond(Tablets-Mobiles) {
+	.fullScreen {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 6;
+
+		.dm-title {
+			display: none;
+		}
+
+		.dm-reader {
+			display: flex;
+			flex-direction: column;
+			height: 100vh;
+		}
+
+		.magazine-viewport {
+			display: flex;
+			flex-grow: 1;
+			height: auto;
+		}
+	}
+
 	.main-cut {
 		@include flex-direction(column);
 
@@ -1006,7 +1034,7 @@
 	}
 
 	.magazine-viewport {
-		height: calc(100vh - 210px);
+		min-height: calc(100vh - 210px);
 
 		.next-button, .previous-button {
 			display: none;
@@ -1077,34 +1105,6 @@
 }
 
 @include devices(iphone) {
-	.fullScreen {
-		position: fixed;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		z-index: 6;
-
-		.dm-title {
-			display: none;
-		}
-
-		.dm-reader {
-			height: 100vh;
-
-			.tools {
-				position: fixed;
-				bottom: 0;
-				left: 0;
-				right: 0;
-			}
-		}
-
-		.magazine-viewport {
-			height: calc(100vh - 80px);
-		}
-	}
-
 	.shopping-list {
 		.shopping-link {
 			height: auto;

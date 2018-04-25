@@ -21,6 +21,8 @@
 		this._imgSrcArray  = this._imgSrc.split('/');
 		this._newImage     = new Image;
 		this._aspectRatio  = 0;
+		this._dmScreenRate = 0;
+		this._dmHeight     = $(this._mViewport).height();
 		this.escTip;
 		this._bookPlaying
 	}
@@ -28,13 +30,19 @@
 	page.prototype.prepare = function() {
 		pageObj._newImage.onload = function() {
 			pageObj._aspectRatio = pageObj._newImage.width / pageObj._newImage.height;
+			pageObj._dmScreenRate = $(pageObj._mViewport).width() / $(pageObj._mViewport).height();
 
-			if (projects.device() !== 'PC') {
-				if ($('.main-content').hasClass('fullScreen')) {
-					$(pageObj._container).width('100vw');
-				} else {
+			if (projects.device() === 'Mobile') {
+				if (pageObj._dmScreenRate > pageObj._aspectRatio) {
+					// 手機比圖寬
 					$(pageObj._container).width(pageObj._aspectRatio * $(pageObj._mViewport).height());
+				} else {
+					$(pageObj._container).width('100vw');
+					pageObj._dmHeight = $(pageObj._container).width() / pageObj._aspectRatio;
 				}
+				pageObj._display = 'single';
+			} else if (projects.device() === 'Tablet') {
+				$(pageObj._container).width(pageObj._aspectRatio * $(pageObj._mViewport).height());
 				pageObj._display = 'single';
 			} else {
 				$(pageObj._container).width(pageObj._aspectRatio * $(pageObj._mViewport).height() * 2);
@@ -51,7 +59,7 @@
 				elevation  : 100,
 				gradients  : true,
 				width      : $(pageObj._container).width(),
-				height     : $(pageObj._mViewport).height(),
+				height     : pageObj._dmHeight,
 				pages      : pageObj._totalPage,
 				when       : {
 					turning : function(event, page, view) {
@@ -108,6 +116,7 @@
 					}
 				}
 			});
+
 			if (window.location.href.split('#page')[1] !== undefined) {
 				$(pageObj._magazine).turn('page', window.location.href.split('#page')[1]);
 			}
@@ -151,11 +160,8 @@
 			$elem.toggleClass('fullScreen');
 			$('.l-side').toggleClass('is-hide');
 			$(pageObj._magazine).turn('destroy');
-
-			setTimeout(function(){
-				pageObj.prepare();
-				pageObj.anchorFunction();
-			}, 250);
+			pageObj.prepare();
+			pageObj.anchorFunction();
 		}
 		// $(pageObj._magazine).turn('size', $(pageObj._container).width(), $(pageObj._container).height());
 	}
