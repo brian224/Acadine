@@ -22,108 +22,115 @@
 		this._newImage     = new Image;
 		this._aspectRatio  = 0;
 		this._dmScreenRate = 0;
-		this._dmHeight     = $(this._mViewport).height();
+		this._dmHeight     = 0;
 		this.escTip;
 		this._bookPlaying
 	}
 
 	page.prototype.prepare = function() {
 		pageObj._newImage.onload = function() {
-			pageObj._aspectRatio = pageObj._newImage.width / pageObj._newImage.height;
-			pageObj._dmScreenRate = $(pageObj._mViewport).width() / $(pageObj._mViewport).height();
-
-			if (projects.device() === 'Mobile') {
-				if (pageObj._dmScreenRate > pageObj._aspectRatio) {
-					// 手機比圖寬
-					$(pageObj._container).width(pageObj._aspectRatio * $(pageObj._mViewport).height());
-				} else {
-					$(pageObj._container).width('100vw');
-					pageObj._dmHeight = $(pageObj._container).width() / pageObj._aspectRatio;
-				}
-				pageObj._display = 'single';
-			} else if (projects.device() === 'Tablet') {
-				$(pageObj._container).width(pageObj._aspectRatio * $(pageObj._mViewport).height());
-				pageObj._display = 'single';
-			} else {
-				$(pageObj._container).width(pageObj._aspectRatio * $(pageObj._mViewport).height() * 2);
-				$(pageObj._magazine).css('left', (- $(pageObj._container).width() / 2));
-				pageObj._display    = 'double';
-				pageObj._autoCenter = true;
-			}
-
-			$(pageObj._magazine).turn({
-				// acceleration: !isChrome(),
-				autoCenter : pageObj._autoCenter,
-				display    : pageObj._display,
-				duration   : 1000,
-				elevation  : 100,
-				gradients  : true,
-				width      : $(pageObj._container).width(),
-				height     : pageObj._dmHeight,
-				pages      : pageObj._totalPage,
-				when       : {
-					turning : function(event, page, view) {
-						var book        = $(this),
-							currentPage = (book.turn('page') >= 10) ? book.turn('page') : '0' + book.turn('page'),
-							pages       = (book.turn('pages') >= 10) ? book.turn('pages') : '0' + book.turn('pages'),
-							newPage     = (page >= 10) ? page : '0' + page;
-				
-						if (typeof(history.pushState) !== 'undefined') {
-							history.pushState(null, null, window.location.href.split('#')[0] + '#page' + page);
-						}
-
-						disableControls(page);
-
-						if (projects.device() !== 'PC') {
-							$('.thumbnails .page-' + currentPage).parent('figure').removeClass('current');
-							$('.thumbnails .page-' + newPage).parent('figure').addClass('current');
-						} else {
-							$('.thumbnails .page-' + currentPage).parents('li').removeClass('current');
-							$('.thumbnails .page-' + newPage).parents('li').addClass('current');
-						}
-
-						if (view[0] === 0) {
-							$('.jQ-pages').text(view[1] + '/' + pageObj._totalPage);
-						} else if (view[1] === 0 || view[1] === undefined) {
-							$('.jQ-pages').text(view[0] + '/' + pageObj._totalPage);
-						} else {
-							$('.jQ-pages').text(view[0] + '~' + view[1] + '/' + pageObj._totalPage);
-						}
-
-						$(common._loading).addClass('is-hide');
-					},
-					turned  : function(event, page, view) {
-						page = parseInt(window.location.href.split('#page')[1], 10);
-
-						disableControls(page);
-
-						$(this).turn('center');
-
-						if (page==1) { 
-							$(this).turn('peel', 'br');
-						}
-
-						if (view[0] === 0) {
-							$('.jQ-pages').text(view[1] + '/' + pageObj._totalPage);
-						} else if (view[0] === 1) {
-							$('.jQ-pages').text(view[0] + '/' + pageObj._totalPage);
-						}
-
-						$(common._loading).addClass('is-hide');
-					},
-					missing : function (event, pages) {
-						for (var i = 0; i < pages.length; i++) addPage(pages[i], $(this));
-					}
-				}
-			});
-
-			if (window.location.href.split('#page')[1] !== undefined) {
-				$(pageObj._magazine).turn('page', window.location.href.split('#page')[1]);
-			}
-			pageObj.zoomFunction();
+			pageObj.turnBook();
 		}
 
 		pageObj._newImage.src = pageObj._imgSrc;
+	}
+
+	page.prototype.turnBook = function() {
+		pageObj._aspectRatio = pageObj._newImage.width / pageObj._newImage.height;
+		pageObj._dmScreenRate = $(pageObj._mViewport).width() / $(pageObj._mViewport).height();
+
+		if (projects.device() === 'Mobile') {
+			if (pageObj._dmScreenRate > pageObj._aspectRatio) {
+				// 手機比圖寬
+				$(pageObj._container).width(pageObj._aspectRatio * $(pageObj._mViewport).height());
+				pageObj._dmHeight = $(this._mViewport).height();
+			} else {
+				$(pageObj._container).width('100vw');
+				pageObj._dmHeight = $(pageObj._container).width() / pageObj._aspectRatio;
+			}
+			pageObj._display = 'single';
+		} else if (projects.device() === 'Tablet') {
+			$(pageObj._container).width(pageObj._aspectRatio * $(pageObj._mViewport).height());
+			pageObj._display = 'single';
+			pageObj._dmHeight = $(this._mViewport).height();
+		} else {
+			$(pageObj._container).width(pageObj._aspectRatio * $(pageObj._mViewport).height() * 2);
+			$(pageObj._magazine).css('left', (- $(pageObj._container).width() / 2));
+			pageObj._display    = 'double';
+			pageObj._autoCenter = true;
+			pageObj._dmHeight = $(this._mViewport).height();
+		}
+
+		$(pageObj._magazine).turn({
+			// acceleration: !isChrome(),
+			autoCenter : pageObj._autoCenter,
+			display    : pageObj._display,
+			duration   : 1000,
+			elevation  : 100,
+			gradients  : true,
+			width      : $(pageObj._container).width(),
+			height     : pageObj._dmHeight,
+			pages      : pageObj._totalPage,
+			when       : {
+				turning : function(event, page, view) {
+					var book        = $(this),
+						currentPage = (book.turn('page') >= 10) ? book.turn('page') : '0' + book.turn('page'),
+						pages       = (book.turn('pages') >= 10) ? book.turn('pages') : '0' + book.turn('pages'),
+						newPage     = (page >= 10) ? page : '0' + page;
+			
+					if (typeof(history.pushState) !== 'undefined') {
+						history.pushState(null, null, window.location.href.split('#')[0] + '#page' + page);
+					}
+
+					disableControls(page);
+
+					if (projects.device() !== 'PC') {
+						$('.thumbnails .page-' + currentPage).parent('figure').removeClass('current');
+						$('.thumbnails .page-' + newPage).parent('figure').addClass('current');
+					} else {
+						$('.thumbnails .page-' + currentPage).parents('li').removeClass('current');
+						$('.thumbnails .page-' + newPage).parents('li').addClass('current');
+					}
+
+					if (view[0] === 0) {
+						$('.jQ-pages').text(view[1] + '/' + pageObj._totalPage);
+					} else if (view[1] === 0 || view[1] === undefined) {
+						$('.jQ-pages').text(view[0] + '/' + pageObj._totalPage);
+					} else {
+						$('.jQ-pages').text(view[0] + '~' + view[1] + '/' + pageObj._totalPage);
+					}
+
+					$(common._loading).addClass('is-hide');
+				},
+				turned  : function(event, page, view) {
+					page = parseInt(window.location.href.split('#page')[1], 10);
+
+					disableControls(page);
+
+					$(this).turn('center');
+
+					if (page==1) { 
+						$(this).turn('peel', 'br');
+					}
+
+					if (view[0] === 0) {
+						$('.jQ-pages').text(view[1] + '/' + pageObj._totalPage);
+					} else if (view[0] === 1) {
+						$('.jQ-pages').text(view[0] + '/' + pageObj._totalPage);
+					}
+
+					$(common._loading).addClass('is-hide');
+				},
+				missing : function (event, pages) {
+					for (var i = 0; i < pages.length; i++) addPage(pages[i], $(this));
+				}
+			}
+		});
+
+		if (window.location.href.split('#page')[1] !== undefined) {
+			$(pageObj._magazine).turn('page', window.location.href.split('#page')[1]);
+		}
+		pageObj.zoomFunction();
 	}
 
 	page.prototype.toggleFullScreen = function(element) {
@@ -159,8 +166,8 @@
 		} else {
 			$elem.toggleClass('fullScreen');
 			$('.l-side').toggleClass('is-hide');
-			$(pageObj._magazine).turn('destroy');
-			pageObj.prepare();
+			$(pageObj._magazine).turn('destroy').empty();
+			pageObj.turnBook();
 			pageObj.anchorFunction();
 		}
 		// $(pageObj._magazine).turn('size', $(pageObj._container).width(), $(pageObj._container).height());

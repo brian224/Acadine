@@ -918,14 +918,21 @@
 		right: 0;
 		z-index: 6;
 
-		.dm-title {
-			display: none;
+		.dm-title, .dm-list {
+			display: none !important;
+		}
+
+		.main-cut, .dm-reader {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
 		}
 
 		.dm-reader {
 			display: flex;
 			flex-direction: column;
-			height: 100vh;
 		}
 
 		.magazine-viewport {
