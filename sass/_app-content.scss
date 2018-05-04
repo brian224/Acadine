@@ -1,0 +1,331 @@
+﻿.app-branch {
+	&[data-tab="traffic"] .m-section-bd .info-wrap {
+		&:not(:last-child) {
+			border-bottom: 1px solid $color-gray-l-p10;
+		}
+
+		> * {
+			margin-top: 2em;
+		}
+	}
+
+	&[data-tab="park"] {
+		.info-type {
+			margin-bottom: 0.5em;
+		}
+
+		.icon-color {
+			margin-right: 10px;
+			background: $color-gray-l-p30;
+			width: 20px;
+			height: 20px;
+		}
+	}
+
+	.m-section-bd {
+		margin: 25px;
+
+		.m-table {
+			margin-bottom: 30px;
+
+			td, th {
+				padding: 6px 12px;
+				border: 1px solid $color-gray-l-p10;
+				text-align: center;
+			}
+
+			th {
+				font-size: 14px;
+			}
+
+			td, .sub {
+				font-size: 12px;
+			}
+		}
+	}
+}
+
+.l-body .l-content {
+	padding-top: 0 !important;
+	background: none;
+	min-height: 0 !important;
+}
+
+.app-event {
+	.m-section-hd, .m-section-bd {
+		padding-right: 0 !important;
+		padding-left: 0 !important;
+	}
+}
+
+.m-section-bd {
+	img {
+		width: 100%;
+	}
+
+	.editor-area > *:not(img) {
+		padding: 0 1em !important;
+	}
+
+	.info-wrap {
+		padding-bottom: 2rem;
+		font-size: 0;
+		line-height: 0;
+
+		> * {
+			font-size: 14px;
+			line-height: 1.5em;
+		}
+
+		.b-link, .address {
+			color: $color-black;
+			text-decoration: underline;
+		}
+	}
+}
+
+.floor-select {
+	border-top: 1px solid $color-gray-l-p40;
+	border-bottom: 1px solid $color-gray-l-p40;
+	font-size: 15px;
+	line-height: 40px;
+	text-align-last: center;
+
+	option {
+		text-align: left;
+	}
+}
+
+.floor-info-wrap {
+	.floor-main-info > *:not(:last-child) {
+		margin-bottom: 20px;
+	}
+
+	.floor-title {
+		padding: 0 16px;
+		position: relative;
+		color: $color-black;
+		font-size: 14px;
+
+		&:before, &:after {
+			content: '';
+			background: $color-gray-d-p10;
+			display: block;
+			width: 40px;
+			height: 1px;
+			position: absolute;
+			top: 50%;
+		}
+
+		&:before {
+			right: 100%;
+		}
+
+		&:after {
+			left: 100%;
+		}
+	}
+
+	.counters-desc, .facility-title {
+		font-size: 12px;
+	}
+
+	.m-accordion {
+		border-right: 0;
+		border-left: 0;
+
+		.m-accordion-bd {
+			padding: 0 0 0 36px;
+			background: none;
+
+			.b-link {
+				color: $color-black;
+			}
+		}
+
+		.counters-list {
+			margin-top: 0;
+		}
+
+		.btn-switch {
+			padding-left: 0;
+			color: $color-black;
+
+			.m-icon {
+				font-size: 24px;
+			}
+
+			.text {
+				margin-left: 20px;
+				font-size: 14px;
+			}
+		}
+	}
+}
+
+.brand-info-wrap {
+	border: 0;
+
+	.brand-logo img {
+		width: auto;
+	}
+
+	.brand-slogan {
+		line-height: 1.5em;
+	}
+
+	.sub-title {
+		font-size: 14px;
+
+		&:after {
+			display: none;
+		}
+	}
+
+	.service-location-list {
+		.list {
+			font-weight: normal;
+		}
+
+		.tel-link {
+			color: $color-gray-d-p20;
+			font-size: 12px;
+			text-decoration: underline;
+		}
+	}
+
+	.shopping-link {
+		padding: 0 20px 20px 20px;
+
+		.item-info {
+			padding: 0 15px 25px 15px;
+
+			> * {
+				display: block;
+				line-height: 1.5em;
+			}
+
+			.info-title {
+				margin-bottom: 15px;
+				padding-bottom: 9px;
+				position: relative;
+				font-size: 20px;
+
+				&:after {
+					content: '';
+					background: #343434;
+					display: block;
+					width: 40px;
+					height: 5px;
+					position: absolute;
+					left: 0;
+					bottom: 0;
+				}
+			}
+
+			.b-desc {
+				font-size: 14px;
+			}
+
+			.main-info {
+				overflow: hidden;
+				color: $color-text-major;
+				font-size: 20px;
+
+				> * {
+					display: block;
+				}
+			}
+		}
+
+		.btn-read-more {
+			margin: 0 15px;
+			padding: 0 12px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			min-width: 144px;
+			height: 36px;
+			border-color: $color-gray-d-p30;
+			box-sizing: border-box;
+			color: $color-gray-d-p30;
+
+			&:before, &:after {
+				display: none;
+			}
+
+			.text {
+				margin-right: 10px;
+				letter-spacing: 1px;
+			}
+
+			.m-icon {
+				font-size: 15px;
+			}
+		}
+	}
+
+	.img-wrap {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		height: 240px;
+		overflow: hidden;
+
+		img {
+			width: auto;
+			max-width: 100%;
+		}
+	}
+}
+
+@include respond(Desktops) {}
+
+@include respond(Desktops-Tablets) {}
+
+@include respond(HD) {}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {}
+
+@include respond(Mobiles) {
+	.m-section-hd {
+		padding-top: 0;
+
+		.post-tools {
+			padding-top: 0;
+		}
+
+		.post-catalog {
+			padding: 0 16px;
+
+			&:before, &:after {
+				width: 40px;
+			}
+
+			.m-icon {
+				font-size: 20px;
+			}
+
+			.text {
+				font-size: 14px;
+				letter-spacing: 0;
+			}
+		}
+
+		.post-title {
+			font-size: 20px;
+		}
+
+		.activity-period {
+			color: #717070;
+			font-size: 14px;
+		}
+	}
+}
+
+@include devices(iphone) {}
+
+@include respond(Iphone5) {}
