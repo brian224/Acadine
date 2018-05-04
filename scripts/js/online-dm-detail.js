@@ -40,10 +40,14 @@
 		pageObj._dmScreenRate = $(pageObj._mViewport).width() / $(pageObj._mViewport).height();
 
 		if (projects.device() === 'Mobile') {
-			if (pageObj._dmScreenRate > pageObj._aspectRatio) {
-				// 手機比圖寬
-				$(pageObj._container).width(pageObj._aspectRatio * $(pageObj._mViewport).height());
-				pageObj._dmHeight = $(this._mViewport).height();
+			if (pageObj._dmScreenRate > pageObj._aspectRatio) { // 手機比圖寬
+				if ($('.main-content').hasClass('fullScreen')) {
+					$(pageObj._container).width(pageObj._aspectRatio * ($(pageObj._mViewport).height() - 80));
+					pageObj._dmHeight = $(this._mViewport).height() - 80;
+				} else {
+					$(pageObj._container).width(pageObj._aspectRatio * $(pageObj._mViewport).height());
+					pageObj._dmHeight = $(this._mViewport).height();
+				}
 			} else {
 				$(pageObj._container).width('100vw');
 				pageObj._dmHeight = $(pageObj._container).width() / pageObj._aspectRatio;
