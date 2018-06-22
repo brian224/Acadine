@@ -352,9 +352,16 @@
 		$(common._countHeight).each(function(){
 			var $list   = $(this).find('.list'),
 				_column = $(this).data('column'),
-				_middle = Math.ceil($list.length / _column);
+				_middle = Math.ceil($list.length / _column),
+				_eu;
 
-			for (var i = 0; i <= _middle; i++) {
+			if ($list.length === _column) {
+				_eu = $list.length;
+			} else {
+				_eu = _middle;
+			}
+
+			for (var i = 0; i <= _eu; i++) {
 				$(this).find('> .list:lt(' + _middle + ')').wrapAll('<div class="list-block"></div>');
 			}
 		});
@@ -526,8 +533,8 @@
 		$(common._tab).each(function(){
 			if ($(this).hasClass(_anchor) || $(this).data('hushtag') === _anchor) {
 				var $this = $(this),
-					_main = $this.data('main'),
-					_sub  = $this.data('sub');
+					_main = parseInt($this.data('main'), 10),
+					_sub  = parseInt($this.data('sub'), 10);
 
 				if (_main !== undefined) {
 					$('.l-main .main-tab > .m-tab-wrap > .tab-list').eq(_main).find(common._tab).trigger('click');
@@ -638,16 +645,8 @@
 		}
 
 		projects.owlCarousel(common._owl);
-
-		// 網址有 # 可定位頁籤
-		if (projects._HREF.split('tab=')[1] !== undefined && projects._HREF.split('accordion=')[1] !== undefined && $(common._lContent + ' .main-tab').length !== 0 && $(common._lContent + ' .m-accordion').length !== 0) {
-			common.tabSwitch(decodeURI(projects._HREF.split('tab=')[1].split('&')[0]), decodeURI(projects._HREF.split('accordion=')[1].split('&')[0]));
-		} else if (projects._HREF.split('tab=')[1] !== undefined && projects._HREF.split('accordion=')[1] === undefined && $(common._lContent + ' .main-tab').length !== 0) {
-			common.tabSwitch(decodeURI(projects._HREF.split('tab=')[1].split('&')[0]));
-		}
 	});
 
-	//
 	$(common._lBody).on('change', common._filter._element, function(e){
 		var $self = $(this),
 			$tags = $self.parents(common._filter._frame).find('*');
@@ -671,6 +670,13 @@
 		common.headerHeight();
 		common.selectInputCheck();
 		// common.teachLesson();
+
+		// 網址有 # 可定位頁籤
+		if (projects._HREF.split('tab=')[1] !== undefined && projects._HREF.split('accordion=')[1] !== undefined && $(common._lContent + ' .main-tab').length !== 0 && $(common._lContent + ' .m-accordion').length !== 0) {
+			common.tabSwitch(decodeURI(projects._HREF.split('tab=')[1].split('&')[0]), decodeURI(projects._HREF.split('accordion=')[1].split('&')[0]));
+		} else if (projects._HREF.split('tab=')[1] !== undefined && projects._HREF.split('accordion=')[1] === undefined && $(common._lContent + ' .main-tab').length !== 0) {
+			common.tabSwitch(decodeURI(projects._HREF.split('tab=')[1].split('&')[0]));
+		}
 
 		if (sessionStorage.getItem('marquee') === 'readed' && $(common._lHeader).hasClass('show-marquee')) {
 			$(common._lHeader).removeClass('show-marquee');
