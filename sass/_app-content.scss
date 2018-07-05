@@ -7,18 +7,116 @@
 		> * {
 			margin-top: 2em;
 		}
+
+		.address, .b-link {
+			text-decoration: none;
+		}
+
+		.sub-title {
+			margin-bottom: 15px;
+			padding-bottom: 9px;
+			position: relative;
+			font-size: 20px;
+
+			&:after {
+				content: '';
+				background: #343434;
+				display: block;
+				width: 40px;
+				height: 5px;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+			}
+		}
+	}
+
+	&[data-tab="floor"], &[data-tab="park"] {
+		.main-tab {
+			> .m-tab-wrap {
+				display: table;
+				width: 100%;
+
+				.tab-list {
+					display: table-cell;
+					vertical-align: top;
+
+					.btn-tab {
+						border: 1px solid #cdcdcd;
+
+						&.is-curr {
+							color: $color-text-major;
+						}
+
+						.info-type {
+							font-size: 15px;
+						}
+					}
+				}
+			}
+
+			> .m-tab-content {
+				padding-top: 20px;
+			}
+		}
+	}
+
+	&[data-tab="brand"], &[data-tab="food"] {
+		.brand-info-wrap > *:not(.kv):not(.brand-logo) {
+			margin-right: 0;
+			margin-left: 0;
+		}
+
+		.sub-title {
+			margin-bottom: 15px;
+			padding-bottom: 9px;
+			position: relative;
+			font-size: 20px;
+
+			&:after {
+				content: '';
+				background: $color-major;
+				display: block;
+				width: 40px;
+				height: 5px;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+			}
+		}
+
+		.btn-wrap {
+			margin-top: 20px;
+		}
 	}
 
 	&[data-tab="park"] {
-		.info-type {
-			margin-bottom: 0.5em;
+		.m-section-bd .info-wrap > * {
+			vertical-align: top;
 		}
 
-		.icon-color {
-			margin-right: 10px;
-			background: $color-gray-l-p30;
-			width: 20px;
-			height: 20px;
+		.m-icon {
+			margin-right: 3px;
+			color: #004ca1;
+			font-size: 24px;
+		}
+
+		.sub-title {
+			margin-bottom: 15px;
+			padding-bottom: 9px;
+			position: relative;
+			font-size: 20px;
+
+			&:after {
+				content: '';
+				background: #343434;
+				display: block;
+				width: 40px;
+				height: 5px;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+			}
 		}
 	}
 
@@ -26,7 +124,9 @@
 		margin: 25px;
 
 		.m-table {
-			margin-bottom: 30px;
+			&:not(:last-child) {
+				margin-bottom: 30px;
+			}
 
 			td, th {
 				padding: 6px 12px;
@@ -49,6 +149,14 @@
 	padding-top: 0 !important;
 	background: none;
 	min-height: 0 !important;
+
+	.main-tab > .m-tab-wrap {
+		border-bottom: 0;
+
+		.btn-tab:after {
+			display: none;
+		}
+	}
 }
 
 .app-event {
@@ -68,9 +176,12 @@
 	}
 
 	.info-wrap {
-		padding-bottom: 2rem;
 		font-size: 0;
 		line-height: 0;
+
+		&:not(:last-child) {
+			padding-bottom: 2rem;
+		}
 
 		> * {
 			font-size: 14px;
@@ -101,69 +212,27 @@
 		margin-bottom: 20px;
 	}
 
-	.floor-title {
-		padding: 0 16px;
-		position: relative;
-		color: $color-black;
+	.counters-desc {
 		font-size: 14px;
+	}
 
-		&:before, &:after {
-			content: '';
-			background: $color-gray-d-p10;
-			display: block;
-			width: 40px;
-			height: 1px;
-			position: absolute;
-			top: 50%;
-		}
+	.m-accordion .btn-switch {
+		color: $color-black;
 
-		&:before {
-			right: 100%;
-		}
-
-		&:after {
-			left: 100%;
+		.text {
+			font-size: 14px;
 		}
 	}
 
-	.counters-desc, .facility-title {
-		font-size: 12px;
-	}
-
-	.m-accordion {
-		border-right: 0;
-		border-left: 0;
-
-		.m-accordion-bd {
-			padding: 0 0 0 36px;
-			background: none;
-
-			.b-link {
-				color: $color-black;
-			}
-		}
-
-		.counters-list {
-			margin-top: 0;
-		}
-
-		.btn-switch {
-			padding-left: 0;
-			color: $color-black;
-
-			.m-icon {
-				font-size: 24px;
-			}
-
-			.text {
-				margin-left: 20px;
-				font-size: 14px;
-			}
-		}
+	.facility-list .list {
+		width: 32px;
+		height: 32px;
+		font-size: 16px;
 	}
 }
 
 .brand-info-wrap {
+	padding-bottom: 0;
 	border: 0;
 
 	.brand-logo img {
@@ -171,6 +240,7 @@
 	}
 
 	.brand-slogan {
+		margin: 20px 0;
 		line-height: 1.5em;
 	}
 
@@ -194,11 +264,15 @@
 		}
 	}
 
-	.shopping-link {
+	.shopping-link, .food-link {
 		padding: 0 20px 20px 20px;
 
 		.item-info {
-			padding: 0 15px 25px 15px;
+			padding-top: 25px;
+
+			&:not(:last-child) {
+				padding-bottom: 25px;
+			}
 
 			> * {
 				display: block;
@@ -239,7 +313,6 @@
 		}
 
 		.btn-read-more {
-			margin: 0 15px;
 			padding: 0 12px;
 			display: flex;
 			align-items: center;
@@ -270,19 +343,31 @@
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
-		height: 240px;
 		overflow: hidden;
 
 		img {
-			width: auto;
-			max-width: 100%;
+			width: 100%;
 		}
 	}
 }
 
-@include respond(Desktops) {}
+@include respond(Desktops) {
+	.l-content .main-tab > .m-tab-wrap {
+		margin-bottom: 0;
+	}
+}
 
-@include respond(Desktops-Tablets) {}
+@include respond(Desktops-Tablets) {
+	.app-branch {
+		&[data-tab="floor"], &[data-tab="park"] {
+			.main-tab > .m-tab-wrap .tab-list .btn-tab {
+				padding-bottom: 0;
+				height: 40px;
+				line-height: 40px;
+			}
+		}
+	}
+}
 
 @include respond(HD) {}
 
@@ -322,6 +407,52 @@
 		.activity-period {
 			color: #717070;
 			font-size: 14px;
+		}
+	}
+
+	.app-branch {
+		&[data-tab="floor"], &[data-tab="park"] {
+			.main-tab > .m-tab-wrap {
+				background: $color-white;
+				@include display-flex;
+				position: relative;
+
+				&:after {
+					content: '';
+					position: absolute;
+					top: 17px;
+					right: 20px;
+					border-top: 6px solid $color-gray-d-p30;
+					border-right: 6px solid transparent;
+					border-left: 6px solid transparent;
+				}
+
+				.tab-list {
+					@include display-flex;
+					@include flex-grow(1);
+
+					.btn-tab {
+						padding: 6px;
+						box-sizing: border-box;
+
+						.info-type {
+							line-height: 1.5em;
+						}
+					}
+				}
+			}
+
+			.m-selection {
+				padding: 0 20px;
+				width: 100%;
+				height: 40px;
+				border: 1px solid $color-gray-l-p30;
+				box-sizing: border-box;
+				color: $color-gray-d-p30;
+				font-size: 16px;
+				font-weight: bold;
+				line-height: 40px;
+			}
 		}
 	}
 }

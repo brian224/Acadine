@@ -12,7 +12,7 @@
 .content-list {
 	display: none;
 	overflow: hidden;
-	@include transition(ease-in all 0.3s);
+	/*@include transition(ease-in all 0.3s);*/
 
 	&.is-curr {
 		display: block;
@@ -32,9 +32,9 @@
 @include respond(Desktops) {}
 
 @include respond(Desktops-Tablets) {
-	.content-list {
+	/*.content-list {
 		@include animation(switch-in 0.5s ease-in forwards);
-	}
+	}*/
 }
 
 @include respond(HD) {}

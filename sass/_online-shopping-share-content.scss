@@ -361,6 +361,13 @@
 		}
 	}
 
+	.original-price {
+		color: $color-gray-d-p30;
+		font-weight: bold;
+		font-size: 12px;
+		text-decoration: line-through;
+	}
+
 	.btn-read-more {
 		display: block;
 		border-color: $color-gray-d-p30;
